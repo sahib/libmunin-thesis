@@ -15,6 +15,9 @@ Performance
 
 - Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
   vergleichen wenn länge des stückes ähnlich ist.
+- Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
+  bei denen es sehr viele dokumente gibt und diese sich als hashtable
+  repräsentieren lassen.
 
 Features
 --------
@@ -23,6 +26,10 @@ Features
 - Echte audionanylse mittels aubio. https://github.com/piem/aubio 
 - Echte mood analyse.
 - Sprache, Intros und Audio intelligent unterscheiden.
+- Dbus Service:
+
+    - Problem: Nutzung von libmunin von anderen Sprachen aus.
+    - Problem: Mehrere Programme wollen Session nutzen.
 
 Convinience / Korrektheit
 -------------------------

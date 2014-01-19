@@ -16,8 +16,13 @@ Sehr kompliziert:
 Song
 ----
 
+- Speichert nur values.
+
 Distance
 --------
+
+- Speichert alle Teildistanzen, statt einzelne weighted Distanz.
+- Macht 'explanations' leicht.
 
 
 Graphenoperationen

@@ -48,11 +48,16 @@ Ziele
 
 - Erstellung dynamischer, fortlaufender Playlisten.
 - Lernfähigkeit.
+- Stark anpassbare API, da diese alle möglichen spezialfälle abdecken muss,
+  und auf die unterschiedlichen formate der musiksammlungen eingestellt sein
+  muss.
 - Aufsatz über library möglich, beispielsweise erst lookup in recommendation
   database, dann automatisch via libmunin.
 
 Zielgruppe
 ==========
+
+(Auf Opensource gedanke eingehen)
 
 - In früher Phasen: Hauptsächlich interessierte entwickler mit viel geduld.
 - Erster interessierter Entwickler wird der Entwickler von moosecat sein.
@@ -67,7 +72,15 @@ Einsatzszenarien
 - Einsatz in Mediaplayern für große lokale Musiksammlungen.
 - Einsatz bei music streaming plattformen als backend.
 - Einsatz bei music verkäufern - um ähnliche artikel vorzuschlagen.
-- Einsatz bei 
+- Einsatz bei ...
+
+Änderungen zum expose
+=====================
+
+- Andere Programmiersprache: Python.
+- C (auch mit ++) wäre zu aufwendig geworden.
+- Bleibt auch in Python. Später Lösungen ansprechen für Sprachendilemma.
+- Keine Distanzmaxtrix mehr.
 
 Namensgebung
 ============
