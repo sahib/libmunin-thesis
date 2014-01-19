@@ -2,9 +2,9 @@
 
 .. _doc-title:
 
-#########################################
-sphinxtr: |br| The Sphinx Thesis Resource
-#########################################
+#############
+Projektarbeit
+#############
 
 .. only:: not singlehtml
 
