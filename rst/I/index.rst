@@ -5,7 +5,7 @@
 Motivation
 ==========
 
-- Existierende Plattformen wie last.fm, spotify, pandora, rhapsody
+- Existierende Plattformen wie last.fm, spotify, pandora, rhapsody, youtube!
 - allerdings serverseitige infrastruktur
 - Oft werden ähnliche musikstücke empfohlen -> wirtschaftlich relevant.
 - Keine (na gut, eine) allgemeine bibliothek um musik empfehlungen aus einer
@@ -38,6 +38,11 @@ Noch weniger allgemeine libraries:
 
 - http://hop.at/mirage/
 
+- Die Tatsache dass der Autor einen MPD Client schreibt und so ein feature sich
+  wünscht trägt natürlich zur motivation bei.
+- Deswegen soll die library auch nach Abschluss dieser Arbeit weiterentwickelt 
+  werden.
+
 Ziele
 =====
 
@@ -55,3 +60,33 @@ Zielgruppe
   feature "gesucht".
 - Sobald in "Otto-normal-player": Auch normale anwender mittels DBUS Service und
   cli tool. Momentan eher sperrig benutzbar. 
+
+Einsatzszenarien
+================
+
+- Einsatz in Mediaplayern für große lokale Musiksammlungen.
+- Einsatz bei music streaming plattformen als backend.
+- Einsatz bei music verkäufern - um ähnliche artikel vorzuschlagen.
+- Einsatz bei 
+
+Namensgebung
+============
+
+
+.. epigraph::
+
+    In Norse mythology, Hugin (from Old Norse “thought”)
+    and Munin (Old Norse “memory” or “mind”)
+    are a pair of ravens that fly all over the world Midgard,
+    and bring information to the god Odin.
+
+    -- http://en.wikipedia.org/wiki/Huginn_and_Muninn
+
+Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
+library *libmunin* benannt. Das hat den witzigen Nebeneffekt dass eine
+kommerzielle namens *mufin* eine freie Alternative erhält.
+
+
+.. admonition:: And, by the way...
+
+   I was just testing admonitions!
