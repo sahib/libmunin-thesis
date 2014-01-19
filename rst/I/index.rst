@@ -1,18 +1,7 @@
-*********
-Übersicht
-*********
+***********
+Überleitung
+***********
 
-Motivation
-==========
-
-Gibt ins in der Bachelorarbeit überhaupt ein  Kapitel I?
-
-Ziele
-=====
-
-Alle.
-
-Zielgruppe
-==========
-
-Alle.
+- Implementierung vs. Evaluierung
+- Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -> Prototyp)
+  kein anspruch auf korrektheit, lediglich Hoffnung auf Nützlichkeit.
