@@ -196,6 +196,7 @@ ADDITIONAL_PREAMBLE = """
 
 ADDITIONAL_FOOTER = """
 \input{footer._tex}
+\input{affidavit._tex}
 """
 
 latex_elements = {
@@ -260,6 +261,7 @@ latex_additional_files = [
     'tex/puthesis.cls',
     'tex/preamble._tex',
     'tex/footer._tex',
+    'tex/affidavit._tex',
     'tex/sphinx.sty',
     'tex/Makefile',
     'tex/refstyle.bst',
