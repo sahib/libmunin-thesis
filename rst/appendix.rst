@@ -18,6 +18,12 @@ Abkürzungsverzeichniss
     **RAM**                  Random Access Memory
     =======================  =========================
 
+.. only:: latex
+
+   .. raw:: latex
+
+       \newpage
+
 Glossar
 =======
 
@@ -106,3 +112,11 @@ Glossar
         :term:`Distance` from one song to all others, which in turn requires
         quadratic complexity. Therefore an approximation of the *Graph* is built 
         that might contain small errors.
+
+
+.. only:: latex
+
+   .. raw:: latex
+
+       \newpage
+
