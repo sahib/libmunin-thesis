@@ -2,8 +2,10 @@
 
 .. only:: html or text
 
-    Acknowledgements
-    ================
+    Danksagung
+    ==========
 
-Thanks to Sphinx for a kickass build system and docutils for the groundwork of
-multiple format output.
+Danke an folgende Personen und Dinge: Katzen, Vögel aller Art, Teehersteller
+alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.
+
+Ihr wisst warum.

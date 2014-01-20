@@ -7,6 +7,9 @@ Warum überhaupt?
 
 TestTestTestTestTestTest......
 
+
+Zitierbeispiel: :cite:p:`collada`.
+
 Alternativen
 ============
 

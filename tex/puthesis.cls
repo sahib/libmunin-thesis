@@ -34,11 +34,14 @@
   \tableofcontents
   \clearpage
 }
+
+\usepackage[utf8]{inputenc}
+
 %% Setup a command to add extra space only if in singlespacing mode
 \newcommand*{\extravspace}[1]{\vspace{0in}}
 %% Setup a command to set spacing for body text; also used to restore spacing after long tables in document
 \newcommand*{\bodyspacing}{
-  \doublespacing
+  \onehalfspacing
 }
 %% boolean for twosided/onesided
 \newboolean{@myopt@oneside}
@@ -67,37 +70,38 @@
 \def\dedication#1{\gdef\@dedication{#1}}
 \newcommand{\maketitlepage}{{
   \thispagestyle{empty}
+  \begin{center}
+    \includegraphics[width=150px]{fh_hof_logo.pdf}
+  \end{center}
+  \vspace{.6in}
+  \extravspace{.6in}
   \sc
   \vspace*{0in}
   \begin{center}
-    \LARGE \@title
+    \LARGE Implementierung und Evaluierung eines Musikempfehlungssystems \\
+    \vspace{.1in}
+    \large basierend auf Datamining Algorithmen
+  \end{center}
+  \vspace{.6in}
+  \extravspace{.6in}
+  \vspace{.6in}
+  \extravspace{.6in}
+  \begin{center}
+    \large Bachelorarbeit \\
+    an der Hochschule für Angewandte Wissenschaften Hof \\
   \end{center}
   \vspace{.6in}
   \extravspace{.6in}
   \begin{center}
-    \@author
+    Vorgelegt bei: \hfill Vorgelegt von: \\
+    \@adviser \hfill  Christopher Pahl \\
+    {\small Alfons-Goppel-Platz 1 \hfill Lorenz Summa Str. 4} \\
+    {\small 95028 Hof \hfill 95126 Schwarzenbach a. d. Saale} \\
   \end{center}
-  \vspace{.6in}
-  \extravspace{.6in}
+  \vspace{.9in}
+  \extravspace{.9in}
   \begin{center}
-    A Dissertation \\
-    Presented to the Faculty \\
-    of Princeton University \\
-    in Candidacy for the Degree \\
-    of Doctor of Philosophy
-  \end{center}
-  \vspace{.3in}
-  \extravspace{.3in}
-  \begin{center}
-    Recommended for Acceptance \\
-    by the \@deptpref \\
-    \@dept \\
-    Adviser: \@adviser
-  \end{center}
-  \vspace{.3in}
-  \extravspace{.3in}
-  \begin{center}
-    \@submitted
+    Hof, \today
   \end{center}
   \clearpage
   }}
@@ -105,15 +109,17 @@
   \thispagestyle{empty}
   \vspace*{0in}
   \begin{center}
-    \copyright\ Copyright by \@author, \@copyrightyear. All rights reserved. \\
+    \copyright\ Copyright by \@author, \@copyrightyear. \\
+    Alle Rechte vorbehalten. \\
     \vspace{1in}
     \begin{minipage}[c]{0.2\linewidth}
       \hfill {\Huge \ccLogo~\ccAttribution}
     \end{minipage}
     \hspace{0.1cm}
     \begin{minipage}[c]{0.7\linewidth}
-      This work is licensed under a Creative Commons Attribution-3.0 United States License. \\
-      \url{http://creativecommons.org/licenses/by/3.0/us/}
+      Diese Arbeit ist unter den Bedingungen der \\
+      \textit{Creative Commons Attribution-3.0} lizensiert. \\
+      \url{http://creativecommons.org/licenses/by/3.0/de/}
     \end{minipage}
   \end{center}
   \clearpage}
@@ -190,7 +196,7 @@
 %% Doublespacing is the default for the thesis -- need not be declared.
 \DeclareOption{doublespacing}{
   \renewcommand*{\bodyspacing}{
-  \doublespacing
+  \onehalfspacing
   }
 }
 %% oneside/twoside options

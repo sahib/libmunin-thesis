@@ -2,7 +2,7 @@
 
 .. only:: html or text
 
-    Dedication
-    ----------
+    Widmung
+    -------
 
-To my cats.
+*Für meine Katzen.*
