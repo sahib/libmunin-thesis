@@ -31,6 +31,9 @@ Features
     - Problem: Nutzung von libmunin von anderen Sprachen aus.
     - Problem: Mehrere Programme wollen Session nutzen.
 
+- Overlays - dynamische playlisten mit statischen mischen
+- Fortlaufende dynamische playlisten
+
 Convinience / Korrektheit
 -------------------------
 
