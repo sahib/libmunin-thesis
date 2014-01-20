@@ -2,9 +2,9 @@
 
 .. _doc-title:
 
-#########################################
-sphinxtr: |br| The Sphinx Thesis Resource
-#########################################
+############################
+libmunin: |br| Projektarbeit
+############################
 
 .. only:: not singlehtml
 
@@ -26,8 +26,8 @@ sphinxtr: |br| The Sphinx Thesis Resource
 
 .. toctree::
 
+    appendix
     bibliography
-    glossary
 
 License
 -------

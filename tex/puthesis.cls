@@ -159,13 +159,13 @@
     \clearpage
   \fi
   }
-\DeclareOption{lot}{\renewcommand*{\makelot}{
-  \ifdefined\phantomsection
-    % makes hyperref recognize this section properly for pdf links
-    \phantomsection
-  \else
-  \fi
-  \addcontentsline{toc}{section}{List of Tables}\listoftables}}
+% Disable unused list of tables
+%\DeclareOption{lot}{\renewcommand*{\makelot}{
+%  \ifdefined\phantomsection
+%    % makes hyperref recognize this section properly for pdf links
+%    \phantomsection
+%  \else
+%  \fi
 \DeclareOption{lof}{\renewcommand*{\makelof}{
   \ifdefined\phantomsection
     % makes hyperref recognize this section properly for pdf links

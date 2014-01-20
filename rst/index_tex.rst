@@ -8,8 +8,9 @@ sphinxtr: |br| The Sphinx Thesis Resource
 
 .. include:: toc.rst
 
+   
 .. toctree::
    
-    glossary
+    appendix
 
 .. cite:refs::

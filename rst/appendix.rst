@@ -1,5 +1,25 @@
-Glossary
-========
+.. only:: latex
+
+   .. raw:: latex
+
+       \appendix
+
+Abkürzungsverzeichniss
+======================
+
+.. figtable::
+    :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} p{0.65\linewidth}
+
+    =======================  =========================
+    Abkürzung                Bedeutung
+    =======================  =========================
+    **LIFO**                 Last In First Out
+    **CPU**                  Central Processing Unit
+    **RAM**                  Random Access Memory
+    =======================  =========================
+
+Glossar
+=======
 
 .. glossary:: 
 
