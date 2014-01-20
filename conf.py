@@ -261,6 +261,7 @@ latex_additional_files = [
     'tex/puthesis.cls',
     'tex/preamble._tex',
     'tex/footer._tex',
+    'tex/fh_hof_logo.pdf',
     'tex/affidavit._tex',
     'tex/sphinx.sty',
     'tex/Makefile',

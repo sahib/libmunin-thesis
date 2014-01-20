@@ -1,7 +1,7 @@
-\submitted{November 2012}
-\copyrightyear{2012}
-\adviser{Professor John P. Smith}
-\department{Computer Science}
+\submitted{March 2014}
+\copyrightyear{2014}
+\adviser{Prof. Dr. Günther Köhler}
+\department{Informatik}
 
 \newcommand{\proquestmode}{}
 
@@ -114,7 +114,10 @@
 \ifdefined\proquestmode
 %ProQuest copy -- http://www.princeton.edu/~mudd/thesis/Submissionguide.pdf
 
-% ProQuest requires a double spaced version (set previously). They will take an electronic copy, so we want links in the pdf, but also copies may be printed or made into microfilm in black and white, so we want outlined links instead of colored links.
+% ProQuest requires a double spaced version (set previously). They will take an
+% electronic copy, so we want links in the pdf, but also copies may be printed
+% or made into microfilm in black and white, so we want outlined links instead
+% of colored links.
 \usepackage{hyperref}
 \hypersetup{bookmarksnumbered}
 
