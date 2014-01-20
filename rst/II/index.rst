@@ -54,6 +54,9 @@ Implementierungsziele
 Schaubild
 
 
+Analyse (aufwendig) -> Graph -> Recommendations.
+
+
 Entwicklungsumgebung
 ====================
 
