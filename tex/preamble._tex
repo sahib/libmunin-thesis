@@ -57,6 +57,9 @@
 % nice references
 \usepackage[sort,numbers]{natbib}
 
+% list of abbrev.
+\usepackage{acronym}
+
 % nice description style
 \usepackage{enumitem}
 \setlist[description]{style=nextline,

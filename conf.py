@@ -210,10 +210,10 @@ latex_elements = {
     #   * singlespace
     # * you might want to omit the list of tables (lot)
     #   if you use figtable without the :nofig: option
-    'classoptions': ',english,lof,lot',
+    'classoptions': ',german,lof',
 
     # The font size ('10pt', '11pt' or '12pt').
-    'pointsize': '12pt',
+    'pointsize': '11pt',
 
     # Additional stuff for the LaTeX preamble.
     'preamble': ADDITIONAL_PREAMBLE,

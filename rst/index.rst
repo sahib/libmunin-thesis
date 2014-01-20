@@ -2,9 +2,9 @@
 
 .. _doc-title:
 
-#############
-Projektarbeit
-#############
+############################
+libmunin: |br| Projektarbeit
+############################
 
 .. only:: not singlehtml
 
@@ -26,8 +26,8 @@ Projektarbeit
 
 .. toctree::
 
+    appendix
     bibliography
-    glossary
 
 License
 -------
