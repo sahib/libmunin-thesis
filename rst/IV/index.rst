@@ -18,3 +18,8 @@ Probleme aktueller Algorithmen
 
 - moodbar solle freqbar heißen
 - bpm liefert schlechte werte.
+
+Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists
+==================================================================================
+
+subfigure mit gegenüberstellung von ~15 liedern zu seed song, diskussion.
