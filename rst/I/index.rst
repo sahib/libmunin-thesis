@@ -85,7 +85,6 @@ Einsatzszenarien
 Namensgebung
 ============
 
-
 .. epigraph::
 
     In Norse mythology, Hugin (from Old Norse “thought”)
