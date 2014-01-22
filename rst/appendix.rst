@@ -120,3 +120,41 @@ Glossar
 
        \newpage
 
+
+Online Ressourcen
+=================
+
+Zusätzlich zu dieser Arbeit findet sich komplementär weitere Ressourcen im Netz:
+
+    * Github: Source code von libmunin
+
+        https://github.com/sahib/libmunin
+
+    * PyPi: Hosted ein fertig installierbares Paket von libmunin
+
+        https://pypi.python.org/pypi/libmunin/
+
+        Unter Unix installierbar via ``sudo pip install libmunin``.
+
+        .. admonition:: Achtung:
+
+            Das funktioniert nur für Python Versionen ab ``3.2``!
+
+    * TravisCI: Zeigt den Buildstatus der Tests von libmunin
+
+        https://travis-ci.org/sahib/libmunin
+
+    * HTML Dokumentation zur API:
+
+        http://libmunin.readthedocs.org/en/latest/
+
+    * Dieses PDF als HTML Version:
+
+      TODO
+
+.. only:: latex
+
+   .. raw:: latex
+
+       \newpage
+
