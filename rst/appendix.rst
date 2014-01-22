@@ -63,7 +63,7 @@ Glossar
 
             :math:`D(i, i) = 0.0 \forall i \in D`
 
-            :math:`D(i, j) \leq D(i, x) + (x, j) \forall i, j, x \in D`
+            :math:`D(i, j) \leq D(i, x) + (x, j)`
 
     Session
 
