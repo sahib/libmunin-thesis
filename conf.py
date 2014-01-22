@@ -86,7 +86,7 @@ with open(os.path.join(CURDIR, 'rst/epilog.rst'), 'r') as f:
     rst_epilog = f.read().decode('utf8')
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'monokai'
 
 
 # -- Options for HTML output ---------------------------------------------------
