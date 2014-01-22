@@ -8,7 +8,7 @@
   \phantomsection  % makes hyperref recognize this section properly for pdf link
 \else
 \fi
-\addcontentsline{toc}{chapter}{C. Literaturverzeichniss}
+\addcontentsline{toc}{chapter}{D Literaturverzeichniss}
 
 % include your .bib file
 \bibliography{refs}
