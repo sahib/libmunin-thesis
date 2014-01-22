@@ -25,6 +25,7 @@ Features
 - Einbeziehung der duration als provider/distanz (statistisch untersuchen)
 - Echte audionanylse mittels aubio. https://github.com/piem/aubio 
 - Echte mood analyse.
+- Amazon artist/album reviews mit einbeziehen, keyword-extraction.
 - Sprache, Intros und Audio intelligent unterscheiden.
 - Dbus Service:
 

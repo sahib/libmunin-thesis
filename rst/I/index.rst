@@ -11,23 +11,16 @@ Motivation
 - Keine (na gut, eine) allgemeine bibliothek um musik empfehlungen aus einer
   daternbank abzuleiten
 - viele existierende tools nutzen einfach online-dienste um empfehlungen zu
-  treffen.
-  (was nicht schlecht sein muss)
-
-- Vereinzelt systeme die allein auf der stimmung arbeiten:
-
+  treffen - was nicht schlecht sein muss. 
+- Vereinzelt systeme die allein auf der "mood" arbeiten.
 - libmunin soll viele attribute und quellen vereinen, und dabei so flexibel
-  sein überall eingebaut werden zu können - zudem noch keine 
-  direkte Verbindung von Datamining und Music Information Retrieval.
-
-- viele verschiedene Ideen: Artist reviews analysieren...
-
+  sein überall eingebaut werden zu können.
 
 http://de.wikipedia.org/wiki/Empfehlungsdienst
 
 Massenhaft Arbeiten auf dem Gebiet:
 
-http://scholar.google.de/scholar?q=music+recommendation+engine&hl=de&as_sdt=0&as_vis=1&oi=scholart&sa=X&ei=WnTaUqqiNYzQsgbUw4HAAg&ved=0CEAQgQMwAA
+http://scholar.google.de/scholar?q=music+recommendation+engine
 
 Wenige (sinnvolle) websites:
 
@@ -48,11 +41,11 @@ Ziele
 
 - Erstellung dynamischer, fortlaufender Playlisten.
 - Lernfähigkeit.
+- Mögliche "Aufsätze": Erst lookup in von user vorgegebener recommendation db,
+                       dann erst automatisch via libmunin.
 - Stark anpassbare API, da diese alle möglichen spezialfälle abdecken muss,
   und auf die unterschiedlichen formate der musiksammlungen eingestellt sein
   muss.
-- Aufsatz über library möglich, beispielsweise erst lookup in recommendation
-  database, dann automatisch via libmunin.
 
 Zielgruppe
 ==========
@@ -72,15 +65,14 @@ Einsatzszenarien
 - Einsatz in Mediaplayern für große lokale Musiksammlungen.
 - Einsatz bei music streaming plattformen als backend.
 - Einsatz bei music verkäufern - um ähnliche artikel vorzuschlagen.
-- Einsatz bei ...
+- Einsatz bei DJ Software um eine Auswahl für die nächsten Stücke zu erzeugen.
 
-Änderungen zum expose
+Änderungen zum Expose
 =====================
 
-- Andere Programmiersprache: Python.
-- C (auch mit ++) wäre zu aufwendig geworden.
-- Bleibt auch in Python. Später Lösungen ansprechen für Sprachendilemma.
+- Andere Programmiersprache: Python - bleibt auch so.
 - Keine Distanzmaxtrix mehr.
+- C (auch mit ++) wäre zu aufwendig geworden.
 
 Namensgebung
 ============
@@ -97,8 +89,3 @@ Namensgebung
 Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library *libmunin* benannt. Das hat den witzigen Nebeneffekt dass eine
 kommerzielle namens *mufin* eine freie Alternative erhält.
-
-
-.. admonition:: And, by the way...
-
-   I was just testing admonitions!

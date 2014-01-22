@@ -12,6 +12,9 @@ Sehr kompliziert:
     def hello(world):
         print(world)
 
+    if __name__ == '__main__':
+        hello('Na' * 10 + ' Batman!')
+
 
 Architektur
 ===========

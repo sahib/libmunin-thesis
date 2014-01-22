@@ -54,15 +54,34 @@ Implementierungsziele
 Übersicht
 =========
 
-Schaubild
 
-.. figure:: figs/logo.png
-    :alt: alternativtext
-    :width: 60%
+.. figure:: figs/integration.*
+    :alt: Integrationsübersicht
+    :width: 100%
     :align: center
 
-    bildunterschrift
+    Wie integriert sich libmunin in seine Umgebung?
 
+.. figure:: figs/arch.*
+    :alt: Architekturübersicht.
+    :width: 100%
+    :align: center
+
+    Grobe Übersicht über die architektur.
+
+.. figure:: figs/provider_process.*
+    :alt: Attributverarbeitung
+    :width: 75%
+    :align: center
+
+    Ablauf bei der Verarbeitung eines einzelnen Attributes.
+
+.. figure:: figs/munin_startup.*
+    :alt: Allgemeine Benutzung
+    :width: 75%
+    :align: center
+
+    Allgemeine Benutzung von libmunin
 
 .. figtable::
     :label: table-cc-file-size
@@ -81,20 +100,6 @@ Schaubild
             75%  0.79  0.95  1.11  1.34  1.70
            100%  0.88  0.99  1.20  1.44  1.82
     ===========  ====  ====  ====  ====  ====
-
-===========  ====  ====  ====  ====  ====
-Progressive  128   256   512   1024  2048
-===========  ====  ====  ====  ====  ====
-         0%  0.53  0.63  0.81  1.03  1.35
-        25%  0.65  0.75  0.97  1.16  1.45
-        50%  0.74  0.85  1.02  1.26  1.58
-        75%  0.79  0.95  1.11  1.34  1.70
-       100%  0.88  0.99  1.20  1.44  1.82
-===========  ====  ====  ====  ====  ====
-
-
-Analyse (aufwendig) -> Graph -> Recommendations.
-
 
 Entwicklungsumgebung
 ====================
