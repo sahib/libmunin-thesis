@@ -141,9 +141,9 @@
     \else
     \fi
 
-    \addcontentsline{toc}{section}{Acknowledgements}
+    \addcontentsline{toc}{section}{Danksagung}
     \begin{center}
-      \Large \textbf{Acknowledgements}
+      \Large \textbf{Danksagung}
     \end{center}
     \@acknowledgements
     \clearpage
@@ -156,6 +156,7 @@
     \begin{flushright}
       \@dedication
     \end{flushright}
+    \addcontentsline{toc}{section}{Widmung}
     \clearpage
   \fi
   }
