@@ -4,11 +4,18 @@ Einleitung
 
 Zitierbeispiel: :cite:p:`collada`.
 
+.. figure:: figs/munin_startup.*
+    :alt: Allgemeine Benutzung
+    :width: 75%
+    :align: center
 
-Alternativen
-============
+    Allgemeine Benutzung von libmunin
 
-- mirage
+
+Vorhandene Alternativen
+=======================
+
+- **mirage**
 
   http://hop.at/mirage/
 
@@ -17,17 +24,19 @@ Alternativen
     - in banshee integriert
     - weniger für große datenmengen ausgelegt.
 
-- mufin 
+- **mufin audiogen**
 
-    http://www.mufin.com/usecase/music-recommendation/
+    http://www.mufin.com/products/audiogen/
 
     - kommerziell
     - enorm viele features 
-    - v.a. kein aufwendiger analyse step
+    - behauptet keinen ,,Kaltstart'': Daten werden auf Servern vorberechnet.
 
 Webseiten:
 
+- http://www.tastekid.com/
 - http://musicovery.com/
+
 
 Anforderungen
 =============
@@ -75,13 +84,6 @@ Implementierungsziele
     :align: center
 
     Ablauf bei der Verarbeitung eines einzelnen Attributes.
-
-.. figure:: figs/munin_startup.*
-    :alt: Allgemeine Benutzung
-    :width: 75%
-    :align: center
-
-    Allgemeine Benutzung von libmunin
 
 .. figtable::
     :label: table-cc-file-size

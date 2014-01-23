@@ -22,15 +22,6 @@ Massenhaft Arbeiten auf dem Gebiet:
 
 http://scholar.google.de/scholar?q=music+recommendation+engine
 
-Wenige (sinnvolle) websites:
-
-- http://www.tastekid.com/
-- http://musicovery.com/
-
-Noch weniger allgemeine libraries:
-
-- http://hop.at/mirage/
-
 - Die Tatsache dass der Autor einen MPD Client schreibt und so ein feature sich
   wünscht trägt natürlich zur motivation bei.
 - Deswegen soll die library auch nach Abschluss dieser Arbeit weiterentwickelt 
