@@ -1,6 +1,6 @@
-*****
-Fazit
-*****
+***************
+Zusammenfassung
+***************
 
 Verbesserung der Algorithmik
 ============================
@@ -23,3 +23,6 @@ Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playli
 ==================================================================================
 
 subfigure mit gegenüberstellung von ~15 liedern zu seed song, diskussion.
+
+Fazit
+=====
