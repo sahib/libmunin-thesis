@@ -1,10 +1,9 @@
-*****
-Fazit
-*****
+***************
+Zusammenfassung
+***************
 
 Ausblick
 ========
-
 
 Mögliche Weiterentwicklungen
 ============================
@@ -46,3 +45,7 @@ Convinience / Korrektheit
     http://beets.radbox.org/
 
   Beets ist gewißermaßen das libhugin-anaylse für musik 
+
+
+Fazit
+=====
