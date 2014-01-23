@@ -4,7 +4,7 @@
 
        \appendix
 
-Abkürzungsverzeichniss
+Abkürzungsverzeichnis
 ======================
 
 .. figtable::
