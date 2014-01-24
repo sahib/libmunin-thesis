@@ -173,7 +173,7 @@
     \phantomsection
   \else
   \fi
-  \addcontentsline{toc}{section}{List of Figures}\listoffigures}}
+  \addcontentsline{toc}{section}{Abbildungsverzeichnis}\listoffigures}}
 \DeclareOption{los}{
   \renewcommand*{\makelos}{
     \RequirePackage{losymbol}
