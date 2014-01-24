@@ -1,6 +1,6 @@
-*****
-Fazit
-*****
+***************
+Zusammenfassung
+***************
 
 Verbesserung der Algorithmik
 ============================
