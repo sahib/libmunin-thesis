@@ -1,10 +1,9 @@
-*****
-Fazit
-*****
+***************
+Zusammenfassung
+***************
 
 Ausblick
 ========
-
 
 Mögliche Weiterentwicklungen
 ============================
@@ -38,6 +37,8 @@ Features
 Convinience / Korrektheit
 -------------------------
 
+- Bessere Speicherung der Session auf die Platte - momentan pickle, erfordert 
+  hohe Rekursionstiefe, sprengt für große Sessions den Stack.
 - Schnellerer Analyseschritt durch parallelisiertes fetchen von lyrics und 
   beschleunigter audioanalyse.
 - Die resultate können nur so gut sein wie die input daten.
@@ -46,3 +47,7 @@ Convinience / Korrektheit
     http://beets.radbox.org/
 
   Beets ist gewißermaßen das libhugin-anaylse für musik 
+
+
+Fazit
+=====
