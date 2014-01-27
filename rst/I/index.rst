@@ -33,7 +33,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
 .. figtable::
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               *Music Recommendation* aufgeteilt auf Jahre.
-    :alt: Wissenschaftliche Arbeiten auf die Jahre verteilt
+    :alt: Wissenschaftliche Arbeiten zum Thema 'music recommendation' auf die Jahre verteilt
     :spec: r l
 
     ==== ======

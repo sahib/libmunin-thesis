@@ -1,25 +1,33 @@
-*********
-Hauptteil
-*********
+******
+Design
+******
 
-Implementierung
-===============
+Übersicht
+=========
 
-Sehr kompliziert:
+.. figure:: figs/integration.*
+    :alt: Integrationsübersicht
+    :width: 100%
+    :align: center
 
-.. code-block:: python
+    Wie integriert sich libmunin in seine Umgebung?
 
-    def hello(world):
-        print(world)
+.. figure:: figs/provider_process.*
+    :alt: Attributverarbeitung
+    :width: 75%
+    :align: center
 
-    if __name__ == '__main__':
-        hello('Na' * 10 + ' Batman!')
-
+    Ablauf bei der Verarbeitung eines einzelnen Attributes.
 
 Architektur
 ===========
 
-.. architektur diagramm
+.. figure:: figs/arch.*
+    :alt: Architekturübersicht.
+    :width: 100%
+    :align: center
+
+    Grobe Übersicht über die architektur.
 
 Maske
 -----
