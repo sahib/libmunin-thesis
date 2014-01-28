@@ -13,3 +13,5 @@ demonstrate and verify the results, a gtk based MPD client is developed that can
 be used either as debugging tool or true media player. Various techniques are
 shown to compare all possible attributes of a song with each other in a
 efficient way.
+
+*Topics:* Music Information Retrieval (MIR), Music Regommendation Engine,Data Mining, k-Nearest-Neighbor-Graph
