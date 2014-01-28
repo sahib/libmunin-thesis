@@ -191,6 +191,8 @@ ADDITIONAL_PREAMBLE = """
 \usepackage{sphinx}
 
 % Extra packages
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 """
 
