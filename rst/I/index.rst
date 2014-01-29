@@ -67,15 +67,15 @@ Wie ist die aktuelle Situation?
 Weit verbreitet sind bei Musicplayern ,,Dynamische Playliste'' die allerdings
 bei den meisten Implementierungen bei vorhandenen Plattformen wie ``last.fm``
 suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
-Lösung, da solche Dienste oft bereits enorme Datenmengen zur Verfügung haben
-und unter Umständen sehr gute Resultate liefern.
+Lösung, da solche Dienste oft bereits enorme Datenmengen zur Verfügung haben und
+unter Umständen sehr gute Resultate liefern.
 
-Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung 
-nicht immer möglich oder wünschenswert - eine rein clientseitige Lösung wäre also 
-von Nöten.
+Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
+nicht immer möglich oder wünschenswert - eine rein clientseitige Lösung wäre
+also von Nöten.
 
-Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature 
-für den MPD Client [#f1]_ den er entwickelt wünscht trägt natürlich auch zur Motivation 
+Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
+MPD Client [#f1]_ den er entwickelt wünscht trägt natürlich auch zur Motivation
 bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
 weiterentwickelt werden. 
 
