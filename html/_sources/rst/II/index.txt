@@ -10,9 +10,7 @@ TestTestTestTestTestTest......
 Alternativen
 ============
 
-Fehlgeleitete Idee mit chromaprint erwähnen - tauglich um gleiche musikstücke 
-zu finden, aber nicht mehr.
-
+Test.
 
 Übersicht
 =========
