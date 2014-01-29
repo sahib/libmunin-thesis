@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>6 Zusammenfassung &mdash; Projektarbeit</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Projektarbeit" href="../../index.html" />
+    <link rel="next" title="Abkürzungsverzeichnis" href="../appendix.html" />
+    <link rel="prev" title="5 Test" href="../V/index.html" />
+
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+<link rel="stylesheet" type="text/css" href="../../_static/colorbox/colorbox.css" />
+
+<script type="text/javascript" src="../../_static/colorbox/jquery.colorbox-min.js"></script>
+
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../appendix.html" title="Abkürzungsverzeichnis"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../V/index.html" title="5 Test"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Projektarbeit - libmunin: a music recommendation system</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">6 Zusammenfassung</a><ul>
+<li><a class="reference internal" href="#ausblick">6.1 Ausblick</a></li>
+<li><a class="reference internal" href="#mogliche-weiterentwicklungen">6.2 Mögliche Weiterentwicklungen</a><ul>
+<li><a class="reference internal" href="#performance">6.2.1 Performance</a></li>
+<li><a class="reference internal" href="#features">6.2.2 Features</a></li>
+<li><a class="reference internal" href="#convinience-korrektheit">6.2.3 Convinience / Korrektheit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fazit">6.3 Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../V/index.html"
+                        title="previous chapter">5 Test</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../appendix.html"
+                        title="next chapter">Abkürzungsverzeichnis</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/rst/VI/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="zusammenfassung">
+<h1>6 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ausblick">
+<h2>6.1 Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="mogliche-weiterentwicklungen">
+<h2>6.2 Mögliche Weiterentwicklungen<a class="headerlink" href="#mogliche-weiterentwicklungen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="performance">
+<h3>6.2.1 Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
+vergleichen wenn länge des stückes ähnlich ist.</li>
+<li>Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
+bei denen es sehr viele dokumente gibt und diese sich als hashtable
+repräsentieren lassen.</li>
+</ul>
+</div>
+<div class="section" id="features">
+<h3>6.2.2 Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.</p>
+</li>
+<li><p class="first">Similar Artist/Album/Genre...</p>
+</li>
+<li><p class="first">Einbeziehung der duration als provider/distanz (statistisch untersuchen)</p>
+</li>
+<li><p class="first">Echte audionanylse mittels aubio. <a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a></p>
+</li>
+<li><p class="first">Echte mood analyse.</p>
+</li>
+<li><p class="first">(Amazon) artist/album reviews mit einbeziehen, keyword-extraction.</p>
+</li>
+<li><p class="first">Sprache, Intros und Audio intelligent unterscheiden.</p>
+</li>
+<li><p class="first">Dbus Service:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Problem: Nutzung von libmunin von anderen Sprachen aus.</li>
+<li>Problem: Mehrere Programme wollen Session nutzen.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Overlays - dynamische playlisten mit statischen mischen</p>
+</li>
+<li><p class="first">Fortlaufende dynamische playlisten</p>
+</li>
+</ul>
+</div>
+<div class="section" id="convinience-korrektheit">
+<h3>6.2.3 Convinience / Korrektheit<a class="headerlink" href="#convinience-korrektheit" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Bessere Speicherung der Session auf die Platte - momentan pickle, erfordert
+hohe Rekursionstiefe, sprengt für große Sessions den Stack.</p>
+</li>
+<li><p class="first">Schnellerer Analyseschritt durch parallelisiertes fetchen von lyrics und
+beschleunigter audioanalyse.</p>
+</li>
+<li><p class="first">Die resultate können nur so gut sein wie die input daten.
+Es wäre wünschenswert eine &quot;bridge&quot; zwischen libmunin und beets zu schreiben:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://beets.radbox.org/">http://beets.radbox.org/</a></p>
+</div></blockquote>
+<p>Beets ist gewißermaßen das libhugin-anaylse für musik</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="fazit">
+<h2>6.3 Fazit<a class="headerlink" href="#fazit" title="Permalink to this headline">¶</a></h2>
+<p>Generell ist <em>libmunin's</em> architektur nicht nur für Musikstücke tauglich,
+sondern für alle Anwendungsfälle bei denen viele Dokumente miteinander
+vergleichen zu sind und diese sich durch einface Key-Value Mappings abbilden
+lassen.</p>
+<p>So wäre mit <em>libmunin</em> auch ein Bücher- oder Video-Empfehlungssystem möglich -
+sofern man entsprechende Provider und Distanzfunktionen implementiert.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../appendix.html" title="Abkürzungsverzeichnis"
+             >next</a></li>
+        <li class="right" >
+          <a href="../V/index.html" title="5 Test"
+             >previous</a> |</li>
+        <li><a href="../index.html">Projektarbeit - libmunin: a music recommendation system</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+    </div>
+  </body>
+</html>
