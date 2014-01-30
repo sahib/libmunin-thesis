@@ -113,10 +113,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#ziele">2.1 Ziele</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#zielgruppe">2.2 Zielgruppe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#einsatzszenarien">2.3 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vorhandene-alternativen">2.4 Vorhandene Alternativen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anforderungen">2.5 Anforderungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#implementierungsziele">2.6 Implementierungsziele</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vorhandene-arbeiten">2.4 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vorhandene-alternativen">2.5 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anforderungen">2.6 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementierungsziele">2.7 Implementierungsziele</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">2.8 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
@@ -183,7 +184,10 @@
           
   <div class="section" id="einstieg">
 <h1>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h1>
-<p>Zitierbeispiel: <span class="citation">[<span class="citation">]</span></span>.</p>
+<blockquote class="epigraph">
+<div><p><em>Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.</em></p>
+<p class="attribution">&mdash;<em>Der Österreicher</em></p>
+</div></blockquote>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/munin_startup.svg"><img alt="Allgemeine Benutzung" src="../../_images/munin_startup.svg" width="75%" /></a>
 <p class="caption">Allgemeine Benutzung von libmunin</p>
@@ -254,8 +258,11 @@ vorschlägt.</p>
 </div></blockquote>
 <p><a class="reference external" href="http://de.wikipedia.org/wiki/Empfehlungsdienst">http://de.wikipedia.org/wiki/Empfehlungsdienst</a></p>
 </div>
+<div class="section" id="vorhandene-arbeiten">
+<h2>2.4 Vorhandene Arbeiten<a class="headerlink" href="#vorhandene-arbeiten" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="vorhandene-alternativen">
-<h2>2.4 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h2>
+<h2>2.5 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first"><strong>mirage</strong></p>
 <blockquote>
@@ -285,17 +292,18 @@ vorschlägt.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.tastekid.com/">http://www.tastekid.com/</a></li>
 <li><a class="reference external" href="http://musicovery.com/">http://musicovery.com/</a></li>
+<li>last.fm, pandora, myspace</li>
 </ul>
 </div>
 <div class="section" id="anforderungen">
-<h2>2.5 Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this headline">¶</a></h2>
+<h2>2.6 Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this headline">¶</a></h2>
 <p>Aus den oben genannten Zielen und Einsatzszenarien können
 <em>Anforderungen</em> abgeleitet werden die das fertige System erfüllen muss.</p>
 <p>Dabei wird zwischen <strong>technischen Anforderungen</strong> und <strong>weichen Anforderungen</strong>
 unterschieden - erstere sind atomar, sprich sie können ganz oder gar nicht
 erfüllt werden, letztere können partiell erfüllt werden.</p>
 <div class="section" id="technische-anforderungen">
-<h3>2.5.1 Technische Anforderungen<a class="headerlink" href="#technische-anforderungen" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.1 Technische Anforderungen<a class="headerlink" href="#technische-anforderungen" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Ausstellen von Empfehlungen muss performant möglich sein.</p>
 <blockquote>
@@ -325,7 +333,7 @@ werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.</p>
 </ol>
 </div>
 <div class="section" id="weiche-anforderungen">
-<h3>2.5.2 Weiche Anforderungen<a class="headerlink" href="#weiche-anforderungen" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.2 Weiche Anforderungen<a class="headerlink" href="#weiche-anforderungen" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Die bereitgestellte API muss auf die stark variierende Qualität und Form von
 Musiksammlungen eingestellt sein.</p>
@@ -361,7 +369,7 @@ Arch Linux, unterstützt werden.</p>
 </div>
 </div>
 <div class="section" id="implementierungsziele">
-<h2>2.6 Implementierungsziele<a class="headerlink" href="#implementierungsziele" title="Permalink to this headline">¶</a></h2>
+<h2>2.7 Implementierungsziele<a class="headerlink" href="#implementierungsziele" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>...</li>
 <li>...
@@ -381,7 +389,7 @@ reduziert und interessante Feature wie Volltextsuche wird möglich.</p>
 </div>
 </div>
 <div class="section" id="entwicklungsumgebung">
-<h2>2.7 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
+<h2>2.8 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
 <p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf
 der sozialen Code-Hosting Plattform Github. User können dort interessante
 Projekte <em>starren</em> - bis jetzt hat <em>libmunin</em> für seine recht kurze Lebensspanne
@@ -398,6 +406,7 @@ selbst wenn man vergessen hat die unittests lokal durchzuführen.</p>
 Diensten rot und man wird per Mail benachrichtigt. TOOD: ref down.</p>
 <div class="figure align-center">
 <img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
+<p class="caption">Screenshot der Statusbuttons auf der Github-Seite.</p>
 </div>
 <p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
 veröffentlicht, wo sie mithilfe des folgenden Befehles samt

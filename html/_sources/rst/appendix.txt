@@ -14,6 +14,7 @@ Abkürzungsverzeichnis
     Abkürzung                Bedeutung
     =======================  ==================================
     **API**                  Application Programming Interface
+    **LoC**                  Lines of Code
     =======================  ==================================
 
 .. only:: latex

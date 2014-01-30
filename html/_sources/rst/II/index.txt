@@ -2,7 +2,11 @@
 Einstieg
 ********
 
-Zitierbeispiel: :cite:p:`collada`.
+.. epigraph::
+
+    *Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.*
+
+    -- *Der Österreicher*
 
 .. figure:: figs/munin_startup.*
     :alt: Allgemeine Benutzung
@@ -64,6 +68,9 @@ Denkbare Einsatzszenarien wären:
 
 http://de.wikipedia.org/wiki/Empfehlungsdienst
 
+Vorhandene Arbeiten
+===================
+
 Vorhandene Alternativen
 =======================
 
@@ -91,6 +98,8 @@ Webseiten:
 - http://www.tastekid.com/
 
 - http://musicovery.com/
+
+- last.fm, pandora, myspace
 
   .. bietet aber im gegensatz zu *tastekid* auch streaming an ..
 
@@ -208,6 +217,8 @@ Diensten rot und man wird per Mail benachrichtigt. TOOD: ref down.
 .. figure:: figs/travis_badge.png
     :align: center
     :alt: Screenshot der Statusbuttons auf der Github-Seite.
+
+    Screenshot der Statusbuttons auf der Github-Seite.
 
 Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
 veröffentlicht, wo sie mithilfe des folgenden Befehles samt

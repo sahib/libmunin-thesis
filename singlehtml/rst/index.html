@@ -111,10 +111,11 @@
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#ziele">2.1 Ziele</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#zielgruppe">2.2 Zielgruppe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#einsatzszenarien">2.3 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.4 Vorhandene Alternativen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#anforderungen">2.5 Anforderungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#implementierungsziele">2.6 Implementierungsziele</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-arbeiten">2.4 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.5 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#anforderungen">2.6 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#implementierungsziele">2.7 Implementierungsziele</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#entwicklungsumgebung">2.8 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/III/index">3 Design</a><ul>
@@ -193,7 +194,10 @@ demonstrate and verify the results, a gtk based MPD client is developed that can
 be used either as debugging tool or true media player. Various techniques are
 shown to compare all possible attributes of a song with each other in a
 efficient way.</p>
-<p><em>Topics:</em> Music Information Retrieval (MIR), Music Regommendation Engine,Data Mining, k-Nearest-Neighbor-Graph</p>
+<p><em>Topics:</em></p>
+<blockquote>
+<div>Music Information Retrieval (MIR) <span class="math">\(\cdot\)</span> Music Recommendation Engine
+Data Mining <span class="math">\(\cdot\)</span> k-Nearest-Neighbor-Graph</div></blockquote>
 <span id="document-rst/acknowledgements"></span><div class="section" id="danksagung">
 <h2>Danksagung<a class="headerlink" href="#danksagung" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -208,12 +212,18 @@ alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.</
 <div class="toctree-wrapper compound">
 <span id="document-rst/I/index"></span><div class="section" id="einleitung">
 <h2>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
+<blockquote class="epigraph">
+<div><p><em>TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.</em></p>
+<p class="attribution">&mdash;<em>Frank Sinatra</em></p>
+</div></blockquote>
 <div class="section" id="motivation">
 <h3>1.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="state-of-the-art">
+<h4>1.1.1 State of the Art<a class="headerlink" href="#state-of-the-art" title="Permalink to this headline">¶</a></h4>
 <p>Im weltweitem Netz gibt es eine Vielzahl von Angeboten die Musik anbieten,
 entweder zum kaufen (amazon), zum streamen (<tt class="docutils literal"><span class="pre">last.fm</span></tt>, spotify, rhapsody,
-pandora, webradios) oder auch um Menschen mit ähnlichem Musikgeschmack zu finden
-(youtube, myspace).</p>
+pandora, webradios...) oder auch um Menschen mit ähnlichem Musikgeschmack zu
+finden (youtube, myspace).</p>
 <p>All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
 möchte - natürlich mit dem Hintergedanken dass der User sich auch diese anhört
@@ -222,18 +232,25 @@ sind natürlich ein enormer wirtschaftlicher Faktor.</p>
 <p>Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
 von den Betreibern gepflegt? Schaut sich ein System an was die User oft zusammen
 hören? Kann es ein System geben das komplett automatisch arbeitet?</p>
-<p>Die Antwort auf die letzte Frage ist: Nein, es kann kein System geben dass
-komplett automatisch arbeitet - zumindest keines das auf den User reagiert.
-Viele existierende Plattformen lösen dieses Problem oft auf sehr
-unterschiedliche Weise. (TODO: Beispiele nennen)</p>
+<p>Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
+Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
+aus diesen werden dann Alben abgeleitet die oft zusammen gekauft werden.
+Last.fm hingegen setzt auf mehrere Strategien indem es seine Nutzer die
+gestreamten Lieder raten lässt und dann deren Anhörverhalten analysiert - Lieder
+die nur selten ganz angehört werden, werden auch selten empfohlen.
+Myspace setzt auf die Annahme dass befreundete Personen auch einen ähnlichen
+Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
+echten Personen.</p>
+<p>Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
+Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten.</p>
 <p>Auch von wissenschaftlicher Seite ist das Problem der ,, <em>Music
 Recommendation Engine</em> '' noch nicht völlig behandelt - es gibt eine steigende
 Anzahl von Arbeiten auf diesem Gebiet:</p>
 <div class="figure align-center">
 <center><table border="1" class="docutils">
 <colgroup>
-<col width="40%" />
-<col width="60%" />
+<col width="63%" />
+<col width="38%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head align-right">Jahr</th>
@@ -241,20 +258,39 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td class="align-right">1990</td>
-<td class="align-left">0</td>
-</tr>
-<tr class="row-odd"><td class="align-right">1991</td>
+<tr class="row-even"><td class="align-right">1994-2000</td>
 <td class="align-left">1</td>
+</tr>
+<tr class="row-odd"><td class="align-right">2001-2002</td>
+<td class="align-left">4</td>
+</tr>
+<tr class="row-even"><td class="align-right">2003-2004</td>
+<td class="align-left">3</td>
+</tr>
+<tr class="row-odd"><td class="align-right">2005-2006</td>
+<td class="align-left">8</td>
+</tr>
+<tr class="row-even"><td class="align-right">2007-2008</td>
+<td class="align-left">8</td>
+</tr>
+<tr class="row-odd"><td class="align-right">2009-2010</td>
+<td class="align-left">9</td>
+</tr>
+<tr class="row-even"><td class="align-right">2011-2012</td>
+<td class="align-left">6</td>
+</tr>
+<tr class="row-odd"><td class="align-right">2013-2014</td>
+<td class="align-left">5+</td>
 </tr>
 </tbody>
 </table>
 <p class="caption">Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
-*Music Recommendation* aufgeteilt auf Jahre.</p>
-</center></div><p><a class="reference external" href="http://scholar.google.de/scholar?q=music+recommendation+engine">http://scholar.google.de/scholar?q=music+recommendation+engine</a></p>
-<p>(TODO: daten)</p>
+,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
+</center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
+Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="rst/index.html#citation-celma2010music">1</a><span class="citation">]</span></span></p>
+</div>
 <div class="section" id="was-fehlt">
-<h4>1.1.1 Was fehlt?<a class="headerlink" href="#was-fehlt" title="Permalink to this headline">¶</a></h4>
+<h4>1.1.2 Was fehlt?<a class="headerlink" href="#was-fehlt" title="Permalink to this headline">¶</a></h4>
 <p>Viele dieser Arbeiten präsentieren jeweils einen Weg um die Ähnlichkeit zweier
 Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
@@ -263,26 +299,36 @@ zu extrahieren die im Lied behandelt werden.</p>
 <p>Doch gibt es de facto kein System dass diese verschiedenen Attribute vereint
 oder diese Implementierung in eine allgemein nutzbare Open Source Library
 verpackt.</p>
-</div>
-<div class="section" id="wie-ist-die-aktuelle-situation">
-<h4>1.1.2 Wie ist die aktuelle Situation?<a class="headerlink" href="#wie-ist-die-aktuelle-situation" title="Permalink to this headline">¶</a></h4>
-<p>Weit verbreitet sind bei Musicplayern ,,Dynamische Playliste'' die allerdings
-bei den meisten Implementierungen bei vorhandenen Plattformen wie <tt class="docutils literal"><span class="pre">last.fm</span></tt>
-suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
-Lösung, da solche Dienste oft bereits enorme Datenmengen zur Verfügung haben und
-unter Umständen sehr gute Resultate liefern.</p>
-<p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
-nicht immer möglich oder wünschenswert - eine rein clientseitige Lösung wäre
-also von Nöten.</p>
-<p>Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
-MPD Client <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> den er entwickelt wünscht trägt natürlich auch zur Motivation
-bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
-weiterentwickelt werden.</p>
+<p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
+<em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
+verständlichen Gründen schwer zu besorgen.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://musicbrainz.org/">http://musicbrainz.org/</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="wie-ist-die-aktuelle-situation">
+<h4>1.1.3 Wie ist die aktuelle Situation?<a class="headerlink" href="#wie-ist-die-aktuelle-situation" title="Permalink to this headline">¶</a></h4>
+<p>Weit verbreitet sind bei Musicplayern ,,Dynamische Playliste'' die allerdings
+bei den meisten Implementierungen bei vorhandenen Plattformen wie <tt class="docutils literal"><span class="pre">last.fm</span></tt>
+suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
+Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern können.</p>
+<p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
+nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
+einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von <tt class="docutils literal"><span class="pre">last.fm</span></tt>
+für den allgemeinen Einsatz.</p>
+<p>Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
+MPD Client <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a> den er entwickelt wünscht trägt natürlich auch zur Motivation
+bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
+weiterentwickelt werden.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
 vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 </tbody>
 </table>
@@ -298,13 +344,24 @@ and bring information to the god Odin.</p>
 <p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a></p>
 </div></blockquote>
 <p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
-library <em>libmunin</em> benannt. Das hat den witzigen Nebeneffekt dass eine
-kommerzielle Library namens <em>mufin</em> eine freie Alternative erhält.</p>
+library <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine
+kommerzielle Library mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="footnote-reference" href="#f3" id="id3"><sup>3</sup></a>) eine
+freie Alternative erhält.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="http://www.mufin.com/usecase/music-recommendation/">http://www.mufin.com/usecase/music-recommendation/</a></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 <span id="document-rst/II/index"></span><div class="section" id="einstieg">
 <h2>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h2>
-<p>Zitierbeispiel: <span class="citation">[<span class="citation">]</span></span>.</p>
+<blockquote class="epigraph">
+<div><p><em>Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.</em></p>
+<p class="attribution">&mdash;<em>Der Österreicher</em></p>
+</div></blockquote>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/munin_startup.svg"><img alt="Allgemeine Benutzung" src="../../_images/munin_startup.svg" width="75%" /></a>
 <p class="caption">Allgemeine Benutzung von libmunin</p>
@@ -375,8 +432,11 @@ vorschlägt.</p>
 </div></blockquote>
 <p><a class="reference external" href="http://de.wikipedia.org/wiki/Empfehlungsdienst">http://de.wikipedia.org/wiki/Empfehlungsdienst</a></p>
 </div>
+<div class="section" id="vorhandene-arbeiten">
+<h3>2.4 Vorhandene Arbeiten<a class="headerlink" href="#vorhandene-arbeiten" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="vorhandene-alternativen">
-<h3>2.4 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h3>
+<h3>2.5 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><strong>mirage</strong></p>
 <blockquote>
@@ -406,17 +466,18 @@ vorschlägt.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.tastekid.com/">http://www.tastekid.com/</a></li>
 <li><a class="reference external" href="http://musicovery.com/">http://musicovery.com/</a></li>
+<li>last.fm, pandora, myspace</li>
 </ul>
 </div>
 <div class="section" id="anforderungen">
-<h3>2.5 Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this headline">¶</a></h3>
+<h3>2.6 Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this headline">¶</a></h3>
 <p>Aus den oben genannten Zielen und Einsatzszenarien können
 <em>Anforderungen</em> abgeleitet werden die das fertige System erfüllen muss.</p>
 <p>Dabei wird zwischen <strong>technischen Anforderungen</strong> und <strong>weichen Anforderungen</strong>
 unterschieden - erstere sind atomar, sprich sie können ganz oder gar nicht
 erfüllt werden, letztere können partiell erfüllt werden.</p>
 <div class="section" id="technische-anforderungen">
-<h4>2.5.1 Technische Anforderungen<a class="headerlink" href="#technische-anforderungen" title="Permalink to this headline">¶</a></h4>
+<h4>2.6.1 Technische Anforderungen<a class="headerlink" href="#technische-anforderungen" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic">
 <li><p class="first">Ausstellen von Empfehlungen muss performant möglich sein.</p>
 <blockquote>
@@ -446,7 +507,7 @@ werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.</p>
 </ol>
 </div>
 <div class="section" id="weiche-anforderungen">
-<h4>2.5.2 Weiche Anforderungen<a class="headerlink" href="#weiche-anforderungen" title="Permalink to this headline">¶</a></h4>
+<h4>2.6.2 Weiche Anforderungen<a class="headerlink" href="#weiche-anforderungen" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic">
 <li><p class="first">Die bereitgestellte API muss auf die stark variierende Qualität und Form von
 Musiksammlungen eingestellt sein.</p>
@@ -482,7 +543,7 @@ Arch Linux, unterstützt werden.</p>
 </div>
 </div>
 <div class="section" id="implementierungsziele">
-<h3>2.6 Implementierungsziele<a class="headerlink" href="#implementierungsziele" title="Permalink to this headline">¶</a></h3>
+<h3>2.7 Implementierungsziele<a class="headerlink" href="#implementierungsziele" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>...</li>
 <li>...
@@ -502,7 +563,7 @@ reduziert und interessante Feature wie Volltextsuche wird möglich.</p>
 </div>
 </div>
 <div class="section" id="entwicklungsumgebung">
-<h3>2.7 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
+<h3>2.8 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
 <p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf
 der sozialen Code-Hosting Plattform Github. User können dort interessante
 Projekte <em>starren</em> - bis jetzt hat <em>libmunin</em> für seine recht kurze Lebensspanne
@@ -519,6 +580,7 @@ selbst wenn man vergessen hat die unittests lokal durchzuführen.</p>
 Diensten rot und man wird per Mail benachrichtigt. TOOD: ref down.</p>
 <div class="figure align-center">
 <img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
+<p class="caption">Screenshot der Statusbuttons auf der Github-Seite.</p>
 </div>
 <p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
 veröffentlicht, wo sie mithilfe des folgenden Befehles samt
@@ -696,6 +758,56 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 </div>
 <div class="section" id="putting-it-together">
 <h3>4.3 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="nn">munin.easy</span> <span class="kn">import</span> <span class="n">EasySession</span>
+</span>
+<span class="hll"><span class="n">MY_DATABASE</span> <span class="o">=</span> <span class="p">[</span>
+</span>    <span class="c"># Artist:            Album:               Title:             Genre:</span>
+    <span class="p">(</span><span class="s">&#39;Akrea&#39;</span>          <span class="p">,</span> <span class="s">&#39;Lebenslinie&#39;</span>      <span class="p">,</span> <span class="s">&#39;Trugbild&#39;</span>       <span class="p">,</span> <span class="s">&#39;death metal&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>      <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Letzte Instanz&#39;</span> <span class="p">,</span> <span class="s">&#39;Götter auf Abruf&#39;</span> <span class="p">,</span> <span class="s">&#39;Salve te&#39;</span>       <span class="p">,</span> <span class="s">&#39;folk rock&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Debauchery&#39;</span>     <span class="p">,</span> <span class="s">&#39;Continue to Kill&#39;</span> <span class="p">,</span> <span class="s">&#39;Apostle of War&#39;</span> <span class="p">,</span> <span class="s">&#39;brutal death&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="hll"><span class="n">session</span> <span class="o">=</span> <span class="n">EasySession</span><span class="p">()</span>
+</span><span class="hll"><span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
+</span>    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">genre</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">):</span>
+<span class="hll">         <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+</span>             <span class="s">&#39;artist&#39;</span><span class="p">:</span> <span class="n">artist</span><span class="p">,</span>
+             <span class="s">&#39;album&#39;</span><span class="p">:</span> <span class="n">album</span><span class="p">,</span>
+             <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+             <span class="s">&#39;genre&#39;</span><span class="p">:</span> <span class="n">genre</span>
+         <span class="p">})]</span> <span class="o">=</span> <span class="n">idx</span>
+
+<span class="hll"><span class="k">for</span> <span class="n">munin_song</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">recommend_from_seed</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">):</span>
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div>
+<p>The output of this little wonder should be:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>  <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s">&#39;Debauchery&#39;</span> <span class="p">,</span> <span class="s">&#39;Continue to Kill&#39;</span> <span class="p">,</span> <span class="s">&#39;Apostle of War&#39;</span> <span class="p">,</span> <span class="s">&#39;brutal death&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <span id="document-rst/V/index"></span><div class="section" id="test">
@@ -732,6 +844,8 @@ repräsentieren lassen.</li>
 <div class="section" id="features">
 <h4>6.2.2 Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h4>
 <ul>
+<li><p class="first">Auch &quot;disklikes&quot; berücksichtigen (zB. songs die immer gleich geskippt wurden)?</p>
+</li>
 <li><p class="first">Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.</p>
 </li>
 <li><p class="first">Similar Artist/Album/Genre...</p>
@@ -807,6 +921,9 @@ sofern man entsprechende Provider und Distanzfunktionen implementiert.</p>
 <tbody valign="top">
 <tr class="row-even"><td class="align-right align-top"><strong>API</strong></td>
 <td class="align-top">Application Programming Interface</td>
+</tr>
+<tr class="row-odd"><td class="align-right align-top"><strong>LoC</strong></td>
+<td class="align-top">Lines of Code</td>
 </tr>
 </tbody>
 </table>
@@ -906,7 +1023,7 @@ wahrscheinlich dass auch die andere Menge daraufhin angehört wird.</p>
 \[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\]</div>
 <div class="admonition-vergleiche-dazu last admonition">
 <p class="first admonition-title">Vergleiche dazu:</p>
-<p class="last"><span class="citation">[<a class="reference internal" href="rst/index.html#citation-datamining-concepts-and-techniques">1</a><span class="citation">]</span></span>
+<p class="last"><span class="citation">[<a class="reference internal" href="rst/index.html#citation-datamining-concepts-and-techniques">2</a><span class="citation">]</span></span>
 Datamining Concepts and Techniques, Seiten 268-271.</p>
 </div>
 </dd>
@@ -974,7 +1091,10 @@ eine schneller zu berechnende Approximation zurückgegriffen.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="footnote row-odd" id="citation-datamining-concepts-and-techniques"><td>[1]</td>
+<tr class="footnote row-odd" id="citation-celma2010music"><td>[1]</td>
+<td><span class="book reference"><span class="author">O. Celma</span><span>.  </span><span class="title">Music recommendation and discovery</span><span>.  </span><span class="year">2010</span><span>.</span></span></td>
+</tr>
+<tr class="footnote row-even" id="citation-datamining-concepts-and-techniques"><td>[2]</td>
 <td><span class="inproceedings reference"><span class="author">J. P. Jiawei Han, Micheline Kamber</span><span>.  </span><span class="title">Datamining - Concepts and Techniques, (3rd Edition)</span><span>.  </span><em class="publication">Datamining - Concepts and Techniques</em><span>, </span><span class="year">2012</span><span>.</span></span></td>
 </tr>
 </tbody>
