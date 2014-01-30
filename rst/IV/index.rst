@@ -64,3 +64,39 @@ Historie
 
 Putting it together
 ===================
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 1,3,11,12,14,21
+
+    from munin.easy import EasySession
+
+    MY_DATABASE = [
+        # Artist:            Album:               Title:             Genre:
+        ('Akrea'          , 'Lebenslinie'      , 'Trugbild'       , 'death metal'),
+        ('Vogelfrey'      , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
+        ('Letzte Instanz' , 'Götter auf Abruf' , 'Salve te'       , 'folk rock'),
+        ('Debauchery'     , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
+    ]
+
+    session = EasySession()
+    with session.transaction():
+        for idx, (artist, album, title, genre) in enumerate(MY_DATABASE):
+             session.mapping[session.add({
+                 'artist': artist,
+                 'album': album,
+                 'title': title,
+                 'genre': genre
+             })] = idx
+
+    for munin_song in session.recommend_from_seed(session[0], 2):
+        print(MY_DATABASE[munin_song.uid])
+
+
+The output of this little wonder should be:
+
+.. code-block:: python
+
+    ('Vogelfrey'  , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
+    ('Debauchery' , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
+
