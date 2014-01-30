@@ -21,6 +21,7 @@ Performance
 Features
 --------
 
+- Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
 - Similar Artist/Album/Genre...
 - Einbeziehung der duration als provider/distanz (statistisch untersuchen)

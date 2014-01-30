@@ -2,6 +2,12 @@
 Einleitung
 **********
 
+.. epigraph::
+
+    *To be is to do, to do ist to be, doo be doo be doo.*
+
+    -- *Frank Sinatra*
+
 Motivation
 ==========
 
@@ -20,33 +26,34 @@ Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
 von den Betreibern gepflegt? Schaut sich ein System an was die User oft zusammen
 hören? Kann es ein System geben das komplett automatisch arbeitet?
 
-Die Antwort auf die letzte Frage ist: Nein, es kann kein System geben dass
-komplett automatisch arbeitet - zumindest keines das auf den User reagiert.
-Viele existierende Plattformen lösen dieses Problem oft auf sehr
-unterschiedliche Weise. (TODO: Beispiele nennen)
+Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
+(TODO: Beispiele)
 
 Auch von wissenschaftlicher Seite ist das Problem der ,, *Music
 Recommendation Engine* '' noch nicht völlig behandelt - es gibt eine steigende
 Anzahl von Arbeiten auf diesem Gebiet:
 
-
 .. figtable::
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
-              *Music Recommendation* aufgeteilt auf Jahre.
-    :alt: Wissenschaftliche Arbeiten zum Thema 'music recommendation' auf die Jahre verteilt
+              *Music Recommendation* aufgeteilt auf die Jahre 1994-2014.
+    :alt: Wissenschaftliche Arbeiten zum Thema 'Music Recommendation' auf die Jahre verteilt
     :spec: r l
 
-    ==== ======
-    Jahr Anzahl
-    ==== ======
-    1990 0
-    1991 1
-    ==== ======
+    ========== ======
+    Jahr       Anzahl
+    ========== ======
+    1994-2000  1
+    2001-2002  4
+    2003-2004  3
+    2005-2006  8
+    2007-2008  8
+    2009-2010  9
+    2011-2012  6
+    2013-2014  5+  
+    ========== ======
 
-
-http://scholar.google.de/scholar?q=music+recommendation+engine
-
-(TODO: daten)
+Mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
+Seiten starkes Buch.  :cite:p:`celma2010music`
 
 Was fehlt?
 ----------
@@ -97,5 +104,10 @@ Namensgebung
     -- http://en.wikipedia.org/wiki/Huginn_and_Muninn
 
 Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
-library *libmunin* benannt. Das hat den witzigen Nebeneffekt dass eine
-kommerzielle Library namens *mufin* eine freie Alternative erhält.
+library *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine
+kommerzielle Library mit ähnlichem Namen (,,*mufin-audiogen*'' [#f2]_) eine
+freie Alternative erhält.
+
+.. rubric:: Footnotes
+
+.. [#f2] http://www.mufin.com/usecase/music-recommendation/

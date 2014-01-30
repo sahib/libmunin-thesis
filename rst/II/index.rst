@@ -2,8 +2,6 @@
 Einstieg
 ********
 
-Zitierbeispiel: :cite:p:`collada`.
-
 .. figure:: figs/munin_startup.*
     :alt: Allgemeine Benutzung
     :width: 75%
@@ -208,6 +206,8 @@ Diensten rot und man wird per Mail benachrichtigt. TOOD: ref down.
 .. figure:: figs/travis_badge.png
     :align: center
     :alt: Screenshot der Statusbuttons auf der Github-Seite.
+
+    Screenshot der Statusbuttons auf der Github-Seite.
 
 Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
 veröffentlicht, wo sie mithilfe des folgenden Befehles samt
