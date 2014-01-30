@@ -5,9 +5,11 @@ import sys
 CURDIR = os.path.abspath(os.path.dirname(__file__))
 
 # add custom extensions directory to python path
-sys.path.append(
+sys.path.insert(
+    0,
     os.path.join(os.path.abspath(os.path.dirname(__file__)), 'extensions')
 )
+sys.path.insert(0, os.path.abspath('./'))
 
 # import the custom html and latex builders/translators/writers
 import html_mods
@@ -88,7 +90,8 @@ with open(os.path.join(CURDIR, 'rst/epilog.rst'), 'r') as f:
     rst_epilog = f.read().decode('utf8')
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'monokai'
+pygments_style = 'flask_theme_support.FlaskyStyle'
+# pygments_style = 'monokai'
 
 
 # -- Options for HTML output ---------------------------------------------------
@@ -191,18 +194,17 @@ htmlhelp_basename = 'htmlhelpoutput'
 # -- Options for LaTeX output --------------------------------------------------
 
 ADDITIONAL_PREAMBLE = """
-\input{preamble._tex}
-\usepackage{sphinx}
+\\input{preamble._tex}
+\\usepackage{sphinx}
 
 % Extra packages
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
 """
 
 ADDITIONAL_FOOTER = """
-\input{footer._tex}
-\input{affidavit._tex}
+\\input{footer._tex}
+\\input{affidavit._tex}
 """
 
 latex_elements = {
@@ -237,11 +239,14 @@ latex_elements = {
     # get rid of the sphinx wrapper class file
     'wrapperclass': 'puthesis',
 
+    # Input encoding, eXtended.
+    'inputenc': '\\usepackage[utf8]{inputenc}',
+
     # Use ,,Kapitel'' instead of chapter
-    'babel': '\usepackage[german, ngerman]{babel}',
+    'babel': '\\usepackage[german, ngerman]{babel}',
 
     # override maketitle
-    'maketitle': '\makefrontmatter',
+    'maketitle': '\\makefrontmatter',
     'tableofcontents': '',
 
     # disable index printing
