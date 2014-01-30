@@ -2,6 +2,12 @@
 Einstieg
 ********
 
+.. epigraph::
+
+    *Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.*
+
+    -- *Der Österreicher*
+
 .. figure:: figs/munin_startup.*
     :alt: Allgemeine Benutzung
     :width: 75%
@@ -62,6 +68,9 @@ Denkbare Einsatzszenarien wären:
 
 http://de.wikipedia.org/wiki/Empfehlungsdienst
 
+Vorhandene Arbeiten
+===================
+
 Vorhandene Alternativen
 =======================
 
@@ -89,6 +98,8 @@ Webseiten:
 - http://www.tastekid.com/
 
 - http://musicovery.com/
+
+- last.fm, pandora, myspace
 
   .. bietet aber im gegensatz zu *tastekid* auch streaming an ..
 
