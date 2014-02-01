@@ -4,7 +4,7 @@ Einleitung
 
 .. epigraph::
 
-    *TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.*
+    '' *TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.* ''
 
     -- *Frank Sinatra*
 
@@ -33,7 +33,7 @@ Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
 aus diesen werden dann Alben abgeleitet die oft zusammen gekauft werden. 
 Last.fm hingegen setzt auf mehrere Strategien indem es seine Nutzer die
-gestreamten Lieder raten lässt und dann deren Anhörverhalten analysiert - Lieder
+gestreamten Lieder raten lässt und dann deren Hörverhalten analysiert - Lieder
 die nur selten ganz angehört werden, werden auch selten empfohlen.
 Myspace setzt auf die Annahme dass befreundete Personen auch einen ähnlichen
 Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
@@ -66,7 +66,9 @@ Anzahl von Arbeiten auf diesem Gebiet:
     ========== ======
 
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
-Seiten starkes Buch. :cite:p:`celma2010music`
+Seiten starkes Buch. :cite:p:`celma2010music` 
+
+Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.
 
 Was fehlt?
 ----------
@@ -77,7 +79,7 @@ beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen 
 zu extrahieren die im Lied behandelt werden.
 
-Doch gibt es de facto kein System dass diese verschiedenen Attribute vereint
+Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
 oder diese Implementierung in eine allgemein nutzbare Open Source Library
 verpackt. 
 
@@ -87,7 +89,7 @@ verständlichen Gründen schwer zu besorgen.
 
 .. rubric:: Footnotes
 
-.. [#f1] http://musicbrainz.org/
+.. [#f1] eine frei verfügbare Musikmetadatendatenbank: http://musicbrainz.org/
 
 Wie ist die aktuelle Situation?
 -------------------------------
