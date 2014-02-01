@@ -66,9 +66,11 @@ Anzahl von Arbeiten auf diesem Gebiet:
     ========== ======
 
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
-Seiten starkes Buch. :cite:p:`celma2010music` 
+Seiten starkes Buch. :cite:p:`celma2010music`.
 
 Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.
+
+TODO
 
 Was fehlt?
 ----------
@@ -81,7 +83,7 @@ zu extrahieren die im Lied behandelt werden.
 
 Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
 oder diese Implementierung in eine allgemein nutzbare Open Source Library
-verpackt. 
+verpackt die auch für private Anwender einsetzbar ist.
 
 Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
@@ -124,7 +126,7 @@ Namensgebung
     are a pair of ravens that fly all over the world Midgard,
     and bring information to the god Odin.
 
-    -- http://en.wikipedia.org/wiki/Huginn_and_Muninn
+    -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:p:`wiki2014hugin`
 
 Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine

@@ -5,6 +5,13 @@ Design
 Übersicht
 =========
 
+.. figure:: figs/munin_startup.*
+    :alt: Allgemeine Benutzung
+    :width: 75%
+    :align: center
+
+    Allgemeine Benutzung von libmunin
+
 .. figure:: figs/integration.*
     :alt: Integrationsübersicht
     :width: 100%

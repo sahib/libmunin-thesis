@@ -223,7 +223,7 @@ Zusätzlich zu dieser Arbeit findet sich komplementär weitere Ressourcen im Net
 
     * Dieses PDF als HTML Version:
 
-        http://sahib.github.io/libmunin-thesis/singlehtml/rst/index.html
+        http://sahib.github.io/libmunin-thesis/html/rst/index.html
 
 .. only:: latex
 
