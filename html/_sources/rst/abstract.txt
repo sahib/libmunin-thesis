@@ -16,7 +16,7 @@ efficient way.
 
 .. silly hack to get the bullet unicode working:
 
-*Topics:* 
+*Keywords:* 
 
     Music Information Retrieval (MIR) :math:`\cdot` Music Recommendation Engine
     Data Mining :math:`\cdot` k-Nearest-Neighbor-Graph
