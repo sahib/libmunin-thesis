@@ -108,14 +108,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/II/index">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#ziele">2.1 Ziele</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#zielgruppe">2.2 Zielgruppe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#einsatzszenarien">2.3 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-arbeiten">2.4 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.5 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#einsatzszenarien">2.1 Einsatzszenarien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-arbeiten">2.2 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.3 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#ziele">2.4 Ziele</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#zielgruppe">2.5 Zielgruppe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#anforderungen">2.6 Anforderungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#implementierungsziele">2.7 Implementierungsziele</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#entwicklungsumgebung">2.8 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/III/index">3 Design</a><ul>
@@ -213,7 +212,7 @@ alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.</
 <span id="document-rst/I/index"></span><div class="section" id="einleitung">
 <h2>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.</em></p>
+<div><p>'' <em>TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.</em> ''</p>
 <p class="attribution">&mdash;<em>Frank Sinatra</em></p>
 </div></blockquote>
 <div class="section" id="motivation">
@@ -236,7 +235,7 @@ hören? Kann es ein System geben das komplett automatisch arbeitet?</p>
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
 aus diesen werden dann Alben abgeleitet die oft zusammen gekauft werden.
 Last.fm hingegen setzt auf mehrere Strategien indem es seine Nutzer die
-gestreamten Lieder raten lässt und dann deren Anhörverhalten analysiert - Lieder
+gestreamten Lieder raten lässt und dann deren Hörverhalten analysiert - Lieder
 die nur selten ganz angehört werden, werden auch selten empfohlen.
 Myspace setzt auf die Annahme dass befreundete Personen auch einen ähnlichen
 Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
@@ -288,6 +287,7 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
 </center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
 Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="rst/index.html#citation-celma2010music">1</a><span class="citation">]</span></span></p>
+<p>Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.</p>
 </div>
 <div class="section" id="was-fehlt">
 <h4>1.1.2 Was fehlt?<a class="headerlink" href="#was-fehlt" title="Permalink to this headline">¶</a></h4>
@@ -296,7 +296,7 @@ Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen
 zu extrahieren die im Lied behandelt werden.</p>
-<p>Doch gibt es de facto kein System dass diese verschiedenen Attribute vereint
+<p>Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
 oder diese Implementierung in eine allgemein nutzbare Open Source Library
 verpackt.</p>
 <p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
@@ -306,7 +306,7 @@ verständlichen Gründen schwer zu besorgen.</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://musicbrainz.org/">http://musicbrainz.org/</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>eine frei verfügbare Musikmetadatendatenbank: <a class="reference external" href="http://musicbrainz.org/">http://musicbrainz.org/</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -359,48 +359,15 @@ freie Alternative erhält.</p>
 <span id="document-rst/II/index"></span><div class="section" id="einstieg">
 <h2>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.</em></p>
+<div><p>'' <em>Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.</em> ''</p>
 <p class="attribution">&mdash;<em>Der Österreicher</em></p>
 </div></blockquote>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/munin_startup.svg"><img alt="Allgemeine Benutzung" src="../../_images/munin_startup.svg" width="75%" /></a>
 <p class="caption">Allgemeine Benutzung von libmunin</p>
 </div>
-<div class="section" id="ziele">
-<h3>2.1 Ziele<a class="headerlink" href="#ziele" title="Permalink to this headline">¶</a></h3>
-<p>Ziel ist ein System das folgende Fähigkeiten besitzt:</p>
-<ul>
-<li><p class="first">Erstellung dynamischer, fortlaufender Playlisten.</p>
-</li>
-<li><p class="first">Lernfähigkeit.</p>
-</li>
-<li><dl class="first docutils">
-<dt>Mögliche &quot;Aufsätze&quot;: Erst lookup in von user vorgegebener recommendation db,</dt>
-<dd><p class="first last">dann erst automatisch via libmunin.</p>
-</dd>
-</dl>
-</li>
-<li><p class="first">Stark anpassbare API, da diese alle möglichen spezialfälle abdecken muss,
-und auf die unterschiedlichen formate der musiksammlungen eingestellt sein
-muss.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="zielgruppe">
-<h3>2.2 Zielgruppe<a class="headerlink" href="#zielgruppe" title="Permalink to this headline">¶</a></h3>
-<p>(Auf Opensource gedanke eingehen)</p>
-<ul class="simple">
-<li>In früher Phasen: Hauptsächlich interessierte entwickler mit viel geduld.</li>
-<li>Erster interessierter Entwickler wird der Entwickler von moosecat sein.</li>
-<li>Möglichkeit: in mopidy einbauen, dort wird auch ein dynamic playlist
-feature &quot;gesucht&quot;.</li>
-<li>Sobald in &quot;Otto-normal-player&quot;: Auch normale anwender mittels DBUS Service und
-cli tool. Momentan eher sperrig benutzbar.</li>
-</ul>
-<p>Primär sind allerdings experimentierfreudige Entwickler die Zielgruppe</p>
-</div>
 <div class="section" id="einsatzszenarien">
-<h3>2.3 Einsatzszenarien<a class="headerlink" href="#einsatzszenarien" title="Permalink to this headline">¶</a></h3>
+<h3>2.1 Einsatzszenarien<a class="headerlink" href="#einsatzszenarien" title="Permalink to this headline">¶</a></h3>
 <p>Denkbare Einsatzszenarien wären:</p>
 <blockquote>
 <div><ol class="arabic">
@@ -433,41 +400,212 @@ vorschlägt.</p>
 <p><a class="reference external" href="http://de.wikipedia.org/wiki/Empfehlungsdienst">http://de.wikipedia.org/wiki/Empfehlungsdienst</a></p>
 </div>
 <div class="section" id="vorhandene-arbeiten">
-<h3>2.4 Vorhandene Arbeiten<a class="headerlink" href="#vorhandene-arbeiten" title="Permalink to this headline">¶</a></h3>
+<h3>2.2 Vorhandene Arbeiten<a class="headerlink" href="#vorhandene-arbeiten" title="Permalink to this headline">¶</a></h3>
+<p>Wie bereits eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
+schon recht umfangreiche Menge an Arbeiten zum Thema <em>Music Recommendation</em>.
+Hier werden examplarisch einige Arbeiten gezeigt die einige interessante
+Herangehensweisen vorstellen:</p>
+<p>... scho. Zuhauf. Aber welche? TODO</p>
 </div>
 <div class="section" id="vorhandene-alternativen">
-<h3>2.5 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h3>
+<h3>2.3 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h3>
+<p>Wenn man vermeiden will das Rad neu zu erfinden ist es hilfreich sich vorhandene
+Alternativen anzuschauen und deren Herangehensweise an das Problem. Es werden
+einige ausgewählte Plattformen aller Couleur gezeigt und deren Funktionsweise
+und Besonderheiten kurz erklärt.</p>
+<div class="section" id="plattformen">
+<h4>2.3.1 Plattformen<a class="headerlink" href="#plattformen" title="Permalink to this headline">¶</a></h4>
+<p>Im Gegensatz zu einfachen Webseiten sind diese Plattformen auch meist über
+Desktopanwendungen nutzbar und bieten eine API. TODO</p>
+<p>TODO: Nachweise, Screenshots.</p>
+<ul>
+<li><p class="first"><strong>last.fm</strong> (<a class="reference external" href="http://www.last.fm">http://www.last.fm</a>)</p>
+<blockquote>
+<div><p>Der wohl bekannteste Musik Empfehlungs Service im Netz. User können sich mit
+ihren Account ein personalisiertes Webradio (auch <em>Station</em> genannt)
+zusammenstellen. Dabei wählen sie ein Lied auf der Seite aus und lassen sich
+darauf basierend dann weitere Lieder oder Künstler vorschlagen die in eine
+ähnliche Richtung gehen. Für viele Musicplayer gibt es Plugins die die
+gespielten Lieder zu last.fm übermitteln. Diesen Vorgang nennen die
+Betreiber <em>scrobbeln</em>. Durch diese Informationen werden dann spezialisierte
+Empfehlungen getroffen - es handelt sich also um ein lernendes System.</p>
+<blockquote>
+<div><p>[screenshot]</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>YouTube</strong> (<a class="reference external" href="http://www.youtube.de">http://www.youtube.de</a>)</p>
+<blockquote>
+<div><p>Youtube ist vorrangig als Videoplattform bekannt, durch ihre enorme
+Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
+hoch. Interessant dabei ist dass in der Sidebar stets Empfehlungen für
+weitere Videos angezeigt - in den meisten Fällen dann auch weitere
+Musikvideos. Dabei haben die meisten Videos auch etwas mit dem aktuellen zu
+tun - nur einige der ersten Empfehlungen sind die ,,Trending Videos''.</p>
+<p>Einige der Attribute die in die Empfehlung mit eingehen:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>Video-Metadaten (Qualität, Beschreibung, Titel)</li>
+<li>Upload-Datum</li>
+<li>,,Plays'' und tatsächliche ,,Plays'' (also ob das video lang genug
+angeschaut wurde)</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+<p>[screenshot]</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>MySpace</strong></p>
+<blockquote>
+<div><p>Obwohl das soziale Netzwerk myspace seine besten Tage hinter sich hat haben
+viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
+Musik anhören kann. Ähnlich wie bei anderen populären sozialen Netzen kann
+man diese Seite <em>liken</em>. Diese Information wird dann dafür genutzt einem
+User Bands vorzuschlagen die auch seine Freunde mögen - unter der Annahme
+dass die Freunde einen ähnlichen Musikgeschmack haben.</p>
+<p>[screenshot]</p>
+</div></blockquote>
+</li>
+<li><p class="first">amazon</p>
+<blockquote>
+<div><p>Den Grundstein für die Empfehlungen bei amazon bilded die Warenkorbanalyse.
+Dabei werden die Warenkörbe der User analysiert und es werden
+Assoziationsregeln erstellt - bevorzugtermaßen Regeln die unerwartete
+Zusammenhänge aufdecken. Das typische Beispiel ist dabei: ,,Wer Bier kauft,
+kauft auch Windeln''. Diese Regeln werden dann genutzt um neue Artikel für
+bestimmte Artikel vorzuschlagen. Natürlich fließt auch die personalisierte
+Shopping-Historie in die Empfehlunge mit ein.</p>
+<p>Zudem hat amazon im vergleich zu den oben genannten Plattformen den Vorteil
+dass der Kauf eines Artikels ein klare Absichtserklärung ist - bei
+Plattformen wie Youtube schaut man hingegen ein Video oft aus Neugier an
+obwohl dieses möglicherweise nicht in das Muster des Users passt.</p>
+<p>[screenshot]</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="webseiten">
+<h4>2.3.2 Webseiten<a class="headerlink" href="#webseiten" title="Permalink to this headline">¶</a></h4>
+<p><strong>tastekid</strong> (<a class="reference external" href="http://www.tastekid.com/">http://www.tastekid.com/</a>)</p>
+<blockquote>
+<div><p>Bei den bisherigen Plattformen wurde meist nur eine Art von Items jeweils
+vorgeschlagen, anders bei dieser Webseite. Man kann einen beliebigen Begriff
+eingeben und die Seite wird versuchen diesen Begriff einer <em>Sache</em>
+zuzuordnen und basierend daraufhin ähnliche Sachen vorschlagen.</p>
+<p>TODO: Oh gott. Droooogen.</p>
+<p>Eine interessante Idee ist dabei dass die Resultate auch begründet werden -
+so wird die Suche nach ,,The Beatles'' folgendermaßen begründet:</p>
+<blockquote>
+<div>[screenshot]</div></blockquote>
+</div></blockquote>
+<p><strong>Musicovery</strong> (<a class="reference external" href="http://musicovery.com/">http://musicovery.com/</a>)</p>
+<blockquote>
+<div><p>Diese Seite kategorisiert eine groß Anzahl von Musikstücken nach Stimmung
+(<em>dunkel</em> bis <em>positiv</em>) und Temp (<em>ruhig</em> bis <em>energiegeladen</em>). Diese zwei
+Attribute werden an den Achsen eines Koordinatensystems aufgetragen. So
+erhält der User eine Möglichkeit einen Punkt darin zu selektieren und
+basierend auf diesen Eigenschaften sich Empfehlungen liefern zu lassen.</p>
+<p>[screenshot von moodmap]</p>
+<p>Der sonstige Hauptzweck der Seite besteht aus der <em>Music Discovery</em> (daher
+auch das Kofferwort aus <em>Music</em> und <em>Discovery</em> als Name).  Ein Beispiel
+dafür ist die sogenannte <em>MusicMap</em> - ein Koordinatensystem bei dem auf der
+X-Achse die Zeit (1960 - 2010) und nach oben das Verhältnis von <em>Likes</em> zu
+<em>Dislikes</em>. Mit anderen Worten: Liegt ein Punkt etwa in der Mitte der Höhe
+so mochten ihn genauso viele Leute wie sie ihn nicht mochten. Je weiter weg
+man von der Mitte ist desto einiger sind sich die User ob der Song gut oder
+schlecht ist.</p>
+<p>[screenshot von music map]</p>
+</div></blockquote>
+</div>
+<div class="section" id="software-bibliotheken">
+<h4>2.3.3 Software-Bibliotheken<a class="headerlink" href="#software-bibliotheken" title="Permalink to this headline">¶</a></h4>
+<p>Während die Anzahl der Plattformen noch ins unermeßliche ging, so liefert eine
+suche nach <em>Music Recommendation (Library|System|Engine)</em> schon deutlich weniger
+Resultate. Es scheint keine etablierte Bibliothek zu geben die dieses Problem
+angeht.</p>
 <ul>
 <li><p class="first"><strong>mirage</strong></p>
 <blockquote>
-<div><ul class="simple">
-<li>Freie, in C# implementierte Bibliothek für Music Recommendations.</li>
-<li>Wird im freien Mediaplayer Banshee eingesetzt (der ebenfalls in C# geschrieben ist).</li>
-<li>am ehesten mit libmunin vergleichbar.</li>
-<li>mirage nutzt nur audiodaten.</li>
-<li>in banshee integriert</li>
-<li>weniger für große datenmengen ausgelegt.</li>
-</ul>
+<div><p>Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
+Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
+nähesten ist aber wenig auf große Datenbanken ausgelegt und stützt sich
+allein auf Audio-Analyse - dazu wird während des <em>Kaltstartes</em> die gesamten
+Audiodaten der Musiksammlung analysiert.</p>
+<p>Sie ist momentan nur im freien Mediaplayer Banshee als Plugin nutzbar.
+<em>Banshee</em> selbst ist ebenfalls in C# geschrieben - die Wahl der
+Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.</p>
+<p>Webseite: <a class="reference external" href="http://hop.at/mirage/">http://hop.at/mirage/</a></p>
 </div></blockquote>
-<p>Website: <a class="reference external" href="http://hop.at/mirage/">http://hop.at/mirage/</a></p>
 </li>
 <li><p class="first"><strong>mufin audiogen</strong></p>
 <blockquote>
-<div><p><a class="reference external" href="http://www.mufin.com/products/audiogen/">http://www.mufin.com/products/audiogen/</a></p>
-<ul class="simple">
-<li>kommerziell</li>
-<li>enorm viele features</li>
-<li>behauptet keinen ,,Kaltstart'': Daten werden auf Servern vorberechnet.</li>
-</ul>
+<div><p>Eine kommerzielle in C++ entwickelte Bibliothek die im (mittlerweile
+eingestellten) Mufin-Audioplayer verwendet wurde. Sie bietet - laut der
+Werbebroschüre - enorm viele  Features und hat nicht das Problem des
+<em>Kaltstartes</em>. Das soll heißen: Die Musikdatenbank muss nicht erst aufwändig
+importiert werden was zu einem, sondern es können gleich Empfehlungen
+getroffen werden.</p>
+<p>Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek
+möglich.</p>
+<p>Webseite: <a class="reference external" href="http://www.mufin.com/products/audiogen/">http://www.mufin.com/products/audiogen/</a></p>
 </div></blockquote>
 </li>
 </ul>
-<p>Webseiten:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://www.tastekid.com/">http://www.tastekid.com/</a></li>
-<li><a class="reference external" href="http://musicovery.com/">http://musicovery.com/</a></li>
-<li>last.fm, pandora, myspace</li>
+</div>
+<div class="section" id="zusammenfassung">
+<h4>2.3.4 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h4>
+<p>Folgende Ideen sind übernehmenswert:</p>
+<blockquote>
+<div>lernendes System, nutzer-erfahrung (last.fm)
+Einbeziehung von Metadaten (youtube)
+warenkorbanalyse zum lernen nutzen (amazon)
+soziele empefhlung (myspace)
+mood basiert (musicovery) / audio analyse (mirage)
+graphen basiert (mufin)</div></blockquote>
+<p>Stolpersteine die man vermeiden sollte:</p>
+<blockquote>
+<div>Kaltstart (mufin)
+Große Datenmengen (mirage)
+Programmiersprache (mirage)
+Keine Abhängigkeit von Audiodaten (mirage)</div></blockquote>
+</div>
+</div>
+<div class="section" id="ziele">
+<h3>2.4 Ziele<a class="headerlink" href="#ziele" title="Permalink to this headline">¶</a></h3>
+<p>Ziel ist ein System das folgende Fähigkeiten besitzt:</p>
+<ul>
+<li><p class="first">Erstellung dynamischer, fortlaufender Playlisten.</p>
+</li>
+<li><p class="first">Lernfähigkeit.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Mögliche &quot;Aufsätze&quot;: Erst lookup in von user vorgegebener recommendation db,</dt>
+<dd><p class="first last">dann erst automatisch via libmunin.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Stark anpassbare API, da diese alle möglichen spezialfälle abdecken muss,
+und auf die unterschiedlichen formate der musiksammlungen eingestellt sein
+muss.</p>
+</li>
 </ul>
+</div>
+<div class="section" id="zielgruppe">
+<h3>2.5 Zielgruppe<a class="headerlink" href="#zielgruppe" title="Permalink to this headline">¶</a></h3>
+<p><em>libmunin</em> soll eine Bibliothek für Entwickler sein. Es stellt also keine
+einfach zu nutzende Webseite bereit wie die oben genannten - es kann aber als
+Backend dafür dienen.</p>
+<ul class="simple">
+<li>In früher Phasen: Hauptsächlich interessierte entwickler mit viel geduld.</li>
+<li>Erster interessierter Entwickler wird der Entwickler von moosecat sein.</li>
+<li>Möglichkeit: in mopidy einbauen, dort wird auch ein dynamic playlist
+feature &quot;gesucht&quot;.</li>
+<li>Sobald in &quot;Otto-normal-player&quot;: Auch normale anwender mittels DBUS Service und
+cli tool. Momentan eher sperrig benutzbar.</li>
+</ul>
+<p>Primär sind allerdings experimentierfreudige Entwickler die Zielgruppe</p>
 </div>
 <div class="section" id="anforderungen">
 <h3>2.6 Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this headline">¶</a></h3>
@@ -519,7 +657,7 @@ je nach Format und verwendeten Tagging-Tool/Datenbank anders benannt.</p>
 Metadaten der zu untersuchenden Songs zur Verfügung stehen, aber nicht die
 eigentlichen Audio-Daten. Dies kann beispielsweise vorteilhaft in Fällen
 sein bei denen man die Lieder nicht selbst besitzt aber Zugriff auf
-Musikdatenbanken wie Musicbrainz <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a></p>
+Musikdatenbanken wie <em>MusicBrainz</em>.</p>
 </div></blockquote>
 </li>
 <li><p class="first">Das System soll von mehreren Programmiersprachen aus benutzbar sein.</p>
@@ -532,38 +670,44 @@ Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
 Arch Linux, unterstützt werden.</p>
 </div></blockquote>
 </li>
-</ol>
-<p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Eine frei verfügbare Musikmetadatendatenbank: <a class="reference external" href="http://musicbrainz.org/">http://musicbrainz.org/</a></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="implementierungsziele">
-<h3>2.7 Implementierungsziele<a class="headerlink" href="#implementierungsziele" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>...</li>
-<li>...
-und ihre daten von mpd, via libmoosecat holt. libmoosecat ist eine vom Autor
-seit August 2012 vom Autor entwickelte library um einen vollständigen mpd
-client mit erweiterten features zu implementieren (wie einer proxy datenbank,
-erweiterter query syntax u.v.m).</li>
-<li>Datenbeschaffung via libglyr/discogs.</li>
-<li>Implementierung einer Demoanwendung die als Frontend für libmunin funktioniert</li>
-</ul>
+<li><p class="first">Eine Demonstrations-Anwendung sollte entwickelt werden die auch zur
+Fehlersuche, Verbesserung und als Einsatzbeispiel dient.</p>
+<blockquote>
+<div><p>Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
+zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese
+Empfehlung auch <em>begründen</em> kann. Daher soll diese Anwendung auch als
+<em>Debugger</em> dienen.</p>
+<p>Die Demonanwendung sollte dabei auf den freien MPD-Client <em>Moosecat</em>
+aufsetzen.</p>
 <div class="admonition-exkurs-zu-moosecat admonition">
-<p class="first admonition-title">Exkurs zu <tt class="docutils literal"><span class="pre">moosecat</span></tt>:</p>
+<p class="first admonition-title">Exkurs zu <em>Moosecat</em>:</p>
 <p class="last">Moosecat ist ein vom Auto seit 2012 entwickelter MPD-Client. Im Gegensatz zu
 den meisten, etablierten Clients hält er eine Zwischendatenbank die den
 Zustand des Servers spiegelt. Dadurch wird die Netzwerklast und die Startzeit
 reduziert und interessante Feature wie Volltextsuche wird möglich.</p>
 </div>
+</div></blockquote>
+</li>
+<li><p class="first">Es sollte einfach sein fehlende Daten zu beschaffen.</p>
+<blockquote>
+<div><p>In den meisten privaten Musisammlungen sind die wichtigsten Attribute
+<em>getaggt</em> - sprich in der Audiodatei sind Werte wie <em>Artist</em>, <em>Album</em> und
+<em>Titel</em> hinterlegt. Manche Attribute sind allerdings schwerer zu bekommen,
+wie beispielsweise die <em>Lyrics</em> zu einem bestimmten <em>Titel</em> oder auch das
+<em>Genre</em> eines Albums</p>
+<p>Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
+Bibliotheken zur Datenbeschaffung in <em>libmunin</em> einzubinden.</p>
+<div class="admonition-exkurs-zu-libglyr admonition">
+<p class="first admonition-title">Exkurs zu <em>libglyr</em>:</p>
+<p class="last">TODO</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
 </div>
 <div class="section" id="entwicklungsumgebung">
-<h3>2.8 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
+<h3>2.7 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
 <p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf
 der sozialen Code-Hosting Plattform Github. User können dort interessante
 Projekte <em>starren</em> - bis jetzt hat <em>libmunin</em> für seine recht kurze Lebensspanne
@@ -852,7 +996,8 @@ repräsentieren lassen.</li>
 </li>
 <li><p class="first">Einbeziehung der duration als provider/distanz (statistisch untersuchen)</p>
 </li>
-<li><p class="first">Echte audionanylse mittels aubio. <a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a></p>
+<li><p class="first">Echte audionanylse mittels aubio. <a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a>
+oder <a class="reference external" href="https://github.com/marsyas/marsyas">https://github.com/marsyas/marsyas</a></p>
 </li>
 <li><p class="first">Echte mood analyse.</p>
 </li>
