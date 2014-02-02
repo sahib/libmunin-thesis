@@ -4,15 +4,18 @@ Einstieg
 
 .. epigraph::
 
-    '' *Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.* ''
+    '' *Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.* ''
 
-    -- *Der Österreicher*
+    -- *Bill Gates*
+
 
 Einsatzszenarien
 ================
 
-Das Ziel ist es eine Bibliothek (,, *libmunin* '') zu schaffen die einen auf
-Musik spezialisierten *Empfehlungsdienst* implementiert.
+Wo ist also das Problem dass *libmunin* nun lösen soll?
+
+Das erklärte Ziel ist es eine Bibliothek (,, *libmunin* '') zu schaffen die
+einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
 
 .. epigraph::
 
@@ -39,38 +42,6 @@ Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
 Weitere Einsatzmöglichkeiten sind natürlich denkbar und sind bei kreativen
 Nutzern zu erwarten. 
 
-Vorhandene Arbeiten
-===================
-
-TODO: Text bei den Arbeiten
-
-Wie bereits eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
-schon recht umfangreiche Menge an Arbeiten zum Thema *Music Recommendation*.
-
-Einige ausgesuchte Arbeiten werdem im folgenden aufgelistet und deren
-Kernaussagen im Bezug auf diese Arbeit erläutert:
-
-* *A self-organizing map based knowledge discovery for music recommendation systems* :cite:p:`vembu2005self`
-
-    Ein Vorschlag 
-    Social-based: Amazon reviews als quelle.
-
-* *Smart radio-building music radio on the fly* :cite:p:`hayes2001smart`
-
-    Smart-Radio: Die Musik der  Zukunft kommt aus dem Web
-
-* *Enhancing music recommendation algorithms using cultural metadata* :cite:p:`baumann2005enhancing`
-
-    Unterschied zwischen Content-based, Social-based, 
-
-* *A music search engine built upon audio-based and web-based similarity measures* :cite:p:`knees2007music`
-
-    Kommt libmunin am nähesten
-
-* *Music for my mood* :cite:p:`lee2006music`
-
-    Mood basierte empfehlungen
-
 Vorhandene Alternativen
 =======================
 
@@ -86,33 +57,6 @@ TODO: Nachweise
 
 - **last.fm** (http://www.last.fm)
 
-    .. subfigstart::
-
-    .. _fig-lastfm-similar-artists:
-
-    .. figure:: figs/lastfm_similar_artists.png
-        :alt: Ähnliche Künstler auf last.fm
-        :width: 100%
-        :align: left 
-    
-        Anzeige ähnlicher Künstler auf last.fm
-
-    .. _fig-lastfm-webradio:
-
-    .. figure:: figs/lastfm_spotify_radio.png
-        :alt: Webradio (eine *Station*) auf Spotify (ein Music-Streaming-Dienst)
-        :width: 200%
-        :align: left
-    
-        Das Webradio von Spotify mit Empfehlungen von last.fm
-
-    .. subfigend::
-        :width: 0.30
-        :alt: last.fm Demonstration
-        :label: fig-lastfm
- 
-        TODO.
-
     Der wohl bekannteste Musik Empfehlungs Service im Netz. User können sich mit
     ihren Account ein personalisiertes Webradio (auch *Station* genannt, siehe
     :num:`fig-lastfm-webradio`) zusammenstellen. Dabei wählen sie ein Lied auf
@@ -123,6 +67,32 @@ TODO: Nachweise
     Betreiber *scrobbeln*. Durch diese Informationen werden dann spezialisierte
     Empfehlungen getroffen - es handelt sich also um ein lernendes System.
 
+    .. subfigstart::
+
+    .. _fig-lastfm-similar-artists:
+
+    .. figure:: figs/lastfm_similar_artists.png
+        :alt: Ähnliche Künstler auf last.fm
+        :width: 100%
+        :align: center 
+    
+        Anzeige ähnlicher Künstler auf last.fm
+
+    .. _fig-lastfm-webradio:
+
+    .. figure:: figs/lastfm_spotify_radio.png
+        :alt: Webradio (eine *Station*) auf Spotify (ein Music-Streaming-Dienst)
+        :width: 150%
+        :align: center
+    
+        Das Webradio von Spotify mit Empfehlungen von last.fm
+
+    .. subfigend::
+        :width: 0.5
+        :alt: last.fm Demonstration
+        :label: fig-lastfm
+ 
+        Screenshots von https://www.last.fm
 
 - **YouTube** (http://www.youtube.de)
 
@@ -200,10 +170,10 @@ Sonstige Webseiten
 
 **tastekid** (http://www.tastekid.com/)
 
-    Tastekid ist ein allgemeiner Empfehlungsdienst und kann neben Musik auch
+    *Tastekid* ist ein allgemeiner Empfehlungsdienst und kann neben Musik auch
     Künstler (siehe :num:`fig-tastekid`), Videos, Bücher und vieles mehr
     vorschlagen. Es kann als *Meta-Aggregator* für Empfehlungen aufgefasst
-    werden - die eigentlichen Grundaten kommen von anderen Diensten (im Falle
+    werden - die eigentlichen Grunddaten kommen von anderen Diensten (im Falle
     von Musik von **last.fm**).
 
     Basierend auf diesen Grunddaten werden noch die User eingebunden indem sie
@@ -304,6 +274,50 @@ angeht.
     Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek
     möglich.
 
+Vorhandene Arbeiten
+===================
+
+Wie bereits eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
+schon recht umfangreiche Menge an Arbeiten zum Thema *Music Recommendation*.
+
+Einige ausgesuchte Arbeiten werden  im folgenden aufgelistet und deren
+Kernaussagen im Bezug auf diese Arbeit erläutert:
+
+* *A self-organizing map based knowledge discovery for music recommendation systems* :cite:p:`vembu2005self`
+
+    Statt den Computern die Ähnlichkeit zwischen zwei Liedern zu bestimmen zu
+    lassen verwendet diese Arbeit Reviews von *Amazon* um daraus Beziehungen
+    zwischen Künstlern abzuleiten.
+
+    Dieser Ansatz fällt unter *Social-based Recommendations* - man nutzt also
+    das Wissen vieler Menschen um Ähnlichkeiten abzubilden. Dies steht im
+    Gegensatz zu *Content-based Recommendations* - bei diesen wird die
+    Ähnlichkeit anhand von Audio- und Metadaten automatisch ermittelt.
+
+    *Vorteil:* Elegant und oft sehr akkurat.
+
+    *Nachteil:* Unvollständig, nicht für jeden Artist ist eine Empfehlung vorhanden.
+
+* *Smart radio-building music radio on the fly* :cite:p:`hayes2001smart`
+
+    Smart-Radio: Die Musik der  Zukunft kommt aus dem Web... TODO
+
+* *A music search engine built upon audio-based and web-based similarity measures* :cite:p:`knees2007music`
+
+    Das in diesem Paper vorgestellte System kommt der Vorstellung von *libmunin*
+    am nähstem. Die Audio- und Metadaten der einzelnen Lieder wird analysiert
+    und abgespeichert. Fehlende Metadaten werden automatisch aus dem Netz
+    bezogen (*Reviews* und *Lyrics*). Statt die Musikstücke aber zueinander in
+    Relation zu setzen werden die Informationen für eine skalierbare
+    Suchmaschine benutzt die basierend auf natürlicher Sprache (*rock with great
+    riffs*) passende Lieder findet.
+
+* *Music for my mood* :cite:p:`lee2006music`
+
+    Die Ähnlichkeit zwischen zwei Stücken wird über die *Stimmung* in einem
+    Lied definiert. Diese wird durch Audioanalyse extrahiert.
+
+
 Schlussfolgerungen
 ==================
 
@@ -365,8 +379,13 @@ Technische Anforderungen
 #. Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen dass
    Weiterentwicklungen in das Projekt zurückfließen.
 
-     Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
-     erwünscht.
+    Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
+    erwünscht.
+
+#. Empfehlungen sollen begründbar sein.
+
+    Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
+    haben.
 
 Weiche Anforderungen
 --------------------
@@ -441,6 +460,14 @@ Weiche Anforderungen
 
          Mehr Information unter: https://github.com/sahib/libglyr
 
+#. Das System muss mit der Zeit sich dem User anpassen.
+
+    Mit der Zeit soll es *bessere* Empfehlungen liefern als am Anfang.
+    Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
+    Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
+    bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
+    und daraus werden Schlussfolgerungen getroffen.
+
 Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 
     - Einpflegen manuell ersteller Empfehlungen
@@ -473,7 +500,7 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
 
         Implementierung als Plugin für Dynamische Playlisten.
 
-    * **mopidy** ()
+    * **mopidy**
 
         .. admonition:: Exkurs zu *mopidy*
             
@@ -502,49 +529,3 @@ der Musiksammlung von verschiedenen Programmen würde dabei entfallen.
 .. rubric:: Footnotes
 
 .. [#f2] Siehe: https://github.com/mopidy/mopidy/issues/620
-
-Entwicklungsumgebung
-====================
-
-Alle Quellen die während dieses Projektes entstanden sind finden sich auf
-der sozialen Code-Hosting Plattform Github. Der Vorteil dieser Plattform besteht
-darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
-ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
-spätere Projekte bookmarken.
-Daher auch Github's Slogan *Social Coding*.
-
-
-Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
-Sourcen, mittels des freien Dokumentationsgenerators Sphinx,
-auf der Dokumentations-Hosting Plattform *ReadTheDocs* gebaut und dort
-verfügbar gemacht: https://libmunin.rtfd.org
-
-Zudem werden pro Commit unittests auf der Continious-Integration Plattform
-*TravisCI* für verschiedene Python-Versionen durchgeführt.
-Dies hat den Vorteil dass fehlerhafte Versionen aufgedeckt werden,
-selbst wenn man vergessen hat die unittests lokal durchzuführen.
-
-Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
-Diensten rot und man wird per Mail benachrichtigt. TOOD: ref down.
-
-.. figure:: figs/travis_badge.png
-    :align: center
-    :alt: Screenshot der Statusbuttons auf der Github-Seite.
-
-    Screenshot der Statusbuttons auf der Github-Seite.
-
-Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
-veröffentlicht, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können:
-
-.. code-block:: bash
-
-    $ sudo pip install libmunin
-
-Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
-vereinfachen - im Notfall kann man stets auf funktionierende Versionen
-zurückgehen. 
-
-Der Quelltext selber wird in *gVim* geschrieben. Dass sich der Python-Quelltext
-dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
-und *flake8* überprüft.

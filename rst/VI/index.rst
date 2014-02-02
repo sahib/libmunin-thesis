@@ -2,18 +2,34 @@
 Zusammenfassung
 ***************
 
+.. epigraph::
+
+
+   *Human beings, who are almost unique in having the ability to learn from the
+   experience of others, are also remarkable for their apparent disinclination
+   to do so.*
+
+   -- *Douglas Adams, ,,Last Chance to See''*
+
+
 Ausblick
 ========
 
 Mögliche Weiterentwicklungen
 ============================
 
-
 Performance
 -----------
 
 - Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
   vergleichen wenn länge des stückes ähnlich ist.
+
+  Ein Beispiel:
+
+    Ein Vergleich der Moodbar-Informationen ist nur dann sinnvoll wenn die Länge
+    der zu Vergleichenden Songs sich nicht um mehr als eine Minute
+    unterscheiden. Vergleicht man trotzdem erhält man vermutlich:ta
+  
 - Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
   bei denen es sehr viele dokumente gibt und diese sich als hashtable
   repräsentieren lassen.
@@ -21,6 +37,8 @@ Performance
 Features
 --------
 
+- Suchengine für natürliche Sprache wie in :cite:p:`knees2007music`
+- Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)
 - Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
 - Similar Artist/Album/Genre...
@@ -51,7 +69,6 @@ Convinience / Korrektheit
     http://beets.radbox.org/
 
   Beets ist gewißermaßen das libhugin-anaylse für musik 
-
 
 Fazit
 =====

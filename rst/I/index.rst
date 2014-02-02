@@ -2,11 +2,14 @@
 Einleitung
 **********
 
-.. epigraph::
+.. epigraph:: 
 
-    '' *TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.* ''
+    | '' *Scheue nicht Gefahr noch Leiden*
+    | *Lebe nicht von vergangenen Herrlichkeiten*
+    | *Liegt auch Stolz in der Erinnerung* 
+    | *Das Alte wird nicht wieder jung* ''
 
-    -- *Frank Sinatra*
+    -- *Unter der Asche,* **DAR**
 
 Motivation
 ==========
@@ -81,10 +84,6 @@ beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen 
 zu extrahieren die im Lied behandelt werden.
 
-Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
-oder diese Implementierung in eine allgemein nutzbare Open Source Library
-verpackt die auch für private Anwender einsetzbar ist.
-
 Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.
@@ -104,7 +103,14 @@ Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern könn
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
 einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von ``last.fm``
-für den allgemeinen Einsatz.
+für den allgemeinen Einsatz. Ein zusätzlicher Vorteil: Man entgeht der Werbung
+die zwischen allen paar Liedern gespielt wird.
+
+Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
+oder diese Implementierung in eine allgemein nutzbare Open Source Library
+verpackt die auch für private Anwender einsetzbar ist.
+
+
 
 Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
 MPD Client [#f2]_ den er entwickelt wünscht trägt natürlich auch zur Motivation
