@@ -71,7 +71,7 @@ Demonanwendung als Debugger
 .. _fig-demo-history:
 
 .. figure:: figs/demo_history.png
-    :alt: Die Datenbank Ansicht
+    :alt: Die Ansicht der History
     :width: 100%
     :align: center
 
@@ -80,7 +80,7 @@ Demonanwendung als Debugger
 .. _fig-demo-examine:
 
 .. figure:: figs/demo_examine.png
-    :alt: Die Datenbank Ansicht
+    :alt: Die Ansicht der Examine-Page
     :width: 100%
     :align: center
 
