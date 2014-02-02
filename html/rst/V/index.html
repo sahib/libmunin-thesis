@@ -111,12 +111,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einstieg</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.2 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.3 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
@@ -132,14 +131,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../IV/index.html#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.2 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.3 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.3 Historie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.4 Putting it together</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">5 Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#verifikation">5.1 Verifikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Zusammenfassung</a><ul>
@@ -183,6 +184,10 @@
           
   <div class="section" id="test">
 <h1>5 Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p>'' <em>These plus Antithese gleich Hysterese</em> ''</p>
+<p class="attribution">&mdash;<em>Einfach Göttlich, Terry Pratchett</em></p>
+</div></blockquote>
 <div class="section" id="verifikation">
 <h2>5.1 Verifikation<a class="headerlink" href="#verifikation" title="Permalink to this headline">¶</a></h2>
 <p>Wo war der Unterschied nochmal?</p>
@@ -193,6 +198,37 @@
 <div class="section" id="verifizierung">
 <h2>5.3 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h2>
 <p>Wo war der Unterschied nochmal?</p>
+</div>
+<div class="section" id="demonanwendung-als-debugger">
+<h2>5.4 Demonanwendung als Debugger<a class="headerlink" href="#demonanwendung-als-debugger" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/demo_overview.svg"><img alt="Übersicht über die Demoanwendung" src="../../_images/demo_overview.svg" width="100%" /></a>
+<p class="caption">Übersicht über die Demonanwendung</p>
+</div>
+<div class="figure align-center" id="fig-demo-database">
+<a class="reference internal image-reference" href="../../_images/demo_database.png"><img alt="Die Datenbank Ansicht" src="../../_images/demo_database.png" style="width: 100%;" /></a>
+<p class="caption">Die Datenbank Ansicht - Anzeige aller Songs.</p>
+</div>
+<div class="figure align-center" id="fig-demo-playlist">
+<a class="reference internal image-reference" href="../../_images/demo_playlist.png"><img alt="Die aktuelle Playlist" src="../../_images/demo_playlist.png" style="width: 100%;" /></a>
+<p class="caption">Die aktuelle Playlist, bestehend aus den Empfehlungen.</p>
+</div>
+<div class="figure align-center" id="fig-demo-rules">
+<a class="reference internal image-reference" href="../../_images/demo_rules.png"><img alt="Die Regelansicht" src="../../_images/demo_rules.png" style="width: 100%;" /></a>
+<p class="caption">Die momentan bekannten Regeln</p>
+</div>
+<div class="figure align-center" id="fig-demo-graph">
+<a class="reference internal image-reference" href="../../_images/demo_graph.png"><img alt="Die Graphenansicht" src="../../_images/demo_graph.png" style="width: 100%;" /></a>
+<p class="caption">Der Graph der hinter den Empfehlungen steckt wird hier geplottet.</p>
+</div>
+<div class="figure align-center" id="fig-demo-history">
+<a class="reference internal image-reference" href="../../_images/demo_history.png"><img alt="Die Ansicht der History" src="../../_images/demo_history.png" style="width: 100%;" /></a>
+<p class="caption">History-Ansicht, die zuletzt gehörten und empfohlenen Songs.</p>
+</div>
+<div class="figure align-center" id="fig-demo-examine">
+<a class="reference internal image-reference" href="../../_images/demo_examine.png"><img alt="Die Ansicht der Examine-Page" src="../../_images/demo_examine.png" style="width: 100%;" /></a>
+<p class="caption">Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.</p>
+</div>
 </div>
 </div>
 

@@ -111,12 +111,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einstieg</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.2 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.3 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
@@ -132,14 +131,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../IV/index.html#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.2 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.3 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.3 Historie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.4 Putting it together</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifikation">5.1 Verifikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Zusammenfassung</a><ul>
@@ -184,8 +185,13 @@
   <div class="section" id="einleitung">
 <h1>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h1>
 <blockquote class="epigraph">
-<div><p>'' <em>TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.</em> ''</p>
-<p class="attribution">&mdash;<em>Frank Sinatra</em></p>
+<div><div class="line-block">
+<div class="line">'' <em>Scheue nicht Gefahr noch Leiden</em></div>
+<div class="line"><em>Lebe nicht von vergangenen Herrlichkeiten</em></div>
+<div class="line"><em>Liegt auch Stolz in der Erinnerung</em></div>
+<div class="line"><em>Das Alte wird nicht wieder jung</em> ''</div>
+</div>
+<p class="attribution">&mdash;<em>Unter der Asche,</em> <strong>DAR</strong></p>
 </div></blockquote>
 <div class="section" id="motivation">
 <h2>1.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
@@ -258,7 +264,7 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 <p class="caption">Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
 ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
 </center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
-Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-celma2010music">2</a><span class="citation">]</span></span>.</p>
+Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-celma2010music">1</a><span class="citation">]</span></span>.</p>
 <p>Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.</p>
 <p>TODO</p>
 </div>
@@ -269,9 +275,6 @@ Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen
 zu extrahieren die im Lied behandelt werden.</p>
-<p>Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
-oder diese Implementierung in eine allgemein nutzbare Open Source Library
-verpackt die auch für private Anwender einsetzbar ist.</p>
 <p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.</p>
@@ -292,7 +295,11 @@ Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern könn
 <p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
 einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von <tt class="docutils literal"><span class="pre">last.fm</span></tt>
-für den allgemeinen Einsatz.</p>
+für den allgemeinen Einsatz. Ein zusätzlicher Vorteil: Man entgeht der Werbung
+die zwischen allen paar Liedern gespielt wird.</p>
+<p>Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
+oder diese Implementierung in eine allgemein nutzbare Open Source Library
+verpackt die auch für private Anwender einsetzbar ist.</p>
 <p>Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
 MPD Client <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a> den er entwickelt wünscht trägt natürlich auch zur Motivation
 bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
@@ -314,7 +321,7 @@ vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 and Munin (Old Norse “memory” or “mind”)
 are a pair of ravens that fly all over the world Midgard,
 and bring information to the god Odin.</p>
-<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-wiki2014hugin">8</a><span class="citation">]</span></span></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-wiki2014hugin">7</a><span class="citation">]</span></span></p>
 </div></blockquote>
 <p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine

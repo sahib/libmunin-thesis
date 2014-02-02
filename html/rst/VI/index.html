@@ -111,12 +111,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einstieg</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.2 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.3 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
@@ -132,14 +131,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../IV/index.html#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.2 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.3 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.3 Historie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.4 Putting it together</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifikation">5.1 Verifikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">6 Zusammenfassung</a><ul>
@@ -183,6 +184,12 @@
           
   <div class="section" id="zusammenfassung">
 <h1>6 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p><em>Human beings, who are almost unique in having the ability to learn from the
+experience of others, are also remarkable for their apparent disinclination
+to do so.</em></p>
+<p class="attribution">&mdash;<em>Douglas Adams, ,,Last Chance to See''</em></p>
+</div></blockquote>
 <div class="section" id="ausblick">
 <h2>6.1 Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -190,17 +197,29 @@
 <h2>6.2 Mögliche Weiterentwicklungen<a class="headerlink" href="#mogliche-weiterentwicklungen" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="performance">
 <h3>6.2.1 Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
-vergleichen wenn länge des stückes ähnlich ist.</li>
-<li>Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
+<ul>
+<li><p class="first">Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
+vergleichen wenn länge des stückes ähnlich ist.</p>
+<p>Ein Beispiel:</p>
+<blockquote>
+<div><p>Ein Vergleich der Moodbar-Informationen ist nur dann sinnvoll wenn die Länge
+der zu Vergleichenden Songs sich nicht um mehr als eine Minute
+unterscheiden. Vergleicht man trotzdem erhält man vermutlich:ta</p>
+</div></blockquote>
+</li>
+<li><p class="first">Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
 bei denen es sehr viele dokumente gibt und diese sich als hashtable
-repräsentieren lassen.</li>
+repräsentieren lassen.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="features">
 <h3>6.2.2 Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
 <ul>
+<li><p class="first">Suchengine für natürliche Sprache wie in <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-knees2007music">4</a><span class="citation">]</span></span></p>
+</li>
+<li><p class="first">Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)</p>
+</li>
 <li><p class="first">Auch &quot;disklikes&quot; berücksichtigen (zB. songs die immer gleich geskippt wurden)?</p>
 </li>
 <li><p class="first">Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.</p>

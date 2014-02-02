@@ -109,12 +109,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/II/index">2 Einstieg</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#einsatzszenarien">2.1 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-arbeiten">2.2 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.3 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#zielgruppe">2.6 Zielgruppe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/III/index">3 Design</a><ul>
@@ -130,14 +129,16 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/IV/index">4 Implementierung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#historie">4.2 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#putting-it-together">4.3 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#historie">4.3 Historie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#putting-it-together">4.4 Putting it together</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/V/index">5 Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#verifikation">5.1 Verifikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/VI/index">6 Zusammenfassung</a><ul>
@@ -212,8 +213,13 @@ alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.</
 <span id="document-rst/I/index"></span><div class="section" id="einleitung">
 <h2>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p>'' <em>TO BE IS TO DO, TO DO IST TO BE, DOO BE DOO BE DOO.</em> ''</p>
-<p class="attribution">&mdash;<em>Frank Sinatra</em></p>
+<div><div class="line-block">
+<div class="line">'' <em>Scheue nicht Gefahr noch Leiden</em></div>
+<div class="line"><em>Lebe nicht von vergangenen Herrlichkeiten</em></div>
+<div class="line"><em>Liegt auch Stolz in der Erinnerung</em></div>
+<div class="line"><em>Das Alte wird nicht wieder jung</em> ''</div>
+</div>
+<p class="attribution">&mdash;<em>Unter der Asche,</em> <strong>DAR</strong></p>
 </div></blockquote>
 <div class="section" id="motivation">
 <h3>1.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
@@ -286,7 +292,7 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 <p class="caption">Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
 ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
 </center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
-Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="rst/index.html#citation-celma2010music">2</a><span class="citation">]</span></span>.</p>
+Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="rst/index.html#citation-celma2010music">1</a><span class="citation">]</span></span>.</p>
 <p>Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.</p>
 <p>TODO</p>
 </div>
@@ -297,9 +303,6 @@ Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen
 zu extrahieren die im Lied behandelt werden.</p>
-<p>Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
-oder diese Implementierung in eine allgemein nutzbare Open Source Library
-verpackt die auch für private Anwender einsetzbar ist.</p>
 <p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.</p>
@@ -320,7 +323,11 @@ Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern könn
 <p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
 einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von <tt class="docutils literal"><span class="pre">last.fm</span></tt>
-für den allgemeinen Einsatz.</p>
+für den allgemeinen Einsatz. Ein zusätzlicher Vorteil: Man entgeht der Werbung
+die zwischen allen paar Liedern gespielt wird.</p>
+<p>Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
+oder diese Implementierung in eine allgemein nutzbare Open Source Library
+verpackt die auch für private Anwender einsetzbar ist.</p>
 <p>Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
 MPD Client <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a> den er entwickelt wünscht trägt natürlich auch zur Motivation
 bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
@@ -342,7 +349,7 @@ vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 and Munin (Old Norse “memory” or “mind”)
 are a pair of ravens that fly all over the world Midgard,
 and bring information to the god Odin.</p>
-<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-wiki2014hugin">8</a><span class="citation">]</span></span></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-wiki2014hugin">7</a><span class="citation">]</span></span></p>
 </div></blockquote>
 <p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine
@@ -360,13 +367,14 @@ freie Alternative erhält.</p>
 <span id="document-rst/II/index"></span><div class="section" id="einstieg">
 <h2>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p>'' <em>Hart wie ein Windhund, flink wie Leder und zäh wie Kruppstahl - oder so.</em> ''</p>
-<p class="attribution">&mdash;<em>Der Österreicher</em></p>
+<div><p>'' <em>Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.</em> ''</p>
+<p class="attribution">&mdash;<em>Bill Gates</em></p>
 </div></blockquote>
 <div class="section" id="einsatzszenarien">
 <h3>2.1 Einsatzszenarien<a class="headerlink" href="#einsatzszenarien" title="Permalink to this headline">¶</a></h3>
-<p>Das Ziel ist es eine Bibliothek (,, <em>libmunin</em> '') zu schaffen die einen auf
-Musik spezialisierten <em>Empfehlungsdienst</em> implementiert.</p>
+<p>Wo ist also das Problem dass <em>libmunin</em> nun lösen soll?</p>
+<p>Das erklärte Ziel ist es eine Bibliothek (,, <em>libmunin</em> '') zu schaffen die
+einen auf Musik spezialisierten <em>Empfehlungsdienst</em> implementiert.</p>
 <blockquote class="epigraph">
 <div><p>Ein Empfehlungsdienst (englisch Recommender System) ist ein automatisches
 Verfahren, das ausgehend von vorhandenen Webseiten oder anderen Objekten
@@ -375,7 +383,7 @@ Empfehlungen verwendet ein Empfehlungsdienst Methoden des Data-Minings und
 Information Retrieval. [...] darüber hinaus [werden] Informationen aus dem
 konkreten Kontext (Webseiten-Zugriff) und zusätzliche Informationen wie z.
 B. die Kauf-, Navigations- oder Klick-Historie herangezogen.</p>
-<p class="attribution">&mdash;<a class="reference external" href="http://de.wikipedia.org/wiki/Empfehlungsdienst">http://de.wikipedia.org/wiki/Empfehlungsdienst</a> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-wiki2014empfehlungsdienst">9</a><span class="citation">]</span></span></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://de.wikipedia.org/wiki/Empfehlungsdienst">http://de.wikipedia.org/wiki/Empfehlungsdienst</a> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-wiki2014empfehlungsdienst">8</a><span class="citation">]</span></span></p>
 </div></blockquote>
 <p>Einsatzmöglichkeiten eines auf Musik spezialisierten <em>Empfehlungsdienstes</em>:</p>
 <blockquote>
@@ -392,65 +400,19 @@ zu finden.</li>
 <p>Weitere Einsatzmöglichkeiten sind natürlich denkbar und sind bei kreativen
 Nutzern zu erwarten.</p>
 </div>
-<div class="section" id="vorhandene-arbeiten">
-<h3>2.2 Vorhandene Arbeiten<a class="headerlink" href="#vorhandene-arbeiten" title="Permalink to this headline">¶</a></h3>
-<p>TODO: Text bei den Arbeiten</p>
-<p>Wie bereits eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
-schon recht umfangreiche Menge an Arbeiten zum Thema <em>Music Recommendation</em>.</p>
-<p>Einige ausgesuchte Arbeiten werdem im folgenden aufgelistet und deren
-Kernaussagen im Bezug auf diese Arbeit erläutert:</p>
-<ul>
-<li><p class="first"><em>A self-organizing map based knowledge discovery for music recommendation systems</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-vembu2005self">7</a><span class="citation">]</span></span></p>
-<blockquote>
-<div><p>Ein Vorschlag
-Social-based: Amazon reviews als quelle.</p>
-</div></blockquote>
-</li>
-<li><p class="first"><em>Smart radio-building music radio on the fly</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-hayes2001smart">3</a><span class="citation">]</span></span></p>
-<blockquote>
-<div><p>Smart-Radio: Die Musik der  Zukunft kommt aus dem Web</p>
-</div></blockquote>
-</li>
-<li><p class="first"><em>Enhancing music recommendation algorithms using cultural metadata</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-baumann2005enhancing">1</a><span class="citation">]</span></span></p>
-<blockquote>
-<div><p>Unterschied zwischen Content-based, Social-based,</p>
-</div></blockquote>
-</li>
-<li><p class="first"><em>A music search engine built upon audio-based and web-based similarity measures</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-knees2007music">5</a><span class="citation">]</span></span></p>
-<blockquote>
-<div><p>Kommt libmunin am nähesten</p>
-</div></blockquote>
-</li>
-<li><p class="first"><em>Music for my mood</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-lee2006music">6</a><span class="citation">]</span></span></p>
-<blockquote>
-<div><p>Mood basierte empfehlungen</p>
-</div></blockquote>
-</li>
-</ul>
-</div>
 <div class="section" id="vorhandene-alternativen">
-<h3>2.3 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h3>
+<h3>2.2 Vorhandene Alternativen<a class="headerlink" href="#vorhandene-alternativen" title="Permalink to this headline">¶</a></h3>
 <p>Wenn man vermeiden will das Rad neu zu erfinden ist es hilfreich sich vorhandene
 Alternativen anzuschauen und deren Herangehensweise an das Problem. Es werden
 einige ausgewählte Plattformen aller Couleur gezeigt und deren Funktionsweise
 und Besonderheiten kurz erklärt.</p>
 <div class="section" id="bekannte-plattformen">
-<h4>2.3.1 Bekannte Plattformen<a class="headerlink" href="#bekannte-plattformen" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.1 Bekannte Plattformen<a class="headerlink" href="#bekannte-plattformen" title="Permalink to this headline">¶</a></h4>
 <p>TODO: Nachweise</p>
 <ul>
 <li><p class="first"><strong>last.fm</strong> (<a class="reference external" href="http://www.last.fm">http://www.last.fm</a>)</p>
 <blockquote>
-<div><div class="figure compound align-center" id="fig-lastfm">
-<div style="width: 30%" class="subfigure align-left" id="fig-lastfm-similar-artists">
-<a class="reference internal image-reference" href="../../_images/lastfm_similar_artists.png"><img alt="Ähnliche Künstler auf last.fm" src="../../_images/lastfm_similar_artists.png" style="width: 100%;" /></a>
-<p class="caption">Anzeige ähnlicher Künstler auf last.fm</p>
-</div>
-<div style="width: 30%" class="subfigure align-left" id="fig-lastfm-webradio">
-<a class="reference internal image-reference" href="../../_images/lastfm_spotify_radio.png"><img alt="Webradio (eine *Station*) auf Spotify (ein Music-Streaming-Dienst)" src="../../_images/lastfm_spotify_radio.png" style="width: 200%;" /></a>
-<p class="caption">Das Webradio von Spotify mit Empfehlungen von last.fm</p>
-</div>
-<p class="caption">TODO.</p>
-</div><p id="fig-lastfm">Der wohl bekannteste Musik Empfehlungs Service im Netz. User können sich mit
+<div><p>Der wohl bekannteste Musik Empfehlungs Service im Netz. User können sich mit
 ihren Account ein personalisiertes Webradio (auch <em>Station</em> genannt, siehe
 ) zusammenstellen. Dabei wählen sie ein Lied auf
 der Seite aus und lassen sich darauf basierend dann weitere Lieder oder
@@ -459,9 +421,19 @@ Künstler (siehe ) vorschlagen die in eine
 gespielten Lieder zu last.fm übermitteln. Diesen Vorgang nennen die
 Betreiber <em>scrobbeln</em>. Durch diese Informationen werden dann spezialisierte
 Empfehlungen getroffen - es handelt sich also um ein lernendes System.</p>
-</div></blockquote>
+<div class="figure compound align-center" id="fig-lastfm">
+<div style="width: 50%" class="subfigure align-center" id="fig-lastfm-similar-artists">
+<a class="reference internal image-reference" href="../../_images/lastfm_similar_artists.png"><img alt="Ähnliche Künstler auf last.fm" src="../../_images/lastfm_similar_artists.png" style="width: 100%;" /></a>
+<p class="caption">Anzeige ähnlicher Künstler auf last.fm</p>
+</div>
+<div style="width: 50%" class="subfigure align-center" id="fig-lastfm-webradio">
+<a class="reference internal image-reference" href="../../_images/lastfm_spotify_radio.png"><img alt="Webradio (eine *Station*) auf Spotify (ein Music-Streaming-Dienst)" src="../../_images/lastfm_spotify_radio.png" style="width: 150%;" /></a>
+<p class="caption">Das Webradio von Spotify mit Empfehlungen von last.fm</p>
+</div>
+<p class="caption">Screenshots von <a class="reference external" href="https://www.last.fm">https://www.last.fm</a></p>
+</div></div></blockquote>
 </li>
-<li><p class="first"><strong>YouTube</strong> (<a class="reference external" href="http://www.youtube.de">http://www.youtube.de</a>)</p>
+<li id="fig-lastfm"><p class="first"><strong>YouTube</strong> (<a class="reference external" href="http://www.youtube.de">http://www.youtube.de</a>)</p>
 <blockquote>
 <div><p>Youtube ist vorrangig als Videoplattform bekannt, durch ihre enorme
 Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
@@ -524,13 +496,13 @@ könnte. Hier zu <em>Knorkator - The Schlechtest of</em></p>
 </ul>
 </div>
 <div class="section" id="sonstige-webseiten">
-<h4>2.3.2 Sonstige Webseiten<a class="headerlink" href="#sonstige-webseiten" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.2 Sonstige Webseiten<a class="headerlink" href="#sonstige-webseiten" title="Permalink to this headline">¶</a></h4>
 <p><strong>tastekid</strong> (<a class="reference external" href="http://www.tastekid.com/">http://www.tastekid.com/</a>)</p>
 <blockquote>
-<div><p>Tastekid ist ein allgemeiner Empfehlungsdienst und kann neben Musik auch
+<div><p><em>Tastekid</em> ist ein allgemeiner Empfehlungsdienst und kann neben Musik auch
 Künstler (siehe ), Videos, Bücher und vieles mehr
 vorschlagen. Es kann als <em>Meta-Aggregator</em> für Empfehlungen aufgefasst
-werden - die eigentlichen Grundaten kommen von anderen Diensten (im Falle
+werden - die eigentlichen Grunddaten kommen von anderen Diensten (im Falle
 von Musik von <strong>last.fm</strong>).</p>
 <p>Basierend auf diesen Grunddaten werden noch die User eingebunden indem sie
 die Empfehlungen <em>liken</em> oder <em>disliken</em> können. Klar fehlerhafte
@@ -575,7 +547,7 @@ oder schlecht ist.</p>
 </div></blockquote>
 </div>
 <div class="section" id="software-bibliotheken">
-<h4>2.3.3 Software-Bibliotheken<a class="headerlink" href="#software-bibliotheken" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.3 Software-Bibliotheken<a class="headerlink" href="#software-bibliotheken" title="Permalink to this headline">¶</a></h4>
 <p>Während die Anzahl der Plattformen noch ins unermeßliche ging, so liefert eine
 suche nach <em>Music Recommendation (Library|System|Engine)</em> schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben die dieses Problem
@@ -607,6 +579,50 @@ möglich.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="vorhandene-arbeiten">
+<h3>2.3 Vorhandene Arbeiten<a class="headerlink" href="#vorhandene-arbeiten" title="Permalink to this headline">¶</a></h3>
+<p>Wie bereits eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
+schon recht umfangreiche Menge an Arbeiten zum Thema <em>Music Recommendation</em>.</p>
+<p>Einige ausgesuchte Arbeiten werden  im folgenden aufgelistet und deren
+Kernaussagen im Bezug auf diese Arbeit erläutert:</p>
+<ul>
+<li><p class="first"><em>A self-organizing map based knowledge discovery for music recommendation systems</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-vembu2005self">6</a><span class="citation">]</span></span></p>
+<blockquote>
+<div><p>Statt den Computern die Ähnlichkeit zwischen zwei Liedern zu bestimmen zu
+lassen verwendet diese Arbeit Reviews von <em>Amazon</em> um daraus Beziehungen
+zwischen Künstlern abzuleiten.</p>
+<p>Dieser Ansatz fällt unter <em>Social-based Recommendations</em> - man nutzt also
+das Wissen vieler Menschen um Ähnlichkeiten abzubilden. Dies steht im
+Gegensatz zu <em>Content-based Recommendations</em> - bei diesen wird die
+Ähnlichkeit anhand von Audio- und Metadaten automatisch ermittelt.</p>
+<p><em>Vorteil:</em> Elegant und oft sehr akkurat.</p>
+<p><em>Nachteil:</em> Unvollständig, nicht für jeden Artist ist eine Empfehlung vorhanden.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>Smart radio-building music radio on the fly</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-hayes2001smart">2</a><span class="citation">]</span></span></p>
+<blockquote>
+<div><p>Smart-Radio: Die Musik der  Zukunft kommt aus dem Web... TODO</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>A music search engine built upon audio-based and web-based similarity measures</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-knees2007music">4</a><span class="citation">]</span></span></p>
+<blockquote>
+<div><p>Das in diesem Paper vorgestellte System kommt der Vorstellung von <em>libmunin</em>
+am nähstem. Die Audio- und Metadaten der einzelnen Lieder wird analysiert
+und abgespeichert. Fehlende Metadaten werden automatisch aus dem Netz
+bezogen (<em>Reviews</em> und <em>Lyrics</em>). Statt die Musikstücke aber zueinander in
+Relation zu setzen werden die Informationen für eine skalierbare
+Suchmaschine benutzt die basierend auf natürlicher Sprache (<em>rock with great
+riffs</em>) passende Lieder findet.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>Music for my mood</em> <span class="citation">[<a class="reference internal" href="rst/index.html#citation-lee2006music">5</a><span class="citation">]</span></span></p>
+<blockquote>
+<div><p>Die Ähnlichkeit zwischen zwei Stücken wird über die <em>Stimmung</em> in einem
+Lied definiert. Diese wird durch Audioanalyse extrahiert.</p>
+</div></blockquote>
+</li>
+</ul>
 </div>
 <div class="section" id="schlussfolgerungen">
 <h3>2.4 Schlussfolgerungen<a class="headerlink" href="#schlussfolgerungen" title="Permalink to this headline">¶</a></h3>
@@ -673,6 +689,12 @@ Weiterentwicklungen in das Projekt zurückfließen.</p>
 <blockquote>
 <div><p>Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
 erwünscht.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Empfehlungen sollen begründbar sein.</p>
+<blockquote>
+<div><p>Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
+haben.</p>
 </div></blockquote>
 </li>
 </ol>
@@ -746,6 +768,15 @@ natürlich in dem oben genannten <em>moosecat</em>.</p>
 </div>
 </div></blockquote>
 </li>
+<li><p class="first">Das System muss mit der Zeit sich dem User anpassen.</p>
+<blockquote>
+<div><p>Mit der Zeit soll es <em>bessere</em> Empfehlungen liefern als am Anfang.
+Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
+Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
+bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
+und daraus werden Schlussfolgerungen getroffen.</p>
+</div></blockquote>
+</li>
 </ol>
 <p>Folgendes sind keine Probleme die von <em>libmunin</em> gelöst werden müssen:</p>
 <blockquote>
@@ -788,7 +819,7 @@ müssen. Vor allem Entwickler von Musikplayern sind dabei angesprochen die</p>
 <div><p>Implementierung als Plugin für Dynamische Playlisten.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>mopidy</strong> ()</p>
+<li><p class="first"><strong>mopidy</strong></p>
 <blockquote>
 <div><div class="admonition-exkurs-zu-mopidy admonition">
 <p class="first admonition-title">Exkurs zu <em>mopidy</em></p>
@@ -821,44 +852,16 @@ der Musiksammlung von verschiedenen Programmen würde dabei entfallen.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="entwicklungsumgebung">
-<h3>2.7 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
-<p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf
-der sozialen Code-Hosting Plattform Github. Der Vorteil dieser Plattform besteht
-darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
-ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
-spätere Projekte bookmarken.
-Daher auch Github's Slogan <em>Social Coding</em>.</p>
-<p>Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
-Sourcen, mittels des freien Dokumentationsgenerators Sphinx,
-auf der Dokumentations-Hosting Plattform <em>ReadTheDocs</em> gebaut und dort
-verfügbar gemacht: <a class="reference external" href="https://libmunin.rtfd.org">https://libmunin.rtfd.org</a></p>
-<p>Zudem werden pro Commit unittests auf der Continious-Integration Plattform
-<em>TravisCI</em> für verschiedene Python-Versionen durchgeführt.
-Dies hat den Vorteil dass fehlerhafte Versionen aufgedeckt werden,
-selbst wenn man vergessen hat die unittests lokal durchzuführen.</p>
-<p>Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
-Diensten rot und man wird per Mail benachrichtigt. TOOD: ref down.</p>
-<div class="figure align-center">
-<img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
-<p class="caption">Screenshot der Statusbuttons auf der Github-Seite.</p>
-</div>
-<p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
-veröffentlicht, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
-</pre></div>
-</div>
-<p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
-vereinfachen - im Notfall kann man stets auf funktionierende Versionen
-zurückgehen.</p>
-<p>Der Quelltext selber wird in <em>gVim</em> geschrieben. Dass sich der Python-Quelltext
-dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
-und <em>flake8</em> überprüft.</p>
-</div>
 </div>
 <span id="document-rst/III/index"></span><div class="section" id="design">
 <h2>3 Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+<blockquote class="epigraph">
+<div><div class="line-block">
+<div class="line"><em>If the implementation is hard to explain, it's a bad idea.</em></div>
+<div class="line"><em>If the implementation is easy to explain, it may be a good idea.</em></div>
+</div>
+<p class="attribution">&mdash;<em>Zen of Python</em>, <tt class="docutils literal"><span class="pre">import</span> <span class="pre">this</span></tt></p>
+</div></blockquote>
 <div class="section" id="ubersicht">
 <h3>3.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center">
@@ -964,6 +967,11 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 </div>
 <span id="document-rst/IV/index"></span><div class="section" id="implementierung">
 <h2>4 Implementierung<a class="headerlink" href="#implementierung" title="Permalink to this headline">¶</a></h2>
+<blockquote class="epigraph">
+<div><p>'' <em>Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
+gewaltbereiter Psychopath, der weiß, wo Sie wohnen</em> ''</p>
+<p class="attribution">&mdash;<em>Peter Stöhr</em></p>
+</div></blockquote>
 <div class="section" id="ubersicht">
 <h3>4.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>munin/
@@ -1018,11 +1026,52 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 5 directories, 57 files</pre>
 </div>
 </div>
+<div class="section" id="entwicklungsumgebung">
+<h3>4.2 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
+<p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
+<ul class="simple">
+<li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
+nur knapp 3 Monaten Implementierungs-Zeit.</li>
+<li>Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.</li>
+<li>Neben <em>C</em> die <em>Lingua Franca</em> des Autors.</li>
+</ul>
+<p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
+sozialen Code-Hosting Plattform Github. Der Vorteil dieser Plattform besteht
+darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
+ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
+spätere Projekte bookmarken.  Daher auch Github's Slogan <em>Social Coding</em>.</p>
+<p>Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
+Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
+Dokumentations-Hosting Plattform <em>ReadTheDocs</em> gebaut und dort verfügbar
+gemacht: <a class="reference external" href="https://libmunin.rtfd.org">https://libmunin.rtfd.org</a></p>
+<p>Zudem werden pro Commit unittests auf der Continious-Integration Plattform
+<em>TravisCI</em> für verschiedene Python-Versionen durchgeführt.  Dies hat den Vorteil
+dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
+unittests lokal durchzuführen.</p>
+<p>Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt. (Siehe )</p>
+<div class="figure align-center" id="fig-travis-badge">
+<img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
+<p class="caption">Screenshot der Statusbuttons auf der Github-Seite.</p>
+</div>
+<p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
+veröffentlicht, wo sie mithilfe des folgenden Befehles samt
+Python-Abhängigkeiten installiert werden können:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
+</pre></div>
+</div>
+<p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
+vereinfachen - im Notfall kann man stets auf funktionierende Versionen
+zurückgehen.</p>
+<p>Der Quelltext selber wird in <em>gVim</em> geschrieben. Dass sich der Python-Quelltext
+dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
+und <em>flake8</em> überprüft.</p>
+</div>
 <div class="section" id="historie">
-<h3>4.2 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h3>
+<h3>4.3 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="putting-it-together">
-<h3>4.3 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h3>
+<h3>4.4 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1077,6 +1126,10 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 </div>
 <span id="document-rst/V/index"></span><div class="section" id="test">
 <h2>5 Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<blockquote class="epigraph">
+<div><p>'' <em>These plus Antithese gleich Hysterese</em> ''</p>
+<p class="attribution">&mdash;<em>Einfach Göttlich, Terry Pratchett</em></p>
+</div></blockquote>
 <div class="section" id="verifikation">
 <h3>5.1 Verifikation<a class="headerlink" href="#verifikation" title="Permalink to this headline">¶</a></h3>
 <p>Wo war der Unterschied nochmal?</p>
@@ -1088,9 +1141,46 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 <h3>5.3 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h3>
 <p>Wo war der Unterschied nochmal?</p>
 </div>
+<div class="section" id="demonanwendung-als-debugger">
+<h3>5.4 Demonanwendung als Debugger<a class="headerlink" href="#demonanwendung-als-debugger" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/demo_overview.svg"><img alt="Übersicht über die Demoanwendung" src="../../_images/demo_overview.svg" width="100%" /></a>
+<p class="caption">Übersicht über die Demonanwendung</p>
+</div>
+<div class="figure align-center" id="fig-demo-database">
+<a class="reference internal image-reference" href="../../_images/demo_database.png"><img alt="Die Datenbank Ansicht" src="../../_images/demo_database.png" style="width: 100%;" /></a>
+<p class="caption">Die Datenbank Ansicht - Anzeige aller Songs.</p>
+</div>
+<div class="figure align-center" id="fig-demo-playlist">
+<a class="reference internal image-reference" href="../../_images/demo_playlist.png"><img alt="Die aktuelle Playlist" src="../../_images/demo_playlist.png" style="width: 100%;" /></a>
+<p class="caption">Die aktuelle Playlist, bestehend aus den Empfehlungen.</p>
+</div>
+<div class="figure align-center" id="fig-demo-rules">
+<a class="reference internal image-reference" href="../../_images/demo_rules.png"><img alt="Die Regelansicht" src="../../_images/demo_rules.png" style="width: 100%;" /></a>
+<p class="caption">Die momentan bekannten Regeln</p>
+</div>
+<div class="figure align-center" id="fig-demo-graph">
+<a class="reference internal image-reference" href="../../_images/demo_graph.png"><img alt="Die Graphenansicht" src="../../_images/demo_graph.png" style="width: 100%;" /></a>
+<p class="caption">Der Graph der hinter den Empfehlungen steckt wird hier geplottet.</p>
+</div>
+<div class="figure align-center" id="fig-demo-history">
+<a class="reference internal image-reference" href="../../_images/demo_history.png"><img alt="Die Ansicht der History" src="../../_images/demo_history.png" style="width: 100%;" /></a>
+<p class="caption">History-Ansicht, die zuletzt gehörten und empfohlenen Songs.</p>
+</div>
+<div class="figure align-center" id="fig-demo-examine">
+<a class="reference internal image-reference" href="../../_images/demo_examine.png"><img alt="Die Ansicht der Examine-Page" src="../../_images/demo_examine.png" style="width: 100%;" /></a>
+<p class="caption">Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.</p>
+</div>
+</div>
 </div>
 <span id="document-rst/VI/index"></span><div class="section" id="zusammenfassung">
 <h2>6 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<blockquote class="epigraph">
+<div><p><em>Human beings, who are almost unique in having the ability to learn from the
+experience of others, are also remarkable for their apparent disinclination
+to do so.</em></p>
+<p class="attribution">&mdash;<em>Douglas Adams, ,,Last Chance to See''</em></p>
+</div></blockquote>
 <div class="section" id="ausblick">
 <h3>6.1 Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h3>
 </div>
@@ -1098,17 +1188,29 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 <h3>6.2 Mögliche Weiterentwicklungen<a class="headerlink" href="#mogliche-weiterentwicklungen" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="performance">
 <h4>6.2.1 Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li>Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
-vergleichen wenn länge des stückes ähnlich ist.</li>
-<li>Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
+<ul>
+<li><p class="first">Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
+vergleichen wenn länge des stückes ähnlich ist.</p>
+<p>Ein Beispiel:</p>
+<blockquote>
+<div><p>Ein Vergleich der Moodbar-Informationen ist nur dann sinnvoll wenn die Länge
+der zu Vergleichenden Songs sich nicht um mehr als eine Minute
+unterscheiden. Vergleicht man trotzdem erhält man vermutlich:ta</p>
+</div></blockquote>
+</li>
+<li><p class="first">Prinzipiell ist libmunin so generell angelegt dass es sogar für jegliche daten
 bei denen es sehr viele dokumente gibt und diese sich als hashtable
-repräsentieren lassen.</li>
+repräsentieren lassen.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="features">
 <h4>6.2.2 Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h4>
 <ul>
+<li><p class="first">Suchengine für natürliche Sprache wie in <span class="citation">[<a class="reference internal" href="rst/index.html#citation-knees2007music">4</a><span class="citation">]</span></span></p>
+</li>
+<li><p class="first">Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)</p>
+</li>
 <li><p class="first">Auch &quot;disklikes&quot; berücksichtigen (zB. songs die immer gleich geskippt wurden)?</p>
 </li>
 <li><p class="first">Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.</p>
@@ -1289,7 +1391,7 @@ wahrscheinlich dass auch die andere Menge daraufhin angehört wird.</p>
 \[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\]</div>
 <div class="admonition-vergleiche-dazu last admonition">
 <p class="first admonition-title">Vergleiche dazu:</p>
-<p class="last"><span class="citation">[<a class="reference internal" href="rst/index.html#citation-datamining-concepts-and-techniques">4</a><span class="citation">]</span></span>
+<p class="last"><span class="citation">[<a class="reference internal" href="rst/index.html#citation-datamining-concepts-and-techniques">3</a><span class="citation">]</span></span>
 Datamining Concepts and Techniques, Seiten 268-271.</p>
 </div>
 </dd>
@@ -1357,31 +1459,28 @@ eine schneller zu berechnende Approximation zurückgegriffen.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="footnote row-odd" id="citation-baumann2005enhancing"><td>[1]</td>
-<td><span class="article reference"><span class="author">S. Baumann</span><span>, </span><span class="author">O. Hummel</span><span>.  </span><span class="title">Enhancing music recommendation algorithms using cultural metadata</span><span>.  </span><em class="publication">Journal of New Music Research</em><span>, </span><span class="volume">34</span><span>:</span><span class="pages">161–172</span><span>, </span><span class="year">2005</span><span>.</span></span></td>
-</tr>
-<tr class="footnote row-even" id="citation-celma2010music"><td>[2]</td>
+<tr class="footnote row-odd" id="citation-celma2010music"><td>[1]</td>
 <td><span class="book reference"><span class="author">O. Celma</span><span>.  </span><span class="title">Music recommendation and discovery</span><span>.  </span><span class="year">2010</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-odd" id="citation-hayes2001smart"><td>[3]</td>
+<tr class="footnote row-even" id="citation-hayes2001smart"><td>[2]</td>
 <td><span class="incollection reference"><span class="author">C. Hayes</span><span>, </span><span class="author">P.Ćunningham</span><span>.  </span><span class="title">Smart radio-building music radio on the fly</span><span>.  </span><em class="publication">Applications and Innovations in Intelligent Systems VIII</em><span>, </span><span class="pages">129–138</span><span>, </span><span class="year">2001</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-even" id="citation-datamining-concepts-and-techniques"><td>[4]</td>
+<tr class="footnote row-odd" id="citation-datamining-concepts-and-techniques"><td>[3]</td>
 <td><span class="inproceedings reference"><span class="author">J. P. Jiawei Han, Micheline Kamber</span><span>.  </span><span class="title">Datamining - Concepts and Techniques, (3rd Edition)</span><span>.  </span><em class="publication">Datamining - Concepts and Techniques</em><span>, </span><span class="pages">268–271</span><span>, </span><span class="year">2012</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-odd" id="citation-knees2007music"><td>[5]</td>
+<tr class="footnote row-even" id="citation-knees2007music"><td>[4]</td>
 <td><span class="inproceedings reference"><span class="author">P. Knees</span><span>, </span><span class="author">T. Pohle</span><span>, </span><span class="author">M. Schedl</span><span>, </span><span class="author">G. Widmer</span><span>.  </span><span class="title">A music search engine built upon audio-based and web-based similarity measures</span><span>.  </span><em class="publication">Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval</em><span>, </span><span class="pages">447–454</span><span>, </span><span class="year">2007</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-even" id="citation-lee2006music"><td>[6]</td>
+<tr class="footnote row-odd" id="citation-lee2006music"><td>[5]</td>
 <td><span class="incollection reference"><span class="author">J. S. Lee</span><span>, </span><span class="author">J. C. Lee</span><span>.  </span><span class="title">Music for my mood: A music recommendation system based on context reasoning</span><span>.  </span><em class="publication">Smart sensing and context</em><span>, </span><span class="pages">190–203</span><span>, </span><span class="year">2006</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-odd" id="citation-vembu2005self"><td>[7]</td>
+<tr class="footnote row-even" id="citation-vembu2005self"><td>[6]</td>
 <td><span class="incollection reference"><span class="author">S. Vembu</span><span>, </span><span class="author">S. Baumann</span><span>.  </span><span class="title">A self-organizing map based knowledge discovery for music recommendation systems</span><span>.  </span><em class="publication">Computer music modeling and retrieval</em><span>, </span><span class="pages">119–129</span><span>, </span><span class="year">2005</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-even" id="citation-wiki2014hugin"><td>[8]</td>
+<tr class="footnote row-odd" id="citation-wiki2014hugin"><td>[7]</td>
 <td><span class="misc reference"><span class="author">Wikipedia</span><span>.  </span><span class="title">Huginn and Muninn — Wikipedia, The Free Encyclopedia</span><span>.  </span><span class="year">2014</span><span>.</span></span></td>
 </tr>
-<tr class="footnote row-odd" id="citation-wiki2014empfehlungsdienst"><td>[9]</td>
+<tr class="footnote row-even" id="citation-wiki2014empfehlungsdienst"><td>[8]</td>
 <td><span class="misc reference"><span class="author">Wikipedia</span><span>.  </span><span class="title">Empfehlungsdienst — Wikipedia, Die freie Enzyklopädie</span><span>.  </span><span class="year">2013</span><span>.</span></span></td>
 </tr>
 </tbody>

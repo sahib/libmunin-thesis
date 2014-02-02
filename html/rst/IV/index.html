@@ -111,12 +111,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einstieg</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.2 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.3 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#entwicklungsumgebung">2.7 Entwicklungsumgebung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
@@ -132,14 +131,16 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">4 Implementierung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#historie">4.2 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#putting-it-together">4.3 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#historie">4.3 Historie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#putting-it-together">4.4 Putting it together</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifikation">5.1 Verifikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Zusammenfassung</a><ul>
@@ -183,6 +184,11 @@
           
   <div class="section" id="implementierung">
 <h1>4 Implementierung<a class="headerlink" href="#implementierung" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p>'' <em>Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
+gewaltbereiter Psychopath, der weiß, wo Sie wohnen</em> ''</p>
+<p class="attribution">&mdash;<em>Peter Stöhr</em></p>
+</div></blockquote>
 <div class="section" id="ubersicht">
 <h2>4.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><pre>munin/
@@ -237,11 +243,52 @@
 5 directories, 57 files</pre>
 </div>
 </div>
+<div class="section" id="entwicklungsumgebung">
+<h2>4.2 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
+<p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
+<ul class="simple">
+<li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
+nur knapp 3 Monaten Implementierungs-Zeit.</li>
+<li>Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.</li>
+<li>Neben <em>C</em> die <em>Lingua Franca</em> des Autors.</li>
+</ul>
+<p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
+sozialen Code-Hosting Plattform Github. Der Vorteil dieser Plattform besteht
+darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
+ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
+spätere Projekte bookmarken.  Daher auch Github's Slogan <em>Social Coding</em>.</p>
+<p>Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
+Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
+Dokumentations-Hosting Plattform <em>ReadTheDocs</em> gebaut und dort verfügbar
+gemacht: <a class="reference external" href="https://libmunin.rtfd.org">https://libmunin.rtfd.org</a></p>
+<p>Zudem werden pro Commit unittests auf der Continious-Integration Plattform
+<em>TravisCI</em> für verschiedene Python-Versionen durchgeführt.  Dies hat den Vorteil
+dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
+unittests lokal durchzuführen.</p>
+<p>Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt. (Siehe <a href="#fig-travis-badge">4.1</a>)</p>
+<div class="figure align-center" id="fig-travis-badge">
+<img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
+<p class="caption"><strong>Figure 4.1:</strong> Screenshot der Statusbuttons auf der Github-Seite.</p>
+</div>
+<p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
+veröffentlicht, wo sie mithilfe des folgenden Befehles samt
+Python-Abhängigkeiten installiert werden können:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
+</pre></div>
+</div>
+<p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
+vereinfachen - im Notfall kann man stets auf funktionierende Versionen
+zurückgehen.</p>
+<p>Der Quelltext selber wird in <em>gVim</em> geschrieben. Dass sich der Python-Quelltext
+dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
+und <em>flake8</em> überprüft.</p>
+</div>
 <div class="section" id="historie">
-<h2>4.2 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h2>
+<h2>4.3 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="putting-it-together">
-<h2>4.3 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h2>
+<h2>4.4 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
