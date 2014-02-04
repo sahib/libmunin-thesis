@@ -14,4 +14,9 @@ be used either as debugging tool or true media player. Various techniques are
 shown to compare all possible attributes of a song with each other in a
 efficient way.
 
-*Topics:* Music Information Retrieval (MIR), Music Regommendation Engine,Data Mining, k-Nearest-Neighbor-Graph
+.. silly hack to get the bullet unicode working:
+
+*Topics:* 
+
+    Music Information Retrieval (MIR) :math:`\cdot` Music Recommendation Engine
+    Data Mining :math:`\cdot` k-Nearest-Neighbor-Graph
