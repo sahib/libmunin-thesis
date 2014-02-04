@@ -117,21 +117,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/III/index">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#ubersicht">3.1 Übersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#wie-fugt-sich-libmunin-in-seine-welt-ein">3.1 Wie fügt sich libmunin in seine Welt ein?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#architektur">3.2 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#kurze-implementierungshistorie">3.3 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#graphenoperationen">3.4 Graphenoperationen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#ausstellen-von-recommendations">3.5 Ausstellen von Recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#sieben-von-recomemndations">3.6 Sieben von Recomemndations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#lernen-durch-die-history">3.7 Lernen durch die History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#keywordextraction">3.8 Keywordextraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#algorithmik">3.3 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#softwareaufbau">3.4 Softwareaufbau</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/IV/index">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#historie">4.3 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#putting-it-together">4.4 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/V/index">5 Test</a><ul>
@@ -213,13 +210,8 @@ alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.</
 <span id="document-rst/I/index"></span><div class="section" id="einleitung">
 <h2>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><div class="line-block">
-<div class="line">'' <em>Scheue nicht Gefahr noch Leiden</em></div>
-<div class="line"><em>Lebe nicht von vergangenen Herrlichkeiten</em></div>
-<div class="line"><em>Liegt auch Stolz in der Erinnerung</em></div>
-<div class="line"><em>Das Alte wird nicht wieder jung</em> ''</div>
-</div>
-<p class="attribution">&mdash;<em>Unter der Asche,</em> <strong>DAR</strong></p>
+<div><p>'' <em>Sei froh dass du du bist, und nicht dieser Fisch.</em> ''</p>
+<p class="attribution">&mdash;<em>Marc Uwe Kling</em>, deutscher Kabarettist</p>
 </div></blockquote>
 <div class="section" id="motivation">
 <h3>1.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
@@ -254,37 +246,37 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 <div class="figure align-center">
 <center><table border="1" class="docutils">
 <colgroup>
-<col width="63%" />
-<col width="38%" />
+<col width="31%" />
+<col width="19%" />
+<col width="31%" />
+<col width="19%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-right">Jahr</th>
+<tr class="row-odd"><th class="head align-right">Jahre</th>
+<th class="head align-left">Anzahl</th>
+<th class="head align-right">Jahre</th>
 <th class="head align-left">Anzahl</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td class="align-right">1994-2000</td>
 <td class="align-left">1</td>
+<td class="align-right">2007-2008</td>
+<td class="align-left">8</td>
 </tr>
 <tr class="row-odd"><td class="align-right">2001-2002</td>
 <td class="align-left">4</td>
+<td class="align-right">2009-2010</td>
+<td class="align-left">9</td>
 </tr>
 <tr class="row-even"><td class="align-right">2003-2004</td>
 <td class="align-left">3</td>
+<td class="align-right">2011-2012</td>
+<td class="align-left">6</td>
 </tr>
 <tr class="row-odd"><td class="align-right">2005-2006</td>
 <td class="align-left">8</td>
-</tr>
-<tr class="row-even"><td class="align-right">2007-2008</td>
-<td class="align-left">8</td>
-</tr>
-<tr class="row-odd"><td class="align-right">2009-2010</td>
-<td class="align-left">9</td>
-</tr>
-<tr class="row-even"><td class="align-right">2011-2012</td>
-<td class="align-left">6</td>
-</tr>
-<tr class="row-odd"><td class="align-right">2013-2014</td>
+<td class="align-right">2013-2014</td>
 <td class="align-left">5+</td>
 </tr>
 </tbody>
@@ -425,8 +417,8 @@ Empfehlungen getroffen - es handelt sich also um ein lernendes System.</p>
 <p class="caption">Anzeige ähnlicher Künstler auf last.fm</p>
 </div>
 <div style="width: 50%" class="subfigure align-center" id="fig-lastfm-webradio">
-<a class="reference internal image-reference" href="../../_images/lastfm_spotify_radio.png"><img alt="Webradio (eine *Station*) auf Spotify (ein Music-Streaming-Dienst)" src="../../_images/lastfm_spotify_radio.png" style="width: 150%;" /></a>
-<p class="caption">Das Webradio von Spotify mit Empfehlungen von last.fm</p>
+<a class="reference internal image-reference" href="../../_images/lastfm_spotify_radio.png"><img alt="Eine *Station* auf Spotify" src="../../_images/lastfm_spotify_radio.png" style="width: 125%;" /></a>
+<p class="caption">Eine <em>Station</em> auf Spotify (Empfehlungen von last.fm)</p>
 </div>
 <p class="caption">Screenshots von <a class="reference external" href="https://www.last.fm">https://www.last.fm</a></p>
 </div></div></blockquote>
@@ -854,16 +846,12 @@ der Musiksammlung von verschiedenen Programmen würde dabei entfallen.</p>
 <blockquote class="epigraph">
 <div><div class="line-block">
 <div class="line"><em>If the implementation is hard to explain, it's a bad idea.</em></div>
-<div class="line"><em>If the implementation is easy to explain, it may be a good idea.</em></div>
+<div class="line"><em>If the implementation is easy to explain, it</em> may <em>be a good idea.</em></div>
 </div>
 <p class="attribution">&mdash;<em>Zen of Python</em>, <tt class="docutils literal"><span class="pre">import</span> <span class="pre">this</span></tt></p>
 </div></blockquote>
-<div class="section" id="ubersicht">
-<h3>3.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/munin_startup.svg"><img alt="Allgemeine Benutzung" src="../../_images/munin_startup.svg" width="75%" /></a>
-<p class="caption">Allgemeine Benutzung von libmunin</p>
-</div>
+<div class="section" id="wie-fugt-sich-libmunin-in-seine-welt-ein">
+<h3>3.1 Wie fügt sich libmunin in seine Welt ein?<a class="headerlink" href="#wie-fugt-sich-libmunin-in-seine-welt-ein" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/integration.svg"><img alt="Integrationsübersicht" src="../../_images/integration.svg" width="100%" /></a>
 <p class="caption">Wie integriert sich libmunin in seine Umgebung?</p>
@@ -876,11 +864,73 @@ der Musiksammlung von verschiedenen Programmen würde dabei entfallen.</p>
 <div class="section" id="architektur">
 <h3>3.2 Architektur<a class="headerlink" href="#architektur" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/arch.svg"><img alt="Architekturübersicht." src="../../_images/arch.svg" width="100%" /></a>
-<p class="caption">Grobe Übersicht über die architektur.</p>
+<a class="reference internal image-reference" href="../../_images/munin_startup.svg"><img alt="Allgemeine Benutzung" src="../../_images/munin_startup.svg" width="75%" /></a>
+<p class="caption">Allgemeine Benutzung von libmunin</p>
 </div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/arch.svg"><img alt="Architekturübersicht." src="../../_images/arch.svg" width="100%" /></a>
+<p class="caption">Grobe Übersicht über die Architektur.</p>
+</div>
+</div>
+<div class="section" id="algorithmik">
+<h3>3.3 Algorithmik<a class="headerlink" href="#algorithmik" title="Permalink to this headline">¶</a></h3>
+<p>Die genaue Beschreibung der Algorithmik wird in der Bachelorarbeit detailliert
+besprochen. Hier nur ein kurzer Überblick was mit welchem Ziel implementiert
+wird.</p>
+<div class="section" id="graphenoperationen">
+<h4>3.3.1 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="add">
+<h5>3.3.1.1 add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="insert">
+<h5>3.3.1.2 insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="remove">
+<h5>3.3.1.3 remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="modify">
+<h5>3.3.1.4 modify<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="re-build">
+<h5>3.3.1.5 (Re)build<a class="headerlink" href="#re-build" title="Permalink to this headline">¶</a></h5>
+<p>Bevor der Graph benutzt werden kann muss er natürlich erstmal aufgebaut werden.
+TODO</p>
+</div>
+<div class="section" id="fixing">
+<h5>3.3.1.6 Fixing<a class="headerlink" href="#fixing" title="Permalink to this headline">¶</a></h5>
+<p>Durch das Löschen und Hinzufügen von Songs können <em>Einbahnstraßen</em> im Graphen
+entstehen. Durch dem nachgelagerten <em>fixing</em> Schritt werden diese, nach
+bestimmten Regeln, entweder entfernt oder in bidirektionale Verbindungen
+umgebaut.</p>
+</div>
+</div>
+<div class="section" id="ausstellen-von-recommendations">
+<h4>3.3.2 Ausstellen von Recommendations<a class="headerlink" href="#ausstellen-von-recommendations" title="Permalink to this headline">¶</a></h4>
+<p>Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
+mittelseiner Breitensuche erledigt.</p>
+</div>
+<div class="section" id="sieben-von-recommendations">
+<h4>3.3.3 Sieben von Recommendations<a class="headerlink" href="#sieben-von-recommendations" title="Permalink to this headline">¶</a></h4>
+<p>Oft es nötig die gegebenen Empfehlungen noch zusätzlich zu filtern. Das hat den
+simplen Grund das im Graphen einzelne Alben einzelne <em>Cluster</em> bilden - die
+Lieder auf einem Album sind unter sich sehr ähnlich. Da man aber vermeiden
+möchte dass zu einem Seed-Song ein Lied vom selben Album oder gar selben
+Künstler empfohlen wird müssen diese beim Iterieren über den Graphen ausgesiebt
+werden.</p>
+</div>
+<div class="section" id="lernen-durch-die-history">
+<h4>3.3.4 Lernen durch die History<a class="headerlink" href="#lernen-durch-die-history" title="Permalink to this headline">¶</a></h4>
+<p>Nur eine bestimmte Anzahl von Regeln wird gespeichert - zuviele Regeln würden
+<em>historische Altlasten</em> immer weiter mitschleppen und der aktuelle Geschmack des
+Benutzers würde nicht widergespiegelt werden.</p>
+</div>
+</div>
+<div class="section" id="softwareaufbau">
+<h3>3.4 Softwareaufbau<a class="headerlink" href="#softwareaufbau" title="Permalink to this headline">¶</a></h3>
+<p>Da wir jetzt wissen aus welchen Teilen unsere Software besteht können wir uns
+Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.</p>
 <div class="section" id="maske">
-<h4>3.2.1 Maske<a class="headerlink" href="#maske" title="Permalink to this headline">¶</a></h4>
+<h4>3.4.1 Maske<a class="headerlink" href="#maske" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Beschreibung der Musikdatenbank die von außen reinkommt.</li>
 <li>Besteht aus einem Mapping, bei dem die keys den Namen eines Attributes
@@ -888,14 +938,9 @@ festlegt das ein einzelner Song haben wird, das zugehörige Value legt
 den dafür zuständigen Provider, die zuständige Distanzfunktion und
 wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
- <span class="s">&#39;genre&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">provider</span><span class="p">,</span> <span class="n">distance_func</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="session">
-<h4>3.2.2 Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h4>
+<h4>3.4.2 Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>API Entry für alle Funktionen</li>
 <li>Speichert songs ab</li>
@@ -903,62 +948,18 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 </ul>
 </div>
 <div class="section" id="song">
-<h4>3.2.3 Song<a class="headerlink" href="#song" title="Permalink to this headline">¶</a></h4>
+<h4>3.4.3 Song<a class="headerlink" href="#song" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Speichert nur values, keine</li>
 </ul>
 </div>
 <div class="section" id="distance">
-<h4>3.2.4 Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h4>
+<h4>3.4.4 Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Speichert alle Teildistanzen, statt einzelne weighted Distanz.</li>
 <li>Macht 'explanations' leicht.</li>
 </ul>
 </div>
-</div>
-<div class="section" id="kurze-implementierungshistorie">
-<h3>3.3 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h3>
-<p>Probleme:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Graphenaufbau (combinations = teuer)</li>
-<li>Festlegung von distance_add funktionsweise</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="graphenoperationen">
-<h3>3.4 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h3>
-<p>genaue beschreibungen in bachelorarbeit.</p>
-<div class="section" id="add">
-<h4>3.4.1 add<a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="insert">
-<h4>3.4.2 insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="remove">
-<h4>3.4.3 remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="modify">
-<h4>3.4.4 modify<a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="rebuild">
-<h4>3.4.5 rebuild<a class="headerlink" href="#rebuild" title="Permalink to this headline">¶</a></h4>
-</div>
-<div class="section" id="fix">
-<h4>3.4.6 fix<a class="headerlink" href="#fix" title="Permalink to this headline">¶</a></h4>
-</div>
-</div>
-<div class="section" id="ausstellen-von-recommendations">
-<h3>3.5 Ausstellen von Recommendations<a class="headerlink" href="#ausstellen-von-recommendations" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="sieben-von-recomemndations">
-<h3>3.6 Sieben von Recomemndations<a class="headerlink" href="#sieben-von-recomemndations" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="lernen-durch-die-history">
-<h3>3.7 Lernen durch die History<a class="headerlink" href="#lernen-durch-die-history" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="keywordextraction">
-<h3>3.8 Keywordextraction<a class="headerlink" href="#keywordextraction" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <span id="document-rst/IV/index"></span><div class="section" id="implementierung">
@@ -968,62 +969,8 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em> ''</p>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
-<div class="section" id="ubersicht">
-<h3>4.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><pre>munin/
-|---- __init__.py                     # Version Info
-|---- __main__.py                     # Contains an example program
-|---- database.py                     # Implements all TODO
-|---- dbus_client.py
-|---- dbus_service.py
-|---- distance/
-|   |---- __init__.py
-|   |---- bpm.py
-|   |---- date.py
-|   |---- genre.py
-|   |---- keywords.py
-|   |---- levenshtein.py
-|   |---- moodbar.py
-|   |---- rating.py
-|   |---- wordlist.py
-|---- easy.py
-|---- graph.py
-|---- helper.py
-|---- history.py
-|---- plot.py
-|---- provider/
-|   |---- __init__.py
-|   |---- bpm.py
-|   |---- composite.py
-|   |---- date.py
-|   |---- generate_genre_list.py
-|   |---- genre.list
-|   |---- genre.py
-|   |---- keywords.py
-|   |---- moodbar.py
-|   |---- normalize.py
-|   |---- stem.py
-|   |---- wordlist.py
-|---- rake.py
-|---- scripts/
-|   |---- moodbar_visualizer.py
-|   |---- moodbar_walk.py
-|---- session.py
-|---- song.py
-|---- stopwords/                     # Stopword supoort
-|   |---- data                       # Stopworddatabase
-|   |   |---- de                     # Each file contains a newline separated
-|   |   |---- en                     # list of stopwords.
-|   |   |---- es                     # File name is the ISO 638-1 language code.
-|   |   |---- …
-|   |---- __init__.py
-|---- testing.py
-
-5 directories, 57 files</pre>
-</div>
-</div>
 <div class="section" id="entwicklungsumgebung">
-<h3>4.2 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
+<h3>4.1 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
 <p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
 <ul class="simple">
 <li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
@@ -1063,11 +1010,67 @@ zurückgehen.</p>
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
 und <em>flake8</em> überprüft.</p>
 </div>
-<div class="section" id="historie">
-<h3>4.3 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kurze-implementierungshistorie">
+<h3>4.2 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h3>
+<p>Probleme:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Graphenaufbau (combinations = teuer)</li>
+<li>Festlegung von distance_add funktionsweise</li>
+</ul>
+</div></blockquote>
 </div>
-<div class="section" id="putting-it-together">
-<h3>4.4 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="liste-verfugbarer-provider-und-distanzfunktionen">
+<h3>4.3 Liste verfügbarer Provider und Distanzfunktionen<a class="headerlink" href="#liste-verfugbarer-provider-und-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
+<p>pass</p>
+</div>
+<div class="section" id="paketubersicht">
+<h3>4.4 Paketübersicht<a class="headerlink" href="#paketubersicht" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tree -I <span class="s1">&#39;__pycache__&#39;</span> munin/
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>munin/
+|---- __init__.py                     | Versionierungs Info
+|---- __main__.py                     | Beispielprogramm
+|---- database.py                     | Manager für alle vorhandenen Songs
+|---- dbus_service.py                 | [Unfertiger] Dbus Service für libmunin
+|---- dbus_client.py                  | [Unfertiger] DBus Client
+|---- distance/                       | Unterverzeichnis für Distanzfunktionen
+|   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
+|   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
+|   |---- date.py                     | ...
+|   |---- ...                         |
+|---- session.py                      | Implementierung der Session (API)
+|---- easy.py                         | Vereinfachte Session-API
+|---- graph.py                        | Implementiert Graphenoperationen
+|---- helper.py                       | Verschiedene Utilityfunktionen
+|---- history.py                      | Implementierung beider Histories
+|                                     | und Assoziationsregeln
+|---- plot.py                         | Visualisierungsfunktionen
+|---- provider/                       | Unterverzeichnis für alle Provider
+|   |---- __init__.py                 | Oberklasse für jeden Provider
+|   |---- bpm.py                      | BeatsPerMinute Provider
+|   |---- composite.py                | ...
+|   |---- ...                         |
+|---- rake.py                         | Implementierung des RAKE Algorithmus
+|---- scripts/                        | Verschiedene eigenständige Helper
+|   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
+|   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
+|                                     | jedes Audiofile in einem Verzeichnis
+|---- song.py                         | Implementierung der Song Klasse
+|---- stopwords/                      |
+|   |---- __init__.py                 | Stoppwort Implementierung
+|   |---- data                        | Stoppwort Datenbank
+|   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
+|   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
+|   |   |---- es                      | ISO 638-1 Language Code.
+|   |   |---- ...                     |
+|---- testing.py                      | Fixtures und Helper für unittests
+</pre></div>
+</div>
+</div>
+<div class="section" id="anwendungsbeispiel">
+<h3>4.5 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1113,10 +1116,23 @@ und <em>flake8</em> überprüft.</p>
 </span>    <span class="k">print</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
-<p>The output of this little wonder should be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>  <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="s">&#39;Debauchery&#39;</span> <span class="p">,</span> <span class="s">&#39;Continue to Kill&#39;</span> <span class="p">,</span> <span class="s">&#39;Apostle of War&#39;</span> <span class="p">,</span> <span class="s">&#39;brutal death&#39;</span><span class="p">)</span>
+<p>Ist <em>libmunin</em> korrekt installiert, so lässt sich dieses Skript überall ablegen
+und folgendermaßen ausführen:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python example.py
+<span class="o">(</span><span class="s1">&#39;Vogelfrey&#39;</span>  , <span class="s1">&#39;Wiegenfest&#39;</span>       , <span class="s1">&#39;Heldentod&#39;</span>      , <span class="s1">&#39;folk metal&#39;</span><span class="o">)</span>,
+<span class="o">(</span><span class="s1">&#39;Debauchery&#39;</span> , <span class="s1">&#39;Continue to Kill&#39;</span> , <span class="s1">&#39;Apostle of War&#39;</span> , <span class="s1">&#39;brutal death&#39;</span><span class="o">)</span>
 </pre></div>
+</div>
+<div class="section" id="kurze-erklarung-des-beispiels">
+<h4>4.5.1 Kurze Erklärung des Beispiels<a class="headerlink" href="#kurze-erklarung-des-beispiels" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="kurze-erklarung-des-outputs">
+<h4>4.5.2 Kurze Erklärung des Outputs<a class="headerlink" href="#kurze-erklarung-des-outputs" title="Permalink to this headline">¶</a></h4>
+<p>Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
+vergleichen lässt und wir uns von dem ersten Song (,, <em>Trugbild</em> '') zwei
+Empfehlungen geben ließen werden die zwei Songs mit dem ähnlichsten Genre
+ausgegeben.</p>
+<p>[TODO: Den Mini-Graph einfügen]</p>
 </div>
 </div>
 </div>
@@ -1296,8 +1312,13 @@ repräsentieren lassen.</p>
 </li>
 <li><p class="first">Einbeziehung der duration als provider/distanz (statistisch untersuchen)</p>
 </li>
-<li><p class="first">Echte audionanylse mittels aubio. <a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a>
-oder <a class="reference external" href="https://github.com/marsyas/marsyas">https://github.com/marsyas/marsyas</a></p>
+<li><p class="first">Echte audionanylse mittels aubio.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a></li>
+<li><a class="reference external" href="https://github.com/marsyas/marsyas">https://github.com/marsyas/marsyas</a></li>
+</ul>
+</div></blockquote>
 </li>
 <li><p class="first">Echte mood analyse.</p>
 </li>

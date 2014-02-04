@@ -119,21 +119,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ubersicht">3.1 Übersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#wie-fugt-sich-libmunin-in-seine-welt-ein">3.1 Wie fügt sich libmunin in seine Welt ein?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.2 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#kurze-implementierungshistorie">3.3 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#graphenoperationen">3.4 Graphenoperationen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ausstellen-von-recommendations">3.5 Ausstellen von Recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#sieben-von-recomemndations">3.6 Sieben von Recomemndations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#lernen-durch-die-history">3.7 Lernen durch die History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#keywordextraction">3.8 Keywordextraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.3 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#softwareaufbau">3.4 Softwareaufbau</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#historie">4.3 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#putting-it-together">4.4 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
@@ -189,62 +186,8 @@
 gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em> ''</p>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
-<div class="section" id="ubersicht">
-<h2>4.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><pre>munin/
-|---- __init__.py                     # Version Info
-|---- __main__.py                     # Contains an example program
-|---- database.py                     # Implements all TODO
-|---- dbus_client.py
-|---- dbus_service.py
-|---- distance/
-|   |---- __init__.py
-|   |---- bpm.py
-|   |---- date.py
-|   |---- genre.py
-|   |---- keywords.py
-|   |---- levenshtein.py
-|   |---- moodbar.py
-|   |---- rating.py
-|   |---- wordlist.py
-|---- easy.py
-|---- graph.py
-|---- helper.py
-|---- history.py
-|---- plot.py
-|---- provider/
-|   |---- __init__.py
-|   |---- bpm.py
-|   |---- composite.py
-|   |---- date.py
-|   |---- generate_genre_list.py
-|   |---- genre.list
-|   |---- genre.py
-|   |---- keywords.py
-|   |---- moodbar.py
-|   |---- normalize.py
-|   |---- stem.py
-|   |---- wordlist.py
-|---- rake.py
-|---- scripts/
-|   |---- moodbar_visualizer.py
-|   |---- moodbar_walk.py
-|---- session.py
-|---- song.py
-|---- stopwords/                     # Stopword supoort
-|   |---- data                       # Stopworddatabase
-|   |   |---- de                     # Each file contains a newline separated
-|   |   |---- en                     # list of stopwords.
-|   |   |---- es                     # File name is the ISO 638-1 language code.
-|   |   |---- …
-|   |---- __init__.py
-|---- testing.py
-
-5 directories, 57 files</pre>
-</div>
-</div>
 <div class="section" id="entwicklungsumgebung">
-<h2>4.2 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
+<h2>4.1 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
 <p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
 <ul class="simple">
 <li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
@@ -284,11 +227,67 @@ zurückgehen.</p>
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
 und <em>flake8</em> überprüft.</p>
 </div>
-<div class="section" id="historie">
-<h2>4.3 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kurze-implementierungshistorie">
+<h2>4.2 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h2>
+<p>Probleme:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Graphenaufbau (combinations = teuer)</li>
+<li>Festlegung von distance_add funktionsweise</li>
+</ul>
+</div></blockquote>
 </div>
-<div class="section" id="putting-it-together">
-<h2>4.4 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="liste-verfugbarer-provider-und-distanzfunktionen">
+<h2>4.3 Liste verfügbarer Provider und Distanzfunktionen<a class="headerlink" href="#liste-verfugbarer-provider-und-distanzfunktionen" title="Permalink to this headline">¶</a></h2>
+<p>pass</p>
+</div>
+<div class="section" id="paketubersicht">
+<h2>4.4 Paketübersicht<a class="headerlink" href="#paketubersicht" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tree -I <span class="s1">&#39;__pycache__&#39;</span> munin/
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>munin/
+|---- __init__.py                     | Versionierungs Info
+|---- __main__.py                     | Beispielprogramm
+|---- database.py                     | Manager für alle vorhandenen Songs
+|---- dbus_service.py                 | [Unfertiger] Dbus Service für libmunin
+|---- dbus_client.py                  | [Unfertiger] DBus Client
+|---- distance/                       | Unterverzeichnis für Distanzfunktionen
+|   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
+|   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
+|   |---- date.py                     | ...
+|   |---- ...                         |
+|---- session.py                      | Implementierung der Session (API)
+|---- easy.py                         | Vereinfachte Session-API
+|---- graph.py                        | Implementiert Graphenoperationen
+|---- helper.py                       | Verschiedene Utilityfunktionen
+|---- history.py                      | Implementierung beider Histories
+|                                     | und Assoziationsregeln
+|---- plot.py                         | Visualisierungsfunktionen
+|---- provider/                       | Unterverzeichnis für alle Provider
+|   |---- __init__.py                 | Oberklasse für jeden Provider
+|   |---- bpm.py                      | BeatsPerMinute Provider
+|   |---- composite.py                | ...
+|   |---- ...                         |
+|---- rake.py                         | Implementierung des RAKE Algorithmus
+|---- scripts/                        | Verschiedene eigenständige Helper
+|   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
+|   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
+|                                     | jedes Audiofile in einem Verzeichnis
+|---- song.py                         | Implementierung der Song Klasse
+|---- stopwords/                      |
+|   |---- __init__.py                 | Stoppwort Implementierung
+|   |---- data                        | Stoppwort Datenbank
+|   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
+|   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
+|   |   |---- es                      | ISO 638-1 Language Code.
+|   |   |---- ...                     |
+|---- testing.py                      | Fixtures und Helper für unittests
+</pre></div>
+</div>
+</div>
+<div class="section" id="anwendungsbeispiel">
+<h2>4.5 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -334,10 +333,23 @@ und <em>flake8</em> überprüft.</p>
 </span>    <span class="k">print</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
-<p>The output of this little wonder should be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>  <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="s">&#39;Debauchery&#39;</span> <span class="p">,</span> <span class="s">&#39;Continue to Kill&#39;</span> <span class="p">,</span> <span class="s">&#39;Apostle of War&#39;</span> <span class="p">,</span> <span class="s">&#39;brutal death&#39;</span><span class="p">)</span>
+<p>Ist <em>libmunin</em> korrekt installiert, so lässt sich dieses Skript überall ablegen
+und folgendermaßen ausführen:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python example.py
+<span class="o">(</span><span class="s1">&#39;Vogelfrey&#39;</span>  , <span class="s1">&#39;Wiegenfest&#39;</span>       , <span class="s1">&#39;Heldentod&#39;</span>      , <span class="s1">&#39;folk metal&#39;</span><span class="o">)</span>,
+<span class="o">(</span><span class="s1">&#39;Debauchery&#39;</span> , <span class="s1">&#39;Continue to Kill&#39;</span> , <span class="s1">&#39;Apostle of War&#39;</span> , <span class="s1">&#39;brutal death&#39;</span><span class="o">)</span>
 </pre></div>
+</div>
+<div class="section" id="kurze-erklarung-des-beispiels">
+<h3>4.5.1 Kurze Erklärung des Beispiels<a class="headerlink" href="#kurze-erklarung-des-beispiels" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="kurze-erklarung-des-outputs">
+<h3>4.5.2 Kurze Erklärung des Outputs<a class="headerlink" href="#kurze-erklarung-des-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
+vergleichen lässt und wir uns von dem ersten Song (,, <em>Trugbild</em> '') zwei
+Empfehlungen geben ließen werden die zwei Songs mit dem ähnlichsten Genre
+ausgegeben.</p>
+<p>[TODO: Den Mini-Graph einfügen]</p>
 </div>
 </div>
 </div>

@@ -119,21 +119,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ubersicht">3.1 Übersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#wie-fugt-sich-libmunin-in-seine-welt-ein">3.1 Wie fügt sich libmunin in seine Welt ein?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.2 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#kurze-implementierungshistorie">3.3 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#graphenoperationen">3.4 Graphenoperationen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ausstellen-von-recommendations">3.5 Ausstellen von Recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#sieben-von-recomemndations">3.6 Sieben von Recomemndations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#lernen-durch-die-history">3.7 Lernen durch die History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#keywordextraction">3.8 Keywordextraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.3 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#softwareaufbau">3.4 Softwareaufbau</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.3 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.4 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
@@ -185,13 +182,8 @@
   <div class="section" id="einleitung">
 <h1>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h1>
 <blockquote class="epigraph">
-<div><div class="line-block">
-<div class="line">'' <em>Scheue nicht Gefahr noch Leiden</em></div>
-<div class="line"><em>Lebe nicht von vergangenen Herrlichkeiten</em></div>
-<div class="line"><em>Liegt auch Stolz in der Erinnerung</em></div>
-<div class="line"><em>Das Alte wird nicht wieder jung</em> ''</div>
-</div>
-<p class="attribution">&mdash;<em>Unter der Asche,</em> <strong>DAR</strong></p>
+<div><p>'' <em>Sei froh dass du du bist, und nicht dieser Fisch.</em> ''</p>
+<p class="attribution">&mdash;<em>Marc Uwe Kling</em>, deutscher Kabarettist</p>
 </div></blockquote>
 <div class="section" id="motivation">
 <h2>1.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
@@ -226,37 +218,37 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 <div class="figure align-center">
 <center><table border="1" class="docutils">
 <colgroup>
-<col width="63%" />
-<col width="38%" />
+<col width="31%" />
+<col width="19%" />
+<col width="31%" />
+<col width="19%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-right">Jahr</th>
+<tr class="row-odd"><th class="head align-right">Jahre</th>
+<th class="head align-left">Anzahl</th>
+<th class="head align-right">Jahre</th>
 <th class="head align-left">Anzahl</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td class="align-right">1994-2000</td>
 <td class="align-left">1</td>
+<td class="align-right">2007-2008</td>
+<td class="align-left">8</td>
 </tr>
 <tr class="row-odd"><td class="align-right">2001-2002</td>
 <td class="align-left">4</td>
+<td class="align-right">2009-2010</td>
+<td class="align-left">9</td>
 </tr>
 <tr class="row-even"><td class="align-right">2003-2004</td>
 <td class="align-left">3</td>
+<td class="align-right">2011-2012</td>
+<td class="align-left">6</td>
 </tr>
 <tr class="row-odd"><td class="align-right">2005-2006</td>
 <td class="align-left">8</td>
-</tr>
-<tr class="row-even"><td class="align-right">2007-2008</td>
-<td class="align-left">8</td>
-</tr>
-<tr class="row-odd"><td class="align-right">2009-2010</td>
-<td class="align-left">9</td>
-</tr>
-<tr class="row-even"><td class="align-right">2011-2012</td>
-<td class="align-left">6</td>
-</tr>
-<tr class="row-odd"><td class="align-right">2013-2014</td>
+<td class="align-right">2013-2014</td>
 <td class="align-left">5+</td>
 </tr>
 </tbody>
