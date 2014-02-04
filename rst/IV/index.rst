@@ -7,7 +7,7 @@ Implementierung
 
 
     '' *Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
-    gewaltbereiter Psychopath, der weiß, wo Sie wohnen* ''
+    gewaltbereiter Psychopath, der weiß, wo Sie wohnen.* ''
 
     -- *Peter Stöhr*
 

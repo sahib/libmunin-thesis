@@ -200,6 +200,11 @@ ADDITIONAL_PREAMBLE = """
 % Extra packages
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
+
+\\usepackage{titlesec}
+\\definecolor{gray75}{gray}{0.75}
+\\newcommand{\\hsp}{\hspace{20pt}}
+\\titleformat{\\chapter}[hang]{\\Huge\\bfseries}{\\thechapter\\hsp\\textcolor{gray75}{|}\\hsp}{0pt}{\\Huge\\bfseries}
 """
 
 ADDITIONAL_FOOTER = """
