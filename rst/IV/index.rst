@@ -11,63 +11,6 @@ Implementierung
 
     -- *Peter Stöhr*
 
-
-Übersicht
-=========
-
-::
-
-    munin/
-    |---- __init__.py                     # Version Info
-    |---- __main__.py                     # Contains an example program
-    |---- database.py                     # Implements all TODO
-    |---- dbus_client.py
-    |---- dbus_service.py
-    |---- distance/
-    |   |---- __init__.py
-    |   |---- bpm.py
-    |   |---- date.py
-    |   |---- genre.py
-    |   |---- keywords.py
-    |   |---- levenshtein.py
-    |   |---- moodbar.py
-    |   |---- rating.py
-    |   |---- wordlist.py
-    |---- easy.py
-    |---- graph.py
-    |---- helper.py
-    |---- history.py
-    |---- plot.py
-    |---- provider/
-    |   |---- __init__.py
-    |   |---- bpm.py
-    |   |---- composite.py
-    |   |---- date.py
-    |   |---- generate_genre_list.py
-    |   |---- genre.list
-    |   |---- genre.py
-    |   |---- keywords.py
-    |   |---- moodbar.py
-    |   |---- normalize.py
-    |   |---- stem.py
-    |   |---- wordlist.py
-    |---- rake.py
-    |---- scripts/
-    |   |---- moodbar_visualizer.py
-    |   |---- moodbar_walk.py
-    |---- session.py
-    |---- song.py
-    |---- stopwords/                     # Stopword supoort
-    |   |---- data                       # Stopworddatabase 
-    |   |   |---- de                     # Each file contains a newline separated
-    |   |   |---- en                     # list of stopwords. 
-    |   |   |---- es                     # File name is the ISO 638-1 language code.
-    |   |   |---- …
-    |   |---- __init__.py
-    |---- testing.py
-
-    5 directories, 57 files
-    
 Entwicklungsumgebung
 ====================
 
@@ -122,11 +65,70 @@ dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
 und *flake8* überprüft.
 
 
-Historie
-========
+Kurze Implementierungshistorie
+==============================
 
-Putting it together
-===================
+Probleme:
+
+    - Graphenaufbau (combinations = teuer) 
+    - Festlegung von distance_add funktionsweise
+
+Liste verfügbarer Provider und Distanzfunktionen
+================================================
+
+pass
+
+Paketübersicht
+==============
+
+
+.. code-block:: bash
+
+   $ tree -I '__pycache__' munin/
+
+::
+
+    munin/
+    |---- __init__.py                     | Versionierungs Info
+    |---- __main__.py                     | Beispielprogramm
+    |---- database.py                     | Manager für alle vorhandenen Songs
+    |---- dbus_service.py                 | [Unfertiger] Dbus Service für libmunin
+    |---- dbus_client.py                  | [Unfertiger] DBus Client
+    |---- distance/                       | Unterverzeichnis für Distanzfunktionen
+    |   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
+    |   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
+    |   |---- date.py                     | ...
+    |   |---- ...                         | 
+    |---- session.py                      | Implementierung der Session (API)
+    |---- easy.py                         | Vereinfachte Session-API
+    |---- graph.py                        | Implementiert Graphenoperationen
+    |---- helper.py                       | Verschiedene Utilityfunktionen
+    |---- history.py                      | Implementierung beider Histories 
+    |                                     | und Assoziationsregeln
+    |---- plot.py                         | Visualisierungsfunktionen
+    |---- provider/                       | Unterverzeichnis für alle Provider
+    |   |---- __init__.py                 | Oberklasse für jeden Provider
+    |   |---- bpm.py                      | BeatsPerMinute Provider
+    |   |---- composite.py                | ...
+    |   |---- ...                         | 
+    |---- rake.py                         | Implementierung des RAKE Algorithmus
+    |---- scripts/                        | Verschiedene eigenständige Helper
+    |   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
+    |   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
+    |                                     | jedes Audiofile in einem Verzeichnis
+    |---- song.py                         | Implementierung der Song Klasse
+    |---- stopwords/                      | 
+    |   |---- __init__.py                 | Stoppwort Implementierung
+    |   |---- data                        | Stoppwort Datenbank
+    |   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
+    |   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
+    |   |   |---- es                      | ISO 638-1 Language Code.
+    |   |   |---- ...                     |
+    |---- testing.py                      | Fixtures und Helper für unittests
+    
+
+Anwendungsbeispiel
+==================
 
 .. code-block:: python
     :linenos:
@@ -156,10 +158,25 @@ Putting it together
         print(MY_DATABASE[munin_song.uid])
 
 
-The output of this little wonder should be:
+Ist *libmunin* korrekt installiert, so lässt sich dieses Skript überall ablegen
+und folgendermaßen ausführen:
 
-.. code-block:: python
+.. code-block:: bash
 
+    $ python example.py
     ('Vogelfrey'  , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
     ('Debauchery' , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
 
+Kurze Erklärung des Beispiels 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Kurze Erklärung des Outputs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
+vergleichen lässt und wir uns von dem ersten Song (,, *Trugbild* '') zwei
+Empfehlungen geben ließen werden die zwei Songs mit dem ähnlichsten Genre
+ausgegeben.
+
+[TODO: Den Mini-Graph einfügen]

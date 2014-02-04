@@ -81,11 +81,11 @@ TODO: Nachweise
     .. _fig-lastfm-webradio:
 
     .. figure:: figs/lastfm_spotify_radio.png
-        :alt: Webradio (eine *Station*) auf Spotify (ein Music-Streaming-Dienst)
-        :width: 150%
+        :alt: Eine *Station* auf Spotify
+        :width: 125%
         :align: center
     
-        Das Webradio von Spotify mit Empfehlungen von last.fm
+        Eine *Station* auf Spotify (Empfehlungen von last.fm)
 
     .. subfigend::
         :width: 0.5

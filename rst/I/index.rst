@@ -4,12 +4,10 @@ Einleitung
 
 .. epigraph:: 
 
-    | '' *Scheue nicht Gefahr noch Leiden*
-    | *Lebe nicht von vergangenen Herrlichkeiten*
-    | *Liegt auch Stolz in der Erinnerung* 
-    | *Das Alte wird nicht wieder jung* ''
+   '' *Sei froh dass du du bist, und nicht dieser Fisch.* ''
 
-    -- *Unter der Asche,* **DAR**
+   -- *Marc Uwe Kling*, deutscher Kabarettist
+   
 
 Motivation
 ==========
@@ -53,20 +51,16 @@ Anzahl von Arbeiten auf diesem Gebiet:
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
     :alt: Wissenschaftliche Arbeiten zum Thema 'Music Recommendation' auf die Jahre verteilt
-    :spec: r l
+    :spec: r l r l
 
-    ========== ======
-    Jahr       Anzahl
-    ========== ======
-    1994-2000  1
-    2001-2002  4
-    2003-2004  3
-    2005-2006  8
-    2007-2008  8
-    2009-2010  9
-    2011-2012  6
-    2013-2014  5+  
-    ========== ======
+    ========== ====== ========== ======
+    Jahre      Anzahl Jahre      Anzahl
+    ========== ====== ========== ======
+    1994-2000  1      2007-2008  8
+    2001-2002  4      2009-2010  9
+    2003-2004  3      2011-2012  6
+    2005-2006  8      2013-2014  5+  
+    ========== ====== ========== ======
 
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
 Seiten starkes Buch. :cite:p:`celma2010music`.

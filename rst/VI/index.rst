@@ -43,8 +43,11 @@ Features
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
 - Similar Artist/Album/Genre...
 - Einbeziehung der duration als provider/distanz (statistisch untersuchen)
-- Echte audionanylse mittels aubio. https://github.com/piem/aubio 
-  oder https://github.com/marsyas/marsyas
+- Echte audionanylse mittels aubio.
+  
+    * https://github.com/piem/aubio 
+    * https://github.com/marsyas/marsyas
+
 - Echte mood analyse.
 - (Amazon) artist/album reviews mit einbeziehen, keyword-extraction.
 - Sprache, Intros und Audio intelligent unterscheiden.
