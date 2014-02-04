@@ -137,9 +137,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">5 Test</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#verifikation">5.1 Verifikation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifizierung">5.2 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
@@ -188,46 +188,127 @@
 <div><p>'' <em>These plus Antithese gleich Hysterese</em> ''</p>
 <p class="attribution">&mdash;<em>Einfach Göttlich, Terry Pratchett</em></p>
 </div></blockquote>
-<div class="section" id="verifikation">
-<h2>5.1 Verifikation<a class="headerlink" href="#verifikation" title="Permalink to this headline">¶</a></h2>
-<p>Wo war der Unterschied nochmal?</p>
-</div>
 <div class="section" id="erfullung-der-anforderungen">
-<h2>5.2 Erfüllung der Anforderungen<a class="headerlink" href="#erfullung-der-anforderungen" title="Permalink to this headline">¶</a></h2>
+<h2>5.1 Erfüllung der Anforderungen<a class="headerlink" href="#erfullung-der-anforderungen" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="verifizierung">
-<h2>5.3 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h2>
-<p>Wo war der Unterschied nochmal?</p>
+<h2>5.2 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h2>
+<p>Schauen ob das Programm dem Design entspricht</p>
+</div>
+<div class="section" id="validierung">
+<h2>5.3 Validierung<a class="headerlink" href="#validierung" title="Permalink to this headline">¶</a></h2>
+<p>Schauen ob das Programm das Problem löst.</p>
 </div>
 <div class="section" id="demonanwendung-als-debugger">
 <h2>5.4 Demonanwendung als Debugger<a class="headerlink" href="#demonanwendung-als-debugger" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center">
+<p>Abseits der Library wurde eine auf dem freien Oberflächen-Framework GTK+-3.0
+basierende GUI-Anwendung entwickelt.  Entsprechend <a class="reference internal" href="../II/index.html#anf-demo">2.5.2.3</a> dient diese
+nicht nur zum <em>Showoff</em>, sondern auch zur gezielten Fehlersuche.</p>
+<p>Die Anwendung, die den ebenfalls nordischen Namen <em>Naglfar</em> erhielt,
+implementiert einen MPD-Client. Beim Start ack</p>
+<div class="figure align-center" id="fig-demo-overview">
 <a class="reference internal image-reference" href="../../_images/demo_overview.svg"><img alt="Übersicht über die Demoanwendung" src="../../_images/demo_overview.svg" width="100%" /></a>
-<p class="caption">Übersicht über die Demonanwendung</p>
+<p class="caption"><strong>Figure 5.1:</strong> Übersicht über die Demonanwendung</p>
 </div>
+<p>Erklärung der Kontrollelemente in <a href="#fig-demo-overview">5.1</a>.</p>
+<div class="section" id="main">
+<h3>5.4.1 Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Views</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first"><em>Database</em> <a href="#fig-demo-database">5.2</a></p>
+</li>
+<li><p class="first"><em>Playlist</em> <a href="#fig-demo-playlist">5.3</a></p>
+<p>Wie die <em>Database View</em>, zeigt aber lediglich die Songs an die empfohlen
+wurden. Sonst ist diese View Funktionsidentisch mit der <em>Database View</em>.</p>
+</li>
+<li><p class="first"><em>Graph</em> <a href="#fig-demo-graph">5.5</a></p>
+<p>Im <em>Graphen View</em> kann ein Plot von <em>libmunin's</em> Graphen begutachtet
+werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
+gegeben wurden.</p>
+</li>
+<li><p class="first"><em>Rules</em> <a href="#fig-demo-rules">5.4</a></p>
+<p>In einer Liste werden alle bekannten <em class="xref std std-term">Assoziationsregeln</em>
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
+und das Rating der Regel angezeigt.</p>
+</li>
+<li><p class="first"><em>Examine</em> <a href="#fig-demo-examine">5.7</a></p>
+<p>Hier werden alle Attribute des momentan spielenden Songs angezeigt.
+Es wird die von <em>libmunin</em> normalisierte Form angezeigt, also auch, falls
+verfügbar, der Originalwert.</p>
+<p>Zudem wird die <em>moodbar</em> oben im Fenster geplottet.</p>
+</li>
+<li><p class="first"><em>History</em> <a href="#fig-demo-history">5.6</a></p>
+<p>Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
+gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt
+ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.</p>
+<p>Letzteres ist für das Debugging der Filter-Funktion nützlich.</p>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Seed Song</p>
+</li>
+<li><p class="first">Current Song</p>
+</li>
+<li><p class="first">Playlist</p>
+</li>
+</ol>
+</div>
+<div class="section" id="controls">
+<h3>5.4.2 Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="5">
+<li>Recom Count</li>
+<li>Filter</li>
+<li>Max. listen</li>
+<li>Query Entry</li>
+<li>Rating</li>
+</ol>
+</div>
+<div class="section" id="media-controls">
+<h3>5.4.3 Media Controls<a class="headerlink" href="#media-controls" title="Permalink to this headline">¶</a></h3>
+<p>Typische Bedienelemente eines Audioplayers.</p>
+<ol class="arabic" start="10">
+<li><p class="first">Playcount</p>
+</li>
+<li><p class="first">Volume Bar</p>
+</li>
+<li><p class="first">Title Label</p>
+</li>
+<li><p class="first">Mode buttons</p>
+<p>Umschalten zwischen <em>Random</em>, <em>Single</em>, <em>Repeat</em> und <em>Consume</em>.</p>
+</li>
+<li><p class="first">Seekbar</p>
+<p>Ermöglicht das wahlfreie</p>
+</li>
+<li><p class="first">Playbuttons</p>
+</li>
+</ol>
 <div class="figure align-center" id="fig-demo-database">
 <a class="reference internal image-reference" href="../../_images/demo_database.png"><img alt="Die Datenbank Ansicht" src="../../_images/demo_database.png" style="width: 100%;" /></a>
-<p class="caption">Die Datenbank Ansicht - Anzeige aller Songs.</p>
+<p class="caption"><strong>Figure 5.2:</strong> Die Datenbank Ansicht - Anzeige aller Songs.</p>
 </div>
 <div class="figure align-center" id="fig-demo-playlist">
 <a class="reference internal image-reference" href="../../_images/demo_playlist.png"><img alt="Die aktuelle Playlist" src="../../_images/demo_playlist.png" style="width: 100%;" /></a>
-<p class="caption">Die aktuelle Playlist, bestehend aus den Empfehlungen.</p>
+<p class="caption"><strong>Figure 5.3:</strong> Die aktuelle Playlist, bestehend aus den Empfehlungen.</p>
 </div>
 <div class="figure align-center" id="fig-demo-rules">
 <a class="reference internal image-reference" href="../../_images/demo_rules.png"><img alt="Die Regelansicht" src="../../_images/demo_rules.png" style="width: 100%;" /></a>
-<p class="caption">Die momentan bekannten Regeln</p>
+<p class="caption"><strong>Figure 5.4:</strong> Die momentan bekannten Regeln</p>
 </div>
 <div class="figure align-center" id="fig-demo-graph">
 <a class="reference internal image-reference" href="../../_images/demo_graph.png"><img alt="Die Graphenansicht" src="../../_images/demo_graph.png" style="width: 100%;" /></a>
-<p class="caption">Der Graph der hinter den Empfehlungen steckt wird hier geplottet.</p>
+<p class="caption"><strong>Figure 5.5:</strong> Der Graph der hinter den Empfehlungen steckt wird hier geplottet.</p>
 </div>
 <div class="figure align-center" id="fig-demo-history">
 <a class="reference internal image-reference" href="../../_images/demo_history.png"><img alt="Die Ansicht der History" src="../../_images/demo_history.png" style="width: 100%;" /></a>
-<p class="caption">History-Ansicht, die zuletzt gehörten und empfohlenen Songs.</p>
+<p class="caption"><strong>Figure 5.6:</strong> History-Ansicht, die zuletzt gehörten und empfohlenen Songs.</p>
 </div>
 <div class="figure align-center" id="fig-demo-examine">
 <a class="reference internal image-reference" href="../../_images/demo_examine.png"><img alt="Die Ansicht der Examine-Page" src="../../_images/demo_examine.png" style="width: 100%;" /></a>
-<p class="caption">Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.</p>
+<p class="caption"><strong>Figure 5.7:</strong> Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.</p>
+</div>
 </div>
 </div>
 </div>

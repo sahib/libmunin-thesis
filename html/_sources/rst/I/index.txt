@@ -71,10 +71,6 @@ Anzahl von Arbeiten auf diesem Gebiet:
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
 Seiten starkes Buch. :cite:p:`celma2010music`.
 
-Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.
-
-TODO
-
 Was fehlt?
 ----------
 

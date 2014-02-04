@@ -321,6 +321,8 @@ Kernaussagen im Bezug auf diese Arbeit erläutert:
 Schlussfolgerungen
 ==================
 
+TODO
+
 Folgende Ideen sind übernehmenswert:
 
     * lernendes System, nutzer-erfahrung (last.fm)
@@ -352,121 +354,171 @@ erfüllt werden, letztere können partiell erfüllt werden.
 Technische Anforderungen
 ------------------------
 
-#. Ausstellen von Empfehlungen muss performant möglich sein.
+.. _anf-performance:
 
-    Da später sehr viele Anfragen, unter Umständen gleichzeitig, an das System
-    gestellt werden darf auch eine Abfrage von 100 Empfehlungen nicht länger 
-    als eine Sekunde dauern.
+Performante Empfehlungen
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Die eigentliche Arbeit muss daher in einem vorgelagerten Analyse-Schritt 
-    erfolgen und die daraus gewonnenen Kenntnisse in einer geeigneten
-    Datenstruktur gespeichert werden.
+Ausstellen von Empfehlungen muss performant möglich sein.
 
-#. Empfehlungen bilden eine Kette.
+Da später sehr viele Anfragen, unter Umständen gleichzeitig, an das System
+gestellt werden darf auch eine Abfrage von 100 Empfehlungen nicht länger 
+als eine Sekunde dauern.
 
-    Wird eine Anfrage an das System gestellt so wird ein Iterator zurückgegeben
-    der alle dem System bekannten Songs nach Relevanz absteigend sortiert ausgibt. 
+Die eigentliche Arbeit muss daher in einem vorgelagerten Analyse-Schritt 
+erfolgen und die daraus gewonnenen Kenntnisse in einer geeigneten
+Datenstruktur gespeichert werden.
 
-#. Handhabung großer Datenmengen.
+.. _anf-chain:
 
-    Groß definiert sich hierbei durch das Einsatzszenario. Bei privaten
-    Musiksammlungen beträgt die maximale Größe die problemlos unterstützt werden
-    soll bis zu 40.000 Lieder. 
+Empfehlungen bilden eine Kette
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Wird eine Anfrage an das System gestellt so wird ein Iterator zurückgegeben
+der alle dem System bekannten Songs nach Relevanz absteigend sortiert ausgibt. 
+
+.. _anf-data:
+
+Handhabung großer Datenmengen.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Groß definiert sich hierbei durch das Einsatzszenario. Bei privaten
+Musiksammlungen beträgt die maximale Größe die problemlos unterstützt werden
+soll bis zu 40.000 Lieder. 
     
-    Größere Datenmengen, wie sie vlt. bei Webradios vorkommen, sollen auch unterstützt
-    werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.
+Größere Datenmengen, wie sie vlt. bei Webradios vorkommen, sollen auch unterstützt
+werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.
 
-#. Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen dass
-   Weiterentwicklungen in das Projekt zurückfließen.
+.. _anf-license:
 
-    Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
-    erwünscht.
+Lizenz
+~~~~~~
 
-#. Empfehlungen sollen begründbar sein.
+Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen dass
+Weiterentwicklungen in das Projekt zurückfließen.
 
-    Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
-    haben.
+Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
+erwünscht.
+
+.. _anf-reasoning:
+
+Begründbarkeit
+~~~~~~~~~~~~~~
+
+Empfehlungen sollen begründbar sein.
+
+Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
+haben.
 
 Weiche Anforderungen
 --------------------
 
-#. Die bereitgestellte API muss auf die stark variierende Qualität und Form von
-   Musiksammlungen eingestellt sein. 
+.. _anf-api:
 
-     Viele existierende Musiksammlungen sind unterschiedlich gut mit Metadaten 
-     (*Tags*) versorgt. So sind manche Tags gar nicht erst vorhanden oder sind
-     je nach Format und verwendeten Tagging-Tool/Datenbank anders benannt.
+Anpassungsfähige API
+~~~~~~~~~~~~~~~~~~~~
 
-     Das fertige System soll mit Szenarien zurecht kommen wo lediglich die 
-     Metadaten der zu untersuchenden Songs zur Verfügung stehen, aber nicht die
-     eigentlichen Audio-Daten. Dies kann beispielsweise vorteilhaft in Fällen
-     sein bei denen man die Lieder nicht selbst besitzt aber Zugriff auf
-     Musikdatenbanken wie *MusicBrainz*.
 
-#. Das System soll von mehreren Programmiersprachen aus benutzbar sein.
+Die bereitgestellte API muss auf die stark variierende Qualität und Form von
+Musiksammlungen eingestellt sein. 
 
-     Dieses Ziel könnte entweder durch verschiedene Languagebindings erreicht
-     werden, oder alternativ durch eine Server/Client Struktur mit einem
-     definierten Protokoll in der Mitte.
+Viele existierende Musiksammlungen sind unterschiedlich gut mit Metadaten 
+(*Tags*) versorgt. So sind manche Tags gar nicht erst vorhanden oder sind
+je nach Format und verwendeten Tagging-Tool/Datenbank anders benannt.
 
-     Portabilität ist für das erste zweitrangig.
-     Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
-     *Arch Linux* [#f1]_, dem bevorzugten Betriebssystem des Autors, unterstützt werden.
+Das fertige System soll mit Szenarien zurecht kommen wo lediglich die 
+Metadaten der zu untersuchenden Songs zur Verfügung stehen, aber nicht die
+eigentlichen Audio-Daten. Dies kann beispielsweise vorteilhaft in Fällen
+sein bei denen man die Lieder nicht selbst besitzt aber Zugriff auf
+Musikdatenbanken wie *MusicBrainz*.
 
-#. Eine Demonstrations-Anwendung sollte entwickelt werden die zur
-   Fehlersuche, Verbesserung und als Einsatzbeispiel dient.
+.. _anf-agnostic:
 
-     Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
-     zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese 
-     Empfehlung auch *begründen* kann. Daher soll diese Anwendung auch als
-     *Debugger* dienen.
+Programmiersprachen agnostisch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-     Die Demonanwendung sollte dabei auf den freien MPD-Client *Moosecat*
-     aufsetzen.
+Das System soll von mehreren Programmiersprachen aus benutzbar sein.
 
-     .. admonition:: Exkurs zu *Moosecat*:
+Dieses Ziel könnte entweder durch verschiedene Languagebindings erreicht
+werden, oder alternativ durch eine Server/Client Struktur mit einem
+definierten Protokoll in der Mitte.
 
-        Moosecat ist ein vom Auto seit 2012 entwickelter GPLv3 lizensierter
-        MPD-Client. Im Gegensatz zu den meisten, etablierten Clients hält er
-        eine Zwischendatenbank die den Zustand des Servers spiegelt. Dadurch
-        wird die Netzwerklast und die Startzeit reduziert und interessante
-        Feature wie Volltextsuche wird möglich.
+Portabilität ist für das erste zweitrangig.
+Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
+*Arch Linux* [#f1]_, dem bevorzugten Betriebssystem des Autors, unterstützt werden.
 
-        Er wird in Python, Cython und C entwickelt und befindet sich noch im
-        Entwicklungsstadium.
+.. _anf-demo:
 
-        Mehr Information unter: https://github.com/studentkittens/moosecat
+Demonstrations und Debuggeranwendung inkludiert
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   
+Eine Demonstrations-Anwendung sollte entwickelt werden die zur
+Fehlersuche, Verbesserung und als Einsatzbeispiel dient.
 
-#. Es sollte einfach sein fehlende Daten zu beschaffen.
+Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
+zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese 
+Empfehlung auch *begründen* kann. Daher soll diese Anwendung auch als
+*Debugger* dienen.
 
-     In den meisten privaten Musisammlungen sind die wichtigsten Attribute
-     *getaggt* - sprich in der Audiodatei sind Werte wie *Artist*, *Album* und
-     *Titel* hinterlegt. Manche Attribute sind allerdings schwerer zu bekommen,
-     wie beispielsweise die *Lyrics* zu einem bestimmten *Titel* oder auch das
-     *Genre* eines Albums 
+Die Demoanwendung sollte dabei auf den freien MPD-Client *Moosecat*
+aufsetzen.
 
-     Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
-     Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden.
-    
-     .. admonition:: Exkurs zu *libglyr*:
+.. admonition:: Exkurs zu *Moosecat*:
 
-         *libglyr* ist eine vom Autor seit Ende 2010 
-         entwickelte C-Bibliothek um Musikmetadatensuchmaschine um schwer zu
-         besorgende Daten wie die Lyrics, Coverart und 
+   Moosecat ist ein vom Auto seit 2012 entwickelter GPLv3 lizensierter
+   MPD-Client. Im Gegensatz zu den meisten, etablierten Clients hält er
+   eine Zwischendatenbank die den Zustand des Servers spiegelt. Dadurch
+   wird die Netzwerklast und die Startzeit reduziert und interessante
+   Feature wie Volltextsuche wird möglich.
 
-         Sie ist GPLv3 lizensiert und wird unter anderem im
-         *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten eingesetzt und
-         natürlich in dem oben genannten *moosecat*.
+   Er wird in Python, Cython und C entwickelt und befindet sich noch im
+   Entwicklungsstadium.
 
-         Mehr Information unter: https://github.com/sahib/libglyr
+   Mehr Information unter: https://github.com/studentkittens/moosecat
 
-#. Das System muss mit der Zeit sich dem User anpassen.
+.. _anf-retrieval:
 
-    Mit der Zeit soll es *bessere* Empfehlungen liefern als am Anfang.
-    Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
-    Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
-    bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
-    und daraus werden Schlussfolgerungen getroffen.
+Einfaches *Information Retrieval*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Es sollte einfach sein fehlende Daten zu beschaffen.
+
+In den meisten privaten Musisammlungen sind die wichtigsten Attribute
+*getaggt* - sprich in der Audiodatei sind Werte wie *Artist*, *Album* und
+*Titel* hinterlegt. Manche Attribute sind allerdings schwerer zu bekommen,
+wie beispielsweise die *Lyrics* zu einem bestimmten *Titel* oder auch das
+*Genre* eines Albums 
+
+Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
+Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden.
+
+.. admonition:: Exkurs zu *libglyr*:
+
+    *libglyr* ist eine vom Autor seit Ende 2010 
+    entwickelte C-Bibliothek um Musikmetadatensuchmaschine um schwer zu
+    besorgende Daten wie die Lyrics, Coverart und 
+
+    Sie ist GPLv3 lizensiert und wird unter anderem im
+    *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten eingesetzt und
+    natürlich in dem oben genannten *moosecat*.
+
+    Mehr Information unter: https://github.com/sahib/libglyr
+
+.. _anf-learning:
+
+Anpassungsfähigkeit an den Benutzer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Das System muss mit der Zeit sich dem User anpassen.
+
+Mit der Zeit soll es *bessere* Empfehlungen liefern als am Anfang.
+Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
+Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
+bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
+und daraus werden Schlussfolgerungen getroffen.
+
+Nicht-Anforderungen
+-------------------
 
 Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 

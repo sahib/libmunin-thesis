@@ -135,9 +135,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/V/index">5 Test</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#verifikation">5.1 Verifikation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#erfullung-der-anforderungen">5.2 Erfüllung der Anforderungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#verifizierung">5.3 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#verifizierung">5.2 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/V/index#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
 </ul>
 </li>
@@ -293,8 +293,6 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
 </center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
 Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="rst/index.html#citation-celma2010music">1</a><span class="citation">]</span></span>.</p>
-<p>Desweiteren findet eine jährliche Konferenz zum Thema statt: ISMIR.</p>
-<p>TODO</p>
 </div>
 <div class="section" id="was-fehlt">
 <h4>1.1.2 Was fehlt?<a class="headerlink" href="#was-fehlt" title="Permalink to this headline">¶</a></h4>
@@ -626,6 +624,7 @@ Lied definiert. Diese wird durch Audioanalyse extrahiert.</p>
 </div>
 <div class="section" id="schlussfolgerungen">
 <h3>2.4 Schlussfolgerungen<a class="headerlink" href="#schlussfolgerungen" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
 <p>Folgende Ideen sind übernehmenswert:</p>
 <blockquote>
 <div><ul class="simple">
@@ -658,54 +657,50 @@ unterschieden - erstere sind atomar, sprich sie können ganz oder gar nicht
 erfüllt werden, letztere können partiell erfüllt werden.</p>
 <div class="section" id="technische-anforderungen">
 <h4>2.5.1 Technische Anforderungen<a class="headerlink" href="#technische-anforderungen" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic">
-<li><p class="first">Ausstellen von Empfehlungen muss performant möglich sein.</p>
-<blockquote>
-<div><p>Da später sehr viele Anfragen, unter Umständen gleichzeitig, an das System
+<div class="section" id="performante-empfehlungen">
+<span id="anf-performance"></span><h5>2.5.1.1 Performante Empfehlungen<a class="headerlink" href="#performante-empfehlungen" title="Permalink to this headline">¶</a></h5>
+<p>Ausstellen von Empfehlungen muss performant möglich sein.</p>
+<p>Da später sehr viele Anfragen, unter Umständen gleichzeitig, an das System
 gestellt werden darf auch eine Abfrage von 100 Empfehlungen nicht länger
 als eine Sekunde dauern.</p>
 <p>Die eigentliche Arbeit muss daher in einem vorgelagerten Analyse-Schritt
 erfolgen und die daraus gewonnenen Kenntnisse in einer geeigneten
 Datenstruktur gespeichert werden.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Empfehlungen bilden eine Kette.</p>
-<blockquote>
-<div><p>Wird eine Anfrage an das System gestellt so wird ein Iterator zurückgegeben
+</div>
+<div class="section" id="empfehlungen-bilden-eine-kette">
+<span id="anf-chain"></span><h5>2.5.1.2 Empfehlungen bilden eine Kette<a class="headerlink" href="#empfehlungen-bilden-eine-kette" title="Permalink to this headline">¶</a></h5>
+<p>Wird eine Anfrage an das System gestellt so wird ein Iterator zurückgegeben
 der alle dem System bekannten Songs nach Relevanz absteigend sortiert ausgibt.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Handhabung großer Datenmengen.</p>
-<blockquote>
-<div><p>Groß definiert sich hierbei durch das Einsatzszenario. Bei privaten
+</div>
+<div class="section" id="handhabung-groszer-datenmengen">
+<span id="anf-data"></span><h5>2.5.1.3 Handhabung großer Datenmengen.<a class="headerlink" href="#handhabung-groszer-datenmengen" title="Permalink to this headline">¶</a></h5>
+<p>Groß definiert sich hierbei durch das Einsatzszenario. Bei privaten
 Musiksammlungen beträgt die maximale Größe die problemlos unterstützt werden
 soll bis zu 40.000 Lieder.</p>
 <p>Größere Datenmengen, wie sie vlt. bei Webradios vorkommen, sollen auch unterstützt
 werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen dass
+</div>
+<div class="section" id="lizenz">
+<span id="anf-license"></span><h5>2.5.1.4 Lizenz<a class="headerlink" href="#lizenz" title="Permalink to this headline">¶</a></h5>
+<p>Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen dass
 Weiterentwicklungen in das Projekt zurückfließen.</p>
-<blockquote>
-<div><p>Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
+<p>Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
 erwünscht.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Empfehlungen sollen begründbar sein.</p>
-<blockquote>
-<div><p>Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
+</div>
+<div class="section" id="begrundbarkeit">
+<span id="anf-reasoning"></span><h5>2.5.1.5 Begründbarkeit<a class="headerlink" href="#begrundbarkeit" title="Permalink to this headline">¶</a></h5>
+<p>Empfehlungen sollen begründbar sein.</p>
+<p>Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
 haben.</p>
-</div></blockquote>
-</li>
-</ol>
+</div>
 </div>
 <div class="section" id="weiche-anforderungen">
 <h4>2.5.2 Weiche Anforderungen<a class="headerlink" href="#weiche-anforderungen" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic">
-<li><p class="first">Die bereitgestellte API muss auf die stark variierende Qualität und Form von
+<div class="section" id="anpassungsfahige-api">
+<span id="anf-api"></span><h5>2.5.2.1 Anpassungsfähige API<a class="headerlink" href="#anpassungsfahige-api" title="Permalink to this headline">¶</a></h5>
+<p>Die bereitgestellte API muss auf die stark variierende Qualität und Form von
 Musiksammlungen eingestellt sein.</p>
-<blockquote>
-<div><p>Viele existierende Musiksammlungen sind unterschiedlich gut mit Metadaten
+<p>Viele existierende Musiksammlungen sind unterschiedlich gut mit Metadaten
 (<em>Tags</em>) versorgt. So sind manche Tags gar nicht erst vorhanden oder sind
 je nach Format und verwendeten Tagging-Tool/Datenbank anders benannt.</p>
 <p>Das fertige System soll mit Szenarien zurecht kommen wo lediglich die
@@ -713,26 +708,26 @@ Metadaten der zu untersuchenden Songs zur Verfügung stehen, aber nicht die
 eigentlichen Audio-Daten. Dies kann beispielsweise vorteilhaft in Fällen
 sein bei denen man die Lieder nicht selbst besitzt aber Zugriff auf
 Musikdatenbanken wie <em>MusicBrainz</em>.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Das System soll von mehreren Programmiersprachen aus benutzbar sein.</p>
-<blockquote>
-<div><p>Dieses Ziel könnte entweder durch verschiedene Languagebindings erreicht
+</div>
+<div class="section" id="programmiersprachen-agnostisch">
+<span id="anf-agnostic"></span><h5>2.5.2.2 Programmiersprachen agnostisch<a class="headerlink" href="#programmiersprachen-agnostisch" title="Permalink to this headline">¶</a></h5>
+<p>Das System soll von mehreren Programmiersprachen aus benutzbar sein.</p>
+<p>Dieses Ziel könnte entweder durch verschiedene Languagebindings erreicht
 werden, oder alternativ durch eine Server/Client Struktur mit einem
 definierten Protokoll in der Mitte.</p>
 <p>Portabilität ist für das erste zweitrangig.
 Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
 <em>Arch Linux</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>, dem bevorzugten Betriebssystem des Autors, unterstützt werden.</p>
-</div></blockquote>
-</li>
-<li><p class="first">Eine Demonstrations-Anwendung sollte entwickelt werden die zur
+</div>
+<div class="section" id="demonstrations-und-debuggeranwendung-inkludiert">
+<span id="anf-demo"></span><h5>2.5.2.3 Demonstrations und Debuggeranwendung inkludiert<a class="headerlink" href="#demonstrations-und-debuggeranwendung-inkludiert" title="Permalink to this headline">¶</a></h5>
+<p>Eine Demonstrations-Anwendung sollte entwickelt werden die zur
 Fehlersuche, Verbesserung und als Einsatzbeispiel dient.</p>
-<blockquote>
-<div><p>Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
+<p>Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
 zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese
 Empfehlung auch <em>begründen</em> kann. Daher soll diese Anwendung auch als
 <em>Debugger</em> dienen.</p>
-<p>Die Demonanwendung sollte dabei auf den freien MPD-Client <em>Moosecat</em>
+<p>Die Demoanwendung sollte dabei auf den freien MPD-Client <em>Moosecat</em>
 aufsetzen.</p>
 <div class="admonition-exkurs-zu-moosecat admonition">
 <p class="first admonition-title">Exkurs zu <em>Moosecat</em>:</p>
@@ -745,11 +740,11 @@ Feature wie Volltextsuche wird möglich.</p>
 Entwicklungsstadium.</p>
 <p class="last">Mehr Information unter: <a class="reference external" href="https://github.com/studentkittens/moosecat">https://github.com/studentkittens/moosecat</a></p>
 </div>
-</div></blockquote>
-</li>
-<li><p class="first">Es sollte einfach sein fehlende Daten zu beschaffen.</p>
-<blockquote>
-<div><p>In den meisten privaten Musisammlungen sind die wichtigsten Attribute
+</div>
+<div class="section" id="einfaches-information-retrieval">
+<span id="anf-retrieval"></span><h5>2.5.2.4 Einfaches <em>Information Retrieval</em><a class="headerlink" href="#einfaches-information-retrieval" title="Permalink to this headline">¶</a></h5>
+<p>Es sollte einfach sein fehlende Daten zu beschaffen.</p>
+<p>In den meisten privaten Musisammlungen sind die wichtigsten Attribute
 <em>getaggt</em> - sprich in der Audiodatei sind Werte wie <em>Artist</em>, <em>Album</em> und
 <em>Titel</em> hinterlegt. Manche Attribute sind allerdings schwerer zu bekommen,
 wie beispielsweise die <em>Lyrics</em> zu einem bestimmten <em>Titel</em> oder auch das
@@ -766,18 +761,19 @@ besorgende Daten wie die Lyrics, Coverart und</p>
 natürlich in dem oben genannten <em>moosecat</em>.</p>
 <p class="last">Mehr Information unter: <a class="reference external" href="https://github.com/sahib/libglyr">https://github.com/sahib/libglyr</a></p>
 </div>
-</div></blockquote>
-</li>
-<li><p class="first">Das System muss mit der Zeit sich dem User anpassen.</p>
-<blockquote>
-<div><p>Mit der Zeit soll es <em>bessere</em> Empfehlungen liefern als am Anfang.
+</div>
+<div class="section" id="anpassungsfahigkeit-an-den-benutzer">
+<span id="anf-learning"></span><h5>2.5.2.5 Anpassungsfähigkeit an den Benutzer<a class="headerlink" href="#anpassungsfahigkeit-an-den-benutzer" title="Permalink to this headline">¶</a></h5>
+<p>Das System muss mit der Zeit sich dem User anpassen.</p>
+<p>Mit der Zeit soll es <em>bessere</em> Empfehlungen liefern als am Anfang.
 Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
 Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
 bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
 und daraus werden Schlussfolgerungen getroffen.</p>
-</div></blockquote>
-</li>
-</ol>
+</div>
+</div>
+<div class="section" id="nicht-anforderungen">
+<h4>2.5.3 Nicht-Anforderungen<a class="headerlink" href="#nicht-anforderungen" title="Permalink to this headline">¶</a></h4>
 <p>Folgendes sind keine Probleme die von <em>libmunin</em> gelöst werden müssen:</p>
 <blockquote>
 <div><ul>
@@ -969,7 +965,7 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 <h2>4 Implementierung<a class="headerlink" href="#implementierung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
 <div><p>'' <em>Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
-gewaltbereiter Psychopath, der weiß, wo Sie wohnen</em> ''</p>
+gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em> ''</p>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
 <div class="section" id="ubersicht">
@@ -1130,23 +1126,103 @@ und <em>flake8</em> überprüft.</p>
 <div><p>'' <em>These plus Antithese gleich Hysterese</em> ''</p>
 <p class="attribution">&mdash;<em>Einfach Göttlich, Terry Pratchett</em></p>
 </div></blockquote>
-<div class="section" id="verifikation">
-<h3>5.1 Verifikation<a class="headerlink" href="#verifikation" title="Permalink to this headline">¶</a></h3>
-<p>Wo war der Unterschied nochmal?</p>
-</div>
 <div class="section" id="erfullung-der-anforderungen">
-<h3>5.2 Erfüllung der Anforderungen<a class="headerlink" href="#erfullung-der-anforderungen" title="Permalink to this headline">¶</a></h3>
+<h3>5.1 Erfüllung der Anforderungen<a class="headerlink" href="#erfullung-der-anforderungen" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="verifizierung">
-<h3>5.3 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h3>
-<p>Wo war der Unterschied nochmal?</p>
+<h3>5.2 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h3>
+<p>Schauen ob das Programm dem Design entspricht</p>
+</div>
+<div class="section" id="validierung">
+<h3>5.3 Validierung<a class="headerlink" href="#validierung" title="Permalink to this headline">¶</a></h3>
+<p>Schauen ob das Programm das Problem löst.</p>
 </div>
 <div class="section" id="demonanwendung-als-debugger">
 <h3>5.4 Demonanwendung als Debugger<a class="headerlink" href="#demonanwendung-als-debugger" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center">
+<p>Abseits der Library wurde eine auf dem freien Oberflächen-Framework GTK+-3.0
+basierende GUI-Anwendung entwickelt.  Entsprechend <a class="reference internal" href="rst/index.html#anf-demo">2.5.2.3</a> dient diese
+nicht nur zum <em>Showoff</em>, sondern auch zur gezielten Fehlersuche.</p>
+<p>Die Anwendung, die den ebenfalls nordischen Namen <em>Naglfar</em> erhielt,
+implementiert einen MPD-Client. Beim Start ack</p>
+<div class="figure align-center" id="fig-demo-overview">
 <a class="reference internal image-reference" href="../../_images/demo_overview.svg"><img alt="Übersicht über die Demoanwendung" src="../../_images/demo_overview.svg" width="100%" /></a>
 <p class="caption">Übersicht über die Demonanwendung</p>
 </div>
+<p>Erklärung der Kontrollelemente in .</p>
+<div class="section" id="main">
+<h4>5.4.1 Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Views</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first"><em>Database</em> </p>
+</li>
+<li><p class="first"><em>Playlist</em> </p>
+<p>Wie die <em>Database View</em>, zeigt aber lediglich die Songs an die empfohlen
+wurden. Sonst ist diese View Funktionsidentisch mit der <em>Database View</em>.</p>
+</li>
+<li><p class="first"><em>Graph</em> </p>
+<p>Im <em>Graphen View</em> kann ein Plot von <em>libmunin's</em> Graphen begutachtet
+werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
+gegeben wurden.</p>
+</li>
+<li><p class="first"><em>Rules</em> </p>
+<p>In einer Liste werden alle bekannten <em class="xref std std-term">Assoziationsregeln</em>
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
+und das Rating der Regel angezeigt.</p>
+</li>
+<li><p class="first"><em>Examine</em> </p>
+<p>Hier werden alle Attribute des momentan spielenden Songs angezeigt.
+Es wird die von <em>libmunin</em> normalisierte Form angezeigt, also auch, falls
+verfügbar, der Originalwert.</p>
+<p>Zudem wird die <em>moodbar</em> oben im Fenster geplottet.</p>
+</li>
+<li><p class="first"><em>History</em> </p>
+<p>Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
+gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt
+ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.</p>
+<p>Letzteres ist für das Debugging der Filter-Funktion nützlich.</p>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Seed Song</p>
+</li>
+<li><p class="first">Current Song</p>
+</li>
+<li><p class="first">Playlist</p>
+</li>
+</ol>
+</div>
+<div class="section" id="controls">
+<h4>5.4.2 Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple" start="5">
+<li>Recom Count</li>
+<li>Filter</li>
+<li>Max. listen</li>
+<li>Query Entry</li>
+<li>Rating</li>
+</ol>
+</div>
+<div class="section" id="media-controls">
+<h4>5.4.3 Media Controls<a class="headerlink" href="#media-controls" title="Permalink to this headline">¶</a></h4>
+<p>Typische Bedienelemente eines Audioplayers.</p>
+<ol class="arabic" start="10">
+<li><p class="first">Playcount</p>
+</li>
+<li><p class="first">Volume Bar</p>
+</li>
+<li><p class="first">Title Label</p>
+</li>
+<li><p class="first">Mode buttons</p>
+<p>Umschalten zwischen <em>Random</em>, <em>Single</em>, <em>Repeat</em> und <em>Consume</em>.</p>
+</li>
+<li><p class="first">Seekbar</p>
+<p>Ermöglicht das wahlfreie</p>
+</li>
+<li><p class="first">Playbuttons</p>
+</li>
+</ol>
 <div class="figure align-center" id="fig-demo-database">
 <a class="reference internal image-reference" href="../../_images/demo_database.png"><img alt="Die Datenbank Ansicht" src="../../_images/demo_database.png" style="width: 100%;" /></a>
 <p class="caption">Die Datenbank Ansicht - Anzeige aller Songs.</p>
@@ -1170,6 +1246,7 @@ und <em>flake8</em> überprüft.</p>
 <div class="figure align-center" id="fig-demo-examine">
 <a class="reference internal image-reference" href="../../_images/demo_examine.png"><img alt="Die Ansicht der Examine-Page" src="../../_images/demo_examine.png" style="width: 100%;" /></a>
 <p class="caption">Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.</p>
+</div>
 </div>
 </div>
 </div>
