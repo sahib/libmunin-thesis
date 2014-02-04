@@ -4,7 +4,7 @@
 
        \appendix
 
-Abkürzungsverzeichniss
+Abkürzungsverzeichnis
 ======================
 
 .. figtable::
@@ -14,6 +14,7 @@ Abkürzungsverzeichniss
     Abkürzung                Bedeutung
     =======================  ==================================
     **API**                  Application Programming Interface
+    **LoC**                  Lines of Code
     =======================  ==================================
 
 .. only:: latex
@@ -222,7 +223,7 @@ Zusätzlich zu dieser Arbeit findet sich komplementär weitere Ressourcen im Net
 
     * Dieses PDF als HTML Version:
 
-      TODO
+        http://sahib.github.io/libmunin-thesis/html/rst/index.html
 
 .. only:: latex
 
