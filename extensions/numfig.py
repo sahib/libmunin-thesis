@@ -175,10 +175,7 @@ def setup(app):
     app.add_node(num_ref,
                  latex=(latex_visit_num_ref, None),
                  text=(skip_page_ref, None),
-<<<<<<< HEAD
                  singlehtml=(skip_page_ref, None),
-=======
->>>>>>> master
                  html=(skip_page_ref, None)
     )
 

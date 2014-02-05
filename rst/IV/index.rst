@@ -180,3 +180,36 @@ Empfehlungen geben ließen werden die zwei Songs mit dem ähnlichsten Genre
 ausgegeben.
 
 [TODO: Den Mini-Graph einfügen]
+
+
+Statistiken
+===========
+
+.. code-block:: bash
+
+          65 text files.
+          63 unique files.                              
+          19 files ignored.
+
+    http://cloc.sourceforge.net v 1.60  T=0.34 s (135.8 files/s, 26868.3 lines/s)
+    -------------------------------------------------------------------------------
+    Language                     files          blank        comment           code
+    -------------------------------------------------------------------------------
+    Python                          46           2063           2169           4867
+    -------------------------------------------------------------------------------
+    SUM:                            46           2063           2169           4867
+    -------------------------------------------------------------------------------
+Dazu kommen einige weitere Zeilen von *reStructuredText* die die Basis der
+Onlinedokumentation bilden:
+
+.. code-block:: bash
+
+    $ wc -l $(find . -iname '*.rst') | tail -1
+    2231 insgesamt
+
+
+Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
+``git log`` entstanden sind:
+
+    - GitHub Visualisierungen: https://github.com/sahib/libmunin/graphs
+    - ``gitstats`` Visualisierungen: 
