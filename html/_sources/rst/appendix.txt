@@ -4,7 +4,7 @@
 
        \appendix
 
-Abkürzungsverzeichniss
+Abkürzungsverzeichnis
 ======================
 
 .. figtable::
@@ -39,7 +39,7 @@ Glossar
         Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
         Songs gespeichert, sowie eine Integer der als Identifier dient.
 
-    Distance
+    Distanz
 
         Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
         Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
@@ -51,7 +51,7 @@ Glossar
     Distanzfunktion
 
         Eine Distanzfunktion ist im Kontext von libmunin eine Funktion die 
-        zwei Songs als Eingabe nimmt und die :term:`Distance` zwischen
+        zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
         diesen berechnet.
 
         Dabei schaut sie sich alle :term:`Attribut` an die beide Songs
@@ -223,7 +223,7 @@ Zusätzlich zu dieser Arbeit findet sich komplementär weitere Ressourcen im Net
 
     * Dieses PDF als HTML Version:
 
-        http://sahib.github.io/libmunin-thesis/singlehtml/rst/index.html
+        http://sahib.github.io/libmunin-thesis/html/rst/index.html
 
 .. only:: latex
 
