@@ -185,6 +185,8 @@ ausgegeben.
 Statistiken
 ===========
 
+LoC Statistiken:
+
 .. code-block:: bash
 
           65 text files.
@@ -211,5 +213,14 @@ Onlinedokumentation bilden:
 Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
 ``git log`` entstanden sind:
 
-    - GitHub Visualisierungen: https://github.com/sahib/libmunin/graphs
-    - ``gitstats`` Visualisierungen: 
+    - GitHub Visualisierungen:
+      
+        https://github.com/sahib/libmunin/graphs
+
+    - ``gitstats`` Visualisierungen:
+      
+        http://sahib.github.io/libmunin-thesis/gitstats/index.html
+
+    - ``gource`` Commit-Graph Visualisierung:
+
+        ... TODO ...
