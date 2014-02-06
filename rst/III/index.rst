@@ -9,42 +9,11 @@ Design
 
     -- *Zen of Python*, ``import this``
 
-Wie fügt sich libmunin in seine Welt ein?
-=========================================
-
-.. figure:: figs/integration.*
-    :alt: Integrationsübersicht
-    :width: 100%
-    :align: center
-
-    Wie integriert sich libmunin in seine Umgebung?
-
-.. figure:: figs/provider_process.*
-    :alt: Attributverarbeitung
-    :width: 75%
-    :align: center
-
-    Ablauf bei der Verarbeitung eines einzelnen Attributes.
-
 Architektur
 ===========
 
 Baukastenprinzip
 
-.. figure:: figs/munin_startup.*
-    :alt: Allgemeine Benutzung
-    :width: 75%
-    :align: center
-
-    Allgemeine Benutzung von libmunin
-
-
-.. figure:: figs/arch.*
-    :alt: Architekturübersicht.
-    :width: 100%
-    :align: center
-
-    Grobe Übersicht über die Architektur.
 
 Algorithmik
 ===========
@@ -52,6 +21,9 @@ Algorithmik
 Die genaue Beschreibung der Algorithmik wird in der Bachelorarbeit detailliert
 besprochen. Hier nur ein kurzer Überblick was mit welchem Ziel implementiert
 wird.
+
+Grundüberlegungen
+-----------------
 
 Um die Distanzen zu speichern wird bei vielen Datamining-Projekten eine
 Distanzmatrix genutzt - also eine quadratische Dreiecksmatrix in der
@@ -82,25 +54,46 @@ TODO: Erläuterung: kNN Graph
 Graphenoperationen
 ------------------
 
+Angenommen jeder :term:`Song` ist eine Mapping von Attributen zu Werten, so
+können wir für jedes Attribut eine :term:`Distanzfunktion` definieren. Nach
+einer bestimmten Gewichtung können wir dann die einzelnen Distanzen
+zusammenrechnen und zu einer gemeinsamen :term:`Distanz` zusammenschmelzen.
+
 Um mit unseren Graphen arbeiten zu können müssen wir einige Operationen auf ihm
 definieren:
 
-add
-~~~
+``rebuild``
+~~~~~~~~~~~
+
+Bevor der Graph benutzt werden kann muss er natürlich erstmal aufgebaut werden. 
+Der naive Ansatz wäre dabei für jeden Song die Distanzen zu jedem anderen Song
+zu berechnen - dies hätte einen Aufwand von :math:`O(n^2)` zur Folge. Dies ist
+aus oben genannten Gründen ebenfalls kaum wünschenswert.
+
+Deshalb kann die ``rebuild`` keinen *perfekten* Graph erzeugen sondern muss für
+hinreichend große Datenmengen auf eine Approximation zurückgreifen. 
+
+Nach dem Aufbau sollte ein ungerichteter Graph dabei herauskommen im dem
+idealerweise jeder Knoten vom jedem anderen Knoten erreichbar ist - es sollten
+also keine *Inseln* dabei entstehen. Es gibt keine maximale Anzahl von Nachbarn
+die ein Song haben darf - lediglich einen *Richtwert*.
+
+``add``
+~~~~~~~
 
 Füge einen einzelnen Song zu dem Graphen hinzu, verbinde ihn aber noch nicht.
 Dies ist die bevorzugte Operation um viele Songs dem Graphen hinzuzufügen -
-beispielsweise am Anfang - da das Verbinden später in einem Schritt erledigt
-werden kann.
+beispielsweise am Anfang - da das Verbinden später in einem ``rebuild``-Schritt
+erledigt werden kann.
 
-insert
-~~~~~~
+``insert``
+~~~~~~~~~~
 
 Fügen einen einzelnen Song zu dem Graphen hinzu und verbinde ihn. Suche dazu
-erst eine passende Stelle in der eingepasst wird.
+erst eine passende Stelle in der er eingepasst wird.
 
-remove
-~~~~~~
+``remove``
+~~~~~~~~~~
 
 Entferne einen einzelnen Song aus dem Graphen und versuche das entstandene
 *Loch* zu flicken indem die Nachbarn des entfernte Songs untereinander
@@ -110,16 +103,12 @@ verkuppelt werden.
 ~~~~~~~~~~
 
 Manchmal ist es nötig das Attribut eines einzelnen Songs - wie beispielsweise
-das **Rating** - zu ändern. 
+das stark vom Benutzer abhängige **Rating** - zu ändern. Dabei wird der Song
+erst mittels ``remove`` entfernt, die Attribute werden angepasst und er wird
+mittels ``insert`` wieder eingefügt. 
 
-``rebuild``
-~~~~~~~~~~~
-
-Bevor der Graph benutzt werden kann muss er natürlich erstmal aufgebaut werden. 
-TODO
-
-Fixing
-~~~~~~
+``fixing``
+~~~~~~~~~~
 
 Durch das Löschen und Hinzufügen von Songs können *Einbahnstraßen* im Graphen
 entstehen. Durch dem nachgelagerten *fixing* Schritt werden diese, nach
@@ -130,7 +119,20 @@ Ausstellen von Empfehlungen
 ---------------------------
 
 Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
-mittelseiner Breitensuche erledigt. 
+mittelseiner Breitensuche erledigt. Dabei wird der Ursprung durch ein
+sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
+Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* `` eben
+dieser Song. 
+
+Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
+Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste
+wird ein Versprechen herauzugeben die Empfehlungen genau dann zu berechnen wenn
+sie gebraucht werden (*Layz Evaluation*). Dadurch ist auch die Zahl der
+zu gebenden Empfehlungen variabel - was sehr nützlich beim Erstellen einer 
+dynamischen Playlist ist.
+
+Es können auch mehrere Seedsongs verwendet werden - dann werden die einzelnen
+*Iteratoren* im Reißschlußverfahren verwebt.
 
 Filtern von Empfehlungen
 ------------------------
@@ -142,6 +144,10 @@ möchte dass zu einem Seed-Song ein Lied vom selben Album oder gar selben
 Künstler empfohlen wird müssen diese beim Iterieren über den Graphen ausgesiebt
 werden.
 
+Dazu werden die zuletzt gegebenen Empfehlunge betrachtet - ist beispielsweise in
+den letzten 5 Empfehlungen der gleiche Artist bereits vorhanden so wird die
+Empefhlunge gesiebt. 
+
 Lernen durch die History
 ------------------------
 
@@ -149,11 +155,54 @@ Nur eine bestimmte Anzahl von Regeln wird gespeichert - zuviele Regeln würden
 *historische Altlasten* immer weiter mitschleppen und der aktuelle Geschmack des
 Benutzers würde nicht widergespiegelt werden.
 
-Softwareaufbau
-==============
+Integration von libmunin in die Umwelt
+======================================
 
-Da wir jetzt wissen aus welchen Teilen unsere Software besteht können wir uns
+.. figure:: figs/integration.*
+    :alt: Integrationsübersicht
+    :width: 100%
+    :align: center
+
+    Wie fügt sich libmunin in seine Umgebung ein?
+
+
+.. figure:: figs/munin_startup.*
+    :alt: Allgemeine Benutzung
+    :width: 75%
+    :align: center
+
+    Allgemeine Benutzung von libmunin
+
+Periphere Komponenten
+=====================
+
+Jetzt wissen wir wie unsere interne Datenstruktur aussieht und wie diese sich in
+die Umwelt einfügen muss. Wie also kann man die Schnittstellen zwischen beiden
+bilden?  
+
+- Musikdaten müssen importiert werden
+- ...
+
+.. figure:: figs/arch.*
+    :alt: Architekturübersicht.
+    :width: 100%
+    :align: center
+
+    Grobe Übersicht über die Architektur.
+
+.. figure:: figs/provider_process.*
+    :alt: Der Werdegang eines Attributes
+    :width: 75%
+    :align: center
+
+    Wie wird ein einzelnes Attribut verarbeitet?
+
+Entwurf der Software
+====================
+
+Da wir jetzt wissen aus welchen Komponenten unsere Software besteht können wir uns
 Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.
+Im folgenden werden die ,, *Hauptakteure* '' der Software vorgestellt:
 
 Maske
 -----
@@ -174,12 +223,11 @@ Session
 Song
 ----
 
-- Speichert nur values, keine
+- Speichert nur values, keine keys.
 
 Distance
 --------
 
 - Speichert alle Teildistanzen, statt einzelne weighted Distanz.
 - Macht 'explanations' leicht.
-
 

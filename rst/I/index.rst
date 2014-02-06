@@ -6,7 +6,7 @@ Einleitung
 
    '' *Sei froh dass du du bist, und nicht dieser Fisch.* ''
 
-   -- *Marc Uwe Kling*, deutscher Kabarettist
+   -- *Das Lied von der Makrele, Marc Uwe Kling*
    
 
 Motivation
@@ -50,7 +50,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
 .. figtable::
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
-    :alt: Wissenschaftliche Arbeiten zum Thema 'Music Recommendation' auf die Jahre verteilt
+    :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
     :spec: r l r l
 
     ========== ====== ========== ======
@@ -90,6 +90,16 @@ bei den meisten Implementierungen bei vorhandenen Plattformen wie ``last.fm``
 suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
 Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern können.
 
+Trotzdem gibt es einige Gründe warum eine Alternative wünschenswert wäre:
+
+* Verzicht auf Werbung
+* Free Open Source Software
+* Pure clientseitge Nutzung möglich
+* Man will nur seine eigene Musik hören - vorhandene Plattformen empfehlen 
+  nur kommerzielle Musik, keine CC-lizensierte. Außer jamendo.
+* Kommerzeille Systeme sind auf Wirtschaftlichkeit getrimmt, OSS auf Qualität.
+- Der Autor wünscht sich ein ,,Dynamic Playlist'' Feature für moosecat
+
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
 einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von ``last.fm``
@@ -99,8 +109,6 @@ die zwischen allen paar Liedern gespielt wird.
 Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
 oder diese Implementierung in eine allgemein nutzbare Open Source Library
 verpackt die auch für private Anwender einsetzbar ist.
-
-
 
 Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
 MPD Client [#f2]_ den er entwickelt wünscht trägt natürlich auch zur Motivation

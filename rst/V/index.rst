@@ -46,6 +46,8 @@ Erklärung der Kontrollelemente in :num:`fig-demo-overview`.
 Main
 ~~~~
 
+Die Suche kann mittels :kbd:`Strg-f` aktiviert werden.
+
 1) Views
 
     #. *Database* :num:`fig-demo-database`

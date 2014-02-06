@@ -38,6 +38,7 @@ Features
 --------
 
 - Suchengine für natürliche Sprache wie in :cite:p:`knees2007music`
+- Transitions. Beispieslweise immer "härter werdende musik"
 - Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)
 - Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.

@@ -76,7 +76,34 @@ Probleme:
 Liste verfügbarer Provider und Distanzfunktionen
 ================================================
 
-pass
+Insgesamt wurden 13 unterschiedliche Provider implementiert - davon variieren
+einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
+manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.
+
+Liste der Provider
+------------------
+
+#. ``Date``
+#. ``Moodbar``
+#. ``Rating``
+#. ``BPM``
+#. ``GenreTreeAvgLink``, ``GenreTree``
+#. ``Wordlist``, ``Levenshtein``, ``Keywords``
+
+Liste der Distanzfunktionen
+---------------------------
+
+#. ``Date``
+#. ``Moodbar``
+#. ``Wordlist``
+#. ``BPM``
+#. ``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``
+#. ``Composite``
+#. ``Stem``
+#. ``GenreTree``
+#. ``Keywords``
+#. ``PlyrLyrics``, ``DiscogsGenre``
+
 
 Paketübersicht
 ==============
@@ -167,12 +194,94 @@ und folgendermaßen ausführen:
     ('Vogelfrey'  , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
     ('Debauchery' , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
 
-Kurze Erklärung des Beispiels 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Kurze Erläuterung des Beispiels 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Zeile 1:** 
+  
+  Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
+  Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
+  und Weighting) mitunder recht anstrengend werden kann greifen wir auf eine
+  Session mit vorgefertigter :term:`Maske` zurück - die sogenannte
+  ``EasySession``.
+  
+* **Zeile 3:**
+
+  Hier erstellen wir uns eine Pseudo-Datenbank aus vier Liedern mit vier
+  einzelnen Attributen jeweils.
+
+* **Zeile 11:** 
+
+  Hier wird die oben erwähnte ``EasySession`` instanziert. Sie dient uns jetzt
+  als *Sitzung* - alle relevanten Methoden von *libmunin* können auf der
+  *Session* aufgerufen werden.
+
+* **Zeile 12:**
+
+  Bein initialen Importieren der Datenbank werden alle Songs über die ``add``
+  Operation hinzugefügt. Da ``add`` noch keine Verbindungen zwischen den
+  einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
+  Importieren ein ``rebuild`` ausgeführt wird.
+
+* **Zeile 14:**
+
+  Wir iterieren (**Zeile 13**) über alle Songs in unserer Pseudo-Datenbank und 
+  fügen diese der *Session* hinzu (über die ``add`` Operation). Ein Problem dass
+  man bei der Benutzung der Library hat ist: *libmunin* und der Nutzter halten
+  zwei verschiedene Datenbanken im Speicher. Der Benutzer verwaltet die
+  Originaldaten mit denen er arbeitet während *libmunin* nur normalisierte Daten
+  speichert. Empfehlungen werden aber immer als
+
+    This is perhaps the hardest line to grok. With ``session.add`` we add a
+    single song to the Session. ``session.add`` expects a dictionary with keys 
+    (the keys are pre-defined in the case of ``EasySession``, but can be
+    configured in the normal session) and the values you want to set per song.
+
+    Internally for each dictionary a :class:`munin.song.Song` will be created -
+    a readonly mapping with normalized version of the values you passed.
+    *Normalized* you ask? How? Well, let's introduce a new verb: A *Provider*
+    can normalize a value for a certain *Attribute* (e.g. ``'artist'``) in a way
+    that comparing values with each other gets faster and easier. More on that
+    later.
+
+    Now, what about that ``session.mapping`` thing? You might not have noticed
+    it, but *libmunin* has an internal representation of songs which differs
+    from the songs in ``MY_DATABASE``. Since recommendations are given in the
+    internal representation, you gonna need to have a way to map those back to
+    the actual values. ``session.mapping`` is just a dictionary with the only
+    plus that it gets saved along with the session. In our example we take the
+    return value from ``session.add`` (the *UID* of a song - which is an
+    integer) and map it to the index in ``MY_DATABASE``.
+
+    More on that in Part 4_.
+
+    *Tip:* Try to keep the database index and the *UID* in sync.
+
+* **Zeile 21:**
+
+    In these two lines we do what *libmunin* is actually for - recommending songs.
+    Most API-calls take either a song (a :class:`munin.song.Song`) or the *UID* we
+    got from :func:`add`. ``session.recommend_from_seed`` takes two arguments. A
+    song we want to get recommendations from, and how many we want. In this case
+    we want two recommendations from the first song in the database (the one by
+    *Akrea*). If we want to transform an *UID* to a full-fledged Song, wen can use 
+    the ``__getattr__`` of Session::
+
+      >>> session[0]
+      <munin.song.Song(...)>
+
+    But since we can pass either *UIDs* or the lookuped song, these two lines 
+    are completely equal::
+
+      >>> session.recommend_from_seed(session[0], 2)
+      >>> session.recommend_from_seed(0, 2)
+
+    The function will return an iterator that will lazily yield a
+    :class:`munin.song.Song` as a recommendation.
 
 
-Kurze Erklärung des Outputs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Kurze Erläuterung des Outputs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
 vergleichen lässt und wir uns von dem ersten Song (,, *Trugbild* '') zwei
@@ -201,12 +310,13 @@ LoC Statistiken:
     -------------------------------------------------------------------------------
     SUM:                            46           2063           2169           4867
     -------------------------------------------------------------------------------
+
 Dazu kommen einige weitere Zeilen von *reStructuredText* die die Basis der
 Onlinedokumentation bilden:
 
 .. code-block:: bash
 
-    $ wc -l $(find . -iname '*.rst') | tail -1
+    $ wc -l $(find . -iname '*.rst')
     2231 insgesamt
 
 
