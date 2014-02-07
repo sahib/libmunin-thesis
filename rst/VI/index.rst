@@ -74,6 +74,9 @@ Convinience / Korrektheit
 
   Beets ist gewißermaßen das libhugin-anaylse für musik 
 
+- date origin abhängig vom genre
+- genre-bridges: grunge->rock
+
 Fazit
 =====
 
@@ -84,3 +87,15 @@ lassen.
 
 So wäre mit *libmunin* auch ein Bücher- oder Video-Empfehlungssystem möglich - 
 sofern man entsprechende Provider und Distanzfunktionen implementiert.
+
+War die Arbeit Erfolg?
+----------------------
+
+Das kommt darauf an wie man *Erfolg* definiert. Noch ist die Bibliothek in ihren
+Anfangsstadium - vor allem die Audioanalyse steckt noch in den Kinderschuhen. 
+Dennoch ist es als Erfolg zu werten dass noch nie zu den Beatles ein Song von
+Rammstein empfohlen wurde. 
+
+.. raw:: latex
+
+   \smiley

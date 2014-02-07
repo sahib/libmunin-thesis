@@ -15,6 +15,9 @@ Motivation
 State of the Art
 ----------------
 
+Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
+gar im Supermarkt.
+
 Im weltweitem Netz gibt es eine Vielzahl von Angeboten die Musik anbieten,
 entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify, rhapsody,
 pandora, webradios...) oder auch um Menschen mit ähnlichem Musikgeschmack zu
@@ -98,7 +101,7 @@ Trotzdem gibt es einige Gründe warum eine Alternative wünschenswert wäre:
 * Man will nur seine eigene Musik hören - vorhandene Plattformen empfehlen 
   nur kommerzielle Musik, keine CC-lizensierte. Außer jamendo.
 * Kommerzeille Systeme sind auf Wirtschaftlichkeit getrimmt, OSS auf Qualität.
-- Der Autor wünscht sich ein ,,Dynamic Playlist'' Feature für moosecat
+* Der Autor wünscht sich ein ,,Dynamic Playlist'' Feature für moosecat
 
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf

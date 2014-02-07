@@ -200,6 +200,7 @@ ADDITIONAL_PREAMBLE = """
 % Extra packages
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
+\\usepackage{wasysym}
 
 \\usepackage{titlesec}
 \\definecolor{gray75}{gray}{0.75}

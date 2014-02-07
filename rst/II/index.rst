@@ -140,7 +140,7 @@ TODO: Nachweise
 
         Die Vorschläge die MySpace basierend auf den ersten Song macht.
 
-- **Amazon** (http://www.amazon.de)
+- **Amazon** (www.amazon.de)
 
     Den Grundstein für die Empfehlungen bei amazon bilded die Warenkorbanalyse.
     Dabei werden die Warenkörbe der User analysiert und es werden
@@ -502,7 +502,7 @@ Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden.
     *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten eingesetzt und
     natürlich in dem oben genannten *moosecat*.
 
-    Mehr Information unter: https://github.com/sahib/libglyr
+    Mehr Information unter: https://github.com/sahib/glyr
 
 .. _anf-learning:
 

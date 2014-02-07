@@ -73,6 +73,8 @@ Probleme:
     - Graphenaufbau (combinations = teuer) 
     - Festlegung von distance_add funktionsweise
 
+http://libmunin.readthedocs.org/en/latest/logbuch.html
+
 Liste verfügbarer Provider und Distanzfunktionen
 ================================================
 
@@ -80,80 +82,190 @@ Insgesamt wurden 13 unterschiedliche Provider implementiert - davon variieren
 einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
 manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.
 
-Liste der Provider
-------------------
+Liste der Distanzfunktionen
+---------------------------
 
-#. ``Date``
-#. ``Moodbar``
-#. ``Rating``
-#. ``BPM``
-#. ``GenreTreeAvgLink``, ``GenreTree``
-#. ``Wordlist``, ``Levenshtein``, ``Keywords``
+Die genaue Berechnung der Distanz wird in der Bachelorarbeit betrachtet.
+
+``Date``
+~~~~~~~~
+
+``Moodbar``
+~~~~~~~~~~~
+
+``Rating``
+~~~~~~~~~~
+
+``BPM``
+~~~~~~~
+
+``Wordlist``, ``Levenshtein``, ``Keywords``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``GenreTreeAvgLink``, ``GenreTree``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Liste der Distanzfunktionen
 ---------------------------
 
-#. ``Date``
-#. ``Moodbar``
-#. ``Wordlist``
-#. ``BPM``
-#. ``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``
-#. ``Composite``
-#. ``Stem``
-#. ``GenreTree``
-#. ``Keywords``
-#. ``PlyrLyrics``, ``DiscogsGenre``
+Die genaue Funtkionsweise der Provider wird in der Bachelorarbeitet betrachtet.
+Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
+Eingabe sie erwarten sowie welche Ausgabe sie produzieren.
+
+
+``Date``
+~~~~~~~~
+
+Wandelt und normalisiert ein Datum dass als String übergeben wird zu einer
+Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
+Datum-Formattierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
+
+``Moodbar``
+~~~~~~~~~~~
+
+Berechnet mit dem ``moodbar`` (TODO: zitieren) Programm aus einen beliebigen
+Audio File einen Vektor mit 1000 RGB-Farbwerten. Jeder dieser Farbwerte
+repräsentiert den Anteil niedriger Frequenzen (rot), mittlerer (grün) und
+hoher Frequenzen (blau) in einem Tausendstel des Audiostücks. 
+
+Obwohl man aus dem Namen dises Verfahren schließen könnte dass hier die
+*Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
+lediglich herauslesen wie ,,engergetisch'' ein Lied zu einem bestimmten
+Zeitpunkt ist - mit etwas Glück kann man auch Instrumente erkennen - so ist
+die Kombination von E-Gitarre und Drums oft ein helles Türkis.
+
+Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet - die
+dominaten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
+
+Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
+Typ ihrer Eingabe unterscheiden:
+
+* ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
+* ``MoodbarFile``: Nimmt ein Pfad zu einem von der ``moodbar`` erstellten Datei
+  entgegen die einen Vektor aus 1000 RGB-Werten binär beeinhaltet.
+* ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audio-Datei entgegen
+  und führt das ``moodbar``-Utility darauf aus falls noch keine weiter Datei mit
+  demselben Pfad plus der zusätzlichen Endung ``.mood`` vorhanden ist.
+
+``Wordlist``
+~~~~~~~~~~~~
+
+Bricht einen String in eine Liste von Wörter auf.
+
+``BPM``
+~~~~~~~
+
+Berechnet die ,,Beats-Per-Minute'' eines Lieds (Zitieren) - dies funktioniert
+nicht nur für stark beat-lastige Musikrichtungen wie Techno sondern auch für
+normale Musikrichtungen. 
+
+TODO: Hinweis auf bpm-tools
+
+``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``Composite``
+~~~~~~~~~~~~~
+
+Erlaubt das Verketten von Providern. Er erste Eingabewert wird dem ersten
+Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe, 
+wird an den nächsten Provider in der Kette als Eingabe weitergegeben.
+
+Ein Anwendungsbeispiel wäre das Zusammenschalten ::
+
+    Eingabe: Artist, Album -> PlyrLyrics | Stem | Keywords -> Ausgabe: Stemmed Keywords
+
+``Stem``
+~~~~~~~~
+
+``GenreTree``
+~~~~~~~~~~~~~
+
+``Keywords``
+~~~~~~~~~~~~
+
+Extrahiert aus einem Text als Eingabe alle *relevanten* Stichwörter. 
+Ein Beispiel dieser *Keywords* wird in :num:`fig-yellow-keywords` gezeigt.
+Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
+
+.. _fig-yellow-keywords:
+
+.. figtable::
+    :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
+              ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
+    :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
+    :spec: r l r l
+
+    ====== =================================
+    Rating Keywords 
+    ====== =================================
+    22.558 'yellow', 'submarin'
+    20.835 'full', 'speed', 'ahead', 'mr'
+     8.343 'live', 'beneath'
+     5.247 'band', 'begin'
+     3.297 'sea'
+     3.227 'green'
+     2.797 'captain'
+           ...
+    ====== ================================= 
+
+
+``PlyrLyrics``
+~~~~~~~~~~~~~~
+
+Besorgt mittels *libglyr* Liedtexte aus dem Internet. Bereits gesuchte Liedtexte
+werden dabei zwischengespeichert. Dieser :term:`Provider` eignet sich besonders im
+Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
+
+``DiscogsGenre``
+~~~~~~~~~~~~~~~~
 
 
 Paketübersicht
 ==============
 
-
 .. code-block:: bash
 
-   $ tree -I '__pycache__' munin/
-
-::
-
-    munin/
-    |---- __init__.py                     | Versionierungs Info
-    |---- __main__.py                     | Beispielprogramm
-    |---- database.py                     | Manager für alle vorhandenen Songs
-    |---- dbus_service.py                 | [Unfertiger] Dbus Service für libmunin
-    |---- dbus_client.py                  | [Unfertiger] DBus Client
-    |---- distance/                       | Unterverzeichnis für Distanzfunktionen
-    |   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
-    |   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
-    |   |---- date.py                     | ...
-    |   |---- ...                         | 
-    |---- session.py                      | Implementierung der Session (API)
-    |---- easy.py                         | Vereinfachte Session-API
-    |---- graph.py                        | Implementiert Graphenoperationen
-    |---- helper.py                       | Verschiedene Utilityfunktionen
-    |---- history.py                      | Implementierung beider Histories 
-    |                                     | und Assoziationsregeln
-    |---- plot.py                         | Visualisierungsfunktionen
-    |---- provider/                       | Unterverzeichnis für alle Provider
-    |   |---- __init__.py                 | Oberklasse für jeden Provider
-    |   |---- bpm.py                      | BeatsPerMinute Provider
-    |   |---- composite.py                | ...
-    |   |---- ...                         | 
-    |---- rake.py                         | Implementierung des RAKE Algorithmus
-    |---- scripts/                        | Verschiedene eigenständige Helper
-    |   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
-    |   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
-    |                                     | jedes Audiofile in einem Verzeichnis
-    |---- song.py                         | Implementierung der Song Klasse
-    |---- stopwords/                      | 
-    |   |---- __init__.py                 | Stoppwort Implementierung
-    |   |---- data                        | Stoppwort Datenbank
-    |   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
-    |   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
-    |   |   |---- es                      | ISO 638-1 Language Code.
-    |   |   |---- ...                     |
-    |---- testing.py                      | Fixtures und Helper für unittests
+   $ tree munin/
+   munin/
+   |---- __init__.py                     | Versionierungs Info
+   |---- __main__.py                     | Beispielprogramm
+   |---- database.py                     | Manager für alle vorhandenen Songs
+   |---- dbus_service.py                 | [Unfertiger] Dbus Service für libmunin
+   |---- dbus_client.py                  | [Unfertiger] DBus Client
+   |---- distance/                       | Unterverzeichnis für Distanzfunktionen
+   |   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
+   |   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
+   |   |---- date.py                     | ...
+   |   |---- ...                         | 
+   |---- session.py                      | Implementierung der Session (API)
+   |---- easy.py                         | Vereinfachte Session-API
+   |---- graph.py                        | Implementiert Graphenoperationen
+   |---- helper.py                       | Verschiedene Utilityfunktionen
+   |---- history.py                      | Implementierung beider Histories 
+   |                                     | und Assoziationsregeln
+   |---- plot.py                         | Visualisierungsfunktionen
+   |---- provider/                       | Unterverzeichnis für alle Provider
+   |   |---- __init__.py                 | Oberklasse für jeden Provider
+   |   |---- bpm.py                      | BeatsPerMinute Provider
+   |   |---- composite.py                | ...
+   |   |---- ...                         | 
+   |---- rake.py                         | Implementierung des RAKE Algorithmus
+   |---- scripts/                        | Verschiedene eigenständige Helper
+   |   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
+   |   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
+   |                                     | jedes Audiofile in einem Verzeichnis
+   |---- song.py                         | Implementierung der Song Klasse
+   |---- stopwords/                      | 
+   |   |---- __init__.py                 | Stoppwort Implementierung
+   |   |---- data                        | Stoppwort Datenbank
+   |   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
+   |   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
+   |   |   |---- es                      | ISO 638-1 Language Code.
+   |   |   |---- ...                     |
+   |---- testing.py                      | Fixtures und Helper für unittests
     
-
 Anwendungsbeispiel
 ==================
 
@@ -185,17 +297,17 @@ Anwendungsbeispiel
         print(MY_DATABASE[munin_song.uid])
 
 
-Ist *libmunin* korrekt installiert, so lässt sich dieses Skript überall ablegen
-und folgendermaßen ausführen:
+Ist *libmunin* korrekt installiert, so lässt sich dieses Skript als
+``minimal.py`` ablegen und folgendermaßen ausführen:
 
 .. code-block:: bash
 
-    $ python example.py
+    $ python minimal.py 
     ('Vogelfrey'  , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
     ('Debauchery' , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
 
 Kurze Erläuterung des Beispiels 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 * **Zeile 1:** 
   
@@ -226,62 +338,41 @@ Kurze Erläuterung des Beispiels
 * **Zeile 14:**
 
   Wir iterieren (**Zeile 13**) über alle Songs in unserer Pseudo-Datenbank und 
-  fügen diese der *Session* hinzu (über die ``add`` Operation). Ein Problem dass
-  man bei der Benutzung der Library hat ist: *libmunin* und der Nutzter halten
-  zwei verschiedene Datenbanken im Speicher. Der Benutzer verwaltet die
-  Originaldaten mit denen er arbeitet während *libmunin* nur normalisierte Daten
-  speichert. Empfehlungen werden aber immer als
+  fügen diese der *Session* hinzu (über die ``add`` Operation). zu beachten ist
+  dabei: Es wird eine Hashtable übergeben in denen bestimmte Schlüssel (wie
+  ``artist``) von der ``EasySession`` vorgegeben sind - erstellt man eine eigene
+  Session kann man diese nach Belieben Konfigurieren.
+  
+  Ein Problem dass man bei der Benutzung der Library hat ist: *libmunin* und der
+  Nutzter halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
+  verwaltet die Originaldaten mit denen er arbeitet während *libmunin* nur
+  normalisierte Daten speichert. Das Problem dabei: Wie soll der User wissen
+  welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
 
-    This is perhaps the hardest line to grok. With ``session.add`` we add a
-    single song to the Session. ``session.add`` expects a dictionary with keys 
-    (the keys are pre-defined in the case of ``EasySession``, but can be
-    configured in the normal session) and the values you want to set per song.
+  Dazu ist ein Mapping erforderlich das 
+  Zu diesem Zwecke geben die Operationen ``add``, ``insert``, ``modify`` und
+  ``remove`` eine eindeutige ID zurück die einen von *libmunin's* Songs
+  referenziert. Der Benutzer kann diese nutzen um auf eine ID innerhalb *seiner*
+  Datenbank zu referenzieren. 
 
-    Internally for each dictionary a :class:`munin.song.Song` will be created -
-    a readonly mapping with normalized version of the values you passed.
-    *Normalized* you ask? How? Well, let's introduce a new verb: A *Provider*
-    can normalize a value for a certain *Attribute* (e.g. ``'artist'``) in a way
-    that comparing values with each other gets faster and easier. More on that
-    later.
-
-    Now, what about that ``session.mapping`` thing? You might not have noticed
-    it, but *libmunin* has an internal representation of songs which differs
-    from the songs in ``MY_DATABASE``. Since recommendations are given in the
-    internal representation, you gonna need to have a way to map those back to
-    the actual values. ``session.mapping`` is just a dictionary with the only
-    plus that it gets saved along with the session. In our example we take the
-    return value from ``session.add`` (the *UID* of a song - which is an
-    integer) and map it to the index in ``MY_DATABASE``.
-
-    More on that in Part 4_.
-
-    *Tip:* Try to keep the database index and the *UID* in sync.
+  Im obigen Beispiel wird die von ``add`` zurückgebene ID auf die ID innerhalb
+  von *MY_DATABASE* gemappt.
 
 * **Zeile 21:**
 
-    In these two lines we do what *libmunin* is actually for - recommending songs.
-    Most API-calls take either a song (a :class:`munin.song.Song`) or the *UID* we
-    got from :func:`add`. ``session.recommend_from_seed`` takes two arguments. A
-    song we want to get recommendations from, and how many we want. In this case
-    we want two recommendations from the first song in the database (the one by
-    *Akrea*). If we want to transform an *UID* to a full-fledged Song, wen can use 
-    the ``__getattr__`` of Session::
+  In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen uns von der
+  ``EasySession`` über die Methode ``recommend_from_seed`` zwei Empfehlungen zum ersten
+  Song der über ``add`` hinzugefügt wurde geben. Die Empfehlung selbst wird als
+  ``Song`` Objekt ausgebene - dieses hat unter anderen eine ID gespeichert mit
+  der wir die ursprünglichen Daten finden können.
 
-      >>> session[0]
-      <munin.song.Song(...)>
+Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web:
 
-    But since we can pass either *UIDs* or the lookuped song, these two lines 
-    are completely equal::
-
-      >>> session.recommend_from_seed(session[0], 2)
-      >>> session.recommend_from_seed(0, 2)
-
-    The function will return an iterator that will lazily yield a
-    :class:`munin.song.Song` as a recommendation.
+    http://libmunin.rtfd.org
 
 
 Kurze Erläuterung des Outputs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
 vergleichen lässt und wir uns von dem ersten Song (,, *Trugbild* '') zwei
