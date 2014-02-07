@@ -119,21 +119,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#ubersicht">3.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#architektur">3.2 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#kurze-implementierungshistorie">3.3 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#graphenoperationen">3.4 Graphenoperationen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#ausstellen-von-recommendations">3.5 Ausstellen von Recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#sieben-von-recomemndations">3.6 Sieben von Recomemndations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#lernen-durch-die-history">3.7 Lernen durch die History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#keywordextraction">3.8 Keywordextraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#architektur">3.1 Architektur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#algorithmik">3.2 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.5 Entwurf der Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#historie">4.3 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#putting-it-together">4.4 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#statistiken">4.6 Statistiken</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Test</a><ul>
@@ -216,7 +215,7 @@ einzelner Song kennt dafür einen bestimmten Wert.</p>
 <p class="last">Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
 Songs gespeichert, sowie eine Integer der als Identifier dient.</p>
 </dd>
-<dt id="term-distance">Distance</dt>
+<dt id="term-distanz">Distanz</dt>
 <dd><p class="first">Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute.
 Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
 minimale <em>Entfernung</em> zueiander), eine Distanz von 1.0 maximale
@@ -225,7 +224,7 @@ Unähnlichkeit (oder maximale <em>Entfernung</em>).</p>
 </dd>
 <dt id="term-distanzfunktion">Distanzfunktion</dt>
 <dd><p class="first">Eine Distanzfunktion ist im Kontext von libmunin eine Funktion die
-zwei Songs als Eingabe nimmt und die <a class="reference internal" href="#term-distance"><em class="xref std std-term">Distance</em></a> zwischen
+zwei Songs als Eingabe nimmt und die <a class="reference internal" href="#term-distanz"><em class="xref std std-term">Distanz</em></a> zwischen
 diesen berechnet.</p>
 <p>Dabei schaut sie sich alle <a class="reference internal" href="#term-attribut"><em class="xref std std-term">Attribut</em></a> an die beide Songs
 gemeinsam haben und nutzt für jedes gemeinsame Attribut eine

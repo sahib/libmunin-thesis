@@ -119,21 +119,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ubersicht">3.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.2 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#kurze-implementierungshistorie">3.3 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#graphenoperationen">3.4 Graphenoperationen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ausstellen-von-recommendations">3.5 Ausstellen von Recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#sieben-von-recomemndations">3.6 Sieben von Recomemndations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#lernen-durch-die-history">3.7 Lernen durch die History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#keywordextraction">3.8 Keywordextraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.1 Architektur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.2 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#entwurf-der-software">3.5 Entwurf der Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#historie">4.3 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#putting-it-together">4.4 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statistiken">4.6 Statistiken</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
@@ -189,62 +188,8 @@
 gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em> ''</p>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
-<div class="section" id="ubersicht">
-<h2>4.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><pre>munin/
-|---- __init__.py                     # Version Info
-|---- __main__.py                     # Contains an example program
-|---- database.py                     # Implements all TODO
-|---- dbus_client.py
-|---- dbus_service.py
-|---- distance/
-|   |---- __init__.py
-|   |---- bpm.py
-|   |---- date.py
-|   |---- genre.py
-|   |---- keywords.py
-|   |---- levenshtein.py
-|   |---- moodbar.py
-|   |---- rating.py
-|   |---- wordlist.py
-|---- easy.py
-|---- graph.py
-|---- helper.py
-|---- history.py
-|---- plot.py
-|---- provider/
-|   |---- __init__.py
-|   |---- bpm.py
-|   |---- composite.py
-|   |---- date.py
-|   |---- generate_genre_list.py
-|   |---- genre.list
-|   |---- genre.py
-|   |---- keywords.py
-|   |---- moodbar.py
-|   |---- normalize.py
-|   |---- stem.py
-|   |---- wordlist.py
-|---- rake.py
-|---- scripts/
-|   |---- moodbar_visualizer.py
-|   |---- moodbar_walk.py
-|---- session.py
-|---- song.py
-|---- stopwords/                     # Stopword supoort
-|   |---- data                       # Stopworddatabase
-|   |   |---- de                     # Each file contains a newline separated
-|   |   |---- en                     # list of stopwords.
-|   |   |---- es                     # File name is the ISO 638-1 language code.
-|   |   |---- …
-|   |---- __init__.py
-|---- testing.py
-
-5 directories, 57 files</pre>
-</div>
-</div>
 <div class="section" id="entwicklungsumgebung">
-<h2>4.2 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
+<h2>4.1 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
 <p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
 <ul class="simple">
 <li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
@@ -284,11 +229,209 @@ zurückgehen.</p>
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
 und <em>flake8</em> überprüft.</p>
 </div>
-<div class="section" id="historie">
-<h2>4.3 Historie<a class="headerlink" href="#historie" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kurze-implementierungshistorie">
+<h2>4.2 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h2>
+<p>Probleme:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Graphenaufbau (combinations = teuer)</li>
+<li>Festlegung von distance_add funktionsweise</li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="http://libmunin.readthedocs.org/en/latest/logbuch.html">http://libmunin.readthedocs.org/en/latest/logbuch.html</a></p>
 </div>
-<div class="section" id="putting-it-together">
-<h2>4.4 Putting it together<a class="headerlink" href="#putting-it-together" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="liste-verfugbarer-provider-und-distanzfunktionen">
+<h2>4.3 Liste verfügbarer Provider und Distanzfunktionen<a class="headerlink" href="#liste-verfugbarer-provider-und-distanzfunktionen" title="Permalink to this headline">¶</a></h2>
+<p>Insgesamt wurden 13 unterschiedliche Provider implementiert - davon variieren
+einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
+manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.</p>
+<div class="section" id="liste-der-distanzfunktionen">
+<h3>4.3.1 Liste der Distanzfunktionen<a class="headerlink" href="#liste-der-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
+<p>Die genaue Berechnung der Distanz wird in der Bachelorarbeit betrachtet.</p>
+<div class="section" id="date">
+<h4>4.3.1.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="moodbar">
+<h4>4.3.1.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt><a class="headerlink" href="#moodbar" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="rating">
+<h4>4.3.1.3 <tt class="docutils literal"><span class="pre">Rating</span></tt><a class="headerlink" href="#rating" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="bpm">
+<h4>4.3.1.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#bpm" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="wordlist-levenshtein-keywords">
+<h4>4.3.1.5 <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, <tt class="docutils literal"><span class="pre">Levenshtein</span></tt>, <tt class="docutils literal"><span class="pre">Keywords</span></tt><a class="headerlink" href="#wordlist-levenshtein-keywords" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="genretreeavglink-genretree">
+<h4>4.3.1.6 <tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt>, <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretreeavglink-genretree" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>4.3.2 Liste der Distanzfunktionen<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Die genaue Funtkionsweise der Provider wird in der Bachelorarbeitet betrachtet.
+Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
+Eingabe sie erwarten sowie welche Ausgabe sie produzieren.</p>
+<div class="section" id="id2">
+<h4>4.3.2.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Wandelt und normalisiert ein Datum dass als String übergeben wird zu einer
+Jahreszahl (<em>1975</em> beispielsweise). Dabei werden die häufigsten
+Datum-Formattierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+unterschiedliche Datumsangaben in den Audiofiles getaggt sind.</p>
+</div>
+<div class="section" id="id3">
+<h4>4.3.2.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Berechnet mit dem <tt class="docutils literal"><span class="pre">moodbar</span></tt> (TODO: zitieren) Programm aus einen beliebigen
+Audio File einen Vektor mit 1000 RGB-Farbwerten. Jeder dieser Farbwerte
+repräsentiert den Anteil niedriger Frequenzen (rot), mittlerer (grün) und
+hoher Frequenzen (blau) in einem Tausendstel des Audiostücks.</p>
+<p>Obwohl man aus dem Namen dises Verfahren schließen könnte dass hier die
+<em>Stimmung</em> im Lied angedeutet wird, kann man aus diesen Informationen
+lediglich herauslesen wie ,,engergetisch'' ein Lied zu einem bestimmten
+Zeitpunkt ist - mit etwas Glück kann man auch Instrumente erkennen - so ist
+die Kombination von E-Gitarre und Drums oft ein helles Türkis.</p>
+<p>Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet - die
+dominaten Farben, der Stilleanteil (<em>schwarz</em>) und einige weitere Merkmale.</p>
+<p>Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
+Typ ihrer Eingabe unterscheiden:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Moodbar</span></tt>: Nimmt eine Liste von 1000 RGB-Werten.</li>
+<li><tt class="docutils literal"><span class="pre">MoodbarFile</span></tt>: Nimmt ein Pfad zu einem von der <tt class="docutils literal"><span class="pre">moodbar</span></tt> erstellten Datei
+entgegen die einen Vektor aus 1000 RGB-Werten binär beeinhaltet.</li>
+<li><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt>: Nimmt ein Pfad zu einer beliebigen Audio-Datei entgegen
+und führt das <tt class="docutils literal"><span class="pre">moodbar</span></tt>-Utility darauf aus falls noch keine weiter Datei mit
+demselben Pfad plus der zusätzlichen Endung <tt class="docutils literal"><span class="pre">.mood</span></tt> vorhanden ist.</li>
+</ul>
+</div>
+<div class="section" id="wordlist">
+<h4>4.3.2.3 <tt class="docutils literal"><span class="pre">Wordlist</span></tt><a class="headerlink" href="#wordlist" title="Permalink to this headline">¶</a></h4>
+<p>Bricht einen String in eine Liste von Wörter auf.</p>
+</div>
+<div class="section" id="id4">
+<h4>4.3.2.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Berechnet die ,,Beats-Per-Minute'' eines Lieds (Zitieren) - dies funktioniert
+nicht nur für stark beat-lastige Musikrichtungen wie Techno sondern auch für
+normale Musikrichtungen.</p>
+<p>TODO: Hinweis auf bpm-tools</p>
+</div>
+<div class="section" id="normalize-artistnormalize-albumnormalize">
+<h4>4.3.2.5 <tt class="docutils literal"><span class="pre">Normalize</span></tt>, <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>, <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt><a class="headerlink" href="#normalize-artistnormalize-albumnormalize" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="composite">
+<h4>4.3.2.6 <tt class="docutils literal"><span class="pre">Composite</span></tt><a class="headerlink" href="#composite" title="Permalink to this headline">¶</a></h4>
+<p>Erlaubt das Verketten von Providern. Er erste Eingabewert wird dem ersten
+Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe,
+wird an den nächsten Provider in der Kette als Eingabe weitergegeben.</p>
+<p>Ein Anwendungsbeispiel wäre das Zusammenschalten</p>
+<div class="highlight-python"><pre>Eingabe: Artist, Album -&gt; PlyrLyrics | Stem | Keywords -&gt; Ausgabe: Stemmed Keywords</pre>
+</div>
+</div>
+<div class="section" id="stem">
+<h4>4.3.2.7 <tt class="docutils literal"><span class="pre">Stem</span></tt><a class="headerlink" href="#stem" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="genretree">
+<h4>4.3.2.8 <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretree" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="keywords">
+<h4>4.3.2.9 <tt class="docutils literal"><span class="pre">Keywords</span></tt><a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h4>
+<p>Extrahiert aus einem Text als Eingabe alle <em>relevanten</em> Stichwörter.
+Ein Beispiel dieser <em>Keywords</em> wird in <a href="#fig-yellow-keywords">4.2</a> gezeigt.
+Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.</p>
+<div class="figure align-center" id="fig-yellow-keywords">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head align-right">Rating</th>
+<th class="head align-left">Keywords</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-right">22.558</td>
+<td class="align-left">'yellow', 'submarin'</td>
+</tr>
+<tr class="row-odd"><td class="align-right">20.835</td>
+<td class="align-left">'full', 'speed', 'ahead', 'mr'</td>
+</tr>
+<tr class="row-even"><td class="align-right">8.343</td>
+<td class="align-left">'live', 'beneath'</td>
+</tr>
+<tr class="row-odd"><td class="align-right">5.247</td>
+<td class="align-left">'band', 'begin'</td>
+</tr>
+<tr class="row-even"><td class="align-right">3.297</td>
+<td class="align-left">'sea'</td>
+</tr>
+<tr class="row-odd"><td class="align-right">3.227</td>
+<td class="align-left">'green'</td>
+</tr>
+<tr class="row-even"><td class="align-right">2.797</td>
+<td class="align-left">'captain'
+...</td>
+</tr>
+</tbody>
+</table>
+<p class="caption"><strong>Figure 4.2:</strong> Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
+,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
+</center></div></div>
+<div class="section" id="plyrlyrics">
+<h4>4.3.2.10 <tt class="docutils literal"><span class="pre">PlyrLyrics</span></tt><a class="headerlink" href="#plyrlyrics" title="Permalink to this headline">¶</a></h4>
+<p>Besorgt mittels <em>libglyr</em> Liedtexte aus dem Internet. Bereits gesuchte Liedtexte
+werden dabei zwischengespeichert. Dieser <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> eignet sich besonders im
+Zusammenhang mit dem <em>Keywords</em> zusammen als <em>Composite</em> Provider.</p>
+</div>
+<div class="section" id="discogsgenre">
+<h4>4.3.2.11 <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt><a class="headerlink" href="#discogsgenre" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="paketubersicht">
+<h2>4.4 Paketübersicht<a class="headerlink" href="#paketubersicht" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tree munin/
+munin/
+|---- __init__.py                     | Versionierungs Info
+|---- __main__.py                     | Beispielprogramm
+|---- database.py                     | Manager für alle vorhandenen Songs
+|---- dbus_service.py                 | <span class="o">[</span>Unfertiger<span class="o">]</span> Dbus Service für libmunin
+|---- dbus_client.py                  | <span class="o">[</span>Unfertiger<span class="o">]</span> DBus Client
+|---- distance/                       | Unterverzeichnis für Distanzfunktionen
+|   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
+|   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
+|   |---- date.py                     | ...
+|   |---- ...                         |
+|---- session.py                      | Implementierung der Session <span class="o">(</span>API<span class="o">)</span>
+|---- easy.py                         | Vereinfachte Session-API
+|---- graph.py                        | Implementiert Graphenoperationen
+|---- helper.py                       | Verschiedene Utilityfunktionen
+|---- history.py                      | Implementierung beider Histories
+|                                     | und Assoziationsregeln
+|---- plot.py                         | Visualisierungsfunktionen
+|---- provider/                       | Unterverzeichnis für alle Provider
+|   |---- __init__.py                 | Oberklasse für jeden Provider
+|   |---- bpm.py                      | BeatsPerMinute Provider
+|   |---- composite.py                | ...
+|   |---- ...                         |
+|---- rake.py                         | Implementierung des RAKE Algorithmus
+|---- scripts/                        | Verschiedene eigenständige Helper
+|   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
+|   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
+|                                     | jedes Audiofile in einem Verzeichnis
+|---- song.py                         | Implementierung der Song Klasse
+|---- stopwords/                      |
+|   |---- __init__.py                 | Stoppwort Implementierung
+|   |---- data                        | Stoppwort Datenbank
+|   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
+|   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
+|   |   |---- es                      | ISO 638-1 Language Code.
+|   |   |---- ...                     |
+|---- testing.py                      | Fixtures und Helper für unittests
+</pre></div>
+</div>
+</div>
+<div class="section" id="anwendungsbeispiel">
+<h2>4.5 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -334,11 +477,122 @@ und <em>flake8</em> überprüft.</p>
 </span>    <span class="k">print</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
-<p>The output of this little wonder should be:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>  <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="s">&#39;Debauchery&#39;</span> <span class="p">,</span> <span class="s">&#39;Continue to Kill&#39;</span> <span class="p">,</span> <span class="s">&#39;Apostle of War&#39;</span> <span class="p">,</span> <span class="s">&#39;brutal death&#39;</span><span class="p">)</span>
+<p>Ist <em>libmunin</em> korrekt installiert, so lässt sich dieses Skript als
+<tt class="docutils literal"><span class="pre">minimal.py</span></tt> ablegen und folgendermaßen ausführen:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python minimal.py
+<span class="o">(</span><span class="s1">&#39;Vogelfrey&#39;</span>  , <span class="s1">&#39;Wiegenfest&#39;</span>       , <span class="s1">&#39;Heldentod&#39;</span>      , <span class="s1">&#39;folk metal&#39;</span><span class="o">)</span>,
+<span class="o">(</span><span class="s1">&#39;Debauchery&#39;</span> , <span class="s1">&#39;Continue to Kill&#39;</span> , <span class="s1">&#39;Apostle of War&#39;</span> , <span class="s1">&#39;brutal death&#39;</span><span class="o">)</span>
 </pre></div>
 </div>
+<div class="section" id="kurze-erlauterung-des-beispiels">
+<h3>4.5.1 Kurze Erläuterung des Beispiels<a class="headerlink" href="#kurze-erlauterung-des-beispiels" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Zeile 1:</strong></p>
+<p>Der Einstiegspunkt von <em>libmunin's</em> API ist immer eine <em>Session</em>.
+Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
+und Weighting) mitunder recht anstrengend werden kann greifen wir auf eine
+Session mit vorgefertigter <a class="reference internal" href="../appendix.html#term-maske"><em class="xref std std-term">Maske</em></a> zurück - die sogenannte
+<tt class="docutils literal"><span class="pre">EasySession</span></tt>.</p>
+</li>
+<li><p class="first"><strong>Zeile 3:</strong></p>
+<p>Hier erstellen wir uns eine Pseudo-Datenbank aus vier Liedern mit vier
+einzelnen Attributen jeweils.</p>
+</li>
+<li><p class="first"><strong>Zeile 11:</strong></p>
+<p>Hier wird die oben erwähnte <tt class="docutils literal"><span class="pre">EasySession</span></tt> instanziert. Sie dient uns jetzt
+als <em>Sitzung</em> - alle relevanten Methoden von <em>libmunin</em> können auf der
+<em>Session</em> aufgerufen werden.</p>
+</li>
+<li><p class="first"><strong>Zeile 12:</strong></p>
+<p>Bein initialen Importieren der Datenbank werden alle Songs über die <tt class="docutils literal"><span class="pre">add</span></tt>
+Operation hinzugefügt. Da <tt class="docutils literal"><span class="pre">add</span></tt> noch keine Verbindungen zwischen den
+einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
+Importieren ein <tt class="docutils literal"><span class="pre">rebuild</span></tt> ausgeführt wird.</p>
+</li>
+<li><p class="first"><strong>Zeile 14:</strong></p>
+<p>Wir iterieren (<strong>Zeile 13</strong>) über alle Songs in unserer Pseudo-Datenbank und
+fügen diese der <em>Session</em> hinzu (über die <tt class="docutils literal"><span class="pre">add</span></tt> Operation). zu beachten ist
+dabei: Es wird eine Hashtable übergeben in denen bestimmte Schlüssel (wie
+<tt class="docutils literal"><span class="pre">artist</span></tt>) von der <tt class="docutils literal"><span class="pre">EasySession</span></tt> vorgegeben sind - erstellt man eine eigene
+Session kann man diese nach Belieben Konfigurieren.</p>
+<p>Ein Problem dass man bei der Benutzung der Library hat ist: <em>libmunin</em> und der
+Nutzter halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
+verwaltet die Originaldaten mit denen er arbeitet während <em>libmunin</em> nur
+normalisierte Daten speichert. Das Problem dabei: Wie soll der User wissen
+welche Empfehlung zu welchen Song in seinen Originaldaten gehört?</p>
+<p>Dazu ist ein Mapping erforderlich das
+Zu diesem Zwecke geben die Operationen <tt class="docutils literal"><span class="pre">add</span></tt>, <tt class="docutils literal"><span class="pre">insert</span></tt>, <tt class="docutils literal"><span class="pre">modify</span></tt> und
+<tt class="docutils literal"><span class="pre">remove</span></tt> eine eindeutige ID zurück die einen von <em>libmunin's</em> Songs
+referenziert. Der Benutzer kann diese nutzen um auf eine ID innerhalb <em>seiner</em>
+Datenbank zu referenzieren.</p>
+<p>Im obigen Beispiel wird die von <tt class="docutils literal"><span class="pre">add</span></tt> zurückgebene ID auf die ID innerhalb
+von <em>MY_DATABASE</em> gemappt.</p>
+</li>
+<li><p class="first"><strong>Zeile 21:</strong></p>
+<p>In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen uns von der
+<tt class="docutils literal"><span class="pre">EasySession</span></tt> über die Methode <tt class="docutils literal"><span class="pre">recommend_from_seed</span></tt> zwei Empfehlungen zum ersten
+Song der über <tt class="docutils literal"><span class="pre">add</span></tt> hinzugefügt wurde geben. Die Empfehlung selbst wird als
+<tt class="docutils literal"><span class="pre">Song</span></tt> Objekt ausgebene - dieses hat unter anderen eine ID gespeichert mit
+der wir die ursprünglichen Daten finden können.</p>
+</li>
+</ul>
+<p>Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web:</p>
+<blockquote>
+<div><a class="reference external" href="http://libmunin.rtfd.org">http://libmunin.rtfd.org</a></div></blockquote>
+</div>
+<div class="section" id="kurze-erlauterung-des-outputs">
+<h3>4.5.2 Kurze Erläuterung des Outputs<a class="headerlink" href="#kurze-erlauterung-des-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
+vergleichen lässt und wir uns von dem ersten Song (,, <em>Trugbild</em> '') zwei
+Empfehlungen geben ließen werden die zwei Songs mit dem ähnlichsten Genre
+ausgegeben.</p>
+<p>[TODO: Den Mini-Graph einfügen]</p>
+</div>
+</div>
+<div class="section" id="statistiken">
+<h2>4.6 Statistiken<a class="headerlink" href="#statistiken" title="Permalink to this headline">¶</a></h2>
+<p>LoC Statistiken:</p>
+<div class="highlight-bash"><div class="highlight"><pre>      65 text files.
+      63 unique files.
+      19 files ignored.
+
+http://cloc.sourceforge.net v 1.60  <span class="nv">T</span><span class="o">=</span>0.34 s <span class="o">(</span>135.8 files/s, 26868.3 lines/s<span class="o">)</span>
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Python                          46           2063           2169           4867
+-------------------------------------------------------------------------------
+SUM:                            46           2063           2169           4867
+-------------------------------------------------------------------------------
+</pre></div>
+</div>
+<p>Dazu kommen einige weitere Zeilen von <em>reStructuredText</em> die die Basis der
+Onlinedokumentation bilden:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>wc -l <span class="k">$(</span>find . -iname <span class="s1">&#39;*.rst&#39;</span><span class="k">)</span>
+2231 insgesamt
+</pre></div>
+</div>
+<p>Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></tt> entstanden sind:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">GitHub Visualisierungen:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/sahib/libmunin/graphs">https://github.com/sahib/libmunin/graphs</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">gitstats</span></tt> Visualisierungen:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://sahib.github.io/libmunin-thesis/gitstats/index.html">http://sahib.github.io/libmunin-thesis/gitstats/index.html</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">gource</span></tt> Commit-Graph Visualisierung:</p>
+<blockquote>
+<div><p>... TODO ...</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 

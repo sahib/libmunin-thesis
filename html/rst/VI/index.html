@@ -119,21 +119,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ubersicht">3.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.2 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#kurze-implementierungshistorie">3.3 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#graphenoperationen">3.4 Graphenoperationen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#ausstellen-von-recommendations">3.5 Ausstellen von Recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#sieben-von-recomemndations">3.6 Sieben von Recomemndations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#lernen-durch-die-history">3.7 Lernen durch die History</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#keywordextraction">3.8 Keywordextraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.1 Architektur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.2 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#entwurf-der-software">3.5 Entwurf der Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#ubersicht">4.1 Übersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.2 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#historie">4.3 Historie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#putting-it-together">4.4 Putting it together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#statistiken">4.6 Statistiken</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
@@ -218,6 +217,8 @@ repräsentieren lassen.</p>
 <ul>
 <li><p class="first">Suchengine für natürliche Sprache wie in <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-knees2007music">4</a><span class="citation">]</span></span></p>
 </li>
+<li><p class="first">Transitions. Beispieslweise immer &quot;härter werdende musik&quot;</p>
+</li>
 <li><p class="first">Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)</p>
 </li>
 <li><p class="first">Auch &quot;disklikes&quot; berücksichtigen (zB. songs die immer gleich geskippt wurden)?</p>
@@ -228,8 +229,13 @@ repräsentieren lassen.</p>
 </li>
 <li><p class="first">Einbeziehung der duration als provider/distanz (statistisch untersuchen)</p>
 </li>
-<li><p class="first">Echte audionanylse mittels aubio. <a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a>
-oder <a class="reference external" href="https://github.com/marsyas/marsyas">https://github.com/marsyas/marsyas</a></p>
+<li><p class="first">Echte audionanylse mittels aubio.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a></li>
+<li><a class="reference external" href="https://github.com/marsyas/marsyas">https://github.com/marsyas/marsyas</a></li>
+</ul>
+</div></blockquote>
 </li>
 <li><p class="first">Echte mood analyse.</p>
 </li>
@@ -267,6 +273,10 @@ Es wäre wünschenswert eine &quot;bridge&quot; zwischen libmunin und beets zu s
 </div></blockquote>
 <p>Beets ist gewißermaßen das libhugin-anaylse für musik</p>
 </li>
+<li><p class="first">date origin abhängig vom genre</p>
+</li>
+<li><p class="first">genre-bridges: grunge-&gt;rock</p>
+</li>
 </ul>
 </div>
 </div>
@@ -278,6 +288,13 @@ vergleichen zu sind und diese sich durch einface Key-Value Mappings abbilden
 lassen.</p>
 <p>So wäre mit <em>libmunin</em> auch ein Bücher- oder Video-Empfehlungssystem möglich -
 sofern man entsprechende Provider und Distanzfunktionen implementiert.</p>
+<div class="section" id="war-die-arbeit-erfolg">
+<h3>6.3.1 War die Arbeit Erfolg?<a class="headerlink" href="#war-die-arbeit-erfolg" title="Permalink to this headline">¶</a></h3>
+<p>Das kommt darauf an wie man <em>Erfolg</em> definiert. Noch ist die Bibliothek in ihren
+Anfangsstadium - vor allem die Audioanalyse steckt noch in den Kinderschuhen.
+Dennoch ist es als Erfolg zu werten dass noch nie zu den Beatles ein Song von
+Rammstein empfohlen wurde.</p>
+</div>
 </div>
 </div>
 

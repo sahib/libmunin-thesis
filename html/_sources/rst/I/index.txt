@@ -4,18 +4,19 @@ Einleitung
 
 .. epigraph:: 
 
-    | '' *Scheue nicht Gefahr noch Leiden*
-    | *Lebe nicht von vergangenen Herrlichkeiten*
-    | *Liegt auch Stolz in der Erinnerung* 
-    | *Das Alte wird nicht wieder jung* ''
+   '' *Sei froh dass du du bist, und nicht dieser Fisch.* ''
 
-    -- *Unter der Asche,* **DAR**
+   -- *Das Lied von der Makrele, Marc Uwe Kling*
+   
 
 Motivation
 ==========
 
 State of the Art
 ----------------
+
+Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
+gar im Supermarkt.
 
 Im weltweitem Netz gibt es eine Vielzahl von Angeboten die Musik anbieten,
 entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify, rhapsody,
@@ -52,21 +53,17 @@ Anzahl von Arbeiten auf diesem Gebiet:
 .. figtable::
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
-    :alt: Wissenschaftliche Arbeiten zum Thema 'Music Recommendation' auf die Jahre verteilt
-    :spec: r l
+    :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
+    :spec: r l r l
 
-    ========== ======
-    Jahr       Anzahl
-    ========== ======
-    1994-2000  1
-    2001-2002  4
-    2003-2004  3
-    2005-2006  8
-    2007-2008  8
-    2009-2010  9
-    2011-2012  6
-    2013-2014  5+  
-    ========== ======
+    ========== ====== ========== ======
+    Jahre      Anzahl Jahre      Anzahl
+    ========== ====== ========== ======
+    1994-2000  1      2007-2008  8
+    2001-2002  4      2009-2010  9
+    2003-2004  3      2011-2012  6
+    2005-2006  8      2013-2014  5+  
+    ========== ====== ========== ======
 
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
 Seiten starkes Buch. :cite:p:`celma2010music`.
@@ -96,6 +93,16 @@ bei den meisten Implementierungen bei vorhandenen Plattformen wie ``last.fm``
 suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
 Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern können.
 
+Trotzdem gibt es einige Gründe warum eine Alternative wünschenswert wäre:
+
+* Verzicht auf Werbung
+* Free Open Source Software
+* Pure clientseitge Nutzung möglich
+* Man will nur seine eigene Musik hören - vorhandene Plattformen empfehlen 
+  nur kommerzielle Musik, keine CC-lizensierte. Außer jamendo.
+* Kommerzeille Systeme sind auf Wirtschaftlichkeit getrimmt, OSS auf Qualität.
+* Der Autor wünscht sich ein ,,Dynamic Playlist'' Feature für moosecat
+
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
 einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von ``last.fm``
@@ -105,8 +112,6 @@ die zwischen allen paar Liedern gespielt wird.
 Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
 oder diese Implementierung in eine allgemein nutzbare Open Source Library
 verpackt die auch für private Anwender einsetzbar ist.
-
-
 
 Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
 MPD Client [#f2]_ den er entwickelt wünscht trägt natürlich auch zur Motivation

@@ -16,7 +16,7 @@
    id="svg2985"
    height="3240"
    width="4320"
-   sodipodi:docname="integration.pdf">
+   sodipodi:docname="integration.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,17 +24,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.18616113"
-     inkscape:cx="2665.5643"
-     inkscape:cy="1569.2753"
+     inkscape:zoom="0.26327159"
+     inkscape:cx="3616.5856"
+     inkscape:cy="1241.7456"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="896"
-     inkscape:window-height="484"
-     inkscape:window-x="1004"
-     inkscape:window-y="576"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1014"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
      borderlayer="true" />
@@ -326,7 +326,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -412,14 +412,14 @@
        inkscape:transform-center-x="37.358844"
        sodipodi:linespacing="125%"
        id="text3376"
-       y="518.42981"
+       y="545.28827"
        x="272.24829"
        style="font-size:72.90350342px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
        xml:space="preserve"><tspan
-         y="518.42981"
+         y="545.28827"
          x="272.24829"
          id="tspan3378"
-         sodipodi:role="line">Music database</tspan></text>
+         sodipodi:role="line">Musikdatenbank</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:72.90350342px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
@@ -538,7 +538,7 @@
          id="tspan4301"
          sodipodi:role="line">☁<tspan
    id="tspan4303"
-   style="font-size:100px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">the web</tspan></tspan></text>
+   style="font-size:100px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">das web</tspan></tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path6099"
@@ -560,7 +560,7 @@
          id="tspan6299"
          y="-53.06414"
          x="3484.5159"
-         sodipodi:role="line">recommendations</tspan></text>
+         sodipodi:role="line">Empfehlungen</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path6305"
@@ -577,29 +577,39 @@
          y="-827.54675"
          x="4313.813"
          id="tspan3410"
-         sodipodi:role="line">Developer Area</tspan><tspan
+         sodipodi:role="line">Entwickler Bereich</tspan><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
          id="tspan3412"
          y="-737.54675"
          x="4313.813"
-         sodipodi:role="line">User Area</tspan></text>
+         sodipodi:role="line">Nutzer Bereich</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4218"
-       y="-983.50854"
+       y="-1166.146"
        x="2355.4861"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
-         y="-983.50854"
+         y="-1166.146"
          x="2355.4861"
          id="tspan4220"
-         sodipodi:role="line">Feeds listening history</tspan><tspan
+         sodipodi:role="line" /><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
          id="tspan4222"
-         y="-893.50854"
+         y="-1065.5078"
          x="2355.4861"
-         sodipodi:role="line">to help libmunin learn</tspan></text>
+         sodipodi:role="line">Füttert ,,History''</tspan><tspan
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+         y="-975.50781"
+         x="2355.4861"
+         sodipodi:role="line"
+         id="tspan3519">Informationen - </tspan><tspan
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+         y="-885.50781"
+         x="2355.4861"
+         sodipodi:role="line"
+         id="tspan3521">was gehoert wurde.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -611,7 +621,7 @@
          x="3069.9209"
          y="-1423.9872"
          id="tspan4228"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">produces</tspan></text>
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Gibt aus</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4232"
@@ -623,61 +633,66 @@
          id="tspan4234"
          y="359.41406"
          x="3021.5757"
-         sodipodi:role="line">Makes use of</tspan></text>
+         sodipodi:role="line">benutzt</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="813.09369"
+       x="783.54938"
        y="359.41406"
        id="text4236"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="813.09369"
+         x="783.54938"
          y="359.41406"
          id="tspan4238"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Provides and feeds</tspan></text>
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Stellt datenbank</tspan><tspan
+         sodipodi:role="line"
+         x="783.54938"
+         y="449.41406"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+         id="tspan3525">bereit &amp; Gibt sie ein </tspan><tspan
+         sodipodi:role="line"
+         x="783.54938"
+         y="539.41406"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+         id="tspan3523" /></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="593.57159"
-       y="-915.13806"
+       y="-1019.886"
        id="text4240"
        sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="593.57159"
-         y="-915.13806"
-         id="tspan4244"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Gets analysed,  </tspan><tspan
          id="tspan4248"
          sodipodi:role="line"
          x="593.57159"
-         y="-825.13806"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Normalized and Saved</tspan><tspan
+         y="-1019.886"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Analysiere, Normalisiere</tspan><tspan
          id="tspan4250"
          sodipodi:role="line"
          x="593.57159"
-         y="-735.13806"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">afer the user fed it</tspan><tspan
+         y="-929.88605"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">und Speichere Daten</tspan><tspan
          id="tspan4260"
          sodipodi:role="line"
          x="593.57159"
-         y="-645.13806"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">&amp; rebuild the Session</tspan></text>
+         y="-839.88605"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">&amp; Bilde Graphen</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4252"
        y="-1824.6805"
-       x="2295.4006"
+       x="2302.9973"
        style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
        xml:space="preserve"><tspan
          y="-1824.6805"
-         x="2295.4006"
+         x="2302.9973"
          id="tspan4254"
-         sodipodi:role="line">Retrieve lyrics and genre Data</tspan><tspan
+         sodipodi:role="line">Suche Lyrics und Genre Informationen</tspan><tspan
          id="tspan4256"
          y="-1734.6805"
-         x="2295.4006"
-         sodipodi:role="line">Future: Autocorrect Tags via musicbrainz</tspan></text>
+         x="2302.9973"
+         sodipodi:role="line">ZukunftsMusik: suche fehlende/falsche Tags auf musicbrainz</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path4258"
@@ -701,12 +716,12 @@
          x="4313.813"
          y="-2012.6346"
          id="tspan4268"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Third Party/web</tspan><tspan
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Drittanbieter/das Internet</tspan><tspan
          id="tspan4270"
          sodipodi:role="line"
          x="4313.813"
          y="-1922.6346"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Developer Area</tspan></text>
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Entwickler Bereich</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:206.8923645px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.42323656;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
@@ -755,7 +770,12 @@
          x="1583.3055"
          y="-970.07922"
          id="tspan4837"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">generate rules</tspan></text>
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans">Erzeugt REgeln </tspan><tspan
+         sodipodi:role="line"
+         x="1583.3055"
+         y="-880.07922"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+         id="tspan3517">&amp; lernt von user</tspan></text>
     <g
        transform="matrix(0.49057306,0,0,0.48163574,373.44506,-1645.7307)"
        id="g4841"
@@ -825,13 +845,13 @@
        sodipodi:linespacing="125%"
        id="text7479"
        y="-1413.2437"
-       x="906.47253"
+       x="769.49445"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
          id="tspan7481"
          y="-1413.2437"
-         x="906.47253"
-         sodipodi:role="line">Loads and Saves</tspan></text>
+         x="769.49445"
+         sodipodi:role="line">Speichert und laedt</tspan></text>
   </g>
 </svg>

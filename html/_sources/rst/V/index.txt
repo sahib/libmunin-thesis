@@ -46,6 +46,8 @@ Erklärung der Kontrollelemente in :num:`fig-demo-overview`.
 Main
 ~~~~
 
+Die Suche kann mittels :kbd:`Strg-f` aktiviert werden.
+
 1) Views
 
     #. *Database* :num:`fig-demo-database`
@@ -62,7 +64,7 @@ Main
 
     #. *Rules* :num:`fig-demo-rules`
 
-       In einer Liste werden alle bekannten :term:`Assoziationsregeln`
+       In einer Liste werden alle bekannten :term:`Assoziationsregel`
        angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
        und das Rating der Regel angezeigt.
 

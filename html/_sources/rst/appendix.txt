@@ -39,7 +39,7 @@ Glossar
         Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
         Songs gespeichert, sowie eine Integer der als Identifier dient.
 
-    Distance
+    Distanz
 
         Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
         Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
@@ -51,7 +51,7 @@ Glossar
     Distanzfunktion
 
         Eine Distanzfunktion ist im Kontext von libmunin eine Funktion die 
-        zwei Songs als Eingabe nimmt und die :term:`Distance` zwischen
+        zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
         diesen berechnet.
 
         Dabei schaut sie sich alle :term:`Attribut` an die beide Songs
