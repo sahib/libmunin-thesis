@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2100"
+   height="500"
+   id="svg3677"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="munin_startup.svg">
+  <defs
+     id="defs3679">
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path8453"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="scale(0.8,0.8)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="1189.022"
+     inkscape:cy="138.49089"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1918"
+     inkscape:window-height="1013"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3682">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-552.35695)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 2048.5894,463.63451 -630.3353,0 -828.32502,0 -559.624504,0 0,-426.284376 563.665124,0 977.8277,0 474.7717,0 z"
+       id="path4847"
+       inkscape:connector-curvature="0"
+       transform="translate(0,552.35695)"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 553.4513,589.82384 779.09933,809.48123 573.42015,1015.1604"
+       id="path4853"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4855"
+       d="m 1342.221,589.82384 225.6481,219.65739 -205.6793,205.67927"
+       style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <path
+       style="fill:#c9e841;fill-opacity:1"
+       d="m 1476.8782,357.74474 99.9619,-99.97716 -11.5481,-11.6447 c -6.3514,-6.40458 -55.4904,-54.37415 -109.1978,-106.59903 l -97.6498,-94.954344 340.3841,-0.510948 c 187.2113,-0.281022 340.5919,-0.281022 340.8458,0 0.2538,0.281022 1.1304,93.470232 1.9479,207.087142 l 1.4863,206.5762 -333.0961,0 -333.096,0 99.9618,-99.97716 0,0 z"
+       id="path3764"
+       inkscape:connector-curvature="0"
+       transform="translate(0,552.35695)" />
+    <path
+       style="fill:#edbd67;fill-opacity:1"
+       d="M 687.43893,357.21172 787.90093,256.70154 678.68872,150.63552 569.4765,44.569506 954.64572,44.059231 1339.8149,43.548956 1448.7666,149.82251 c 59.9235,58.45046 108.9518,106.86095 108.9518,107.57886 0,0.71794 -44.7716,46.08375 -99.4924,100.81293 l -99.4924,99.5076 -385.87833,0 -385.87835,0 100.46201,-100.51018 z"
+       id="path3766"
+       inkscape:connector-curvature="0"
+       transform="translate(0,552.35695)" />
+    <path
+       style="fill:#db6565;fill-opacity:1"
+       d="m 36.428631,250.64063 0,-207.081276 257.084749,0 257.08476,0 109.62939,106.534806 109.62941,106.53481 -100.53137,100.54646 -100.53139,100.54647 -266.18278,0 -266.182769,0 0,-207.08127 z"
+       id="path3768"
+       inkscape:connector-curvature="0"
+       transform="translate(0,552.35695)" />
+    <text
+       xml:space="preserve"
+       style="font-size:154.18322754px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+       x="48.959705"
+       y="828.80554"
+       id="text4857"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4859"
+         x="48.959705"
+         y="828.80554">Analyse</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4861"
+       y="820.72424"
+       x="822.73657"
+       style="font-size:154.18322754px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+       xml:space="preserve"><tspan
+         y="820.72424"
+         x="822.73657"
+         id="tspan4863"
+         sodipodi:role="line">REBUILD</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:154.18322754px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+       x="1661.1631"
+       y="820.72424"
+       id="text4865"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4867"
+         x="1661.1631"
+         y="820.72424">USE</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5 Test &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../../',
+        VERSION:'0.1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+        <link rel="next" title="6 Zusammenfassung" href="../VI/index.html"/>
+        <link rel="prev" title="4 Implementierung" href="../IV/index.html"/>
+
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+<link rel="stylesheet" type="text/css" href="../../_static/colorbox/colorbox.css" />
+
+<script type="text/javascript" src="../../_static/colorbox/jquery.colorbox-min.js" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Projektarbeit</a>
+        <form class="wy-form" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dedication.html">Widmung</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../I/index.html">1 Einleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../I/index.html#motivation">1.1 Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I/index.html#namensgebung">1.2 Namensgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einstieg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.1 Architektur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.2 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#entwurf-der-software">3.5 Entwurf der Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.4 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#statistiken">4.6 Statistiken</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5 Test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifizierung">5.2 Verifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validierung">5.3 Validierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#ausblick">6.1 Ausblick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#mogliche-weiterentwicklungen">6.2 Mögliche Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#fazit">6.3 Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Abkürzungsverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#online-ressourcen">Online Ressourcen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="../index.html">Docs</a> &raquo;</li>
+  <li><a href="">5 Test</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="test">
+<h1>5 Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p>'' <em>These plus Antithese gleich Hysterese</em> ''</p>
+<p class="attribution">&mdash;<em>Einfach Göttlich, Terry Pratchett</em></p>
+</div></blockquote>
+<div class="section" id="erfullung-der-anforderungen">
+<h2>5.1 Erfüllung der Anforderungen<a class="headerlink" href="#erfullung-der-anforderungen" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="verifizierung">
+<h2>5.2 Verifizierung<a class="headerlink" href="#verifizierung" title="Permalink to this headline">¶</a></h2>
+<p>Schauen ob das Programm dem Design entspricht</p>
+</div>
+<div class="section" id="validierung">
+<h2>5.3 Validierung<a class="headerlink" href="#validierung" title="Permalink to this headline">¶</a></h2>
+<p>Schauen ob das Programm das Problem löst.</p>
+</div>
+<div class="section" id="demonanwendung-als-debugger">
+<h2>5.4 Demonanwendung als Debugger<a class="headerlink" href="#demonanwendung-als-debugger" title="Permalink to this headline">¶</a></h2>
+<p>Abseits der Library wurde eine auf dem freien Oberflächen-Framework GTK+-3.0
+basierende GUI-Anwendung entwickelt.  Entsprechend <a class="reference internal" href="../II/index.html#anf-demo">2.5.2.3</a> dient diese
+nicht nur zum <em>Showoff</em>, sondern auch zur gezielten Fehlersuche.</p>
+<p>Die Anwendung, die den ebenfalls nordischen Namen <em>Naglfar</em> erhielt,
+implementiert einen MPD-Client. Beim Start ack</p>
+<div class="figure align-center" id="fig-demo-overview">
+<a class="reference internal image-reference" href="../../_images/demo_overview.svg"><img alt="Übersicht über die Demoanwendung" src="../../_images/demo_overview.svg" width="100%" /></a>
+<p class="caption"><strong>Figure 5.1:</strong> Übersicht über die Demonanwendung</p>
+</div>
+<p>Erklärung der Kontrollelemente in <a href="#fig-demo-overview">5.1</a>.</p>
+<div class="section" id="main">
+<h3>5.4.1 Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h3>
+<p>Die Suche kann mittels <tt class="kbd docutils literal"><span class="pre">Strg-f</span></tt> aktiviert werden.</p>
+<ol class="arabic">
+<li><p class="first">Views</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first"><em>Database</em> <a href="#fig-demo-database">5.2</a></p>
+</li>
+<li><p class="first"><em>Playlist</em> <a href="#fig-demo-playlist">5.3</a></p>
+<p>Wie die <em>Database View</em>, zeigt aber lediglich die Songs an die empfohlen
+wurden. Sonst ist diese View Funktionsidentisch mit der <em>Database View</em>.</p>
+</li>
+<li><p class="first"><em>Graph</em> <a href="#fig-demo-graph">5.5</a></p>
+<p>Im <em>Graphen View</em> kann ein Plot von <em>libmunin's</em> Graphen begutachtet
+werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
+gegeben wurden.</p>
+</li>
+<li><p class="first"><em>Rules</em> <a href="#fig-demo-rules">5.4</a></p>
+<p>In einer Liste werden alle bekannten <a class="reference internal" href="../appendix.html#term-assoziationsregel"><em class="xref std std-term">Assoziationsregel</em></a>
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
+und das Rating der Regel angezeigt.</p>
+</li>
+<li><p class="first"><em>Examine</em> <a href="#fig-demo-examine">5.7</a></p>
+<p>Hier werden alle Attribute des momentan spielenden Songs angezeigt.
+Es wird die von <em>libmunin</em> normalisierte Form angezeigt, also auch, falls
+verfügbar, der Originalwert.</p>
+<p>Zudem wird die <em>moodbar</em> oben im Fenster geplottet.</p>
+</li>
+<li><p class="first"><em>History</em> <a href="#fig-demo-history">5.6</a></p>
+<p>Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
+gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt
+ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.</p>
+<p>Letzteres ist für das Debugging der Filter-Funktion nützlich.</p>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Seed Song</p>
+</li>
+<li><p class="first">Current Song</p>
+</li>
+<li><p class="first">Playlist</p>
+</li>
+</ol>
+</div>
+<div class="section" id="controls">
+<h3>5.4.2 Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="5">
+<li>Recom Count</li>
+<li>Filter</li>
+<li>Max. listen</li>
+<li>Query Entry</li>
+<li>Rating</li>
+</ol>
+</div>
+<div class="section" id="media-controls">
+<h3>5.4.3 Media Controls<a class="headerlink" href="#media-controls" title="Permalink to this headline">¶</a></h3>
+<p>Typische Bedienelemente eines Audioplayers.</p>
+<ol class="arabic" start="10">
+<li><p class="first">Playcount</p>
+</li>
+<li><p class="first">Volume Bar</p>
+</li>
+<li><p class="first">Title Label</p>
+</li>
+<li><p class="first">Mode buttons</p>
+<p>Umschalten zwischen <em>Random</em>, <em>Single</em>, <em>Repeat</em> und <em>Consume</em>.</p>
+</li>
+<li><p class="first">Seekbar</p>
+<p>Ermöglicht das wahlfreie</p>
+</li>
+<li><p class="first">Playbuttons</p>
+</li>
+</ol>
+<div class="figure align-center" id="fig-demo-database">
+<a class="reference internal image-reference" href="../../_images/demo_database.png"><img alt="Die Datenbank Ansicht" src="../../_images/demo_database.png" style="width: 100%;" /></a>
+<p class="caption"><strong>Figure 5.2:</strong> Die Datenbank Ansicht - Anzeige aller Songs.</p>
+</div>
+<div class="figure align-center" id="fig-demo-playlist">
+<a class="reference internal image-reference" href="../../_images/demo_playlist.png"><img alt="Die aktuelle Playlist" src="../../_images/demo_playlist.png" style="width: 100%;" /></a>
+<p class="caption"><strong>Figure 5.3:</strong> Die aktuelle Playlist, bestehend aus den Empfehlungen.</p>
+</div>
+<div class="figure align-center" id="fig-demo-rules">
+<a class="reference internal image-reference" href="../../_images/demo_rules.png"><img alt="Die Regelansicht" src="../../_images/demo_rules.png" style="width: 100%;" /></a>
+<p class="caption"><strong>Figure 5.4:</strong> Die momentan bekannten Regeln</p>
+</div>
+<div class="figure align-center" id="fig-demo-graph">
+<a class="reference internal image-reference" href="../../_images/demo_graph.png"><img alt="Die Graphenansicht" src="../../_images/demo_graph.png" style="width: 100%;" /></a>
+<p class="caption"><strong>Figure 5.5:</strong> Der Graph der hinter den Empfehlungen steckt wird hier geplottet.</p>
+</div>
+<div class="figure align-center" id="fig-demo-history">
+<a class="reference internal image-reference" href="../../_images/demo_history.png"><img alt="Die Ansicht der History" src="../../_images/demo_history.png" style="width: 100%;" /></a>
+<p class="caption"><strong>Figure 5.6:</strong> History-Ansicht, die zuletzt gehörten und empfohlenen Songs.</p>
+</div>
+<div class="figure align-center" id="fig-demo-examine">
+<a class="reference internal image-reference" href="../../_images/demo_examine.png"><img alt="Die Ansicht der Examine-Page" src="../../_images/demo_examine.png" style="width: 100%;" /></a>
+<p class="caption"><strong>Figure 5.7:</strong> Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="../VI/index.html" class="btn btn-neutral float-right" title="6 Zusammenfassung"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../IV/index.html" class="btn btn-neutral" title="4 Implementierung"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright by Christopher Pahl, 2013-2014..
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>
