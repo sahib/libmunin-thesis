@@ -18,7 +18,7 @@ State of the Art
 Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
 gar im Supermarkt.
 
-Im weltweitem Netz gibt es eine Vielzahl von Angeboten die Musik anbieten,
+Im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik anbieten,
 entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify, rhapsody,
 pandora, webradios...) oder auch um Menschen mit ähnlichem Musikgeschmack zu
 finden (youtube, myspace).
@@ -26,12 +26,13 @@ finden (youtube, myspace).
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
 möchte - natürlich mit dem Hintergedanken dass der User sich auch diese anhört
-oder gar kauft. Kunden die neue Bands entdecken und diese später wieder kaufen
-sind natürlich ein enormer wirtschaftlicher Faktor.
+oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
+diesen sind natürlich ein wichtiger wirtschaftlicher Faktor.
 
 Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
-von den Betreibern gepflegt? Schaut sich ein System an was die User oft zusammen
-hören? Kann es ein System geben das komplett automatisch arbeitet?
+von den Betreibern gepflegt? Bei der großen Anzahl an ,,Waren'' wohl kaum.
+Schaut sich ein System an was die User oft zusammen hören?
+Kann es ein System geben das komplett automatisch arbeitet?
 
 Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
@@ -44,10 +45,10 @@ Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
 echten Personen.
 
 Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten.
+Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten
 
-Auch von wissenschaftlicher Seite ist das Problem der ,, *Music
-Recommendation Engine* '' noch nicht völlig behandelt - es gibt eine steigende
+Auch von wissenschaftlicher Seite ist das Problem der ,, *Music Recommendation
+Engine* '' noch nicht abschließend behandelt - es gibt allerdings eine steigende
 Anzahl von Arbeiten auf diesem Gebiet:
 
 .. figtable::
@@ -68,8 +69,8 @@ Anzahl von Arbeiten auf diesem Gebiet:
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
 Seiten starkes Buch. :cite:p:`celma2010music`.
 
-Was fehlt?
-----------
+Was fehlt also?
+---------------
 
 Viele dieser Arbeiten präsentieren jeweils einen Weg um die Ähnlichkeit zweier 
 Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also 
@@ -81,6 +82,9 @@ Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.
 
+Die nötigen Bauteile um ein System zu schaffen dass gute Musikempfehlungen zu
+schaffen sind also vorhanden - nur die Umsetzung fehlt.
+
 .. rubric:: Footnotes
 
 .. [#f1] eine frei verfügbare Musikmetadatendatenbank: http://musicbrainz.org/
@@ -91,40 +95,45 @@ Wie ist die aktuelle Situation?
 Weit verbreitet sind bei Musicplayern ,,Dynamische Playliste'' die allerdings
 bei den meisten Implementierungen bei vorhandenen Plattformen wie ``last.fm``
 suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
-Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern können.
-
-Trotzdem gibt es einige Gründe warum eine Alternative wünschenswert wäre:
-
-* Verzicht auf Werbung
-* Free Open Source Software
-* Pure clientseitge Nutzung möglich
-* Man will nur seine eigene Musik hören - vorhandene Plattformen empfehlen 
-  nur kommerzielle Musik, keine CC-lizensierte. Außer jamendo.
-* Kommerzeille Systeme sind auf Wirtschaftlichkeit getrimmt, OSS auf Qualität.
-* Der Autor wünscht sich ein ,,Dynamic Playlist'' Feature für moosecat
+Lösung, da solche Dienste sehr gute Resultate liefern können.
 
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
-einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von ``last.fm``
-für den allgemeinen Einsatz. Ein zusätzlicher Vorteil: Man entgeht der Werbung
-die zwischen allen paar Liedern gespielt wird.
+einen Rechner laufen kann wäre von Nöten. Gewißermaßen das Backend von
+``last.fm`` für den freien (frei wie in *Free Open Source Software*) Einsatz.
 
-Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
-oder diese Implementierung in eine allgemein nutzbare Open Source Library
-verpackt die auch für private Anwender einsetzbar ist.
+Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung die zwischen allen
+paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
+Musiklabes ausgeliefert - denn meist wird nur die momentan *populäre* Musik bei
+den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
+Natur - freie, Creative Commons-lizensierte Musik wie man sie beispielsweise auf
+Jamendo [#f2]_ zu finden ist sucht man anderswo vergebens.
 
-Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
-MPD Client [#f2]_ den er entwickelt wünscht trägt natürlich auch zur Motivation
-bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
-weiterentwickelt werden. 
+Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
+jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
+existierenden Backends, wie sie beispielsweise hinter ``last.fm`` stehen, wäre
+ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
+sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
+qualitative Empfehlungen möglich sein. 
+
+Die Tatsache dass der Autor sich schon seit längerer Zeit ein ,, *echtes Dynamic
+Playlist Feature* '' für den MPD Client [#f3]_ den er entwickelt wünscht trägt
+natürlich auch zur Motivation bei - vor allem soll auch nach dem Abschluss
+dieser Arbeit das Projekt weiterentwickelt werden. 
 
 .. rubric:: Footnotes
 
-.. [#f2] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
+.. [#f2] Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik: 
+   http://www.jamendo.com/
+
+.. [#f3] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon).
 
 Namensgebung
 ============
+
+Menschen neigen dazu Dingen einen Namen zu geben - im Folgenden wird unser 
+Musikempfehlungssystem *libmunin* genannt.
 
 .. epigraph::
 
