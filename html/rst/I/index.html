@@ -193,18 +193,19 @@
 <h3>1.1.1 State of the Art<a class="headerlink" href="#state-of-the-art" title="Permalink to this headline">¶</a></h3>
 <p>Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
 gar im Supermarkt.</p>
-<p>Im weltweitem Netz gibt es eine Vielzahl von Angeboten die Musik anbieten,
+<p>Im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik anbieten,
 entweder zum kaufen (amazon), zum streamen (<tt class="docutils literal"><span class="pre">last.fm</span></tt>, spotify, rhapsody,
 pandora, webradios...) oder auch um Menschen mit ähnlichem Musikgeschmack zu
 finden (youtube, myspace).</p>
 <p>All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
 möchte - natürlich mit dem Hintergedanken dass der User sich auch diese anhört
-oder gar kauft. Kunden die neue Bands entdecken und diese später wieder kaufen
-sind natürlich ein enormer wirtschaftlicher Faktor.</p>
+oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
+diesen sind natürlich ein wichtiger wirtschaftlicher Faktor.</p>
 <p>Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
-von den Betreibern gepflegt? Schaut sich ein System an was die User oft zusammen
-hören? Kann es ein System geben das komplett automatisch arbeitet?</p>
+von den Betreibern gepflegt? Bei der großen Anzahl an ,,Waren'' wohl kaum.
+Schaut sich ein System an was die User oft zusammen hören?
+Kann es ein System geben das komplett automatisch arbeitet?</p>
 <p>Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
 aus diesen werden dann Alben abgeleitet die oft zusammen gekauft werden.
@@ -215,9 +216,9 @@ Myspace setzt auf die Annahme dass befreundete Personen auch einen ähnlichen
 Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
 echten Personen.</p>
 <p>Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten.</p>
-<p>Auch von wissenschaftlicher Seite ist das Problem der ,, <em>Music
-Recommendation Engine</em> '' noch nicht völlig behandelt - es gibt eine steigende
+Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten</p>
+<p>Auch von wissenschaftlicher Seite ist das Problem der ,, <em>Music Recommendation
+Engine</em> '' noch nicht abschließend behandelt - es gibt allerdings eine steigende
 Anzahl von Arbeiten auf diesem Gebiet:</p>
 <div class="figure align-center">
 <center><table border="1" class="docutils">
@@ -262,8 +263,8 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 </center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
 Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-celma2010music">1</a><span class="citation">]</span></span>.</p>
 </div>
-<div class="section" id="was-fehlt">
-<h3>1.1.2 Was fehlt?<a class="headerlink" href="#was-fehlt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="was-fehlt-also">
+<h3>1.1.2 Was fehlt also?<a class="headerlink" href="#was-fehlt-also" title="Permalink to this headline">¶</a></h3>
 <p>Viele dieser Arbeiten präsentieren jeweils einen Weg um die Ähnlichkeit zweier
 Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
@@ -272,6 +273,8 @@ zu extrahieren die im Lied behandelt werden.</p>
 <p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.</p>
+<p>Die nötigen Bauteile um ein System zu schaffen dass gute Musikempfehlungen zu
+schaffen sind also vorhanden - nur die Umsetzung fehlt.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -285,34 +288,39 @@ verständlichen Gründen schwer zu besorgen.</p>
 <p>Weit verbreitet sind bei Musicplayern ,,Dynamische Playliste'' die allerdings
 bei den meisten Implementierungen bei vorhandenen Plattformen wie <tt class="docutils literal"><span class="pre">last.fm</span></tt>
 suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
-Lösung, da solche Dienste, wie oben erwähnt, sehr gute Resultate liefern können.</p>
-<p>Trotzdem gibt es einige Gründe warum eine Alternative wünschenswert wäre:</p>
-<ul class="simple">
-<li>Verzicht auf Werbung</li>
-<li>Free Open Source Software</li>
-<li>Pure clientseitge Nutzung möglich</li>
-<li>Man will nur seine eigene Musik hören - vorhandene Plattformen empfehlen
-nur kommerzielle Musik, keine CC-lizensierte. Außer jamendo.</li>
-<li>Kommerzeille Systeme sind auf Wirtschaftlichkeit getrimmt, OSS auf Qualität.</li>
-<li>Der Autor wünscht sich ein ,,Dynamic Playlist'' Feature für moosecat</li>
-</ul>
+Lösung, da solche Dienste sehr gute Resultate liefern können.</p>
 <p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
 nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
-einen Rechner läuft wäre von Nöten. Gewißermaßen das Backend von <tt class="docutils literal"><span class="pre">last.fm</span></tt>
-für den allgemeinen Einsatz. Ein zusätzlicher Vorteil: Man entgeht der Werbung
-die zwischen allen paar Liedern gespielt wird.</p>
-<p>Doch gibt es de facto kein System dass diese verschiedenen Wege vereint
-oder diese Implementierung in eine allgemein nutzbare Open Source Library
-verpackt die auch für private Anwender einsetzbar ist.</p>
-<p>Die Tatsache dass der Autor sich schon seit längerer Zeit so ein Feature für den
-MPD Client <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a> den er entwickelt wünscht trägt natürlich auch zur Motivation
-bei - vor allem soll auch nach dem Abschluss dieser Arbeit das Projekt
-weiterentwickelt werden.</p>
+einen Rechner laufen kann wäre von Nöten. Gewißermaßen das Backend von
+<tt class="docutils literal"><span class="pre">last.fm</span></tt> für den freien (frei wie in <em>Free Open Source Software</em>) Einsatz.</p>
+<p>Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung die zwischen allen
+paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
+Musiklabes ausgeliefert - denn meist wird nur die momentan <em>populäre</em> Musik bei
+den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
+Natur - freie, Creative Commons-lizensierte Musik wie man sie beispielsweise auf
+Jamendo <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a> zu finden ist sucht man anderswo vergebens.</p>
+<p>Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
+jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
+existierenden Backends, wie sie beispielsweise hinter <tt class="docutils literal"><span class="pre">last.fm</span></tt> stehen, wäre
+ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
+sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
+qualitative Empfehlungen möglich sein.</p>
+<p>Die Tatsache dass der Autor sich schon seit längerer Zeit ein ,, <em>echtes Dynamic
+Playlist Feature</em> '' für den MPD Client <a href="#id7"><span class="problematic" id="id8"><span id="id3"></span>[#f3]_</span></a> den er entwickelt wünscht trägt
+natürlich auch zur Motivation bei - vor allem soll auch nach dem Abschluss
+dieser Arbeit das Projekt weiterentwickelt werden.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik:
+<a class="reference external" href="http://www.jamendo.com/">http://www.jamendo.com/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
 vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 </tbody>
 </table>
@@ -320,6 +328,8 @@ vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 </div>
 <div class="section" id="namensgebung">
 <h2>1.2 Namensgebung<a class="headerlink" href="#namensgebung" title="Permalink to this headline">¶</a></h2>
+<p>Menschen neigen dazu Dingen einen Namen zu geben - im Folgenden wird unser
+Musikempfehlungssystem <em>libmunin</em> genannt.</p>
 <blockquote class="epigraph">
 <div><p>In Norse mythology, Hugin (from Old Norse “thought”)
 and Munin (Old Norse “memory” or “mind”)
@@ -329,13 +339,13 @@ and bring information to the god Odin.</p>
 </div></blockquote>
 <p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine
-kommerzielle Library mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="footnote-reference" href="#f3" id="id3"><sup>3</sup></a>) eine
+kommerzielle Library mit ähnlichem Namen (<em>mufin-audiogen</em> <a href="#id9"><span class="problematic" id="id10"><span id="id4"></span>[#f3]_</span></a>) eine
 freie Alternative erhält.</p>
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="f3" rules="none">
+<table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="http://www.mufin.com/usecase/music-recommendation/">http://www.mufin.com/usecase/music-recommendation/</a></td></tr>
+<tr><td class="label">[4]</td><td><a class="reference external" href="http://www.mufin.com/usecase/music-recommendation/">http://www.mufin.com/usecase/music-recommendation/</a></td></tr>
 </tbody>
 </table>
 </div>
