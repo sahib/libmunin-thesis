@@ -18,5 +18,7 @@ efficient way.
 
 *Keywords:* 
 
-    Music Information Retrieval (MIR) :math:`\cdot` Music Recommendation Engine
-    Data Mining :math:`\cdot` k-Nearest-Neighbor-Graph
+    Music Information Retrieval (MIR) :math:`\cdot`
+    Music Recommendation Engine :math:`\cdot`
+    Data Mining :math:`\cdot`
+    k-Nearest-Neighbor-Graph

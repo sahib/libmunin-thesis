@@ -195,8 +195,10 @@ shown to compare all possible attributes of a song with each other in a
 efficient way.</p>
 <p><em>Keywords:</em></p>
 <blockquote>
-<div>Music Information Retrieval (MIR) <span class="math">\(\cdot\)</span> Music Recommendation Engine
-Data Mining <span class="math">\(\cdot\)</span> k-Nearest-Neighbor-Graph</div></blockquote>
+<div>Music Information Retrieval (MIR) <span class="math">\(\cdot\)</span>
+Music Recommendation Engine <span class="math">\(\cdot\)</span>
+Data Mining <span class="math">\(\cdot\)</span>
+k-Nearest-Neighbor-Graph</div></blockquote>
 <span id="document-rst/acknowledgements"></span><div class="section" id="danksagung">
 <h2>Danksagung<a class="headerlink" href="#danksagung" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -429,11 +431,11 @@ Betreiber <em>scrobbeln</em>. Durch diese Informationen werden dann spezialisier
 Empfehlungen getroffen - es handelt sich also um ein lernendes System.</p>
 <div class="figure compound align-center" id="fig-lastfm">
 <div style="width: 50%" class="subfigure align-center" id="fig-lastfm-similar-artists">
-<a class="reference internal image-reference" href="../../_images/lastfm_similar_artists.png"><img alt="Ähnliche Künstler auf last.fm" src="../../_images/lastfm_similar_artists.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/lastfm_similar_artists.png"><img alt="Ähnliche Künstler auf last.fm" src="../../_images/lastfm_similar_artists.png" style="width: 75%;" /></a>
 <p class="caption">Anzeige ähnlicher Künstler auf last.fm</p>
 </div>
 <div style="width: 50%" class="subfigure align-center" id="fig-lastfm-webradio">
-<a class="reference internal image-reference" href="../../_images/lastfm_spotify_radio.png"><img alt="Eine *Station* auf Spotify" src="../../_images/lastfm_spotify_radio.png" style="width: 125%;" /></a>
+<a class="reference internal image-reference" href="../../_images/lastfm_spotify_radio.png"><img alt="Eine *Station* auf Spotify" src="../../_images/lastfm_spotify_radio.png" style="width: 100%;" /></a>
 <p class="caption">Eine <em>Station</em> auf Spotify (Empfehlungen von last.fm)</p>
 </div>
 <p class="caption">Screenshots von Last.fm.</p>
@@ -1139,10 +1141,23 @@ normale Musikrichtungen.</p>
 <p>Erlaubt das Verketten von Providern. Er erste Eingabewert wird dem ersten
 Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe,
 wird an den nächsten Provider in der Kette als Eingabe weitergegeben.</p>
-<p>Ein Anwendungsbeispiel wäre das Zusammenschalten</p>
-<div class="highlight-python"><div class="highlight"><pre>Eingabe: Artist, Album -&gt; PlyrLyrics | Stem | Keywords -&gt; Ausgabe: Stemmed Keywords
-</pre></div>
-</div>
+<p>Ein Anwendungsbeispiel wäre das Zusammenschalten:</p>
+<p class="graphviz">
+<img src="../../_images/graphviz-f8c4c9bd14f84046e08d58110698391cf9eb7476.png" alt="digraph foo {
+size=5;
+
+node [shape=record];
+
+subgraph {
+    rank = same; PlyrLyrics; Keywords; Stem
+}
+
+&quot;Eingabe: Artist, Album&quot; -&gt;  PlyrLyrics [label=&quot; Sucht im Web &quot;]
+PlyrLyrics -&gt; Keywords [label=&quot;liefert Songtext&quot;]
+Keywords -&gt; Stem [label=&quot;extrahiert Keywords&quot;]
+Stem -&gt; &quot;Ausgabe: Stemmed Keywords&quot; [label=&quot; Wortstamm-Keywords &quot;]
+}" />
+</p>
 </div>
 <div class="section" id="stem">
 <h5>4.2.2.7 Stem<a class="headerlink" href="#stem" title="Permalink to this headline">¶</a></h5>
@@ -1221,222 +1236,222 @@ geben welche Funktionen in welchem Modul implementiert worden.</p>
 <col width="42%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-left"><strong>Verzeichnisse</strong></th>
-<th class="head align-left">(gekürzt)</th>
-<th class="head align-left">&nbsp;</th>
-<th class="head align-left">&nbsp;</th>
+<tr class="row-odd"><th class="head"><strong>Verzeichnisse</strong></th>
+<th class="head">(gekürzt)</th>
+<th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
 <th class="head align-left"><strong>Beschreibung</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td class="align-left"><strong>munin/</strong></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td><strong>munin/</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Quelltextverzeichnis</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>__init__.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>__init__.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Versionierungs Info</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>__main__.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>__main__.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Beispielprogramm</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>database.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>database.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Database</span></tt></td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>dbus_service.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>dbus_service.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Unfertiger DBus Service.</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>dbus_client</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>dbus_client</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Unfertiger DBus Beispiel-Client.</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><strong>distance/</strong></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><strong>distance/</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Unterverzeichnis für Distanzfunktionen</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>__init__.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>__init__.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>bpm.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>bpm.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">BPMDistance</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>date.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>date.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">DateDistance</span></tt></td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>...</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>...</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Weitere Subklassen von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>session.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>session.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">Session</span></tt> (API)</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>easy.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>easy.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">EasySession</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>graph.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>graph.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung der Graphenoperationen</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>helper.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>helper.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Gesammelte, oftgenutzte Funktionen</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>history.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><em>history.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">History</span></tt> u. Regeln</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>plot.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>plot.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Visualisierungsfunktionen für Graphen</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><strong>provider/</strong></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><strong>provider/</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Unterverzeichnis für Provider</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>__init__.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>__init__.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>bpm.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>bpm.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">BPMProvider</span></tt></td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>composite.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>composite.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung des <tt class="docutils literal"><span class="pre">CompositeProvider</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>...</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>...</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Weitere Subklassen von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>rake.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>rake.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung des RAKE-Algorightmus</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><strong>scripts/</strong></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><strong>scripts/</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Unterverzeichnis für ,,Test Scripts''</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>visualizer.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>visualizer.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Zeichnet ein mood-file mittels <tt class="docutils literal"><span class="pre">cairo</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>walk.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>walk.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Berechnet vieles mood-files parallel</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>song.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>song.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Song</span></tt></td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left"><strong>stopwords/</strong></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><strong>stopwords/</strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Stoppwortimplementierung:</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>__init__.py</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>__init__.py</em></td>
+<td>&nbsp;</td>
 <td class="align-left">Implementierung des Stoppwort-Loader</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><strong>data/</strong></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><strong>data/</strong></td>
+<td>&nbsp;</td>
 <td class="align-left">Unterverzeichnis für die Stoppwortlisten</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>de</em></td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>de</em></td>
 <td class="align-left">Gemäß ISO 638-1 benannte Dateien;</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>en</em></td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>en</em></td>
 <td class="align-left">Pro Zeile ist ein Stoppwort gelistet;</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>es</em></td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>es</em></td>
 <td class="align-left">Insgesamt 17 verschiedene Listen.</td>
 </tr>
-<tr class="row-odd"><td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left"><em>...</em></td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td><em>...</em></td>
 <td class="align-left">&nbsp;</td>
 </tr>
-<tr class="row-even"><td class="align-left">&nbsp;</td>
-<td class="align-left"><em>testing.py</em></td>
-<td class="align-left">&nbsp;</td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td><em>testing.py</em></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td class="align-left">Fixtures und Helper für unittests</td>
 </tr>
 </tbody>

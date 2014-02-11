@@ -119,9 +119,22 @@ Erlaubt das Verketten von Providern. Er erste Eingabewert wird dem ersten
 Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe, 
 wird an den nächsten Provider in der Kette als Eingabe weitergegeben.
 
-Ein Anwendungsbeispiel wäre das Zusammenschalten ::
+Ein Anwendungsbeispiel wäre das Zusammenschalten:
 
-    Eingabe: Artist, Album -> PlyrLyrics | Stem | Keywords -> Ausgabe: Stemmed Keywords
+.. digraph:: foo
+
+   size=5;
+
+   node [shape=record];
+
+   subgraph {
+       rank = same; PlyrLyrics; Keywords; Stem
+   }
+
+   "Eingabe: Artist, Album" ->  PlyrLyrics [label=" Sucht im Web "]
+   PlyrLyrics -> Keywords [label="liefert Songtext"]
+   Keywords -> Stem [label="extrahiert Keywords"]
+   Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm-Keywords "]
 
 ``Stem``
 ~~~~~~~~
@@ -183,7 +196,7 @@ geben welche Funktionen in welchem Modul implementiert worden.
 .. figtable::
     :caption: Verzeichnisbaum mit den einzelnen Modulen von *libmunin*
     :alt: Verzeichnisbaum der Implementierung
-    :spec: l l l l | l
+    :spec: @{}l @{}l @{}l @{}l | l
 
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     | **Verzeichnisse** | (gekürzt)         |                 |       | **Beschreibung**                            |
