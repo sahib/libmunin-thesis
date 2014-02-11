@@ -9,6 +9,3 @@
 \else
 \fi
 \addcontentsline{toc}{chapter}{D Literaturverzeichnis}
-
-% include your .bib file
-\bibliography{refs}

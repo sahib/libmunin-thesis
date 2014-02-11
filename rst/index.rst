@@ -27,13 +27,15 @@ libmunin: |br| Projektarbeit
 .. toctree::
 
     appendix
-    bibliography
+    zzz_bibliography
 
 License
 -------
 
-This work is licensed under a `Creative Commons Attribution 3.0 United States
-License <http://creativecommons.org/licenses/by/3.0/us/deed.en_US>`_.
+Diese Arbeit ist unter den Bedingungen der *Creative Commons Attribution-3.0*
+lizensiert:
+
+    http://creativecommons.org/licenses/by/3.0/de/
 
 .. image:: _static/ccicon88x31.png
     :align: center

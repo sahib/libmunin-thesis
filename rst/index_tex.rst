@@ -2,15 +2,15 @@
 
 .. _doc-title:
 
-#########################################
-sphinxtr: |br| The Sphinx Thesis Resource
-#########################################
+############################
+libmunin: |br| Projektarbeit
+############################
 
 .. include:: toc.rst
-
    
 .. toctree::
    
     appendix
+    zzz_bibliography
 
-.. cite:refs::
+.. .. cite:refs::

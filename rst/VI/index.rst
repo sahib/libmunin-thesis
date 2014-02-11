@@ -37,18 +37,14 @@ Performance
 Features
 --------
 
-- Suchengine für natürliche Sprache wie in :cite:p:`knees2007music`
+- Suchengine für natürliche Sprache wie in :cite:`knees2007music`
 - Transitions. Beispieslweise immer "härter werdende musik"
 - Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)
 - Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
 - Similar Artist/Album/Genre...
 - Einbeziehung der duration als provider/distanz (statistisch untersuchen)
-- Echte audionanylse mittels aubio.
-  
-    * https://github.com/piem/aubio 
-    * https://github.com/marsyas/marsyas
-
+- Echte audionanylse mittels aubio :cite:`0FN` order MARSYAS :cite:`HJ7`.
 - Echte mood analyse.
 - (Amazon) artist/album reviews mit einbeziehen, keyword-extraction.
 - Sprache, Intros und Audio intelligent unterscheiden.
@@ -68,12 +64,8 @@ Convinience / Korrektheit
 - Schnellerer Analyseschritt durch parallelisiertes fetchen von lyrics und 
   beschleunigter audioanalyse.
 - Die resultate können nur so gut sein wie die input daten.
-  Es wäre wünschenswert eine "bridge" zwischen libmunin und beets zu schreiben:
-
-    http://beets.radbox.org/
-
+  Es wäre wünschenswert eine "bridge" zwischen libmunin und beets :cite:`XAJ` zu schreiben.
   Beets ist gewißermaßen das libhugin-anaylse für musik 
-
 - date origin abhängig vom genre
 - genre-bridges: grunge->rock
 

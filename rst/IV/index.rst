@@ -2,7 +2,6 @@
 Implementierung
 ***************
 
-
 .. epigraph::
 
 
@@ -10,60 +9,6 @@ Implementierung
     gewaltbereiter Psychopath, der weiß, wo Sie wohnen.* ''
 
     -- *Peter Stöhr*
-
-Entwicklungsumgebung
-====================
-
-Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
-
-* Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
-  nur knapp 3 Monaten Implementierungs-Zeit.
-* Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
-* Neben *C* die *Lingua Franca* des Autors.
-
-Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
-sozialen Code-Hosting Plattform Github. Der Vorteil dieser Plattform besteht
-darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
-ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
-spätere Projekte bookmarken.  Daher auch Github's Slogan *Social Coding*.
-
-Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
-Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
-Dokumentations-Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
-gemacht: https://libmunin.rtfd.org
-
-Zudem werden pro Commit unittests auf der Continious-Integration Plattform
-*TravisCI* für verschiedene Python-Versionen durchgeführt.  Dies hat den Vorteil
-dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
-unittests lokal durchzuführen.
-
-Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
-Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
-
-.. _fig-travis-badge:
-
-.. figure:: figs/travis_badge.png
-    :align: center
-    :alt: Screenshot der Statusbuttons auf der Github-Seite.
-
-    Screenshot der Statusbuttons auf der Github-Seite.
-
-Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
-veröffentlicht, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können:
-
-.. code-block:: bash
-
-    $ sudo pip install libmunin
-
-Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
-vereinfachen - im Notfall kann man stets auf funktionierende Versionen
-zurückgehen. 
-
-Der Quelltext selber wird in *gVim* geschrieben. Dass sich der Python-Quelltext
-dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
-und *flake8* überprüft.
-
 
 Kurze Implementierungshistorie
 ==============================
@@ -73,7 +18,9 @@ Probleme:
     - Graphenaufbau (combinations = teuer) 
     - Festlegung von distance_add funktionsweise
 
-http://libmunin.readthedocs.org/en/latest/logbuch.html
+Parallel zur Implementierugn wurde ein ,,Tagebuch'' :cite:`THV` verfasst das
+dazu dienen sollte Ideen und Geschehnisse festzuhalten - weniger als Information
+für Dritte.
 
 Liste verfügbarer Provider und Distanzfunktionen
 ================================================
@@ -182,6 +129,8 @@ Ein Anwendungsbeispiel wäre das Zusammenschalten ::
 ``GenreTree``
 ~~~~~~~~~~~~~
 
+Der wohl komplizierteste :term:`Provider`.
+
 ``Keywords``
 ~~~~~~~~~~~~
 
@@ -192,10 +141,10 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
 .. _fig-yellow-keywords:
 
 .. figtable::
-    :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
-              ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
-    :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
-    :spec: r l r l
+    :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
+              Rating.
+    :alt: Extrahierte Keywords aus ,,Yellow Submarine''
+    :spec: r l
 
     ====== =================================
     Rating Keywords 
@@ -225,49 +174,98 @@ Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
 Paketübersicht
 ==============
 
-.. code-block:: bash
+In der Programmiersprache *Python* entspricht jede einzelne ``.py`` Datei einem
+*Modul*. Die Auflistung unter :num:`fig-module-tree` soll eine Übersicht darüber
+geben welche Funktionen in welchem Modul implementiert worden.
 
-   $ tree munin/
-   munin/
-   |---- __init__.py                     | Versionierungs Info
-   |---- __main__.py                     | Beispielprogramm
-   |---- database.py                     | Manager für alle vorhandenen Songs
-   |---- dbus_service.py                 | [Unfertiger] Dbus Service für libmunin
-   |---- dbus_client.py                  | [Unfertiger] DBus Client
-   |---- distance/                       | Unterverzeichnis für Distanzfunktionen
-   |   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
-   |   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
-   |   |---- date.py                     | ...
-   |   |---- ...                         | 
-   |---- session.py                      | Implementierung der Session (API)
-   |---- easy.py                         | Vereinfachte Session-API
-   |---- graph.py                        | Implementiert Graphenoperationen
-   |---- helper.py                       | Verschiedene Utilityfunktionen
-   |---- history.py                      | Implementierung beider Histories 
-   |                                     | und Assoziationsregeln
-   |---- plot.py                         | Visualisierungsfunktionen
-   |---- provider/                       | Unterverzeichnis für alle Provider
-   |   |---- __init__.py                 | Oberklasse für jeden Provider
-   |   |---- bpm.py                      | BeatsPerMinute Provider
-   |   |---- composite.py                | ...
-   |   |---- ...                         | 
-   |---- rake.py                         | Implementierung des RAKE Algorithmus
-   |---- scripts/                        | Verschiedene eigenständige Helper
-   |   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
-   |   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
-   |                                     | jedes Audiofile in einem Verzeichnis
-   |---- song.py                         | Implementierung der Song Klasse
-   |---- stopwords/                      | 
-   |   |---- __init__.py                 | Stoppwort Implementierung
-   |   |---- data                        | Stoppwort Datenbank
-   |   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
-   |   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
-   |   |   |---- es                      | ISO 638-1 Language Code.
-   |   |   |---- ...                     |
-   |---- testing.py                      | Fixtures und Helper für unittests
+.. _fig-module-tree:
+
+.. figtable::
+    :caption: Verzeichnisbaum mit den einzelnen Modulen von *libmunin*
+    :alt: Verzeichnisbaum der Implementierung
+    :spec: l l l l | l
+
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    | **Verzeichnisse** | (gekürzt)         |                 |       | **Beschreibung**                            |
+    +===================+===================+=================+=======+=============================================+
+    | **munin/**        |                   |                 |       | Quelltextverzeichnis                        |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *__init__.py*     |                 |       | Versionierungs Info                         |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *__main__.py*     |                 |       | Beispielprogramm                            |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *database.py*     |                 |       | Implementierung von ``Database``            |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *dbus_service.py* |                 |       | Unfertiger DBus Service.                    |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *dbus_client*     |                 |       | Unfertiger DBus Beispiel-Client.            |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | **distance/**     |                 |       | Unterverzeichnis für Distanzfunktionen      |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *__init__.py*   |       | Implementierung von ``DistanceFunction``    |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *bpm.py*        |       | Implementierung von ``BPMDistance``         |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *date.py*       |       | Implementierung von ``DateDistance``        |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *...*           |       | Weitere Subklassen von ``DistanceFunction`` |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *session.py*      |                 |       | Implementierung der ``Session`` (API)       |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *easy.py*         |                 |       | Implementierung der ``EasySession``         |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *graph.py*        |                 |       | Implementierung der Graphenoperationen      |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *helper.py*       |                 |       | Gesammelte, oftgenutzte Funktionen          |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *history.py*      |                 |       | Implementierung der ``History`` u. Regeln   |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *plot.py*         |                 |       | Visualisierungsfunktionen für Graphen       |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | **provider/**     |                 |       | Unterverzeichnis für Provider               |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *__init__.py*   |       | Implementierung von ``Provider``            |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *bpm.py*        |       | Implementierung von ``BPMProvider``         |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *composite.py*  |       | Implementierung des ``CompositeProvider``   |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *...*           |       | Weitere Subklassen von ``Provider``         |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *rake.py*         |                 |       | Implementierung des RAKE-Algorightmus       |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | **scripts/**      |                 |       | Unterverzeichnis für ,,Test Scripts''       |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *visualizer.py* |       | Zeichnet ein mood-file mittels ``cairo``    |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *walk.py*       |       | Berechnet vieles mood-files parallel        |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *song.py*         |                 |       | Implementierung von ``Song``                |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | **stopwords/**    |                 |       | Stoppwortimplementierung:                   |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | *__init__.py*   |       | Implementierung des Stoppwort-Loader        |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   | **data/**       |       | Unterverzeichnis für die Stoppwortlisten    |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   |                 | *de*  | Gemäß ISO 638-1 benannte Dateien;           |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   |                 | *en*  | Pro Zeile ist ein Stoppwort gelistet;       |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   |                 | *es*  | Insgesamt 17 verschiedene Listen.           |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   |                   |                 | *...* |                                             |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    |                   | *testing.py*      |                 |       | Fixtures und Helper für unittests           |
+    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+
     
 Anwendungsbeispiel
 ==================
+
+Um ein Gefühl für eine Software-Bibliothek zu bekommen eignet sich oft ein
+minimales Beispiel gut. Das folgende Beispiel liest *Songs* aus einer
+(Pseudo-)Datenbank und erstellt dann Empfehlungen für einen davon:
 
 .. code-block:: python
     :linenos:
@@ -276,7 +274,7 @@ Anwendungsbeispiel
     from munin.easy import EasySession
 
     MY_DATABASE = [
-        # Artist:            Album:               Title:             Genre:
+        # Artist:           Album:               Title:             Genre:
         ('Akrea'          , 'Lebenslinie'      , 'Trugbild'       , 'death metal'),
         ('Vogelfrey'      , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
         ('Letzte Instanz' , 'Götter auf Abruf' , 'Salve te'       , 'folk rock'),
@@ -366,9 +364,8 @@ Kurze Erläuterung des Beispiels
   ``Song`` Objekt ausgebene - dieses hat unter anderen eine ID gespeichert mit
   der wir die ursprünglichen Daten finden können.
 
-Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web:
-
-    http://libmunin.rtfd.org
+Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
+:cite:`5LX`.
 
 
 Kurze Erläuterung des Outputs
@@ -381,47 +378,110 @@ ausgegeben.
 
 [TODO: Den Mini-Graph einfügen]
 
+Trivia
+======
 
-Statistiken
-===========
+Entwicklungsumgebung
+--------------------
 
-LoC Statistiken:
+Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
+
+* Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
+  nur knapp 3 Monaten Implementierungs-Zeit.
+* Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
+* Neben *C* die *Lingua Franca* des Autors.
+
+Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
+sozialen Code-Hosting Plattform *GitHub* :cite:`Y41`. Der Vorteil dieser Plattform besteht
+darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
+ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
+spätere Projekte bookmarken.  Daher auch Github's Slogan *Social Coding*.
+
+Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
+Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
+Dokumentations-Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
+gemacht :cite:`5LX`.
+
+Zudem werden pro Commit unittests auf der Continious-Integration Plattform
+*TravisCI* :cite:`JIU` für verschiedene Python-Versionen durchgeführt. Dies hat den Vorteil
+dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
+unittests lokal durchzuführen.
+
+Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
+
+.. _fig-travis-badge:
+
+.. figure:: figs/travis_badge.png
+    :align: center
+    :alt: Screenshot der Statusbuttons auf der Github-Seite.
+
+    Screenshot der Statusbuttons auf der Github-Seite.
+
+Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
+veröffentlicht :cite:`O6Q`, wo sie mithilfe des folgenden Befehles samt
+Python-Abhängigkeiten installiert werden können:
 
 .. code-block:: bash
 
-          65 text files.
-          63 unique files.                              
-          19 files ignored.
+    $ sudo pip install libmunin
 
-    http://cloc.sourceforge.net v 1.60  T=0.34 s (135.8 files/s, 26868.3 lines/s)
-    -------------------------------------------------------------------------------
-    Language                     files          blank        comment           code
-    -------------------------------------------------------------------------------
-    Python                          46           2063           2169           4867
-    -------------------------------------------------------------------------------
-    SUM:                            46           2063           2169           4867
-    -------------------------------------------------------------------------------
+Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
+vereinfachen - im Notfall kann man stets auf funktionierende Versionen
+zurückgehen. 
 
-Dazu kommen einige weitere Zeilen von *reStructuredText* die die Basis der
-Onlinedokumentation bilden:
+Der Quelltext selber wird in *gVim* geschrieben. Dass sich der Python-Quelltext
+dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
+und *flake8* überprüft.
+
+Auch dieses Dokument wurde mit einem erweiternten Sphinx erstellt. Dies hat den
+Vorteil dass die Arbeit in *reStructuredText* geschrieben werden kann und
+einerseits als PDF und als HTML Variante :cite:`8MD` erstellt wird.  
+
+Lines of Code (*LoC*)
+---------------------
+
+Was die *Lines of Code* betrifft so verteilen sich insgesamt 4867 Zeilen
+Quelltext auf 46 einzelne Dateien. Die im nächsten Kapitel vorgestellte
+Demo-Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
+Kommentare, die zum größten Teil zur Generation der Online-Dokumentation
+genutzt werden.
+
+Dazu kommen einige weitere Zeilen von *reStructuredText* (einer einfachen
+Markup-Sprache) die die Gerüst der Onlinedokumentation bilden:
 
 .. code-block:: bash
 
     $ wc -l $(find . -iname '*.rst')
     2231 insgesamt
 
+Sonstige Statistiken
+--------------------
 
 Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
 ``git log`` entstanden sind:
 
-    - GitHub Visualisierungen:
+GitHub Visualisierungen
+~~~~~~~~~~~~~~~~~~~~~~~
+
+*GitHub* stellt einige optisch ansprechende und interaktive Statistiken bereit
+die beispielsweise viel über den eigenen Arbeitszyklus verraten:
+
+    :cite:`IBL`
+
+``gitstats`` Visualisierungen
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
-        https://github.com/sahib/libmunin/graphs
+Das kleine Programm ``gitstats`` baut aus dem ``git log`` eine HTML-Seite mit
+einigen interessanten Statistiken - wie beispielsweise der absoluten Anzahl von
+geschriebenen (und wieder gelöschten) Zeilen:
 
-    - ``gitstats`` Visualisierungen:
-      
-        http://sahib.github.io/libmunin-thesis/gitstats/index.html
+    :cite:`8MD`
 
-    - ``gource`` Commit-Graph Visualisierung:
+``gource`` Commit-Graph Visualisierungsvideo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-        ... TODO ...
+``gource`` ist ein Programm das in einem optisch ansprechenden Video zeigt wie
+sich das ``git``-Repository mit der Zeit aufbaut:
+
+... TODO ...

@@ -25,10 +25,10 @@ extensions = [
     'fix_equation_ref',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
+    'sphinxcontrib.bibtex',
     'subfig',
     'numfig',
     'numsec',
-    'natbib',
     'figtable',
     'singlehtml_toc',
     'singletext',
@@ -53,15 +53,6 @@ release = '0.1'
 # Turns on numbered figures for HTML output
 number_figures = True
 
-# configures bibliography
-# see http://wnielson.bitbucket.org/projects/sphinx-natbib/
-natbib = {
-    'file': 'refs.bib',
-    'brackets': '[]',
-    'separator': ',',
-    'style': 'numbers',
-    'sort': True,
-}
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -282,8 +273,9 @@ latex_additional_files = [
     'tex/affidavit._tex',
     'tex/sphinx.sty',
     'tex/Makefile',
-    'tex/refstyle.bst',
+    # 'tex/refstyle.bst',
     'refs.bib',
+    'urls.bib',
     'tex/ccicons.sty',
 ]
 

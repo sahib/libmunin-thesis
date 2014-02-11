@@ -18,10 +18,10 @@ State of the Art
 Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
 gar im Supermarkt.
 
-Im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik anbieten,
-entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify, rhapsody,
-pandora, webradios...) oder auch um Menschen mit ähnlichem Musikgeschmack zu
-finden (youtube, myspace).
+Besonders im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik
+anbieten, entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify,
+rhapsody, pandora, webradios...) oder auch um Menschen mit ähnlichem
+Musikgeschmack zu finden (youtube, myspace).
 
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
@@ -67,7 +67,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
     ========== ====== ========== ======
 
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
-Seiten starkes Buch. :cite:p:`celma2010music`.
+Seiten starkes Buch. :cite:`celma2010music`.
 
 Was fehlt also?
 ---------------
@@ -87,7 +87,7 @@ schaffen sind also vorhanden - nur die Umsetzung fehlt.
 
 .. rubric:: Footnotes
 
-.. [#f1] eine frei verfügbare Musikmetadatendatenbank: http://musicbrainz.org/
+.. [#f1] eine frei verfügbare Musikmetadatendatenbank. :cite:`3A3`
 
 Wie ist die aktuelle Situation?
 -------------------------------
@@ -123,8 +123,7 @@ dieser Arbeit das Projekt weiterentwickelt werden.
 
 .. rubric:: Footnotes
 
-.. [#f2] Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik: 
-   http://www.jamendo.com/
+.. [#f2] Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik. :cite:`30T`
 
 .. [#f3] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon).
@@ -142,13 +141,9 @@ Musikempfehlungssystem *libmunin* genannt.
     are a pair of ravens that fly all over the world Midgard,
     and bring information to the god Odin.
 
-    -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:p:`wiki2014hugin`
+    -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:`wiki2014hugin`
 
 Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine
-kommerzielle Library mit ähnlichem Namen (*mufin-audiogen* [#f3]_) eine
+kommerzielle Library mit ähnlichem Namen (*mufin-audiogen* :cite:`IKC`) eine
 freie Alternative erhält.
-
-.. rubric:: Footnotes
-
-.. [#f3] http://www.mufin.com/usecase/music-recommendation/
