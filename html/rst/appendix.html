@@ -45,7 +45,7 @@
 
   
     <link rel="top" title="Projektarbeit" href="../index.html"/>
-        <link rel="next" title="Bibliography" href="bibliography.html"/>
+        <link rel="next" title="Bibliographie" href="zzz_bibliography.html"/>
         <link rel="prev" title="6 Zusammenfassung" href="VI/index.html"/>
 
 <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -127,12 +127,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#paketubersicht">4.4 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#statistiken">4.6 Statistiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#paketubersicht">4.3 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.4 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#trivia">4.5 Trivia</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Test</a><ul>
@@ -152,8 +151,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#online-ressourcen">Online Ressourcen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
 
         
@@ -299,7 +299,7 @@ wahrscheinlich dass auch die andere Menge daraufhin angehört wird.</p>
 \[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\]</div>
 <div class="admonition-vergleiche-dazu last admonition">
 <p class="first admonition-title">Vergleiche dazu:</p>
-<p class="last"><span class="citation">[<a class="reference internal" href="bibliography.html#citation-datamining-concepts-and-techniques">3</a><span class="citation">]</span></span>
+<p class="last"><a class="reference internal" href="zzz_bibliography.html#datamining-concepts-and-techniques" id="id1">[3]</a>
 Datamining Concepts and Techniques, Seiten 268-271.</p>
 </div>
 </dd>
@@ -320,43 +320,170 @@ eine schneller zu berechnende Approximation zurückgegriffen.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="online-ressourcen">
-<h1>Online Ressourcen<a class="headerlink" href="#online-ressourcen" title="Permalink to this headline">¶</a></h1>
-<p>Zusätzlich zu dieser Arbeit findet sich komplementär weitere Ressourcen im Netz:</p>
+<div class="section" id="ausfuhrliches-beispiel">
+<h1>Ausführliches Beispiel<a class="headerlink" href="#ausfuhrliches-beispiel" title="Permalink to this headline">¶</a></h1>
+<p>Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel
+gezeigt werden das auch im Vergleich zum einfachen Beispiel folgende Features
+zeigt:</p>
 <blockquote>
-<div><ul>
-<li><p class="first">Github: Source code von libmunin</p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/sahib/libmunin">https://github.com/sahib/libmunin</a></p>
-</div></blockquote>
-</li>
-<li><p class="first">PyPi: Hosted ein fertig installierbares Paket von libmunin</p>
-<blockquote>
-<div><p><a class="reference external" href="https://pypi.python.org/pypi/libmunin/">https://pypi.python.org/pypi/libmunin/</a></p>
-<p>Unter Unix installierbar via <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">libmunin</span></tt>.</p>
-<div class="admonition-achtung admonition">
-<p class="first admonition-title">Achtung:</p>
-<p class="last">Dies funktioniert nur für Python Versionen ab <tt class="docutils literal"><span class="pre">3.2</span></tt>!</p>
-</div>
-</div></blockquote>
-</li>
-<li><p class="first">TravisCI: Zeigt den Buildstatus der Tests von libmunin</p>
-<blockquote>
-<div><p><a class="reference external" href="https://travis-ci.org/sahib/libmunin">https://travis-ci.org/sahib/libmunin</a></p>
-</div></blockquote>
-</li>
-<li><p class="first">HTML Dokumentation zur API:</p>
-<blockquote>
-<div><p><a class="reference external" href="http://libmunin.readthedocs.org/en/latest/">http://libmunin.readthedocs.org/en/latest/</a></p>
-</div></blockquote>
-</li>
-<li><p class="first">Dieses PDF als HTML Version:</p>
-<blockquote>
-<div><p><a class="reference external" href="http://sahib.github.io/libmunin-thesis/html/rst/index.html">http://sahib.github.io/libmunin-thesis/html/rst/index.html</a></p>
-</div></blockquote>
-</li>
+<div><ul class="simple">
+<li>Das Erstellen einer eigenen Session</li>
+<li>Das Speichern und Laden derselben</li>
+<li>Mehrere Möglichkeiten zur Empfehlung</li>
 </ul>
 </div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># encoding: utf-8</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">munin.helper</span> <span class="kn">import</span> <span class="n">pairup</span>
+<span class="kn">from</span> <span class="nn">munin.session</span> <span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">from</span> <span class="nn">munin.distance</span> <span class="kn">import</span> <span class="n">GenreTreeDistance</span><span class="p">,</span> <span class="n">WordlistDistance</span>
+<span class="kn">from</span> <span class="nn">munin.provider</span> <span class="kn">import</span> \
+        <span class="n">ArtistNormalizeProvider</span><span class="p">,</span> \
+        <span class="n">GenreTreeProvider</span><span class="p">,</span> \
+        <span class="n">WordlistProvider</span><span class="p">,</span>  \
+        <span class="n">StemProvider</span>
+
+
+<span class="n">MY_DATABASE</span> <span class="o">=</span> <span class="p">[(</span>
+        <span class="s">&#39;Devildriver&#39;</span><span class="p">,</span>                <span class="c"># Artist</span>
+        <span class="s">&#39;Before the Hangmans Noose&#39;</span><span class="p">,</span>  <span class="c"># Title</span>
+        <span class="s">&#39;metal&#39;</span>                       <span class="c"># Genre</span>
+    <span class="p">),</span> <span class="p">(</span>
+        <span class="s">&#39;Das Niveau&#39;</span><span class="p">,</span>
+        <span class="s">&#39;Beim Pissen gemeuchelt&#39;</span><span class="p">,</span>
+        <span class="s">&#39;folk&#39;</span>
+    <span class="p">),</span> <span class="p">(</span>
+        <span class="s">&#39;We Butter the Bread with Butter&#39;</span><span class="p">,</span>
+        <span class="s">&#39;Extrem&#39;</span><span class="p">,</span>
+        <span class="s">&#39;metal&#39;</span>
+    <span class="p">),</span> <span class="p">(</span>
+        <span class="s">&#39;Lady Gaga&#39;</span><span class="p">,</span>
+        <span class="s">&#39;Pokerface&#39;</span><span class="p">,</span>
+        <span class="s">&#39;pop&#39;</span>
+<span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">create_session</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;-- No saved session found, loading new.&#39;</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;demo&#39;</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="p">{</span>
+            <span class="c"># Each entry goes like this:</span>
+            <span class="s">&#39;Genre&#39;</span><span class="p">:</span> <span class="n">pairup</span><span class="p">(</span>
+                <span class="c"># Pratice: Go lookup what this Providers does.</span>
+                <span class="n">GenreTreeProvider</span><span class="p">(),</span>
+                <span class="c"># Practice: Same for the DistanceFunction.</span>
+                <span class="n">GenreTreeDistance</span><span class="p">(),</span>
+                <span class="c"># This has the highest rating of the three attributes:</span>
+                <span class="mi">8</span>
+            <span class="p">),</span>
+            <span class="s">&#39;Title&#39;</span><span class="p">:</span> <span class="n">pairup</span><span class="p">(</span>
+                <span class="c"># We can also compose Provider, so that the left one</span>
+                <span class="c"># gets the input value, and the right one the value</span>
+                <span class="c"># the left one processed.</span>
+                <span class="c"># In this case we first split the title in words,</span>
+                <span class="c"># then we stem each word.</span>
+                <span class="n">WordlistProvider</span><span class="p">()</span> <span class="o">|</span> <span class="n">StemProvider</span><span class="p">(),</span>
+                <span class="n">WordlistDistance</span><span class="p">(),</span>
+                <span class="mi">1</span>
+            <span class="p">),</span>
+            <span class="s">&#39;Artist&#39;</span><span class="p">:</span> <span class="n">pairup</span><span class="p">(</span>
+                <span class="c"># If no Provider (None) is given the value is forwarded as-is.</span>
+                <span class="c"># Here we just use the default provider, but enable</span>
+                <span class="c"># compression. Values are saved once and are givean an ID.</span>
+                <span class="c"># Duplicate items get the same ID always.</span>
+                <span class="c"># You can trade off memory vs. speed with this.</span>
+                <span class="n">ArtistNormalizeProvider</span><span class="p">(</span><span class="n">compress</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+                <span class="c"># If not DistanceFunctions is given, all values are</span>
+                <span class="c"># compare with __eq__ - which might give bad results.</span>
+                <span class="bp">None</span><span class="p">,</span>
+                <span class="mi">1</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="c"># As in our first example we fill the session, but we dont insert the full</span>
+    <span class="c"># database, we leave out the last song:</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">genre</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span>
+            <span class="c"># Notice how we use the uppercase keys like above:</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+                <span class="s">&#39;Genre&#39;</span><span class="p">:</span> <span class="n">genre</span><span class="p">,</span>
+                <span class="s">&#39;Title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+                <span class="s">&#39;Artist&#39;</span><span class="p">:</span> <span class="n">artist</span><span class="p">,</span>
+            <span class="p">})]</span> <span class="o">=</span> <span class="n">idx</span>
+
+    <span class="k">return</span> <span class="n">session</span>
+
+
+<span class="k">def</span> <span class="nf">print_recommendations</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c"># A generator that yields at max 20 songs.</span>
+    <span class="n">recom_generator</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recommend_from_heuristic</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">seed_song</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">recom_generator</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Recommendations to #{}:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">seed_song</span><span class="o">.</span><span class="n">uid</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">munin_song</span> <span class="ow">in</span> <span class="n">recom_generator</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  normalized values:&#39;</span><span class="p">)</span>
+
+        <span class="c"># Let&#39;s take</span>
+        <span class="k">for</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">normalized_value</span> <span class="ow">in</span> <span class="n">munin_song</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;    {:&lt;7s}: {:&lt;20s}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">normalized_value</span><span class="p">))</span>
+
+        <span class="n">original_song</span> <span class="o">=</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">]]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  original values:&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;    Artist :&#39;</span><span class="p">,</span> <span class="n">original_song</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;    Album  :&#39;</span><span class="p">,</span> <span class="n">original_song</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;    Genre  :&#39;</span><span class="p">,</span> <span class="n">original_song</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;The database:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">song</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  #{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">song</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">()</span>
+
+    <span class="c"># Perhaps we already had an prior session?</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s">&#39;demo&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">create_session</span><span class="p">(</span><span class="s">&#39;demo&#39;</span><span class="p">)</span>
+    <span class="n">rules</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">rule_index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Association Rules:&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">support</span><span class="p">,</span> <span class="n">rating</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;  {:&gt;10s} &lt;-&gt; {:&lt;10s} [supp={:&gt;5d}, rating={:.5f}]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">([</span><span class="n">song</span><span class="o">.</span><span class="n">uid</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">left</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">([</span><span class="n">song</span><span class="o">.</span><span class="n">uid</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">right</span><span class="p">]),</span>
+                <span class="n">support</span><span class="p">,</span> <span class="n">rating</span>
+            <span class="p">))</span>
+        <span class="k">print</span><span class="p">()</span>
+
+    <span class="n">print_recommendations</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+
+    <span class="c"># Let&#39;s add some history:</span>
+    <span class="k">for</span> <span class="n">munin_uid</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">feed_history</span><span class="p">(</span><span class="n">munin_uid</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Playcounts:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">song</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">playcounts</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  #{} was played {}x times&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
+
+    <span class="c"># Let&#39;s insert a new song that will be in the graph on the next run:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">fix_graph</span><span class="p">():</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span>
+                <span class="s">&#39;Genre&#39;</span><span class="p">:</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
+                <span class="s">&#39;Title&#39;</span><span class="p">:</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s">&#39;Artist&#39;</span><span class="p">:</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">})]</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="k">if</span> <span class="s">&#39;--plot&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+    <span class="c"># Save it under ~/.cache/libmunin/demo</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -364,7 +491,7 @@ eine schneller zu berechnende Approximation zurückgegriffen.</p>
   
     <div class="rst-footer-buttons">
       
-        <a href="bibliography.html" class="btn btn-neutral float-right" title="Bibliography"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="zzz_bibliography.html" class="btn btn-neutral float-right" title="Bibliographie"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="VI/index.html" class="btn btn-neutral" title="6 Zusammenfassung"><span class="icon icon-circle-arrow-left"></span> Previous</a>

@@ -27,7 +27,7 @@ einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
     konkreten Kontext (Webseiten-Zugriff) und zusätzliche Informationen wie z.
     B. die Kauf-, Navigations- oder Klick-Historie herangezogen.
 
-    -- http://de.wikipedia.org/wiki/Empfehlungsdienst :cite:p:`wiki2014empfehlungsdienst`
+    -- http://de.wikipedia.org/wiki/Empfehlungsdienst :cite:`wiki2014empfehlungsdienst`
 
 Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
 
@@ -55,7 +55,7 @@ Bekannte Plattformen
 
 TODO: Nachweise
 
-- **last.fm** (http://www.last.fm)
+- **last.fm** :cite:`9NT`
 
     Der wohl bekannteste Musik Empfehlungs Service im Netz. User können sich mit
     ihren Account ein personalisiertes Webradio (auch *Station* genannt, siehe
@@ -92,9 +92,9 @@ TODO: Nachweise
         :alt: last.fm Demonstration
         :label: fig-lastfm
  
-        Screenshots von https://www.last.fm
+        Screenshots von Last.fm. 
 
-- **YouTube** (http://www.youtube.de)
+- **YouTube** :cite:`WNN`
 
     Youtube ist vorrangig als Videoplattform bekannt, durch ihre enorme
     Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
@@ -140,7 +140,7 @@ TODO: Nachweise
 
         Die Vorschläge die MySpace basierend auf den ersten Song macht.
 
-- **Amazon** (www.amazon.de)
+- **Amazon** :cite:`XXX`
 
     Den Grundstein für die Empfehlungen bei amazon bilded die Warenkorbanalyse.
     Dabei werden die Warenkörbe der User analysiert und es werden
@@ -168,7 +168,7 @@ TODO: Nachweise
 Sonstige Webseiten
 ------------------
 
-**tastekid** (http://www.tastekid.com/)
+**tastekid** :cite:`IDK`
 
     *Tastekid* ist ein allgemeiner Empfehlungsdienst und kann neben Musik auch
     Künstler (siehe :num:`fig-tastekid`), Videos, Bücher und vieles mehr
@@ -194,7 +194,7 @@ Sonstige Webseiten
         Die Empfehlung von tastekid.com zu *Knorkator* - man beachte dass die
         Eingabe automatisch als *Künstler* erkannt wurde.
 
-**Musicovery** (http://musicovery.com/)
+**Musicovery** :cite:`ZMF`
 
     Diese Seite kategorisiert eine groß Anzahl von Musikstücken nach Stimmung
     (*dunkel* bis *positiv*) und Tempo (*ruhig* bis *energiegeladen*). Diese zwei
@@ -250,7 +250,7 @@ suche nach *Music Recommendation (Library|System|Engine)* schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben die dieses Problem
 angeht.
 
-- **mirage** (http://hop.at/mirage/)
+- **mirage** :cite:`AHX`
 
     Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
     Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
@@ -262,7 +262,7 @@ angeht.
     *Banshee* selbst ist ebenfalls in C# geschrieben - die Wahl der
     Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.
 
-- **mufin audiogen** (http://www.mufin.com/products/audiogen/)
+- **mufin audiogen** :cite:`UZB`
 
     Eine kommerzielle in C++ entwickelte Bibliothek die im (mittlerweile
     eingestellten) Mufin-Audioplayer verwendet wurde. Sie bietet - laut der
@@ -283,7 +283,7 @@ schon recht umfangreiche Menge an Arbeiten zum Thema *Music Recommendation*.
 Einige ausgesuchte Arbeiten werden  im folgenden aufgelistet und deren
 Kernaussagen im Bezug auf diese Arbeit erläutert:
 
-* *A self-organizing map based knowledge discovery for music recommendation systems* :cite:p:`vembu2005self`
+* *A self-organizing map based knowledge discovery for music recommendation systems* :cite:`vembu2005self`
 
     Statt den Computern die Ähnlichkeit zwischen zwei Liedern zu bestimmen zu
     lassen verwendet diese Arbeit Reviews von *Amazon* um daraus Beziehungen
@@ -298,11 +298,11 @@ Kernaussagen im Bezug auf diese Arbeit erläutert:
 
     *Nachteil:* Unvollständig, nicht für jeden Artist ist eine Empfehlung vorhanden.
 
-* *Smart radio-building music radio on the fly* :cite:p:`hayes2001smart`
+* *Smart radio-building music radio on the fly* :cite:`hayes2001smart`
 
     Smart-Radio: Die Musik der  Zukunft kommt aus dem Web... TODO
 
-* *A music search engine built upon audio-based and web-based similarity measures* :cite:p:`knees2007music`
+* *A music search engine built upon audio-based and web-based similarity measures* :cite:`knees2007music`
 
     Das in diesem Paper vorgestellte System kommt der Vorstellung von *libmunin*
     am nähstem. Die Audio- und Metadaten der einzelnen Lieder wird analysiert
@@ -312,7 +312,7 @@ Kernaussagen im Bezug auf diese Arbeit erläutert:
     Suchmaschine benutzt die basierend auf natürlicher Sprache (*rock with great
     riffs*) passende Lieder findet.
 
-* *Music for my mood* :cite:p:`lee2006music`
+* *Music for my mood* :cite:`lee2006music`
 
     Die Ähnlichkeit zwischen zwei Stücken wird über die *Stimmung* in einem
     Lied definiert. Diese wird durch Audioanalyse extrahiert.
@@ -445,7 +445,7 @@ definierten Protokoll in der Mitte.
 
 Portabilität ist für das erste zweitrangig.
 Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
-*Arch Linux* [#f1]_, dem bevorzugten Betriebssystem des Autors, unterstützt werden.
+*Arch Linux* :cite:`JV6`, dem bevorzugten Betriebssystem des Autors, unterstützt werden.
 
 .. _anf-demo:
 
@@ -460,7 +460,7 @@ zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese
 Empfehlung auch *begründen* kann. Daher soll diese Anwendung auch als
 *Debugger* dienen.
 
-Die Demoanwendung sollte dabei auf den freien MPD-Client *Moosecat*
+Die Demoanwendung sollte dabei auf den freien MPD-Client *Moosecat* :cite:`JH7`
 aufsetzen.
 
 .. admonition:: Exkurs zu *Moosecat*:
@@ -472,9 +472,7 @@ aufsetzen.
    Feature wie Volltextsuche wird möglich.
 
    Er wird in Python, Cython und C entwickelt und befindet sich noch im
-   Entwicklungsstadium.
-
-   Mehr Information unter: https://github.com/studentkittens/moosecat
+   Entwicklungsstadium. 
 
 .. _anf-retrieval:
 
@@ -490,7 +488,8 @@ wie beispielsweise die *Lyrics* zu einem bestimmten *Titel* oder auch das
 *Genre* eines Albums 
 
 Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
-Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden.
+Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden. 
+Für diesen Einsatz ist *libglyr* :cite:`9XU` gut geeignet.
 
 .. admonition:: Exkurs zu *libglyr*:
 
@@ -501,8 +500,6 @@ Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden.
     Sie ist GPLv3 lizensiert und wird unter anderem im
     *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten eingesetzt und
     natürlich in dem oben genannten *moosecat*.
-
-    Mehr Information unter: https://github.com/sahib/glyr
 
 .. _anf-learning:
 
@@ -531,10 +528,6 @@ Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
         *libmunin* soll eine rein *Content-based music recommendation* engine
         werden. TODO: Erklären.
 
-.. rubric:: Footnotes
-
-.. [#f1] https://www.archlinux.org/
-
 Zielgruppe
 ==========
 
@@ -552,7 +545,7 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
 
         Implementierung als Plugin für Dynamische Playlisten.
 
-    * **mopidy**
+    * **mopidy** :cite:`3W5`
 
         .. admonition:: Exkurs zu *mopidy*
             
@@ -561,10 +554,8 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
             zu Music-Streaming-Plattformen wie *Spotify*. Dabei ist es
             kompatibel mit den existierenden MPD-Clients. 
 
-            Mehr Informationen unter: http://www.mopidy.com/
-
         Da die Entwickler eine Möglichkeit suchen um Dynamische Playlists zu
-        implementieren [#f2]_ wäre dies ein guter Anlaufpunkt.
+        implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
 
 
 Später kann ein Kommandozeilen-Programm entwickelt werden dass eine beliebige
@@ -577,7 +568,3 @@ Basierend darauf kann auch ein DBUS-Service erstellt werden der diese gewonnene
 Daten Programmiersprachen-agnostisch anderen Anwendungen bereitstellt. Der
 Vorteil ist dabei dass es eine zentrale Anwendung gäbe - eine mehrfache Analyse
 der Musiksammlung von verschiedenen Programmen würde dabei entfallen.
-
-.. rubric:: Footnotes
-
-.. [#f2] Siehe: https://github.com/mopidy/mopidy/issues/620

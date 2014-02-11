@@ -127,12 +127,11 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#paketubersicht">4.4 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#statistiken">4.6 Statistiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paketubersicht">4.3 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anwendungsbeispiel">4.4 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trivia">4.5 Trivia</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
@@ -152,8 +151,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html#online-ressourcen">Online Ressourcen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
 
         
@@ -188,49 +188,8 @@
 gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em> ''</p>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
-<div class="section" id="entwicklungsumgebung">
-<h2>4.1 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h2>
-<p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
-<ul class="simple">
-<li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
-nur knapp 3 Monaten Implementierungs-Zeit.</li>
-<li>Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.</li>
-<li>Neben <em>C</em> die <em>Lingua Franca</em> des Autors.</li>
-</ul>
-<p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
-sozialen Code-Hosting Plattform Github. Der Vorteil dieser Plattform besteht
-darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
-ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
-spätere Projekte bookmarken.  Daher auch Github's Slogan <em>Social Coding</em>.</p>
-<p>Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
-Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
-Dokumentations-Hosting Plattform <em>ReadTheDocs</em> gebaut und dort verfügbar
-gemacht: <a class="reference external" href="https://libmunin.rtfd.org">https://libmunin.rtfd.org</a></p>
-<p>Zudem werden pro Commit unittests auf der Continious-Integration Plattform
-<em>TravisCI</em> für verschiedene Python-Versionen durchgeführt.  Dies hat den Vorteil
-dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
-unittests lokal durchzuführen.</p>
-<p>Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
-Diensten rot und man wird per Mail benachrichtigt. (Siehe <a href="#fig-travis-badge">4.1</a>)</p>
-<div class="figure align-center" id="fig-travis-badge">
-<img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
-<p class="caption"><strong>Figure 4.1:</strong> Screenshot der Statusbuttons auf der Github-Seite.</p>
-</div>
-<p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
-veröffentlicht, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
-</pre></div>
-</div>
-<p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
-vereinfachen - im Notfall kann man stets auf funktionierende Versionen
-zurückgehen.</p>
-<p>Der Quelltext selber wird in <em>gVim</em> geschrieben. Dass sich der Python-Quelltext
-dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
-und <em>flake8</em> überprüft.</p>
-</div>
 <div class="section" id="kurze-implementierungshistorie">
-<h2>4.2 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h2>
+<h2>4.1 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h2>
 <p>Probleme:</p>
 <blockquote>
 <div><ul class="simple">
@@ -238,49 +197,51 @@ und <em>flake8</em> überprüft.</p>
 <li>Festlegung von distance_add funktionsweise</li>
 </ul>
 </div></blockquote>
-<p><a class="reference external" href="http://libmunin.readthedocs.org/en/latest/logbuch.html">http://libmunin.readthedocs.org/en/latest/logbuch.html</a></p>
+<p>Parallel zur Implementierugn wurde ein ,,Tagebuch'' <a class="reference internal" href="../zzz_bibliography.html#thv" id="id1">[Link-16]</a> verfasst das
+dazu dienen sollte Ideen und Geschehnisse festzuhalten - weniger als Information
+für Dritte.</p>
 </div>
 <div class="section" id="liste-verfugbarer-provider-und-distanzfunktionen">
-<h2>4.3 Liste verfügbarer Provider und Distanzfunktionen<a class="headerlink" href="#liste-verfugbarer-provider-und-distanzfunktionen" title="Permalink to this headline">¶</a></h2>
+<h2>4.2 Liste verfügbarer Provider und Distanzfunktionen<a class="headerlink" href="#liste-verfugbarer-provider-und-distanzfunktionen" title="Permalink to this headline">¶</a></h2>
 <p>Insgesamt wurden 13 unterschiedliche Provider implementiert - davon variieren
 einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
 manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.</p>
 <div class="section" id="liste-der-distanzfunktionen">
-<h3>4.3.1 Liste der Distanzfunktionen<a class="headerlink" href="#liste-der-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.1 Liste der Distanzfunktionen<a class="headerlink" href="#liste-der-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
 <p>Die genaue Berechnung der Distanz wird in der Bachelorarbeit betrachtet.</p>
 <div class="section" id="date">
-<h4>4.3.1.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="moodbar">
-<h4>4.3.1.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt><a class="headerlink" href="#moodbar" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt><a class="headerlink" href="#moodbar" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="rating">
-<h4>4.3.1.3 <tt class="docutils literal"><span class="pre">Rating</span></tt><a class="headerlink" href="#rating" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1.3 <tt class="docutils literal"><span class="pre">Rating</span></tt><a class="headerlink" href="#rating" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="bpm">
-<h4>4.3.1.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#bpm" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#bpm" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="wordlist-levenshtein-keywords">
-<h4>4.3.1.5 <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, <tt class="docutils literal"><span class="pre">Levenshtein</span></tt>, <tt class="docutils literal"><span class="pre">Keywords</span></tt><a class="headerlink" href="#wordlist-levenshtein-keywords" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1.5 <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, <tt class="docutils literal"><span class="pre">Levenshtein</span></tt>, <tt class="docutils literal"><span class="pre">Keywords</span></tt><a class="headerlink" href="#wordlist-levenshtein-keywords" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="genretreeavglink-genretree">
-<h4>4.3.1.6 <tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt>, <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretreeavglink-genretree" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1.6 <tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt>, <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretreeavglink-genretree" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
-<div class="section" id="id1">
-<h3>4.3.2 Liste der Distanzfunktionen<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>4.2.2 Liste der Distanzfunktionen<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Die genaue Funtkionsweise der Provider wird in der Bachelorarbeitet betrachtet.
 Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
 Eingabe sie erwarten sowie welche Ausgabe sie produzieren.</p>
-<div class="section" id="id2">
-<h4>4.3.2.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id3">
+<h4>4.2.2.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>Wandelt und normalisiert ein Datum dass als String übergeben wird zu einer
 Jahreszahl (<em>1975</em> beispielsweise). Dabei werden die häufigsten
 Datum-Formattierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
 unterschiedliche Datumsangaben in den Audiofiles getaggt sind.</p>
 </div>
-<div class="section" id="id3">
-<h4>4.3.2.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id4">
+<h4>4.2.2.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <p>Berechnet mit dem <tt class="docutils literal"><span class="pre">moodbar</span></tt> (TODO: zitieren) Programm aus einen beliebigen
 Audio File einen Vektor mit 1000 RGB-Farbwerten. Jeder dieser Farbwerte
 repräsentiert den Anteil niedriger Frequenzen (rot), mittlerer (grün) und
@@ -304,38 +265,40 @@ demselben Pfad plus der zusätzlichen Endung <tt class="docutils literal"><span 
 </ul>
 </div>
 <div class="section" id="wordlist">
-<h4>4.3.2.3 <tt class="docutils literal"><span class="pre">Wordlist</span></tt><a class="headerlink" href="#wordlist" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.3 <tt class="docutils literal"><span class="pre">Wordlist</span></tt><a class="headerlink" href="#wordlist" title="Permalink to this headline">¶</a></h4>
 <p>Bricht einen String in eine Liste von Wörter auf.</p>
 </div>
-<div class="section" id="id4">
-<h4>4.3.2.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h4>4.2.2.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>Berechnet die ,,Beats-Per-Minute'' eines Lieds (Zitieren) - dies funktioniert
 nicht nur für stark beat-lastige Musikrichtungen wie Techno sondern auch für
 normale Musikrichtungen.</p>
 <p>TODO: Hinweis auf bpm-tools</p>
 </div>
 <div class="section" id="normalize-artistnormalize-albumnormalize">
-<h4>4.3.2.5 <tt class="docutils literal"><span class="pre">Normalize</span></tt>, <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>, <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt><a class="headerlink" href="#normalize-artistnormalize-albumnormalize" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.5 <tt class="docutils literal"><span class="pre">Normalize</span></tt>, <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>, <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt><a class="headerlink" href="#normalize-artistnormalize-albumnormalize" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="composite">
-<h4>4.3.2.6 <tt class="docutils literal"><span class="pre">Composite</span></tt><a class="headerlink" href="#composite" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.6 <tt class="docutils literal"><span class="pre">Composite</span></tt><a class="headerlink" href="#composite" title="Permalink to this headline">¶</a></h4>
 <p>Erlaubt das Verketten von Providern. Er erste Eingabewert wird dem ersten
 Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe,
 wird an den nächsten Provider in der Kette als Eingabe weitergegeben.</p>
 <p>Ein Anwendungsbeispiel wäre das Zusammenschalten</p>
-<div class="highlight-python"><pre>Eingabe: Artist, Album -&gt; PlyrLyrics | Stem | Keywords -&gt; Ausgabe: Stemmed Keywords</pre>
+<div class="highlight-python"><div class="highlight"><pre>Eingabe: Artist, Album -&gt; PlyrLyrics | Stem | Keywords -&gt; Ausgabe: Stemmed Keywords
+</pre></div>
 </div>
 </div>
 <div class="section" id="stem">
-<h4>4.3.2.7 <tt class="docutils literal"><span class="pre">Stem</span></tt><a class="headerlink" href="#stem" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.7 <tt class="docutils literal"><span class="pre">Stem</span></tt><a class="headerlink" href="#stem" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="genretree">
-<h4>4.3.2.8 <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretree" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.8 <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretree" title="Permalink to this headline">¶</a></h4>
+<p>Der wohl komplizierteste <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a>.</p>
 </div>
 <div class="section" id="keywords">
-<h4>4.3.2.9 <tt class="docutils literal"><span class="pre">Keywords</span></tt><a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.9 <tt class="docutils literal"><span class="pre">Keywords</span></tt><a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h4>
 <p>Extrahiert aus einem Text als Eingabe alle <em>relevanten</em> Stichwörter.
-Ein Beispiel dieser <em>Keywords</em> wird in <a href="#fig-yellow-keywords">4.2</a> gezeigt.
+Ein Beispiel dieser <em>Keywords</em> wird in <a href="#fig-yellow-keywords">4.1</a> gezeigt.
 Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.</p>
 <div class="figure align-center" id="fig-yellow-keywords">
 <center><table border="1" class="docutils">
@@ -373,65 +336,262 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.</p>
 </tr>
 </tbody>
 </table>
-<p class="caption"><strong>Figure 4.2:</strong> Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
-,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
+<p class="caption"><strong>Figure 4.1:</strong> Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
+Rating.</p>
 </center></div></div>
 <div class="section" id="plyrlyrics">
-<h4>4.3.2.10 <tt class="docutils literal"><span class="pre">PlyrLyrics</span></tt><a class="headerlink" href="#plyrlyrics" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.10 <tt class="docutils literal"><span class="pre">PlyrLyrics</span></tt><a class="headerlink" href="#plyrlyrics" title="Permalink to this headline">¶</a></h4>
 <p>Besorgt mittels <em>libglyr</em> Liedtexte aus dem Internet. Bereits gesuchte Liedtexte
 werden dabei zwischengespeichert. Dieser <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> eignet sich besonders im
 Zusammenhang mit dem <em>Keywords</em> zusammen als <em>Composite</em> Provider.</p>
 </div>
 <div class="section" id="discogsgenre">
-<h4>4.3.2.11 <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt><a class="headerlink" href="#discogsgenre" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2.11 <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt><a class="headerlink" href="#discogsgenre" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="section" id="paketubersicht">
-<h2>4.4 Paketübersicht<a class="headerlink" href="#paketubersicht" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>tree munin/
-munin/
-|---- __init__.py                     | Versionierungs Info
-|---- __main__.py                     | Beispielprogramm
-|---- database.py                     | Manager für alle vorhandenen Songs
-|---- dbus_service.py                 | <span class="o">[</span>Unfertiger<span class="o">]</span> Dbus Service für libmunin
-|---- dbus_client.py                  | <span class="o">[</span>Unfertiger<span class="o">]</span> DBus Client
-|---- distance/                       | Unterverzeichnis für Distanzfunktionen
-|   |---- __init__.py                 | Oberklasse für jede Distanzfunktion
-|   |---- bpm.py                      | BeatsPerMinute Distanzfunktion
-|   |---- date.py                     | ...
-|   |---- ...                         |
-|---- session.py                      | Implementierung der Session <span class="o">(</span>API<span class="o">)</span>
-|---- easy.py                         | Vereinfachte Session-API
-|---- graph.py                        | Implementiert Graphenoperationen
-|---- helper.py                       | Verschiedene Utilityfunktionen
-|---- history.py                      | Implementierung beider Histories
-|                                     | und Assoziationsregeln
-|---- plot.py                         | Visualisierungsfunktionen
-|---- provider/                       | Unterverzeichnis für alle Provider
-|   |---- __init__.py                 | Oberklasse für jeden Provider
-|   |---- bpm.py                      | BeatsPerMinute Provider
-|   |---- composite.py                | ...
-|   |---- ...                         |
-|---- rake.py                         | Implementierung des RAKE Algorithmus
-|---- scripts/                        | Verschiedene eigenständige Helper
-|   |---- moodbar_visualizer.py       | Visualisiert ein moodbar-output
-|   |---- moodbar_walk.py             | Berechnet die moodbar parallel für
-|                                     | jedes Audiofile in einem Verzeichnis
-|---- song.py                         | Implementierung der Song Klasse
-|---- stopwords/                      |
-|   |---- __init__.py                 | Stoppwort Implementierung
-|   |---- data                        | Stoppwort Datenbank
-|   |   |---- de                      | Jede Datei beeinhaltet pro Zeile
-|   |   |---- en                      | eine Stoppowrt der jeweiligen Sprache
-|   |   |---- es                      | ISO 638-1 Language Code.
-|   |   |---- ...                     |
-|---- testing.py                      | Fixtures und Helper für unittests
-</pre></div>
-</div>
-</div>
+<h2>4.3 Paketübersicht<a class="headerlink" href="#paketubersicht" title="Permalink to this headline">¶</a></h2>
+<p>In der Programmiersprache <em>Python</em> entspricht jede einzelne <tt class="docutils literal"><span class="pre">.py</span></tt> Datei einem
+<em>Modul</em>. Die Auflistung unter <a href="#fig-module-tree">4.2</a> soll eine Übersicht darüber
+geben welche Funktionen in welchem Modul implementiert worden.</p>
+<div class="figure align-center" id="fig-module-tree">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="16%" />
+<col width="7%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head align-left"><strong>Verzeichnisse</strong></th>
+<th class="head align-left">(gekürzt)</th>
+<th class="head align-left">&nbsp;</th>
+<th class="head align-left">&nbsp;</th>
+<th class="head align-left"><strong>Beschreibung</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-left"><strong>munin/</strong></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Quelltextverzeichnis</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>__init__.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Versionierungs Info</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>__main__.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Beispielprogramm</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>database.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Database</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>dbus_service.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Unfertiger DBus Service.</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>dbus_client</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Unfertiger DBus Beispiel-Client.</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><strong>distance/</strong></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Unterverzeichnis für Distanzfunktionen</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>__init__.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>bpm.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">BPMDistance</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>date.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">DateDistance</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>...</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Weitere Subklassen von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>session.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">Session</span></tt> (API)</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>easy.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">EasySession</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>graph.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung der Graphenoperationen</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>helper.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Gesammelte, oftgenutzte Funktionen</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>history.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">History</span></tt> u. Regeln</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>plot.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Visualisierungsfunktionen für Graphen</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><strong>provider/</strong></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Unterverzeichnis für Provider</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>__init__.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>bpm.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">BPMProvider</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>composite.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung des <tt class="docutils literal"><span class="pre">CompositeProvider</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>...</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Weitere Subklassen von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>rake.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung des RAKE-Algorightmus</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><strong>scripts/</strong></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Unterverzeichnis für ,,Test Scripts''</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>visualizer.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Zeichnet ein mood-file mittels <tt class="docutils literal"><span class="pre">cairo</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>walk.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Berechnet vieles mood-files parallel</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>song.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Song</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left"><strong>stopwords/</strong></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Stoppwortimplementierung:</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>__init__.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Implementierung des Stoppwort-Loader</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><strong>data/</strong></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Unterverzeichnis für die Stoppwortlisten</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>de</em></td>
+<td class="align-left">Gemäß ISO 638-1 benannte Dateien;</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>en</em></td>
+<td class="align-left">Pro Zeile ist ein Stoppwort gelistet;</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>es</em></td>
+<td class="align-left">Insgesamt 17 verschiedene Listen.</td>
+</tr>
+<tr class="row-odd"><td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left"><em>...</em></td>
+<td class="align-left">&nbsp;</td>
+</tr>
+<tr class="row-even"><td class="align-left">&nbsp;</td>
+<td class="align-left"><em>testing.py</em></td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">&nbsp;</td>
+<td class="align-left">Fixtures und Helper für unittests</td>
+</tr>
+</tbody>
+</table>
+<p class="caption"><strong>Figure 4.2:</strong> Verzeichnisbaum mit den einzelnen Modulen von *libmunin*</p>
+</center></div></div>
 <div class="section" id="anwendungsbeispiel">
-<h2>4.5 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h2>
+<h2>4.4 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h2>
+<p>Um ein Gefühl für eine Software-Bibliothek zu bekommen eignet sich oft ein
+minimales Beispiel gut. Das folgende Beispiel liest <em>Songs</em> aus einer
+(Pseudo-)Datenbank und erstellt dann Empfehlungen für einen davon:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -456,7 +616,7 @@ munin/
 22</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="nn">munin.easy</span> <span class="kn">import</span> <span class="n">EasySession</span>
 </span>
 <span class="hll"><span class="n">MY_DATABASE</span> <span class="o">=</span> <span class="p">[</span>
-</span>    <span class="c"># Artist:            Album:               Title:             Genre:</span>
+</span>    <span class="c"># Artist:           Album:               Title:             Genre:</span>
     <span class="p">(</span><span class="s">&#39;Akrea&#39;</span>          <span class="p">,</span> <span class="s">&#39;Lebenslinie&#39;</span>      <span class="p">,</span> <span class="s">&#39;Trugbild&#39;</span>       <span class="p">,</span> <span class="s">&#39;death metal&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>      <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s">&#39;Letzte Instanz&#39;</span> <span class="p">,</span> <span class="s">&#39;Götter auf Abruf&#39;</span> <span class="p">,</span> <span class="s">&#39;Salve te&#39;</span>       <span class="p">,</span> <span class="s">&#39;folk rock&#39;</span><span class="p">),</span>
@@ -485,7 +645,7 @@ munin/
 </pre></div>
 </div>
 <div class="section" id="kurze-erlauterung-des-beispiels">
-<h3>4.5.1 Kurze Erläuterung des Beispiels<a class="headerlink" href="#kurze-erlauterung-des-beispiels" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.1 Kurze Erläuterung des Beispiels<a class="headerlink" href="#kurze-erlauterung-des-beispiels" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><strong>Zeile 1:</strong></p>
 <p>Der Einstiegspunkt von <em>libmunin's</em> API ist immer eine <em>Session</em>.
@@ -536,12 +696,11 @@ Song der über <tt class="docutils literal"><span class="pre">add</span></tt> hi
 der wir die ursprünglichen Daten finden können.</p>
 </li>
 </ul>
-<p>Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web:</p>
-<blockquote>
-<div><a class="reference external" href="http://libmunin.rtfd.org">http://libmunin.rtfd.org</a></div></blockquote>
+<p>Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
+<a class="reference internal" href="../zzz_bibliography.html#lx" id="id6">[Link-17]</a>.</p>
 </div>
 <div class="section" id="kurze-erlauterung-des-outputs">
-<h3>4.5.2 Kurze Erläuterung des Outputs<a class="headerlink" href="#kurze-erlauterung-des-outputs" title="Permalink to this headline">¶</a></h3>
+<h3>4.4.2 Kurze Erläuterung des Outputs<a class="headerlink" href="#kurze-erlauterung-des-outputs" title="Permalink to this headline">¶</a></h3>
 <p>Der Output ist nicht weiter überraschend: Da sich nur das Genre effektiv
 vergleichen lässt und wir uns von dem ersten Song (,, <em>Trugbild</em> '') zwei
 Empfehlungen geben ließen werden die zwei Songs mit dem ähnlichsten Genre
@@ -549,50 +708,92 @@ ausgegeben.</p>
 <p>[TODO: Den Mini-Graph einfügen]</p>
 </div>
 </div>
-<div class="section" id="statistiken">
-<h2>4.6 Statistiken<a class="headerlink" href="#statistiken" title="Permalink to this headline">¶</a></h2>
-<p>LoC Statistiken:</p>
-<div class="highlight-bash"><div class="highlight"><pre>      65 text files.
-      63 unique files.
-      19 files ignored.
-
-http://cloc.sourceforge.net v 1.60  <span class="nv">T</span><span class="o">=</span>0.34 s <span class="o">(</span>135.8 files/s, 26868.3 lines/s<span class="o">)</span>
--------------------------------------------------------------------------------
-Language                     files          blank        comment           code
--------------------------------------------------------------------------------
-Python                          46           2063           2169           4867
--------------------------------------------------------------------------------
-SUM:                            46           2063           2169           4867
--------------------------------------------------------------------------------
+<div class="section" id="trivia">
+<h2>4.5 Trivia<a class="headerlink" href="#trivia" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="entwicklungsumgebung">
+<h3>4.5.1 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
+<p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
+<ul class="simple">
+<li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
+nur knapp 3 Monaten Implementierungs-Zeit.</li>
+<li>Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.</li>
+<li>Neben <em>C</em> die <em>Lingua Franca</em> des Autors.</li>
+</ul>
+<p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
+sozialen Code-Hosting Plattform <em>GitHub</em> <a class="reference internal" href="../zzz_bibliography.html#y41" id="id7">[Link-18]</a>. Der Vorteil dieser Plattform besteht
+darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
+ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
+spätere Projekte bookmarken.  Daher auch Github's Slogan <em>Social Coding</em>.</p>
+<p>Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
+Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
+Dokumentations-Hosting Plattform <em>ReadTheDocs</em> gebaut und dort verfügbar
+gemacht <a class="reference internal" href="../zzz_bibliography.html#lx" id="id8">[Link-17]</a>.</p>
+<p>Zudem werden pro Commit unittests auf der Continious-Integration Plattform
+<em>TravisCI</em> <a class="reference internal" href="../zzz_bibliography.html#jiu" id="id9">[Link-19]</a> für verschiedene Python-Versionen durchgeführt. Dies hat den Vorteil
+dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
+unittests lokal durchzuführen.</p>
+<p>Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt. (Siehe <a href="#fig-travis-badge">4.3</a>)</p>
+<div class="figure align-center" id="fig-travis-badge">
+<img alt="Screenshot der Statusbuttons auf der Github-Seite." src="../../_images/travis_badge.png" />
+<p class="caption"><strong>Figure 4.3:</strong> Screenshot der Statusbuttons auf der Github-Seite.</p>
+</div>
+<p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
+veröffentlicht <a class="reference internal" href="../zzz_bibliography.html#o6q" id="id10">[Link-20]</a>, wo sie mithilfe des folgenden Befehles samt
+Python-Abhängigkeiten installiert werden können:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
 </pre></div>
 </div>
-<p>Dazu kommen einige weitere Zeilen von <em>reStructuredText</em> die die Basis der
-Onlinedokumentation bilden:</p>
+<p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
+vereinfachen - im Notfall kann man stets auf funktionierende Versionen
+zurückgehen.</p>
+<p>Der Quelltext selber wird in <em>gVim</em> geschrieben. Dass sich der Python-Quelltext
+dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
+und <em>flake8</em> überprüft.</p>
+<p>Auch dieses Dokument wurde mit einem erweiternten Sphinx erstellt. Dies hat den
+Vorteil dass die Arbeit in <em>reStructuredText</em> geschrieben werden kann und
+einerseits als PDF und als HTML Variante <a class="reference internal" href="../zzz_bibliography.html#md" id="id11">[Link-21]</a> erstellt wird.</p>
+</div>
+<div class="section" id="lines-of-code-loc">
+<h3>4.5.2 Lines of Code (<em>LoC</em>)<a class="headerlink" href="#lines-of-code-loc" title="Permalink to this headline">¶</a></h3>
+<p>Was die <em>Lines of Code</em> betrifft so verteilen sich insgesamt 4867 Zeilen
+Quelltext auf 46 einzelne Dateien. Die im nächsten Kapitel vorgestellte
+Demo-Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
+Kommentare, die zum größten Teil zur Generation der Online-Dokumentation
+genutzt werden.</p>
+<p>Dazu kommen einige weitere Zeilen von <em>reStructuredText</em> (einer einfachen
+Markup-Sprache) die die Gerüst der Onlinedokumentation bilden:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>wc -l <span class="k">$(</span>find . -iname <span class="s1">&#39;*.rst&#39;</span><span class="k">)</span>
 2231 insgesamt
 </pre></div>
 </div>
+</div>
+<div class="section" id="sonstige-statistiken">
+<h3>4.5.3 Sonstige Statistiken<a class="headerlink" href="#sonstige-statistiken" title="Permalink to this headline">¶</a></h3>
 <p>Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
 <tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></tt> entstanden sind:</p>
+<div class="section" id="github-visualisierungen">
+<h4>4.5.3.1 GitHub Visualisierungen<a class="headerlink" href="#github-visualisierungen" title="Permalink to this headline">¶</a></h4>
+<p><em>GitHub</em> stellt einige optisch ansprechende und interaktive Statistiken bereit
+die beispielsweise viel über den eigenen Arbeitszyklus verraten:</p>
 <blockquote>
-<div><ul>
-<li><p class="first">GitHub Visualisierungen:</p>
+<div><a class="reference internal" href="../zzz_bibliography.html#ibl" id="id12">[Link-22]</a></div></blockquote>
+</div>
+<div class="section" id="gitstats-visualisierungen">
+<h4>4.5.3.2 <tt class="docutils literal"><span class="pre">gitstats</span></tt> Visualisierungen<a class="headerlink" href="#gitstats-visualisierungen" title="Permalink to this headline">¶</a></h4>
+<p>Das kleine Programm <tt class="docutils literal"><span class="pre">gitstats</span></tt> baut aus dem <tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></tt> eine HTML-Seite mit
+einigen interessanten Statistiken - wie beispielsweise der absoluten Anzahl von
+geschriebenen (und wieder gelöschten) Zeilen:</p>
 <blockquote>
-<div><p><a class="reference external" href="https://github.com/sahib/libmunin/graphs">https://github.com/sahib/libmunin/graphs</a></p>
-</div></blockquote>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">gitstats</span></tt> Visualisierungen:</p>
-<blockquote>
-<div><p><a class="reference external" href="http://sahib.github.io/libmunin-thesis/gitstats/index.html">http://sahib.github.io/libmunin-thesis/gitstats/index.html</a></p>
-</div></blockquote>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">gource</span></tt> Commit-Graph Visualisierung:</p>
-<blockquote>
-<div><p>... TODO ...</p>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
+<div><a class="reference internal" href="../zzz_bibliography.html#md" id="id13">[Link-21]</a></div></blockquote>
+</div>
+<div class="section" id="gource-commit-graph-visualisierungsvideo">
+<h4>4.5.3.3 <tt class="docutils literal"><span class="pre">gource</span></tt> Commit-Graph Visualisierungsvideo<a class="headerlink" href="#gource-commit-graph-visualisierungsvideo" title="Permalink to this headline">¶</a></h4>
+<p><tt class="docutils literal"><span class="pre">gource</span></tt> ist ein Programm das in einem optisch ansprechenden Video zeigt wie
+sich das <tt class="docutils literal"><span class="pre">git</span></tt>-Repository mit der Zeit aufbaut:</p>
+<p>... TODO ...</p>
+</div>
+</div>
 </div>
 </div>
 

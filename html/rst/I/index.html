@@ -127,12 +127,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwicklungsumgebung">4.1 Entwicklungsumgebung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.4 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.5 Anwendungsbeispiel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#statistiken">4.6 Statistiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.3 Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.4 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#trivia">4.5 Trivia</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
@@ -152,8 +151,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html#online-ressourcen">Online Ressourcen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
 
         
@@ -193,10 +193,10 @@
 <h3>1.1.1 State of the Art<a class="headerlink" href="#state-of-the-art" title="Permalink to this headline">¶</a></h3>
 <p>Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
 gar im Supermarkt.</p>
-<p>Im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik anbieten,
-entweder zum kaufen (amazon), zum streamen (<tt class="docutils literal"><span class="pre">last.fm</span></tt>, spotify, rhapsody,
-pandora, webradios...) oder auch um Menschen mit ähnlichem Musikgeschmack zu
-finden (youtube, myspace).</p>
+<p>Besonders im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik
+anbieten, entweder zum kaufen (amazon), zum streamen (<tt class="docutils literal"><span class="pre">last.fm</span></tt>, spotify,
+rhapsody, pandora, webradios...) oder auch um Menschen mit ähnlichem
+Musikgeschmack zu finden (youtube, myspace).</p>
 <p>All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
 möchte - natürlich mit dem Hintergedanken dass der User sich auch diese anhört
@@ -261,7 +261,7 @@ Anzahl von Arbeiten auf diesem Gebiet:</p>
 <p class="caption">Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
 ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.</p>
 </center></div><p>Und mittlerweile gibt es mit <em>Music Recommendation and Discovery</em> sogar ein 200
-Seiten starkes Buch. <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-celma2010music">1</a><span class="citation">]</span></span>.</p>
+Seiten starkes Buch. <a class="reference internal" href="../zzz_bibliography.html#celma2010music" id="id1">[1]</a>.</p>
 </div>
 <div class="section" id="was-fehlt-also">
 <h3>1.1.2 Was fehlt also?<a class="headerlink" href="#was-fehlt-also" title="Permalink to this headline">¶</a></h3>
@@ -271,7 +271,7 @@ beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen
 zu extrahieren die im Lied behandelt werden.</p>
 <p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
-<em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
+<em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.</p>
 <p>Die nötigen Bauteile um ein System zu schaffen dass gute Musikempfehlungen zu
 schaffen sind also vorhanden - nur die Umsetzung fehlt.</p>
@@ -279,7 +279,7 @@ schaffen sind also vorhanden - nur die Umsetzung fehlt.</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>eine frei verfügbare Musikmetadatendatenbank: <a class="reference external" href="http://musicbrainz.org/">http://musicbrainz.org/</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>eine frei verfügbare Musikmetadatendatenbank. <a class="reference internal" href="../zzz_bibliography.html#a3" id="id3">[Link-1]</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -298,7 +298,7 @@ paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
 Musiklabes ausgeliefert - denn meist wird nur die momentan <em>populäre</em> Musik bei
 den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
 Natur - freie, Creative Commons-lizensierte Musik wie man sie beispielsweise auf
-Jamendo <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a> zu finden ist sucht man anderswo vergebens.</p>
+Jamendo <a class="footnote-reference" href="#f2" id="id4"><sup>2</sup></a> zu finden ist sucht man anderswo vergebens.</p>
 <p>Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
 existierenden Backends, wie sie beispielsweise hinter <tt class="docutils literal"><span class="pre">last.fm</span></tt> stehen, wäre
@@ -306,21 +306,20 @@ ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
 sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein.</p>
 <p>Die Tatsache dass der Autor sich schon seit längerer Zeit ein ,, <em>echtes Dynamic
-Playlist Feature</em> '' für den MPD Client <a href="#id7"><span class="problematic" id="id8"><span id="id3"></span>[#f3]_</span></a> den er entwickelt wünscht trägt
+Playlist Feature</em> '' für den MPD Client <a class="footnote-reference" href="#f3" id="id5"><sup>3</sup></a> den er entwickelt wünscht trägt
 natürlich auch zur Motivation bei - vor allem soll auch nach dem Abschluss
 dieser Arbeit das Projekt weiterentwickelt werden.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik:
-<a class="reference external" href="http://www.jamendo.com/">http://www.jamendo.com/</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik. <a class="reference internal" href="../zzz_bibliography.html#t" id="id6">[Link-2]</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="f3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
 vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 </tbody>
 </table>
@@ -335,19 +334,12 @@ Musikempfehlungssystem <em>libmunin</em> genannt.</p>
 and Munin (Old Norse “memory” or “mind”)
 are a pair of ravens that fly all over the world Midgard,
 and bring information to the god Odin.</p>
-<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <span class="citation">[<a class="reference internal" href="../bibliography.html#citation-wiki2014hugin">7</a><span class="citation">]</span></span></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014hugin" id="id7">[8]</a></p>
 </div></blockquote>
 <p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 library <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine
-kommerzielle Library mit ähnlichem Namen (<em>mufin-audiogen</em> <a href="#id9"><span class="problematic" id="id10"><span id="id4"></span>[#f3]_</span></a>) eine
+kommerzielle Library mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="reference internal" href="../zzz_bibliography.html#ikc" id="id8">[Link-3]</a>) eine
 freie Alternative erhält.</p>
-<p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="id5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[4]</td><td><a class="reference external" href="http://www.mufin.com/usecase/music-recommendation/">http://www.mufin.com/usecase/music-recommendation/</a></td></tr>
-</tbody>
-</table>
 </div>
 </div>
 
