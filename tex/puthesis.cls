@@ -87,7 +87,7 @@
   \vspace{.6in}
   \extravspace{.6in}
   \begin{center}
-    \large Bachelorarbeit \\
+    \large Projektarbeit\\
     an der Hochschule für Angewandte Wissenschaften Hof \\
   \end{center}
   \vspace{.6in}

@@ -37,9 +37,9 @@
 \renewcommand*{\eqref}[1]{\ref{#1}}
 
 % % Redefine these colors to your liking in the preamble.
-% \definecolor{TitleColor}{rgb}{0.126,0.263,0.361}
-% \definecolor{InnerLinkColor}{rgb}{0.208,0.374,0.486}
-% \definecolor{OuterLinkColor}{rgb}{0.216,0.439,0.388}
+\definecolor{TitleColor}{rgb}{0.0,0.0,0.15}
+\definecolor{InnerLinkColor}{rgb}{0.0,0.1,0.25}
+\definecolor{OuterLinkColor}{rgb}{0.0,0.1,0.25}
 % % Redefine these colors to something not white if you want to have colored
 % % background and border for code examples.
 \definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
@@ -87,7 +87,7 @@
 \sloppy
 \hbadness = 5000                % don't print trivial gripes
 
-\pagestyle{empty}               % start this way; change for
+\pagestyle{plain}               % start this way; change for
 \pagenumbering{roman}           % ToC & chapters
 
 % Use this to set the font family for headers and other decor:
@@ -412,10 +412,10 @@
 % }
 % 
 % % Include hyperref last.
-% \RequirePackage[colorlinks,breaklinks,
-%                 linkcolor=InnerLinkColor,filecolor=OuterLinkColor,
-%                 menucolor=OuterLinkColor,urlcolor=OuterLinkColor,
-%                 citecolor=InnerLinkColor]{hyperref}
+\RequirePackage[colorlinks,breaklinks,
+                 linkcolor=InnerLinkColor,filecolor=OuterLinkColor,
+                 menucolor=OuterLinkColor,urlcolor=OuterLinkColor,
+                 citecolor=InnerLinkColor]{hyperref}
 
 %FIXME
 %\ifdefined\printmode

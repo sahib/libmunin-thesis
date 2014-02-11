@@ -162,7 +162,7 @@ Glossar
 
         .. admonition:: Vergleiche dazu:
 
-            :cite:p:`datamining-concepts-and-techniques`
+            :cite:`datamining-concepts-and-techniques`
             Datamining Concepts and Techniques, Seiten 268-271.
 
 
