@@ -131,10 +131,10 @@ Ein Anwendungsbeispiel wäre das Zusammenschalten:
        rank = same; PlyrLyrics; Keywords; Stem
    }
 
-   "Eingabe: Artist, Album" ->  PlyrLyrics 
+   "Eingabe: Artist, Album" ->  PlyrLyrics [label=" Sucht im Web "]
    PlyrLyrics -> Keywords [label="liefert Songtext"]
    Keywords -> Stem [label="extrahiert Keywords"]
-   Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm-Keywords"]
+   Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm-Keywords "]
 
 ``Stem``
 ~~~~~~~~
