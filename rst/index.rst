@@ -37,6 +37,6 @@ lizensiert:
 
     http://creativecommons.org/licenses/by/3.0/de/
 
-.. image:: static/ccicon88x31.png
+.. image:: _static/ccicon88x31.png
     :align: center
     :alt: Creative Commons License

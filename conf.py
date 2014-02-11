@@ -25,6 +25,7 @@ extensions = [
     'fix_equation_ref',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.graphviz',
     'sphinxcontrib.bibtex',
     'subfig',
     'numfig',
@@ -120,7 +121,7 @@ html_short_title = "Projektarbeit - libmunin: a music recommendation system"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['rst/static']
+html_static_path = ['rst/_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -189,9 +190,17 @@ ADDITIONAL_PREAMBLE = """
 \\usepackage{sphinx}
 
 % Extra packages
+\\linespread{1.05}
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
 \\usepackage{wasysym}
+
+% Use Garamond as main font
+\\renewcommand{\\rmdefault}{ugm}
+\\renewcommand{\\sfdefault}{uop}
+
+% But it's too thin for things like code examples
+%\\renewcommand{\\ttdefault}{pcr}
 
 \\usepackage{titlesec}
 \\definecolor{gray75}{gray}{0.75}
