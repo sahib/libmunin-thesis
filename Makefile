@@ -111,6 +111,12 @@ latexpdf:
 	$(MAKE) -C $(BUILDDIR)/latex
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 
+latexpdfcompressed: latexpdf
+	@echo "Compressing thesis.pdf via ghostscript..."
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -q \
+	   -dPDFSETTINGS=/prepress -sOutputFile=$(BUILDDIR)/latex/thesis_compressed.pdf \
+	   $(BUILDDIR)/latex/thesis.pdf
+
 text:
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo

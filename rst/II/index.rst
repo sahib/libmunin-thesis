@@ -73,7 +73,7 @@ TODO: Nachweise
 
     .. figure:: figs/lastfm_similar_artists.png
         :alt: Ähnliche Künstler auf last.fm
-        :width: 100%
+        :width: 75%
         :align: center 
     
         Anzeige ähnlicher Künstler auf last.fm
@@ -82,7 +82,7 @@ TODO: Nachweise
 
     .. figure:: figs/lastfm_spotify_radio.png
         :alt: Eine *Station* auf Spotify
-        :width: 125%
+        :width: 100%
         :align: center
     
         Eine *Station* auf Spotify (Empfehlungen von last.fm)

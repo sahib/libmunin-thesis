@@ -6,11 +6,18 @@
 libmunin: |br| Projektarbeit
 ############################
 
-.. include:: toc.rst
+
+.. raw:: latex
    
+   \pagestyle{empty}
+
+.. include:: toc.rst
+
+.. raw:: latex
+   
+   \pagestyle{fancy}
+
 .. toctree::
    
     appendix
     zzz_bibliography
-
-.. .. cite:refs::

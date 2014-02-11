@@ -129,6 +129,7 @@
   \begin{center}
   \Large \textbf{Abstract}
   \end{center}
+  \thispagestyle{empty}
   \@abstract
   \clearpage
   }
@@ -145,6 +146,7 @@
     \begin{center}
       \Large \textbf{Danksagung}
     \end{center}
+    \thispagestyle{empty}
     \@acknowledgements
     \clearpage
   \fi
@@ -156,6 +158,7 @@
     \begin{flushright}
       \@dedication
     \end{flushright}
+    \thispagestyle{empty}
     \addcontentsline{toc}{section}{Widmung}
     \clearpage
   \fi

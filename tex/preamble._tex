@@ -4,6 +4,7 @@
 \department{Informatik}
 
 \newcommand{\proquestmode}{}
+\pagestyle{empty}
 
 \abstract{
 \input{abstract.inc}

@@ -25,6 +25,7 @@ extensions = [
     'fix_equation_ref',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.graphviz',
     'sphinxcontrib.bibtex',
     'subfig',
     'numfig',
@@ -189,9 +190,17 @@ ADDITIONAL_PREAMBLE = """
 \\usepackage{sphinx}
 
 % Extra packages
+\\linespread{1.05}
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
 \\usepackage{wasysym}
+
+% Use Garamond as main font
+\\renewcommand{\\rmdefault}{ugm}
+\\renewcommand{\\sfdefault}{uop}
+
+% But it's too thin for things like code examples
+%\\renewcommand{\\ttdefault}{pcr}
 
 \\usepackage{titlesec}
 \\definecolor{gray75}{gray}{0.75}

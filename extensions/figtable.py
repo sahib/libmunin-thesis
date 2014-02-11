@@ -21,7 +21,7 @@ def visit_figtable_tex(self, node):
     if node['nofig']:
         self.body.append('\n\n\\begin{table}\n\\capstart\n\\begin{center}\n')
     else:
-        self.body.append('\n\n\\begin{figure}[h]\n\\capstart\n\\begin{center}\n')
+        self.body.append('\n\n\\begin{figure}[ht]\n\\capstart\n\\begin{center}\n')
 
 def depart_figtable_tex(self, node):
     if node['nofig']:
