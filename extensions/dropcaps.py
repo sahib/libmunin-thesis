@@ -8,7 +8,7 @@ class dropcaps(nodes.TextElement):
 def visit_dropcaps_node_latex(self, node):
     text = node.astext()
     self.body.append(
-        '\\lettrine[lines=1]{{{w}}}{{{i}}}'.format(
+        '\\lettrine[lines=1, loversize=-0.25]{{{w}}}{{{i}}}'.format(
             w=text[0],
             i=text[1:].upper()
         )

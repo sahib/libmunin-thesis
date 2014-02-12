@@ -76,7 +76,7 @@
 % for code listings
 \usepackage{listings}
 \IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{\usepackage{zi4}}
-\usepackage{color}
+\usepackage{xcolor}
 \definecolor{codebg}{RGB}{248,248,248} % mimics html code style
 \definecolor{codeborder}{RGB}{204,204,204}
 \lstset{breaklines=true,

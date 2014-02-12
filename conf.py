@@ -199,6 +199,7 @@ ADDITIONAL_PREAMBLE = """
 
 \\usepackage{type1cm}
 \\usepackage{lettrine}
+\\usepackage{tikz}
 
 % Use Garamond as main font
 \\renewcommand{\\rmdefault}{ugm}
@@ -210,7 +211,7 @@ ADDITIONAL_PREAMBLE = """
 \\usepackage{titlesec}
 \\definecolor{gray75}{gray}{0.75}
 \\newcommand{\\hsp}{\hspace{20pt}}
-\\titleformat{\\chapter}[hang]{\\Huge\\bfseries}{\\thechapter\\hsp\\textcolor{gray75}{|}\\hsp}{0pt}{\\Huge\\bfseries}
+\\titleformat{\\chapter}[hang]{\\Huge\\bfseries}{\\textcolor{gray75}{\\thechapter}\\hsp\\textcolor{gray75}{|}\\hsp}{0pt}{\\Huge\\bfseries}
 """
 
 ADDITIONAL_FOOTER = """

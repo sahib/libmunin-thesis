@@ -15,12 +15,11 @@ Motivation
 State of the Art
 ----------------
 
-:dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
-gar im Supermarkt.
-Besonders im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik
-anbieten, entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify,
-rhapsody, pandora, webradios...) oder auch um Menschen mit ähnlichem
-Musikgeschmack zu finden (youtube, myspace).
+:dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
+Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
+Vielzahl von Plattformen die Musik anbieten, entweder zum kaufen (amazon), zum
+streamen (``last.fm``, spotify, rhapsody, pandora, webradios...) oder auch um
+Menschen mit ähnlichem Musikgeschmack zu finden (youtube, myspace).
 
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
@@ -54,7 +53,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
     :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
-    :spec: r l r l
+    :spec: | r l | r l |
 
     ========== ====== ========== ======
     Jahre      Anzahl Jahre      Anzahl

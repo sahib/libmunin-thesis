@@ -94,17 +94,23 @@
 \renewcommand{\chaptermark}[1]{%
 \markboth{\ #1}{}}
 
+\newcommand{\udot}[1]{%
+    \tikz[baseline=(todotted.base)]{%
+        \node[inner sep=4pt,outer sep=0pt] (todotted) {#1};
+        \draw[dotted, thick, opacity=0.75] (todotted.south west) -- (todotted.south east);
+    }%
+}%
+
 \setlength{\headheight}{24pt} 
 \fancyfoot[C]{%
     % EasterEgg
     \ifthenelse{\value{page}=42}
         {\scshape{\reflectbox{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}}
-        {\scshape{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}
+        {\scshape{\udot{~~\thepage~~~}}}
 }%
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
 \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
 \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
-% \renewcommand{\footrule}{\hrule{0.4pt}{10pt}}
 
 
 % Some custom font markup commands.
