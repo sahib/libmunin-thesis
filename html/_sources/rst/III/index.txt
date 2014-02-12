@@ -12,7 +12,7 @@ Design
 Architektur
 ===========
 
-Baukastenprinzip
+:dropcaps:`Baukastenprinzip`
 
 
 Algorithmik
