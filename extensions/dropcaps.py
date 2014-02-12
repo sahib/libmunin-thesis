@@ -10,7 +10,7 @@ def visit_dropcaps_node_latex(self, node):
     self.body.append(
         '\\lettrine[lines=1]{{{w}}}{{{i}}}'.format(
             w=text[0],
-            i=text[1:]
+            i=text[1:].upper()
         )
     )
     node.clear()
