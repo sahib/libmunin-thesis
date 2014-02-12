@@ -15,9 +15,8 @@ Motivation
 State of the Art
 ----------------
 
-Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
+:dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in Webshops oder
 gar im Supermarkt.
-
 Besonders im weltweitem Netz gibt es eine Vielzahl von Plattformen die Musik
 anbieten, entweder zum kaufen (amazon), zum streamen (``last.fm``, spotify,
 rhapsody, pandora, webradios...) oder auch um Menschen mit ähnlichem

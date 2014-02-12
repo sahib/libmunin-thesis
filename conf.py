@@ -30,6 +30,8 @@ extensions = [
     'subfig',
     'numfig',
     'numsec',
+    'latex_sign',
+    'dropcaps',
     'figtable',
     'singlehtml_toc',
     'singletext',
@@ -194,6 +196,9 @@ ADDITIONAL_PREAMBLE = """
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
 \\usepackage{wasysym}
+
+\\usepackage{type1cm}
+\\usepackage{lettrine}
 
 % Use Garamond as main font
 \\renewcommand{\\rmdefault}{ugm}

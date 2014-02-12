@@ -13,6 +13,15 @@ Implementierung
 Kurze Implementierungshistorie
 ==============================
 
+:dropcaps:`Lorem` ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+sanctus est Lorem ipsum dolor sit amet.
+
 Probleme:
 
     - Graphenaufbau (combinations = teuer) 
@@ -447,9 +456,11 @@ Der Quelltext selber wird in *gVim* geschrieben. Dass sich der Python-Quelltext
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
 und *flake8* überprüft.
 
-Auch dieses Dokument wurde mit einem erweiternten Sphinx erstellt. Dies hat den
-Vorteil dass die Arbeit in *reStructuredText* geschrieben werden kann und
-einerseits als PDF und als HTML Variante :cite:`8MD` erstellt wird.  
+Auch dieses Dokument wurde mit dem :latex_sign:`sigh`-Backend einer
+modifizierten Sphinxversion erstellt.  Vorteil dass die Arbeit in
+*reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML
+Variante :cite:`8MD` erstellt wird - letztere ist sogar für mobile Endgeräte
+ausgelegt.  
 
 Lines of Code (*LoC*)
 ---------------------

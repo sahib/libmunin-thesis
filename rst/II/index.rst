@@ -12,8 +12,7 @@ Einstieg
 Einsatzszenarien
 ================
 
-Wo ist also das Problem dass *libmunin* nun lösen soll?
-
+:dropcaps:`Wo` ist also das Problem dass *libmunin* nun lösen soll?
 Das erklärte Ziel ist es eine Bibliothek (,, *libmunin* '') zu schaffen die
 einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
 

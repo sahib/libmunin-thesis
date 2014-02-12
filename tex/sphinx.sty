@@ -94,15 +94,18 @@
 \renewcommand{\chaptermark}[1]{%
 \markboth{\ #1}{}}
 
-\setlength{\headheight}{13.6pt} 
+\setlength{\headheight}{24pt} 
 \fancyfoot[C]{%
     % EasterEgg
     \ifthenelse{\value{page}=42}
-        {\reflectbox{\thepage}}
-        {\thepage}
+        {\scshape{\reflectbox{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}}
+        {\scshape{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}
 }%
-\fancyhead[LO]{{\nouppercase{\emph{\leftmark}}}}
-\fancyhead[RO]{{\nouppercase{\emph{\rightmark}}}}
+\fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
+\fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
+\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
+% \renewcommand{\footrule}{\hrule{0.4pt}{10pt}}
+
 
 % Some custom font markup commands.
 \newcommand{\strong}[1]{{\bf #1}}
