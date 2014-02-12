@@ -1,0 +1,30 @@
+digraph G {
+    charset = "UTF-8";
+    splines = curved;
+
+    node [shape=record, style=filled];
+    edge [style=bold, fontsize=13];
+
+    Session -> Database [label="Verwaltet"]
+    Session -> Provider [label="Bestimmt"]
+    Session -> DistanceFunction [label="Bestimmt"]
+    Session -> RecommendationHistory [label="Verwaltet"]
+    Session -> ListenHistory [label="Verwaltet"]
+    Maske   -> Session [label="Bestimmt Format"]
+    EasySession -> Session [label="Vereinfacht"]
+    
+    Database -> Song [label="Speichert"]
+    Song -> Distance [label="Speichert"]
+    DistanceFunction -> Distance [label="Produziert"]
+
+    Provider -> DateProvider [label="Leiten ab"]
+    Provider -> BPMProvider 
+    Provider -> SomeProvider 
+
+    DistanceFunction -> DateDistanceFunction [label="Leiten ab"]
+    DistanceFunction -> BPMDistanceFunction 
+    DistanceFunction -> SomeDistanceFunction 
+
+    History -> RecommendationHistory  [label="Leiten ab"]
+    History -> ListenHistory
+}

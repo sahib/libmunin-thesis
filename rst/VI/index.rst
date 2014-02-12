@@ -37,6 +37,7 @@ Performance
 Features
 --------
 
+- http://www2.research.att.com/~yifanhu/MusicMap/index.html
 - Suchengine für natürliche Sprache wie in :cite:`knees2007music`
 - Transitions. Beispieslweise immer "härter werdende musik"
 - Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)

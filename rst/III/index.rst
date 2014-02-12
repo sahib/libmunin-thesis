@@ -181,6 +181,7 @@ die Umwelt einfügen muss. Wie also kann man die Schnittstellen zwischen beiden
 bilden?  
 
 - Musikdaten müssen importiert werden
+- Verarbetung eines einzelnen Attributes
 - ...
 
 .. figure:: figs/arch.*
@@ -190,13 +191,6 @@ bilden?
 
     Grobe Übersicht über die Architektur.
 
-.. figure:: figs/provider_process.*
-    :alt: Der Werdegang eines Attributes
-    :width: 75%
-    :align: center
-
-    Wie wird ein einzelnes Attribut verarbeitet?
-
 Entwurf der Software
 ====================
 
@@ -204,8 +198,74 @@ Da wir jetzt wissen aus welchen Komponenten unsere Software besteht können wir 
 Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.
 Im folgenden werden die ,, *Hauptakteure* '' der Software vorgestellt:
 
+
+Übersicht
+---------
+
+Unter :num:`fig-class-overview` findet sich eine grobe Übersicht der wichtigsten 
+Klassen.
+
+.. _fig-class-overview:
+
+.. figure:: figs/class.png
+    :alt: Klassenübersicht
+    :width: 100%
+    :align: center
+
+    Jeder Node ist eine Klasse in den jeweiligen Teilbereichen der Software.
+    Provider und DistanceFunktion Unterklassen nur beispielhaft gezeigt.
+
+Grobe Unterteilung
+------------------
+
+Wir schauen uns zuert die einzelnen *Regionen* der Software an, danach
+widmen wir uns den einzelnen Komponenten.
+
+Grob ist die Software in fünf unterschiedliche *Regionen* aufgeteilt.
+
+1. API 
+~~~~~~
+
+Die API ist die Schnittstelle zum Benutzer hin. Der Nutzer kann mittels einer
+``Session`` auf alle Funktionen von *libmunin* zugreifen. Dazu muss er beim
+Instanzieren derselben eine ``Maske`` angeben die die Musikdatenbank beschreibt. 
+Alternativ kann die ``EasySession`` genutzt werden die für viele Anwendungsfälle
+ausreichen ist.
+
+2. ``Provider`` Pool
+~~~~~~~~~~~~~~~~~~~~
+
+Hier werden alle 
+
+In der Übersicht :num:`fig-class-overview` wurde aus übersichtlichkeitsgründen
+exemplarisch nur drei ``Provider`` gezeigt
+
+3. ``DistanceFunction`` Pool
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In der Übersicht :num:`fig-class-overview` wurde aus übersichtlichkeitsgründen
+exemplarisch nur drei ``Provider`` gezeigt
+
+4. Songverwaltung
+~~~~~~~~~~~~~~~~~
+
+Hier geschieht alles was mit dem Speichern und Vergleichen einzelner Songs zu
+tun hat. Dies umfasst das Speichern der ``Songs`` in der ``Database`` sowie das 
+Verwalten der Nachbarschafts ``Songs`` für jeden ``Song`` mit den dazugehörigen 
+``Distance``.
+
+Der oben erwähnte Graph entsteht durch die Verknüpfungen der Songs untereinander
+und bildet keine eigenständige Klasse.
+
+5. Regeln und History
+~~~~~~~~~~~~~~~~~~~~~
+
+
+Einzelne Komponenten
+--------------------
+
 Maske
------
+~~~~~
 
 - Beschreibung der Musikdatenbank die von außen reinkommt.
 - Besteht aus einem Mapping, bei dem die keys den Namen eines Attributes
@@ -214,20 +274,40 @@ Maske
   wie stark dieses Attribut des Songs gewichtet werden soll.
 
 Session
--------
+~~~~~~~
 
 - API Entry für alle Funktionen
 - Speichert songs ab
 - Speichert die Maske
 
 Song
-----
+~~~~
 
 - Speichert nur values, keine keys.
 
 Distance
---------
+~~~~~~~~
 
 - Speichert alle Teildistanzen, statt einzelne weighted Distanz.
 - Macht 'explanations' leicht.
+
+Database
+~~~~~~~~
+
+
+History
+~~~~~~~
+
+RecommendationHistory 
+""""""""""""""""""""""
+
+ListenHistory
+"""""""""""""
+
+Provider
+~~~~~~~~
+
+DistanceFuntion
+~~~~~~~~~~~~~~~
+
 

@@ -128,7 +128,8 @@ Erlaubt das Verketten von Providern. Er erste Eingabewert wird dem ersten
 Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe, 
 wird an den nächsten Provider in der Kette als Eingabe weitergegeben.
 
-Ein Anwendungsbeispiel wäre das Zusammenschalten:
+Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
+Baukastenprinzip:
 
 .. digraph:: foo
 

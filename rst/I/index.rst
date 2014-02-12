@@ -126,6 +126,11 @@ dieser Arbeit das Projekt weiterentwickelt werden.
 .. [#f3] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon).
 
+Was hat das mit Datamining zu tun?
+==================================
+
+Sehr viel.
+
 Namensgebung
 ============
 
