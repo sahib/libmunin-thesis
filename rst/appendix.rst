@@ -358,6 +358,63 @@ zeigt:
         # Save it under ~/.cache/libmunin/demo
         session.save()
 
+Ausgabe nach dem ersten Lauf:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    The database:
+      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
+      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
+      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
+      #3 ('Lady Gaga', 'Pokerface', 'pop')
+
+    -- No saved session found, loading new.
+    matching ['metal']
+    matching ['folk']
+    matching ['metal']
+    Recommendations to #0:
+      normalized values:
+        Artist : (3,)                
+        Genre  : ((583,),)           
+        Title  : ['Extrem']          
+      original values:
+        Artist : We Butter the Bread with Butter
+        Album  : Extrem
+        Genre  : metal
+
+    Playcounts:
+      #0 was played 3x times
+      #2 was played 2x times
+    matching ['pop']
+
+Ausgabe nach dem 10ten Lauf:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    The database:
+      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
+      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
+      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
+      #3 ('Lady Gaga', 'Pokerface', 'pop')
+
+    Association Rules:
+             [2] <-> [0]        [supp=    8, rating=0.83951]
+
+    Recommendations to #2:
+      normalized values:
+        Artist : (1,)                
+        Genre  : ((583,),)           
+        Title  : ['the', 'Befor', 'Noos', 'Hangman']
+      original values:
+        Artist : Devildriver
+        Album  : Before the Hangmans Noose
+        Genre  : metal
+
+    Playcounts:
+      #0 was played 30x times
+      #2 was played 20x times
 
 .. only:: latex
 
