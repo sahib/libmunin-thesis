@@ -118,22 +118,21 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#architektur">3.1 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#algorithmik">3.2 Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.5 Entwurf der Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#algorithmik">3.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.2 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#periphere-komponenten">3.3 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.4 Entwurf der Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#paketubersicht">4.3 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.4 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#modul-und-paketubersicht">4.4 Modul- und Paketübersicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IV/index.html#trivia">4.5 Trivia</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Test</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Verfizierung der Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#validierung">5.3 Validierung</a></li>
@@ -141,9 +140,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#ausblick">6.1 Ausblick</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#mogliche-weiterentwicklungen">6.2 Mögliche Weiterentwicklungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#fazit">6.3 Fazit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#was-hatte-das-mit-datamining-zu-tun">6.1 Was hatte das mit Datamining zu tun?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#ausblick">6.2 Ausblick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#mogliche-weiterentwicklungen">6.3 Mögliche Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#fazit">6.4 Fazit</a></li>
 </ul>
 </li>
 </ul>
@@ -241,68 +241,120 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#architektur">3.1 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#algorithmik">3.2 Algorithmik</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#grunduberlegungen">3.2.1 Grundüberlegungen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#graphenoperationen">3.2.2 Graphenoperationen</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#rebuild">3.2.2.1 <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#add">3.2.2.2 <tt class="docutils literal"><span class="pre">add</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#insert">3.2.2.3 <tt class="docutils literal"><span class="pre">insert</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#remove">3.2.2.4 <tt class="docutils literal"><span class="pre">remove</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#modify">3.2.2.5 <tt class="docutils literal"><span class="pre">modify</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#fixing">3.2.2.6 <tt class="docutils literal"><span class="pre">fixing</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#algorithmik">3.1 Algorithmik</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#grunduberlegungen">3.1.1 Grundüberlegungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#graphenoperationen">3.1.2 Graphenoperationen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#rebuild">3.1.2.1 <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#add">3.1.2.2 <tt class="docutils literal"><span class="pre">add</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#insert">3.1.2.3 <tt class="docutils literal"><span class="pre">insert</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#remove">3.1.2.4 <tt class="docutils literal"><span class="pre">remove</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#modify">3.1.2.5 <tt class="docutils literal"><span class="pre">modify</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#fixing">3.1.2.6 <tt class="docutils literal"><span class="pre">fixing</span></tt></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#ausstellen-von-empfehlungen">3.2.3 Ausstellen von Empfehlungen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#filtern-von-empfehlungen">3.2.4 Filtern von Empfehlungen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#lernen-durch-die-history">3.2.5 Lernen durch die History</a></li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#ausstellen-von-empfehlungen">3.1.3 Ausstellen von Empfehlungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#filtern-von-empfehlungen">3.1.4 Filtern von Empfehlungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#lernen-durch-die-history">3.1.5 Lernen durch die History</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.5 Entwurf der Software</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#maske">3.5.1 Maske</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#session">3.5.2 Session</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#song">3.5.3 Song</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#distance">3.5.4 Distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.2 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#periphere-komponenten">3.3 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.4 Entwurf der Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#ubersicht">3.4.1 Übersicht</a></li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#grobe-unterteilung">3.4.2 Grobe Unterteilung</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#api">3.4.2.1 1. API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#provider-pool">3.4.2.2 2. <tt class="docutils literal"><span class="pre">Provider</span></tt> Pool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#distancefunction-pool">3.4.2.3 3. <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> Pool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#songverwaltung">3.4.2.4 4. Songverwaltung</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#regeln-und-history">3.4.2.5 5. Regeln und History</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#einzelne-komponenten">3.4.3 Einzelne Komponenten</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#maske">3.4.3.1 Maske</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#session">3.4.3.2 Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#song">3.4.3.3 Song</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#distance">3.4.3.4 Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#database">3.4.3.5 Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#history">3.4.3.6 History</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="III/index.html#recommendationhistory">3.4.3.6.1 RecommendationHistory</a></li>
+<li class="toctree-l5"><a class="reference internal" href="III/index.html#listenhistory">3.4.3.6.2 ListenHistory</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#rulegenerator">3.4.3.7 RuleGenerator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#ruleindex">3.4.3.8 RuleIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#provider">3.4.3.9 Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#distancefuntion">3.4.3.10 DistanceFuntion</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="IV/index.html#liste-der-distanzfunktionen">4.2.1 Liste der Distanzfunktionen</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#date">4.2.1.1 <tt class="docutils literal"><span class="pre">Date</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#moodbar">4.2.1.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#rating">4.2.1.3 <tt class="docutils literal"><span class="pre">Rating</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#bpm">4.2.1.4 <tt class="docutils literal"><span class="pre">BPM</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#wordlist-levenshtein-keywords">4.2.1.5 <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, <tt class="docutils literal"><span class="pre">Levenshtein</span></tt>, <tt class="docutils literal"><span class="pre">Keywords</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#genretreeavglink-genretree">4.2.1.6 <tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt>, <tt class="docutils literal"><span class="pre">GenreTree</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.1 Anwendungsbeispiel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#kurze-erlauterung-des-beispiels">4.1.1 Kurze Erläuterung des Beispiels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#kurze-erlauterung-der-ausgabe">4.1.2 Kurze Erläuterung der Ausgabe</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="IV/index.html#id2">4.2.2 Liste der Distanzfunktionen</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#id3">4.2.2.1 <tt class="docutils literal"><span class="pre">Date</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#id4">4.2.2.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#wordlist">4.2.2.3 <tt class="docutils literal"><span class="pre">Wordlist</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#id5">4.2.2.4 <tt class="docutils literal"><span class="pre">BPM</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#normalize-artistnormalize-albumnormalize">4.2.2.5 <tt class="docutils literal"><span class="pre">Normalize</span></tt>, <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>, <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#composite">4.2.2.6 <tt class="docutils literal"><span class="pre">Composite</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#stem">4.2.2.7 <tt class="docutils literal"><span class="pre">Stem</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#genretree">4.2.2.8 <tt class="docutils literal"><span class="pre">GenreTree</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#keywords">4.2.2.9 <tt class="docutils literal"><span class="pre">Keywords</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#plyrlyrics">4.2.2.10 <tt class="docutils literal"><span class="pre">PlyrLyrics</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="IV/index.html#discogsgenre">4.2.2.11 <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#liste-der-provider">4.3.1 Liste der Provider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#date">4.3.1.1 <tt class="docutils literal"><span class="pre">Date</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#moodbar">4.3.1.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#wordlist">4.3.1.3 <tt class="docutils literal"><span class="pre">Wordlist</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#bpm">4.3.1.4 <tt class="docutils literal"><span class="pre">BPM</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#normalize-artistnormalize-albumnormalize-titlenormalize">4.3.1.5 <tt class="docutils literal"><span class="pre">Normalize</span></tt>, <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>, <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt>, <cite>TitleNormalize</cite></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#normalize">4.3.1.5.1 <tt class="docutils literal"><span class="pre">Normalize</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#artistnormalize">4.3.1.5.2 <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#albumnormalize">4.3.1.5.3 <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#titlenormalize">4.3.1.5.4 <tt class="docutils literal"><span class="pre">TitleNormalize</span></tt>:</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#composite">4.3.1.6 <tt class="docutils literal"><span class="pre">Composite</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#stem">4.3.1.7 <tt class="docutils literal"><span class="pre">Stem</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#genretree">4.3.1.8 <tt class="docutils literal"><span class="pre">GenreTree</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#keywords">4.3.1.9 <tt class="docutils literal"><span class="pre">Keywords</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#plyrlyrics">4.3.1.10 <tt class="docutils literal"><span class="pre">PlyrLyrics</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#discogsgenre">4.3.1.11 <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#liste-der-distanzfunktionen">4.3.2 Liste der Distanzfunktionen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#id3">4.3.2.1 <tt class="docutils literal"><span class="pre">Date</span></tt></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#annahme">4.3.2.1.1 <em>Annahme:</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#id4">4.3.2.2 <tt class="docutils literal"><span class="pre">Moodbar</span></tt></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id5">4.3.2.2.1 <em>Annahme:</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#rating">4.3.2.3 <tt class="docutils literal"><span class="pre">Rating</span></tt></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id6">4.3.2.3.1 <em>Annahme:</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#id7">4.3.2.4 <tt class="docutils literal"><span class="pre">BPM</span></tt></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id8">4.3.2.4.1 <em>Annahme:</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#wordlist-levenshtein-keywords">4.3.2.5 <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, <tt class="docutils literal"><span class="pre">Levenshtein</span></tt>, <tt class="docutils literal"><span class="pre">Keywords</span></tt></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id9">4.3.2.5.1 <tt class="docutils literal"><span class="pre">Wordlist</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id10">4.3.2.5.2 <em>Annahme:</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#levenshtein">4.3.2.5.3 <tt class="docutils literal"><span class="pre">Levenshtein</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id11">4.3.2.5.4 <em>Annahme:</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id12">4.3.2.5.5 <tt class="docutils literal"><span class="pre">Keywords</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id13">4.3.2.5.6 <em>Annahme:</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="IV/index.html#genretreeavglink-genretree">4.3.2.6 <tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt>, <tt class="docutils literal"><span class="pre">GenreTree</span></tt></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id14">4.3.2.6.1 <tt class="docutils literal"><span class="pre">GenreTree</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#genretreeavglink">4.3.2.6.2 <tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt>:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="IV/index.html#id15">4.3.2.6.3 <em>Annahme:</em></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#paketubersicht">4.3 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.4 Anwendungsbeispiel</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="IV/index.html#kurze-erlauterung-des-beispiels">4.4.1 Kurze Erläuterung des Beispiels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="IV/index.html#kurze-erlauterung-des-outputs">4.4.2 Kurze Erläuterung des Outputs</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#modul-und-paketubersicht">4.4 Modul- und Paketübersicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IV/index.html#trivia">4.5 Trivia</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="IV/index.html#entwicklungsumgebung">4.5.1 Entwicklungsumgebung</a></li>
 <li class="toctree-l3"><a class="reference internal" href="IV/index.html#lines-of-code-loc">4.5.2 Lines of Code (<em>LoC</em>)</a></li>
@@ -316,28 +368,50 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Test</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Verfizierung der Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="V/index.html#main">5.4.1 Main</a></li>
-<li class="toctree-l3"><a class="reference internal" href="V/index.html#controls">5.4.2 Controls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="V/index.html#media-controls">5.4.3 Media Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#misc">5.4.1 Misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#views">5.4.2 1) Views</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="V/index.html#database">5.4.2.1 <em>Database</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="V/index.html#playlist">5.4.2.2 <em>Playlist</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="V/index.html#graph">5.4.2.3 <em>Graph</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="V/index.html#rules">5.4.2.4 <em>Rules</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="V/index.html#examine">5.4.2.5 <em>Examine</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="V/index.html#history">5.4.2.6 <em>History</em></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#seed-song">5.4.3 (2) Seed Song</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#current-song">5.4.4 (3) Current Song</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#id1">5.4.5 (4) Playlist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#recom-count">5.4.6 (5) Recom Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#filter">5.4.7 (6) Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#max-listen">5.4.8 (7) Max. listen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#query-entry">5.4.9 (8) Query Entry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#rating">5.4.10 (9) Rating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#playcount">5.4.11 (10) Playcount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#volume-bar">5.4.12 (11) Volume Bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#title-label">5.4.13 (12) Title Label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#mode-buttons">5.4.14 (13) Mode buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#seekbar">5.4.15 (14) Seekbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#playbuttons">5.4.16 (15) Playbuttons</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#ausblick">6.1 Ausblick</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#mogliche-weiterentwicklungen">6.2 Mögliche Weiterentwicklungen</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#performance">6.2.1 Performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#features">6.2.2 Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#convinience-korrektheit">6.2.3 Convinience / Korrektheit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#was-hatte-das-mit-datamining-zu-tun">6.1 Was hatte das mit Datamining zu tun?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#ausblick">6.2 Ausblick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#mogliche-weiterentwicklungen">6.3 Mögliche Weiterentwicklungen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#performance">6.3.1 Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#features">6.3.2 Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#convinience-korrektheit">6.3.3 Convinience / Korrektheit</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#fazit">6.3 Fazit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#war-die-arbeit-erfolg">6.3.1 War die Arbeit Erfolg?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#fazit">6.4 Fazit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#war-die-arbeit-erfolg">6.4.1 War die Arbeit Erfolg?</a></li>
 </ul>
 </li>
 </ul>

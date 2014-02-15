@@ -12,6 +12,11 @@ Zusammenfassung
    -- *Douglas Adams, ,,Last Chance to See''*
 
 
+Was hatte das mit Datamining zu tun?
+====================================
+
+Quite a lot.
+
 Ausblick
 ========
 
@@ -37,6 +42,7 @@ Performance
 Features
 --------
 
+- http://www2.research.att.com/~yifanhu/MusicMap/index.html
 - Suchengine für natürliche Sprache wie in :cite:`knees2007music`
 - Transitions. Beispieslweise immer "härter werdende musik"
 - Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)

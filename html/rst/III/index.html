@@ -119,22 +119,21 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#architektur">3.1 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#algorithmik">3.2 Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#periphere-komponenten">3.4 Periphere Komponenten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entwurf-der-software">3.5 Entwurf der Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#algorithmik">3.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-von-libmunin-in-die-umwelt">3.2 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#periphere-komponenten">3.3 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entwurf-der-software">3.4 Entwurf der Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.3 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.4 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#modul-und-paketubersicht">4.4 Modul- und Paketübersicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../IV/index.html#trivia">4.5 Trivia</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Verfizierung der Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#validierung">5.3 Validierung</a></li>
@@ -142,9 +141,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#ausblick">6.1 Ausblick</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#mogliche-weiterentwicklungen">6.2 Mögliche Weiterentwicklungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#fazit">6.3 Fazit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#was-hatte-das-mit-datamining-zu-tun">6.1 Was hatte das mit Datamining zu tun?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#ausblick">6.2 Ausblick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#mogliche-weiterentwicklungen">6.3 Mögliche Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#fazit">6.4 Fazit</a></li>
 </ul>
 </li>
 </ul>
@@ -190,17 +190,13 @@
 </div>
 <p class="attribution">&mdash;<em>Zen of Python</em>, <tt class="docutils literal"><span class="pre">import</span> <span class="pre">this</span></tt></p>
 </div></blockquote>
-<div class="section" id="architektur">
-<h2>3.1 Architektur<a class="headerlink" href="#architektur" title="Permalink to this headline">¶</a></h2>
-<p>Baukastenprinzip</p>
-</div>
 <div class="section" id="algorithmik">
-<h2>3.2 Algorithmik<a class="headerlink" href="#algorithmik" title="Permalink to this headline">¶</a></h2>
+<h2>3.1 Algorithmik<a class="headerlink" href="#algorithmik" title="Permalink to this headline">¶</a></h2>
 <p>Die genaue Beschreibung der Algorithmik wird in der Bachelorarbeit detailliert
 besprochen. Hier nur ein kurzer Überblick was mit welchem Ziel implementiert
 wird.</p>
 <div class="section" id="grunduberlegungen">
-<h3>3.2.1 Grundüberlegungen<a class="headerlink" href="#grunduberlegungen" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.1 Grundüberlegungen<a class="headerlink" href="#grunduberlegungen" title="Permalink to this headline">¶</a></h3>
 <p>Um die Distanzen zu speichern wird bei vielen Datamining-Projekten eine
 Distanzmatrix genutzt - also eine quadratische Dreiecksmatrix in der
 die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.</p>
@@ -222,7 +218,7 @@ Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.</p>
 <p>TODO: Erläuterung: kNN Graph</p>
 </div>
 <div class="section" id="graphenoperationen">
-<h3>3.2.2 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.2 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h3>
 <p>Angenommen jeder <a class="reference internal" href="../appendix.html#term-song"><em class="xref std std-term">Song</em></a> ist eine Mapping von Attributen zu Werten, so
 können wir für jedes Attribut eine <a class="reference internal" href="../appendix.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> definieren. Nach
 einer bestimmten Gewichtung können wir dann die einzelnen Distanzen
@@ -230,7 +226,7 @@ zusammenrechnen und zu einer gemeinsamen <a class="reference internal" href="../
 <p>Um mit unseren Graphen arbeiten zu können müssen wir einige Operationen auf ihm
 definieren:</p>
 <div class="section" id="rebuild">
-<h4>3.2.2.1 <tt class="docutils literal"><span class="pre">rebuild</span></tt><a class="headerlink" href="#rebuild" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.1 <tt class="docutils literal"><span class="pre">rebuild</span></tt><a class="headerlink" href="#rebuild" title="Permalink to this headline">¶</a></h4>
 <p>Bevor der Graph benutzt werden kann muss er natürlich erstmal aufgebaut werden.
 Der naive Ansatz wäre dabei für jeden Song die Distanzen zu jedem anderen Song
 zu berechnen - dies hätte einen Aufwand von <span class="math">\(O(n^2)\)</span> zur Folge. Dies ist
@@ -243,32 +239,32 @@ also keine <em>Inseln</em> dabei entstehen. Es gibt keine maximale Anzahl von Na
 die ein Song haben darf - lediglich einen <em>Richtwert</em>.</p>
 </div>
 <div class="section" id="add">
-<h4>3.2.2.2 <tt class="docutils literal"><span class="pre">add</span></tt><a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.2 <tt class="docutils literal"><span class="pre">add</span></tt><a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h4>
 <p>Füge einen einzelnen Song zu dem Graphen hinzu, verbinde ihn aber noch nicht.
 Dies ist die bevorzugte Operation um viele Songs dem Graphen hinzuzufügen -
 beispielsweise am Anfang - da das Verbinden später in einem <tt class="docutils literal"><span class="pre">rebuild</span></tt>-Schritt
 erledigt werden kann.</p>
 </div>
 <div class="section" id="insert">
-<h4>3.2.2.3 <tt class="docutils literal"><span class="pre">insert</span></tt><a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.3 <tt class="docutils literal"><span class="pre">insert</span></tt><a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h4>
 <p>Fügen einen einzelnen Song zu dem Graphen hinzu und verbinde ihn. Suche dazu
 erst eine passende Stelle in der er eingepasst wird.</p>
 </div>
 <div class="section" id="remove">
-<h4>3.2.2.4 <tt class="docutils literal"><span class="pre">remove</span></tt><a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.4 <tt class="docutils literal"><span class="pre">remove</span></tt><a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h4>
 <p>Entferne einen einzelnen Song aus dem Graphen und versuche das entstandene
 <em>Loch</em> zu flicken indem die Nachbarn des entfernte Songs untereinander
 verkuppelt werden.</p>
 </div>
 <div class="section" id="modify">
-<h4>3.2.2.5 <tt class="docutils literal"><span class="pre">modify</span></tt><a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.5 <tt class="docutils literal"><span class="pre">modify</span></tt><a class="headerlink" href="#modify" title="Permalink to this headline">¶</a></h4>
 <p>Manchmal ist es nötig das Attribut eines einzelnen Songs - wie beispielsweise
 das stark vom Benutzer abhängige <strong>Rating</strong> - zu ändern. Dabei wird der Song
 erst mittels <tt class="docutils literal"><span class="pre">remove</span></tt> entfernt, die Attribute werden angepasst und er wird
 mittels <tt class="docutils literal"><span class="pre">insert</span></tt> wieder eingefügt.</p>
 </div>
 <div class="section" id="fixing">
-<h4>3.2.2.6 <tt class="docutils literal"><span class="pre">fixing</span></tt><a class="headerlink" href="#fixing" title="Permalink to this headline">¶</a></h4>
+<h4>3.1.2.6 <tt class="docutils literal"><span class="pre">fixing</span></tt><a class="headerlink" href="#fixing" title="Permalink to this headline">¶</a></h4>
 <p>Durch das Löschen und Hinzufügen von Songs können <em>Einbahnstraßen</em> im Graphen
 entstehen. Durch dem nachgelagerten <em>fixing</em> Schritt werden diese, nach
 bestimmten Regeln, entweder entfernt oder in bidirektionale Verbindungen
@@ -276,7 +272,7 @@ umgebaut.</p>
 </div>
 </div>
 <div class="section" id="ausstellen-von-empfehlungen">
-<h3>3.2.3 Ausstellen von Empfehlungen<a class="headerlink" href="#ausstellen-von-empfehlungen" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.3 Ausstellen von Empfehlungen<a class="headerlink" href="#ausstellen-von-empfehlungen" title="Permalink to this headline">¶</a></h3>
 <p>Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
 mittelseiner Breitensuche erledigt. Dabei wird der Ursprung durch ein
 sogenannten <a class="reference internal" href="../appendix.html#term-seedsong"><em class="xref std std-term">Seedsong</em></a> bestimmt. Anschaulich wäre der Seedsong bei einer
@@ -290,9 +286,12 @@ zu gebenden Empfehlungen variabel - was sehr nützlich beim Erstellen einer
 dynamischen Playlist ist.</p>
 <p>Es können auch mehrere Seedsongs verwendet werden - dann werden die einzelnen
 <em>Iteratoren</em> im Reißschlußverfahren verwebt.</p>
+<p>Basierend auf dieser Idee ist es möglich bestimmte Strategien zu implementieren
+die beispielsweise Songs mit dem höchsten Playcount, dem besten Rating oder
+einen bestimmten Attribut wie <em>genre=rock</em> als Seedsongs auswählt.</p>
 </div>
 <div class="section" id="filtern-von-empfehlungen">
-<h3>3.2.4 Filtern von Empfehlungen<a class="headerlink" href="#filtern-von-empfehlungen" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.4 Filtern von Empfehlungen<a class="headerlink" href="#filtern-von-empfehlungen" title="Permalink to this headline">¶</a></h3>
 <p>Oft es nötig die gegebenen Empfehlungen noch zusätzlich zu filtern. Das hat den
 simplen Grund das im Graphen einzelne Alben einzelne <em>Cluster</em> bilden - die
 Lieder auf einem Album sind unter sich sehr ähnlich. Da man aber vermeiden
@@ -304,14 +303,15 @@ den letzten 5 Empfehlungen der gleiche Artist bereits vorhanden so wird die
 Empefhlunge gesiebt.</p>
 </div>
 <div class="section" id="lernen-durch-die-history">
-<h3>3.2.5 Lernen durch die History<a class="headerlink" href="#lernen-durch-die-history" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.5 Lernen durch die History<a class="headerlink" href="#lernen-durch-die-history" title="Permalink to this headline">¶</a></h3>
 <p>Nur eine bestimmte Anzahl von Regeln wird gespeichert - zuviele Regeln würden
 <em>historische Altlasten</em> immer weiter mitschleppen und der aktuelle Geschmack des
 Benutzers würde nicht widergespiegelt werden.</p>
 </div>
 </div>
 <div class="section" id="integration-von-libmunin-in-die-umwelt">
-<h2>3.3 Integration von libmunin in die Umwelt<a class="headerlink" href="#integration-von-libmunin-in-die-umwelt" title="Permalink to this headline">¶</a></h2>
+<h2>3.2 Integration von libmunin in die Umwelt<a class="headerlink" href="#integration-von-libmunin-in-die-umwelt" title="Permalink to this headline">¶</a></h2>
+<p>.... Eingaben?</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/integration.svg"><img alt="Integrationsübersicht" src="../../_images/integration.svg" width="100%" /></a>
 <p class="caption">Wie fügt sich libmunin in seine Umgebung ein?</p>
@@ -322,30 +322,83 @@ Benutzers würde nicht widergespiegelt werden.</p>
 </div>
 </div>
 <div class="section" id="periphere-komponenten">
-<h2>3.4 Periphere Komponenten<a class="headerlink" href="#periphere-komponenten" title="Permalink to this headline">¶</a></h2>
+<h2>3.3 Periphere Komponenten<a class="headerlink" href="#periphere-komponenten" title="Permalink to this headline">¶</a></h2>
 <p>Jetzt wissen wir wie unsere interne Datenstruktur aussieht und wie diese sich in
 die Umwelt einfügen muss. Wie also kann man die Schnittstellen zwischen beiden
-bilden?</p>
+bilden?  BAUKASTENPRINZIP.</p>
 <ul class="simple">
 <li>Musikdaten müssen importiert werden</li>
+<li>Verarbetung eines einzelnen Attributes</li>
 <li>...</li>
 </ul>
-<div class="figure align-center">
+<p>In Abbildung  findet sich eine Übersicht über alle Ein- und
+Ausgaben sowie deren grobe Verarbeitung dazwischen.</p>
+<div class="figure align-center" id="fig-arch">
 <a class="reference internal image-reference" href="../../_images/arch.svg"><img alt="Architekturübersicht." src="../../_images/arch.svg" width="100%" /></a>
-<p class="caption">Grobe Übersicht über die Architektur.</p>
-</div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/provider_process.svg"><img alt="Der Werdegang eines Attributes" src="../../_images/provider_process.svg" width="75%" /></a>
-<p class="caption">Wie wird ein einzelnes Attribut verarbeitet?</p>
+<p class="caption">Betrachtung von libmunin als ,,Whitebox'' - Alle Ein- und Ausgaben in einem
+Bild. In der Box selbst ist die grobe Verarbeitung der Daten skizziert.</p>
 </div>
 </div>
 <div class="section" id="entwurf-der-software">
-<h2>3.5 Entwurf der Software<a class="headerlink" href="#entwurf-der-software" title="Permalink to this headline">¶</a></h2>
-<p>Da wir jetzt wissen aus welchen Komponenten unsere Software besteht können wir uns
-Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.
-Im folgenden werden die ,, <em>Hauptakteure</em> '' der Software vorgestellt:</p>
+<h2>3.4 Entwurf der Software<a class="headerlink" href="#entwurf-der-software" title="Permalink to this headline">¶</a></h2>
+<p>Da wir jetzt grob wissen aus welchen Komponenten unsere Software besteht können
+wir uns Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.  Im
+folgenden werden die <em>,,Hauptakteure''</em> der Software vorgestellt:</p>
+<div class="section" id="ubersicht">
+<h3>3.4.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h3>
+<p>Unter  findet sich eine grobe Übersicht der wichtigsten
+Klassen.</p>
+<div class="figure align-center" id="fig-class-overview">
+<a class="reference internal image-reference" href="../../_images/class.svg"><img alt="Klassenübersicht" src="../../_images/class.svg" width="100%" /></a>
+<p class="caption">Jeder Node ist eine Klasse in den jeweiligen Teilbereichen der Software.
+Provider und DistanceFunktion Unterklassen nur beispielhaft gezeigt.</p>
+</div>
+</div>
+<div class="section" id="grobe-unterteilung">
+<h3>3.4.2 Grobe Unterteilung<a class="headerlink" href="#grobe-unterteilung" title="Permalink to this headline">¶</a></h3>
+<p>Wir schauen uns zuert die einzelnen <em>Regionen</em> der Software an, danach
+widmen wir uns den einzelnen Komponenten.</p>
+<p>Grob ist die Software in fünf unterschiedliche <em>Regionen</em> aufgeteilt.</p>
+<div class="section" id="api">
+<h4>3.4.2.1 1. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h4>
+<p>Die API ist die Schnittstelle zum Benutzer hin. Der Nutzer kann mittels einer
+<tt class="docutils literal"><span class="pre">Session</span></tt> auf alle Funktionen von <em>libmunin</em> zugreifen. Dazu muss er beim
+Instanzieren derselben eine <tt class="docutils literal"><span class="pre">Maske</span></tt> angeben die die Musikdatenbank beschreibt.
+Alternativ kann die <tt class="docutils literal"><span class="pre">EasySession</span></tt> genutzt werden die für viele Anwendungsfälle
+ausreichen ist.</p>
+</div>
+<div class="section" id="provider-pool">
+<h4>3.4.2.2 2. <tt class="docutils literal"><span class="pre">Provider</span></tt> Pool<a class="headerlink" href="#provider-pool" title="Permalink to this headline">¶</a></h4>
+<p>In der Übersicht  wurde aus übersichtlichkeitsgründen
+exemplarisch nur drei <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> gezeigt</p>
+</div>
+<div class="section" id="distancefunction-pool">
+<h4>3.4.2.3 3. <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> Pool<a class="headerlink" href="#distancefunction-pool" title="Permalink to this headline">¶</a></h4>
+<p>In der Übersicht  wurde aus übersichtlichkeitsgründen
+exemplarisch nur drei <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> gezeigt</p>
+</div>
+<div class="section" id="songverwaltung">
+<h4>3.4.2.4 4. Songverwaltung<a class="headerlink" href="#songverwaltung" title="Permalink to this headline">¶</a></h4>
+<p>Hier geschieht alles was mit dem Speichern und Vergleichen einzelner Songs zu
+tun hat. Dies umfasst das Speichern der <tt class="docutils literal"><span class="pre">Songs</span></tt> in der <tt class="docutils literal"><span class="pre">Database</span></tt> sowie das
+Verwalten der Nachbarschafts <tt class="docutils literal"><span class="pre">Songs</span></tt> für jeden <tt class="docutils literal"><span class="pre">Song</span></tt> mit den dazugehörigen
+<tt class="docutils literal"><span class="pre">Distance</span></tt>.</p>
+<p>Der oben erwähnte Graph entsteht durch die Verknüpfungen der Songs untereinander
+und bildet keine eigenständige Klasse.</p>
+</div>
+<div class="section" id="regeln-und-history">
+<h4>3.4.2.5 5. Regeln und History<a class="headerlink" href="#regeln-und-history" title="Permalink to this headline">¶</a></h4>
+<p>Dieser Teil von libmunin ist für das Aufzeichnen des Benutzerverhaltens und dem
+Ableiten von Assoziationsregeln daraus zuständig.</p>
+</div>
+</div>
+<div class="section" id="einzelne-komponenten">
+<h3>3.4.3 Einzelne Komponenten<a class="headerlink" href="#einzelne-komponenten" title="Permalink to this headline">¶</a></h3>
+<p>... Der Autor mag kein UML und keine langen Auflistungen von Methoden die eine
+Klasse hat. Deshalb wird in folgenden textuell beschrieben was die Klasse
+eigentlich tun soll.</p>
 <div class="section" id="maske">
-<h3>3.5.1 Maske<a class="headerlink" href="#maske" title="Permalink to this headline">¶</a></h3>
+<h4>3.4.3.1 Maske<a class="headerlink" href="#maske" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Beschreibung der Musikdatenbank die von außen reinkommt.</li>
 <li>Besteht aus einem Mapping, bei dem die keys den Namen eines Attributes
@@ -355,25 +408,104 @@ wie stark dieses Attribut des Songs gewichtet werden soll.</li>
 </ul>
 </div>
 <div class="section" id="session">
-<h3>3.5.2 Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h3>
+<h4>3.4.3.2 Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li>API Entry für alle Funktionen</li>
-<li>Speichert songs ab</li>
-<li>Speichert die Maske</li>
+<li>API Proxy Entry für alle Funktionen</li>
+<li>Speichert alle Member mittels <tt class="docutils literal"><span class="pre">pickle</span></tt> ab.</li>
+<li></li>
 </ul>
 </div>
 <div class="section" id="song">
-<h3>3.5.3 Song<a class="headerlink" href="#song" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Speichert nur values, keine keys.</li>
-</ul>
+<h4>3.4.3.3 Song<a class="headerlink" href="#song" title="Permalink to this headline">¶</a></h4>
+<p>Speichert fur jedes <a class="reference internal" href="../appendix.html#term-attribut"><em class="xref std std-term">Attribut</em></a> einen Wert, oder einen leeren Wert falls
+das <a class="reference internal" href="../appendix.html#term-attribut"><em class="xref std std-term">Attribut</em></a> nicht gesetzt wurde. Dies ähnelt einer Hashtable,
+allerdings werden nur die Werte gespeichert, die ,,Keys'' der Hashtable werden
+in der <tt class="docutils literal"><span class="pre">Maske</span></tt> gespeichert und werden nur referenziert. Der Grund dieser
+Optimierung liegt in verminderten Speicherverbrauch.</p>
+<p>Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
+Nachbarsongs. Er muss Methoden bieten um eine <a class="reference internal" href="../appendix.html#term-distanz"><em class="xref std std-term">Distanz</em></a> zu einem Nachbarn
+hinzuzufügen oder zu entfernen, Methoden um über alle Nachbarn zu iterieren oder
+die <a class="reference internal" href="../appendix.html#term-distanz"><em class="xref std std-term">Distanz</em></a> zu einen bestimmten Nachbarn abzufragen
+und eine <tt class="docutils literal"><span class="pre">disconnect()</span></tt> Methode um den <tt class="docutils literal"><span class="pre">Song</span></tt> zu entfern ohne dabei ein
+,,Loch'' zu hinterlassen.</p>
+<p>Tatsächlich gibt es kein eigene <tt class="docutils literal"><span class="pre">Graph</span></tt>-Klasse - der <a class="reference internal" href="../appendix.html#term-graph"><em class="xref std std-term">Graph</em></a> an sich
+wird durch die Verknüpfung der einzelnen Songs in der <tt class="docutils literal"><span class="pre">Database</span></tt> gebildet -
+jede <tt class="docutils literal"><span class="pre">Song</span></tt> Instanz bildet dabei einen Knoten.</p>
 </div>
 <div class="section" id="distance">
-<h3>3.5.4 Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h3>
+<h4>3.4.3.4 Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Speichert alle Teildistanzen, statt einzelne weighted Distanz.</li>
 <li>Macht 'explanations' leicht.</li>
 </ul>
+</div>
+<div class="section" id="database">
+<h4>3.4.3.5 Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h4>
+<p>Implementiert die einzelnen Graphenoperationen.</p>
+</div>
+<div class="section" id="history">
+<h4>3.4.3.6 History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h4>
+<p>Oberklasse für <tt class="docutils literal"><span class="pre">RecommendationHistory</span></tt> und <tt class="docutils literal"><span class="pre">ListenHistory</span></tt>. Implementiert
+die gemeinsame Funktionalität Songs die zeitlich hintereinander zur <tt class="docutils literal"><span class="pre">History</span></tt>
+hinzugefügt werden in <em>Gruppen</em> einzuteilen. Gruppen beeinhalten maximal eine
+bestimmte Anzahl von Songs, ist eine <em>Gruppe</em> voll so wird eine neue angefangen.
+Vergeht aber eine zu lange Zeit seit dem letzten Hinzufügen wird ebenfalls
+eine neue <em>Gruppe</em> begonnen. Jede abgeschlossene <em>Gruppe</em> wird in der History
+abgespeichert.</p>
+<p>Das Ziel der zeitlichen Gruppierung ist eine Abbildung des Nutzerverhaltens.
+Die Annahme ist hierbei dass große zeitliche Lücken zwischen zwei Liedern auf
+wenig zusammehängende Songs hindeuten. Zudem bilden die einzelnen <em>Gruppen</em> eine
+Art ,,Warenkorb'' der dann bei der Ableitung von Regeln genutzt werden kann.</p>
+<div class="section" id="recommendationhistory">
+<h5>3.4.3.6.1 RecommendationHistory<a class="headerlink" href="#recommendationhistory" title="Permalink to this headline">¶</a></h5>
+</div>
+<div class="section" id="listenhistory">
+<h5>3.4.3.6.2 ListenHistory<a class="headerlink" href="#listenhistory" title="Permalink to this headline">¶</a></h5>
+<p>Puffer für die zuletzte gehörten Lieder. Es ist die Aufgabe des Nutzers der
+Bibliothek einzelne Songs zur <tt class="docutils literal"><span class="pre">ListenHistory</span></tt> hinzuzufügen.</p>
+</div>
+</div>
+<div class="section" id="rulegenerator">
+<h4>3.4.3.7 RuleGenerator<a class="headerlink" href="#rulegenerator" title="Permalink to this headline">¶</a></h4>
+<p>Analysiert die Gruppen innerhalb einer <tt class="docutils literal"><span class="pre">History</span></tt> und leitet daraus mittels
+einer Warenkorbanalyse Assoziationsregeln ab. Diese werden danach im
+<tt class="docutils literal"><span class="pre">RuleIndex</span></tt> gespeichert.</p>
+</div>
+<div class="section" id="ruleindex">
+<h4>3.4.3.8 RuleIndex<a class="headerlink" href="#ruleindex" title="Permalink to this headline">¶</a></h4>
+<p>Speichert und indiziert die vom <tt class="docutils literal"><span class="pre">RuleGenerator</span></tt> erzeugten Assoziationsregeln.
+Da es später möglich sein muss jede <a class="reference internal" href="../appendix.html#term-assoziationsregel"><em class="xref std std-term">Assoziationsregel</em></a> abzufragen die
+einen bestimmten Song betrifft ist es vonnöten eine zusätzliche Hashtable von
+Songs auf AssoziationsRegeln zu halten die als Index dient.</p>
+<p>Zudem <em>,,vergisst''</em> der Index Regeln die Songs betreffen die nicht mehr in der
+<tt class="docutils literal"><span class="pre">ListenHistory</span></tt> vorhanden sind.</p>
+</div>
+<div class="section" id="provider">
+<h4>3.4.3.9 Provider<a class="headerlink" href="#provider" title="Permalink to this headline">¶</a></h4>
+<p>Die Oberklasse von der jeder konkreter <tt class="docutils literal"><span class="pre">Provider</span></tt> ableitet.</p>
+<p>Jeder Provider bietet eine <tt class="docutils literal"><span class="pre">do_process()</span></tt> Methode die von den Unterklassen
+überschrieben wird. Zudem bieten viele Provider als Convinience eine
+<tt class="docutils literal"><span class="pre">do_reverse()</span></tt> Methode um für Debugging-Zwecke den Originalwert vor der
+Verarbeitung durch den Provider anzuzeigen.</p>
+<p>Provider können zudem mittels des <tt class="docutils literal"><span class="pre">|</span></tt> Operators in einer Kette
+zusammengeschaltet werden. Intern wird ein <tt class="docutils literal"><span class="pre">CompositeProvider</span></tt> erzeugt - siehe
+dazu auch <a class="reference internal" href="../IV/index.html#composite-provider">4.3.1.6</a>.</p>
+<p>Oft kommt es vor dass die Eingabe für einen <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> viele Dupletten
+enthält - beispielsweise wird derselbe Artist-Name für viele Songs eingepflegt.
+Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
+jeder Provider die Möglichkeit einer primitiven Kompression: Statt den Wert
+abzuspeichern wird eine bidirektionale Hashtable mit den Werten als Schlüssel
+und einer Integer-ID auf der Gegenseite. Dadurch wird jeder Wert nur einmal
+gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.</p>
+</div>
+<div class="section" id="distancefuntion">
+<h4>3.4.3.10 DistanceFuntion<a class="headerlink" href="#distancefuntion" title="Permalink to this headline">¶</a></h4>
+<p>Die Oberklasse von der jede konkrete <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> ableitet.</p>
+<p>Jede Distanzfunktion bietet eine <tt class="docutils literal"><span class="pre">do_compute()</span></tt> Methode die von den
+Unterklassen überschrieben wird.</p>
+<p>Um die bei den Providern mögliche <em>Kompression</em> wieder rückgängig zu machen muss
+die Distanzfunktion den <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> kennen.</p>
+</div>
 </div>
 </div>
 </div>

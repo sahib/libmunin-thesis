@@ -119,22 +119,21 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#architektur">3.1 Architektur</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.2 Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#integration-von-libmunin-in-die-umwelt">3.3 Integration von libmunin in die Umwelt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#periphere-komponenten">3.4 Periphere Komponenten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../III/index.html#entwurf-der-software">3.5 Entwurf der Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#algorithmik">3.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#integration-von-libmunin-in-die-umwelt">3.2 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#periphere-komponenten">3.3 Periphere Komponenten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#entwurf-der-software">3.4 Entwurf der Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Implementierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.1 Kurze Implementierungshistorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.2 Liste verfügbarer Provider und Distanzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#paketubersicht">4.3 Paketübersicht</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.4 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#anwendungsbeispiel">4.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.3 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#modul-und-paketubersicht">4.4 Modul- und Paketübersicht</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../IV/index.html#trivia">4.5 Trivia</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Test</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Verfizierung der Software</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#validierung">5.3 Validierung</a></li>
@@ -142,9 +141,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#ausblick">6.1 Ausblick</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#mogliche-weiterentwicklungen">6.2 Mögliche Weiterentwicklungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#fazit">6.3 Fazit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#was-hatte-das-mit-datamining-zu-tun">6.1 Was hatte das mit Datamining zu tun?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#ausblick">6.2 Ausblick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#mogliche-weiterentwicklungen">6.3 Mögliche Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#fazit">6.4 Fazit</a></li>
 </ul>
 </li>
 </ul>
@@ -190,16 +190,16 @@
 <div class="section" id="einsatzszenarien">
 <h2>2.1 Einsatzszenarien<a class="headerlink" href="#einsatzszenarien" title="Permalink to this headline">¶</a></h2>
 <p>Wo ist also das Problem dass <em>libmunin</em> nun lösen soll?
-Das erklärte Ziel ist es eine Bibliothek (,, <em>libmunin</em> '') zu schaffen die
+Das erklärte Ziel ist es eine Bibliothek zu schaffen die
 einen auf Musik spezialisierten <em>Empfehlungsdienst</em> implementiert.</p>
 <blockquote class="epigraph">
-<div><p>Ein Empfehlungsdienst (englisch Recommender System) ist ein automatisches
+<div><p><em>Ein Empfehlungsdienst (englisch Recommender System) ist ein automatisches
 Verfahren, das ausgehend von vorhandenen Webseiten oder anderen Objekten
 ähnliche Objekte ermittelt und empfiehlt. Zur Ermittlung der passenden
 Empfehlungen verwendet ein Empfehlungsdienst Methoden des Data-Minings und
 Information Retrieval. [...] darüber hinaus [werden] Informationen aus dem
 konkreten Kontext (Webseiten-Zugriff) und zusätzliche Informationen wie z.
-B. die Kauf-, Navigations- oder Klick-Historie herangezogen.</p>
+B. die Kauf-, Navigations- oder Klick-Historie herangezogen.</em></p>
 <p class="attribution">&mdash;<a class="reference external" href="http://de.wikipedia.org/wiki/Empfehlungsdienst">http://de.wikipedia.org/wiki/Empfehlungsdienst</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014empfehlungsdienst" id="id1">[7]</a></p>
 </div></blockquote>
 <p>Einsatzmöglichkeiten eines auf Musik spezialisierten <em>Empfehlungsdienstes</em>:</p>
@@ -368,7 +368,7 @@ oder schlecht ist.</p>
 <p>Während die Anzahl der Plattformen noch ins unermeßliche ging, so liefert eine
 suche nach <em>Music Recommendation (Library|System|Engine)</em> schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben die dieses Problem
-angeht.</p>
+angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:</p>
 <ul>
 <li><p class="first"><strong>mirage</strong> <a class="reference internal" href="../zzz_bibliography.html#ahx" id="id7">[Link-9]</a></p>
 <blockquote>
@@ -442,29 +442,28 @@ Lied definiert. Diese wird durch Audioanalyse extrahiert.</p>
 </ul>
 </div>
 <div class="section" id="schlussfolgerungen">
-<h2>2.4 Schlussfolgerungen<a class="headerlink" href="#schlussfolgerungen" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
-<p>Folgende Ideen sind übernehmenswert:</p>
-<blockquote>
-<div><ul class="simple">
-<li>lernendes System, nutzer-erfahrung (last.fm)</li>
-<li>Einbeziehung von Metadaten (youtube)</li>
-<li>warenkorbanalyse zum lernen nutzen (amazon)</li>
-<li>soziele empefhlung (myspace)</li>
-<li>mood basiert (musicovery) / audio analyse (mirage)</li>
-<li>graphen basiert (mufin)</li>
+<span id="id13"></span><h2>2.4 Schlussfolgerungen<a class="headerlink" href="#schlussfolgerungen" title="Permalink to this headline">¶</a></h2>
+<p>Folgende Ideen erschienen übernehmenswert (Quellen in Klammern):</p>
+<ul class="simple">
+<li>System dass von seinen Nutzern lernt <em>(last.fm)</em></li>
+<li>Umfangreiche Einbeziehung von Metadaten <em>(YouTube)</em></li>
+<li>Nutze zum Lernen die ,,Warenkorbanalyse'' zum Ableiten von Assoziationsregeln <em>(Amazon)</em></li>
+<li>Nutze Audioanalyse <em>(mirage)</em> um Ähnlichkeiten festzustellen - beispielsweise
+die Stimmung bzw. ,,Mood'' in einem Lied. (<em>Musicovery</em>)</li>
+<li>Graphen als interne Datenstruktur (<em>mufin audiogen</em>)</li>
 </ul>
-</div></blockquote>
-<p>Stolpersteine die man vermeiden sollte:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Kaltstart (mufin)</li>
-<li>Große Datenmengen (mirage)</li>
-<li>Programmiersprache (mirage)</li>
-<li>Keine Abhängigkeit von Audiodaten (mirage)</li>
-<li>Lizenz (mufin)</li>
+<p>Es ist natürlich empfehlenswert aus den ,,Fehlern'' anderer zu lernen, daher
+sollte man folgende Probleme beim Design un der Implementierung berücksichtigen:</p>
+<ul class="simple">
+<li><em>Kaltstart</em>, also die Verzögerung beim ersten Start, möglichst klein halten
+<em>(mufin audiogen)</em></li>
+<li>Verwaltung großer Datenmengen sollte möglich sein <em>(mirage)</em></li>
+<li>Bibliothek Programmier-Sprachen unabhängig halten <em>(mirage)</em></li>
+<li>Keine strikte Abhängigkeit von Audiodaten. Ein Betrieb nur mit Metadaten
+sollte möglich sein <em>(mirage)</em></li>
+<li>Libertäre Lizenz wählen um allgemeine Verfügbarkeit zu gewährleisten <em>(mufin
+audiogen)</em></li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="anforderungen">
 <h2>2.5 Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this headline">¶</a></h2>
@@ -473,7 +472,8 @@ Lied definiert. Diese wird durch Audioanalyse extrahiert.</p>
 und Arbeiten bildet, welche dann das System erfüllen muss.</p>
 <p>Dabei wird zwischen <strong>technischen Anforderungen</strong> und <strong>weichen Anforderungen</strong>
 unterschieden - erstere sind atomar, sprich sie können ganz oder gar nicht
-erfüllt werden, letztere können partiell erfüllt werden.</p>
+erfüllt werden, letztere können partiell erfüllt werden und sind aus den
+Schlussfolgerungen unter <a class="reference internal" href="#schlussfolgerungen">2.4</a> abgeleitet.</p>
 <div class="section" id="technische-anforderungen">
 <h3>2.5.1 Technische Anforderungen<a class="headerlink" href="#technische-anforderungen" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="performante-empfehlungen">
@@ -536,7 +536,7 @@ werden, oder alternativ durch eine Server/Client Struktur mit einem
 definierten Protokoll in der Mitte.</p>
 <p>Portabilität ist für das erste zweitrangig.
 Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
-<em>Arch Linux</em> <a class="reference internal" href="../zzz_bibliography.html#jv6" id="id13">[Link-11]</a>, dem bevorzugten Betriebssystem des Autors, unterstützt werden.</p>
+<em>Arch Linux</em> <a class="reference internal" href="../zzz_bibliography.html#jv6" id="id14">[Link-11]</a>, dem bevorzugten Betriebssystem des Autors, unterstützt werden.</p>
 </div>
 <div class="section" id="demonstrations-und-debuggeranwendung-inkludiert">
 <span id="anf-demo"></span><h4>2.5.2.3 Demonstrations und Debuggeranwendung inkludiert<a class="headerlink" href="#demonstrations-und-debuggeranwendung-inkludiert" title="Permalink to this headline">¶</a></h4>
@@ -546,10 +546,10 @@ Fehlersuche, Verbesserung und als Einsatzbeispiel dient.</p>
 zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese
 Empfehlung auch <em>begründen</em> kann. Daher soll diese Anwendung auch als
 <em>Debugger</em> dienen.</p>
-<p>Die Demoanwendung sollte dabei auf den freien MPD-Client <em>Moosecat</em> <a class="reference internal" href="../zzz_bibliography.html#jh7" id="id14">[Link-12]</a>
+<p>Die Demoanwendung sollte dabei auf den freien MPD-Client <em>Moosecat</em> <a class="reference internal" href="../zzz_bibliography.html#jh7" id="id15">[Link-12]</a>
 aufsetzen.</p>
-<div class="admonition-exkurs-zu-moosecat admonition">
-<p class="first admonition-title">Exkurs zu <em>Moosecat</em>:</p>
+<div class="admonition-kurzer-exkurs-zu-moosecat admonition">
+<p class="first admonition-title"><em>Kurzer Exkurs zu Moosecat:</em></p>
 <p>Moosecat ist ein vom Auto seit 2012 entwickelter GPLv3 lizensierter
 MPD-Client. Im Gegensatz zu den meisten, etablierten Clients hält er
 eine Zwischendatenbank die den Zustand des Servers spiegelt. Dadurch
@@ -569,12 +569,13 @@ wie beispielsweise die <em>Lyrics</em> zu einem bestimmten <em>Titel</em> oder a
 <em>Genre</em> eines Albums</p>
 <p>Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
 Bibliotheken zur Datenbeschaffung in <em>libmunin</em> einzubinden.
-Für diesen Einsatz ist <em>libglyr</em> <a class="reference internal" href="../zzz_bibliography.html#xu" id="id15">[Link-13]</a> gut geeignet.</p>
-<div class="admonition-exkurs-zu-libglyr admonition">
-<p class="first admonition-title">Exkurs zu <em>libglyr</em>:</p>
+Für diesen Einsatz ist <em>libglyr</em> <a class="reference internal" href="../zzz_bibliography.html#xu" id="id16">[Link-13]</a> gut geeignet.</p>
+<div class="admonition-kurzer-exkurs-zu-libglyr admonition">
+<p class="first admonition-title"><em>Kurzer Exkurs zu libglyr:</em></p>
 <p><em>libglyr</em> ist eine vom Autor seit Ende 2010
 entwickelte C-Bibliothek um Musikmetadatensuchmaschine um schwer zu
-besorgende Daten wie die Lyrics, Coverart und</p>
+besorgende Daten wie Lyrics, Coverart und andere Metadaten im Internet zu
+suchen und optional lokal zwischenzuspeichern.</p>
 <p class="last">Sie ist GPLv3 lizensiert und wird unter anderem im
 <em>GnomeMusicPlayerClient (gmpc)</em>, vielen Shellskripten eingesetzt und
 natürlich in dem oben genannten <em>moosecat</em>.</p>
@@ -626,17 +627,17 @@ müssen. Vor allem Entwickler von Musikplayern sind dabei angesprochen die</p>
 <div><p>Implementierung als Plugin für Dynamische Playlisten.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>mopidy</strong> <a class="reference internal" href="../zzz_bibliography.html#w5" id="id16">[Link-14]</a></p>
+<li><p class="first"><strong>mopidy</strong> <a class="reference internal" href="../zzz_bibliography.html#w5" id="id17">[Link-14]</a></p>
 <blockquote>
-<div><div class="admonition-exkurs-zu-mopidy admonition">
-<p class="first admonition-title">Exkurs zu <em>mopidy</em></p>
+<div><div class="admonition-kurzer-exkurs-zu-mopidy admonition">
+<p class="first admonition-title"><em>Kurzer Exkurs zu mopidy:</em></p>
 <p class="last">Mopidy ist eine Alternative Implementierung zum <em>MusicPlayerDaemon
 (MPD)</em> in Python mit erweiterten Features. Sie bietet eine Anbindung
 zu Music-Streaming-Plattformen wie <em>Spotify</em>. Dabei ist es
 kompatibel mit den existierenden MPD-Clients.</p>
 </div>
 <p>Da die Entwickler eine Möglichkeit suchen um Dynamische Playlists zu
-implementieren <a class="reference internal" href="../zzz_bibliography.html#xvg" id="id17">[Link-15]</a> wäre dies ein guter Anlaufpunkt.</p>
+implementieren <a class="reference internal" href="../zzz_bibliography.html#xvg" id="id18">[Link-15]</a> wäre dies ein guter Anlaufpunkt.</p>
 </div></blockquote>
 </li>
 </ul>

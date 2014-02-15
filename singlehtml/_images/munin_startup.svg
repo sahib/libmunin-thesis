@@ -39,9 +39,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="1189.022"
-     inkscape:cy="138.49089"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="1318.9042"
+     inkscape:cy="-311.96846"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -104,36 +104,39 @@
        transform="translate(0,552.35695)" />
     <text
        xml:space="preserve"
-       style="font-size:154.18322754px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
-       x="48.959705"
-       y="828.80554"
+       style="font-size:132.75465393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+       x="104.67399"
+       y="835.44476"
        id="text4857"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4859"
-         x="48.959705"
-         y="828.80554">Analyse</tspan></text>
+         x="104.67399"
+         y="835.44476"
+         style="font-size:132.75465393px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Analyse</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4861"
-       y="820.72424"
-       x="822.73657"
-       style="font-size:154.18322754px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+       y="849.3559"
+       x="852.93976"
+       style="font-size:142.93740845px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
        xml:space="preserve"><tspan
-         y="820.72424"
-         x="822.73657"
+         y="849.3559"
+         x="852.93976"
          id="tspan4863"
-         sodipodi:role="line">REBUILD</tspan></text>
+         sodipodi:role="line"
+         style="font-size:142.93740845px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Rebuild</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:154.18322754px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
-       x="1661.1631"
-       y="820.72424"
+       style="font-size:143.04190063px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Humor Sans;-inkscape-font-specification:Humor Sans"
+       x="1591.4242"
+       y="842.31598"
        id="text4865"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4867"
-         x="1661.1631"
-         y="820.72424">USE</tspan></text>
+         x="1591.4242"
+         y="842.31598"
+         style="font-size:143.04190063px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Einsatz</tspan></text>
   </g>
 </svg>
