@@ -9,16 +9,10 @@ Design
 
     -- *Zen of Python*, ``import this``
 
-Architektur
-===========
-
-:dropcaps:`Baukastenprinzip`
-
-
 Algorithmik
 ===========
 
-Die genaue Beschreibung der Algorithmik wird in der Bachelorarbeit detailliert
+:dropcaps:`Die` genaue Beschreibung der Algorithmik wird in der Bachelorarbeit detailliert
 besprochen. Hier nur ein kurzer Überblick was mit welchem Ziel implementiert
 wird.
 
@@ -134,6 +128,10 @@ dynamischen Playlist ist.
 Es können auch mehrere Seedsongs verwendet werden - dann werden die einzelnen
 *Iteratoren* im Reißschlußverfahren verwebt.
 
+Basierend auf dieser Idee ist es möglich bestimmte Strategien zu implementieren
+die beispielsweise Songs mit dem höchsten Playcount, dem besten Rating oder
+einen bestimmten Attribut wie *genre=rock* als Seedsongs auswählt.
+
 Filtern von Empfehlungen
 ------------------------
 
@@ -158,6 +156,8 @@ Benutzers würde nicht widergespiegelt werden.
 Integration von libmunin in die Umwelt
 ======================================
 
+.... Eingaben?
+
 .. figure:: figs/integration.*
     :alt: Integrationsübersicht
     :width: 100%
@@ -178,26 +178,31 @@ Periphere Komponenten
 
 Jetzt wissen wir wie unsere interne Datenstruktur aussieht und wie diese sich in
 die Umwelt einfügen muss. Wie also kann man die Schnittstellen zwischen beiden
-bilden?  
+bilden?  BAUKASTENPRINZIP.
 
 - Musikdaten müssen importiert werden
 - Verarbetung eines einzelnen Attributes
 - ...
+
+In Abbildung :num:`fig-arch` findet sich eine Übersicht über alle Ein- und
+Ausgaben sowie deren grobe Verarbeitung dazwischen. 
+
+.. _fig-arch:
 
 .. figure:: figs/arch.*
     :alt: Architekturübersicht.
     :width: 100%
     :align: center
 
-    Grobe Übersicht über die Architektur.
+    Betrachtung von libmunin als ,,Whitebox'' - Alle Ein- und Ausgaben in einem
+    Bild. In der Box selbst ist die grobe Verarbeitung der Daten skizziert.
 
 Entwurf der Software
 ====================
 
-Da wir jetzt wissen aus welchen Komponenten unsere Software besteht können wir uns
-Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.
-Im folgenden werden die ,, *Hauptakteure* '' der Software vorgestellt:
-
+Da wir jetzt grob wissen aus welchen Komponenten unsere Software besteht können
+wir uns Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.  Im
+folgenden werden die *,,Hauptakteure''* der Software vorgestellt:
 
 Übersicht
 ---------
@@ -207,7 +212,7 @@ Klassen.
 
 .. _fig-class-overview:
 
-.. figure:: figs/class.png
+.. figure:: figs/class.*
     :alt: Klassenübersicht
     :width: 100%
     :align: center
@@ -235,16 +240,14 @@ ausreichen ist.
 2. ``Provider`` Pool
 ~~~~~~~~~~~~~~~~~~~~
 
-Hier werden alle 
-
 In der Übersicht :num:`fig-class-overview` wurde aus übersichtlichkeitsgründen
-exemplarisch nur drei ``Provider`` gezeigt
+exemplarisch nur drei :term:`Provider` gezeigt
 
 3. ``DistanceFunction`` Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In der Übersicht :num:`fig-class-overview` wurde aus übersichtlichkeitsgründen
-exemplarisch nur drei ``Provider`` gezeigt
+exemplarisch nur drei :term:`Provider` gezeigt
 
 4. Songverwaltung
 ~~~~~~~~~~~~~~~~~
@@ -260,9 +263,15 @@ und bildet keine eigenständige Klasse.
 5. Regeln und History
 ~~~~~~~~~~~~~~~~~~~~~
 
+Dieser Teil von libmunin ist für das Aufzeichnen des Benutzerverhaltens und dem
+Ableiten von Assoziationsregeln daraus zuständig.
 
 Einzelne Komponenten
 --------------------
+
+... Der Autor mag kein UML und keine langen Auflistungen von Methoden die eine
+Klasse hat. Deshalb wird in folgenden textuell beschrieben was die Klasse
+eigentlich tun soll. 
 
 Maske
 ~~~~~
@@ -276,14 +285,29 @@ Maske
 Session
 ~~~~~~~
 
-- API Entry für alle Funktionen
-- Speichert songs ab
-- Speichert die Maske
+- API Proxy Entry für alle Funktionen
+- Speichert alle Member mittels ``pickle`` ab.
+- 
 
 Song
 ~~~~
 
-- Speichert nur values, keine keys.
+Speichert fur jedes :term:`Attribut` einen Wert, oder einen leeren Wert falls
+das :term:`Attribut` nicht gesetzt wurde. Dies ähnelt einer Hashtable,
+allerdings werden nur die Werte gespeichert, die ,,Keys'' der Hashtable werden
+in der ``Maske`` gespeichert und werden nur referenziert. Der Grund dieser
+Optimierung liegt in verminderten Speicherverbrauch. 
+
+Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
+Nachbarsongs. Er muss Methoden bieten um eine :term:`Distanz` zu einem Nachbarn
+hinzuzufügen oder zu entfernen, Methoden um über alle Nachbarn zu iterieren oder
+die :term:`Distanz` zu einen bestimmten Nachbarn abzufragen 
+und eine ``disconnect()`` Methode um den ``Song`` zu entfern ohne dabei ein
+,,Loch'' zu hinterlassen.
+
+Tatsächlich gibt es kein eigene ``Graph``-Klasse - der :term:`Graph` an sich
+wird durch die Verknüpfung der einzelnen Songs in der ``Database`` gebildet - 
+jede ``Song`` Instanz bildet dabei einen Knoten.
 
 Distance
 ~~~~~~~~
@@ -294,20 +318,81 @@ Distance
 Database
 ~~~~~~~~
 
+Implementiert die einzelnen Graphenoperationen.
 
 History
 ~~~~~~~
 
+Oberklasse für ``RecommendationHistory`` und ``ListenHistory``. Implementiert
+die gemeinsame Funktionalität Songs die zeitlich hintereinander zur ``History``
+hinzugefügt werden in *Gruppen* einzuteilen. Gruppen beeinhalten maximal eine
+bestimmte Anzahl von Songs, ist eine *Gruppe* voll so wird eine neue angefangen.
+Vergeht aber eine zu lange Zeit seit dem letzten Hinzufügen wird ebenfalls 
+eine neue *Gruppe* begonnen. Jede abgeschlossene *Gruppe* wird in der History
+abgespeichert. 
+
+Das Ziel der zeitlichen Gruppierung ist eine Abbildung des Nutzerverhaltens.
+Die Annahme ist hierbei dass große zeitliche Lücken zwischen zwei Liedern auf 
+wenig zusammehängende Songs hindeuten. Zudem bilden die einzelnen *Gruppen* eine
+Art ,,Warenkorb'' der dann bei der Ableitung von Regeln genutzt werden kann.
+
 RecommendationHistory 
 """"""""""""""""""""""
+
 
 ListenHistory
 """""""""""""
 
+Puffer für die zuletzte gehörten Lieder. Es ist die Aufgabe des Nutzers der
+Bibliothek einzelne Songs zur ``ListenHistory`` hinzuzufügen.
+
+RuleGenerator
+~~~~~~~~~~~~~
+
+Analysiert die Gruppen innerhalb einer ``History`` und leitet daraus mittels
+einer Warenkorbanalyse Assoziationsregeln ab. Diese werden danach im
+``RuleIndex`` gespeichert. 
+
+RuleIndex
+~~~~~~~~~
+
+Speichert und indiziert die vom ``RuleGenerator`` erzeugten Assoziationsregeln.
+Da es später möglich sein muss jede :term:`Assoziationsregel` abzufragen die
+einen bestimmten Song betrifft ist es vonnöten eine zusätzliche Hashtable von
+Songs auf AssoziationsRegeln zu halten die als Index dient.
+
+Zudem *,,vergisst''* der Index Regeln die Songs betreffen die nicht mehr in der
+``ListenHistory`` vorhanden sind.
+
 Provider
 ~~~~~~~~
+
+Die Oberklasse von der jeder konkreter ``Provider`` ableitet.
+
+Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
+überschrieben wird. Zudem bieten viele Provider als Convinience eine
+``do_reverse()`` Methode um für Debugging-Zwecke den Originalwert vor der
+Verarbeitung durch den Provider anzuzeigen.
+
+Provider können zudem mittels des ``|`` Operators in einer Kette
+zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt - siehe
+dazu auch :ref:`composite-provider`.
+
+Oft kommt es vor dass die Eingabe für einen :term:`Provider` viele Dupletten
+enthält - beispielsweise wird derselbe Artist-Name für viele Songs eingepflegt. 
+Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
+jeder Provider die Möglichkeit einer primitiven Kompression: Statt den Wert
+abzuspeichern wird eine bidirektionale Hashtable mit den Werten als Schlüssel
+und einer Integer-ID auf der Gegenseite. Dadurch wird jeder Wert nur einmal
+gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.
 
 DistanceFuntion
 ~~~~~~~~~~~~~~~
 
+Die Oberklasse von der jede konkrete ``DistanceFunction`` ableitet. 
 
+Jede Distanzfunktion bietet eine ``do_compute()`` Methode die von den
+Unterklassen überschrieben wird.
+
+Um die bei den Providern mögliche *Kompression* wieder rückgängig zu machen muss
+die Distanzfunktion den :term:`Provider` kennen.

@@ -25,6 +25,11 @@ digraph G {
     DistanceFunction -> BPMDistanceFunction 
     DistanceFunction -> SomeDistanceFunction 
 
-    History -> RecommendationHistory  [label="Leiten ab"]
-    History -> ListenHistory
+    subgraph {
+        History -> RecommendationHistory  [label="Leitet ab"]
+        History -> ListenHistory [label="Leitet ab"]
+        RuleIndex -> ListenHistory [label=",,Vergisst''"]
+        RuleGenerator -> ListenHistory [label="Generiert Regel aus"]
+        RuleIndex -> RuleGenerator [label="Indiziert Regeln"]
+    }
 }

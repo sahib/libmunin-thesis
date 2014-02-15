@@ -1,6 +1,6 @@
-****
-Test
-****
+*************************
+Verfizierung der Software
+*************************
 
 .. epigraph:: 
 
@@ -11,6 +11,7 @@ Test
 Erfüllung der Anforderungen
 ===========================
 
+Auflistung welche Anforderungen durch was...
 
 Verifizierung
 =============
@@ -43,77 +44,123 @@ implementiert einen MPD-Client. Beim Start ack
 
 Erklärung der Kontrollelemente in :num:`fig-demo-overview`.
 
-Main
-~~~~
+Misc
+----
 
 Die Suche kann mittels :kbd:`Strg-f` aktiviert werden.
 
 1) Views
+--------
 
-    #. *Database* :num:`fig-demo-database`
-    #. *Playlist* :num:`fig-demo-playlist`
+*Database* 
+~~~~~~~~~~
 
-       Wie die *Database View*, zeigt aber lediglich die Songs an die empfohlen
-       wurden. Sonst ist diese View Funktionsidentisch mit der *Database View*.
+Siehe Abbildung :num:`fig-demo-database`.
+   
+Anzeige
 
-    #. *Graph* :num:`fig-demo-graph`
+*Playlist* 
+~~~~~~~~~~
 
-       Im *Graphen View* kann ein Plot von *libmunin's* Graphen begutachtet
-       werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
-       gegeben wurden.
+Siehe Abbildung :num:`fig-demo-playlist`.
 
-    #. *Rules* :num:`fig-demo-rules`
 
-       In einer Liste werden alle bekannten :term:`Assoziationsregel`
-       angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
-       und das Rating der Regel angezeigt.
+Wie die *Database View*, zeigt aber lediglich die Songs an die empfohlen
+wurden. Sonst ist diese View Funktionsidentisch mit der *Database View*.
 
-    #. *Examine* :num:`fig-demo-examine`
+*Graph* 
+~~~~~~~
 
-       Hier werden alle Attribute des momentan spielenden Songs angezeigt. 
-       Es wird die von *libmunin* normalisierte Form angezeigt, also auch, falls
-       verfügbar, der Originalwert.
+Siehe Abbildung :num:`fig-demo-graph`.
 
-       Zudem wird die *moodbar* oben im Fenster geplottet.
+Im *Graphen View* kann ein Plot von *libmunin's* Graphen begutachtet
+werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
+gegeben wurden.
 
-    #. *History* :num:`fig-demo-history`
+*Rules* 
+~~~~~~~
 
-       Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
-       gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt 
-       ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
+Siehe Abbildung :num:`fig-demo-rules`.
 
-       Letzteres ist für das Debugging der Filter-Funktion nützlich.
+In einer Liste werden alle bekannten :term:`Assoziationsregel`
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
+und das Rating der Regel angezeigt.
 
-2) Seed Song
-3) Current Song
-4) Playlist
+*Examine*
+~~~~~~~~~
 
-Controls
-~~~~~~~~
+Siehe Abbildung :num:`fig-demo-examine`.
 
-5) Recom Count
-6) Filter
-7) Max. listen
-8) Query Entry
-9) Rating
+Hier werden alle Attribute des momentan spielenden Songs angezeigt. 
+Es wird die von *libmunin* normalisierte Form angezeigt, also auch, falls
+verfügbar, der Originalwert.
 
-Media Controls
-~~~~~~~~~~~~~~
+Zudem wird die ``moodbar`` oben im Fenster geplottet.
 
-Typische Bedienelemente eines Audioplayers.
+*History* 
+~~~~~~~~~~
 
-10) Playcount
-11) Volume Bar
-12) Title Label
-13) Mode buttons
+Siehe Abbildung :num:`fig-demo-history`.
 
-    Umschalten zwischen *Random*, *Single*, *Repeat* und *Consume*.
+Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
+gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt 
+ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
 
-14) Seekbar
+Letzteres ist für das Debugging der Filter-Funktion nützlich.
 
-    Ermöglicht das wahlfreie  
+(2) Seed Song
+-------------
 
-15) Playbuttons
+(3) Current Song
+----------------
+
+(4) Playlist
+------------
+
+(5) Recom Count
+---------------
+
+(6) Filter
+----------
+
+(7) Max. listen
+---------------
+
+(8) Query Entry
+---------------
+
+(9) Rating
+----------
+
+
+(10) Playcount
+--------------
+
+
+(11) Volume Bar
+---------------
+
+
+(12) Title Label
+----------------
+
+
+(13) Mode buttons
+-----------------
+
+Umschalten zwischen *Random* (nächstes Lied zufällig), *Single* (höre nach
+diesem Lied auf), *Repeat* (spring zum Anfang der Playlist nach dem letzten
+Lied) und *Consume* (Lösche das Lied aus der Playlist nach dem Abspielen).
+
+(14) Seekbar
+------------
+
+Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des aktuellen Liedes.
+Übersprunge Parts eines Liedes fließen nicht die ,, *Listen-Anteil* '' ein, 
+doppelt gehörte Parts schon - daher sind Werte :math:`\ge 100\%` möglich.
+
+(15) Playbuttons
+----------------
 
 
 .. _fig-demo-database:

@@ -105,7 +105,7 @@
 \fancyfoot[C]{%
     % EasterEgg
     \ifthenelse{\value{page}=42}
-        {\scshape{\reflectbox{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}}
+        {\scshape{\reflectbox{\udot{~~\thepage~~~}}}}
         {\scshape{\udot{~~\thepage~~~}}}
 }%
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
@@ -174,10 +174,6 @@
 %             {\py@TitleColor\thesection}{0.5em}{\py@TitleColor}{\py@NormalColor}
 % \titleformat{\subsection}{\large\py@HeaderFamily}%
 %             {\py@TitleColor\thesubsection}{0.5em}{\py@TitleColor}{\py@NormalColor}
-% \titleformat{\subsubsection}{\py@HeaderFamily}%
-%             {\py@TitleColor\thesubsubsection}{0.5em}{\py@TitleColor}{\py@NormalColor}
-% \titleformat{\paragraph}{\small\py@HeaderFamily}%
-%             {\py@TitleColor}{0em}{\py@TitleColor}{\py@NormalColor}
 
 % {fulllineitems} is the main environment for object descriptions.
 %
@@ -230,7 +226,7 @@
   \setlength{\py@noticelength}{\linewidth}
   \addtolength{\py@noticelength}{-2\fboxsep}
   \addtolength{\py@noticelength}{-2\fboxrule}
-  %\setlength{\shadowsize}{3pt}
+  \setlength{\shadowsize}{3pt}
   \Sbox
   \minipage{\py@noticelength}
 }
@@ -252,8 +248,8 @@
   }}
 
 % Some are quite plain:
-\newcommand{\py@noticestart@note}{\py@lightbox}
-\newcommand{\py@noticeend@note}{\py@endlightbox}
+\newcommand{\py@noticestart@note}{\py@heavybox}
+\newcommand{\py@noticeend@note}{\py@endheavybox}
 \newcommand{\py@noticestart@hint}{\py@lightbox}
 \newcommand{\py@noticeend@hint}{\py@endlightbox}
 \newcommand{\py@noticestart@important}{\py@lightbox}

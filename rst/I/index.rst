@@ -8,7 +8,6 @@ Einleitung
 
    -- *Das Lied von der Makrele, Marc Uwe Kling*
    
-
 Motivation
 ==========
 
@@ -53,7 +52,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
     :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
-    :spec: | r l | r l |
+    :spec: r l | r l
 
     ========== ====== ========== ======
     Jahre      Anzahl Jahre      Anzahl
@@ -80,8 +79,8 @@ Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
 *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen Gründen schwer zu besorgen.
 
-Die nötigen Bauteile um ein System zu schaffen dass gute Musikempfehlungen zu
-schaffen sind also vorhanden - nur die Umsetzung fehlt.
+Die nötigen Bauteile um ein allgemein einsetzbares, qualitatives
+Musikempfehlunssystem zu schaffen sind also vorhanden - nur die Umsetzung fehlt.
 
 .. rubric:: Footnotes
 
@@ -125,11 +124,6 @@ dieser Arbeit das Projekt weiterentwickelt werden.
 
 .. [#f3] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon).
-
-Was hat das mit Datamining zu tun?
-==================================
-
-Sehr viel.
 
 Namensgebung
 ============

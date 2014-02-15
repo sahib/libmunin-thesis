@@ -12,6 +12,11 @@ Zusammenfassung
    -- *Douglas Adams, ,,Last Chance to See''*
 
 
+Was hatte das mit Datamining zu tun?
+====================================
+
+Quite a lot.
+
 Ausblick
 ========
 

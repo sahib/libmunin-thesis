@@ -13,18 +13,18 @@ Einsatzszenarien
 ================
 
 :dropcaps:`Wo` ist also das Problem dass *libmunin* nun lösen soll?
-Das erklärte Ziel ist es eine Bibliothek (,, *libmunin* '') zu schaffen die
+Das erklärte Ziel ist es eine Bibliothek zu schaffen die
 einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
 
 .. epigraph::
 
-    Ein Empfehlungsdienst (englisch Recommender System) ist ein automatisches
+    *Ein Empfehlungsdienst (englisch Recommender System) ist ein automatisches
     Verfahren, das ausgehend von vorhandenen Webseiten oder anderen Objekten
     ähnliche Objekte ermittelt und empfiehlt. Zur Ermittlung der passenden
     Empfehlungen verwendet ein Empfehlungsdienst Methoden des Data-Minings und
     Information Retrieval. [...] darüber hinaus [werden] Informationen aus dem
     konkreten Kontext (Webseiten-Zugriff) und zusätzliche Informationen wie z.
-    B. die Kauf-, Navigations- oder Klick-Historie herangezogen.
+    B. die Kauf-, Navigations- oder Klick-Historie herangezogen.*
 
     -- http://de.wikipedia.org/wiki/Empfehlungsdienst :cite:`wiki2014empfehlungsdienst`
 
@@ -247,7 +247,7 @@ Software-Bibliotheken
 Während die Anzahl der Plattformen noch ins unermeßliche ging, so liefert eine
 suche nach *Music Recommendation (Library|System|Engine)* schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben die dieses Problem
-angeht.
+angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
 
 - **mirage** :cite:`AHX`
 
@@ -316,28 +316,31 @@ Kernaussagen im Bezug auf diese Arbeit erläutert:
     Die Ähnlichkeit zwischen zwei Stücken wird über die *Stimmung* in einem
     Lied definiert. Diese wird durch Audioanalyse extrahiert.
 
+.. _schlussfolgerungen:
 
 Schlussfolgerungen
 ==================
 
-TODO
+Folgende Ideen erschienen übernehmenswert (Quellen in Klammern):
 
-Folgende Ideen sind übernehmenswert:
+* System dass von seinen Nutzern lernt *(last.fm)*
+* Umfangreiche Einbeziehung von Metadaten *(YouTube)*
+* Nutze zum Lernen die ,,Warenkorbanalyse'' zum Ableiten von Assoziationsregeln *(Amazon)*
+* Nutze Audioanalyse *(mirage)* um Ähnlichkeiten festzustellen - beispielsweise
+  die Stimmung bzw. ,,Mood'' in einem Lied. (*Musicovery*)
+* Graphen als interne Datenstruktur (*mufin audiogen*)
 
-    * lernendes System, nutzer-erfahrung (last.fm)
-    * Einbeziehung von Metadaten (youtube)
-    * warenkorbanalyse zum lernen nutzen (amazon)
-    * soziele empefhlung (myspace)
-    * mood basiert (musicovery) / audio analyse (mirage)
-    * graphen basiert (mufin)
+Es ist natürlich empfehlenswert aus den ,,Fehlern'' anderer zu lernen, daher
+sollte man folgende Probleme beim Design un der Implementierung berücksichtigen:
 
-Stolpersteine die man vermeiden sollte:
-
-    * Kaltstart (mufin)
-    * Große Datenmengen (mirage)
-    * Programmiersprache (mirage)
-    * Keine Abhängigkeit von Audiodaten (mirage)
-    * Lizenz (mufin)
+* *Kaltstart*, also die Verzögerung beim ersten Start, möglichst klein halten
+  *(mufin audiogen)*
+* Verwaltung großer Datenmengen sollte möglich sein *(mirage)*
+* Bibliothek Programmier-Sprachen unabhängig halten *(mirage)*
+* Keine strikte Abhängigkeit von Audiodaten. Ein Betrieb nur mit Metadaten
+  sollte möglich sein *(mirage)*
+* Libertäre Lizenz wählen um allgemeine Verfügbarkeit zu gewährleisten *(mufin
+  audiogen)*
 
 Anforderungen
 =============
@@ -348,7 +351,8 @@ und Arbeiten bildet, welche dann das System erfüllen muss.
 
 Dabei wird zwischen **technischen Anforderungen** und **weichen Anforderungen**
 unterschieden - erstere sind atomar, sprich sie können ganz oder gar nicht
-erfüllt werden, letztere können partiell erfüllt werden.
+erfüllt werden, letztere können partiell erfüllt werden und sind aus den
+Schlussfolgerungen unter :ref:`schlussfolgerungen` abgeleitet.
 
 Technische Anforderungen
 ------------------------
@@ -462,7 +466,7 @@ Empfehlung auch *begründen* kann. Daher soll diese Anwendung auch als
 Die Demoanwendung sollte dabei auf den freien MPD-Client *Moosecat* :cite:`JH7`
 aufsetzen.
 
-.. admonition:: Exkurs zu *Moosecat*:
+.. admonition:: *Kurzer Exkurs zu Moosecat:*
 
    Moosecat ist ein vom Auto seit 2012 entwickelter GPLv3 lizensierter
    MPD-Client. Im Gegensatz zu den meisten, etablierten Clients hält er
@@ -490,11 +494,12 @@ Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
 Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden. 
 Für diesen Einsatz ist *libglyr* :cite:`9XU` gut geeignet.
 
-.. admonition:: Exkurs zu *libglyr*:
+.. admonition:: *Kurzer Exkurs zu libglyr:*
 
     *libglyr* ist eine vom Autor seit Ende 2010 
     entwickelte C-Bibliothek um Musikmetadatensuchmaschine um schwer zu
-    besorgende Daten wie die Lyrics, Coverart und 
+    besorgende Daten wie Lyrics, Coverart und andere Metadaten im Internet zu
+    suchen und optional lokal zwischenzuspeichern.
 
     Sie ist GPLv3 lizensiert und wird unter anderem im
     *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten eingesetzt und
@@ -546,7 +551,7 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
 
     * **mopidy** :cite:`3W5`
 
-        .. admonition:: Exkurs zu *mopidy*
+        .. admonition:: *Kurzer Exkurs zu mopidy:*
             
             Mopidy ist eine Alternative Implementierung zum *MusicPlayerDaemon
             (MPD)* in Python mit erweiterten Features. Sie bietet eine Anbindung

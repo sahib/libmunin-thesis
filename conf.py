@@ -44,7 +44,7 @@ templates_path = ['templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8'
 
 # General information about the project.
 project = u'Projektarbeit'
@@ -209,9 +209,27 @@ ADDITIONAL_PREAMBLE = """
 %\\renewcommand{\\ttdefault}{pcr}
 
 \\usepackage{titlesec}
-\\definecolor{gray75}{gray}{0.75}
+\\definecolor{gray75}{gray}{0.6}
 \\newcommand{\\hsp}{\hspace{20pt}}
-\\titleformat{\\chapter}[hang]{\\Huge\\bfseries}{\\textcolor{gray75}{\\thechapter}\\hsp\\textcolor{gray75}{|}\\hsp}{0pt}{\\Huge\\bfseries}
+\\setcounter{secnumdepth}{3}
+
+\\titleformat{\\chapter}      % Command 2
+    [hang]                    % Shape
+    {\\Huge\\bfseries}        % Format
+    {\\textcolor{gray75}{\\thechapter\\hsp|\\hsp}}{0pt}
+    {\\Huge\\bfseries}
+
+\\titleformat{\\section}
+    {\\color{black}\\normalfont\\Large\\bfseries}
+    {\\color{gray75}\\thesection}{1em}{}
+
+\\titleformat{\\subsection}
+    {\\color{black}\\normalfont\\large\\bfseries}
+    {\\color{gray75}\\thesubsection}{1em}{}
+
+\\titleformat{\\subsubsection}
+    {\\color{black}\\normalfont\\bfseries}
+    {\\color{gray75}\\thesubsubsection}{0.5em}{}
 """
 
 ADDITIONAL_FOOTER = """
