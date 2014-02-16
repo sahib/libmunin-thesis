@@ -4,7 +4,7 @@ Einstieg
 
 .. epigraph::
 
-    '' *Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.* ''
+    *''Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''*
 
     -- *Bill Gates*
 
@@ -57,7 +57,7 @@ TODO: Nachweise
 
 - **last.fm** :cite:`9NT`
 
-    Der wohl bekannteste Musik Empfehlungs Service im Netz. User können sich mit
+    Der wohl bekannteste Musik Empfehlungs Service im Netz. Benutzer können sich mit
     ihren Account ein personalisiertes Webradio (auch *Station* genannt, siehe
     :num:`fig-lastfm-webradio`) zusammenstellen. Dabei wählen sie ein Lied auf
     der Seite aus und lassen sich darauf basierend dann weitere Lieder oder
@@ -127,7 +127,7 @@ TODO: Nachweise
     viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
     Musik anhören kann (siehe :num:`fig-myspace`). Ähnlich wie bei anderen
     populären sozialen Netzen kann man diese Seite *liken*. Diese Information
-    wird dann dafür genutzt einem User Bands vorzuschlagen, die auch seine
+    wird dann dafür genutzt einem Benutzer Bands vorzuschlagen, die auch seine
     Freunde mögen - unter der Annahme dass die Freunde einen ähnlichen
     Musikgeschmack haben.
 
@@ -143,7 +143,7 @@ TODO: Nachweise
 - **Amazon** :cite:`XXX`
 
     Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
-    Dabei werden die Warenkörbe der User analysiert und es werden
+    Dabei werden die Warenkörbe der Benutzer analysiert und es werden
     Assoziationsregeln erstellt - bevorzugtermaßen Regeln die unerwartete
     Zusammenhänge aufdecken. Das typische Beispiel ist dabei: *,,Wer Bier kauft,
     kauft auch Windeln''*. Diese Regeln werden dann genutzt um neue Artikel für
@@ -153,7 +153,7 @@ TODO: Nachweise
     Zudem hat Amazon im Vergleich zu den oben genannten Plattformen den Vorteil,
     dass der Kauf eines Artikels ein klare Absichtserklärung ist - bei
     Plattformen wie Youtube schaut man hingegen ein Video oft aus Neugier an,
-    obwohl dieses möglicherweise nicht in das Muster des Users passt.
+    obwohl dieses möglicherweise nicht in das Muster des Benutzers passt.
 
     .. _fig-amazon: 
 
@@ -178,7 +178,7 @@ TODO: remove this clusterfuck
     werden - die eigentlichen Grunddaten kommen von anderen Diensten (im Falle
     von Musik von **last.fm**).
 
-    Basierend auf diesen Grunddaten werden noch die User eingebunden indem sie
+    Basierend auf diesen Grunddaten werden noch die Benutzer eingebunden indem sie
     die Empfehlungen *liken* oder *disliken* können. Klar fehlerhafte
     Empfehlungen können gemeldet werden woraufhin sie nach einer manuellen
     Beschauung korrigiert werden.
@@ -201,7 +201,7 @@ TODO: remove this clusterfuck
     Diese Seite kategorisiert eine große Anzahl von Musikstücken nach Stimmung
     (*dunkel* bis *positiv*) und Tempo (*ruhig* bis *energiegeladen*). Diese zwei
     Attribute werden an den Achsen eines Koordinatensystems aufgetragen. So
-    erhält der User eine Möglichkeit einen Punkt darin zu selektieren und
+    erhält der Benutzer eine Möglichkeit einen Punkt darin zu selektieren und
     basierend auf diesen Eigenschaften sich Empfehlungen liefern zu lassen
     (siehe :num:`fig-musicovery-moodmap`).
     
@@ -241,7 +241,7 @@ TODO: remove this clusterfuck
     zu *Dislikes* aufgetragen ist. Mit anderen Worten: Liegt ein Punkt etwa in
     der Mitte der Höhe so mochten ihn genauso viele Leute wie sie ihn nicht
     mochten. Je weiter weg man von der Mitte ist desto einiger sind sich die
-    User ob der Song gut oder schlecht ist.
+    Benutzer ob der Song gut oder schlecht ist.
 
 
 Software-Bibliotheken
@@ -513,12 +513,12 @@ Für diesen Einsatz ist *libglyr* :cite:`9XU` gut geeignet.
 Anpassungsfähigkeit an den Benutzer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mit der Zeit muss das System sich dem User anpassen.
+Mit der Zeit muss das System sich dem Benutzer anpassen.
 
 Mit der Zeit soll es *bessere* Empfehlungen liefern als am Anfang.
 Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
-Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
-bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
+Lernen gibt der Benutzer Tipps (beispielsweise kann er eine Empfehlung
+bewerten), beim implizierten Lernen wird das Verhalten des Benutzers beobachtet
 und daraus werden Schlussfolgerungen getroffen.
 
 Nichtanforderungen
@@ -528,7 +528,7 @@ Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 
     - Einpflegen manuell ersteller Empfehlungen
       
-        Dies ist per Wrapper um die Library möglich.
+        Dies ist per Wrapper um die Bibliothek möglich.
 
     - *Social-based music recommendation*
 

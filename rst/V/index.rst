@@ -4,7 +4,7 @@ Verfizierung der Software
 
 .. epigraph:: 
 
-   '' *These plus Antithese gleich Hysterese* '' 
+   *''These plus Antithese gleich Hysterese''*
 
    -- *Einfach Göttlich, Terry Pratchett*
 
@@ -26,7 +26,7 @@ Schauen ob das Programm das Problem löst.
 Demonanwendung als Debugger
 ===========================
 
-Abseits der Library wurde eine auf dem freien Oberflächen-Framework GTK+-3.0
+Abseits der Bibliothek wurde eine auf dem freien Oberflächen-Framework GTK+-3.0
 basierende GUI-Anwendung entwickelt.  Entsprechend :ref:`anf-demo` dient diese
 nicht nur zum *Showoff*, sondern auch zur gezielten Fehlersuche.
 
@@ -156,7 +156,7 @@ Lied) und *Consume* (Lösche das Lied aus der Playlist nach dem Abspielen).
 ------------
 
 Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des aktuellen Liedes.
-Übersprunge Parts eines Liedes fließen nicht die ,, *Listen-Anteil* '' ein, 
+Übersprunge Parts eines Liedes fließen nicht die *,,Listen-Anteil''* ein, 
 doppelt gehörte Parts schon - daher sind Werte :math:`\ge 100\%` möglich.
 
 (15) Playbuttons

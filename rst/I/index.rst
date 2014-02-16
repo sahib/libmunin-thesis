@@ -4,7 +4,7 @@ Einleitung
 
 .. epigraph:: 
 
-   '' *Sei froh dass du du bist, und nicht dieser Fisch.* ''
+   *''Sei froh dass du du bist, und nicht dieser Fisch.''*
 
    -- *Das Lied von der Makrele, Marc Uwe Kling*
    
@@ -23,14 +23,14 @@ Streamen (``last.fm``, spotify, rhapsody, pandora, webradios...) oder auch um
 Menschen mit ähnlichem Musikgeschmack zu finden (youtube, myspace).
 
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
-Empfehlungen zu anderen Songs die der User möglicherweise ebenfalls anhören
-möchte - natürlich mit dem Hintergedanken, dass der User sich auch diese anhört
+Empfehlungen zu anderen Songs die der Benutzer möglicherweise ebenfalls anhören
+möchte - natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese anhört
 oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
 diesen bestellen sind natürlich ein wichtiger wirtschaftlicher Faktor.
 
 Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
 von den Betreibern gepflegt? Bei der großen Anzahl an ,,Waren'' wohl kaum.
-Schaut sich ein System an was die User oft zusammen hören?
+Schaut sich ein System an was die Benutzer oft zusammen hören?
 Kann es ein System geben das komplett automatisch arbeitet?
 
 Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
@@ -127,7 +127,7 @@ Abschluss dieser Arbeit das Projekt weiterentwickelt werden.
 
 .. [#f3] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`
 
-.. [#f4] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
+.. [#f4] Ein MPD Client ist eine *,,Fernbedienung''* für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon).
 
 Namensgebung
@@ -146,6 +146,6 @@ Musikempfehlungssystem *libmunin* genannt.
     -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:`wiki2014hugin`
 
 Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
-library *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine
-kommerzielle Library mit ähnlichem Namen (*mufin-audiogen* :cite:`IKC`) eine
+Bibliothek *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine
+kommerzielle Bibliothek mit ähnlichem Namen (*mufin-audiogen* :cite:`IKC`) eine
 freie Alternative erhält.

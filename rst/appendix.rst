@@ -170,7 +170,7 @@ Glossar
     Recommendation
 
         Eine Recommendation (dt. Empfehlung) ist ein :term:`Song` der vom System
-        auf Geheiß des Users hin vorgeschlagen wird. 
+        auf Geheiß des Benutzers hin vorgeschlagen wird. 
 
         Die Empfehlunge sollte eine geringe Distanz zum :term:`Seedsong` haben.
 

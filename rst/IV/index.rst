@@ -92,10 +92,10 @@ Kurze Erläuterung des Beispiels
   ``artist``) von der ``EasySession`` vorgegeben sind - erstellt man eine eigene
   Session kann man diese nach Belieben Konfigurieren.
   
-  Ein Problem dass man bei der Benutzung der Library hat ist: *libmunin* und der
+  Ein Problem dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
   Nutzter halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
   verwaltet die Originaldaten mit denen er arbeitet während *libmunin* nur
-  normalisierte Daten speichert. Das Problem dabei: Wie soll der User wissen
+  normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
   welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
 
   Dazu ist ein Mapping erforderlich das 
@@ -262,7 +262,7 @@ daraus stets den ersten Fall.
 """"""""""""""""""""
 
 Entfernt zusätzlich *Unrat* der bei Artistnamen vorhanden
-ist. Beispielsweise wird aus ,, *The Beatles* '' der String ,, beatles ''
+ist. Beispielsweise wird aus *,,The Beatles''* der String *,,beatles''*
 
 ``AlbumNormalize``:
 """""""""""""""""""
@@ -683,7 +683,7 @@ Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge
 
 Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
 veröffentlicht :cite:`O6Q`, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können (Setzt Python :math:`\gt 3.2`
+Python-Abhängigkeiten installiert werden können (Setzt Python :math:`\ge 3.2`
 vorraus):
 
 .. code-block:: bash
