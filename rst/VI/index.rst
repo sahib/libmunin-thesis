@@ -91,7 +91,7 @@ War die Arbeit Erfolg?
 
 Das kommt darauf an wie man *Erfolg* definiert. Noch ist die Bibliothek in ihren
 Anfangsstadium - vor allem die Audioanalyse steckt noch in den Kinderschuhen. 
-Dennoch ist es als Erfolg zu werten dass noch nie zu den Beatles ein Song von
+Dennoch ist es als Erfolg zu werten, dass noch nie zu den Beatles ein Song von
 Rammstein empfohlen wurde. 
 
 .. raw:: latex

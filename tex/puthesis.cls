@@ -78,7 +78,7 @@
   \sc
   \vspace*{0in}
   \begin{center}
-    \LARGE Implementierung und Evaluierung eines Musikempfehlungssystems \\
+    \LARGE Design und Implementierung eines Musikempfehlungssystems \\
     \vspace{.1in}
     \large basierend auf Datamining Algorithmen
   \end{center}

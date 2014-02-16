@@ -13,17 +13,20 @@ Algorithmik
 ===========
 
 :dropcaps:`Die` genaue Beschreibung der Algorithmik wird in der Bachelorarbeit detailliert
-besprochen. Hier nur ein kurzer Überblick was mit welchem Ziel implementiert
+besprochen. Hier nur ein kurzer Überblick, was mit welchem Ziel implementiert
 wird.
 
 Grundüberlegungen
 -----------------
 
+Die *Entfernung* von je einem :term:`Song` *A* und *B* lässt sich durch eine
+:term:`Distanz` definieren.
+
 Um die Distanzen zu speichern wird bei vielen Datamining-Projekten eine
 Distanzmatrix genutzt - also eine quadratische Dreiecksmatrix in der
 die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.
 
-Da das System auch für eine sehr hohe Anzahl von Songs funktionieren soll 
+Da das System auch für eine sehr hohe Anzahl von Songs funktionieren soll,
 schließt sich die Benutzung einer Distanzmatrix allerdings von alleine aus.
 Nehmen wir an ein Benutzer möchte seine Musiksammlung mit 40.000 Liedern
 importieren, so bräuchten wir soviele Felder in der Matrix:
@@ -35,8 +38,8 @@ importieren, so bräuchten wir soviele Felder in der Matrix:
 Nimmt man für jedes Feld einen günstig geschätzten Speicherverbrauch von 4 Byte
 an, so bräuchte man allein für die Distanzmatrix hier aufgerundet 3 Gigabyte
 Hauptspeicher - was selbst für diesen günstig geschätzten Fall unakzeptabel
-wäre. Auch eine Sparsematrix wäre hier kaum sinnvoll da in allen Fällen ja etwas
-weniger als die Hälfte aller Felder befüllt ist.
+wäre. Auch eine Sparsematrix wäre hier kaum sinnvoll, da in allen Fällen ja
+etwas weniger als die Hälfte aller Felder befüllt ist.
 
 Man muss also versuchen nur eine bestimmte Anzahl von Distanzen für einen Song
 zu speichern - vorzugsweise eine Menge von Songs mit der kleinsten
@@ -48,7 +51,7 @@ TODO: Erläuterung: kNN Graph
 Graphenoperationen
 ------------------
 
-Angenommen jeder :term:`Song` ist eine Mapping von Attributen zu Werten, so
+Angenommen jeder :term:`Song` ist ein Mapping von Attributen zu Werten, so
 können wir für jedes Attribut eine :term:`Distanzfunktion` definieren. Nach
 einer bestimmten Gewichtung können wir dann die einzelnen Distanzen
 zusammenrechnen und zu einer gemeinsamen :term:`Distanz` zusammenschmelzen.
@@ -59,38 +62,48 @@ definieren:
 ``rebuild``
 ~~~~~~~~~~~
 
-Bevor der Graph benutzt werden kann muss er natürlich erstmal aufgebaut werden. 
+Bevor der Graph benutzt werden kann, muss er natürlich erstmal aufgebaut werden. 
 Der naive Ansatz wäre dabei für jeden Song die Distanzen zu jedem anderen Song
 zu berechnen - dies hätte einen Aufwand von :math:`O(n^2)` zur Folge. Dies ist
 aus oben genannten Gründen ebenfalls kaum wünschenswert.
 
-Deshalb kann die ``rebuild`` keinen *perfekten* Graph erzeugen sondern muss für
-hinreichend große Datenmengen auf eine Approximation zurückgreifen. 
+Deshalb kann die ``rebuild`` Operation keinen *perfekten* Graph erzeugen, sondern
+muss für hinreichend große Datenmengen auf eine Approximation zurückgreifen. 
 
-Nach dem Aufbau sollte ein ungerichteter Graph dabei herauskommen im dem
+Nach dem Aufbau sollte ein ungerichteter Graph dabei herauskommen, im dem
 idealerweise jeder Knoten vom jedem anderen Knoten erreichbar ist - es sollten
-also keine *Inseln* dabei entstehen. Es gibt keine maximale Anzahl von Nachbarn
+also keine *Inseln* dabei entstehen. Es gibt keine maximale Anzahl von Nachbarn,
 die ein Song haben darf - lediglich einen *Richtwert*.
+
+``rebuild_stupid``
+~~~~~~~~~~~~~~~~~~
+
+Wie ``rebuild``, nutzt aber quadratischen Aufwand indem es jeden Song mit jedem
+anderen vergleicht. Dies ist für kleine Mengen (:math:`\le 200`) von Songs
+verträglich und für *sehr* kleine Mengen sogar schneller. 
+
+Hauptsächlich für Debuggingzwecke um Fehler beim herkömmlichen ``rebuild``
+aufzudecken.
 
 ``add``
 ~~~~~~~
 
 Füge einen einzelnen Song zu dem Graphen hinzu, verbinde ihn aber noch nicht.
 Dies ist die bevorzugte Operation um viele Songs dem Graphen hinzuzufügen -
-beispielsweise am Anfang - da das Verbinden später in einem ``rebuild``-Schritt
-erledigt werden kann.
+beispielsweise beim *Kaltstart* - da das Verbinden später in einem
+``rebuild``-Schritt erledigt werden kann.
 
 ``insert``
 ~~~~~~~~~~
 
-Fügen einen einzelnen Song zu dem Graphen hinzu und verbinde ihn. Suche dazu
+Füge einen einzelnen Song zu dem Graphen hinzu und verbinde ihn. Suche dazu
 erst eine passende Stelle in der er eingepasst wird.
 
 ``remove``
 ~~~~~~~~~~
 
 Entferne einen einzelnen Song aus dem Graphen und versuche das entstandene
-*Loch* zu flicken indem die Nachbarn des entfernte Songs untereinander
+*Loch* zu flicken indem die Nachbarn des entfernten Songs untereinander
 verkuppelt werden.
 
 ``modify``
@@ -113,38 +126,38 @@ Ausstellen von Empfehlungen
 ---------------------------
 
 Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
-mittelseiner Breitensuche erledigt. Dabei wird der Ursprung durch ein
+mittels einer Breitensuche erledigt. Dabei wird der Ursprung durch ein
 sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
 Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* `` eben
-dieser Song. 
+*,,Yellow Submarine''*.
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
 Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste
-wird ein Versprechen herauzugeben die Empfehlungen genau dann zu berechnen wenn
-sie gebraucht werden (*Layz Evaluation*). Dadurch ist auch die Zahl der
+wird ein Versprechen heraugegeben die Empfehlungen genau dann zu berechnen wenn
+sie gebraucht werden (*Lazy Evaluation*). Dadurch ist auch die Zahl der
 zu gebenden Empfehlungen variabel - was sehr nützlich beim Erstellen einer 
 dynamischen Playlist ist.
 
 Es können auch mehrere Seedsongs verwendet werden - dann werden die einzelnen
 *Iteratoren* im Reißschlußverfahren verwebt.
 
-Basierend auf dieser Idee ist es möglich bestimmte Strategien zu implementieren
+Basierend auf dieser Idee ist es möglich bestimmte Strategien zu implementieren,
 die beispielsweise Songs mit dem höchsten Playcount, dem besten Rating oder
 einen bestimmten Attribut wie *genre=rock* als Seedsongs auswählt.
 
 Filtern von Empfehlungen
 ------------------------
 
-Oft es nötig die gegebenen Empfehlungen noch zusätzlich zu filtern. Das hat den
-simplen Grund das im Graphen einzelne Alben einzelne *Cluster* bilden - die
-Lieder auf einem Album sind unter sich sehr ähnlich. Da man aber vermeiden
-möchte dass zu einem Seed-Song ein Lied vom selben Album oder gar selben
-Künstler empfohlen wird müssen diese beim Iterieren über den Graphen ausgesiebt
+Oft ist es nötig die gegebenen Empfehlungen noch zusätzlich zu filtern. Das hat
+den simplen Grund das im Graphen die meisten Alben einzelne *Cluster* bilden -
+die Lieder auf einem Album sind unter sich sehr ähnlich. Da man aber vermeiden
+möchte, dass zu einem Seed-Song ein Lied vom selben Album oder gar selben
+Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen ausgesiebt
 werden.
 
-Dazu werden die zuletzt gegebenen Empfehlunge betrachtet - ist beispielsweise in
+Dazu werden die zuletzt gegebenen Empfehlungen betrachtet - ist in
 den letzten 5 Empfehlungen der gleiche Artist bereits vorhanden so wird die
-Empefhlunge gesiebt. 
+Empfehlung ausgesiebt. 
 
 Lernen durch die History
 ------------------------
@@ -218,12 +231,12 @@ Klassen.
     :align: center
 
     Jeder Node ist eine Klasse in den jeweiligen Teilbereichen der Software.
-    Provider und DistanceFunktion Unterklassen nur beispielhaft gezeigt.
+    Provider und DistanceFunction Unterklassen nur beispielhaft gezeigt.
 
 Grobe Unterteilung
 ------------------
 
-Wir schauen uns zuert die einzelnen *Regionen* der Software an, danach
+Wir schauen uns zuerst die einzelnen *Regionen* der Software an, danach
 widmen wir uns den einzelnen Komponenten.
 
 Grob ist die Software in fünf unterschiedliche *Regionen* aufgeteilt.
@@ -234,8 +247,8 @@ Grob ist die Software in fünf unterschiedliche *Regionen* aufgeteilt.
 Die API ist die Schnittstelle zum Benutzer hin. Der Nutzer kann mittels einer
 ``Session`` auf alle Funktionen von *libmunin* zugreifen. Dazu muss er beim
 Instanzieren derselben eine ``Maske`` angeben die die Musikdatenbank beschreibt. 
-Alternativ kann die ``EasySession`` genutzt werden die für viele Anwendungsfälle
-ausreichen ist.
+Alternativ kann die ``EasySession`` genutzt werden die eine vordefinierte
+``Maske`` bereitstellt, die für viele Anwendungsfälle ausreichend ist.
 
 2. ``Provider`` Pool
 ~~~~~~~~~~~~~~~~~~~~
@@ -287,7 +300,6 @@ Session
 
 - API Proxy Entry für alle Funktionen
 - Speichert alle Member mittels ``pickle`` ab.
-- 
 
 Song
 ~~~~
@@ -312,13 +324,18 @@ jede ``Song`` Instanz bildet dabei einen Knoten.
 Distance
 ~~~~~~~~
 
+
+
 - Speichert alle Teildistanzen, statt einzelne weighted Distanz.
 - Macht 'explanations' leicht.
 
 Database
 ~~~~~~~~
 
-Implementiert die einzelnen Graphenoperationen.
+Zuständigkeiten:
+
+- Implementiert die einzelnen Graphenoperationen.
+- Hält eine Liste von Songs.
 
 History
 ~~~~~~~
@@ -343,8 +360,8 @@ RecommendationHistory
 ListenHistory
 """""""""""""
 
-Puffer für die zuletzte gehörten Lieder. Es ist die Aufgabe des Nutzers der
-Bibliothek einzelne Songs zur ``ListenHistory`` hinzuzufügen.
+Es ist die Aufgabe des Nutzers der Bibliothek einzelne Songs zur
+``ListenHistory`` hinzuzufügen.
 
 RuleGenerator
 ~~~~~~~~~~~~~

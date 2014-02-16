@@ -13,8 +13,9 @@ Einsatzszenarien
 ================
 
 :dropcaps:`Wo` ist also das Problem dass *libmunin* nun lösen soll?
-Das erklärte Ziel ist es eine Bibliothek zu schaffen die
+Das erklärte Ziel ist es eine Bibliothek zu schaffen, die
 einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
+In dieser Arbeit wird ein entsprechender Prototyp entwickelt.
 
 .. epigraph::
 
@@ -30,21 +31,21 @@ einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
 
 Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
 
-    #. Einsatz in Mediaplayern für große (lokale) Musiksammlungen.
+    #. Einsatz in Mediaplayern für große, meist lokale Musiksammlungen.
     #. Einsatz bei Music Streaming Plattformen als Backend für Empfehlungen.
-    #. Einsatz bei Music Shops - um ähnliche Artikel vorzuschlagen.
-    #. Einsatz bei webradios als *DJ-Software* - Erstellung einer automatischen
+    #. Einsatz bei Music Shops, um ähnliche Artikel vorzuschlagen.
+    #. Einsatz bei Webradios als *DJ-Software* zur Erstellung einer automatischen
        Playlist.
     #. Einsatz in sozialen Netzwerken um Menschen mit ähnlichem Musikgeschmack
        zu finden.
     
-Weitere Einsatzmöglichkeiten sind natürlich denkbar und sind bei kreativen
+Weitere Einsatzmöglichkeiten sind natürlich denkbar, und sind bei kreativen
 Nutzern zu erwarten. 
 
 Vorhandene Alternativen
 =======================
 
-Wenn man vermeiden will das Rad neu zu erfinden ist es hilfreich sich vorhandene
+Wenn man vermeiden will das Rad neu zu erfinden, ist es hilfreich sich vorhandene
 Alternativen anzuschauen und deren Herangehensweise an das Problem. Es werden
 einige ausgewählte Plattformen aller Couleur gezeigt und deren Funktionsweise
 und Besonderheiten kurz erklärt.
@@ -60,8 +61,8 @@ TODO: Nachweise
     ihren Account ein personalisiertes Webradio (auch *Station* genannt, siehe
     :num:`fig-lastfm-webradio`) zusammenstellen. Dabei wählen sie ein Lied auf
     der Seite aus und lassen sich darauf basierend dann weitere Lieder oder
-    Künstler (siehe :num:`fig-lastfm-similar-artists`) vorschlagen die in eine
-    ähnliche Richtung gehen. Für viele Musicplayer gibt es Plugins die die
+    Künstler (siehe :num:`fig-lastfm-similar-artists`) vorschlagen, die in eine
+    ähnliche Richtung gehen. Für viele Musicplayer gibt es Plugins, die die
     gespielten Lieder zu last.fm übermitteln. Diesen Vorgang nennen die
     Betreiber *scrobbeln*. Durch diese Informationen werden dann spezialisierte
     Empfehlungen getroffen - es handelt sich also um ein lernendes System.
@@ -95,19 +96,19 @@ TODO: Nachweise
 
 - **YouTube** :cite:`WNN`
 
-    Youtube ist vorrangig als Videoplattform bekannt, durch ihre enorme
+    Youtube ist vorrangig als Videoplattform bekannt, durch die enorme
     Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
-    hoch. Interessant dabei ist dass in der Sidebar stets Empfehlungen für
-    weitere Videos angezeigt (siehe :num:`fig-youtube`) - in den meisten Fällen
-    dann auch weitere Musikvideos. Dabei haben die meisten Videos auch etwas mit
-    dem aktuellen zu tun - nur einige der ersten Empfehlungen sind die
+    hoch. Interessant dabei ist, dass in der Sidebar stets Empfehlungen für
+    weitere Videos angezeigt (siehe :num:`fig-youtube`) werden - in den meisten
+    Fällen dann auch weitere Musikvideos. Dabei haben die meisten Videos auch
+    etwas mit dem Aktuellen zu tun - nur einige der ersten Empfehlungen sind die
     ,,Trending Videos''.
 
     Einige der Attribute die in die Empfehlung mit eingehen:
 
         * Video-Metadaten (Qualität, Beschreibung, Titel)
         * Upload-Datum
-        * ,,Plays'' und tatsächliche ,,Plays'' (also ob das video lang genug
+        * ,,Plays'' und tatsächliche ,,Plays'' (also ob das Video lang genug
           angeschaut wurde)
         * ...
 
@@ -120,13 +121,13 @@ TODO: Nachweise
 
         Die Vorschläge zu einem Musikvideo auf YouTube
 
-- **MySpace**
+- **Myspace**
 
-    Obwohl das soziale Netzwerk myspace seine besten Tage hinter sich hat haben
+    Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
     viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
     Musik anhören kann (siehe :num:`fig-myspace`). Ähnlich wie bei anderen
     populären sozialen Netzen kann man diese Seite *liken*. Diese Information
-    wird dann dafür genutzt einem User Bands vorzuschlagen die auch seine
+    wird dann dafür genutzt einem User Bands vorzuschlagen, die auch seine
     Freunde mögen - unter der Annahme dass die Freunde einen ähnlichen
     Musikgeschmack haben.
 
@@ -141,17 +142,17 @@ TODO: Nachweise
 
 - **Amazon** :cite:`XXX`
 
-    Den Grundstein für die Empfehlungen bei amazon bilded die Warenkorbanalyse.
+    Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
     Dabei werden die Warenkörbe der User analysiert und es werden
     Assoziationsregeln erstellt - bevorzugtermaßen Regeln die unerwartete
-    Zusammenhänge aufdecken. Das typische Beispiel ist dabei: ,,Wer Bier kauft,
-    kauft auch Windeln''. Diese Regeln werden dann genutzt um neue Artikel für
+    Zusammenhänge aufdecken. Das typische Beispiel ist dabei: *,,Wer Bier kauft,
+    kauft auch Windeln''*. Diese Regeln werden dann genutzt um neue Artikel für
     bestimmte Artikel vorzuschlagen (siehe :num:`fig-amazon`). Natürlich fließt
     auch die personalisierte Shopping-Historie in die Empfehlunge mit ein.
 
-    Zudem hat amazon im vergleich zu den oben genannten Plattformen den Vorteil
+    Zudem hat Amazon im Vergleich zu den oben genannten Plattformen den Vorteil,
     dass der Kauf eines Artikels ein klare Absichtserklärung ist - bei
-    Plattformen wie Youtube schaut man hingegen ein Video oft aus Neugier an 
+    Plattformen wie Youtube schaut man hingegen ein Video oft aus Neugier an,
     obwohl dieses möglicherweise nicht in das Muster des Users passt.
 
     .. _fig-amazon: 
@@ -166,6 +167,8 @@ TODO: Nachweise
 
 Sonstige Webseiten
 ------------------
+
+TODO: remove this clusterfuck
 
 **tastekid** :cite:`IDK`
 
@@ -195,7 +198,7 @@ Sonstige Webseiten
 
 **Musicovery** :cite:`ZMF`
 
-    Diese Seite kategorisiert eine groß Anzahl von Musikstücken nach Stimmung
+    Diese Seite kategorisiert eine große Anzahl von Musikstücken nach Stimmung
     (*dunkel* bis *positiv*) und Tempo (*ruhig* bis *energiegeladen*). Diese zwei
     Attribute werden an den Achsen eines Koordinatensystems aufgetragen. So
     erhält der User eine Möglichkeit einen Punkt darin zu selektieren und
@@ -235,18 +238,18 @@ Sonstige Webseiten
     Entdecken neuer Musik.  Ein Beispiel dafür ist die sogenannte *MusicMap*
     (siehe :num:`fig-musicovery-likemap`) - ein Koordinatensystem bei dem auf
     der X-Achse die Zeit (1950 - 2010) und nach oben das Verhältnis von *Likes*
-    zu *Dislikes*. Mit anderen Worten: Liegt ein Punkt etwa in der Mitte der
-    Höhe so mochten ihn genauso viele Leute wie sie ihn nicht mochten. Je weiter
-    weg man von der Mitte ist desto einiger sind sich die User ob der Song gut
-    oder schlecht ist.
+    zu *Dislikes* aufgetragen ist. Mit anderen Worten: Liegt ein Punkt etwa in
+    der Mitte der Höhe so mochten ihn genauso viele Leute wie sie ihn nicht
+    mochten. Je weiter weg man von der Mitte ist desto einiger sind sich die
+    User ob der Song gut oder schlecht ist.
 
 
 Software-Bibliotheken
 ---------------------
 
-Während die Anzahl der Plattformen noch ins unermeßliche ging, so liefert eine
-suche nach *Music Recommendation (Library|System|Engine)* schon deutlich weniger
-Resultate. Es scheint keine etablierte Bibliothek zu geben die dieses Problem
+Während die Anzahl der Plattformen noch ins Unermeßliche ging, so liefert eine
+Suche nach *Music Recommendation (Library|System|Engine)* schon deutlich weniger
+Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
 
 - **mirage** :cite:`AHX`
@@ -263,11 +266,11 @@ angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
 
 - **mufin audiogen** :cite:`UZB`
 
-    Eine kommerzielle in C++ entwickelte Bibliothek die im (mittlerweile
+    Eine kommerzielle in ``C++`` entwickelte Bibliothek, die im (mittlerweile
     eingestellten) Mufin-Audioplayer verwendet wurde. Sie bietet - laut der
     Werbebroschüre - enorm viele  Features und hat nicht das Problem des
     *Kaltstartes*. Das soll heißen: Die Musikdatenbank muss nicht erst aufwändig
-    importiert werden was zu einem, sondern es können gleich Empfehlungen
+    importiert werden, sondern es können gleich Empfehlungen
     getroffen werden.
 
     Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek
@@ -276,15 +279,15 @@ angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
 Vorhandene Arbeiten
 ===================
 
-Wie bereits eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
+Wie bereits Eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
 schon recht umfangreiche Menge an Arbeiten zum Thema *Music Recommendation*.
 
 Einige ausgesuchte Arbeiten werden  im folgenden aufgelistet und deren
-Kernaussagen im Bezug auf diese Arbeit erläutert:
+Kernaussagen im Bezug auf dieses Projekt erläutert:
 
 * *A self-organizing map based knowledge discovery for music recommendation systems* :cite:`vembu2005self`
 
-    Statt den Computern die Ähnlichkeit zwischen zwei Liedern zu bestimmen zu
+    Statt den Computern die Ähnlichkeit zwischen zwei Liedern bestimmen zu
     lassen verwendet diese Arbeit Reviews von *Amazon* um daraus Beziehungen
     zwischen Künstlern abzuleiten.
 
@@ -304,11 +307,11 @@ Kernaussagen im Bezug auf diese Arbeit erläutert:
 * *A music search engine built upon audio-based and web-based similarity measures* :cite:`knees2007music`
 
     Das in diesem Paper vorgestellte System kommt der Vorstellung von *libmunin*
-    am nähstem. Die Audio- und Metadaten der einzelnen Lieder wird analysiert
+    am Nähestem. Die Audio- und Metadaten der einzelnen Lieder wird analysiert
     und abgespeichert. Fehlende Metadaten werden automatisch aus dem Netz
     bezogen (*Reviews* und *Lyrics*). Statt die Musikstücke aber zueinander in
-    Relation zu setzen werden die Informationen für eine skalierbare
-    Suchmaschine benutzt die basierend auf natürlicher Sprache (*rock with great
+    Relation zu setzen, werden die Informationen für eine skalierbare
+    Suchmaschine benutzt, die basierend auf natürlicher Sprache (*rock with great
     riffs*) passende Lieder findet.
 
 * *Music for my mood* :cite:`lee2006music`
@@ -323,15 +326,15 @@ Schlussfolgerungen
 
 Folgende Ideen erschienen übernehmenswert (Quellen in Klammern):
 
-* System dass von seinen Nutzern lernt *(last.fm)*
+* Ein System welches von seinen Nutzern lernt *(last.fm)*
 * Umfangreiche Einbeziehung von Metadaten *(YouTube)*
-* Nutze zum Lernen die ,,Warenkorbanalyse'' zum Ableiten von Assoziationsregeln *(Amazon)*
+* Nutze zum Lernen die ,,Warenkorbanalyse'' um Assoziationsregeln abzuleiten. *(Amazon)*
 * Nutze Audioanalyse *(mirage)* um Ähnlichkeiten festzustellen - beispielsweise
   die Stimmung bzw. ,,Mood'' in einem Lied. (*Musicovery*)
 * Graphen als interne Datenstruktur (*mufin audiogen*)
 
 Es ist natürlich empfehlenswert aus den ,,Fehlern'' anderer zu lernen, daher
-sollte man folgende Probleme beim Design un der Implementierung berücksichtigen:
+sollte man folgende Probleme beim Design und der Implementierung berücksichtigen:
 
 * *Kaltstart*, also die Verzögerung beim ersten Start, möglichst klein halten
   *(mufin audiogen)*
@@ -397,7 +400,7 @@ werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.
 Lizenz
 ~~~~~~
 
-Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen dass
+Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen, dass
 Weiterentwicklungen in das Projekt zurückfließen.
 
 Die GPLv3 Lizenz erfüllt diese Bedingungen. Der kommerzielle Einsatz ist
@@ -410,8 +413,8 @@ Begründbarkeit
 
 Empfehlungen sollen begründbar sein.
 
-Es muss möglich sein welche Merkmale eines Songs zu der Empfehlung geführt
-haben.
+Es muss möglich sein festzustellen welche Merkmale eines Songs zu der Empfehlung
+geführt haben.
 
 Weiche Anforderungen
 --------------------
@@ -429,11 +432,11 @@ Viele existierende Musiksammlungen sind unterschiedlich gut mit Metadaten
 (*Tags*) versorgt. So sind manche Tags gar nicht erst vorhanden oder sind
 je nach Format und verwendeten Tagging-Tool/Datenbank anders benannt.
 
-Das fertige System soll mit Szenarien zurecht kommen wo lediglich die 
+Das fertige System soll mit Szenarien zurecht kommen, wo lediglich die 
 Metadaten der zu untersuchenden Songs zur Verfügung stehen, aber nicht die
-eigentlichen Audio-Daten. Dies kann beispielsweise vorteilhaft in Fällen
-sein bei denen man die Lieder nicht selbst besitzt aber Zugriff auf
-Musikdatenbanken wie *MusicBrainz*.
+eigentlichen Audio-Daten. Dies kann vorteilhaft sein wenn man keinen Zugriff auf
+die Audiodaten hat aber die Metadaten bei Musikdatenbanken wie *MusicBrainz*
+vervollständigen kann.
 
 .. _anf-agnostic:
 
@@ -455,22 +458,22 @@ Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
 Demonstrations und Debuggeranwendung inkludiert
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-Eine Demonstrations-Anwendung sollte entwickelt werden die zur
+Eine Demonstrations-Anwendung soll entwickelt werden die zur
 Fehlersuche, Verbesserung und als Einsatzbeispiel dient.
 
 Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
 zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese 
-Empfehlung auch *begründen* kann. Daher soll diese Anwendung auch als
+Empfehlung auch *begründen* kann. So kann die Anwendung auch als
 *Debugger* dienen.
 
-Die Demoanwendung sollte dabei auf den freien MPD-Client *Moosecat* :cite:`JH7`
+Die Demoanwendung sollte dabei auf dem freien MPD-Client *Moosecat* :cite:`JH7`
 aufsetzen.
 
 .. admonition:: *Kurzer Exkurs zu Moosecat:*
 
-   Moosecat ist ein vom Auto seit 2012 entwickelter GPLv3 lizensierter
+   Moosecat ist ein vom Autor seit 2012 entwickelter GPLv3 lizensierter
    MPD-Client. Im Gegensatz zu den meisten, etablierten Clients hält er
-   eine Zwischendatenbank die den Zustand des Servers spiegelt. Dadurch
+   eine Zwischendatenbank, die den Zustand des Servers spiegelt. Dadurch
    wird die Netzwerklast und die Startzeit reduziert und interessante
    Feature wie Volltextsuche wird möglich.
 
@@ -484,13 +487,13 @@ Einfaches *Information Retrieval*
 
 Es sollte einfach sein fehlende Daten zu beschaffen.
 
-In den meisten privaten Musisammlungen sind die wichtigsten Attribute
+In den meisten privaten Musiksammlungen sind die wichtigsten Attribute
 *getaggt* - sprich in der Audiodatei sind Werte wie *Artist*, *Album* und
 *Titel* hinterlegt. Manche Attribute sind allerdings schwerer zu bekommen,
 wie beispielsweise die *Lyrics* zu einem bestimmten *Titel* oder auch das
-*Genre* eines Albums 
+*Genre* eines Albums.
 
-Es sollte aus Komfortgründen auf einface Art und Weise möglich sein externe
+Es sollte aus Komfortgründen auf einfache Art und Weise möglich sein externe
 Bibliotheken zur Datenbeschaffung in *libmunin* einzubinden. 
 Für diesen Einsatz ist *libglyr* :cite:`9XU` gut geeignet.
 
@@ -502,15 +505,15 @@ Für diesen Einsatz ist *libglyr* :cite:`9XU` gut geeignet.
     suchen und optional lokal zwischenzuspeichern.
 
     Sie ist GPLv3 lizensiert und wird unter anderem im
-    *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten eingesetzt und
-    natürlich in dem oben genannten *moosecat*.
+    *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten und
+    natürlich in dem oben genannten *moosecat* eingesetzt.
 
 .. _anf-learning:
 
 Anpassungsfähigkeit an den Benutzer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Das System muss mit der Zeit sich dem User anpassen.
+Mit der Zeit muss das System sich dem User anpassen.
 
 Mit der Zeit soll es *bessere* Empfehlungen liefern als am Anfang.
 Es soll dabei auf explizite und auf implizite Weise lernen. Beim expliziten
@@ -539,9 +542,9 @@ Zielgruppe
 einfach zu nutzende Webseite bereit wie die oben genannten - es kann aber als
 Backend dafür dienen.
 
-In frühen Phase sind vor allem interessierte Entwickler die Zielgruppe -
-vorzugsweise mit viel Geduld, da sich diese dann auch als Beta-Tester beweise
-müssen. Vor allem Entwickler von Musikplayern sind dabei angesprochen die 
+In frühen Phasen sind vor allem interessierte Entwickler die Zielgruppe -
+vorzugsweise mit viel Geduld, da sich diese dann auch als Beta-Tester beweisen
+müssen. 
 
 Vom Autor sind die folgenden zwei Projekte anvisiert:
 
@@ -562,11 +565,11 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
         implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
 
 
-Später kann ein Kommandozeilen-Programm entwickelt werden dass eine beliebige
+Später kann ein Kommandozeilen-Programm entwickelt werden, dass eine beliebige
 Musksammlung einliest und das daraus gewonne Wissen auf Platte speichert. 
 Ein weiteres Kommandozeilenprogramm könnte dieses dann einlesen und frei
-formattierbare Empfehlungen ausgeben. Besonders für Shellskripte wäre dies
-sicherlich interessant.
+formatierbare Empfehlungen ausgeben. Besonders für Shellskripte wäre dies
+interessant.
 
 Basierend darauf kann auch ein DBUS-Service erstellt werden der diese gewonnene
 Daten Programmiersprachen-agnostisch anderen Anwendungen bereitstellt. Der

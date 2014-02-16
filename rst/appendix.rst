@@ -33,39 +33,40 @@ Glossar
         Im Kontext von libmunin ist ein Song eine Menge von Attributen.
         Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet. 
 
-        Beispielsweise haben alle Songs eine Attribut ``artist``, aber jeder
+        Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
         einzelner Song kennt dafür einen bestimmten Wert.
 
         Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
-        Songs gespeichert, sowie eine Integer der als Identifier dient.
+        Songs gespeichert, sowie einen Integer der als Identifier dient.
 
     Distanz
 
         Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
         Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
-        minimale *Entfernung* zueiander), eine Distanz von 1.0 maximale
+        minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
         Unähnlichkeit (oder maximale *Entfernung*).
 
         Die Distanz wird durch eine :term:`Distanzfunktion` berechnet.
 
     Distanzfunktion
 
-        Eine Distanzfunktion ist im Kontext von libmunin eine Funktion die 
+        Eine Distanzfunktion ist im Kontext von libmunin eine Funktion, die 
         zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
         diesen berechnet.
 
-        Dabei schaut sie sich alle :term:`Attribut` an die beide Songs
-        gemeinsam haben und nutzt für jedes gemeinsame Attribut eine
-        spezialisierte Distanzfunktion die weiß wie diese zwei bestimmten Werte
-        sinnvoll verglichen werden können. Die so errechneten Werte werden,
-        gemäß der Gewichtung in der :term:`Maske`, zu einem Wert verschmolzen.
+        Dabei wird jedes :term:`Attribut` betrachte welchesi n beiden Songs
+        vorkommt betrachtet. Für diese wird von der :term:`Maske` eine
+        spezialisierte :term:`Distanzfunktion` festgelegt, die weiß wie diese
+        zwei bestimmten Werte sinnvoll verglichen werden können. Die so
+        errechneten Werte werden, gemäß der Gewichtung in der :term:`Maske`, zu
+        einem Wert verschmolzen.
 
         Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
         Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
         eingerechnet.
 
         Die folgenden Bedingungen müssen sowohl für die allgemeine
-        Distanzfuntkion, als auch für die speziellen Distanzfunktionen gelten:
+        Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten:
  
         *Uniformität:*
         
@@ -100,8 +101,8 @@ Glossar
         Zudem kann eine *Session* persistent für späteren Gebrauch gespeichert
         werden. 
 
-        Wer die Bibliothek benutzt wird die *Session* zudem als Eintrittspunkt
-        für die API benutzen.
+        Für Nutzer der Bibliothek ist die :term:`Session` auch Eintrittspunkt
+        für jegliche von *libmunin* bereitgestellte Funktionalität.
 
     Maske
 
@@ -109,18 +110,18 @@ Glossar
         werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
         Schlüssel ``genre`` abgespeichert wird.
     
-        In der *Maske* werden daher die einzelnen Attribute festgelegt die ein
+        In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
         einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
         pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
         festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
-        wird die Gewichtung des Attributes festgelegtes - manche Attribute sind
+        wird die Gewichtung des Attributes festgelegt - manche Attribute sind
         für die Ähnlichkeit zweier Songs entscheidender als andere.
 
     Attribut
 
         Ein Attribut ist ein *Schlüssel* in der :term:`Maske`. Er repräsentiert
         eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
-        Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehort ein Wert,
+        Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
         andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
         Menge dieser Paare.
 
@@ -138,7 +139,7 @@ Glossar
     Assoziationsregel
         
         Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-        miteinander. Wird eine der beiden Mengen miteinander gehört ist es
+        miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
         wahrscheinlich dass auch die andere Menge daraufhin angehört wird.
 
         Sie werden aus dem Verhalten des Nutzers abgeleitet.
@@ -181,10 +182,10 @@ Glossar
 
         Im Kontext von libmunin ist der Graph eine Abbildung aller Songs (als
         Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
-        kennt jeder :term`Song` *N* zu ihm selbst ähnlichsten Songs als
+        kennt jeder :term:`Song` *N* zu ihm selbst ähnlichsten Songs als
         Nachbarn.
 
-        Da die Erstellung eines idealen Graphen sehr aufwendig ist wird auf
+        Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
         eine schneller zu berechnende Approximation zurückgegriffen.
 
 .. only:: latex
@@ -194,15 +195,19 @@ Glossar
        \newpage
 
 
+.. _complex-example:
+
 Ausführliches Beispiel
 ======================
 
 Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel 
-gezeigt werden das auch im Vergleich zum einfachen Beispiel folgende Features
+gezeigt werden, das auch im Vergleich zum einfachen Beispiel folgende Features
 zeigt:
 
     - Das Erstellen einer eigenen Session
     - Das Speichern und Laden derselben
+    - Das Füttern der History
+    - Ableiten von Assoziationsregeln
     - Mehrere Möglichkeiten zur Empfehlung
 
 .. code-block:: python

@@ -133,6 +133,9 @@ Da die beiden Genres *folk rock* und *death metal* keine gemeinsame Schnittmenge
 haben ist dieser auch kein Nachbar - Valide Nachbarn müssen stets eine Distanz
 :math:`\le 1.0` besitzen.
 
+Ein komplizierteres Beispiel das die meisten Aspekte von libmunin abdeckt 
+findet sich in :ref:`complex-example`.
+
 .. _fig-minigraph: 
 
 .. figure:: figs/minigraph.png
@@ -147,17 +150,15 @@ haben ist dieser auch kein Nachbar - Valide Nachbarn müssen stets eine Distanz
 Kurze Implementierungshistorie
 ==============================
 
-Am 11 Oktober 2013 wurde mit der Implementierung begonnen. Das erste dabei
-gelöste Problem war die Normalisierung eines beliebiger Genres mittels eines
-Baums. 
+Am 11. Oktober 2013 wurde mit der Implementierung begonnen. 
 
 Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
 der Distanzen und das Berechnen jeder einzelnen Song-Kombination vorgesehen -
 aus den bereits erwähnten Gründen hat sich das zu einer Approxmiation geändert.
-Hierbei eine vernünftige Herangehensweise zu finden hat ca. 1 :math:`^1/_2`
-beansprucht.
+Hierbei eine vernünftige Herangehensweise zu finden hat letzlich ca. 1
+:math:`^1/_2` Monate beansprucht.
 
-Parallel zur Implementierugn wurde ein ,,Tagebuch'' :cite:`THV` verfasst das
+Parallel zur Implementierung wurde ein ,,Tagebuch'' :cite:`THV` verfasst das
 dazu dienen sollte Ideen und Geschehnisse festzuhalten - allerdings weniger als
 Information für Dritte, mehr als persönliche Erinnerung.
 
@@ -556,7 +557,8 @@ geben welche Funktionen in welchem Modul implementiert worden.
 .. _fig-module-tree:
 
 .. figtable::
-    :caption: Verzeichnisbaum mit den einzelnen Modulen von *libmunin*
+    :caption: Verzeichnisbaum mit den einzelnen Modulen von libmunin's
+              Implementierung
     :alt: Verzeichnisbaum der Implementierung
     :spec: @{}l @{}l @{}l @{}l | l
 
@@ -648,23 +650,25 @@ Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 * Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
 * Bei Performanceproblemen ist eine Auslagerung von Code nach *C/C++* mittels
   *Cython* sehr einfach möglich.
-* Der Autor hat gute Kenntnisse und Erfahrungen.
+* Der Autor hat gute Kenntnisse in Python.
 
-Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
-sozialen Code-Hosting Plattform *GitHub* :cite:`Y41`. Der Vorteil dieser Plattform besteht
-darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
-ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
-spätere Projekte bookmarken.  Daher auch Github's Slogan *Social Coding*.
+Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
+sozialen Code-Hosting Plattform *GitHub* :cite:`Y41` - zur Versionierung wird
+dann entsprechend das *Distributed Version Control System* ``git`` genutzt.
 
-Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
+Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
+besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
+zumindestens die Seite für spätere Projekte merken. 
+
+Die dazugehörige Dokumentation wird bei jedem *Commit* automatisch aus den
 Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
 Dokumentations-Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
 gemacht :cite:`5LX`.
 
 Zudem werden pro Commit unittests auf der Continious-Integration Plattform
-*TravisCI* :cite:`JIU` für verschiedene Python-Versionen durchgeführt. Dies hat den Vorteil
-dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
-unittests lokal durchzuführen.
+*TravisCI* :cite:`JIU` für verschiedene Python-Versionen durchgeführt. Dies hat
+den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
+vergessen hat die unittests lokal durchzuführen.
 
 Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
 Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
@@ -679,7 +683,8 @@ Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge
 
 Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
 veröffentlicht :cite:`O6Q`, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können:
+Python-Abhängigkeiten installiert werden können (Setzt Python :math:`\gt 3.2`
+vorraus):
 
 .. code-block:: bash
 
@@ -689,12 +694,12 @@ Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
 vereinfachen - im Notfall kann man stets auf funktionierende Versionen
 zurückgehen. 
 
-Der Quelltext selber wird in *gVim* geschrieben. Dass sich der Python-Quelltext
+Der Quelltext selber wird in *gVim* geschrieben - dass sich der Python-Quelltext
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
 und *flake8* überprüft.
 
 Auch dieses Dokument wurde mit dem :latex_sign:`sigh`-Backend einer
-modifizierten Sphinxversion erstellt.  Vorteil dass die Arbeit in
+modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
 *reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML
 Variante :cite:`8MD` erstellt wird - letztere ist sogar für mobile Endgeräte
 ausgelegt.  
@@ -709,7 +714,7 @@ Kommentare, die zum größten Teil zur Generation der Online-Dokumentation
 genutzt werden.
 
 Dazu kommen einige weitere Zeilen von *reStructuredText* (einer einfachen
-Markup-Sprache) die die Gerüst der Onlinedokumentation bilden:
+Markup-Sprache) die das Gerüst der Onlinedokumentation bilden:
 
 .. code-block:: bash
 
