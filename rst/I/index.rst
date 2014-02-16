@@ -14,6 +14,8 @@ Motivation
 State of the Art
 ----------------
 
+Bla-Bla.
+
 :dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
 Vielzahl von Plattformen die Musik anbieten, entweder zum Kaufen (amazon), zum
@@ -42,7 +44,7 @@ Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
 echten Personen.
 
 Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten.
+Musikempfehlungen aussprechen die den Nutzer länger auf der Seite halten.
 
 Auch von wissenschaftlicher Seite ist das Problem der ,, *Music Recommendation
 Engine* '' noch nicht abschließend behandelt - es gibt allerdings eine steigende
@@ -103,7 +105,7 @@ Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die zwischen alle
 paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
 Musiklabes unterworfen - denn meist wird nur die momentan *populäre* Musik bei
 den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
-Natur - freie, Creative Commons-lizensierte Musik, wie man sie beispielsweise
+Natur - freie, *Creative Commons* lizensierte Musik, wie man sie beispielsweise
 auf Jamendo [#f3]_ findet, sucht man anderswo vergebens.
 
 Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
@@ -123,7 +125,7 @@ Abschluss dieser Arbeit das Projekt weiterentwickelt werden.
 .. [#f2] *Dynamische Playlisten* bezeichnen die automatisch nach bestimmten
    Kriterien aus einen Pool von Songs fortlaufen generiert werden.
 
-.. [#f3] Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik. :cite:`30T`
+.. [#f3] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`
 
 .. [#f4] Ein MPD Client ist eine ,, *Fernbedienung* '' für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon).

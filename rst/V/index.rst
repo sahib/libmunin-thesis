@@ -106,7 +106,7 @@ Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
 gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt 
 ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
 
-Letzteres ist für das Debugging der Filter-Funktion nützlich.
+Letzteres ist für das Debugging der Filterfunktion nützlich.
 
 (2) Seed Song
 -------------

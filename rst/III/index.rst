@@ -151,7 +151,7 @@ Filtern von Empfehlungen
 Oft ist es nötig die gegebenen Empfehlungen noch zusätzlich zu filtern. Das hat
 den simplen Grund das im Graphen die meisten Alben einzelne *Cluster* bilden -
 die Lieder auf einem Album sind unter sich sehr ähnlich. Da man aber vermeiden
-möchte, dass zu einem Seed-Song ein Lied vom selben Album oder gar selben
+möchte, dass zu einem :term:`Seedsong` ein Lied vom selben Album oder gar selben
 Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen ausgesiebt
 werden.
 
@@ -388,7 +388,7 @@ Die Oberklasse von der jeder konkreter ``Provider`` ableitet.
 
 Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
 überschrieben wird. Zudem bieten viele Provider als Convinience eine
-``do_reverse()`` Methode um für Debugging-Zwecke den Originalwert vor der
+``do_reverse()`` Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.
 
 Provider können zudem mittels des ``|`` Operators in einer Kette

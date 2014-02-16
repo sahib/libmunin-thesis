@@ -106,7 +106,7 @@ TODO: Nachweise
 
     Einige der Attribute die in die Empfehlung mit eingehen:
 
-        * Video-Metadaten (Qualität, Beschreibung, Titel)
+        * Videometadaten (Qualität, Beschreibung, Titel)
         * Upload-Datum
         * ,,Plays'' und tatsächliche ,,Plays'' (also ob das Video lang genug
           angeschaut wurde)
@@ -257,7 +257,7 @@ angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
     Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
     Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
     nähesten ist aber wenig auf große Datenbanken ausgelegt und stützt sich
-    allein auf Audio-Analyse - dazu wird während des *Kaltstartes* die gesamten
+    allein auf Audioanalyse - dazu wird während des *Kaltstartes* die gesamten
     Audiodaten der Musiksammlung analysiert.
 
     Sie ist momentan nur im freien Mediaplayer Banshee als Plugin nutzbar. 
@@ -339,7 +339,7 @@ sollte man folgende Probleme beim Design und der Implementierung berücksichtige
 * *Kaltstart*, also die Verzögerung beim ersten Start, möglichst klein halten
   *(mufin audiogen)*
 * Verwaltung großer Datenmengen sollte möglich sein *(mirage)*
-* Bibliothek Programmier-Sprachen unabhängig halten *(mirage)*
+* Bibliothek Programmiersprachen unabhängig halten *(mirage)*
 * Keine strikte Abhängigkeit von Audiodaten. Ein Betrieb nur mit Metadaten
   sollte möglich sein *(mirage)*
 * Libertäre Lizenz wählen um allgemeine Verfügbarkeit zu gewährleisten *(mufin
@@ -371,7 +371,7 @@ Da später sehr viele Anfragen, unter Umständen gleichzeitig, an das System
 gestellt werden darf auch eine Abfrage von 100 Empfehlungen nicht länger 
 als eine Sekunde dauern.
 
-Die eigentliche Arbeit muss daher in einem vorgelagerten Analyse-Schritt 
+Die eigentliche Arbeit muss daher in einem vorgelagerten Analyseschritt 
 erfolgen und die daraus gewonnenen Kenntnisse in einer geeigneten
 Datenstruktur gespeichert werden.
 
@@ -430,11 +430,11 @@ Musiksammlungen eingestellt sein.
 
 Viele existierende Musiksammlungen sind unterschiedlich gut mit Metadaten 
 (*Tags*) versorgt. So sind manche Tags gar nicht erst vorhanden oder sind
-je nach Format und verwendeten Tagging-Tool/Datenbank anders benannt.
+je nach Format und verwendeten Taggingtool/Datenbank anders benannt.
 
 Das fertige System soll mit Szenarien zurecht kommen, wo lediglich die 
 Metadaten der zu untersuchenden Songs zur Verfügung stehen, aber nicht die
-eigentlichen Audio-Daten. Dies kann vorteilhaft sein wenn man keinen Zugriff auf
+eigentlichen Audiodaten. Dies kann vorteilhaft sein wenn man keinen Zugriff auf
 die Audiodaten hat aber die Metadaten bei Musikdatenbanken wie *MusicBrainz*
 vervollständigen kann.
 
@@ -458,10 +458,10 @@ Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
 Demonstrations und Debuggeranwendung inkludiert
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-Eine Demonstrations-Anwendung soll entwickelt werden die zur
+Eine Demonstrationsanwendung soll entwickelt werden die zur
 Fehlersuche, Verbesserung und als Einsatzbeispiel dient.
 
-Als Demo-Anwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
+Als Demonstrationsanwendung eignet sich ein Musicplayer der dem Nutzer mithilfe des
 zu entwickelnden System Musikstücke vorschlägt und optimalerweise diese 
 Empfehlung auch *begründen* kann. So kann die Anwendung auch als
 *Debugger* dienen.
@@ -521,7 +521,7 @@ Lernen gibt der User Tipps (beispielsweise kann er eine Empfehlung
 bewerten), beim implizierten Lernen wird das Verhalten des Users beobachtet
 und daraus werden Schlussfolgerungen getroffen.
 
-Nicht-Anforderungen
+Nichtanforderungen
 -------------------
 
 Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
@@ -565,13 +565,13 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
         implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
 
 
-Später kann ein Kommandozeilen-Programm entwickelt werden, dass eine beliebige
+Später kann ein Kommandozeilenprogramm entwickelt werden, dass eine beliebige
 Musksammlung einliest und das daraus gewonne Wissen auf Platte speichert. 
 Ein weiteres Kommandozeilenprogramm könnte dieses dann einlesen und frei
 formatierbare Empfehlungen ausgeben. Besonders für Shellskripte wäre dies
 interessant.
 
 Basierend darauf kann auch ein DBUS-Service erstellt werden der diese gewonnene
-Daten Programmiersprachen-agnostisch anderen Anwendungen bereitstellt. Der
+Daten programmiersprachenagnostisch anderen Anwendungen bereitstellt. Der
 Vorteil ist dabei dass es eine zentrale Anwendung gäbe - eine mehrfache Analyse
 der Musiksammlung von verschiedenen Programmen würde dabei entfallen.

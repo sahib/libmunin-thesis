@@ -13,7 +13,7 @@ Implementierung
 Anwendungsbeispiel
 ==================
 
-:dropcaps:`Beispiele` sind oft gute Hilfsmittel um ein Gefühl für eine Software-Bibliothek 
+:dropcaps:`Beispiele` sind oft gute Hilfsmittel um ein Gefühl für eine Softwarebibliothek 
 zu bekommen. Das folgende minimale Beispiel liest *Songs* aus einer
 (Pseudo-)Datenbank und erstellt dann Empfehlungen für einen davon:
 
@@ -68,7 +68,7 @@ Kurze Erläuterung des Beispiels
   
 * **Zeile 3:**
 
-  Hier erstellen wir uns eine Pseudo-Datenbank aus vier Liedern mit vier
+  Hier erstellen wir uns eine Pseudodatenbank aus vier Liedern mit vier
   einzelnen Attributen jeweils.
 
 * **Zeile 11:** 
@@ -86,7 +86,7 @@ Kurze Erläuterung des Beispiels
 
 * **Zeile 14:**
 
-  Wir iterieren (**Zeile 13**) über alle Songs in unserer Pseudo-Datenbank und 
+  Wir iterieren (**Zeile 13**) über alle Songs in unserer Pseudodatenbank und 
   fügen diese der *Session* hinzu (über die ``add`` Operation). zu beachten ist
   dabei: Es wird eine Hashtable übergeben in denen bestimmte Schlüssel (wie
   ``artist``) von der ``EasySession`` vorgegeben sind - erstellt man eine eigene
@@ -153,7 +153,7 @@ Kurze Implementierungshistorie
 Am 11. Oktober 2013 wurde mit der Implementierung begonnen. 
 
 Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
-der Distanzen und das Berechnen jeder einzelnen Song-Kombination vorgesehen -
+der Distanzen und das Berechnen jeder einzelnen Songkombination vorgesehen -
 aus den bereits erwähnten Gründen hat sich das zu einer Approxmiation geändert.
 Hierbei eine vernünftige Herangehensweise zu finden hat letzlich ca. 1
 :math:`^1/_2` Monate beansprucht.
@@ -186,7 +186,7 @@ Eingabe sie erwarten sowie welche Ausgabe sie produzieren.
 
 Wandelt und normalisiert ein Datum dass als String übergeben wird zu einer
 Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
-Datum-Formattierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
 unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
 
 ``Moodbar``
@@ -213,7 +213,7 @@ Typ ihrer Eingabe unterscheiden:
 * ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
 * ``MoodbarFile``: Nimmt ein Pfad zu einem von der ``moodbar`` erstellten Datei
   entgegen die einen Vektor aus 1000 RGB-Werten binär beeinhaltet.
-* ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audio-Datei entgegen
+* ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audiodatei entgegen
   und führt das ``moodbar``-Utility darauf aus falls noch keine weiter Datei mit
   demselben Pfad plus der zusätzlichen Endung ``.mood`` vorhanden ist.
 
@@ -238,7 +238,7 @@ Bricht einen String in eine Liste von Wörter auf.
 ~~~~~~~
 
 Berechnet die ,,Beats-Per-Minute'' eines Lieds (Zitieren) - dies funktioniert
-nicht nur für stark beat-lastige Musikrichtungen wie Techno sondern auch für
+nicht nur für stark beatlastige Musikrichtungen wie Techno sondern auch für
 normale Musikrichtungen. 
 
 TODO: Hinweis auf bpm-tools
@@ -316,8 +316,8 @@ Eingabesprache - momentan wird aber stets Englisch angenommen.
 
 Der wohl komplizierteste :term:`Provider`.
 
-Ein beliebiges Eingabe-Genre wird in einzelne Unter-Genres aufgeteilt und normalisiert. 
-Beispielsweise wird die Genre-Beschreibung *Rock, Reggae / Alternative Rock*
+Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert. 
+Beispielsweise wird die Genrebeschreibung *Rock, Reggae / Alternative Rock*
 mittels einer Regular Expression in die Unterbestandteile aufgebrochen:
 
 * *Rock*
@@ -347,7 +347,7 @@ Python-Listen Notation:
 
     [[14], [771, 3], [753], [771]]
 
-Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genre-Baum.
+Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
 Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
 Da der Root-Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
 Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
@@ -404,7 +404,7 @@ Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
 
 Besorgt von dem Online-Musikmarktplatz *Discogs* Genre Informationen. Dies ist
 nötig da Musiksammlungen für gewöhnlich mittels einer Online-Musikdatenbank
-getaggt werden - die meisten bieten allerdings keine Genre-Informationen. 
+getaggt werden - die meisten bieten allerdings keine Genreinformationen. 
 
 Liste der Distanzfunktionen
 ---------------------------
@@ -575,7 +575,7 @@ geben welche Funktionen in welchem Modul implementiert worden.
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | *dbus_service.py* |                 |       | Unfertiger DBus Service.                    |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *dbus_client*     |                 |       | Unfertiger DBus Beispiel-Client.            |
+    |                   | *dbus_client*     |                 |       | Unfertiger DBus Beispielclient.             |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | **distance/**     |                 |       | Unterverzeichnis für Distanzfunktionen      |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
@@ -621,7 +621,7 @@ geben welche Funktionen in welchem Modul implementiert worden.
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | **stopwords/**    |                 |       | Stoppwortimplementierung:                   |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *__init__.py*   |       | Implementierung des Stoppwort-Loader        |
+    |                   |                   | *__init__.py*   |       | Implementierung des StopwordsLoader         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   |                   | **data/**       |       | Unterverzeichnis für die Stoppwortlisten    |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
@@ -646,7 +646,7 @@ Entwicklungsumgebung
 Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 
 * Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
-  nur knapp 3 Monaten Implementierungs-Zeit.
+  nur knapp 3 Monaten Implementierungszeit.
 * Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
 * Bei Performanceproblemen ist eine Auslagerung von Code nach *C/C++* mittels
   *Cython* sehr einfach möglich.
