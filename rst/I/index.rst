@@ -4,7 +4,7 @@ Einleitung
 
 .. epigraph:: 
 
-   *''Sei froh dass du du bist, und nicht dieser Fisch.''*
+   *,,Sei froh dass du du bist, und nicht dieser Fisch.''*
 
    -- *Das Lied von der Makrele, Marc Uwe Kling*
    
@@ -13,8 +13,6 @@ Motivation
 
 State of the Art
 ----------------
-
-Bla-Bla.
 
 :dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine

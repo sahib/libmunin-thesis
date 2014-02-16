@@ -5,8 +5,8 @@ Implementierung
 .. epigraph::
 
 
-    '' *Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
-    gewaltbereiter Psychopath, der weiß, wo Sie wohnen.* ''
+    *,,Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
+    gewaltbereiter Psychopath, der weiß, wo Sie wohnen.''*
 
     -- *Peter Stöhr*
 
@@ -648,7 +648,7 @@ Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 * Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
   nur knapp 3 Monaten Implementierungszeit.
 * Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
-* Bei Performanceproblemen ist eine Auslagerung von Code nach *C/C++* mittels
+* Bei Performanceproblemen ist eine Auslagerung von Code nach *C* mittels
   *Cython* sehr einfach möglich.
 * Der Autor hat gute Kenntnisse in Python.
 

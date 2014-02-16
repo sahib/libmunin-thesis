@@ -4,7 +4,7 @@ Einstieg
 
 .. epigraph::
 
-    *''Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''*
+    *,,Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''*
 
     -- *Bill Gates*
 
@@ -266,7 +266,7 @@ angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
 
 - **mufin audiogen** :cite:`UZB`
 
-    Eine kommerzielle in ``C++`` entwickelte Bibliothek, die im (mittlerweile
+    Eine kommerzielle Bibliothek, die im (mittlerweile
     eingestellten) Mufin-Audioplayer verwendet wurde. Sie bietet - laut der
     Werbebroschüre - enorm viele  Features und hat nicht das Problem des
     *Kaltstartes*. Das soll heißen: Die Musikdatenbank muss nicht erst aufwändig

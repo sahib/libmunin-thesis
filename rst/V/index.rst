@@ -4,7 +4,7 @@ Verfizierung der Software
 
 .. epigraph:: 
 
-   *''These plus Antithese gleich Hysterese''*
+   *,,These plus Antithese gleich Hysterese''*
 
    -- *Einfach Göttlich, Terry Pratchett*
 
