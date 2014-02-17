@@ -648,8 +648,9 @@ Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 * Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
   nur knapp 3 Monaten Implementierungszeit.
 * Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
-* Bei Performanceproblemen ist eine Auslagerung von Code nach *C* mittels
-  *Cython* sehr einfach möglich.
+* Bei Performanceproblemen ist eine Auslagerung von Code nach
+  :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` mittels *Cython* sehr
+  einfach möglich.
 * Der Autor hat gute Kenntnisse in Python.
 
 Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der

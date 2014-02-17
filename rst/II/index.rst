@@ -266,12 +266,13 @@ angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
 
 - **mufin audiogen** :cite:`UZB`
 
-    Eine kommerzielle Bibliothek, die im (mittlerweile
-    eingestellten) Mufin-Audioplayer verwendet wurde. Sie bietet - laut der
-    Werbebroschüre - enorm viele  Features und hat nicht das Problem des
-    *Kaltstartes*. Das soll heißen: Die Musikdatenbank muss nicht erst aufwändig
-    importiert werden, sondern es können gleich Empfehlungen
-    getroffen werden.
+    Eine kommerzielle Bibliothek, in
+    :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte
+    Bibliothek, die im (mittlerweile eingestellten) Mufin-Audioplayer verwendet
+    wurde. Sie bietet - laut der Werbebroschüre - enorm viele, teils fragwürdige
+    oder unklare,  Features und hat nicht das Problem des *Kaltstartes*. Das
+    soll heißen: Die Musikdatenbank muss nicht erst aufwändig importiert werden,
+    sondern es können gleich Empfehlungen getroffen werden.
 
     Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek
     möglich.

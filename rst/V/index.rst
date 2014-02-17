@@ -8,10 +8,8 @@ Verfizierung der Software
 
    -- *Einfach Göttlich, Terry Pratchett*
 
-Erfüllung der Anforderungen
-===========================
-
-Auflistung welche Anforderungen durch was...
+Welche Anforderungen wurden nicht erfüllt?
+==========================================
 
 Verifizierung
 =============

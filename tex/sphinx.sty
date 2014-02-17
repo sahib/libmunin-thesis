@@ -81,6 +81,10 @@
 \textwidth \paperwidth
 \advance\textwidth by -2in
 
+% Typeset C/C++
+\newcommand{\cppsymbol}{%
+    \text{C/C{\scriptstyle\overset{\!\pmb{++}}{\vphantom{\_}}}}
+}%
 
 % Style parameters and macros used by most documents here
 \raggedbottom
@@ -408,8 +412,6 @@
                  linkcolor=InnerLinkColor,filecolor=OuterLinkColor,
                  menucolor=OuterLinkColor,urlcolor=OuterLinkColor,
                  citecolor=InnerLinkColor]{hyperref}
-
-\RequirePackage{breakurl}
 
 
 %FIXME

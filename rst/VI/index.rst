@@ -23,8 +23,8 @@ Ausblick
 Mögliche Weiterentwicklungen
 ============================
 
-Performance
------------
+Implementierungsprobleme
+------------------------
 
 - Optimierungen um unnötige vergleiche zu verringern, beispiels nur moodbar
   vergleichen wenn länge des stückes ähnlich ist.
@@ -39,6 +39,36 @@ Performance
   bei denen es sehr viele dokumente gibt und diese sich als hashtable
   repräsentieren lassen.
 
+
+- Dbus Service:
+
+    - Problem: Nutzung von libmunin von anderen Sprachen aus.
+    - Problem: Mehrere Programme wollen Session nutzen.
+
+
+- Overlays - dynamische playlisten mit statischen mischen
+- Fortlaufende dynamische playlisten
+
+
+- Bessere Speicherung der Session auf die Platte - momentan pickle, erfordert 
+  hohe Rekursionstiefe, sprengt für große Sessions den Stack.
+
+
+- Die resultate können nur so gut sein wie die input daten.
+  Es wäre wünschenswert eine "bridge" zwischen libmunin und beets :cite:`XAJ` zu schreiben.
+  Beets ist gewißermaßen das libhugin-anaylse für musik 
+
+
+- Schnellerer Analyseschritt durch parallelisiertes fetchen von lyrics und 
+
+
+- Echte audionanylse mittels aubio :cite:`0FN` order MARSYAS :cite:`HJ7`.
+- Echte mood analyse.
+
+Performance
+-----------
+
+
 Features
 --------
 
@@ -46,32 +76,19 @@ Features
 - Suchengine für natürliche Sprache wie in :cite:`knees2007music`
 - Transitions. Beispieslweise immer "härter werdende musik"
 - Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)
+
 - Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
 - Similar Artist/Album/Genre...
 - Einbeziehung der duration als provider/distanz (statistisch untersuchen)
-- Echte audionanylse mittels aubio :cite:`0FN` order MARSYAS :cite:`HJ7`.
-- Echte mood analyse.
 - (Amazon) artist/album reviews mit einbeziehen, keyword-extraction.
 - Sprache, Intros und Audio intelligent unterscheiden.
-- Dbus Service:
 
-    - Problem: Nutzung von libmunin von anderen Sprachen aus.
-    - Problem: Mehrere Programme wollen Session nutzen.
-
-- Overlays - dynamische playlisten mit statischen mischen
-- Fortlaufende dynamische playlisten
 
 Convinience / Korrektheit
 -------------------------
 
-- Bessere Speicherung der Session auf die Platte - momentan pickle, erfordert 
-  hohe Rekursionstiefe, sprengt für große Sessions den Stack.
-- Schnellerer Analyseschritt durch parallelisiertes fetchen von lyrics und 
-  beschleunigter audioanalyse.
-- Die resultate können nur so gut sein wie die input daten.
-  Es wäre wünschenswert eine "bridge" zwischen libmunin und beets :cite:`XAJ` zu schreiben.
-  Beets ist gewißermaßen das libhugin-anaylse für musik 
+- beschleunigter audioanalyse.
 - date origin abhängig vom genre
 - genre-bridges: grunge->rock
 

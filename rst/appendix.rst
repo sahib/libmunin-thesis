@@ -72,19 +72,19 @@ Glossar
         
         .. math::
 
-            0 \leq D(i, j) \leq 1 \forall i,j \in D
+            0 \leq D(i, j) \leq 1 \, \forall \, i,j \in D
 
         *Symmetrie:*
 
         .. math::
 
-            D(i, j) = D(j, i) \forall i,j \in D
+            D(i, j) = D(j, i) \, \forall \, i,j \in D
 
         *Identität:*
 
         .. math::
 
-            D(i, i) = 0.0 \forall i \in D
+            D(i, i) = 0.0 \, \forall \, i \in D
 
         *Dreiecksungleichung:*
 
@@ -154,7 +154,7 @@ Glossar
 
         .. math::
 
-            Kulczynski(A, B) =  \frac{P(A \vert B) + P(B \vert A)}{2}
+            Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}
 
         .. math::
 
@@ -164,7 +164,7 @@ Glossar
         .. admonition:: Vergleiche dazu:
 
             :cite:`datamining-concepts-and-techniques`
-            Datamining Concepts and Techniques, Seiten 268-271.
+            Datamining Concepts and Techniques.
 
 
     Recommendation
