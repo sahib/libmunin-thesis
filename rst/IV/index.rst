@@ -173,6 +173,8 @@ Insgesamt wurden 13 unterschiedliche Provider implementiert - davon variieren
 einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
 manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.
 
+.. _provider-list:
+
 Liste der Provider
 ------------------
 
@@ -405,6 +407,8 @@ Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
 Besorgt von dem Online-Musikmarktplatz *Discogs* Genre Informationen. Dies ist
 nötig da Musiksammlungen für gewöhnlich mittels einer Online-Musikdatenbank
 getaggt werden - die meisten bieten allerdings keine Genreinformationen. 
+
+.. _distance-function-list:
 
 Liste der Distanzfunktionen
 ---------------------------
