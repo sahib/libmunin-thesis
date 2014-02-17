@@ -134,7 +134,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Verfizierung der Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#welche-anforderungen-wurden-nicht-erfullt">5.1 Welche Anforderungen wurden nicht erfüllt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
@@ -151,7 +151,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -184,13 +188,13 @@
   <div class="section" id="implementierung">
 <h1>4 Implementierung<a class="headerlink" href="#implementierung" title="Permalink to this headline">¶</a></h1>
 <blockquote class="epigraph">
-<div><p>'' <em>Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
-gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em> ''</p>
+<div><p><em>,,Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
+gewaltbereiter Psychopath, der weiß, wo Sie wohnen.''</em></p>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
 <div class="section" id="anwendungsbeispiel">
 <h2>4.1 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h2>
-<p>Beispiele sind oft gute Hilfsmittel um ein Gefühl für eine Software-Bibliothek
+<p>Beispiele sind oft gute Hilfsmittel um ein Gefühl für eine Softwarebibliothek
 zu bekommen. Das folgende minimale Beispiel liest <em>Songs</em> aus einer
 (Pseudo-)Datenbank und erstellt dann Empfehlungen für einen davon:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -256,7 +260,7 @@ Session mit vorgefertigter <a class="reference internal" href="../appendix.html#
 <tt class="docutils literal"><span class="pre">EasySession</span></tt>.</p>
 </li>
 <li><p class="first"><strong>Zeile 3:</strong></p>
-<p>Hier erstellen wir uns eine Pseudo-Datenbank aus vier Liedern mit vier
+<p>Hier erstellen wir uns eine Pseudodatenbank aus vier Liedern mit vier
 einzelnen Attributen jeweils.</p>
 </li>
 <li><p class="first"><strong>Zeile 11:</strong></p>
@@ -271,15 +275,15 @@ einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
 Importieren ein <tt class="docutils literal"><span class="pre">rebuild</span></tt> ausgeführt wird.</p>
 </li>
 <li><p class="first"><strong>Zeile 14:</strong></p>
-<p>Wir iterieren (<strong>Zeile 13</strong>) über alle Songs in unserer Pseudo-Datenbank und
+<p>Wir iterieren (<strong>Zeile 13</strong>) über alle Songs in unserer Pseudodatenbank und
 fügen diese der <em>Session</em> hinzu (über die <tt class="docutils literal"><span class="pre">add</span></tt> Operation). zu beachten ist
 dabei: Es wird eine Hashtable übergeben in denen bestimmte Schlüssel (wie
 <tt class="docutils literal"><span class="pre">artist</span></tt>) von der <tt class="docutils literal"><span class="pre">EasySession</span></tt> vorgegeben sind - erstellt man eine eigene
 Session kann man diese nach Belieben Konfigurieren.</p>
-<p>Ein Problem dass man bei der Benutzung der Library hat ist: <em>libmunin</em> und der
+<p>Ein Problem dass man bei der Benutzung der Bibliothek hat ist: <em>libmunin</em> und der
 Nutzter halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
 verwaltet die Originaldaten mit denen er arbeitet während <em>libmunin</em> nur
-normalisierte Daten speichert. Das Problem dabei: Wie soll der User wissen
+normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
 welche Empfehlung zu welchen Song in seinen Originaldaten gehört?</p>
 <p>Dazu ist ein Mapping erforderlich das
 Zu diesem Zwecke geben die Operationen <tt class="docutils literal"><span class="pre">add</span></tt>, <tt class="docutils literal"><span class="pre">insert</span></tt>, <tt class="docutils literal"><span class="pre">modify</span></tt> und
@@ -311,6 +315,8 @@ ist direkt mit den Songs 1 (<em>Vogelfrey</em>) und 3 (<em>Debauchery</em>) bena
 Da die beiden Genres <em>folk rock</em> und <em>death metal</em> keine gemeinsame Schnittmenge
 haben ist dieser auch kein Nachbar - Valide Nachbarn müssen stets eine Distanz
 <span class="math">\(\le 1.0\)</span> besitzen.</p>
+<p>Ein komplizierteres Beispiel das die meisten Aspekte von libmunin abdeckt
+findet sich in <a class="reference internal" href="../appendix.html#complex-example"><em>Ausführliches Beispiel</em></a>.</p>
 <div class="figure align-center" id="fig-minigraph">
 <a class="reference internal image-reference" href="../../_images/minigraph.png"><img alt="Minimaler Beispielgraph" src="../../_images/minigraph.png" style="width: 42%;" /></a>
 <p class="caption"><strong>Figure 4.1:</strong> Minimaler Beispielgraph der hinter dem obigen Beispiel steht. Die Dicke der
@@ -321,15 +327,13 @@ Die Farbe der Knoten ist hier nicht relevant.</p>
 </div>
 <div class="section" id="kurze-implementierungshistorie">
 <h2>4.2 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h2>
-<p>Am 11 Oktober 2013 wurde mit der Implementierung begonnen. Das erste dabei
-gelöste Problem war die Normalisierung eines beliebiger Genres mittels eines
-Baums.</p>
+<p>Am 11. Oktober 2013 wurde mit der Implementierung begonnen.</p>
 <p>Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
-der Distanzen und das Berechnen jeder einzelnen Song-Kombination vorgesehen -
+der Distanzen und das Berechnen jeder einzelnen Songkombination vorgesehen -
 aus den bereits erwähnten Gründen hat sich das zu einer Approxmiation geändert.
-Hierbei eine vernünftige Herangehensweise zu finden hat ca. 1 <span class="math">\(^1/_2\)</span>
-beansprucht.</p>
-<p>Parallel zur Implementierugn wurde ein ,,Tagebuch'' <a class="reference internal" href="../zzz_bibliography.html#thv" id="id2">[Link-17]</a> verfasst das
+Hierbei eine vernünftige Herangehensweise zu finden hat letzlich ca. 1
+<span class="math">\(^1/_2\)</span> Monate beansprucht.</p>
+<p>Parallel zur Implementierung wurde ein ,,Tagebuch'' <a class="reference internal" href="../zzz_bibliography.html#thv" id="id2">[Link-17]</a> verfasst das
 dazu dienen sollte Ideen und Geschehnisse festzuhalten - allerdings weniger als
 Information für Dritte, mehr als persönliche Erinnerung.</p>
 <p>Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt.
@@ -342,7 +346,7 @@ Implementierung einer Demonanwendung aufgewendet.</p>
 einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
 manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.</p>
 <div class="section" id="liste-der-provider">
-<h3>4.3.1 Liste der Provider<a class="headerlink" href="#liste-der-provider" title="Permalink to this headline">¶</a></h3>
+<span id="provider-list"></span><h3>4.3.1 Liste der Provider<a class="headerlink" href="#liste-der-provider" title="Permalink to this headline">¶</a></h3>
 <p>Die genaue Funtkionsweise der Provider wird in der Bachelorarbeitet betrachtet.
 Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
 Eingabe sie erwarten sowie welche Ausgabe sie produzieren.</p>
@@ -350,7 +354,7 @@ Eingabe sie erwarten sowie welche Ausgabe sie produzieren.</p>
 <h4>4.3.1.1 <tt class="docutils literal"><span class="pre">Date</span></tt><a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h4>
 <p>Wandelt und normalisiert ein Datum dass als String übergeben wird zu einer
 Jahreszahl (<em>1975</em> beispielsweise). Dabei werden die häufigsten
-Datum-Formattierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
 unterschiedliche Datumsangaben in den Audiofiles getaggt sind.</p>
 </div>
 <div class="section" id="moodbar">
@@ -373,7 +377,7 @@ Typ ihrer Eingabe unterscheiden:</p>
 <li><tt class="docutils literal"><span class="pre">Moodbar</span></tt>: Nimmt eine Liste von 1000 RGB-Werten.</li>
 <li><tt class="docutils literal"><span class="pre">MoodbarFile</span></tt>: Nimmt ein Pfad zu einem von der <tt class="docutils literal"><span class="pre">moodbar</span></tt> erstellten Datei
 entgegen die einen Vektor aus 1000 RGB-Werten binär beeinhaltet.</li>
-<li><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt>: Nimmt ein Pfad zu einer beliebigen Audio-Datei entgegen
+<li><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt>: Nimmt ein Pfad zu einer beliebigen Audiodatei entgegen
 und führt das <tt class="docutils literal"><span class="pre">moodbar</span></tt>-Utility darauf aus falls noch keine weiter Datei mit
 demselben Pfad plus der zusätzlichen Endung <tt class="docutils literal"><span class="pre">.mood</span></tt> vorhanden ist.</li>
 </ul>
@@ -392,7 +396,7 @@ ein.</p>
 <div class="section" id="bpm">
 <h4>4.3.1.4 <tt class="docutils literal"><span class="pre">BPM</span></tt><a class="headerlink" href="#bpm" title="Permalink to this headline">¶</a></h4>
 <p>Berechnet die ,,Beats-Per-Minute'' eines Lieds (Zitieren) - dies funktioniert
-nicht nur für stark beat-lastige Musikrichtungen wie Techno sondern auch für
+nicht nur für stark beatlastige Musikrichtungen wie Techno sondern auch für
 normale Musikrichtungen.</p>
 <p>TODO: Hinweis auf bpm-tools</p>
 </div>
@@ -411,7 +415,7 @@ daraus stets den ersten Fall.</p>
 <div class="section" id="artistnormalize">
 <h5>4.3.1.5.2 <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>:<a class="headerlink" href="#artistnormalize" title="Permalink to this headline">¶</a></h5>
 <p>Entfernt zusätzlich <em>Unrat</em> der bei Artistnamen vorhanden
-ist. Beispielsweise wird aus ,, <em>The Beatles</em> '' der String ,, beatles ''</p>
+ist. Beispielsweise wird aus <em>,,The Beatles''</em> der String <em>,,beatles''</em></p>
 </div>
 <div class="section" id="albumnormalize">
 <h5>4.3.1.5.3 <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt>:<a class="headerlink" href="#albumnormalize" title="Permalink to this headline">¶</a></h5>
@@ -456,8 +460,8 @@ Eingabesprache - momentan wird aber stets Englisch angenommen.</p>
 <div class="section" id="genretree">
 <span id="genre-provider"></span><h4>4.3.1.8 <tt class="docutils literal"><span class="pre">GenreTree</span></tt><a class="headerlink" href="#genretree" title="Permalink to this headline">¶</a></h4>
 <p>Der wohl komplizierteste <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a>.</p>
-<p>Ein beliebiges Eingabe-Genre wird in einzelne Unter-Genres aufgeteilt und normalisiert.
-Beispielsweise wird die Genre-Beschreibung <em>Rock, Reggae / Alternative Rock</em>
+<p>Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert.
+Beispielsweise wird die Genrebeschreibung <em>Rock, Reggae / Alternative Rock</em>
 mittels einer Regular Expression in die Unterbestandteile aufgebrochen:</p>
 <ul class="simple">
 <li><em>Rock</em></li>
@@ -484,7 +488,7 @@ Python-Listen Notation:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span><span class="mi">14</span><span class="p">],</span> <span class="p">[</span><span class="mi">771</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">753</span><span class="p">],</span> <span class="p">[</span><span class="mi">771</span><span class="p">]]</span>
 </pre></div>
 </div>
-<p>Das Resultat ist also eine Liste mit einzelnen <em>Pfaden</em> durch den Genre-Baum.
+<p>Das Resultat ist also eine Liste mit einzelnen <em>Pfaden</em> durch den Genrebaum.
 Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
 Da der Root-Knoten (<em>music</em>) immer den Index <em>0</em> hat wird dieser weggelassen.
 Löst man diese wieder auf, so erhält man die ursprünglichen Genres:</p>
@@ -551,11 +555,11 @@ Zusammenhang mit dem <em>Keywords</em> zusammen als <em>Composite</em> Provider.
 <span id="discogs-genre-provider"></span><h4>4.3.1.11 <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt><a class="headerlink" href="#discogsgenre" title="Permalink to this headline">¶</a></h4>
 <p>Besorgt von dem Online-Musikmarktplatz <em>Discogs</em> Genre Informationen. Dies ist
 nötig da Musiksammlungen für gewöhnlich mittels einer Online-Musikdatenbank
-getaggt werden - die meisten bieten allerdings keine Genre-Informationen.</p>
+getaggt werden - die meisten bieten allerdings keine Genreinformationen.</p>
 </div>
 </div>
 <div class="section" id="liste-der-distanzfunktionen">
-<h3>4.3.2 Liste der Distanzfunktionen<a class="headerlink" href="#liste-der-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
+<span id="distance-function-list"></span><h3>4.3.2 Liste der Distanzfunktionen<a class="headerlink" href="#liste-der-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
 <p>Die genaue Funktionsweise der einzelnen Distanzfunktionen wird in der
 Bachelorarbeit genauer betrachtet. Im Folgenden wird aber eine kurze Auflistung
 jeder vorhandenen <a class="reference internal" href="../appendix.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> und der Annahme auf der sie basiert
@@ -727,7 +731,7 @@ geben welche Funktionen in welchem Modul implementiert worden.</p>
 <td><em>dbus_client</em></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td class="align-left">Unfertiger DBus Beispiel-Client.</td>
+<td class="align-left">Unfertiger DBus Beispielclient.</td>
 </tr>
 <tr class="row-even"><td>&nbsp;</td>
 <td><strong>distance/</strong></td>
@@ -865,7 +869,7 @@ geben welche Funktionen in welchem Modul implementiert worden.</p>
 <td>&nbsp;</td>
 <td><em>__init__.py</em></td>
 <td>&nbsp;</td>
-<td class="align-left">Implementierung des Stoppwort-Loader</td>
+<td class="align-left">Implementierung des StopwordsLoader</td>
 </tr>
 <tr class="row-odd"><td>&nbsp;</td>
 <td>&nbsp;</td>
@@ -905,7 +909,8 @@ geben welche Funktionen in welchem Modul implementiert worden.</p>
 </tr>
 </tbody>
 </table>
-<p class="caption"><strong>Figure 4.4:</strong> Verzeichnisbaum mit den einzelnen Modulen von *libmunin*</p>
+<p class="caption"><strong>Figure 4.4:</strong> Verzeichnisbaum mit den einzelnen Modulen von libmunin's
+Implementierung</p>
 </center></div></div>
 <div class="section" id="trivia">
 <h2>4.5 Trivia<a class="headerlink" href="#trivia" title="Permalink to this headline">¶</a></h2>
@@ -914,25 +919,27 @@ geben welche Funktionen in welchem Modul implementiert worden.</p>
 <p>Als Programmiersprache wurde <em>Python</em> aus folgenden Gründen ausgewählt:</p>
 <ul class="simple">
 <li>Exzellenter Support für <em>Rapid Prototyping</em> - eine wichtige Eigenschaft bei
-nur knapp 3 Monaten Implementierungs-Zeit.</li>
+nur knapp 3 Monaten Implementierungszeit.</li>
 <li>Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.</li>
-<li>Bei Performanceproblemen ist eine Auslagerung von Code nach <em>C/C++</em> mittels
-<em>Cython</em> sehr einfach möglich.</li>
-<li>Der Autor hat gute Kenntnisse und Erfahrungen.</li>
+<li>Bei Performanceproblemen ist eine Auslagerung von Code nach
+<span class="math">\(\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}\)</span> mittels <em>Cython</em> sehr
+einfach möglich.</li>
+<li>Der Autor hat gute Kenntnisse in Python.</li>
 </ul>
-<p>Alle Quellen die während dieses Projektes entstanden sind finden sich auf der
-sozialen Code-Hosting Plattform <em>GitHub</em> <a class="reference internal" href="../zzz_bibliography.html#y41" id="id16">[Link-18]</a>. Der Vorteil dieser Plattform besteht
-darin dass sie von sehr vielen Entwicklern besucht werden, die die Software
-ausprobieren und möglicherweise verbessern oder zumindestens die Seite für
-spätere Projekte bookmarken.  Daher auch Github's Slogan <em>Social Coding</em>.</p>
-<p>Die dazugehörige Dokumentation wird bei jedem commit automatisch aus den
+<p>Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
+sozialen Code-Hosting Plattform <em>GitHub</em> <a class="reference internal" href="../zzz_bibliography.html#y41" id="id16">[Link-18]</a> - zur Versionierung wird
+dann entsprechend das <em>Distributed Version Control System</em> <tt class="docutils literal"><span class="pre">git</span></tt> genutzt.</p>
+<p>Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
+besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
+zumindestens die Seite für spätere Projekte merken.</p>
+<p>Die dazugehörige Dokumentation wird bei jedem <em>Commit</em> automatisch aus den
 Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
 Dokumentations-Hosting Plattform <em>ReadTheDocs</em> gebaut und dort verfügbar
 gemacht <a class="reference internal" href="../zzz_bibliography.html#lx" id="id17">[Link-16]</a>.</p>
 <p>Zudem werden pro Commit unittests auf der Continious-Integration Plattform
-<em>TravisCI</em> <a class="reference internal" href="../zzz_bibliography.html#jiu" id="id18">[Link-19]</a> für verschiedene Python-Versionen durchgeführt. Dies hat den Vorteil
-dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man vergessen hat die
-unittests lokal durchzuführen.</p>
+<em>TravisCI</em> <a class="reference internal" href="../zzz_bibliography.html#jiu" id="id18">[Link-19]</a> für verschiedene Python-Versionen durchgeführt. Dies hat
+den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
+vergessen hat die unittests lokal durchzuführen.</p>
 <p>Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
 Diensten rot und man wird per Mail benachrichtigt. (Siehe <a href="#fig-travis-badge">4.5</a>)</p>
 <div class="figure align-center" id="fig-travis-badge">
@@ -941,14 +948,15 @@ Diensten rot und man wird per Mail benachrichtigt. (Siehe <a href="#fig-travis-b
 </div>
 <p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
 veröffentlicht <a class="reference internal" href="../zzz_bibliography.html#o6q" id="id19">[Link-20]</a>, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können:</p>
+Python-Abhängigkeiten installiert werden können (Setzt Python <span class="math">\(\ge 3.2\)</span>
+vorraus):</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
 </pre></div>
 </div>
 <p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
 vereinfachen - im Notfall kann man stets auf funktionierende Versionen
 zurückgehen.</p>
-<p>Der Quelltext selber wird in <em>gVim</em> geschrieben. Dass sich der Python-Quelltext
+<p>Der Quelltext selber wird in <em>gVim</em> geschrieben - dass sich der Python-Quelltext
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
 und <em>flake8</em> überprüft.</p>
 <p>Auch dieses Dokument wurde mit dem 
@@ -976,7 +984,7 @@ und <em>flake8</em> überprüft.</p>
         </style>
         <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
     -Backend einer
-modifizierten Sphinxversion erstellt.  Vorteil dass die Arbeit in
+modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
 <em>reStructuredText</em> geschrieben werden kann und einerseits als PDF und als HTML
 Variante <a class="reference internal" href="../zzz_bibliography.html#md" id="id20">[Link-21]</a> erstellt wird - letztere ist sogar für mobile Endgeräte
 ausgelegt.</p>
@@ -989,7 +997,7 @@ Demo-Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
 Kommentare, die zum größten Teil zur Generation der Online-Dokumentation
 genutzt werden.</p>
 <p>Dazu kommen einige weitere Zeilen von <em>reStructuredText</em> (einer einfachen
-Markup-Sprache) die die Gerüst der Onlinedokumentation bilden:</p>
+Markup-Sprache) die das Gerüst der Onlinedokumentation bilden:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>wc -l <span class="k">$(</span>find . -iname <span class="s1">&#39;*.rst&#39;</span><span class="k">)</span>
 2231 insgesamt
 </pre></div>

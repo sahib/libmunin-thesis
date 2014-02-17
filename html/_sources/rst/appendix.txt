@@ -33,57 +33,58 @@ Glossar
         Im Kontext von libmunin ist ein Song eine Menge von Attributen.
         Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet. 
 
-        Beispielsweise haben alle Songs eine Attribut ``artist``, aber jeder
+        Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
         einzelner Song kennt dafür einen bestimmten Wert.
 
         Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
-        Songs gespeichert, sowie eine Integer der als Identifier dient.
+        Songs gespeichert, sowie einen Integer der als Identifier dient.
 
     Distanz
 
         Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
         Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
-        minimale *Entfernung* zueiander), eine Distanz von 1.0 maximale
+        minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
         Unähnlichkeit (oder maximale *Entfernung*).
 
         Die Distanz wird durch eine :term:`Distanzfunktion` berechnet.
 
     Distanzfunktion
 
-        Eine Distanzfunktion ist im Kontext von libmunin eine Funktion die 
+        Eine Distanzfunktion ist im Kontext von libmunin eine Funktion, die 
         zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
         diesen berechnet.
 
-        Dabei schaut sie sich alle :term:`Attribut` an die beide Songs
-        gemeinsam haben und nutzt für jedes gemeinsame Attribut eine
-        spezialisierte Distanzfunktion die weiß wie diese zwei bestimmten Werte
-        sinnvoll verglichen werden können. Die so errechneten Werte werden,
-        gemäß der Gewichtung in der :term:`Maske`, zu einem Wert verschmolzen.
+        Dabei wird jedes :term:`Attribut` betrachte welchesi n beiden Songs
+        vorkommt betrachtet. Für diese wird von der :term:`Maske` eine
+        spezialisierte :term:`Distanzfunktion` festgelegt, die weiß wie diese
+        zwei bestimmten Werte sinnvoll verglichen werden können. Die so
+        errechneten Werte werden, gemäß der Gewichtung in der :term:`Maske`, zu
+        einem Wert verschmolzen.
 
         Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
         Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
         eingerechnet.
 
         Die folgenden Bedingungen müssen sowohl für die allgemeine
-        Distanzfuntkion, als auch für die speziellen Distanzfunktionen gelten:
+        Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten:
  
         *Uniformität:*
         
         .. math::
 
-            0 \leq D(i, j) \leq 1 \forall i,j \in D
+            0 \leq D(i, j) \leq 1 \, \forall \, i,j \in D
 
         *Symmetrie:*
 
         .. math::
 
-            D(i, j) = D(j, i) \forall i,j \in D
+            D(i, j) = D(j, i) \, \forall \, i,j \in D
 
         *Identität:*
 
         .. math::
 
-            D(i, i) = 0.0 \forall i \in D
+            D(i, i) = 0.0 \, \forall \, i \in D
 
         *Dreiecksungleichung:*
 
@@ -100,8 +101,8 @@ Glossar
         Zudem kann eine *Session* persistent für späteren Gebrauch gespeichert
         werden. 
 
-        Wer die Bibliothek benutzt wird die *Session* zudem als Eintrittspunkt
-        für die API benutzen.
+        Für Nutzer der Bibliothek ist die :term:`Session` auch Eintrittspunkt
+        für jegliche von *libmunin* bereitgestellte Funktionalität.
 
     Maske
 
@@ -109,18 +110,18 @@ Glossar
         werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
         Schlüssel ``genre`` abgespeichert wird.
     
-        In der *Maske* werden daher die einzelnen Attribute festgelegt die ein
+        In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
         einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
         pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
         festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
-        wird die Gewichtung des Attributes festgelegtes - manche Attribute sind
+        wird die Gewichtung des Attributes festgelegt - manche Attribute sind
         für die Ähnlichkeit zweier Songs entscheidender als andere.
 
     Attribut
 
         Ein Attribut ist ein *Schlüssel* in der :term:`Maske`. Er repräsentiert
         eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
-        Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehort ein Wert,
+        Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
         andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
         Menge dieser Paare.
 
@@ -138,7 +139,7 @@ Glossar
     Assoziationsregel
         
         Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-        miteinander. Wird eine der beiden Mengen miteinander gehört ist es
+        miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
         wahrscheinlich dass auch die andere Menge daraufhin angehört wird.
 
         Sie werden aus dem Verhalten des Nutzers abgeleitet.
@@ -153,7 +154,7 @@ Glossar
 
         .. math::
 
-            Kulczynski(A, B) =  \frac{P(A \vert B) + P(B \vert A)}{2}
+            Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}
 
         .. math::
 
@@ -163,13 +164,13 @@ Glossar
         .. admonition:: Vergleiche dazu:
 
             :cite:`datamining-concepts-and-techniques`
-            Datamining Concepts and Techniques, Seiten 268-271.
+            Datamining Concepts and Techniques.
 
 
     Recommendation
 
         Eine Recommendation (dt. Empfehlung) ist ein :term:`Song` der vom System
-        auf Geheiß des Users hin vorgeschlagen wird. 
+        auf Geheiß des Benutzers hin vorgeschlagen wird. 
 
         Die Empfehlunge sollte eine geringe Distanz zum :term:`Seedsong` haben.
 
@@ -181,10 +182,10 @@ Glossar
 
         Im Kontext von libmunin ist der Graph eine Abbildung aller Songs (als
         Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
-        kennt jeder :term`Song` *N* zu ihm selbst ähnlichsten Songs als
+        kennt jeder :term:`Song` *N* zu ihm selbst ähnlichsten Songs als
         Nachbarn.
 
-        Da die Erstellung eines idealen Graphen sehr aufwendig ist wird auf
+        Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
         eine schneller zu berechnende Approximation zurückgegriffen.
 
 .. only:: latex
@@ -194,15 +195,19 @@ Glossar
        \newpage
 
 
+.. _complex-example:
+
 Ausführliches Beispiel
 ======================
 
 Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel 
-gezeigt werden das auch im Vergleich zum einfachen Beispiel folgende Features
+gezeigt werden, das auch im Vergleich zum einfachen Beispiel folgende Features
 zeigt:
 
     - Das Erstellen einer eigenen Session
     - Das Speichern und Laden derselben
+    - Das Füttern der History
+    - Ableiten von Assoziationsregeln
     - Mehrere Möglichkeiten zur Empfehlung
 
 .. code-block:: python
@@ -358,6 +363,63 @@ zeigt:
         # Save it under ~/.cache/libmunin/demo
         session.save()
 
+Ausgabe nach dem ersten Lauf:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    The database:
+      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
+      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
+      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
+      #3 ('Lady Gaga', 'Pokerface', 'pop')
+
+    -- No saved session found, loading new.
+    matching ['metal']
+    matching ['folk']
+    matching ['metal']
+    Recommendations to #0:
+      normalized values:
+        Artist : (3,)                
+        Genre  : ((583,),)           
+        Title  : ['Extrem']          
+      original values:
+        Artist : We Butter the Bread with Butter
+        Album  : Extrem
+        Genre  : metal
+
+    Playcounts:
+      #0 was played 3x times
+      #2 was played 2x times
+    matching ['pop']
+
+Ausgabe nach dem 10ten Lauf:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    The database:
+      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
+      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
+      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
+      #3 ('Lady Gaga', 'Pokerface', 'pop')
+
+    Association Rules:
+             [2] <-> [0]        [supp=    8, rating=0.83951]
+
+    Recommendations to #2:
+      normalized values:
+        Artist : (1,)                
+        Genre  : ((583,),)           
+        Title  : ['the', 'Befor', 'Noos', 'Hangman']
+      original values:
+        Artist : Devildriver
+        Album  : Before the Hangmans Noose
+        Genre  : metal
+
+    Playcounts:
+      #0 was played 30x times
+      #2 was played 20x times
 
 .. only:: latex
 

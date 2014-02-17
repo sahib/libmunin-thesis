@@ -133,7 +133,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Verfizierung der Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#welche-anforderungen-wurden-nicht-erfullt">5.1 Welche Anforderungen wurden nicht erfüllt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
@@ -150,7 +150,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -234,7 +238,7 @@
 <li class="toctree-l4"><a class="reference internal" href="II/index.html#anpassungsfahigkeit-an-den-benutzer">2.5.2.5 Anpassungsfähigkeit an den Benutzer</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="II/index.html#nicht-anforderungen">2.5.3 Nicht-Anforderungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="II/index.html#nichtanforderungen">2.5.3 Nichtanforderungen</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
@@ -245,11 +249,12 @@
 <li class="toctree-l3"><a class="reference internal" href="III/index.html#grunduberlegungen">3.1.1 Grundüberlegungen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="III/index.html#graphenoperationen">3.1.2 Graphenoperationen</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="III/index.html#rebuild">3.1.2.1 <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#add">3.1.2.2 <tt class="docutils literal"><span class="pre">add</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#insert">3.1.2.3 <tt class="docutils literal"><span class="pre">insert</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#remove">3.1.2.4 <tt class="docutils literal"><span class="pre">remove</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#modify">3.1.2.5 <tt class="docutils literal"><span class="pre">modify</span></tt></a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#fixing">3.1.2.6 <tt class="docutils literal"><span class="pre">fixing</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#rebuild-stupid">3.1.2.2 <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#add">3.1.2.3 <tt class="docutils literal"><span class="pre">add</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#insert">3.1.2.4 <tt class="docutils literal"><span class="pre">insert</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#remove">3.1.2.5 <tt class="docutils literal"><span class="pre">remove</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#modify">3.1.2.6 <tt class="docutils literal"><span class="pre">modify</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#fixing">3.1.2.7 <tt class="docutils literal"><span class="pre">fixing</span></tt></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="III/index.html#ausstellen-von-empfehlungen">3.1.3 Ausstellen von Empfehlungen</a></li>
@@ -257,7 +262,11 @@
 <li class="toctree-l3"><a class="reference internal" href="III/index.html#lernen-durch-die-history">3.1.5 Lernen durch die History</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.2 Integration von libmunin in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.2 Integration von libmunin in die Umwelt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#allgemeiner-ablauf">3.2.1 Allgemeiner Ablauf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="III/index.html#die-umgebung">3.2.2 Die Umgebung</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="III/index.html#periphere-komponenten">3.3 Periphere Komponenten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.4 Entwurf der Software</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="III/index.html#ubersicht">3.4.1 Übersicht</a></li>
@@ -270,20 +279,19 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="III/index.html#einzelne-komponenten">3.4.3 Einzelne Komponenten</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#maske">3.4.3.1 Maske</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#session">3.4.3.2 Session</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#song">3.4.3.3 Song</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#distance">3.4.3.4 Distance</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#database">3.4.3.5 Database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#history">3.4.3.6 History</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="III/index.html#recommendationhistory">3.4.3.6.1 RecommendationHistory</a></li>
-<li class="toctree-l5"><a class="reference internal" href="III/index.html#listenhistory">3.4.3.6.2 ListenHistory</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#rulegenerator">3.4.3.7 RuleGenerator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#ruleindex">3.4.3.8 RuleIndex</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#provider">3.4.3.9 Provider</a></li>
-<li class="toctree-l4"><a class="reference internal" href="III/index.html#distancefuntion">3.4.3.10 DistanceFuntion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#session">3.4.3.1 Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#mask">3.4.3.2 Mask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#easysession">3.4.3.3 EasySession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#song">3.4.3.4 Song</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#distance">3.4.3.5 Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#database">3.4.3.6 Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#history">3.4.3.7 History</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#recommendationhistory">3.4.3.8 RecommendationHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#listenhistory">3.4.3.9 ListenHistory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#rulegenerator">3.4.3.10 RuleGenerator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#ruleindex">3.4.3.11 RuleIndex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#provider">3.4.3.12 Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="III/index.html#distancefuntion">3.4.3.13 DistanceFuntion</a></li>
 </ul>
 </li>
 </ul>
@@ -369,7 +377,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Verfizierung der Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#welche-anforderungen-wurden-nicht-erfullt">5.1 Welche Anforderungen wurden nicht erfüllt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a><ul>
@@ -405,9 +413,10 @@
 <li class="toctree-l2"><a class="reference internal" href="VI/index.html#was-hatte-das-mit-datamining-zu-tun">6.1 Was hatte das mit Datamining zu tun?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VI/index.html#ausblick">6.2 Ausblick</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VI/index.html#mogliche-weiterentwicklungen">6.3 Mögliche Weiterentwicklungen</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#performance">6.3.1 Performance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#features">6.3.2 Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VI/index.html#convinience-korrektheit">6.3.3 Convinience / Korrektheit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#implementierungsprobleme">6.3.1 Implementierungsprobleme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#performance">6.3.2 Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#features">6.3.3 Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#convinience-korrektheit">6.3.4 Convinience / Korrektheit</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="VI/index.html#fazit">6.4 Fazit</a><ul>
@@ -422,7 +431,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>

@@ -134,7 +134,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Verfizierung der Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../V/index.html#erfullung-der-anforderungen">5.1 Erfüllung der Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#welche-anforderungen-wurden-nicht-erfullt">5.1 Welche Anforderungen wurden nicht erfüllt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#verifizierung">5.2 Verifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#validierung">5.3 Validierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../V/index.html#demonanwendung-als-debugger">5.4 Demonanwendung als Debugger</a></li>
@@ -151,7 +151,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Abkürzungsverzeichnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -184,7 +188,7 @@
   <div class="section" id="einleitung">
 <h1>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h1>
 <blockquote class="epigraph">
-<div><p>'' <em>Sei froh dass du du bist, und nicht dieser Fisch.</em> ''</p>
+<div><p><em>,,Sei froh dass du du bist, und nicht dieser Fisch.''</em></p>
 <p class="attribution">&mdash;<em>Das Lied von der Makrele, Marc Uwe Kling</em></p>
 </div></blockquote>
 <div class="section" id="motivation">
@@ -193,29 +197,29 @@
 <h3>1.1.1 State of the Art<a class="headerlink" href="#state-of-the-art" title="Permalink to this headline">¶</a></h3>
 <p>Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
-Vielzahl von Plattformen die Musik anbieten, entweder zum kaufen (amazon), zum
-streamen (<tt class="docutils literal"><span class="pre">last.fm</span></tt>, spotify, rhapsody, pandora, webradios...) oder auch um
+Vielzahl von Plattformen die Musik anbieten, entweder zum Kaufen (amazon), zum
+Streamen (<tt class="docutils literal"><span class="pre">last.fm</span></tt>, spotify, rhapsody, pandora, webradios...) oder auch um
 Menschen mit ähnlichem Musikgeschmack zu finden (youtube, myspace).</p>
 <p>All diese Plattformen bieten neben der eigentlichen Musik auch immer
-Empfehlungen zu anderer Songs die der User möglicherweise ebenfalls anhören
-möchte - natürlich mit dem Hintergedanken dass der User sich auch diese anhört
+Empfehlungen zu anderen Songs die der Benutzer möglicherweise ebenfalls anhören
+möchte - natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese anhört
 oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
-diesen sind natürlich ein wichtiger wirtschaftlicher Faktor.</p>
+diesen bestellen sind natürlich ein wichtiger wirtschaftlicher Faktor.</p>
 <p>Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
 von den Betreibern gepflegt? Bei der großen Anzahl an ,,Waren'' wohl kaum.
-Schaut sich ein System an was die User oft zusammen hören?
+Schaut sich ein System an was die Benutzer oft zusammen hören?
 Kann es ein System geben das komplett automatisch arbeitet?</p>
 <p>Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
-aus diesen werden dann Alben abgeleitet die oft zusammen gekauft werden.
+aus diesen werden dann Alben abgeleitet, die oft zusammen gekauft werden.
 Last.fm hingegen setzt auf mehrere Strategien indem es seine Nutzer die
-gestreamten Lieder raten lässt und dann deren Hörverhalten analysiert - Lieder
-die nur selten ganz angehört werden, werden auch selten empfohlen.
-Myspace setzt auf die Annahme dass befreundete Personen auch einen ähnlichen
+gestreamten Lieder bewerten lässt und dann deren Hörverhalten analysiert -
+Lieder die nur selten ganz angehört werden, werden auch selten empfohlen.
+Myspace setzt auf die Annahme, dass befreundete Personen auch einen ähnlichen
 Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
 echten Personen.</p>
 <p>Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musik-Empfehlungen aussprechen die den Nutzer länger auf der Seite halten</p>
+Musikempfehlungen aussprechen die den Nutzer länger auf der Seite halten.</p>
 <p>Auch von wissenschaftlicher Seite ist das Problem der ,, <em>Music Recommendation
 Engine</em> '' noch nicht abschließend behandelt - es gibt allerdings eine steigende
 Anzahl von Arbeiten auf diesem Gebiet:</p>
@@ -267,11 +271,11 @@ Seiten starkes Buch. <a class="reference internal" href="../zzz_bibliography.htm
 <p>Viele dieser Arbeiten präsentieren jeweils einen Weg um die Ähnlichkeit zweier
 Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
-oder nutzen vorhandene Metadaten um beispielsweise auf den Songtexten die Themen
+oder nutzen vorhandene Metadaten um beispielsweise aus den Songtexten die Themen
 zu extrahieren die im Lied behandelt werden.</p>
-<p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbank wie
-<em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
-verständlichen Gründen schwer zu besorgen.</p>
+<p>Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbanken
+wie <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a> leicht aufzufinden - lediglich die Audiodaten sind aus
+verständlichen, legalen Gründen schwer zu besorgen.</p>
 <p>Die nötigen Bauteile um ein allgemein einsetzbares, qualitatives
 Musikempfehlunssystem zu schaffen sind also vorhanden - nur die Umsetzung fehlt.</p>
 <p class="rubric">Footnotes</p>
@@ -284,41 +288,48 @@ Musikempfehlunssystem zu schaffen sind also vorhanden - nur die Umsetzung fehlt.
 </div>
 <div class="section" id="wie-ist-die-aktuelle-situation">
 <h3>1.1.3 Wie ist die aktuelle Situation?<a class="headerlink" href="#wie-ist-die-aktuelle-situation" title="Permalink to this headline">¶</a></h3>
-<p>Weit verbreitet sind bei Musicplayern ,,Dynamische Playliste'' die allerdings
-bei den meisten Implementierungen bei vorhandenen Plattformen wie <tt class="docutils literal"><span class="pre">last.fm</span></tt>
-suchen um Musikempfehlungen auszusprechen. Das ist keineswegs eine schlechte
-Lösung, da solche Dienste sehr gute Resultate liefern können.</p>
+<p>Weit verbreitet sind bei Musicplayern <em>,,Dynamische Playlists''</em> <a class="footnote-reference" href="#f4" id="id4"><sup>4</sup></a>  die
+allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
+<tt class="docutils literal"><span class="pre">last.fm</span></tt> suchen, um Musikempfehlungen auszusprechen - was  keineswegs eine
+schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern.</p>
 <p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
-nicht immer möglich oder überhaupt wünschenswert - eine Lösung die rein auf
-einen Rechner laufen kann wäre von Nöten. Gewißermaßen das Backend von
+nicht immer möglich oder überhaupt wünschenswert - eine Lösung welche rein auf
+einem Rechner laufen kann wäre von Nöten - gewißermaßen das Backend von
 <tt class="docutils literal"><span class="pre">last.fm</span></tt> für den freien (frei wie in <em>Free Open Source Software</em>) Einsatz.</p>
-<p>Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung die zwischen allen
+<p>Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die zwischen allen
 paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
-Musiklabes ausgeliefert - denn meist wird nur die momentan <em>populäre</em> Musik bei
+Musiklabes unterworfen - denn meist wird nur die momentan <em>populäre</em> Musik bei
 den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
-Natur - freie, Creative Commons-lizensierte Musik wie man sie beispielsweise auf
-Jamendo <a class="footnote-reference" href="#f2" id="id4"><sup>2</sup></a> zu finden ist sucht man anderswo vergebens.</p>
+Natur - freie, <em>Creative Commons</em> lizensierte Musik, wie man sie beispielsweise
+auf Jamendo <a class="footnote-reference" href="#f3" id="id5"><sup>3</sup></a> findet, sucht man anderswo vergebens.</p>
 <p>Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
 existierenden Backends, wie sie beispielsweise hinter <tt class="docutils literal"><span class="pre">last.fm</span></tt> stehen, wäre
 ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
 sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein.</p>
-<p>Die Tatsache dass der Autor sich schon seit längerer Zeit ein ,, <em>echtes Dynamic
-Playlist Feature</em> '' für den MPD Client <a class="footnote-reference" href="#f3" id="id5"><sup>3</sup></a> den er entwickelt wünscht trägt
-natürlich auch zur Motivation bei - vor allem soll auch nach dem Abschluss
-dieser Arbeit das Projekt weiterentwickelt werden.</p>
+<p>Die Tatsache, dass der Autor sich schon seit längerer Zeit ein ,, <em>echtes
+Dynamic Playlist Feature</em> '' für den MPD Client <a class="footnote-reference" href="#f4" id="id6"><sup>4</sup></a> den er entwickelt
+wünscht, trägt natürlich auch zur Motivation bei - vor allem soll auch nach dem
+Abschluss dieser Arbeit das Projekt weiterentwickelt werden.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>Eine Streaming Plattform für freie, Creative Commons-lizensierte Musik. <a class="reference internal" href="../zzz_bibliography.html#t" id="id6">[Link-2]</a></td></tr>
+<tr><td class="label">[2]</td><td><em>Dynamische Playlisten</em> bezeichnen die automatisch nach bestimmten
+Kriterien aus einen Pool von Songs fortlaufen generiert werden.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="f3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>Ein MPD Client ist eine ,, <em>Fernbedienung</em> '' für den unter Unix weit
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>Eine Streaming Plattform für freie, <em>Creative Commons</em> lizensierte Musik. <a class="reference internal" href="../zzz_bibliography.html#t" id="id7">[Link-2]</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> Ein MPD Client ist eine <em>,,Fernbedienung''</em> für den unter Unix weit
 vebreitenden MPD (MusicPlayerDaemon).</td></tr>
 </tbody>
 </table>
@@ -333,11 +344,11 @@ Musikempfehlungssystem <em>libmunin</em> genannt.</p>
 and Munin (Old Norse “memory” or “mind”)
 are a pair of ravens that fly all over the world Midgard,
 and bring information to the god Odin.</p>
-<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014hugin" id="id7">[8]</a></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014hugin" id="id8">[8]</a></p>
 </div></blockquote>
 <p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
-library <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine
-kommerzielle Library mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="reference internal" href="../zzz_bibliography.html#ikc" id="id8">[Link-3]</a>) eine
+Bibliothek <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt dass eine
+kommerzielle Bibliothek mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="reference internal" href="../zzz_bibliography.html#ikc" id="id9">[Link-3]</a>) eine
 freie Alternative erhält.</p>
 </div>
 </div>
