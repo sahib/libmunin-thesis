@@ -8,4 +8,4 @@
   \phantomsection  % makes hyperref recognize this section properly for pdf link
 \else
 \fi
-\addcontentsline{toc}{chapter}{D~~Literaturverzeichnis}
+\addcontentsline{toc}{chapter}{E~~Literaturverzeichnis}

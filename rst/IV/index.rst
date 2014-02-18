@@ -62,7 +62,7 @@ Kurze Erläuterung des Beispiels
   
   Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
   Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
-  und Weighting) mitunder recht anstrengend werden kann greifen wir auf eine
+  und Weighting) mitunter recht anstrengend werden kann greifen wir auf eine
   Session mit vorgefertigter :term:`Maske` zurück - die sogenannte
   ``EasySession``.
   
@@ -93,18 +93,18 @@ Kurze Erläuterung des Beispiels
   Session kann man diese nach Belieben Konfigurieren.
   
   Ein Problem dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
-  Nutzter halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
+  Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
   verwaltet die Originaldaten mit denen er arbeitet während *libmunin* nur
   normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
   welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
 
   Dazu ist ein Mapping erforderlich das 
   Zu diesem Zwecke geben die Operationen ``add``, ``insert``, ``modify`` und
-  ``remove`` eine eindeutige ID zurück die einen von *libmunin's* Songs
-  referenziert. Der Benutzer kann diese nutzen um auf eine ID innerhalb *seiner*
+  ``remove`` eine eindeutige *ID* zurück die einen von *libmunin's* Songs
+  referenziert. Der Benutzer kann diese nutzen um auf eine *ID* innerhalb *seiner*
   Datenbank zu referenzieren. 
 
-  Im obigen Beispiel wird die von ``add`` zurückgebene ID auf die ID innerhalb
+  Im obigen Beispiel wird die von ``add`` zurückgebene *ID* auf die *ID* innerhalb
   von *MY_DATABASE* gemappt.
 
 * **Zeile 21:**
@@ -112,7 +112,7 @@ Kurze Erläuterung des Beispiels
   In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen uns von der
   ``EasySession`` über die Methode ``recommend_from_seed`` zwei Empfehlungen zum ersten
   Song der über ``add`` hinzugefügt wurde geben. Die Empfehlung selbst wird als
-  ``Song`` Objekt ausgebene - dieses hat unter anderen eine ID gespeichert mit
+  ``Song`` Objekt ausgegeben - dieses hat unter anderen eine *ID* gespeichert mit
   der wir die ursprünglichen Daten finden können.
 
 Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
@@ -153,10 +153,15 @@ Kurze Implementierungshistorie
 Am 11. Oktober 2013 wurde mit der Implementierung begonnen. 
 
 Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
-der Distanzen und das Berechnen jeder einzelnen Songkombination vorgesehen -
-aus den bereits erwähnten Gründen hat sich das zu einer Approxmiation geändert.
-Hierbei eine vernünftige Herangehensweise zu finden hat letzlich ca. 1
+der Distanzen und das Berechnen jeder einzelnen Song-Kombination vorgesehen -
+aus den bereits erwähnten Gründen hat sich das zu einer Approximation geändert.
+Hierbei eine vernünftige Herangehensweise zu finden hat letztlich ca. 1
 :math:`^1/_2` Monate beansprucht.
+
+Die zwischenzeitlich aufgekommene Idee Audiodaten mittels Audiofingerprints wie
+*Chromaprint* zu vergleichen wurde wieder aufgegeben - damit ließen sich
+wirklich nur fast gleiche Stücke ermitteln. Selbst *Live* und *Studio* Versionen
+ließen sich manchmal nicht differenzieren.
 
 Parallel zur Implementierung wurde ein ,,Tagebuch'' :cite:`THV` verfasst das
 dazu dienen sollte Ideen und Geschehnisse festzuhalten - allerdings weniger als
@@ -165,6 +170,41 @@ Information für Dritte, mehr als persönliche Erinnerung.
 Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt. 
 Die letzten 3 :math:`^1/_2` Wochen dieser Zeit wurden für die
 Implementierung einer Demonanwendung aufgewendet.
+
+Liste verfügbarer Empfehlungs-Strategien
+========================================
+
+Basierend auf einem Seedsong
+----------------------------
+
+Basierend auf einem vom Endnutzer ausgewählten Song
+wird ein Iterator zurückgegeben der gemäß :ref:`recom-out` eine Breitensuche von
+diesem :term:`Seedsong` aus ausführt. Optional wird  der *Iterator* gemäß
+:ref:`recom-filter` gefiltert.
+
+Basierend auf einer Heuristik
+-----------------------------
+
+*libmunin* kann auch automatisch einen oder mehrere geeignete Seedsongs
+auswählen. Dabei wird der Reihe nach das folgende probiert:
+
+* Wähle die Regel mit der besten Bewertung aus und nehme alle darin erwähnten
+  Songs als Seedsongs an.
+* Wähle den Song mit der höchsten Abspielanzahl als :term:`Seedsong`.
+* Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
+  abgespielt wurde, so wird ein zufälliger :term:`Seedsong` gezogen.
+
+Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
+
+Basierend auf einer Attributsuche
+---------------------------------
+
+Es kann nach einen oder mehreren Songs gesucht werden die gewisse
+Attribut-Werte-Paare aufweisen. Als Beispiel kann ein Song gesucht werden der
+die Merkmale ,,Genre: Rock'' und ,,Date: 2012'' aufweist.
+
+Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
+Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
 
 Liste verfügbarer Provider und Distanzfunktionen
 ================================================
@@ -200,21 +240,21 @@ Audio File einen Vektor mit 1000 RGB-Farbwerten (siehe
 niedriger Frequenzen (rot), mittlerer (grün) und hoher Frequenzen (blau) in
 einem Tausendstel des Audiostücks. 
 
-Obwohl man aus dem Namen dises Verfahren schließen könnte dass hier die
+Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
 *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
-lediglich herauslesen wie ,,engergetisch'' ein Lied zu einem bestimmten
+lediglich herauslesen wie ,,energetisch'' ein Lied zu einem bestimmten
 Zeitpunkt ist - mit etwas Glück kann man auch Instrumente erkennen - so ist
 die Kombination von E-Gitarre und Drums oft ein helles Türkis.
 
 Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet - die
-dominaten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
+dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
 
 Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
 Typ ihrer Eingabe unterscheiden:
 
 * ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
 * ``MoodbarFile``: Nimmt ein Pfad zu einem von der ``moodbar`` erstellten Datei
-  entgegen die einen Vektor aus 1000 RGB-Werten binär beeinhaltet.
+  entgegen die einen Vektor aus 1000 RGB-Werten binär beinhaltet.
 * ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audiodatei entgegen
   und führt das ``moodbar``-Utility darauf aus falls noch keine weiter Datei mit
   demselben Pfad plus der zusätzlichen Endung ``.mood`` vorhanden ist.
@@ -282,7 +322,7 @@ Momentan ein Synonym für ``AlbumNormalize``.
 ~~~~~~~~~~~~~
 
 Erlaubt das Verketten von Providern. Der erste Eingabewert wird dem ersten
-Provider in der Kette gegeben und die Ausgabe, ähnliche wie beiner Unix-Pipe, 
+Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei einer Unix-Pipe, 
 wird an den nächsten Provider in der Kette als Eingabe weitergegeben.
 
 Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
@@ -306,7 +346,7 @@ Baukastenprinzip:
 ``Stem``
 ~~~~~~~~
 
-Bringt mithilfe des Porter-Stemmer Algorithmusses einzelne Wörter oder eine
+Bringt mithilfe des Porter-Stemmer-Algorithmus es einzelne Wörter oder eine
 Liste von Wörtern auf ihren Wortstamm zurück. Aus den Wörtern *Fisher*, *Fish*,
 *fishing* wird beispielsweise stets *fish*. Dies ist natürlich abhängig von der
 Eingabesprache - momentan wird aber stets Englisch angenommen.
@@ -377,7 +417,7 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
     :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
               Rating.
     :alt: Extrahierte Keywords aus ,,Yellow Submarine''
-    :spec: r l
+    :spec: c c
 
     ====== =================================
     Rating Keywords 
@@ -519,7 +559,7 @@ einzelnen Keywords in die Distanz mit ein.
 """"""""""
 
 Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied vorgeschlagen
-bekommen - oder zumindestens in derselben Sprache.
+bekommen - oder zumindest in derselben Sprache.
 
 ``GenreTreeAvgLink``, ``GenreTree``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -651,7 +691,8 @@ Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 
 * Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
   nur knapp 3 Monaten Implementierungszeit.
-* Große Zahl an nützlichen Libraries, besonders für den wissenschaftlichen Einsatz.
+* Große Zahl an nützlichen Bibliotheken, besonders für den wissenschaftlichen
+  Einsatz.
 * Bei Performanceproblemen ist eine Auslagerung von Code nach
   :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` mittels *Cython* sehr
   einfach möglich.
@@ -663,19 +704,19 @@ dann entsprechend das *Distributed Version Control System* ``git`` genutzt.
 
 Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
 besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
-zumindestens die Seite für spätere Projekte merken. 
+zumindest die Seite für spätere Projekte merken. 
 
 Die dazugehörige Dokumentation wird bei jedem *Commit* automatisch aus den
-Sourcen, mittels des freien Dokumentationsgenerators Sphinx, auf der
+Quellen, mittels des freien Dokumentations-Generators Sphinx, auf der
 Dokumentations-Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
 gemacht :cite:`5LX`.
 
-Zudem werden pro Commit unittests auf der Continious-Integration Plattform
+Zudem werden pro Commit Unittests auf der Continious-Integration Plattform
 *TravisCI* :cite:`JIU` für verschiedene Python-Versionen durchgeführt. Dies hat
 den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
 vergessen hat die unittests lokal durchzuführen.
 
-Schlägt der Build fehl so färben sich kleine Buttons in den oben genannten
+Schlägt der *Build* fehl so färben sich kleine Buttons in den oben genannten
 Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
 
 .. _fig-travis-badge:
@@ -708,6 +749,35 @@ modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
 *reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML
 Variante :cite:`8MD` erstellt wird - letztere ist sogar für mobile Endgeräte
 ausgelegt.  
+
+Unittests
+---------
+
+Die meisten Module sind mit ``unittests`` ausgestattet, die sich, für Python
+typisch, am Ende von jeder ``.py``-Datei befinden:
+
+.. code-block:: python
+
+    # Implementierung:
+    def func():
+        return 42
+
+    # Tests werden nur ausgeführt wenn das script direkt ausgeführt wird.
+    if __name__ == '__main__':
+        import unittest
+
+        # Ein Unittest:
+        class TestFunc(unittest.TestCase):
+            def test_func(self):
+                self.assertEqual(func(), 42)
+
+        # Führe tests aus:
+        unittest.main()
+
+        
+Auf einer detaillierten Erklärung der im einzelnen getesteten Funktionalitäten
+wird verzichtet-  diese würden den Rahmen der Projektarbeit ohne erkenntlichen
+Mehrwert sprengen.
 
 Lines of Code (*LoC*)
 ---------------------
@@ -754,4 +824,4 @@ geschriebenen (und wieder gelöschten) Zeilen:
 
 ``gource`` ist ein Programm das in einem optisch ansprechenden Video zeigt wie
 sich das ``git``-Repository mit der Zeit aufbaut. Unter :cite:`8MC` findet sich
-ein ein-minütiges Video dass enstprechend die Entwicklung von libmunin zeigt.
+ein ein-minütiges Video dass entsprechend die Entwicklung von *libmunin* zeigt.

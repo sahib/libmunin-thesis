@@ -18,13 +18,14 @@ implementiert wird.
 
 *Ein kurzer Leitfaden für dieses Kapitel:*
 
-* Es wird erst ein grober überblick über die verwendeten Datenstrukturen und der
-  Algorithmik gegeben (dem *Kern* von *libmunin*)
+* Es wird erst ein grober Überblick über die verwendeten *Datenstrukturen und der
+  Algorithmik* gegeben (dem *Kern* von *libmunin*)
 * Danach wird die *Umwelt* betrachtet und wie die Daten aussehen, die in unsere
   Datenstrukturen eingepflegt werden müssen. 
 * Im Anschluss daran wird überlegt wie die *Schnittstelle* aussehen muss, um die
   Daten von der Außenseite zu importieren.
-* Letzlich wird ein möglicher *Softwareentwurf* vorgestellt und besprochen.
+* Letztlich wird ein möglicher *Softwareentwurf* vorgestellt und detailliert
+  besprochen.
 
 Grundüberlegungen
 -----------------
@@ -61,7 +62,7 @@ TODO: Erläuterung: kNN Graph
 Graphenoperationen
 ------------------
 
-Angenommen jeder :term:`Song` ist ein Mapping von Attributen zu Werten, so
+Angenommen jeder :term:`Song` ist ein *Mapping* von Attributen zu Werten, so
 können wir für jedes Attribut eine :term:`Distanzfunktion` definieren. Nach
 einer bestimmten Gewichtung können wir dann die einzelnen Distanzen
 zusammenrechnen und zu einer gemeinsamen :term:`Distanz` zusammenschmelzen.
@@ -92,7 +93,7 @@ Wie ``rebuild``, nutzt aber quadratischen Aufwand indem es jeden Song mit jedem
 anderen vergleicht. Dies ist für kleine Mengen (:math:`\le 200`) von Songs
 verträglich und für *sehr* kleine Mengen sogar schneller. 
 
-Hauptsächlich für Debuggingzwecke um Fehler beim herkömmlichen ``rebuild``
+Hauptsächlich für Debuggingzwecke, um Fehler beim herkömmlichen ``rebuild``
 aufzudecken.
 
 ``add``
@@ -128,9 +129,11 @@ mittels ``insert`` wieder eingefügt.
 ~~~~~~~~~~
 
 Durch das Löschen und Hinzufügen von Songs können *Einbahnstraßen* im Graphen
-entstehen. Durch dem nachgelagerten *fixing* Schritt werden diese, nach
+entstehen. Durch dem nach gelagerten *fixing* Schritt werden diese, nach
 bestimmten Regeln, entweder entfernt oder in bidirektionale Verbindungen
 umgebaut.
+
+.. _recom-out:
 
 Ausstellen von Empfehlungen
 ---------------------------
@@ -143,7 +146,7 @@ Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* `` eben
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
 Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste
-wird ein Versprechen heraugegeben die Empfehlungen genau dann zu berechnen wenn
+wird ein Versprechen herausgegeben die Empfehlungen genau dann zu berechnen wenn
 sie gebraucht werden (*Lazy Evaluation*). Dadurch ist auch die Zahl der
 zu gebenden Empfehlungen variabel - was sehr nützlich beim Erstellen einer 
 dynamischen Playlist ist.
@@ -178,8 +181,8 @@ Nur eine bestimmte Anzahl von Regeln wird gespeichert - zuviele Regeln würden
 *historische Altlasten* immer weiter mitschleppen und der aktuelle Geschmack des
 Benutzers würde nicht widergespiegelt werden.
 
-Integration von libmunin in die Umwelt
-======================================
+Integration von *libmunin* in die Umwelt
+========================================
 
 Allgemeiner Ablauf
 ------------------
@@ -188,22 +191,22 @@ Eine gut definierte Datenstruktur nützt nichts wenn man nicht weiß wie die
 Daten, die aus der *Umwelt* hereinkommen aussehen. Diese müssen schließlich
 erstmal in die Form eines Graphen gebracht werden bevor man Empfehlungen
 aussprechen kann. Dieser *Prozess* (siehe Abbildung :num:`fig-startup`)
-beeinhaltet vier Schritte:
+beinhaltet vier Schritte:
 
 * **Kaltstart:** Im Kaltstart müssen mittels *Information Retrieval* Techniken
   fehlende Daten, wie beispielsweise die Songtexte oder die die Audiodaten, aus
   lokalen oder entfernten Quellen besorgt werden. Dies ist Aufgabe des Nutzers -
   *libmunin* bietet hier nur Hilfsfunktionen an.
-  Der *Kaltstart* ist nur bei der ersten Benutzung einer Musikdatenbanken nötig.
+  Der *Kaltstart* ist nur bei der ersten Benutzung einer Musikdatenbank nötig.
 * **Analyse:** Bei der *Analyse* werden die nun vorhandenen Daten untersucht und
   durch sogenannte :term:`Provider` normalisiert. Die Normalisierung ist nötig
   um im nächsten Schritt eine einfache und effiziente Vergleichbarkeit der Daten
   zu gewährleisten. 
-* **Rebuild:** Dies entsprich der ``rebuild``-Operation.
+* **Rebuild:** Dies entspricht der ``rebuild``-Operation.
   In diesem Schritt werden die normalisierten Daten untereinander mittels einer
   passenden :term:`Distanzfunktion` untersucht um mithilfe der dabei
   entstehenden :term:`Distanz` den Graphen aufzubauen.
-* **Nutzen:** Durch Traversierung des Graphen können jetzt Ergebnisse abgeleitet 
+* **Einsatz:** Durch Traversierung des Graphen können jetzt Ergebnisse abgeleitet 
   werden.
 
 .. _fig-startup:
@@ -227,13 +230,13 @@ Dazu bedarf es einer weiteren Eingabe vom Nutzer: Einer Beschreibung wie seine
 Musikdatenbank aufgebaut ist, welche *Tags* sie enthält und wie mit diesen Daten
 verfahren werden soll. 
 
-Da diese Daten also sehr unterschiedlich aufgbaut sind, muss *libmunin* sehr
+Da diese Daten also sehr unterschiedlich aufgebaut sind, muss *libmunin* sehr
 generisch aufgebaut sein. Der Ansatz ist dabei, zusätzlich vom Nutzer eine
 :term:`Maske` zu verlangen die beschreibt welche möglichen *Tags* (oder
 :term:`Attribut`) ein einzelner Song besitzt Für jedes :term:`Attribut` kann
 dann, nach Baukastenprinzip, ein :term:`Provider`, eine :term:`Distanzfunktion`
 und eine Gewichtung ausgewählt werden. Letzere beschreibt wie *wichtig* diese
-Attribut aus Sicht des Nutzers in Bezug auf die Änhlichkeit ist. Der
+Attribut aus Sicht des Nutzers in Bezug auf die Ähnlichkeit ist. Der
 :term:`Provider` normalisiert die Werte von einem :term:`Attribut` auf bestimmte
 Art und Weise, während die :term:`Distanzfunktion` sich um das Vergleichen der
 normalisierten Werte nach bestimmten, je auf Art des Attributs spezialisierten
@@ -355,7 +358,7 @@ implementieren indem sie von den jeweiligen Oberklassen ableiten.
 
 Hier geschieht alles was mit dem Speichern und Vergleichen einzelner Songs zu
 tun hat. Dies umfasst das Speichern der ``Songs`` in der ``Database`` sowie das 
-Verwalten der Nachbarschafts ``Songs`` für jeden ``Song`` mit den dazugehörigen 
+Verwalten der Nachbarschafts-``Songs`` für jeden ``Song`` mit den dazugehörigen 
 ``Distance``.
 
 Der oben erwähnte Graph entsteht durch die Verknüpfungen der Songs untereinander
@@ -364,7 +367,7 @@ und bildet keine eigenständige Klasse.
 5. Regeln und History
 ~~~~~~~~~~~~~~~~~~~~~
 
-Dieser Teil von libmunin ist für das Aufzeichnen des Benutzerverhaltens und dem
+Dieser Teil von *libmunin* ist für das Aufzeichnen des Benutzerverhaltens und dem
 Ableiten von Assoziationsregeln daraus zuständig.
 
 Einzelne Komponenten
@@ -383,16 +386,20 @@ Es bietet über Proxymethoden Zugriff auf alle Funktionalitäten von *libmunin*
 und kann zudem persistent abgespeichert werden. Dies wird durch das Python-Modul
 ``pickle`` realisiert - es speichert rekursiv alle Member einer
 ``Session``-Instanz in einem Python-spezifischen Binärformat - Voraussetzung
-hierführ ist, dass alle Objekte direkt oder indirekt an die ``Session``-Instanz
-gebunden sind.
+hierfür ist, dass alle Objekte direkt oder indirekt an die ``Session``-Instanz
+gebunden sind. 
+
+Der Speicherort entspricht dem XDG-Standard, jede Session wird mit ``gzip``
+gepackt unter ``$HOME/.cache/libmunin/<name>.gz`` gespeichert.
+Der ``<name>`` lässt sich der Session beim Instanzieren übergeben.
 
 Die weitere Hauptzuständigkeit einer ``Session`` ist die Implementierung der
-Recommendation-Algorithmen, die den Graphen traversieren.
+Recommendation-Strategien, die den Graphen traversieren.
 
 Mask
 ~~~~
 
-Ein Hashtable-ähnliches Objekt, dass die Namen der einzelnen :term:`Attribute`
+Ein Hashtable-ähnliches Objekt, dass die Namen der einzelnen :term:`Attribut`
 festlegt. Da dies bereits oben erklärt wurde, hier nochmal ein kurzes Beispiel
 wie das in der Praxis aussieht:
 
@@ -427,37 +434,38 @@ EasySession
 ~~~~~~~~~~~
 
 Wie die normale ``Session``, bietet aber eine bereits fertigkonfigurierte
-:term:`Maske` an, die für viele Anwendungsfälle ausreicht. In Tabelle :num:`easy-session`
-ist eine Auflistung gegeben wie diese im Detail konfiguriert ist.
+:term:`Maske` an, die für viele Anwendungsfälle ausreicht. In Tabelle
+:num:`fig-easy-session` ist eine Auflistung gegeben wie diese im Detail
+konfiguriert ist.
 
 .. _fig-easy-session:
 
 .. figtable::
     :caption: Default-Konfiguration der ,,EasySession''.
     :alt: Default-Konfiguration der ,,EasySession''
-    :spec: l | l | l | l | l | l
+    :spec: c | c | c | c | c | c
 
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    |  Attribut    |  Provider                     |  Distanzfunktion     |  Weight | Eingabe         | Kompression?        |
-    +==============+===============================+======================+=========+=================+=====================+
-    | ``artist``   | ``ArtistNormalize``           | Default              | 0.5     | Artistname      | :math:`\CheckedBox` |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    | ``album``    | ``AlbumNormalize``            | Default              | 0.5     | Albumtitel      | :math:`\CheckedBox` |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    | ``title``    | ``TitleNormalize`` + ``Stem`` | Default              | 1       | Tracktitel      | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    | ``date``     | ``Date``                      | ``Date``             | 2       | Datums-String   | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    | ``bpm``      |  ``BPMCached``                | ``BPM``              | 3       | Audiofile-Pfad  | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    | ``lyrics``   | ``Keywords``                  | ``Keywords``         | 3       | Songtext        | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    | ``rating``   | Default                       | ``Rating``           | 2       | Integer von 1-5 | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    |  ``genre``   |  ``GenreTree``                | ``GenreTreeAvgLink`` | 4       | Genre-String    | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
-    |  ``moodbar`` | ``MoodbarAudioFile``          | ``Moodbar``          | 5       | Audiofile-Pfad  | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+-----------------+---------------------+
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    |  Attribut    |  Provider                     |  Distanzfunktion     |  Weight | Eingabe                         | Kompression?        |
+    +==============+===============================+======================+=========+=================================+=====================+
+    | ``artist``   | ``ArtistNormalize``           | Default              | 0.5     | Artistname                      | :math:`\CheckedBox` |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    | ``album``    | ``AlbumNormalize``            | Default              | 0.5     | Albumtitel                      | :math:`\CheckedBox` |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    | ``title``    | ``TitleNormalize`` + ``Stem`` | Default              | 1       | Tracktitel                      | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    | ``date``     | ``Date``                      | ``Date``             | 2       | Datums-String                   | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    | ``bpm``      |  ``BPMCached``                | ``BPM``              | 3       | Audiofile-Pfad                  | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    | ``lyrics``   | ``Keywords``                  | ``Keywords``         | 3       | Songtext                        | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    | ``rating``   | Default                       | ``Rating``           | 2       | Integer (:math:`0 \le x \le 5`) | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    |  ``genre``   |  ``GenreTree``                | ``GenreTreeAvgLink`` | 4       | Genre-String                    | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    |  ``moodbar`` | ``MoodbarAudioFile``          | ``Moodbar``          | 5       | Audiofile-Pfad                  | :math:`\Box`        |
+    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
 
 
 Song
@@ -473,7 +481,7 @@ Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
 Nachbarsongs. Er muss Methoden bieten um eine :term:`Distanz` zu einem Nachbarn
 hinzuzufügen oder zu entfernen, Methoden um über alle Nachbarn zu iterieren oder
 die :term:`Distanz` zu einen bestimmten Nachbarn abzufragen 
-und eine ``disconnect()`` Methode um den ``Song`` zu entfern ohne dabei ein
+und eine ``disconnect()`` Methode um den ``Song`` zu entfernt ohne dabei ein
 ,,Loch'' zu hinterlassen.
 
 Tatsächlich gibt es kein eigene ``Graph``-Klasse - der :term:`Graph` an sich
@@ -500,7 +508,7 @@ Anschaulich ist das in :num:`fig-distance-table` dargestellt.
     :caption: Anschauliche Darstellung der Daten die in einer ``Distance``
               Instanz gespeichert werden
     :alt: Beispielhafte Darstellung einer ``Distance`` Instanz.
-    :spec: r | l 
+    :spec: c | c 
 
     +--------------------+-----------+
     | *Attribut*         | *Distanz* |
@@ -520,7 +528,7 @@ gespeichert. Sie fließen aber dennoch in die gewichtete Gesamtdistanz mit ein.
 
 Man hätte auch einen einzelnen ``float`` als ``Distanz`` nehmen könne, da aber
 die einzelnen Unterdistanzen für jedes :term:``Attribut`` bekannt sind kann
-später eine Empehlung ,,erklärt'' werden - beispielsweise kann man dadurch
+später eine Empfehlung ,,erklärt'' werden - beispielsweise kann man dadurch
 feststellen dass das ``lyrics``-Attribut fast komplett unähnlich war, da das
 ``genre``-Attribut aber eine Distanz von :math:`0.05` hat wurde dieser Song
 vorgeschlagen. 
@@ -534,8 +542,6 @@ Database
 
 Die ``Database`` Klasse ist eine logische Abtrennung der ``Session`` um eine
 einzige, allmächtige ,,Superklasse'' zu verhindern. 
-
-Sie implementiert die einzelnen, oben besprochenen Graphenoperationen.
 
 Sie hat folgende Aufgaben:
 
@@ -551,15 +557,15 @@ History
 
 Oberklasse für ``RecommendationHistory`` und ``ListenHistory``. Implementiert
 die gemeinsame Funktionalität Songs die zeitlich hintereinander zur ``History``
-hinzugefügt werden in *Gruppen* einzuteilen. Gruppen beeinhalten maximal eine
+hinzugefügt werden in *Gruppen* einzuteilen. Gruppen beinhalten maximal eine
 bestimmte Anzahl von Songs, ist eine *Gruppe* voll so wird eine neue angefangen.
 Vergeht aber eine zu lange Zeit seit dem letzten Hinzufügen wird ebenfalls 
-eine neue *Gruppe* begonnen. Jede abgeschlossene *Gruppe* wird in der History
-abgespeichert. 
+eine neue *Gruppe* begonnen. Jede abgeschlossene *Gruppe* wird in der
+``History`` abgespeichert. 
 
 Das Ziel der zeitlichen Gruppierung ist eine Abbildung des Nutzerverhaltens.
 Die Annahme ist hierbei dass große zeitliche Lücken zwischen zwei Liedern auf 
-wenig zusammehängende Songs hindeuten. Zudem bilden die einzelnen *Gruppen* eine
+wenig zusammenhängende Songs hindeuten. Zudem bilden die einzelnen *Gruppen* eine
 Art ,,Warenkorb'' der dann bei der Ableitung von Regeln genutzt werden kann.
 
 RecommendationHistory 
@@ -596,7 +602,7 @@ RuleIndex
 Speichert und indiziert die vom ``RuleGenerator`` erzeugten Assoziationsregeln.
 Da es später möglich sein muss jede :term:`Assoziationsregel` abzufragen die
 einen bestimmten Song betrifft ist es vonnöten eine zusätzliche Hashtable von
-Songs auf AssoziationsRegeln zu halten die als Index dient.
+Songs auf Assoziationsregeln zu halten die als Index dient.
 
 Zudem *,,vergisst''* der Index Regeln die Songs betreffen die nicht mehr in der
 ``ListenHistory`` vorhanden sind.
@@ -607,7 +613,7 @@ Provider
 Die Oberklasse von der jeder konkreter ``Provider`` ableitet.
 
 Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
-überschrieben wird. Zudem bieten viele Provider als Convinience eine
+überschrieben wird. Zudem bieten viele Provider als *,,Convinience''* eine
 ``do_reverse()`` Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.
 

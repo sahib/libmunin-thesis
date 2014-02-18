@@ -57,7 +57,7 @@ TODO: Nachweise
 
 - **last.fm** :cite:`9NT`
 
-    Der wohl bekannteste Musik Empfehlungs Service im Netz. Benutzer können sich mit
+    Der wohl bekannteste Musik Empfehlungs-Service im Netz. Benutzer können sich mit
     ihren Account ein personalisiertes Webradio (auch *Station* genannt, siehe
     :num:`fig-lastfm-webradio`) zusammenstellen. Dabei wählen sie ein Lied auf
     der Seite aus und lassen sich darauf basierend dann weitere Lieder oder
@@ -96,7 +96,7 @@ TODO: Nachweise
 
 - **YouTube** :cite:`WNN`
 
-    Youtube ist vorrangig als Videoplattform bekannt, durch die enorme
+    Youtube ist vorrangig als Video-Plattform bekannt, durch die enorme
     Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
     hoch. Interessant dabei ist, dass in der Sidebar stets Empfehlungen für
     weitere Videos angezeigt (siehe :num:`fig-youtube`) werden - in den meisten
@@ -165,37 +165,6 @@ TODO: Nachweise
         Zu fast jedem Artikel erhält man Empfehlungen was man noch kaufen
         könnte. Hier zu *Knorkator - The Schlechtest of*
 
-Sonstige Webseiten
-------------------
-
-TODO: remove this clusterfuck
-
-**tastekid** :cite:`IDK`
-
-    *Tastekid* ist ein allgemeiner Empfehlungsdienst und kann neben Musik auch
-    Künstler (siehe :num:`fig-tastekid`), Videos, Bücher und vieles mehr
-    vorschlagen. Es kann als *Meta-Aggregator* für Empfehlungen aufgefasst
-    werden - die eigentlichen Grunddaten kommen von anderen Diensten (im Falle
-    von Musik von **last.fm**).
-
-    Basierend auf diesen Grunddaten werden noch die Benutzer eingebunden indem sie
-    die Empfehlungen *liken* oder *disliken* können. Klar fehlerhafte
-    Empfehlungen können gemeldet werden woraufhin sie nach einer manuellen
-    Beschauung korrigiert werden.
-
-    Eine interessante Idee ist dabei dass die Resultate auch begründet werden -
-    so wird die Suche nach ,,The Beatles'' folgendermaßen begründet: 
-
-    .. _fig-tastekid:
-
-    .. figure:: figs/tastekid_recom.png
-        :alt: Empfehlungen von tastekid.com
-        :width: 100%
-        :align: center
-
-        Die Empfehlung von tastekid.com zu *Knorkator* - man beachte dass die
-        Eingabe automatisch als *Künstler* erkannt wurde.
-
 **Musicovery** :cite:`ZMF`
 
     Diese Seite kategorisiert eine große Anzahl von Musikstücken nach Stimmung
@@ -250,13 +219,13 @@ Software-Bibliotheken
 Während die Anzahl der Plattformen noch ins Unermeßliche ging, so liefert eine
 Suche nach *Music Recommendation (Library|System|Engine)* schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
-angeht. Nach einiger Suche ließen sich zumindestens zwei Projekte finden:
+angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
 - **mirage** :cite:`AHX`
 
     Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
     Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
-    nähesten ist aber wenig auf große Datenbanken ausgelegt und stützt sich
+    nähsten ist aber wenig auf große Datenbanken ausgelegt und stützt sich
     allein auf Audioanalyse - dazu wird während des *Kaltstartes* die gesamten
     Audiodaten der Musiksammlung analysiert.
 
@@ -527,14 +496,15 @@ Nichtanforderungen
 
 Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 
-    - Einpflegen manuell ersteller Empfehlungen
+    - Einpflegen manuell erstellter Empfehlungen
       
-        Dies ist per Wrapper um die Bibliothek möglich.
+        Dies ist per *,,Wrapper''* um die Bibliothek möglich.
 
     - *Social-based music recommendation*
 
-        *libmunin* soll eine rein *Content-based music recommendation* engine
-        werden. TODO: Erklären.
+        *libmunin* soll eine rein *Content-based music recommendation Engine* 
+        werden. Die Ähnlichkeit zweier Datensätze wird also algorithmisch
+        ermittelt, anstatt auf das Wissen von Menschen zurückzugreifen. 
 
 Zielgruppe
 ==========
@@ -567,12 +537,12 @@ Vom Autor sind die folgenden zwei Projekte anvisiert:
 
 
 Später kann ein Kommandozeilenprogramm entwickelt werden, dass eine beliebige
-Musksammlung einliest und das daraus gewonne Wissen auf Platte speichert. 
+Musksammlung einliest und das daraus gewonnene Wissen auf Platte speichert. 
 Ein weiteres Kommandozeilenprogramm könnte dieses dann einlesen und frei
 formatierbare Empfehlungen ausgeben. Besonders für Shellskripte wäre dies
 interessant.
 
 Basierend darauf kann auch ein DBUS-Service erstellt werden der diese gewonnene
-Daten programmiersprachenagnostisch anderen Anwendungen bereitstellt. Der
+Daten programmiersprachen-agnostisch anderen Anwendungen bereitstellt. Der
 Vorteil ist dabei dass es eine zentrale Anwendung gäbe - eine mehrfache Analyse
 der Musiksammlung von verschiedenen Programmen würde dabei entfallen.

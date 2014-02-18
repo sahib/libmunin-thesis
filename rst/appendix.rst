@@ -8,13 +8,14 @@ Abkürzungsverzeichnis
 ======================
 
 .. figtable::
-    :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} p{0.65\linewidth}
+    :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} | p{0.65\linewidth}
 
     =======================  ==================================
     Abkürzung                Bedeutung
     =======================  ==================================
-    **API**                  Application Programming Interface
-    **LoC**                  Lines of Code
+    **API**                  *Application Programming Interface*
+    **GUI**                  *Graphical User Interface*
+    **LoC**                  *Lines of Code*
     =======================  ==================================
 
 .. only:: latex
@@ -30,7 +31,7 @@ Glossar
 
     Song
 
-        Im Kontext von libmunin ist ein Song eine Menge von Attributen.
+        Im Kontext von *libmunin* ist ein Song eine Menge von Attributen.
         Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet. 
 
         Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
@@ -50,7 +51,7 @@ Glossar
 
     Distanzfunktion
 
-        Eine Distanzfunktion ist im Kontext von libmunin eine Funktion, die 
+        Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
         zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
         diesen berechnet.
 
@@ -94,7 +95,7 @@ Glossar
 
     Session
 
-        Eine *Session* ist eine Nutzung von libmunin über einem bestimmten
+        Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
         Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
         analysiert und ein :term:`Graph` wird daraus aufgebaut.
     
@@ -180,13 +181,103 @@ Glossar
 
     Graph 
 
-        Im Kontext von libmunin ist der Graph eine Abbildung aller Songs (als
+        Im Kontext von *libmunin* ist der Graph eine Abbildung aller Songs (als
         Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
         kennt jeder :term:`Song` *N* zu ihm selbst ähnlichsten Songs als
         Nachbarn.
 
         Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
         eine schneller zu berechnende Approximation zurückgegriffen.
+
+.. only:: latex
+
+   .. raw:: latex
+
+       \newpage
+
+
+.. _coldstart-example:
+
+``coldstart.py``
+================
+
+Führt die in :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
+aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
+Songtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
+Beats-per-Minute-Analyse wird lokalisiert. 
+
+Im Anschluss wird die Session aufgebaut und unter
+``$HOME/.cache/libmunin/EasySession.gz`` gespeichert.
+
+.. code-block:: python
+
+    #!/usr/bin/env python
+    # encoding: utf-8
+    # Stdlib:
+    import logging
+
+    # Internal:
+    import moosecat.boot
+    from moosecat.boot import g
+
+    # External:
+    from munin.easy import EasySession
+    from munin.provider import PlyrLyricsProvider
+
+    # Fetch missing lyrics, or load them from disk.
+    # Also cache missed items for speed reasons.
+    LYRICS_PROVIDER = PlyrLyricsProvider(cache_failures=True)
+
+    def make_entry(song):
+        # Hardcoded, Im sorry:
+        full_uri = '/mnt/testdata/' + song.uri
+        return song.uri, {
+            'artist': song.artist,
+            'album': song.album,
+            'title': song.title,
+            'genre': song.genre,
+            'bpm': full_uri,
+            'moodbar': full_uri,
+            'rating': None,
+            'date': song.date,
+            'lyrics': LYRICS_PROVIDER.do_process((
+                song.album_artist or song.artist, song.title
+            ))
+        }
+
+    if __name__ == '__main__':
+        # Bring up moosecat
+        moosecat.boot.boot_base(verbosity=logging.DEBUG)
+        g.client.connect(port=6601)
+        moosecat.boot.boot_metadata()
+        moosecat.boot.boot_store()
+
+        # Fetch the whole database into entries:
+        entries = []
+        with g.client.store.query('*', queue_only=False) as playlist:
+            for song in playlist:
+                entries.append(make_entry(song))
+
+        # Instance a new EasySession and fill in the values.
+        session = EasySession()
+        with session.transaction():
+            for uri, entry in entries:
+                try:
+                    print('Processing:', entry['bpm'])
+                    session.mapping[session.add(entry)] = uri
+                except:
+                    import traceback
+                    traceback.print_exc()
+
+        # Save the Session to disk (~/.cache/libmunin/EasySession.gz)
+        session.save()
+
+        # Plot if desired.
+        if '--plot' in sys.argv:
+            session.database.plot()
+
+        # Close the connection to MPD, save cached database
+        moosecat.boot.shutdown_application()
 
 .. only:: latex
 

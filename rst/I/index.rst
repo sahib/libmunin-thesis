@@ -18,7 +18,7 @@ State of the Art
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
 Vielzahl von Plattformen die Musik anbieten, entweder zum Kaufen (amazon), zum
 Streamen (``last.fm``, spotify, rhapsody, pandora, webradios...) oder auch um
-Menschen mit ähnlichem Musikgeschmack zu finden (youtube, myspace).
+Menschen mit ähnlichem Musik Geschmack zu finden (youtube, myspace).
 
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderen Songs die der Benutzer möglicherweise ebenfalls anhören
@@ -52,7 +52,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
               ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
     :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
-    :spec: r l | r l
+    :spec: c c | c c
 
     ========== ====== ========== ======
     Jahre      Anzahl Jahre      Anzahl
@@ -75,12 +75,12 @@ beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten um beispielsweise aus den Songtexten die Themen 
 zu extrahieren die im Lied behandelt werden.
 
-Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikdatenbanken
+Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikmetadatenbanken
 wie *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen, legalen Gründen schwer zu besorgen.
 
 Die nötigen Bauteile um ein allgemein einsetzbares, qualitatives
-Musikempfehlunssystem zu schaffen sind also vorhanden - nur die Umsetzung fehlt.
+Musikempfehlungssystem zu schaffen sind also vorhanden - nur die Umsetzung fehlt.
 
 .. rubric:: Footnotes
 
@@ -101,9 +101,9 @@ einem Rechner laufen kann wäre von Nöten - gewißermaßen das Backend von
 
 Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die zwischen allen
 paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
-Musiklabes unterworfen - denn meist wird nur die momentan *populäre* Musik bei
+Musiklabels unterworfen - denn meist wird nur die momentan *populäre* Musik bei
 den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
-Natur - freie, *Creative Commons* lizensierte Musik, wie man sie beispielsweise
+Natur - freie, *Creative Commons* lizenzierte Musik, wie man sie beispielsweise
 auf Jamendo [#f3]_ findet, sucht man anderswo vergebens.
 
 Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
