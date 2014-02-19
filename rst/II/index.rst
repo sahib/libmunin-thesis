@@ -34,8 +34,8 @@ Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
     #. Einsatz in Mediaplayern für große, meist lokale Musiksammlungen.
     #. Einsatz bei Music Streaming Plattformen als Backend für Empfehlungen.
     #. Einsatz bei Music Shops, um ähnliche Artikel vorzuschlagen.
-    #. Einsatz bei Webradios als *DJ-Software* zur Erstellung einer automatischen
-       Playlist.
+    #. Einsatz bei Webradios als *DJ-Software* zur Erstellung einer automatischen, 
+       intelligenten Playlist.
     #. Einsatz in sozialen Netzwerken um Menschen mit ähnlichem Musikgeschmack
        zu finden.
     
@@ -53,7 +53,7 @@ und Besonderheiten kurz erklärt.
 Bekannte Plattformen
 --------------------
 
-TODO: Nachweise
+TODO: Nachweise!
 
 - **last.fm** :cite:`9NT`
 
@@ -100,9 +100,8 @@ TODO: Nachweise
     Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
     hoch. Interessant dabei ist, dass in der Sidebar stets Empfehlungen für
     weitere Videos angezeigt (siehe :num:`fig-youtube`) werden - in den meisten
-    Fällen dann auch weitere Musikvideos. Dabei haben die meisten Videos auch
-    etwas mit dem Aktuellen zu tun - nur einige der ersten Empfehlungen sind die
-    ,,Trending Videos''.
+    Fällen dann auch weitere Musikvideos. Dabei haben die (meisten) Videos auch
+    etwas mit dem Aktuellen zu tun.
 
     Einige der Attribute die in die Empfehlung mit eingehen:
 
@@ -110,7 +109,6 @@ TODO: Nachweise
         * Upload-Datum
         * ,,Plays'' und tatsächliche ,,Plays'' (also ob das Video lang genug
           angeschaut wurde)
-        * ...
 
     .. _fig-youtube: 
 
@@ -145,15 +143,12 @@ TODO: Nachweise
     Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
     Dabei werden die Warenkörbe der Benutzer analysiert und es werden
     Assoziationsregeln erstellt - bevorzugtermaßen Regeln die unerwartete
-    Zusammenhänge aufdecken. Das typische Beispiel ist dabei: *,,Wer Bier kauft,
-    kauft auch Windeln''*. Diese Regeln werden dann genutzt um neue Artikel für
-    bestimmte Artikel vorzuschlagen (siehe :num:`fig-amazon`). Natürlich fließt
-    auch die personalisierte Shopping-Historie in die Empfehlunge mit ein.
-
-    Zudem hat Amazon im Vergleich zu den oben genannten Plattformen den Vorteil,
-    dass der Kauf eines Artikels ein klare Absichtserklärung ist - bei
-    Plattformen wie Youtube schaut man hingegen ein Video oft aus Neugier an,
-    obwohl dieses möglicherweise nicht in das Muster des Benutzers passt.
+    Zusammenhänge aufdecken. Ein Kauf ist auch eine klarere *Absichtserklärung*
+    als zB. ein Klick auf *YouTube*. Das typische Beispiel ist dabei: *,,Wer
+    Bier kauft, kauft auch Windeln''*. Diese Regeln werden dann genutzt um neue
+    Artikel für bestimmte Artikel vorzuschlagen (siehe :num:`fig-amazon`).
+    Natürlich fließt auch die personalisierte Shopping-Historie in die
+    Empfehlungen mit ein.
 
     .. _fig-amazon: 
 
@@ -174,50 +169,24 @@ TODO: Nachweise
     basierend auf diesen Eigenschaften sich Empfehlungen liefern zu lassen
     (siehe :num:`fig-musicovery-moodmap`).
     
-    .. subfigstart::
-
     .. _fig-musicovery-moodmap:
 
     .. figure:: figs/musicovery_moodmap.png 
-        :alt: Die Moodmap
-        :width: 100%
-        :align: left
+        :alt: Die Moodmap auf Musicovery.com
+        :width: 60%
+        :align: center
 
-        Die Moodmap
-
-    .. _fig-musicovery-likemap:
-
-    .. figure:: figs/musicovery_likemap.png
-        :alt: Die Musicmap
-        :width: 100%
-        :align: left
-
-        Die Musicmap (auch Likemap genannt).
-        Schwer zu erkennen ist die Beschriftung der X-Achse: 1950-2010.
-
-    .. subfigend::
-        :width: 0.9
-        :alt: Musicovery Demonstration
-        :label: fig-musicovery
- 
-        Verschiedene Möglichkeiten auf *musicovery.com*
+        Die Moodmap auf Musicovery.com
 
     Der sonstige Hauptzweck der Seite besteht aus der *Music Discovery* (daher
     auch das Kofferwort aus *Music* und *Discovery* als Name) - also dem
-    Entdecken neuer Musik.  Ein Beispiel dafür ist die sogenannte *MusicMap*
-    (siehe :num:`fig-musicovery-likemap`) - ein Koordinatensystem bei dem auf
-    der X-Achse die Zeit (1950 - 2010) und nach oben das Verhältnis von *Likes*
-    zu *Dislikes* aufgetragen ist. Mit anderen Worten: Liegt ein Punkt etwa in
-    der Mitte der Höhe so mochten ihn genauso viele Leute wie sie ihn nicht
-    mochten. Je weiter weg man von der Mitte ist desto einiger sind sich die
-    Benutzer ob der Song gut oder schlecht ist.
-
+    Entdecken neuer Musik.  
 
 Software-Bibliotheken
 ---------------------
 
 Während die Anzahl der Plattformen noch ins Unermeßliche ging, so liefert eine
-Suche nach *Music Recommendation (Library|System|Engine)* schon deutlich weniger
+Suche nach *Music-Recommendation-(Library|System|Engine)* schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
@@ -225,7 +194,7 @@ angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
     Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
     Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
-    nähsten ist aber wenig auf große Datenbanken ausgelegt und stützt sich
+    nähsten, ist aber wenig auf große Datenbanken ausgelegt und stützt sich
     allein auf Audioanalyse - dazu wird während des *Kaltstartes* die gesamten
     Audiodaten der Musiksammlung analysiert.
 
@@ -237,9 +206,9 @@ angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
     Eine kommerzielle Bibliothek, in
     :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte
-    Bibliothek, die im (mittlerweile eingestellten) Mufin-Audioplayer verwendet
-    wurde. Sie bietet - laut der Werbebroschüre - enorm viele, teils fragwürdige
-    oder unklare,  Features und hat nicht das Problem des *Kaltstartes*. Das
+    Bibliothek, die im (mittlerweile eingestellten) *Mufin-Audioplayer* verwendet
+    wurde. Sie bietet - laut der Website - enorm viele, teils fragwürdige
+    oder unklare, Features und hat nicht das Problem des *Kaltstartes*. Das
     soll heißen: Die Musikdatenbank muss nicht erst aufwändig importiert werden,
     sondern es können gleich Empfehlungen getroffen werden.
 
@@ -272,7 +241,12 @@ Kernaussagen im Bezug auf dieses Projekt erläutert:
 
 * *Smart radio-building music radio on the fly* :cite:`hayes2001smart`
 
-    Smart-Radio: Die Musik der  Zukunft kommt aus dem Web... TODO
+    Tendenziell steigt die Nutzung von Streamingdiensten immer mehr an - viele
+    Nutzer verwalten ihre Musik nicht mehr lokal, sondern streamen diese, meist
+    gegen einen bestimmten Betrag, aus dem Netz.
+
+    Daraus kann man ableiten dass es zukünftig noch mehr dieser
+    Streamingdienste geben wird - ein typisches Einsatzszenario für *libmunin*.
 
 * *A music search engine built upon audio-based and web-based similarity measures* :cite:`knees2007music`
 
@@ -286,15 +260,15 @@ Kernaussagen im Bezug auf dieses Projekt erläutert:
 
 * *Music for my mood* :cite:`lee2006music`
 
-    Die Ähnlichkeit zwischen zwei Stücken wird über die *Stimmung* in einem
-    Lied definiert. Diese wird durch Audioanalyse extrahiert.
+    Die Ähnlichkeit zwischen zwei Stücken wird über die *Stimmung*, welche durch
+    Audioanalyse bestimmt wird, in einem Lied definiert. 
 
 .. _schlussfolgerungen:
 
 Schlussfolgerungen
 ==================
 
-Folgende Ideen erschienen übernehmenswert (Quellen in Klammern):
+Folgende Ideen erschienen übernehmenswert (*Quellen in Klammern*):
 
 * Ein System welches von seinen Nutzern lernt *(last.fm)*
 * Umfangreiche Einbeziehung von Metadaten *(YouTube)*
@@ -322,18 +296,10 @@ Nachdem man sich also das Umfeld angeschaut hat kann man versuchen
 *Anforderungen* abzuleiten die eine gute Schnittmenge aus den obigen Plattformen
 und Arbeiten bildet, welche dann das System erfüllen muss.
 
-Dabei wird zwischen **technischen Anforderungen** und **weichen Anforderungen**
-unterschieden - erstere sind atomar, sprich sie können ganz oder gar nicht
-erfüllt werden, letztere können partiell erfüllt werden und sind aus den
-Schlussfolgerungen unter :ref:`schlussfolgerungen` abgeleitet.
-
-Technische Anforderungen
-------------------------
-
 .. _anf-performance:
 
-Performante Empfehlungen
-~~~~~~~~~~~~~~~~~~~~~~~~
+Performanz
+----------
 
 Ausstellen von Empfehlungen muss performant möglich sein.
 
@@ -348,7 +314,7 @@ Datenstruktur gespeichert werden.
 .. _anf-chain:
 
 Empfehlungen bilden eine Kette
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 Wird eine Anfrage an das System gestellt so wird ein Iterator zurückgegeben
 der alle dem System bekannten Songs nach Relevanz absteigend sortiert ausgibt. 
@@ -356,7 +322,7 @@ der alle dem System bekannten Songs nach Relevanz absteigend sortiert ausgibt.
 .. _anf-data:
 
 Handhabung großer Datenmengen.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 Groß definiert sich hierbei durch das Einsatzszenario. Bei privaten
 Musiksammlungen beträgt die maximale Größe die problemlos unterstützt werden
@@ -368,7 +334,7 @@ werden. Hier ist allerdings dann ein höherer Rechenaufwand gerechtfertigt.
 .. _anf-license:
 
 Lizenz
-~~~~~~
+------
 
 Die Lizenz sollte einen libertären Einsatz ermöglichen und sicherstellen, dass
 Weiterentwicklungen in das Projekt zurückfließen.
@@ -379,21 +345,17 @@ erwünscht.
 .. _anf-reasoning:
 
 Begründbarkeit
-~~~~~~~~~~~~~~
+--------------
 
 Empfehlungen sollen begründbar sein.
 
 Es muss möglich sein festzustellen welche Merkmale eines Songs zu der Empfehlung
 geführt haben.
 
-Weiche Anforderungen
---------------------
-
 .. _anf-api:
 
 Anpassungsfähige API
-~~~~~~~~~~~~~~~~~~~~
-
+--------------------
 
 Die bereitgestellte API muss auf die stark variierende Qualität und Form von
 Musiksammlungen eingestellt sein. 
@@ -411,7 +373,7 @@ vervollständigen kann.
 .. _anf-agnostic:
 
 Programmiersprachen agnostisch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 Das System soll von mehreren Programmiersprachen aus benutzbar sein.
 
@@ -426,7 +388,7 @@ Für den Prototypen sollen lediglich unixoide Betriebssysteme, im speziellen
 .. _anf-demo:
 
 Demonstrations und Debuggeranwendung inkludiert
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------
    
 Eine Demonstrationsanwendung soll entwickelt werden die zur
 Fehlersuche, Verbesserung und als Einsatzbeispiel dient.
@@ -453,7 +415,7 @@ aufsetzen.
 .. _anf-retrieval:
 
 Einfaches *Information Retrieval*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 Es sollte einfach sein fehlende Daten zu beschaffen.
 
@@ -481,7 +443,7 @@ Für diesen Einsatz ist *libglyr* :cite:`9XU` gut geeignet.
 .. _anf-learning:
 
 Anpassungsfähigkeit an den Benutzer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 Mit der Zeit muss das System sich dem Benutzer anpassen.
 
@@ -496,15 +458,17 @@ Nichtanforderungen
 
 Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 
-    - Einpflegen manuell erstellter Empfehlungen
-      
-        Dies ist per *,,Wrapper''* um die Bibliothek möglich.
+Einpflegen manuell erstellter Empfehlungen:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    - *Social-based music recommendation*
+Dies ist per *,,Wrapper''* um die Bibliothek möglich.
 
-        *libmunin* soll eine rein *Content-based music recommendation Engine* 
-        werden. Die Ähnlichkeit zweier Datensätze wird also algorithmisch
-        ermittelt, anstatt auf das Wissen von Menschen zurückzugreifen. 
+*Social-based music recommendation*:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*libmunin* soll eine rein *Content-based music recommendation Engine* werden.
+Die Ähnlichkeit zweier Datensätze wird also algorithmisch ermittelt, anstatt auf
+das Wissen von Menschen zurückzugreifen. 
 
 Zielgruppe
 ==========
@@ -513,36 +477,23 @@ Zielgruppe
 einfach zu nutzende Webseite bereit wie die oben genannten - es kann aber als
 Backend dafür dienen.
 
-In frühen Phasen sind vor allem interessierte Entwickler die Zielgruppe -
-vorzugsweise mit viel Geduld, da sich diese dann auch als Beta-Tester beweisen
-müssen. 
-
-Vom Autor sind die folgenden zwei Projekte anvisiert:
+Vom Autor selbst sind die folgenden zwei Projekte anvisiert:
 
     * **moosecat** 
 
-        Implementierung als Plugin für Dynamische Playlisten.
+      Implementierung als Plugin für *Intelligente Playlisten*.
 
     * **mopidy** :cite:`3W5`
 
-        .. admonition:: *Kurzer Exkurs zu mopidy:*
+      .. admonition:: *Kurzer Exkurs zu mopidy:*
             
-            Mopidy ist eine Alternative Implementierung zum *MusicPlayerDaemon
-            (MPD)* in Python mit erweiterten Features. Sie bietet eine Anbindung
-            zu Music-Streaming-Plattformen wie *Spotify*. Dabei ist es
-            kompatibel mit den existierenden MPD-Clients. 
+          Mopidy ist eine Alternative Implementierung zum *MusicPlayerDaemon
+          (MPD)* in Python mit erweiterten Features. Sie bietet eine Anbindung
+          zu Music-Streaming-Plattformen wie *Spotify*. Dabei ist es
+          kompatibel mit den existierenden MPD-Clients. 
 
-        Da die Entwickler eine Möglichkeit suchen um Dynamische Playlists zu
-        implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
+      Da die Entwickler eine Möglichkeit suchen um Dynamische Playlists zu
+      implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
 
-
-Später kann ein Kommandozeilenprogramm entwickelt werden, dass eine beliebige
-Musksammlung einliest und das daraus gewonnene Wissen auf Platte speichert. 
-Ein weiteres Kommandozeilenprogramm könnte dieses dann einlesen und frei
-formatierbare Empfehlungen ausgeben. Besonders für Shellskripte wäre dies
-interessant.
-
-Basierend darauf kann auch ein DBUS-Service erstellt werden der diese gewonnene
-Daten programmiersprachen-agnostisch anderen Anwendungen bereitstellt. Der
-Vorteil ist dabei dass es eine zentrale Anwendung gäbe - eine mehrfache Analyse
-der Musiksammlung von verschiedenen Programmen würde dabei entfallen.
+Für Shellskripte wäre auch ein Kommandozeilenprogramm denkbar, welches eine
+beliebige Musiksammlung einlesen kann. 

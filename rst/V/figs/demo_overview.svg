@@ -55,12 +55,12 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="359.89165"
-     inkscape:cy="612.87192"
+     inkscape:cx="115.93981"
+     inkscape:cy="468.92518"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1888"
+     inkscape:window-width="972"
      inkscape:window-height="1028"
      inkscape:window-x="12"
      inkscape:window-y="32"
@@ -74,7 +74,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -349,17 +349,6 @@
        d="m 328.73458,865.56469 135.81811,0 98.7177,81.77453"
        id="path3137"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:34.53407288px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
-       x="25.342945"
-       y="616.27954"
-       id="text3139"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3141"
-         x="25.342945"
-         y="616.27954">3. Current Song</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3143"

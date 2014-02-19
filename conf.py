@@ -201,14 +201,13 @@ ADDITIONAL_PREAMBLE = """
 \\usepackage{lettrine}
 \\usepackage{tikz}
 
-% Use Garamond as main font
-\\renewcommand{\\rmdefault}{ugm}
-\\renewcommand{\\sfdefault}{uop}
-
-% But it's too thin for things like code examples
-%\\renewcommand{\\ttdefault}{pcr}
+% Use Garamond as main font and Inconsolata for Code
+\\usepackage{inconsolata}
+\\usepackage[osfI]{garamondx}% scaled to 95%, my oldstyle
 
 \\usepackage{titlesec}
+\\assignpagestyle{\chapter}{plain}
+
 \\definecolor{gray75}{gray}{0.6}
 \\newcommand{\\hsp}{\hspace{20pt}}
 \\setcounter{secnumdepth}{3}

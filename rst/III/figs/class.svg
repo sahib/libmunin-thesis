@@ -27,7 +27,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -42,15 +42,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1888"
-     inkscape:window-height="1028"
+     inkscape:window-width="1920"
+     inkscape:window-height="1060"
      id="namedview3673"
      showgrid="false"
      inkscape:zoom="1.06059"
-     inkscape:cx="765.37696"
-     inkscape:cy="912.10744"
-     inkscape:window-x="12"
-     inkscape:window-y="32"
+     inkscape:cx="811.57766"
+     inkscape:cy="505.72986"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg3332" />
   <polygon
@@ -144,8 +144,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3375"
        font-size="15.00"
-       y="-201.78999"
-       x="233.39999">Leitet ab</text>
+       y="-193.49141"
+       x="216.0484">Leitet ab</text>
   </g>
   <g
      class="edge"
@@ -166,8 +166,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3384"
        font-size="15.00"
-       y="-98.449997"
-       x="319.73001">,,Vergisst''</text>
+       y="-94.67791"
+       x="392.90848">,,Vergisst''</text>
   </g>
   <g
      class="edge"
@@ -188,8 +188,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3393"
        font-size="15.00"
-       y="-3.5"
-       x="276.62">Indiziert Regeln</text>
+       y="2.5353384"
+       x="297.74368">Indiziert Regeln</text>
   </g>
   <g
      class="edge"
@@ -210,8 +210,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3402"
        font-size="15.00"
-       y="-118.91"
-       x="247.7">Generiert Regel aus</text>
+       y="-121.92767"
+       x="237.13815">Generiert Regel aus</text>
   </g>
   <g
      class="edge"
@@ -254,8 +254,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3420"
        font-size="15.00"
-       y="-301.42001"
-       x="338.23999">Verwaltet</text>
+       y="-302.92883"
+       x="334.4679">Verwaltet</text>
   </g>
   <g
      class="edge"
@@ -276,8 +276,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3429"
        font-size="15.00"
-       y="-364.13"
-       x="482.48001">Verwaltet</text>
+       y="-367.14767"
+       x="458.33865">Verwaltet</text>
   </g>
   <g
      class="edge"
@@ -298,8 +298,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3438"
        font-size="15.00"
-       y="-552.01001"
-       x="276.16">Bestimmt</text>
+       y="-559.5542"
+       x="241.4568">Bestimmt</text>
   </g>
   <g
      class="edge"
@@ -342,8 +342,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3456"
        font-size="15.00"
-       y="-262.01999"
-       x="634.71002">Speichert</text>
+       y="-249.94931"
+       x="622.63934">Speichert</text>
   </g>
   <g
      class="edge"
@@ -366,6 +366,18 @@
        font-size="15.00"
        y="-620.40002"
        x="93.511002">Leiten ab</text>
+    <text
+       x="147.82904"
+       y="-704.89478"
+       font-size="15.00"
+       id="text4992"
+       style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic">Leiten ab</text>
+    <text
+       style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
+       id="text4996"
+       font-size="15.00"
+       y="-704.89478"
+       x="234.58704">Leiten ab</text>
   </g>
   <g
      class="edge"
@@ -418,8 +430,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3488"
        font-size="15.00"
-       y="-448"
-       x="754.98999">Produziert</text>
+       y="-447.24557"
+       x="740.65607">Produziert</text>
   </g>
   <g
      class="edge"
@@ -442,6 +454,18 @@
        font-size="15.00"
        y="-521.37"
        x="841.41998">Leiten ab</text>
+    <text
+       x="792.38287"
+       y="-594.54846"
+       font-size="15.00"
+       id="text4998"
+       style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic">Leiten ab</text>
+    <text
+       style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
+       id="text5000"
+       font-size="15.00"
+       y="-643.58557"
+       x="710.15137">Leiten ab</text>
   </g>
   <g
      class="edge"
@@ -494,8 +518,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3520"
        font-size="15.00"
-       y="-292.54001"
-       x="757.53003">Speichert</text>
+       y="-295.55768"
+       x="756.02118">Speichert</text>
   </g>
   <g
      class="edge"
@@ -516,8 +540,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3529"
        font-size="15.00"
-       y="-515.89001"
-       x="417.20001">Bestimmt Format</text>
+       y="-528.71509"
+       x="467.74597">Bestimmt Format</text>
   </g>
   <g
      class="edge"
@@ -538,8 +562,8 @@
        style="font-size:15px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3538"
        font-size="15.00"
-       y="-492.44"
-       x="366.53">Vereinfacht</text>
+       y="-504.51068"
+       x="397.46112">Vereinfacht</text>
   </g>
   <g
      class="node"
@@ -550,7 +574,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3543"
-       points="363.52,-375.11 363.52,-338.11 197.52,-338.11 197.52,-338.11 197.52,-375.11 " />
+       points="197.52,-338.11 197.52,-338.11 197.52,-375.11 363.52,-375.11 363.52,-338.11 "
+       transform="matrix(1.0543768,0,0,0.99928483,-14.499358,-0.25503652)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3545"
@@ -618,7 +643,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3571"
-       points="311.28,-53.985 311.28,-16.985 214.28,-16.985 214.28,-16.985 214.28,-53.985 " />
+       points="214.28,-16.985 214.28,-16.985 214.28,-53.985 311.28,-53.985 311.28,-16.985 "
+       transform="matrix(1.0541707,0,0,0.9992875,-13.85777,-0.0252829)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3573"
@@ -686,13 +712,14 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3599"
-       points="776.95,-538.99 776.95,-501.99 661.95,-501.99 661.95,-501.99 661.95,-538.99 " />
+       points="661.95,-501.99 661.95,-501.99 661.95,-538.99 776.95,-538.99 776.95,-501.99 "
+       transform="matrix(1.0653259,0,0,0.99914314,-43.226572,-0.44598846)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3601"
        font-size="16.00"
        y="-516.69"
-       x="719.45001">DistanceFunction</text>
+       x="723.22211">DistanceFunction</text>
   </g>
   <g
      class="node"
@@ -720,7 +747,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3613"
-       points="89,-600.77 89,-563.77 0,-563.77 0,-563.77 0,-600.77 " />
+       points="0,-563.77 0,-563.77 0,-600.77 89,-600.77 89,-563.77 "
+       transform="matrix(1.0674452,0,0,0.99911579,-3.0013114,-0.51484514)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3615"
@@ -754,7 +782,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3627"
-       points="121.508,-760.16 121.508,-723.16 26.508,-723.16 26.508,-723.16 26.508,-760.16 " />
+       points="26.508,-723.16 26.508,-723.16 26.508,-760.16 121.508,-760.16 121.508,-723.16 "
+       transform="matrix(1.0553054,0,0,0.99927278,-3.7158342,-0.53934708)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3629"
@@ -788,7 +817,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3641"
-       points="976.99,-513.49 976.99,-476.49 831.99,-476.49 831.99,-476.49 831.99,-513.49 " />
+       points="831.99,-476.49 831.99,-476.49 831.99,-513.49 976.99,-513.49 976.99,-476.49 "
+       transform="matrix(1.0777836,0,0,0.99898282,-69.222875,-0.50349107)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3643"
@@ -805,7 +835,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3648"
-       points="802.24,-715.32 802.24,-678.32 657.24,-678.32 657.24,-678.32 657.24,-715.32 " />
+       points="657.24,-678.32 657.24,-678.32 657.24,-715.32 802.24,-715.32 802.24,-678.32 "
+       transform="matrix(1.0570403,0,0,0.9992503,-42.756252,-0.52241175)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3650"
@@ -822,7 +853,8 @@
     <polygon
        style="fill:#d3d3d3;stroke:#000000"
        id="polygon3655"
-       points="943.59,-656.99 943.59,-619.99 792.59,-619.99 792.59,-619.99 792.59,-656.99 " />
+       points="792.59,-619.99 792.59,-619.99 792.59,-656.99 943.59,-656.99 943.59,-619.99 "
+       transform="matrix(1.0498008,0,0,0.99934427,-43.985938,-0.41867442)" />
     <text
        style="font-size:16px;text-anchor:middle;font-family:Gentium Book Basic"
        id="text3657"

@@ -12,7 +12,7 @@ Intro
 =====
 
 :dropcaps:`Abseits` der Bibliothek wurde eine, auf dem freien
-Oberflächen-Framework :math:`\text{GTK+}-\!3.0` basierende, GUI-Anwendung entwickelt.
+Oberflächen-Framework :math:`\text{GTK+-}3.0` basierende, GUI-Anwendung entwickelt.
 Entsprechend :ref:`anf-demo` dient diese nicht nur zum *Showoff*, sondern auch
 zur gezielten Fehlersuche.
 
@@ -21,21 +21,21 @@ einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.
 
 Vor der ersten Benutzung muss gemäß :num:`fig-startup` eine Session aufgebaut
 werden - dies erledigt das Skript ``coldstart.py`` (siehe
-:ref:`coldstart-example`) - dies kann durch das Ziehen der Songtexte und der
-Audioanalyse beim ersten Lauf sehr lange dauern - bis zu 2 Stunden. Danach sind
-allerdings die Songtext zwischengelagert und der zweite Lauf dauert dann nur
-noch wenige Minuten. 
+:ref:`coldstart-example` im *Angang C*) - dies kann durch das Ziehen der
+Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern - bis zu 2
+Stunden. Danach sind allerdings die Songtext zwischengelagert und der zweite
+Lauf dauert dann nur noch wenige Minuten. 
 
 Nach dem ``coldstart.py`` die *Session* auf die Platte geschrieben hat, kann die
 eigentliche Anwendung gestartet werden. Diese verbindet sich zuallererst mit
-einem MPD-Server der auf *localhost:6601* lauscht und besorgt sich dort alle
-Metadaten um die *Playlist* und *Database*-Ansicht zu befüllen. Danach wird
-besagte *Session* geladen. Nach der Initialisierung der *GUI* ist die Anwendung
-nun bereit benutzt zu werden.
+einem MPD-Server der auf *localhost* unter Port *6601* lauscht und besorgt sich
+dort alle Metadaten um die *Playlist* und *Database*-Ansicht zu befüllen. Danach
+wird besagte *Session* geladen. Nach der Initialisierung der *GUI* ist die
+Anwendung nun bereit benutzt zu werden.
 
 Damit zwischen den von *libmunin* herausgegebenen Empfehlungen und den internen
 Songs unterschieden werden kann, speichert ``coldstart.py`` ein Mapping ab
-zwischen den ID von *libmunin's* Songs zu den Dateipfaden innerhalb der
+zwischen den *ID* von *libmunin's* Songs zu den Dateipfaden innerhalb der
 Musikdatenbank. 
 
 Anwendungsübersicht
@@ -55,8 +55,8 @@ gegeben. Detailliertere Ansichten werden am Ende des Kapitels gezeigt.
 
 Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben.
 
-1) Ansichten
-------------
+(1) Ansichten
+-------------
 
 *Database* 
 ~~~~~~~~~~
@@ -67,10 +67,11 @@ Anzeige der gesamten Musikdatenbank durch die Spalten ``Artist``, ``Album``,
 ``Titel``, ``Datum`` und ``Genre``. Jede Zeile entspricht dabei einem Song. 
 
 Ein Rechtsklickmenü auf einen beliebigen Song fördert ein Kontextmenü zu Tage
-(siehe Abbildung :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten bietet 
-um die Playlist mit Empfehlungen zu befüllen (TODO referenz).
-Im folgenden ist :math:`\lambda` die Anzahl der gewünschten Empfehlungen die im
-Empfehlungszähler (siehe :ref:`empfehlungs-zaehler`) eingestellt ist.
+(siehe Abbildung :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten
+bietet um die Playlist mit Empfehlungen zu befüllen (entsprechend
+:ref:`list-of-recom-strategies`).  Im folgenden ist :math:`\lambda` die Anzahl
+der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
+:ref:`empfehlungs-zaehler`) eingestellt ist.
 
 
 Ausgewählter Song als :term:`Seedsong`:
@@ -215,7 +216,7 @@ Die Anzahl an Empfehlungen die ein Klick im Kontextmenü liefert.
 (6) Filter
 ----------
 
-Togglebutton (,,durchgestrichenes *a* als Icon'') der anzeigt ob der Filtermodus
+Togglebutton (,,durchgestrichenes *a*'' als Icon) der anzeigt ob der Filtermodus
 aktiviert ist.  Ist er aktiv so darf sich in einer dynamisch erstellten Playlist
 der Artist nur alle 3 Stücke wiederholen, der selbe Artist *und* das selbe Album
 nur alle 5 Stücke.
@@ -227,7 +228,7 @@ Ein Klick auf den Button fördert einen Slider zu Tage auf dem man eine
 Prozentzahl einstellt. Diese legt fest welcher Anteil eines Liedes (in Prozent)
 *mindestens* angehört werden muss damit er zur Historie hinzugefügt wird.
 
-Um diese Funktionalität zu realisieren musste *Moosecat* um diese Funktion
+Um diese Funktionalität zu realisieren musste *Moosecat* um diese Funktionalität
 erweitert werden.
 
 (8) Attributsuche
@@ -247,7 +248,8 @@ Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
 eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
 Rating auf ,,0'' (und damit *ungesetzt*) zurückzusetzen.
 
-Ein Ändern des Ratings hat ein Neuzeichnen des Graphen zufolge.
+Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen-Ansicht
+zufolge.
 
 (10) Playcount
 --------------
@@ -287,9 +289,9 @@ doppelt gehörte Parts schon - daher sind Werte :math:`\ge 100\%` möglich.
 (15) Playbuttons
 ----------------
 
-Die ,,üblichen'' Kontrollen eines Musicplayers zum Pausieren/Abspielen (an
-momentaner Stelle anhalten/weiterspielen), Stoppen (Anhalt und zum Anfang der
-Playlist springen), Nächstes und vorheriges Lied .
+Die ,,üblichen'' Kontrollen eines Musicplayers zum *Pausieren/Abspielen* (an
+momentaner Stelle anhalten/weiterspielen), *Stoppen* (Anhalt und zum Anfang der
+Playlist springen), *Nächstes* und *Vorheriges* Lied .
 
 
 (16) Suche
@@ -306,8 +308,12 @@ beginnt).
  
 *Anmerkung:* Die ,,Such-Engine'' dahinter ist in *Moosecat* implementiert.
 
-Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` aktiviert und mit :kbd:`Esc`
-wieder versteckt werden.
+Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
+:kbd:`Esc` wieder versteckt werden.
+
+.. raw:: latex
+
+    \newpage
 
 .. _fig-demo-database:
 

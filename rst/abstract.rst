@@ -18,10 +18,10 @@ efficient way.
 
 *Keywords:* 
 
-    :math:`\Theta` Music Information Retrieval (MIR) 
+    :math:`\Theta` Music Information Retrieval (*MIR*) 
 
     :math:`\Theta` Music Recommendation Engine 
 
-    :math:`\Theta` Data Mining 
+    :math:`\Theta` Data-Mining 
 
-    :math:`\Theta` k-Nearest-Neighbor-Graph
+    :math:`\Theta` Graph-Theory

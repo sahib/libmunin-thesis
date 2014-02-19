@@ -57,7 +57,20 @@ zu speichern - vorzugsweise eine Menge von Songs mit der kleinsten
 :term:`Distanz`. Als geeignete Datenstruktur erscheint hier ein Graph - die
 Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.
 
-TODO: Erläuterung: kNN Graph
+Zur besseren optischen Vorstellung, ist unter :num:`fig-graph-example` ein
+Graphen-Plot gezeigt der diese Anforderungen erfüllt.
+
+.. _fig-graph-example:
+
+.. figure:: figs/graph_example.png
+    :alt: Beispielgraph aus generierten Testdaten
+    :width: 85%
+    :align: center
+
+    Beispielgraph mit 100 Knoten, aus generierten Testdaten. Die Farbe der
+    Knoten zeigt grob die ,,Zentralität'' des Knoten an. Pro Knoten wurde ein
+    Integer zwischen 1-100 errechnet, diese wurden mit einer primitiven
+    Distanzfunktion verglichen. 
 
 Graphenoperationen
 ------------------
@@ -90,11 +103,13 @@ die ein Song haben darf - lediglich einen *Richtwert*.
 ~~~~~~~~~~~~~~~~~~
 
 Wie ``rebuild``, nutzt aber quadratischen Aufwand indem es jeden Song mit jedem
-anderen vergleicht. Dies ist für kleine Mengen (:math:`\le 200`) von Songs
-verträglich und für *sehr* kleine Mengen sogar schneller. 
+anderen vergleicht. Dies ist für kleine Mengen (:math:`\le 400`) von Songs
+verträglich und für *sehr* kleine Mengen sogar schneller - tatsächlich fällt die
+normale ``rebuild``-Operation tatsächlich auf diese zurück, falls die Menge an
+Songs :math:`\le 200`.
 
 Hauptsächlich für Debuggingzwecke, um Fehler beim herkömmlichen ``rebuild``
-aufzudecken.
+aufzudecken. 
 
 ``add``
 ~~~~~~~
@@ -205,7 +220,7 @@ beinhaltet vier Schritte:
 * **Rebuild:** Dies entspricht der ``rebuild``-Operation.
   In diesem Schritt werden die normalisierten Daten untereinander mittels einer
   passenden :term:`Distanzfunktion` untersucht um mithilfe der dabei
-  entstehenden :term:`Distanz` den Graphen aufzubauen.
+  entstehenden :term:`Distanz` der Graph aufgebaut. 
 * **Einsatz:** Durch Traversierung des Graphen können jetzt Ergebnisse abgeleitet 
   werden.
 
@@ -217,6 +232,8 @@ beinhaltet vier Schritte:
     :align: center
 
     Allgemeine Benutzung von libmunin
+
+.. _environement:
 
 Die Umgebung
 ------------
@@ -254,9 +271,6 @@ jeden Song mittels der ``add``-Operation hinzufügen und im Anschluss eine
     :align: center
 
     Wie fügt sich libmunin in seine Umgebung ein?
-
-Periphere Komponenten
-=====================
 
 Wir wissen nun wie unsere interne Datenstruktur auszusehen hat. Wir wissen auch
 wie die Daten aussehen die von der Umwelt hereinkommen. Der nächste Schritt
@@ -325,7 +339,7 @@ Alternativ kann die ``EasySession`` genutzt werden die eine vordefinierte
 ~~~~~~~~~~~~~~~~~~~~
 
 Implementiert eine große Menge vordefinierter Menge von Providern, die die
-gängigsten Eingabedaten (wie Artist, Album, Lyrics, Genre ...) abdecken. 
+gängigsten Eingabedaten (wie Artist, Album, Lyrics, Genre, ...) abdecken. 
 Manche ``Provider`` dienen auch zum *Information Retrieval* und ziehen
 beispielsweise Songtexte aus dem Internet.
 
@@ -400,24 +414,19 @@ Mask
 ~~~~
 
 Ein Hashtable-ähnliches Objekt, dass die Namen der einzelnen :term:`Attribut`
-festlegt. Da dies bereits oben erklärt wurde, hier nochmal ein kurzes Beispiel
-wie das in der Praxis aussieht:
+festlegt. Da dies bereits in :ref:`environement` erklärt wurde, wird hier
+nochmal ein kurzes praktisches Beispiel gezeigt:
 
 .. code-block:: python
 
-   Mask({
-        'artist': pairup(
-            ArtistNormalizeProvider(compress=True),   # Artist-Normalisier
-            None,                                     # Default DistanceFunction
-            0.5,                                      # Gewichtung
-        ),                                            # Nächstes Attribut
-        'genre': pairup(                              
-            GenreTreeProvider(),                      # Diesmal ohne Kompression
-            GenreTreeAvgLinkDistance(),               # Non-default Distanzfunktion
-            4                                         # Hohe Gewichtung
-        ),
-        # ...
+   m = Mask({                              # Mask erwartet als Übergabe ein Dictionary
+        'genre': pairup(                   # Verknüpfe Distanzfunktion mit Provider 
+            GenreTreeProvider(),           # Instanziere einen Provider
+            GenreTreeAvgLinkDistance(),    # Instanziere eine Distanzfunktion
+            4                              # Gewichtung
+        ),  # ... 
    })
+   session = Session(m)                    # Instanziere eine Session mit dieser Maske
 
 Wie man sieht wird als ,,Key'' der Name des Attributes festgelegt, und als
 ,,Value'' ein Tupel aus einer ``Provider``-Instanz, aus einer
@@ -443,29 +452,29 @@ konfiguriert ist.
 .. figtable::
     :caption: Default-Konfiguration der ,,EasySession''.
     :alt: Default-Konfiguration der ,,EasySession''
-    :spec: c | c | c | c | c | c
+    :spec: @{}l | l | l | @{}c | l @{}c
 
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    |  Attribut    |  Provider                     |  Distanzfunktion     |  Weight | Eingabe                         | Kompression?        |
-    +==============+===============================+======================+=========+=================================+=====================+
-    | ``artist``   | ``ArtistNormalize``           | Default              | 0.5     | Artistname                      | :math:`\CheckedBox` |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    | ``album``    | ``AlbumNormalize``            | Default              | 0.5     | Albumtitel                      | :math:`\CheckedBox` |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    | ``title``    | ``TitleNormalize`` + ``Stem`` | Default              | 1       | Tracktitel                      | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    | ``date``     | ``Date``                      | ``Date``             | 2       | Datums-String                   | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    | ``bpm``      |  ``BPMCached``                | ``BPM``              | 3       | Audiofile-Pfad                  | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    | ``lyrics``   | ``Keywords``                  | ``Keywords``         | 3       | Songtext                        | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    | ``rating``   | Default                       | ``Rating``           | 2       | Integer (:math:`0 \le x \le 5`) | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    |  ``genre``   |  ``GenreTree``                | ``GenreTreeAvgLink`` | 4       | Genre-String                    | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
-    |  ``moodbar`` | ``MoodbarAudioFile``          | ``Moodbar``          | 5       | Audiofile-Pfad                  | :math:`\Box`        |
-    +--------------+-------------------------------+----------------------+---------+---------------------------------+---------------------+
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | Kompression?        |
+    +==============+======================+======================+=================================+=========+=====================+
+    | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1       | :math:`\CheckedBox` |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1       | :math:`\CheckedBox` |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    | ``title``    | ``TitleNormalize``   | Default              | Tracktitel                      | 2       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    | ``date``     | ``Date``             | ``Date``             | Datums-String                   | 4       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile-Pfad                  | 6       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    | ``lyrics``   | ``Keywords``         | ``Keywords``         | Songtext                        | 6       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    | ``rating``   | Default              | ``Rating``           | Integer (:math:`0 \le x \le 5`) | 4       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    |  ``genre``   |  ``GenreTree``       | ``GenreTreeAvgLink`` | Genre-String                    | 8       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
+    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile-Pfad                  | 9       | :math:`\Box`        |
+    +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
 
 
 Song
@@ -617,7 +626,7 @@ Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
 ``do_reverse()`` Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.
 
-Provider können zudem mittels des ``|`` Operators in einer Kette
+Provider können zudem mittels des ,,|'' Operators in einer Kette
 zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt - siehe
 dazu auch :ref:`composite-provider`.
 

@@ -23,8 +23,7 @@ Assoziationsregeln) Methoden.
 
 Es wurde eine große Anzahl von sogenannten *Providern* zum Normalisieren der
 Eingabedaten, sowie eine entsprechend hohe Anzahl von *Distanzfunktionen*
-implementiert.
-
+implementiert welche diese Daten vergleichen können.
 Im Vergleich zu bestehenden Systemen ist man nicht von Audiodaten abhängig.
 Durch die freie Lizenz ist ein weitläufiger Einsatz möglich.
 
@@ -48,15 +47,15 @@ Welche Anforderungen wurden nicht oder unvollständig erfüllt?
 Unabhängigkeit von der Programmiersprache
 -----------------------------------------
 
-Momentan ist *libmunin* nur von Python aus zu benutzen. Dies ist zum Teil dem
+Momentan ist *libmunin* nur von *Python* aus zu benutzen. Dies ist zum Teil dem
 Format geschuldet in dem die internen Daten abgespeichert werden: Dem
 Python-spezifischen ``pickle`` Format, welches beliebige Python-Objekte
-serialisieren kann - das macht es natürlich schwierig Software zu schreiben die
-eine serialisierte *Session* einlesen kann ohne dabei auf *libmunin*
-zurückzugreifen. 
+serialisieren kann, macht es natürlich schwierig Software zu schreiben die
+eine serialisierte *Session* einlesen kann ohne dabei auf *libmunin* oder
+*Python* zurückzugreifen. 
 
 Davon unabhängig ist *libmunin* momentan durch die Implementierung in Python auf
-diese Sprache eingeschränkt. Für solche Probleme gibt es normal zwei populäre
+diese Sprache eingeschränkt. Für solche Probleme gibt es zwei populäre
 Lösungsansätze. Der erste ist das Schreiben von *Languagebindings* für die
 Zielsprache - das würde erheblichen Aufwand involvieren wenn mehr als einige
 wenige Sprachen unterstützt werden sollen. Die zweite Möglichkeit ist eine
@@ -68,7 +67,7 @@ Servers zurückgreifen - das ist beispielsweise die Herangehensweise von MPD.
 Ein konkrete Umsetzung dieser Idee könnte relativ einfach mit *D-Bus* [#f1]_
 erreicht werden. Der Server würde dabei die API von *libmunin* als
 *D-Bus Service* implementieren. Der Client könnte eine der in zahlreichen
-Programmiersprachen verfügbaren *DBus-Libraries* nutzen um im Server Methoden
+Programmiersprachen verfügbaren *DBus-Libraries* nutzen, um im Server Methoden
 aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Falls mehrere 
 Programme die gleiche Session nutzen wollen - momentan ist das aus Gründen der 
 Nebenläufigkeit noch nicht möglich.
@@ -101,9 +100,6 @@ erfinden muss.
 
 Implementierungsdefizite
 ========================
-
-Für einen Prototypen ist *libmunin* relativ vollständig - trotzdem gibt es
-einige dunkle Ecken in Design und Implementierung. 
 
 Performance
 -----------
@@ -140,7 +136,7 @@ Wie oben erwähnt erfolgt die Speicherung der *Session* mittels Python's
 ``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt-Hierarchie,
 ausgehend vom *Session* Objekt. Da in *libmunin* der Graph allerdings als
 rekursive Datenstruktur implementiert ist ,,verläuft'' sich ``pickle`` darin -
-hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
+zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
 
 Python hat ein eingebautes *Rekursionslimit* welches ein wenig aussagekräftiges
 *Segmentation Fault* verhindern soll - Abstürze beim Speichern der *Session*
@@ -150,8 +146,7 @@ Korrekte Berechnung des *BPM-Wertes*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Die Berechnung des *Beats-Per-Minute*-Wertes ist momentan in ein separates Tool
-(TODO)
-ausgelagert. Dieses hat das Problem, dass es bei fehlerhaften Dateien oder
+ausgelagert. Dieses Tool hat das Problem, dass es bei fehlerhaften Dateien oder
 Formaten die es nicht versteht fehlerhafte (beispielsweise Werte *über* 300 bpm)
 Werte zurückgibt. 
 
@@ -191,5 +186,6 @@ Audioanalyse ist sehr primitiver Natur und bietet einiges an Potenzial an
 Verbesserungen.
 
 Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von *Moosecat*
-weiter entwickelt werden soll, hofft der Autor diese Schnitzer auszubessern -
-denn erst dann wäre das Projekt für externe Entwickler von Interesse. 
+weiter entwickelt werden soll, hofft der Autor mit der Zeit diese *Schnitzer*
+auszubessern - denn dann wäre das Projekt für externe Entwickler von größeren
+Interesse. 

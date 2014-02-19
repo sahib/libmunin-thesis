@@ -12,10 +12,10 @@ Implementierung
 
 Anwendungsbeispiel
 ==================
-
-:dropcaps:`Beispiele` sind oft gute Hilfsmittel um ein Gefühl für eine Softwarebibliothek 
+                               
+:dropcaps:`Beispiele` sind oft ein guter Weg um ein Gefühl für eine Bibliothek
 zu bekommen. Das folgende minimale Beispiel liest *Songs* aus einer
-(Pseudo-)Datenbank und erstellt dann Empfehlungen für einen davon:
+Pseudodatenbank und erstellt für den ersten zwei Empfehlungen:
 
 .. code-block:: python
     :linenos:
@@ -46,7 +46,7 @@ zu bekommen. Das folgende minimale Beispiel liest *Songs* aus einer
 
 
 Ist *libmunin* korrekt installiert, so lässt sich dieses Skript als
-``minimal.py`` ablegen und folgendermaßen ausführen:
+``minimal.py`` ablegen und ausführen:
 
 .. code-block:: bash
 
@@ -171,6 +171,8 @@ Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt
 Die letzten 3 :math:`^1/_2` Wochen dieser Zeit wurden für die
 Implementierung einer Demonanwendung aufgewendet.
 
+.. _list-of-recom-strategies:
+
 Liste verfügbarer Empfehlungs-Strategien
 ========================================
 
@@ -234,8 +236,8 @@ unterschiedliche Datumsangaben in den Audiofiles getaggt sind.
 ``Moodbar``
 ~~~~~~~~~~~
 
-Berechnet mit dem ``moodbar`` (TODO: zitieren) Programm aus einen beliebigen
-Audio File einen Vektor mit 1000 RGB-Farbwerten (siehe
+Berechnet mit dem ``moodbar`` (vgl. :cite:`wood2005techniques`) Programm aus
+einen beliebigen Audio File einen Vektor mit 1000 RGB-Farbwerten (siehe
 :num:`fig-moodbar-suidakra`). Jeder dieser Farbwerte repräsentiert den Anteil
 niedriger Frequenzen (rot), mittlerer (grün) und hoher Frequenzen (blau) in
 einem Tausendstel des Audiostücks. 
@@ -279,11 +281,12 @@ Bricht einen String in eine Liste von Wörter auf.
 ``BPM``
 ~~~~~~~
 
-Berechnet die ,,Beats-Per-Minute'' eines Lieds (Zitieren) - dies funktioniert
-nicht nur für stark beatlastige Musikrichtungen wie Techno sondern auch für
-normale Musikrichtungen. 
+Berechnet die ,,Beats-Per-Minute'' eines Lieds, also einem Maß für die
+Schnelligkeit  - dies funktioniert nicht nur für stark beatlastige
+Musikrichtungen wie Techno sondern auch für normale Musikrichtungen. 
 
-TODO: Hinweis auf bpm-tools
+Die Funktionalität wird momentan, eher primitiv, durch den Aufurf eines externen
+Tools realisiert :cite:`4YZ`. 
 
 ``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``, `TitleNormalize`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -795,6 +798,10 @@ Markup-Sprache) die das Gerüst der Onlinedokumentation bilden:
 
     $ wc -l $(find . -iname '*.rst')
     2231 insgesamt
+
+Die Onlinedokumentation wird aus den Kommentaren im Quelltext
+extrahiert - das entspricht dem vom *Donald Knuth* vorgeschlagenem
+Ansatz des *Literate Programming*.
 
 Sonstige Statistiken
 --------------------

@@ -4,21 +4,21 @@ Einleitung
 
 .. epigraph:: 
 
-   *,,Sei froh dass du du bist, und nicht dieser Fisch.''*
+   *,,Sei froh dass du du bist, und nicht dieser Doktorfisch.''*
 
    -- *Das Lied von der Makrele, Marc Uwe Kling*
    
 Motivation
 ==========
 
-State of the Art
-----------------
+Stand der Technik
+-----------------
 
 :dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
-Vielzahl von Plattformen die Musik anbieten, entweder zum Kaufen (amazon), zum
-Streamen (``last.fm``, spotify, rhapsody, pandora, webradios...) oder auch um
-Menschen mit ähnlichem Musik Geschmack zu finden (youtube, myspace).
+Vielzahl von Plattformen die Musik anbieten, entweder zum Kaufen (*Amazon*), zum
+*Streamen* (``Last.fm``, *Spotify*, *Rhapsody*, *Pandora*, *u.v.m*) oder auch um
+Menschen mit ähnlichem Musik Geschmack zu finden (*YouTube,* *Myspace*).
 
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderen Songs die der Benutzer möglicherweise ebenfalls anhören
@@ -27,26 +27,26 @@ oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
 diesen bestellen sind natürlich ein wichtiger wirtschaftlicher Faktor.
 
 Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
-von den Betreibern gepflegt? Bei der großen Anzahl an ,,Waren'' wohl kaum.
+von den Betreibern gepflegt? Bei der großen Anzahl an *,,Waren''* wohl kaum.
 Schaut sich ein System an was die Benutzer oft zusammen hören?
-Kann es ein System geben das komplett automatisch arbeitet?
+Kann es ein System geben, das komplett automatisch arbeitet?
 
 Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben -
 aus diesen werden dann Alben abgeleitet, die oft zusammen gekauft werden.
-Last.fm hingegen setzt auf mehrere Strategien indem es seine Nutzer die
+``Last.fm`` hingegen setzt auf mehrere Strategien indem es seine Nutzer die
 gestreamten Lieder bewerten lässt und dann deren Hörverhalten analysiert -
 Lieder die nur selten ganz angehört werden, werden auch selten empfohlen.
-Myspace setzt auf die Annahme, dass befreundete Personen auch einen ähnlichen
-Musikgeschmack haben. Spotify's Empfehlungen basieren u.a. auf Interviews mit
-echten Personen.
+*Myspace* setzt auf die Annahme, dass befreundete Personen auch einen ähnlichen
+Musikgeschmack haben. *Spotify's* Empfehlungen basieren teilweise auf Interviews
+mit echten Personen.
 
 Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musikempfehlungen aussprechen die den Nutzer länger auf der Seite halten.
+Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten.
 
-Auch von wissenschaftlicher Seite ist das Problem der ,, *Music Recommendation
-Engine* '' noch nicht abschließend behandelt - es gibt allerdings eine steigende
-Anzahl von Arbeiten auf diesem Gebiet:
+In letzter Zeit gibt es ein steigendes Interesse an *,,Music Recommendation
+Engines* - das lässt sich auch an den wissenschaftlichen Arbeiten auf diesem
+Gebiet feststellen:
 
 .. figtable::
     :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
@@ -64,7 +64,7 @@ Anzahl von Arbeiten auf diesem Gebiet:
     ========== ====== ========== ======
 
 Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
-Seiten starkes Buch. :cite:`celma2010music`.
+Seiten starkes Buch zum Thema. :cite:`celma2010music`.
 
 Was fehlt also?
 ---------------
@@ -79,48 +79,51 @@ Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikmetadatenbank
 wie *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
 verständlichen, legalen Gründen schwer zu besorgen.
 
-Die nötigen Bauteile um ein allgemein einsetzbares, qualitatives
-Musikempfehlungssystem zu schaffen sind also vorhanden - nur die Umsetzung fehlt.
+Die nötigen Bauteile und das Wissen um ein allgemein einsetzbares, qualitatives
+Musikempfehlungssystem zu schaffen sind also vorhanden - nur eine frei
+verfügbare Umsetzung fehlt.
 
 .. rubric:: Footnotes
 
 .. [#f1] eine frei verfügbare Musikmetadatendatenbank. :cite:`3A3`
 
-Wie ist die aktuelle Situation?
--------------------------------
+Quo vadis?
+----------
 
-Weit verbreitet sind bei Musicplayern *,,Dynamische Playlists''* [#f4]_  die
+Weit verbreitet sind bei Musicplayern *,,Intelligente Playlists''* [#f4]_  die
 allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
-``last.fm`` suchen, um Musikempfehlungen auszusprechen - was  keineswegs eine
+``Last.fm`` suchen, um Musikempfehlungen auszusprechen - was  keineswegs eine
 schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern. 
 
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
-nicht immer möglich oder überhaupt wünschenswert - eine Lösung welche rein auf
+nicht immer möglich oder gar wünschenswert - eine Lösung welche rein auf
 einem Rechner laufen kann wäre von Nöten - gewißermaßen das Backend von
-``last.fm`` für den freien (frei wie in *Free Open Source Software*) Einsatz.
+``Last.fm`` für den freien (frei wie in *Free Open Source Software*) Einsatz.
 
-Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die zwischen allen
-paar Liedern gespielt wird, andererseits ist man nicht einer Vorauswahl der
-Musiklabels unterworfen - denn meist wird nur die momentan *populäre* Musik bei
-den oben genannten Plattformen gespielt. Zudem ist diese Musik kommerzieller
-Natur - freie, *Creative Commons* lizenzierte Musik, wie man sie beispielsweise
-auf Jamendo [#f3]_ findet, sucht man anderswo vergebens.
+Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die bei den
+meisten Diensten  zwischen allen paar Liedern gespielt wird, andererseits ist
+man nicht einer Vorauswahl der Musiklabels unterworfen - denn meist wird nur die
+momentan *populäre* Musik bei den oben genannten Plattformen gespielt. Zudem ist
+diese Musik kommerzieller Natur - freie, *Creative Commons* lizenzierte Musik,
+wie man sie beispielsweise auf Jamendo [#f3]_ findet, sucht man anderswo
+vergebens.
 
-Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll kann
+Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll, kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
-existierenden Backends, wie sie beispielsweise hinter ``last.fm`` stehen, wäre
+existierenden Backends, wie sie beispielsweise hinter ``Last.fm`` stehen, wäre
 ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
 sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
-Die Tatsache, dass der Autor sich schon seit längerer Zeit ein ,, *echtes
-Dynamic Playlist Feature* '' für den MPD Client [#f4]_ den er entwickelt
-wünscht, trägt natürlich auch zur Motivation bei - vor allem soll auch nach dem
-Abschluss dieser Arbeit das Projekt weiterentwickelt werden. 
+Die Tatsache, dass der Autor sich schon seit längerer Zeit ein *,,echtes''*
+Feature für *,,Intelligente Playlisten''* für den MPD Client [#f4]_ den er
+entwickelt wünscht, trägt natürlich auch zur Motivation bei - vor allem soll
+deshalb auch nach dem Abschluss dieser Arbeit das Projekt weiterentwickelt
+werden. 
 
 .. rubric:: Footnotes
 
-.. [#f2] *Dynamische Playlisten* bezeichnen die automatisch nach bestimmten
+.. [#f2] *Intelligente Playlisten* bezeichnen die automatisch nach bestimmten
    Kriterien aus einen Pool von Songs fortlaufen generiert werden.
 
 .. [#f3] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`
@@ -131,8 +134,8 @@ Abschluss dieser Arbeit das Projekt weiterentwickelt werden.
 Namensgebung
 ============
 
-Menschen neigen dazu Dingen einen Namen zu geben - im Folgenden wird unser 
-Musikempfehlungssystem *libmunin* genannt.
+Menschen neigen dazu Dingen einen Namen zu geben - im Folgenden wird unser
+geplantes Musikempfehlungssystem *libmunin* genannt.
 
 .. epigraph::
 
