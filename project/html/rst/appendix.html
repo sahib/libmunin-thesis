@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Abkürzungsverzeichnis &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'0.1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../index.html"/>
+        <link rel="next" title="Bibliographie" href="zzz_bibliography.html"/>
+        <link rel="prev" title="6 Zusammenfassung" href="VI/index.html"/>
+
+<link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+<link rel="stylesheet" type="text/css" href="../_static/colorbox/colorbox.css" />
+
+<script type="text/javascript" src="../_static/colorbox/jquery.colorbox-min.js" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Projektarbeit</a>
+        <form class="wy-form" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedication.html">Widmung</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="I/index.html">1 Einleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#motivation">1.1 Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#namensgebung">1.2 Namensgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="II/index.html">2 Einstieg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#anforderungen">2.5 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#algorithmik">3.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#integration-von-libmunin-in-die-umwelt">3.2 Integration von <em>libmunin</em> in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#entwurf-der-software">3.3 Entwurf der Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Implementierung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#anwendungsbeispiel">4.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#kurze-implementierungshistorie">4.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-empfehlungs-strategien">4.3 Liste verfügbarer Empfehlungs-Strategien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#liste-verfugbarer-provider-und-distanzfunktionen">4.4 Liste verfügbarer Provider und Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#modul-und-paketubersicht">4.5 Modul- und Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#trivia">4.6 Trivia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Demonstrationsanwendung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#intro">5.1 Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#anwendungsubersicht">5.2 Anwendungsübersicht</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#was-wurde-erreicht">6.1 Was wurde erreicht?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#was-hatte-das-mit-data-mining-zu-tun">6.2 Was hatte das mit Data-Mining zu tun?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#welche-anforderungen-wurden-nicht-oder-unvollstandig-erfullt">6.3 Welche Anforderungen wurden nicht oder unvollständig erfüllt?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#implementierungsdefizite">6.4 Implementierungsdefizite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#denkbare-weiterentwicklungen">6.5 Denkbare Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#abschlieszendes-fazit">6.6 Abschließendes Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Abkürzungsverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#glossar">Glossar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#coldstart-py"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="index.html">Docs</a> &raquo;</li>
+  <li><a href="">Abkürzungsverzeichnis</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="abkurzungsverzeichnis">
+<h1>Abkürzungsverzeichnis<a class="headerlink" href="#abkurzungsverzeichnis" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head align-right align-top">Abkürzung</th>
+<th class="head align-top">Bedeutung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-right align-top"><strong>API</strong></td>
+<td class="align-top"><em>Application Programming Interface</em></td>
+</tr>
+<tr class="row-odd"><td class="align-right align-top"><strong>GUI</strong></td>
+<td class="align-top"><em>Graphical User Interface</em></td>
+</tr>
+<tr class="row-even"><td class="align-right align-top"><strong>LoC</strong></td>
+<td class="align-top"><em>Lines of Code</em></td>
+</tr>
+</tbody>
+</table>
+</center></div></div>
+<div class="section" id="glossar">
+<h1>Glossar<a class="headerlink" href="#glossar" title="Permalink to this headline">¶</a></h1>
+<dl class="glossary docutils">
+<dt id="term-song">Song</dt>
+<dd><p class="first">Im Kontext von <em>libmunin</em> ist ein Song eine Menge von Attributen.
+Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet.</p>
+<p>Beispielsweise haben alle Songs ein Attribut <tt class="docutils literal"><span class="pre">artist</span></tt>, aber jeder
+einzelner Song kennt dafür einen bestimmten Wert.</p>
+<p class="last">Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
+Songs gespeichert, sowie einen Integer der als Identifier dient.</p>
+</dd>
+<dt id="term-distanz">Distanz</dt>
+<dd><p class="first">Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute.
+Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
+minimale <em>Entfernung</em> zueinander), eine Distanz von 1.0 maximale
+Unähnlichkeit (oder maximale <em>Entfernung</em>).</p>
+<p class="last">Die Distanz wird durch eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> berechnet.</p>
+</dd>
+<dt id="term-distanzfunktion">Distanzfunktion</dt>
+<dd><p class="first">Eine Distanzfunktion ist im Kontext von <em>libmunin</em> eine Funktion, die
+zwei Songs als Eingabe nimmt und die <a class="reference internal" href="#term-distanz"><em class="xref std std-term">Distanz</em></a> zwischen
+diesen berechnet.</p>
+<p>Dabei wird jedes <a class="reference internal" href="#term-attribut"><em class="xref std std-term">Attribut</em></a> betrachte welchesi n beiden Songs
+vorkommt betrachtet. Für diese wird von der <a class="reference internal" href="#term-maske"><em class="xref std std-term">Maske</em></a> eine
+spezialisierte <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> festgelegt, die weiß wie diese
+zwei bestimmten Werte sinnvoll verglichen werden können. Die so
+errechneten Werte werden, gemäß der Gewichtung in der <a class="reference internal" href="#term-maske"><em class="xref std std-term">Maske</em></a>, zu
+einem Wert verschmolzen.</p>
+<p>Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
+Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
+eingerechnet.</p>
+<p>Die folgenden Bedingungen müssen sowohl für die allgemeine
+Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten:</p>
+<p><em>Uniformität:</em></p>
+<div class="math">
+\[0 \leq D(i, j) \leq 1 \, \forall \, i,j \in D\]</div>
+<p><em>Symmetrie:</em></p>
+<div class="math">
+\[D(i, j) = D(j, i) \, \forall \, i,j \in D\]</div>
+<p><em>Identität:</em></p>
+<div class="math">
+\[D(i, i) = 0.0 \, \forall \, i \in D\]</div>
+<p><em>Dreiecksungleichung:</em></p>
+<div class="last math">
+\[D(i, j) \leq D(i, x) + (x, j)\]</div>
+</dd>
+<dt id="term-session">Session</dt>
+<dd><p class="first">Eine <em>Session</em> ist eine Nutzung von <em>libmunin</em> über einem bestimmten
+Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
+analysiert und ein <a class="reference internal" href="#term-graph"><em class="xref std std-term">Graph</em></a> wird daraus aufgebaut.</p>
+<p>Zudem kann eine <em>Session</em> persistent für späteren Gebrauch gespeichert
+werden.</p>
+<p class="last">Für Nutzer der Bibliothek ist die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> auch Eintrittspunkt
+für jegliche von <em>libmunin</em> bereitgestellte Funktionalität.</p>
+</dd>
+<dt id="term-maske">Maske</dt>
+<dd><p class="first">Die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten die importiert
+werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
+Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
+<p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt, die ein
+einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
+pro Attribut ein <a class="reference internal" href="#term-provider"><em class="xref std std-term">Provider</em></a> und eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a>
+festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
+wird die Gewichtung des Attributes festgelegt - manche Attribute sind
+für die Ähnlichkeit zweier Songs entscheidender als andere.</p>
+</dd>
+<dt id="term-attribut">Attribut</dt>
+<dd>Ein Attribut ist ein <em>Schlüssel</em> in der <a class="reference internal" href="#term-maske"><em class="xref std std-term">Maske</em></a>. Er repräsentiert
+eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
+Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
+andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer
+Menge dieser Paare.</dd>
+<dt id="term-provider">Provider</dt>
+<dd><p class="first">Ein <em>Provider</em> normalisiert einen Wert anhand verschiedener
+Charakteristiken. Sie dienen als vorgelagerte Verarbeitung von den Daten
+die in das System geladen werden. Jeder <em>Provider</em> ist dabei einem
+<a class="reference internal" href="#term-attribut"><em class="xref std std-term">Attribut</em></a> zugeordnet.</p>
+<p class="last">Ihr Ziel ist für die <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> einfache und effizient
+vergleichbare Werte zu liefern - da die <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> sehr
+viel öfters aufgerufen wird als der <em>Provider</em>.</p>
+</dd>
+<dt id="term-assoziationsregel">Assoziationsregel</dt>
+<dd><p class="first">Eine Assoziationsregel verbindet zwei Mengen <em>A</em> und <em>B</em> von Songs
+miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
+wahrscheinlich dass auch die andere Menge daraufhin angehört wird.</p>
+<p>Sie werden aus dem Verhalten des Nutzers abgeleitet.</p>
+<p>Die Güte der Regel wird durch ein <em>Rating</em> beschrieben:</p>
+<div class="math">
+\[Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)\]</div>
+<p>wobei:</p>
+<div class="math">
+\[Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}\]</div>
+<div class="math">
+\[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\]</div>
+<div class="admonition-vergleiche-dazu last admonition">
+<p class="first admonition-title">Vergleiche dazu:</p>
+<p class="last"><a class="reference internal" href="zzz_bibliography.html#datamining-concepts-and-techniques" id="id1">[3]</a>
+Datamining Concepts and Techniques.</p>
+</div>
+</dd>
+<dt id="term-recommendation">Recommendation</dt>
+<dd><p class="first">Eine Recommendation (dt. Empfehlung) ist ein <a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a> der vom System
+auf Geheiß des Benutzers hin vorgeschlagen wird.</p>
+<p class="last">Die Empfehlunge sollte eine geringe Distanz zum <a class="reference internal" href="#term-seedsong"><em class="xref std std-term">Seedsong</em></a> haben.</p>
+</dd>
+<dt id="term-seedsong">Seedsong</dt>
+<dd>Ein Song der als Basis für Empfehlungen ausgewählt wurde.</dd>
+<dt id="term-graph">Graph</dt>
+<dd><p class="first">Im Kontext von <em>libmunin</em> ist der Graph eine Abbildung aller Songs (als
+Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
+kennt jeder <a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a> <em>N</em> zu ihm selbst ähnlichsten Songs als
+Nachbarn.</p>
+<p class="last">Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
+eine schneller zu berechnende Approximation zurückgegriffen.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="coldstart-py">
+<span id="coldstart-example"></span><h1><tt class="docutils literal"><span class="pre">coldstart.py</span></tt><a class="headerlink" href="#coldstart-py" title="Permalink to this headline">¶</a></h1>
+<p>Führt die in  gezeigten Schritte <em>Kaltstart</em> bis <em>Rebuild</em>
+aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
+Songtexte werden ergänzt und die Audiodaten für die <tt class="docutils literal"><span class="pre">moodbar</span></tt> und für die
+Beats-per-Minute-Analyse wird lokalisiert.</p>
+<p>Im Anschluss wird die Session aufgebaut und unter
+<tt class="docutils literal"><span class="pre">$HOME/.cache/libmunin/EasySession.gz</span></tt> gespeichert.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># encoding: utf-8</span>
+<span class="c"># Stdlib:</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c"># Internal:</span>
+<span class="kn">import</span> <span class="nn">moosecat.boot</span>
+<span class="kn">from</span> <span class="nn">moosecat.boot</span> <span class="kn">import</span> <span class="n">g</span>
+
+<span class="c"># External:</span>
+<span class="kn">from</span> <span class="nn">munin.easy</span> <span class="kn">import</span> <span class="n">EasySession</span>
+<span class="kn">from</span> <span class="nn">munin.provider</span> <span class="kn">import</span> <span class="n">PlyrLyricsProvider</span>
+
+<span class="c"># Fetch missing lyrics, or load them from disk.</span>
+<span class="c"># Also cache missed items for speed reasons.</span>
+<span class="n">LYRICS_PROVIDER</span> <span class="o">=</span> <span class="n">PlyrLyricsProvider</span><span class="p">(</span><span class="n">cache_failures</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">make_entry</span><span class="p">(</span><span class="n">song</span><span class="p">):</span>
+    <span class="c"># Hardcoded, Im sorry:</span>
+    <span class="n">full_uri</span> <span class="o">=</span> <span class="s">&#39;/mnt/testdata/&#39;</span> <span class="o">+</span> <span class="n">song</span><span class="o">.</span><span class="n">uri</span>
+    <span class="k">return</span> <span class="n">song</span><span class="o">.</span><span class="n">uri</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s">&#39;artist&#39;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">artist</span><span class="p">,</span>
+        <span class="s">&#39;album&#39;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">album</span><span class="p">,</span>
+        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+        <span class="s">&#39;genre&#39;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">genre</span><span class="p">,</span>
+        <span class="s">&#39;bpm&#39;</span><span class="p">:</span> <span class="n">full_uri</span><span class="p">,</span>
+        <span class="s">&#39;moodbar&#39;</span><span class="p">:</span> <span class="n">full_uri</span><span class="p">,</span>
+        <span class="s">&#39;rating&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&#39;date&#39;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
+        <span class="s">&#39;lyrics&#39;</span><span class="p">:</span> <span class="n">LYRICS_PROVIDER</span><span class="o">.</span><span class="n">do_process</span><span class="p">((</span>
+            <span class="n">song</span><span class="o">.</span><span class="n">album_artist</span> <span class="ow">or</span> <span class="n">song</span><span class="o">.</span><span class="n">artist</span><span class="p">,</span> <span class="n">song</span><span class="o">.</span><span class="n">title</span>
+        <span class="p">))</span>
+    <span class="p">}</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c"># Bring up moosecat</span>
+    <span class="n">moosecat</span><span class="o">.</span><span class="n">boot</span><span class="o">.</span><span class="n">boot_base</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <span class="n">g</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">6601</span><span class="p">)</span>
+    <span class="n">moosecat</span><span class="o">.</span><span class="n">boot</span><span class="o">.</span><span class="n">boot_metadata</span><span class="p">()</span>
+    <span class="n">moosecat</span><span class="o">.</span><span class="n">boot</span><span class="o">.</span><span class="n">boot_store</span><span class="p">()</span>
+
+    <span class="c"># Fetch the whole database into entries:</span>
+    <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="n">g</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="n">queue_only</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">playlist</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">playlist</span><span class="p">:</span>
+            <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">make_entry</span><span class="p">(</span><span class="n">song</span><span class="p">))</span>
+
+    <span class="c"># Instance a new EasySession and fill in the values.</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">EasySession</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">uri</span><span class="p">,</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;Processing:&#39;</span><span class="p">,</span> <span class="n">entry</span><span class="p">[</span><span class="s">&#39;bpm&#39;</span><span class="p">])</span>
+                <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">entry</span><span class="p">)]</span> <span class="o">=</span> <span class="n">uri</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="kn">import</span> <span class="nn">traceback</span>
+                <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+
+    <span class="c"># Save the Session to disk (~/.cache/libmunin/EasySession.gz)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="c"># Plot if desired.</span>
+    <span class="k">if</span> <span class="s">&#39;--plot&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+    <span class="c"># Close the connection to MPD, save cached database</span>
+    <span class="n">moosecat</span><span class="o">.</span><span class="n">boot</span><span class="o">.</span><span class="n">shutdown_application</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ausfuhrliches-beispiel">
+<span id="complex-example"></span><h1>Ausführliches Beispiel<a class="headerlink" href="#ausfuhrliches-beispiel" title="Permalink to this headline">¶</a></h1>
+<p>Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel
+gezeigt werden, das auch im Vergleich zum einfachen Beispiel folgende Features
+zeigt:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Das Erstellen einer eigenen Session</li>
+<li>Das Speichern und Laden derselben</li>
+<li>Das Füttern der History</li>
+<li>Ableiten von Assoziationsregeln</li>
+<li>Mehrere Möglichkeiten zur Empfehlung</li>
+</ul>
+</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># encoding: utf-8</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">munin.helper</span> <span class="kn">import</span> <span class="n">pairup</span>
+<span class="kn">from</span> <span class="nn">munin.session</span> <span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">from</span> <span class="nn">munin.distance</span> <span class="kn">import</span> <span class="n">GenreTreeDistance</span><span class="p">,</span> <span class="n">WordlistDistance</span>
+<span class="kn">from</span> <span class="nn">munin.provider</span> <span class="kn">import</span> \
+        <span class="n">ArtistNormalizeProvider</span><span class="p">,</span> \
+        <span class="n">GenreTreeProvider</span><span class="p">,</span> \
+        <span class="n">WordlistProvider</span><span class="p">,</span>  \
+        <span class="n">StemProvider</span>
+
+
+<span class="n">MY_DATABASE</span> <span class="o">=</span> <span class="p">[(</span>
+        <span class="s">&#39;Devildriver&#39;</span><span class="p">,</span>                <span class="c"># Artist</span>
+        <span class="s">&#39;Before the Hangmans Noose&#39;</span><span class="p">,</span>  <span class="c"># Title</span>
+        <span class="s">&#39;metal&#39;</span>                       <span class="c"># Genre</span>
+    <span class="p">),</span> <span class="p">(</span>
+        <span class="s">&#39;Das Niveau&#39;</span><span class="p">,</span>
+        <span class="s">&#39;Beim Pissen gemeuchelt&#39;</span><span class="p">,</span>
+        <span class="s">&#39;folk&#39;</span>
+    <span class="p">),</span> <span class="p">(</span>
+        <span class="s">&#39;We Butter the Bread with Butter&#39;</span><span class="p">,</span>
+        <span class="s">&#39;Extrem&#39;</span><span class="p">,</span>
+        <span class="s">&#39;metal&#39;</span>
+    <span class="p">),</span> <span class="p">(</span>
+        <span class="s">&#39;Lady Gaga&#39;</span><span class="p">,</span>
+        <span class="s">&#39;Pokerface&#39;</span><span class="p">,</span>
+        <span class="s">&#39;pop&#39;</span>
+<span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">create_session</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;-- No saved session found, loading new.&#39;</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;demo&#39;</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="p">{</span>
+            <span class="c"># Each entry goes like this:</span>
+            <span class="s">&#39;Genre&#39;</span><span class="p">:</span> <span class="n">pairup</span><span class="p">(</span>
+                <span class="c"># Pratice: Go lookup what this Providers does.</span>
+                <span class="n">GenreTreeProvider</span><span class="p">(),</span>
+                <span class="c"># Practice: Same for the DistanceFunction.</span>
+                <span class="n">GenreTreeDistance</span><span class="p">(),</span>
+                <span class="c"># This has the highest rating of the three attributes:</span>
+                <span class="mi">8</span>
+            <span class="p">),</span>
+            <span class="s">&#39;Title&#39;</span><span class="p">:</span> <span class="n">pairup</span><span class="p">(</span>
+                <span class="c"># We can also compose Provider, so that the left one</span>
+                <span class="c"># gets the input value, and the right one the value</span>
+                <span class="c"># the left one processed.</span>
+                <span class="c"># In this case we first split the title in words,</span>
+                <span class="c"># then we stem each word.</span>
+                <span class="n">WordlistProvider</span><span class="p">()</span> <span class="o">|</span> <span class="n">StemProvider</span><span class="p">(),</span>
+                <span class="n">WordlistDistance</span><span class="p">(),</span>
+                <span class="mi">1</span>
+            <span class="p">),</span>
+            <span class="s">&#39;Artist&#39;</span><span class="p">:</span> <span class="n">pairup</span><span class="p">(</span>
+                <span class="c"># If no Provider (None) is given the value is forwarded as-is.</span>
+                <span class="c"># Here we just use the default provider, but enable</span>
+                <span class="c"># compression. Values are saved once and are givean an ID.</span>
+                <span class="c"># Duplicate items get the same ID always.</span>
+                <span class="c"># You can trade off memory vs. speed with this.</span>
+                <span class="n">ArtistNormalizeProvider</span><span class="p">(</span><span class="n">compress</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+                <span class="c"># If not DistanceFunctions is given, all values are</span>
+                <span class="c"># compare with __eq__ - which might give bad results.</span>
+                <span class="bp">None</span><span class="p">,</span>
+                <span class="mi">1</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="c"># As in our first example we fill the session, but we dont insert the full</span>
+    <span class="c"># database, we leave out the last song:</span>
+    <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">genre</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span>
+            <span class="c"># Notice how we use the uppercase keys like above:</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+                <span class="s">&#39;Genre&#39;</span><span class="p">:</span> <span class="n">genre</span><span class="p">,</span>
+                <span class="s">&#39;Title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+                <span class="s">&#39;Artist&#39;</span><span class="p">:</span> <span class="n">artist</span><span class="p">,</span>
+            <span class="p">})]</span> <span class="o">=</span> <span class="n">idx</span>
+
+    <span class="k">return</span> <span class="n">session</span>
+
+
+<span class="k">def</span> <span class="nf">print_recommendations</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c"># A generator that yields at max 20 songs.</span>
+    <span class="n">recom_generator</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">recommend_from_heuristic</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">seed_song</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">recom_generator</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Recommendations to #{}:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">seed_song</span><span class="o">.</span><span class="n">uid</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">munin_song</span> <span class="ow">in</span> <span class="n">recom_generator</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  normalized values:&#39;</span><span class="p">)</span>
+
+        <span class="c"># Let&#39;s take</span>
+        <span class="k">for</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">normalized_value</span> <span class="ow">in</span> <span class="n">munin_song</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;    {:&lt;7s}: {:&lt;20s}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">normalized_value</span><span class="p">))</span>
+
+        <span class="n">original_song</span> <span class="o">=</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">]]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  original values:&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;    Artist :&#39;</span><span class="p">,</span> <span class="n">original_song</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;    Album  :&#39;</span><span class="p">,</span> <span class="n">original_song</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;    Genre  :&#39;</span><span class="p">,</span> <span class="n">original_song</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;The database:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">song</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  #{} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">song</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">()</span>
+
+    <span class="c"># Perhaps we already had an prior session?</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s">&#39;demo&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">create_session</span><span class="p">(</span><span class="s">&#39;demo&#39;</span><span class="p">)</span>
+    <span class="n">rules</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">rule_index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Association Rules:&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">support</span><span class="p">,</span> <span class="n">rating</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;  {:&gt;10s} &lt;-&gt; {:&lt;10s} [supp={:&gt;5d}, rating={:.5f}]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">([</span><span class="n">song</span><span class="o">.</span><span class="n">uid</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">left</span><span class="p">]),</span>
+                <span class="nb">str</span><span class="p">([</span><span class="n">song</span><span class="o">.</span><span class="n">uid</span> <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">right</span><span class="p">]),</span>
+                <span class="n">support</span><span class="p">,</span> <span class="n">rating</span>
+            <span class="p">))</span>
+        <span class="k">print</span><span class="p">()</span>
+
+    <span class="n">print_recommendations</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+
+    <span class="c"># Let&#39;s add some history:</span>
+    <span class="k">for</span> <span class="n">munin_uid</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">feed_history</span><span class="p">(</span><span class="n">munin_uid</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Playcounts:&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">song</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">playcounts</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;  #{} was played {}x times&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">count</span><span class="p">))</span>
+
+    <span class="c"># Let&#39;s insert a new song that will be in the graph on the next run:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">fix_graph</span><span class="p">():</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span>
+                <span class="s">&#39;Genre&#39;</span><span class="p">:</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
+                <span class="s">&#39;Title&#39;</span><span class="p">:</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                <span class="s">&#39;Artist&#39;</span><span class="p">:</span> <span class="n">MY_DATABASE</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">})]</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="k">if</span> <span class="s">&#39;--plot&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+    <span class="c"># Save it under ~/.cache/libmunin/demo</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="ausgabe-nach-dem-ersten-lauf">
+<h2>Ausgabe nach dem ersten Lauf:<a class="headerlink" href="#ausgabe-nach-dem-ersten-lauf" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">The</span> <span class="n">database</span><span class="p">:</span>
+  <span class="c">#0 (&#39;Devildriver&#39;, &#39;Before the Hangmans Noose&#39;, &#39;metal&#39;)</span>
+  <span class="c">#1 (&#39;Das Niveau&#39;, &#39;Beim Pissen gemeuchelt&#39;, &#39;folk&#39;)</span>
+  <span class="c">#2 (&#39;We Butter the Bread with Butter&#39;, &#39;Extrem&#39;, &#39;metal&#39;)</span>
+  <span class="c">#3 (&#39;Lady Gaga&#39;, &#39;Pokerface&#39;, &#39;pop&#39;)</span>
+
+<span class="o">--</span> <span class="n">No</span> <span class="n">saved</span> <span class="n">session</span> <span class="n">found</span><span class="p">,</span> <span class="n">loading</span> <span class="n">new</span><span class="o">.</span>
+<span class="n">matching</span> <span class="p">[</span><span class="s">&#39;metal&#39;</span><span class="p">]</span>
+<span class="n">matching</span> <span class="p">[</span><span class="s">&#39;folk&#39;</span><span class="p">]</span>
+<span class="n">matching</span> <span class="p">[</span><span class="s">&#39;metal&#39;</span><span class="p">]</span>
+<span class="n">Recommendations</span> <span class="n">to</span> <span class="c">#0:</span>
+  <span class="n">normalized</span> <span class="n">values</span><span class="p">:</span>
+    <span class="n">Artist</span> <span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+    <span class="n">Genre</span>  <span class="p">:</span> <span class="p">((</span><span class="mi">583</span><span class="p">,),)</span>
+    <span class="n">Title</span>  <span class="p">:</span> <span class="p">[</span><span class="s">&#39;Extrem&#39;</span><span class="p">]</span>
+  <span class="n">original</span> <span class="n">values</span><span class="p">:</span>
+    <span class="n">Artist</span> <span class="p">:</span> <span class="n">We</span> <span class="n">Butter</span> <span class="n">the</span> <span class="n">Bread</span> <span class="k">with</span> <span class="n">Butter</span>
+    <span class="n">Album</span>  <span class="p">:</span> <span class="n">Extrem</span>
+    <span class="n">Genre</span>  <span class="p">:</span> <span class="n">metal</span>
+
+<span class="n">Playcounts</span><span class="p">:</span>
+  <span class="c">#0 was played 3x times</span>
+  <span class="c">#2 was played 2x times</span>
+<span class="n">matching</span> <span class="p">[</span><span class="s">&#39;pop&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ausgabe-nach-dem-10ten-lauf">
+<h2>Ausgabe nach dem 10ten Lauf:<a class="headerlink" href="#ausgabe-nach-dem-10ten-lauf" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">The</span> <span class="n">database</span><span class="p">:</span>
+  <span class="c">#0 (&#39;Devildriver&#39;, &#39;Before the Hangmans Noose&#39;, &#39;metal&#39;)</span>
+  <span class="c">#1 (&#39;Das Niveau&#39;, &#39;Beim Pissen gemeuchelt&#39;, &#39;folk&#39;)</span>
+  <span class="c">#2 (&#39;We Butter the Bread with Butter&#39;, &#39;Extrem&#39;, &#39;metal&#39;)</span>
+  <span class="c">#3 (&#39;Lady Gaga&#39;, &#39;Pokerface&#39;, &#39;pop&#39;)</span>
+
+<span class="n">Association</span> <span class="n">Rules</span><span class="p">:</span>
+         <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;-&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="p">[</span><span class="n">supp</span><span class="o">=</span>    <span class="mi">8</span><span class="p">,</span> <span class="n">rating</span><span class="o">=</span><span class="mf">0.83951</span><span class="p">]</span>
+
+<span class="n">Recommendations</span> <span class="n">to</span> <span class="c">#2:</span>
+  <span class="n">normalized</span> <span class="n">values</span><span class="p">:</span>
+    <span class="n">Artist</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+    <span class="n">Genre</span>  <span class="p">:</span> <span class="p">((</span><span class="mi">583</span><span class="p">,),)</span>
+    <span class="n">Title</span>  <span class="p">:</span> <span class="p">[</span><span class="s">&#39;the&#39;</span><span class="p">,</span> <span class="s">&#39;Befor&#39;</span><span class="p">,</span> <span class="s">&#39;Noos&#39;</span><span class="p">,</span> <span class="s">&#39;Hangman&#39;</span><span class="p">]</span>
+  <span class="n">original</span> <span class="n">values</span><span class="p">:</span>
+    <span class="n">Artist</span> <span class="p">:</span> <span class="n">Devildriver</span>
+    <span class="n">Album</span>  <span class="p">:</span> <span class="n">Before</span> <span class="n">the</span> <span class="n">Hangmans</span> <span class="n">Noose</span>
+    <span class="n">Genre</span>  <span class="p">:</span> <span class="n">metal</span>
+
+<span class="n">Playcounts</span><span class="p">:</span>
+  <span class="c">#0 was played 30x times</span>
+  <span class="c">#2 was played 20x times</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="zzz_bibliography.html" class="btn btn-neutral float-right" title="Bibliographie"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="VI/index.html" class="btn btn-neutral" title="6 Zusammenfassung"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright by Christopher Pahl, 2013-2014..
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>
