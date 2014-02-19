@@ -220,15 +220,15 @@ ADDITIONAL_PREAMBLE = """
 
 \\titleformat{\\section}
     {\\color{black}\\normalfont\\Large\\bfseries}
-    {\\color{gray75}\\thesection}{1em}{}
+    {\\fontfamily{ugm}\\selectfont\\color{gray75}\\thesection}{1em}{}
 
 \\titleformat{\\subsection}
     {\\color{black}\\normalfont\\large\\bfseries}
-    {\\color{gray75}\\thesubsection}{1em}{}
+    {\\fontfamily{ugm}\\selectfont\\color{gray75}\\thesubsection}{1em}{}
 
 \\titleformat{\\subsubsection}
     {\\color{black}\\normalfont\\bfseries}
-    {\\color{gray75}\\thesubsubsection}{0.5em}{}
+    {\\fontfamily{ugm}\\selectfont\\color{gray75}\\thesubsubsection}{1em}{}
 """
 
 ADDITIONAL_FOOTER = """
