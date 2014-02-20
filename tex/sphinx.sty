@@ -381,13 +381,18 @@
 
 % Show pages in hyperref, but not if the target is on the same page.
 \renewcommand{\hyperref}[2][\newdef]{%
+    % Oh, god. I fucking hate that.
     \ifthenelse{\pageref{#1}>\pageref{rst/appendix:end-of-doc}}{%
         \SavedHyperref[{#1}]{#2}
     }{%
-        \ifthenelse{\pageref{#1}=\thepage}{%
+        \ifthenelse{\pageref{#1}=\pageref{rst/appendix:end-of-doc}}{%
             \SavedHyperref[{#1}]{#2}
         }{%
-            \SavedHyperref[{#1}]{#2, (S.\pageref{#1})}
+            \ifthenelse{\pageref{#1}=\thepage}{%
+                \SavedHyperref[{#1}]{#2}
+            }{%
+                \SavedHyperref[{#1}]{#2, (S.\pageref{#1})}
+            }%
         }%
     }%
 }%
