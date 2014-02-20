@@ -89,7 +89,7 @@
   \extravspace{.6in}
   \begin{center}
     Vorgelegt bei: \hfill Vorgelegt von: \\
-    \@adviser \hfill  \@author \\
+    \@adviser \hfill  \theauthor \\
     {\small \@adviserstreet \hfill \@authorstreet} \\
     {\small \@advisercity \hfill \@authorcity} \\
   \end{center}

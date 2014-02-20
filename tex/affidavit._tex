@@ -19,4 +19,4 @@ auch nicht veröffentlicht.
 % Hier kommt die Unterschrift drüber
 \hfill\underline{\hspace{4cm}} \\
 \vspace{0.2cm}
-\textit{Hof, den \today} \hfill\textit{Christopher Pahl} 
+\textit{Hof, den \today} \hfill\textit{\theauthor} 
