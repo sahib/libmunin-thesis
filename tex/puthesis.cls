@@ -105,7 +105,7 @@
   \thispagestyle{empty}
   \vspace*{0in}
   \begin{center}
-    \copyright\ Copyright by \@author, \@copyrightyear. \\
+    {\Large\reflectbox{$_\copyright$}}\ Copyright by \@author, \@copyrightyear. \\
     Alle Rechte vorbehalten. \\
     \vspace{1in}
     \begin{minipage}[c]{0.2\linewidth}
