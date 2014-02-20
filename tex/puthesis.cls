@@ -1,28 +1,26 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{puthesis}
-         [2008/05/02 v1.4 Princeton University Thesis class]
+\ProvidesClass{puthesis}[]
 \RequirePackage{setspace}
 \RequirePackage{ccicons}
 \RequirePackage{ifthen}
-\newcounter{subyear}
-\setcounter{subyear}{\number\year}
-\def\submitted#1{\gdef\@submitted{#1}}
-\def\@submittedyear{\ifnum\month>10 \stepcounter{subyear}\thesubyear
-  \else\thesubyear\fi}
-\def\@submittedmonth{\ifnum\month>10 January\else\ifnum\month>5 November
-  \else June\fi\fi}
+
 \def\copyrightyear#1{\gdef\@copyrightyear{#1}}
-\def\@copyrightyear{\number\year}
+\def\worktitle#1{\gdef\@worktitle{#1}}
+\def\worksubtitle#1{\gdef\@worksubtitle{#1}}
+\def\adviserstreet#1{\gdef\@adviserstreet{#1}}
+\def\advisercity#1{\gdef\@advisercity{#1}}
+\def\authorstreet#1{\gdef\@authorstreet{#1}}
+\def\authorcity#1{\gdef\@authorcity{#1}}
 \def\adviser#1{\gdef\@adviser{#1}}
-\long\def\@abstract{\@latex@error{No \noexpand\abstract given}\@ehc}
-\newcommand*{\frontmatter}{
+
+\newcommand*{\frontmatter}{%
   \pagenumbering{roman}
-  }
+}%
 \newcommand*{\mainmatter}{\pagenumbering{arabic}}
 \newcommand*{\makelot}{}
 \newcommand*{\makelof}{}
 \newcommand*{\makelos}{}
-\newcommand*{\maketoc}{
+\newcommand*{\maketoc}{%
   % Add ToC to the pdfbookmarks as a section, but not to the ToC itself.
   % only if we have the hyperref command that is necessary
   \ifdefined\pdfbookmark
@@ -33,42 +31,38 @@
 
   \tableofcontents
   \clearpage
-}
-
-\usepackage[utf8]{inputenc}
+}%
 
 %% Setup a command to add extra space only if in singlespacing mode
-\newcommand*{\extravspace}[1]{\vspace{0in}}
+\newcommand*{\extravspace}[1]{%
+    \vspace{0in}
+}%
+
 %% Setup a command to set spacing for body text; also used to restore spacing after long tables in document
-\newcommand*{\bodyspacing}{
+\newcommand*{\bodyspacing}{%
   \onehalfspacing
-}
-%% boolean for twosided/onesided
-\newboolean{@myopt@oneside}
-\setboolean{@myopt@oneside}{true}
+}%
+
 %% Setup a command to set spacing for long tables, to be used manually in document
-\newcommand*{\tablespacing}{
+\newcommand*{\tablespacing}{%
   \singlespacing
-}
+}%
+
 %% Command inserted into the document immediately after \begin{document} to place all frontmatter
 %%   This was formerly named 'begincmd' and called below in \AtBeginDocument{}
 %%   However, that is not compatible with package 'hyperref'. \tableofcontents needs
 %%   to be declared from within the document itself. 
-\newcommand*{\makefrontmatter}{
-\bodyspacing
-\frontmatter\maketitlepage\makecopyrightpage\makeabstract
-\makeacknowledgements\makededication\maketoc
-\makelot\clearpage\makelof\clearpage\makelos
-\clearpage\mainmatter
-}
-\def\@submitted{\@submittedmonth~\@submittedyear}
-\def\@dept{Mathematics}
-\def\@deptpref{Department of}
-\def\departmentprefix#1{\gdef\@deptpref{#1}}
-\def\department#1{\gdef\@dept{#1}}
+\newcommand*{\makefrontmatter}{%
+    \bodyspacing
+    \frontmatter\maketitlepage\makecopyrightpage\makeabstract
+    \makeacknowledgements\makededication\maketoc
+    \makelot\clearpage\makelof\clearpage\makelos
+    \clearpage\mainmatter
+}%
+
 \long\def\acknowledgements#1{\gdef\@acknowledgements{#1}}
-\def\dedication#1{\gdef\@dedication{#1}}
-\newcommand{\maketitlepage}{{
+
+\newcommand{\maketitlepage}{{%
   \thispagestyle{empty}
   \begin{center}
     \includegraphics[width=150px]{fh_hof_logo.pdf}
@@ -78,9 +72,9 @@
   \sc
   \vspace*{0in}
   \begin{center}
-    \LARGE Design und Implementierung eines Musikempfehlungssystems \\
+    \LARGE \@worktitle \\
     \vspace{.1in}
-    \large basierend auf Datamining Algorithmen
+    \large \@worksubtitle
   \end{center}
   \vspace{.6in}
   \extravspace{.6in}
@@ -94,9 +88,9 @@
   \extravspace{.6in}
   \begin{center}
     Vorgelegt bei: \hfill Vorgelegt von: \\
-    \@adviser \hfill  Christopher Pahl \\
-    {\small Alfons-Goppel-Platz 1 \hfill Lorenz Summa Str. 4} \\
-    {\small 95028 Hof \hfill 95126 Schwarzenbach a. d. Saale} \\
+    \@adviser \hfill  \@author \\
+    {\small \@adviserstreet \hfill \@authorstreet} \\
+    {\small \@advisercity \hfill \@authorcity} \\
   \end{center}
   \vspace{.9in}
   \extravspace{.9in}
@@ -104,8 +98,9 @@
     Hof, \today
   \end{center}
   \clearpage
-  }}
-\newcommand*{\makecopyrightpage}{
+}}%
+
+\newcommand*{\makecopyrightpage}{%
   \thispagestyle{empty}
   \vspace*{0in}
   \begin{center}
@@ -122,8 +117,11 @@
       \url{http://creativecommons.org/licenses/by/3.0/de/}
     \end{minipage}
   \end{center}
-  \clearpage}
-\newcommand*{\makeabstract}{
+  \clearpage
+}%
+
+%%%% ABSTRACT %%%%%%
+\newcommand*{\makeabstract}{%
   \newpage
   \addcontentsline{toc}{section}{Abstract}
   \begin{center}
@@ -132,7 +130,8 @@
   \thispagestyle{empty}
   \@abstract
   \clearpage
-  }
+}%
+
 \def\makeacknowledgements{
   \ifx\@acknowledgements\undefined
   \else
@@ -163,68 +162,26 @@
     \clearpage
   \fi
   }
-% Disable unused list of tables
-%\DeclareOption{lot}{\renewcommand*{\makelot}{
-%  \ifdefined\phantomsection
-%    % makes hyperref recognize this section properly for pdf links
-%    \phantomsection
-%  \else
-%  \fi
-\DeclareOption{lof}{\renewcommand*{\makelof}{
-  \ifdefined\phantomsection
-    % makes hyperref recognize this section properly for pdf links
-    \phantomsection
-  \else
-  \fi
-  \addcontentsline{toc}{section}{Abbildungsverzeichnis}\listoffigures}}
-\DeclareOption{los}{
-  \renewcommand*{\makelos}{
-    \RequirePackage{losymbol}
-    \section*{List of Symbols\@mkboth {LIST OF SYMBOLS}{LIST OF SYMBOLS}}
-    \@starttoc{los}
-  \ifdefined\phantomsection
-    % makes hyperref recognize this section properly for pdf links
-    \phantomsection
-  \else
-  \fi
-    \addcontentsline{toc}{section}{List of Symbols}
-  }
-}
-\DeclareOption{singlespace}{
-  \renewcommand*{\bodyspacing}{
-  \singlespacing
-  }
-  %% Add extra space only if in singlespacing mode
-  \renewcommand*{\extravspace}[1]{\vspace{#1}}
-}
-%% Doublespacing is the default for the thesis -- need not be declared.
-\DeclareOption{doublespacing}{
-  \renewcommand*{\bodyspacing}{
-  \onehalfspacing
-  }
-}
-%% oneside/twoside options
-\DeclareOption{oneside}{\setboolean{@myopt@oneside}{true}}
-\DeclareOption{twoside}{\setboolean{@myopt@oneside}{false}}
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+\DeclareOption{lof}{\renewcommand*{\makelof}{%
+  \ifdefined\phantomsection
+    % makes hyperref recognize this section properly for pdf links
+    \phantomsection
+  \else
+  \fi
+  \addcontentsline{toc}{section}{Abbildungsverzeichnis}\listoffigures}
+}% 
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrreprt}}
 \ProcessOptions
+\PassOptionsToClass{twoside}{scrreprt}
 
-\ifthenelse{\boolean{@myopt@oneside}}
-    {\PassOptionsToClass{oneside}{report}}
-    {\PassOptionsToClass{twoside}{report}}
 
 %% Not necessary to specify the point size - we inherit it from above
-%% \LoadClass[12pt]{report}
-\LoadClass{report}
-\ifthenelse{\boolean{@myopt@oneside}}
-    {
-\setlength{\oddsidemargin}{.5in}   %{.4375in}
-\setlength{\evensidemargin}{.5in} %{.4375in}
-}{
+\LoadClass{scrreprt}
 \setlength{\oddsidemargin}{.5in}   %{.4375in}
 \setlength{\evensidemargin}{0in} %{.4375in}
-}
+
 \setlength{\topmargin}{-.5in}  %{-.5625in}
 \setlength{\footskip}{.25in} % to put page number 3/4" from the bottom of the page (1/4" from bottom of body text)
 \setlength{\textheight}{9in}
@@ -239,8 +196,7 @@
 \setlength{\emergencystretch}{2em}
 
 \long\def\abstract#1{\gdef\@abstract{#1}}
-%% 'begincmd' no longer used -- insert \makefrontmatter in the document instead. See above. 
-%\AtBeginDocument{\begincmd}
+
 \endinput
 %% 
 %% End of file `puthesis.cls'.

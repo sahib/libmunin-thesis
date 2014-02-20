@@ -188,46 +188,10 @@ htmlhelp_basename = 'htmlhelpoutput'
 # -- Options for LaTeX output --------------------------------------------------
 
 ADDITIONAL_PREAMBLE = """
-\\input{preamble._tex}
 \\usepackage{sphinx}
 
-%% Extra packages
-\\usepackage[T1]{fontenc}
-\\usepackage{lmodern}
-\\usepackage{wasysym}
-
-\\usepackage{type1cm}
-\\usepackage{lettrine}
-\\usepackage{tikz}
-
-%% Use Garamond as main font and Inconsolata for Code
-\\usepackage{inconsolata}
-\\usepackage{garamondx}
-
-\\usepackage{titlesec}
-\\assignpagestyle{\chapter}{plain}
-
-\\definecolor{gray75}{gray}{0.55}
-\\newcommand{\\hsp}{\\hspace{20pt}}
-\\setcounter{secnumdepth}{3}
-
-\\titleformat{\\chapter}      %% Command
-    [hang]                    %% Shape
-    {\\Huge\\bfseries}        %% Format
-    {\\textcolor{gray75}{\\thechapter\\hsp|\\hsp}}{0pt}
-    {\\Huge\\bfseries}
-
-\\titleformat{\\section}
-    {\\color{black}\\normalfont\\Large\\bfseries}
-    {\\selectfont\\color{gray75}\\thesection}{1em}{}
-
-\\titleformat{\\subsection}
-    {\\color{black}\\normalfont\\large\\bfseries}
-    {\\color{gray75}\\thesubsection}{1em}{}
-
-\\titleformat{\\subsubsection}
-    {\\color{black}\\normalfont\\bfseries}
-    {\\color{gray75}\\thesubsubsection}{1em}{}
+\\makeatletter
+\\makeatother
 """
 
 ADDITIONAL_FOOTER = """
@@ -246,7 +210,7 @@ latex_elements = {
     #   * singlespace
     # * you might want to omit the list of tables (lot)
     #   if you use figtable without the :nofig: option
-    'classoptions': ',german,lof',
+    'classoptions': ',german,lof,twoside',
 
     # The font size ('10pt', '11pt' or '12pt').
     'pointsize': '11pt',
@@ -298,7 +262,6 @@ latex_docclass = {
 
 latex_additional_files = [
     'tex/puthesis.cls',
-    'tex/preamble._tex',
     'tex/footer._tex',
     'tex/fh_hof_logo.pdf',
     'tex/affidavit._tex',

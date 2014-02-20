@@ -1,12 +1,79 @@
-%
 % sphinx.sty
 %
 % Adapted from the old python.sty, mostly written by Fred Drake,
 % by Georg Brandl.
 %
-%
 % Modified by Jeff Terrace to work with puthesis
-%
+% Modified by Christopher Pahl to make it actually pretty.
+
+%%%% Other Preamble like stuff %%%%%%%%%%%%%%%%
+
+% Configure the Title Page:
+\copyrightyear{2014}
+\adviser{Prof. Dr. Günther Köhler}
+\worktitle{Design und Implementierung eines Musikempfehlungssystems}
+\worksubtitle{basierend auf Datamining Algorithmen}
+
+\authorstreet{Lorenz Summa Str. 4}
+\authorcity{95126 Schwarzenbach\ a.\ d.\ Saale}
+
+\adviserstreet{Alfons-Goppel-Platz 1}
+\advisercity{95028 Hof }
+
+% For Title and first pages.
+\pagestyle{empty}
+
+\abstract{%
+    \input{abstract.inc}
+}%
+
+\acknowledgements{%
+    \input{acknowledgements.inc}
+}%
+
+\dedication{%
+    \input{dedication.inc}
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%% Use packages
+
+%%% for comments
+\RequirePackage{verbatim}
+
+% nice description style
+\RequirePackage{enumitem}
+\setlist[description]{%
+    style=nextline,
+    leftmargin=1.5em,
+    labelindent=1em,
+    topsep=1em,
+    itemsep=0em
+}%
+
+% for subfigure
+\RequirePackage[margin=8pt]{subcaption}
+\captionsetup{labelfont=bf}
+
+% for code listings
+\IfFileExists{inconsolata.sty}{\RequirePackage{inconsolata}}{\RequirePackage{zi4}}
+
+%%% For tables
+\RequirePackage{multirow}
+
+% Longtable lets you have tables that span multiple pages.
+\RequirePackage{longtable}
+
+% Booktabs produces far nicer tables than the standard LaTeX tables.
+%   see: http://en.wikibooks.org/wiki/LaTeX/Tables
+\RequirePackage{booktabs}
+
+% adds more formatting options to tables
+\RequirePackage{array}
+
+%set parameters for longtable:
+% default caption width is 4in for longtable, but wider for normal tables
+\setlength{\LTcapwidth}{\textwidth}
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesPackage{sphinx}[2010/01/15 LaTeX package (Sphinx markup)]
@@ -15,25 +82,52 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{fancybox}
 \RequirePackage{letltxmacro}
-%\RequirePackage{titlesec}
 \RequirePackage{tabulary}
 \RequirePackage{amsmath} % for \text
-%\RequirePackage{makeidx}
+
 \RequirePackage{framed}
 \RequirePackage{environ}
 \RequirePackage{ifthen}
 \RequirePackage{color}
+
 % For highlighted code.
 \RequirePackage{fancyvrb}
+
 % For table captions.
 \RequirePackage{threeparttable}
+
 % Handle footnotes in tables.
 \RequirePackage{footnote}
 \makesavenoteenv{tabulary}
+
 % For floating figures in the text.
 \RequirePackage{wrapfig}
+
 % Separate paragraphs by space by default.
 \RequirePackage{parskip}
+
+
+%%%%%%%%%% Extra Packages %%%%%%%%%%%%%%
+
+\linespread{1.05}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{wasysym}
+
+\RequirePackage{type1cm}
+\RequirePackage{lettrine}
+\RequirePackage{tikz}
+
+% Use Garamond as main font and Inconsolata for Code
+\RequirePackage{inconsolata}
+\RequirePackage{garamondx}
+
+\RequirePackage{titlesec}
+
+
+
+
+%%%%%%%%%% Details %%%%%%%%%%%%%%
 
 % change the eqref command to just be a normal ref
 \renewcommand*{\eqref}[1]{\ref{#1}}
@@ -42,55 +136,41 @@
 \definecolor{TitleColor}{rgb}{0.0,0.0,0.15}
 \definecolor{InnerLinkColor}{rgb}{0.0,0.1,0.25}
 \definecolor{OuterLinkColor}{rgb}{0.0,0.1,0.25}
+
 % % Redefine these colors to something not white if you want to have colored
 % % background and border for code examples.
 \definecolor{VerbatimColor}{rgb}{0.97,0.97,0.97}
 \definecolor{VerbatimBorderColor}{rgb}{0.5,0.5,0.5}
 
-% for PDF output, use colors and maximal compression
-% \newif\ifsphinxpdfoutput\sphinxpdfoutputfalse
-% \ifx\pdfoutput\undefined\else\ifcase\pdfoutput
-%   \let\pyNormalColor\relax
-%   \let\pyTitleColor\relax
-% \else
-%    \sphinxpdfoutputtrue
-%    \input{pdfcolor}
-%    \def\pyNormalColor{\color[rgb]{0.0,0.0,0.0}}
-%    \def\pyTitleColor{\color{TitleColor}}
-%    \pdfcompresslevel=9
-% \fi\fi
-
-% XeLaTeX can do colors, too
-% \ifx\XeTeXrevision\undefined\else
-%   \def\pyNormalColor{\color[rgb]{0.0,0.0,0.0}}
-%   \def\pyTitleColor{\color{TitleColor}}
-% \fi
-
 % Increase printable page size (copied from fullpage.sty)
 \topmargin 0pt
-\advance \topmargin by -\headheight
-\advance \topmargin by -\headsep
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
 
 % attempt to work a little better for A4 users
 \textheight \paperheight
-\advance\textheight by -2in
+\addtolength{\textheight}{-2in}
 
 \oddsidemargin 0pt
 \evensidemargin 0pt
-%\evensidemargin -.25in  % for ``manual size'' documents
 \marginparwidth 0.5in
 
 \textwidth \paperwidth
-\advance\textwidth by -2in
+\addtolength{\textwidth}{-2in}
 
 % Style parameters and macros used by most documents here
 \raggedbottom
 \sloppy
-\hbadness = 4000                % don't print trivial gripes
+
+% don't print trivial gripes
+\hbadness = 4000                
 \vbadness = 10000
 
-\pagestyle{fancy}               % start this way; change for
-\pagenumbering{roman}           % ToC & chapters
+% start this way; change for
+\pagestyle{fancy}               
+
+% ToC & chapters
+\pagenumbering{roman}           
 
 \renewcommand{\chaptermark}[1]{%
     \markboth{\ #1}{}
@@ -99,10 +179,11 @@
 \newcommand{\udot}[1]{%
     \tikz[baseline=(todotted.base)]{%
         \node[inner sep=4pt,outer sep=0pt] (todotted) {#1};
-        \draw[loosely dotted, thick, opacity=0.75] (todotted.south west) -- (todotted.south east);
+        \draw[loosely dotted, thick, opacity=0.9] (todotted.south west) -- (todotted.south east);
     }%
 }%
 
+% Configure footer and header
 \setlength{\headheight}{24pt} 
 \fancyfoot[C]{%
     % EasterEgg
@@ -119,8 +200,9 @@
 
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
 \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
+\fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
+\fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
 \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
-
 
 % Some custom font markup commands.
 \newcommand{\strong}[1]{{\bf #1}}
@@ -177,54 +259,7 @@
 % \sectionauthor{name}{email}
 \newcommand{\sectionauthor}[2]{}
 
-% Augment the sectioning commands used to get our own font family in place,
-% and reset some internal data items:
-% \titleformat{\section}{\Large\pyHeaderFamily}%
-%             {\pyTitleColor\thesection}{0.5em}{\pyTitleColor}{\pyNormalColor}
-% \titleformat{\subsection}{\large\pyHeaderFamily}%
-%             {\pyTitleColor\thesubsection}{0.5em}{\pyTitleColor}{\pyNormalColor}
-
-% {fulllineitems} is the main environment for object descriptions.
-%
-% \newcommand{\pyitemnewline}[1]{%
-%   \@tempdima\linewidth%
-%   \advance\@tempdima \leftmargin\makebox[\@tempdima][l]{#1}%
-% }
-% 
-% \newenvironment{fulllineitems}{
-%   \begin{list}{}{\labelwidth \leftmargin \labelsep 0pt
-%                  \rightmargin 0pt \topsep -\parskip \partopsep \parskip
-%                  \itemsep -\parsep
-%                  \let\makelabel=\pyitemnewline}
-% }{\end{list}}
-
-% \optional is used for ``[, arg]``, i.e. desc_optional nodes.
-% \newcommand{\optional}[1]{%
-%   {\textnormal{\Large[}}{#1}\hspace{0.5mm}{\textnormal{\Large]}}}
-% 
-% \newlength{\pyargswidth}
-% \newcommand{\pysigparams}[2]{%
-%   \parbox[t]{\pyargswidth}{#1\code{)}#2}}
-% \newcommand{\pysigline}[1]{\item[#1]\nopagebreak}
-% \newcommand{\pysiglinewithargsret}[3]{%
-%   \settowidth{\pyargswidth}{#1\code{(}}%
-%   \addtolength{\pyargswidth}{-2\pyargswidth}%
-%   \addtolength{\pyargswidth}{\linewidth}%
-%   \item[#1\code{(}\pysigparams{#2}{#3}]}
-
-% Production lists
-%
-% \newenvironment{productionlist}{
-% %  \def\optional##1{{\Large[}##1{\Large]}}
-%   \def\production##1##2{\\\code{##1}&::=&\code{##2}}
-%   \def\productioncont##1{\\& &\code{##1}}
-%   \parindent=2em
-%   \indent
-%   \begin{tabular}{lcl}
-% }{%
-%   \end{tabular}
-% }
-
+% Make the notice environment pretty by drawing a dotted frame around it.
 \NewEnviron{notice}[2]{%
     \par
     \begin{tikzpicture}
@@ -242,7 +277,6 @@
 % Allow the release number to be specified independently of the
 % \date{}.  This allows the date to reflect the document's date and
 % release to specify the release that is documented.
-%
 \newcommand{\pyrelease}{}
 \newcommand{\version}{}
 \newcommand{\shortversion}{}
@@ -259,7 +293,6 @@
 % Allow specification of the author's address separately from the
 % author's name.  This can be used to format them differently, which
 % is a good thing.
-%
 \newcommand{\pyauthoraddress}{}
 \newcommand{\authoraddress}[1]{\renewcommand{\pyauthoraddress}{#1}}
 
@@ -282,93 +315,7 @@
   }
 }
 
-% Redefine description environment so that it is usable inside fulllineitems.
-%
-% \renewcommand{\description}{%
-%   \list{}{\labelwidth\z@%
-%           \itemindent-\leftmargin%
-% 	  \labelsep5pt%
-%           \let\makelabel=\descriptionlabel}}
-
-% Definition lists; requested by AMK for HOWTO documents.  Probably useful
-% elsewhere as well, so keep in in the general style support.
-%
-% \newenvironment{definitions}{%
-%   \begin{description}%
-%   \def\term##1{\item[##1]\mbox{}\\*[0mm]}
-% }{%
-%   \end{description}%
-% }
-
-% Tell TeX about pathological hyphenation cases:
-% \hyphenation{Base-HTTP-Re-quest-Hand-ler}
-
-
-% The following is stuff copied from docutils' latex writer.
-%
-% \newcommand{\optionlistlabel}[1]{\bf #1 \hfill}
-% \newenvironment{optionlist}[1]
-% {\begin{list}{}
-%   {\setlength{\labelwidth}{#1}
-%    \setlength{\rightmargin}{1cm}
-%    \setlength{\leftmargin}{\rightmargin}
-%    \addtolength{\leftmargin}{\labelwidth}
-%    \addtolength{\leftmargin}{\labelsep}
-%    \renewcommand{\makelabel}{\optionlistlabel}}
-% }{\end{list}}
-% 
-% \newlength{\lineblockindentation}
-% \setlength{\lineblockindentation}{2.5em}
-% \newenvironment{lineblock}[1]
-% {\begin{list}{}
-%   {\setlength{\partopsep}{\parskip}
-%    \addtolength{\partopsep}{\baselineskip}
-%    \topsep0pt\itemsep0.15\baselineskip\parsep0pt
-%    \leftmargin#1}
-%  \raggedright}
-% {\end{list}}
-
-% Redefine includgraphics for avoiding images larger than the screen size
-% If the size is not specified.
-% \let\pyOldincludegraphics\includegraphics
-% 
-% \newbox\image@box%
-% \newdimen\image@width%
-% \renewcommand\includegraphics[2][\@empty]{%
-%   \ifx#1\@empty%
-%     \setbox\image@box=\hbox{\pyOldincludegraphics{#2}}%
-%     \image@width\wd\image@box%
-%     \ifdim \image@width>\linewidth%
-%       \setbox\image@box=\hbox{\pyOldincludegraphics[width=\linewidth]{#2}}%
-%       \box\image@box%
-%     \else%
-%       \pyOldincludegraphics{#2}%
-%     \fi%
-%   \else%
-%     \pyOldincludegraphics[#1]{#2}%
-%   \fi%
-% }
-
-
-% Fix the index environment to add an entry to the Table of
-% Contents; this is much nicer than just having to jump to the end of the book
-% and flip around, especially with multiple indexes.
-%
-% A similiar fix must be done to the bibliography environment, although
-% dependant on document class. In particular, the '\addcontentsline' command
-% should use 'chapter' for a report and 'section' for an article.
-% See sphinxmanual.cls and sphinxhowto.cls for specific fixes.
-%
-% \let\pyOldTheindex=\theindex
-% \renewcommand{\theindex}{
-%   \cleardoublepage
-%   \phantomsection
-%   \pyOldTheindex
-%   \addcontentsline{toc}{chapter}{\indexname}
-% }
-% 
 % % Include hyperref last.
-
 \RequirePackage[
     final,
     pdftex,
@@ -392,15 +339,6 @@
     menucolor=OuterLinkColor,urlcolor=OuterLinkColor,
     citecolor=InnerLinkColor
 ]{hyperref}
-
-
-
-%FIXME
-%\ifdefined\printmode
-
-%\define{capsta}
-
-%\else
 
 % Fix anchor placement for figures with captions.
 % (Note: we don't use a package option here; instead, we give an explicit
@@ -453,3 +391,58 @@
         }%
     }%
 }%
+
+
+%%%%%%%%%%%%%% Title Formatting %%%%%%%%%%%%%%%%%
+
+\assignpagestyle{\chapter}{plain}
+
+\definecolor{gray75}{gray}{0.55}
+\newcommand{\hsp}{\hspace{20pt}}
+\setcounter{secnumdepth}{3}
+
+
+\titleformat{\chapter}      % Command 2
+    [hang]                    % Shape
+    {\Huge\bfseries}        % Format
+    {\textcolor{gray75}{\thechapter\hsp|\hsp}}{0pt}
+    {\Huge\bfseries}
+
+\titleformat{\section}
+    {\color{black}\normalfont\Large\bfseries}
+    {\selectfont\color{gray75}\thesection}{1em}{}
+
+\titleformat{\subsection}
+    {\color{black}\normalfont\large\bfseries}
+    {\color{gray75}\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+    {\color{black}\normalfont\bfseries}
+    {\color{gray75}\thesubsubsection}{1em}{}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%%%% Tweak float placements
+% From: http://mintaka.sdsu.edu/GF/bibliog/latex/floats.html "Controlling LaTeX Floats"
+% and based on: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=floats
+% LaTeX defaults listed at: http://people.cs.uu.nl/piet/floats/node1.html
+
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.85}   % max fraction of floats at top
+\renewcommand{\bottomfraction}{0.6} % max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.66}    % fit big float above 2-col. text
+\renewcommand{\textfraction}{0.15}  % allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.66} % require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.66}  % require fuller float pages
