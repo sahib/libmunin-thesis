@@ -517,3 +517,5 @@ Ausgabe nach dem 10ten Lauf:
    .. raw:: latex
 
        \newpage
+
+.. _end-of-doc:

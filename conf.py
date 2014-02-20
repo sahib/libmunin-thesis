@@ -203,13 +203,13 @@ ADDITIONAL_PREAMBLE = """
 
 % Use Garamond as main font and Inconsolata for Code
 \\usepackage{inconsolata}
-\\usepackage[osfI]{garamondx}% scaled to 95%, my oldstyle
+\\usepackage{garamondx}% scaled to 95%, my oldstyle
 
 \\usepackage{titlesec}
 \\assignpagestyle{\chapter}{plain}
 
-\\definecolor{gray75}{gray}{0.6}
-\\newcommand{\\hsp}{\hspace{20pt}}
+\\definecolor{gray75}{gray}{0.55}
+\\newcommand{\\hsp}{\\hspace{20pt}}
 \\setcounter{secnumdepth}{3}
 
 \\titleformat{\\chapter}      % Command 2
@@ -220,15 +220,15 @@ ADDITIONAL_PREAMBLE = """
 
 \\titleformat{\\section}
     {\\color{black}\\normalfont\\Large\\bfseries}
-    {\\fontfamily{ugm}\\selectfont\\color{gray75}\\thesection}{1em}{}
+    {\\selectfont\\color{gray75}\\thesection}{1em}{}
 
 \\titleformat{\\subsection}
     {\\color{black}\\normalfont\\large\\bfseries}
-    {\\fontfamily{ugm}\\selectfont\\color{gray75}\\thesubsection}{1em}{}
+    {\\color{gray75}\\thesubsection}{1em}{}
 
 \\titleformat{\\subsubsection}
     {\\color{black}\\normalfont\\bfseries}
-    {\\fontfamily{ugm}\\selectfont\\color{gray75}\\thesubsubsection}{1em}{}
+    {\\color{gray75}\\thesubsubsection}{1em}{}
 """
 
 ADDITIONAL_FOOTER = """
