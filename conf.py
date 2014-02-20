@@ -263,11 +263,12 @@ latex_docclass = {
 latex_additional_files = [
     'tex/puthesis.cls',
     'tex/footer._tex',
+    'tex/meta._tex',
     'tex/fh_hof_logo.pdf',
     'tex/affidavit._tex',
     'tex/sphinx.sty',
     'tex/Makefile',
-    # 'tex/refstyle.bst',
+    'tex/refstyle.bst',
     'refs.bib',
     'urls.bib',
     'tex/ccicons.sty',
