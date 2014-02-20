@@ -2,19 +2,11 @@
 Einstieg
 ********
 
-Warum überhaupt?
-================
+Schwierigkeit der Vergleichbarkeit
 
-TestTestTestTestTestTest......
+Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -> Prototyp)
 
-Alternativen
-============
+kein anspruch auf korrektheit, lediglich Hoffnung auf Nützlichkeit.
 
 Fehlgeleitete Idee mit chromaprint erwähnen - tauglich um gleiche musikstücke 
 zu finden, aber nicht mehr.
-
-
-Übersicht
-=========
-
-Schaubild
