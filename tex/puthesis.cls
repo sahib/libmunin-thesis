@@ -3,6 +3,7 @@
 \RequirePackage{setspace}
 \RequirePackage{ccicons}
 \RequirePackage{ifthen}
+\RequirePackage[utf8]{inputenc}
 
 \def\copyrightyear#1{\gdef\@copyrightyear{#1}}
 \def\worktitle#1{\gdef\@worktitle{#1}}
