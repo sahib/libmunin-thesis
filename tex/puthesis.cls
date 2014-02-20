@@ -78,7 +78,7 @@
   \sc
   \vspace*{0in}
   \begin{center}
-    \LARGE Implementierung und Evaluierung eines Musikempfehlungssystems \\
+    \LARGE Design und Implementierung eines Musikempfehlungssystems \\
     \vspace{.1in}
     \large basierend auf Datamining Algorithmen
   \end{center}
@@ -87,8 +87,8 @@
   \vspace{.6in}
   \extravspace{.6in}
   \begin{center}
-    \large Projektarbeit\\
-    an der Hochschule für Angewandte Wissenschaften Hof \\
+    \Large Projektarbeit\\
+    \large an der Hochschule für Angewandte Wissenschaften Hof \\
   \end{center}
   \vspace{.6in}
   \extravspace{.6in}

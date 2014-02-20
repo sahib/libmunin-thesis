@@ -44,7 +44,7 @@ templates_path = ['templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8'
 
 # General information about the project.
 project = u'Projektarbeit'
@@ -199,18 +199,36 @@ ADDITIONAL_PREAMBLE = """
 
 \\usepackage{type1cm}
 \\usepackage{lettrine}
+\\usepackage{tikz}
 
-% Use Garamond as main font
-\\renewcommand{\\rmdefault}{ugm}
-\\renewcommand{\\sfdefault}{uop}
-
-% But it's too thin for things like code examples
-%\\renewcommand{\\ttdefault}{pcr}
+% Use Garamond as main font and Inconsolata for Code
+\\usepackage{inconsolata}
+\\usepackage{garamondx}% scaled to 95%, my oldstyle
 
 \\usepackage{titlesec}
-\\definecolor{gray75}{gray}{0.75}
-\\newcommand{\\hsp}{\hspace{20pt}}
-\\titleformat{\\chapter}[hang]{\\Huge\\bfseries}{\\thechapter\\hsp\\textcolor{gray75}{|}\\hsp}{0pt}{\\Huge\\bfseries}
+\\assignpagestyle{\chapter}{plain}
+
+\\definecolor{gray75}{gray}{0.55}
+\\newcommand{\\hsp}{\\hspace{20pt}}
+\\setcounter{secnumdepth}{3}
+
+\\titleformat{\\chapter}      % Command 2
+    [hang]                    % Shape
+    {\\Huge\\bfseries}        % Format
+    {\\textcolor{gray75}{\\thechapter\\hsp|\\hsp}}{0pt}
+    {\\Huge\\bfseries}
+
+\\titleformat{\\section}
+    {\\color{black}\\normalfont\\Large\\bfseries}
+    {\\selectfont\\color{gray75}\\thesection}{1em}{}
+
+\\titleformat{\\subsection}
+    {\\color{black}\\normalfont\\large\\bfseries}
+    {\\color{gray75}\\thesubsection}{1em}{}
+
+\\titleformat{\\subsubsection}
+    {\\color{black}\\normalfont\\bfseries}
+    {\\color{gray75}\\thesubsubsection}{1em}{}
 """
 
 ADDITIONAL_FOOTER = """

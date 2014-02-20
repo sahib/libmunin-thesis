@@ -14,11 +14,13 @@
 \RequirePackage{textcomp}
 \RequirePackage{fancyhdr}
 \RequirePackage{fancybox}
+\RequirePackage{letltxmacro}
 %\RequirePackage{titlesec}
 \RequirePackage{tabulary}
 \RequirePackage{amsmath} % for \text
 %\RequirePackage{makeidx}
 \RequirePackage{framed}
+\RequirePackage{environ}
 \RequirePackage{ifthen}
 \RequirePackage{color}
 % For highlighted code.
@@ -48,20 +50,20 @@
 % for PDF output, use colors and maximal compression
 % \newif\ifsphinxpdfoutput\sphinxpdfoutputfalse
 % \ifx\pdfoutput\undefined\else\ifcase\pdfoutput
-%   \let\py@NormalColor\relax
-%   \let\py@TitleColor\relax
+%   \let\pyNormalColor\relax
+%   \let\pyTitleColor\relax
 % \else
 %    \sphinxpdfoutputtrue
 %    \input{pdfcolor}
-%    \def\py@NormalColor{\color[rgb]{0.0,0.0,0.0}}
-%    \def\py@TitleColor{\color{TitleColor}}
+%    \def\pyNormalColor{\color[rgb]{0.0,0.0,0.0}}
+%    \def\pyTitleColor{\color{TitleColor}}
 %    \pdfcompresslevel=9
 % \fi\fi
 
 % XeLaTeX can do colors, too
 % \ifx\XeTeXrevision\undefined\else
-%   \def\py@NormalColor{\color[rgb]{0.0,0.0,0.0}}
-%   \def\py@TitleColor{\color{TitleColor}}
+%   \def\pyNormalColor{\color[rgb]{0.0,0.0,0.0}}
+%   \def\pyTitleColor{\color{TitleColor}}
 % \fi
 
 % Increase printable page size (copied from fullpage.sty)
@@ -81,30 +83,43 @@
 \textwidth \paperwidth
 \advance\textwidth by -2in
 
-
 % Style parameters and macros used by most documents here
 \raggedbottom
 \sloppy
-\hbadness = 5000                % don't print trivial gripes
+\hbadness = 4000                % don't print trivial gripes
 \vbadness = 10000
 
 \pagestyle{fancy}               % start this way; change for
 \pagenumbering{roman}           % ToC & chapters
 
 \renewcommand{\chaptermark}[1]{%
-\markboth{\ #1}{}}
+    \markboth{\ #1}{}
+}
+
+\newcommand{\udot}[1]{%
+    \tikz[baseline=(todotted.base)]{%
+        \node[inner sep=4pt,outer sep=0pt] (todotted) {#1};
+        \draw[loosely dotted, thick, opacity=0.75] (todotted.south west) -- (todotted.south east);
+    }%
+}%
 
 \setlength{\headheight}{24pt} 
 \fancyfoot[C]{%
     % EasterEgg
     \ifthenelse{\value{page}=42}
-        {\scshape{\reflectbox{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}}
-        {\scshape{$\overline{\mbox{\thepage\vphantom{\"A}}}$}}
+        {\scshape{\reflectbox{\udot{~\thepage~~~}}}}
+        {\scshape{\udot{~\thepage~~~}}}
 }%
+
+% Remove the header from pages with chapters on them:
+\fancypagestyle{plain}{%
+    \fancyhead{}
+    \renewcommand{\headrule}{}
+}%
+
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
 \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
 \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
-% \renewcommand{\footrule}{\hrule{0.4pt}{10pt}}
 
 
 % Some custom font markup commands.
@@ -164,18 +179,14 @@
 
 % Augment the sectioning commands used to get our own font family in place,
 % and reset some internal data items:
-% \titleformat{\section}{\Large\py@HeaderFamily}%
-%             {\py@TitleColor\thesection}{0.5em}{\py@TitleColor}{\py@NormalColor}
-% \titleformat{\subsection}{\large\py@HeaderFamily}%
-%             {\py@TitleColor\thesubsection}{0.5em}{\py@TitleColor}{\py@NormalColor}
-% \titleformat{\subsubsection}{\py@HeaderFamily}%
-%             {\py@TitleColor\thesubsubsection}{0.5em}{\py@TitleColor}{\py@NormalColor}
-% \titleformat{\paragraph}{\small\py@HeaderFamily}%
-%             {\py@TitleColor}{0em}{\py@TitleColor}{\py@NormalColor}
+% \titleformat{\section}{\Large\pyHeaderFamily}%
+%             {\pyTitleColor\thesection}{0.5em}{\pyTitleColor}{\pyNormalColor}
+% \titleformat{\subsection}{\large\pyHeaderFamily}%
+%             {\pyTitleColor\thesubsection}{0.5em}{\pyTitleColor}{\pyNormalColor}
 
 % {fulllineitems} is the main environment for object descriptions.
 %
-% \newcommand{\py@itemnewline}[1]{%
+% \newcommand{\pyitemnewline}[1]{%
 %   \@tempdima\linewidth%
 %   \advance\@tempdima \leftmargin\makebox[\@tempdima][l]{#1}%
 % }
@@ -184,22 +195,22 @@
 %   \begin{list}{}{\labelwidth \leftmargin \labelsep 0pt
 %                  \rightmargin 0pt \topsep -\parskip \partopsep \parskip
 %                  \itemsep -\parsep
-%                  \let\makelabel=\py@itemnewline}
+%                  \let\makelabel=\pyitemnewline}
 % }{\end{list}}
 
 % \optional is used for ``[, arg]``, i.e. desc_optional nodes.
 % \newcommand{\optional}[1]{%
 %   {\textnormal{\Large[}}{#1}\hspace{0.5mm}{\textnormal{\Large]}}}
 % 
-% \newlength{\py@argswidth}
-% \newcommand{\py@sigparams}[2]{%
-%   \parbox[t]{\py@argswidth}{#1\code{)}#2}}
+% \newlength{\pyargswidth}
+% \newcommand{\pysigparams}[2]{%
+%   \parbox[t]{\pyargswidth}{#1\code{)}#2}}
 % \newcommand{\pysigline}[1]{\item[#1]\nopagebreak}
 % \newcommand{\pysiglinewithargsret}[3]{%
-%   \settowidth{\py@argswidth}{#1\code{(}}%
-%   \addtolength{\py@argswidth}{-2\py@argswidth}%
-%   \addtolength{\py@argswidth}{\linewidth}%
-%   \item[#1\code{(}\py@sigparams{#2}{#3}]}
+%   \settowidth{\pyargswidth}{#1\code{(}}%
+%   \addtolength{\pyargswidth}{-2\pyargswidth}%
+%   \addtolength{\pyargswidth}{\linewidth}%
+%   \item[#1\code{(}\pysigparams{#2}{#3}]}
 
 % Production lists
 %
@@ -214,76 +225,31 @@
 %   \end{tabular}
 % }
 
-% Notices / Admonitions
+\NewEnviron{notice}[2]{%
+    \par
+    \begin{tikzpicture}
+        \node[rectangle,minimum width=0.9\textwidth] (m) {%
+            \begin{minipage}{0.85\textwidth}
+                \strong{#2}
+                \BODY
+            \end{minipage}
+        };%
+        \draw[dashed] (m.south west) rectangle (m.north east);
+    \end{tikzpicture}
+}%
 
-\newlength{\py@noticelength}
-
-\newcommand{\py@heavybox}{
-  \setlength{\fboxrule}{1pt}
-  \setlength{\fboxsep}{6pt}
-  \setlength{\py@noticelength}{\linewidth}
-  \addtolength{\py@noticelength}{-2\fboxsep}
-  \addtolength{\py@noticelength}{-2\fboxrule}
-  %\setlength{\shadowsize}{3pt}
-  \Sbox
-  \minipage{\py@noticelength}
-}
-\newcommand{\py@endheavybox}{
-  \endminipage
-  \endSbox
-  \fbox{\TheSbox}
-}
-
-\newcommand{\py@lightbox}{{%
-  \setlength\parskip{0pt}\par
-  \rule[0ex]{\linewidth}{0.5pt}%
-  \par\vspace{-0.5ex}%
-  }}
-\newcommand{\py@endlightbox}{{%
-  \setlength{\parskip}{0pt}%
-  \par\rule[0.5ex]{\linewidth}{0.5pt}%
-  \par\vspace{-0.5ex}%
-  }}
-
-% Some are quite plain:
-\newcommand{\py@noticestart@note}{\py@lightbox}
-\newcommand{\py@noticeend@note}{\py@endlightbox}
-\newcommand{\py@noticestart@hint}{\py@lightbox}
-\newcommand{\py@noticeend@hint}{\py@endlightbox}
-\newcommand{\py@noticestart@important}{\py@lightbox}
-\newcommand{\py@noticeend@important}{\py@endlightbox}
-\newcommand{\py@noticestart@tip}{\py@lightbox}
-\newcommand{\py@noticeend@tip}{\py@endlightbox}
-
-% Others gets more visible distinction:
-\newcommand{\py@noticestart@warning}{\py@heavybox}
-\newcommand{\py@noticeend@warning}{\py@endheavybox}
-\newcommand{\py@noticestart@caution}{\py@heavybox}
-\newcommand{\py@noticeend@caution}{\py@endheavybox}
-\newcommand{\py@noticestart@attention}{\py@heavybox}
-\newcommand{\py@noticeend@attention}{\py@endheavybox}
-\newcommand{\py@noticestart@danger}{\py@heavybox}
-\newcommand{\py@noticeend@danger}{\py@endheavybox}
-\newcommand{\py@noticestart@error}{\py@heavybox}
-\newcommand{\py@noticeend@error}{\py@endheavybox}
-
-\newenvironment{notice}[2]{
-  \def\py@noticetype{#1}
-  \csname py@noticestart@#1\endcsname
-  \strong{#2}
-}{\csname py@noticeend@\py@noticetype\endcsname}
 
 % Allow the release number to be specified independently of the
 % \date{}.  This allows the date to reflect the document's date and
 % release to specify the release that is documented.
 %
-\newcommand{\py@release}{}
+\newcommand{\pyrelease}{}
 \newcommand{\version}{}
 \newcommand{\shortversion}{}
 \newcommand{\releaseinfo}{}
 \newcommand{\releasename}{Release}
 \newcommand{\release}[1]{%
-  \renewcommand{\py@release}{\releasename\space\version}%
+  \renewcommand{\pyrelease}{\releasename\space\version}%
   \renewcommand{\version}{#1}}
 \newcommand{\setshortversion}[1]{%
   \renewcommand{\shortversion}{#1}}
@@ -294,16 +260,16 @@
 % author's name.  This can be used to format them differently, which
 % is a good thing.
 %
-\newcommand{\py@authoraddress}{}
-\newcommand{\authoraddress}[1]{\renewcommand{\py@authoraddress}{#1}}
+\newcommand{\pyauthoraddress}{}
+\newcommand{\authoraddress}[1]{\renewcommand{\pyauthoraddress}{#1}}
 
 % This sets up the fancy chapter headings that make the documents look
 % at least a little better than the usual LaTeX output.
 %
 \@ifundefined{ChTitleVar}{}{
-  \ChNameVar{\raggedleft\normalsize\py@HeaderFamily}
-  \ChNumVar{\raggedleft \bfseries\Large\py@HeaderFamily}
-  \ChTitleVar{\raggedleft \rm\Huge\py@HeaderFamily}
+  \ChNameVar{\raggedleft\normalsize\pyHeaderFamily}
+  \ChNumVar{\raggedleft \bfseries\Large\pyHeaderFamily}
+  \ChTitleVar{\raggedleft \rm\Huge\pyHeaderFamily}
   % This creates chapter heads without the leading \vspace*{}:
   \def\@makechapterhead#1{%
     {\parindent \z@ \raggedright \normalfont
@@ -364,22 +330,22 @@
 
 % Redefine includgraphics for avoiding images larger than the screen size
 % If the size is not specified.
-% \let\py@Oldincludegraphics\includegraphics
+% \let\pyOldincludegraphics\includegraphics
 % 
 % \newbox\image@box%
 % \newdimen\image@width%
 % \renewcommand\includegraphics[2][\@empty]{%
 %   \ifx#1\@empty%
-%     \setbox\image@box=\hbox{\py@Oldincludegraphics{#2}}%
+%     \setbox\image@box=\hbox{\pyOldincludegraphics{#2}}%
 %     \image@width\wd\image@box%
 %     \ifdim \image@width>\linewidth%
-%       \setbox\image@box=\hbox{\py@Oldincludegraphics[width=\linewidth]{#2}}%
+%       \setbox\image@box=\hbox{\pyOldincludegraphics[width=\linewidth]{#2}}%
 %       \box\image@box%
 %     \else%
-%       \py@Oldincludegraphics{#2}%
+%       \pyOldincludegraphics{#2}%
 %     \fi%
 %   \else%
-%     \py@Oldincludegraphics[#1]{#2}%
+%     \pyOldincludegraphics[#1]{#2}%
 %   \fi%
 % }
 
@@ -393,19 +359,41 @@
 % should use 'chapter' for a report and 'section' for an article.
 % See sphinxmanual.cls and sphinxhowto.cls for specific fixes.
 %
-% \let\py@OldTheindex=\theindex
+% \let\pyOldTheindex=\theindex
 % \renewcommand{\theindex}{
 %   \cleardoublepage
 %   \phantomsection
-%   \py@OldTheindex
+%   \pyOldTheindex
 %   \addcontentsline{toc}{chapter}{\indexname}
 % }
 % 
 % % Include hyperref last.
-\RequirePackage[colorlinks,breaklinks,
-                 linkcolor=InnerLinkColor,filecolor=OuterLinkColor,
-                 menucolor=OuterLinkColor,urlcolor=OuterLinkColor,
-                 citecolor=InnerLinkColor]{hyperref}
+
+\RequirePackage[
+    final,
+    pdftex,
+    pdfauthor={Christopher Pahl},
+    pdftitle={Design und Implemtierung eines Musikempfehlungssystems
+    basierend auf Datamining Algorithmen},
+    pdfsubject={Design und Implemtierung eines Musikempfehlungssystems
+    basierend auf Datamining Algorithmen},
+    pdfkeywords={Music Recommendation, Music Information Retrieval, MIR, Data Mining, Graph Theory},
+    pdfproducer={LaTeX with hyperref},
+    pdfcreator={pdflatex},
+    bookmarks=true,     % show or hide the bookmarks bar when displaying the document
+    bookmarksopen=true, % Zeige Untermenus in PDF
+    bookmarksopenlevel=1, % Gliederungstiefe in PDF beim Start festlegen 
+    bookmarksnumbered=true, % Gliederung in PDF nummierieren
+    % plainpages=false,   % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels,      % zur korrekten Erstellung der Bookmarks
+    colorlinks,
+    breaklinks,
+    linkcolor=InnerLinkColor,filecolor=OuterLinkColor,
+    menucolor=OuterLinkColor,urlcolor=OuterLinkColor,
+    citecolor=InnerLinkColor
+]{hyperref}
+
+
 
 %FIXME
 %\ifdefined\printmode
@@ -431,12 +419,12 @@
   }% close "span"
 }
 
-\providecommand*{\DUprovidelength}[2]{
+\providecommand*{\DUprovidelength}[2]{%
   \ifthenelse{\isundefined{#1}}{\newlength{#1}\setlength{#1}{#2}}{}
-}
+}%
 
 \DUprovidelength{\DUlineblockindent}{2.5em}
-\ifthenelse{\isundefined{\DUlineblock}}{
+\ifthenelse{\isundefined{\DUlineblock}}{%
   \newenvironment{DUlineblock}[1]{%
     \list{}{\setlength{\partopsep}{\parskip}
             \addtolength{\partopsep}{\baselineskip}
@@ -447,23 +435,21 @@
     \raggedright
   }
   {\endlist}
-}{}
+}{}%
 
-%\fi
 
-% % From footmisc.sty: allows footnotes in titles
-% \let\FN@sf@@footnote\footnote
-% \def\footnote{\ifx\protect\@typeset@protect
-%     \expandafter\FN@sf@@footnote
-%   \else
-%     \expandafter\FN@sf@gobble@opt
-%   \fi
-% }
-% \edef\FN@sf@gobble@opt{\noexpand\protect
-%   \expandafter\noexpand\csname FN@sf@gobble@opt \endcsname}
-% \expandafter\def\csname FN@sf@gobble@opt \endcsname{%
-%   \@ifnextchar[%]
-%     \FN@sf@gobble@twobracket
-%     \@gobble
-% }
-% \def\FN@sf@gobble@twobracket[#1]#2{}
+% Backup the old macro for use in the new one:
+\LetLtxMacro{\SavedHyperref}{\hyperref}
+
+% Show pages in hyperref, but not if the target is on the same page.
+\renewcommand{\hyperref}[2][\newdef]{%
+    \ifthenelse{\pageref{#1}>\pageref{rst/appendix:end-of-doc}}{%
+        \SavedHyperref[{#1}]{#2}
+    }{%
+        \ifthenelse{\pageref{#1}=\thepage}{%
+            \SavedHyperref[{#1}]{#2}
+        }{%
+            \SavedHyperref[{#1}]{#2, (S.\pageref{#1})}
+        }%
+    }%
+}%

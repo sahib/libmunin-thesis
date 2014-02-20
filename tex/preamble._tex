@@ -18,6 +18,9 @@
 \input{dedication.inc}
 }
 
+\usepackage{xcolor}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
 %%%% Tweak float placements
 % From: http://mintaka.sdsu.edu/GF/bibliog/latex/floats.html "Controlling LaTeX Floats"
@@ -76,7 +79,6 @@
 % for code listings
 \usepackage{listings}
 \IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{\usepackage{zi4}}
-\usepackage{color}
 \definecolor{codebg}{RGB}{248,248,248} % mimics html code style
 \definecolor{codeborder}{RGB}{204,204,204}
 \lstset{breaklines=true,
