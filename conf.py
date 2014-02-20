@@ -191,8 +191,7 @@ ADDITIONAL_PREAMBLE = """
 \\input{preamble._tex}
 \\usepackage{sphinx}
 
-% Extra packages
-\\linespread{1.05}
+%% Extra packages
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
 \\usepackage{wasysym}
@@ -201,9 +200,9 @@ ADDITIONAL_PREAMBLE = """
 \\usepackage{lettrine}
 \\usepackage{tikz}
 
-% Use Garamond as main font and Inconsolata for Code
+%% Use Garamond as main font and Inconsolata for Code
 \\usepackage{inconsolata}
-\\usepackage{garamondx}% scaled to 95%, my oldstyle
+\\usepackage{garamondx}
 
 \\usepackage{titlesec}
 \\assignpagestyle{\chapter}{plain}
@@ -212,9 +211,9 @@ ADDITIONAL_PREAMBLE = """
 \\newcommand{\\hsp}{\\hspace{20pt}}
 \\setcounter{secnumdepth}{3}
 
-\\titleformat{\\chapter}      % Command 2
-    [hang]                    % Shape
-    {\\Huge\\bfseries}        % Format
+\\titleformat{\\chapter}      %% Command
+    [hang]                    %% Shape
+    {\\Huge\\bfseries}        %% Format
     {\\textcolor{gray75}{\\thechapter\\hsp|\\hsp}}{0pt}
     {\\Huge\\bfseries}
 

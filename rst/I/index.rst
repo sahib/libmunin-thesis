@@ -7,7 +7,7 @@ Einleitung
    *,,Sei froh dass du du bist, und nicht dieser Doktorfisch.''*
 
    -- *Das Lied von der Makrele, Marc Uwe Kling*
-   
+
 Motivation
 ==========
 
