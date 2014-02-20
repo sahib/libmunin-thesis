@@ -178,9 +178,15 @@
 \setlength{\headheight}{24pt} 
 \fancyfoot[C]{%
     % EasterEgg
-    \ifthenelse{\value{page}=42}
-        {\scshape{\reflectbox{\udot{~\thepage~~~}}}}
-        {\scshape{\udot{~\thepage~~~}}}
+    \ifthenelse{\value{page}=42}{%
+        \scshape{\reflectbox{\scalebox{1}[-1]{\udot{~\thepage~~~}}}}
+    }{%
+        \ifthenelse{\value{page}=23}{%
+            \scshape{\reflectbox{\udot{~\thepage~~~}}}
+        }{%
+            \scshape{\udot{~\thepage~~~}}
+        }%
+    }%
 }%
 
 % Remove the header from pages with chapters on them:
@@ -382,7 +388,7 @@
             \ifthenelse{\pageref{#1}=\thepage}{%
                 \SavedHyperref[{#1}]{#2}
             }{%
-                \SavedHyperref[{#1}]{#2, (S.\pageref{#1})}
+                \SavedHyperref[{#1}]{#2 (S.\pageref{#1})}
             }%
         }%
     }%
