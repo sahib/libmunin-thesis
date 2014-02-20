@@ -113,7 +113,8 @@ Kriterien erfüllt sind. So macht es beispielsweise wahrscheinlich wenig Sinn di
 doppelte unterscheidet - die Daten wären einfach zu unterschiedlich.
 
 Momentan ist es allerdings noch nicht möglich für die ``moodbar``-Distanzfunktion
-die Länge des Stückes abzufragen.
+die Länge des Stückes abzufragen - da sie nur die für sie relevanten Daten
+bekommt, nicht die ganze ``Song``-Instanz.
 
 Beschleunigung des Kaltstarts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

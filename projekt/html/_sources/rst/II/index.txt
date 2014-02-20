@@ -12,7 +12,7 @@ Einstieg
 Einsatzszenarien
 ================
 
-:dropcaps:`Wo` ist also das Problem dass *libmunin* nun lösen soll?
+:dropcaps:`Wo` ist also das konrekte Problem, dass *libmunin* nun lösen soll?
 Das erklärte Ziel ist es eine Bibliothek zu schaffen, die
 einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
 In dieser Arbeit wird ein entsprechender Prototyp entwickelt.
@@ -57,13 +57,13 @@ TODO: Nachweise!
 
 - **last.fm** :cite:`9NT`
 
-    Der wohl bekannteste Musik Empfehlungs-Service im Netz. Benutzer können sich mit
-    ihren Account ein personalisiertes Webradio (auch *Station* genannt, siehe
-    :num:`fig-lastfm-webradio`) zusammenstellen. Dabei wählen sie ein Lied auf
-    der Seite aus und lassen sich darauf basierend dann weitere Lieder oder
-    Künstler (siehe :num:`fig-lastfm-similar-artists`) vorschlagen, die in eine
-    ähnliche Richtung gehen. Für viele Musicplayer gibt es Plugins, die die
-    gespielten Lieder zu last.fm übermitteln. Diesen Vorgang nennen die
+    Der wohl bekannteste Musik Empfehlungs-Service im Netz. Benutzer können sich
+    mit ihren Account ein personalisiertes Webradio (auch *Station* genannt,
+    siehe Abb. :num:`fig-lastfm-webradio`) zusammenstellen. Dabei wählen sie ein
+    Lied auf der Seite aus und lassen sich darauf basierend dann weitere Lieder
+    oder Künstler (siehe Abb. :num:`fig-lastfm-similar-artists`) vorschlagen,
+    die in eine ähnliche Richtung gehen. Für viele Musicplayer gibt es Plugins,
+    die die gespielten Lieder zu last.fm übermitteln. Diesen Vorgang nennen die
     Betreiber *scrobbeln*. Durch diese Informationen werden dann spezialisierte
     Empfehlungen getroffen - es handelt sich also um ein lernendes System.
 
@@ -85,7 +85,7 @@ TODO: Nachweise!
         :width: 100%
         :align: center
     
-        Eine *Station* auf Spotify (Empfehlungen von last.fm)
+        Eine *Station* zu der Band Knorkator, auf Spotify (Empfehlungen von last.fm)
 
     .. subfigend::
         :width: 0.5
@@ -99,7 +99,7 @@ TODO: Nachweise!
     Youtube ist vorrangig als Video-Plattform bekannt, durch die enorme
     Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
     hoch. Interessant dabei ist, dass in der Sidebar stets Empfehlungen für
-    weitere Videos angezeigt (siehe :num:`fig-youtube`) werden - in den meisten
+    weitere Videos angezeigt (siehe Abb. :num:`fig-youtube`) werden - in den meisten
     Fällen dann auch weitere Musikvideos. Dabei haben die (meisten) Videos auch
     etwas mit dem Aktuellen zu tun.
 
@@ -114,7 +114,7 @@ TODO: Nachweise!
 
     .. figure:: figs/youtube_sidebar.png
         :alt: Sidebar eines Youtube Videos
-        :width: 100%
+        :width: 80%
         :align: center
 
         Die Vorschläge zu einem Musikvideo auf YouTube
@@ -123,7 +123,7 @@ TODO: Nachweise!
 
     Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
     viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
-    Musik anhören kann (siehe :num:`fig-myspace`). Ähnlich wie bei anderen
+    Musik anhören kann (siehe Abb. :num:`fig-myspace`). Ähnlich wie bei anderen
     populären sozialen Netzen kann man diese Seite *liken*. Diese Information
     wird dann dafür genutzt einem Benutzer Bands vorzuschlagen, die auch seine
     Freunde mögen - unter der Annahme dass die Freunde einen ähnlichen
@@ -133,7 +133,7 @@ TODO: Nachweise!
 
     .. figure:: figs/myspace_queue.png
         :alt: Die Playlist von MySpace 
-        :width: 75%
+        :width: 50%
         :align: center
 
         Die Vorschläge die MySpace basierend auf den ersten Song macht.
@@ -146,7 +146,7 @@ TODO: Nachweise!
     Zusammenhänge aufdecken. Ein Kauf ist auch eine klarere *Absichtserklärung*
     als zB. ein Klick auf *YouTube*. Das typische Beispiel ist dabei: *,,Wer
     Bier kauft, kauft auch Windeln''*. Diese Regeln werden dann genutzt um neue
-    Artikel für bestimmte Artikel vorzuschlagen (siehe :num:`fig-amazon`).
+    Artikel für bestimmte Artikel vorzuschlagen (siehe Abb. :num:`fig-amazon`).
     Natürlich fließt auch die personalisierte Shopping-Historie in die
     Empfehlungen mit ein.
 
@@ -167,7 +167,7 @@ TODO: Nachweise!
     Attribute werden an den Achsen eines Koordinatensystems aufgetragen. So
     erhält der Benutzer eine Möglichkeit einen Punkt darin zu selektieren und
     basierend auf diesen Eigenschaften sich Empfehlungen liefern zu lassen
-    (siehe :num:`fig-musicovery-moodmap`).
+    (siehe Abb. :num:`fig-musicovery-moodmap`).
     
     .. _fig-musicovery-moodmap:
 
@@ -409,7 +409,7 @@ aufsetzen.
    wird die Netzwerklast und die Startzeit reduziert und interessante
    Feature wie Volltextsuche wird möglich.
 
-   Er wird in Python, Cython und C entwickelt und befindet sich noch im
+   Er wird in *Python,* *Cython* und *C* entwickelt und befindet sich noch im
    Entwicklungsstadium. 
 
 .. _anf-retrieval:

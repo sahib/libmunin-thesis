@@ -536,8 +536,8 @@ Staat'' (Farin Urlaub)* nennen.
 ``Levenshtein``:
 """"""""""""""""
 
-Wie ``Wordlist``, vergleiche aber die einzelnen Wörter mittels der
-Levenshtein-Distanzfunktion. So spielen kleine Abweichung wie der Vergleich von 
+Wie ``Wordlist``, die einzelnen Wörter werden aber mittels der Levenshtein
+Distanzfunktion verglichen.  So spielen kleine Abweichung wie der Vergleich von
 ``color`` und ``colour`` keine große Rolle mehr. Der große Nachteil ist der
 erhöhte Rechenaufwand.
 

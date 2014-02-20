@@ -58,7 +58,7 @@ zu speichern - vorzugsweise eine Menge von Songs mit der kleinsten
 Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.
 
 Zur besseren optischen Vorstellung, ist unter :num:`fig-graph-example` ein
-Graphen-Plot gezeigt der diese Anforderungen erfüllt.
+Graphen-Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
 
 .. _fig-graph-example:
 
@@ -231,7 +231,7 @@ beinhaltet vier Schritte:
     :width: 75%
     :align: center
 
-    Allgemeine Benutzung von libmunin
+    Allgemeine Benutzungs-Prozess von libmunin.
 
 .. _environement:
 
@@ -403,7 +403,7 @@ und kann zudem persistent abgespeichert werden. Dies wird durch das Python-Modul
 hierfür ist, dass alle Objekte direkt oder indirekt an die ``Session``-Instanz
 gebunden sind. 
 
-Der Speicherort entspricht dem XDG-Standard, jede Session wird mit ``gzip``
+Der Speicherort entspricht dem XDG Standard, daher wird jede Session als ``gzip`` 
 gepackt unter ``$HOME/.cache/libmunin/<name>.gz`` gespeichert.
 Der ``<name>`` lässt sich der Session beim Instanzieren übergeben.
 
@@ -434,7 +434,8 @@ Wie man sieht wird als ,,Key'' der Name des Attributes festgelegt, und als
 
 Wird statt einer ``Provider`` oder ein ``DistanceFunction`` Instanz etwas
 anderes übergeben, so wird ein ``DefaultProvider`` (reicht die Werte unverändert
-weiter), bzw. eine ``DefaultDistanceFunction`` (vergleicht Werte mit ``==``).
+weiter), bzw. eine ``DefaultDistanceFunction`` (vergleicht Werte mit dem
+``==``-Operator).
 
 Der Nutzer hat meist selber wenig mit der ``Mask``-Instanz zu tun. Er übergibt
 der ``Session`` eine Hashtable die implizit eine ``Mask``-Instanz erzeugt. 
@@ -452,10 +453,10 @@ konfiguriert ist.
 .. figtable::
     :caption: Default-Konfiguration der ,,EasySession''.
     :alt: Default-Konfiguration der ,,EasySession''
-    :spec: @{}l | l | l | @{}c | l @{}c
+    :spec: @{}l | l | l | @{}c | l | @{}c
 
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | Kompression?        |
+    |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | Kompression         |
     +==============+======================+======================+=================================+=========+=====================+
     | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1       | :math:`\CheckedBox` |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
@@ -508,7 +509,6 @@ Distance
 Wie die ``Song`` Klasse, speichert aber statt den Werten von bestimmten
 Attributen die :term:`Distanz` zwischen zwei Attributen. Zusätzlich wird die
 gewichtete Gesamtdistanz gespeichert. Diese Klasse ist ebenfalls *Immutable*.
-
 Anschaulich ist das in :num:`fig-distance-table` dargestellt.
 
 .. _fig-distance-table:
@@ -593,7 +593,6 @@ Unterklasse von ``History``.
 Speichert die chronologische Reihenfolge von gehörten Songs. 
 
 Es ist die Aufgabe des Nutzers der Bibliothek einzelne Songs über die
-``Session``-Instanz zur ``ListenHistory`` hinzuzufügen. Die Entscheidung ob 
 hinzugefügt wird, sollte auf Basis der tatsächlich gehörten Länge des Stücks
 entschieden werden. Songs die der Endnutzer einfach ,,skippt'' und die er zu
 nahe :math:`0\%` angehört hat sollten auch nicht als Lerneingabe genutzt werden.
@@ -619,8 +618,7 @@ Zudem *,,vergisst''* der Index Regeln die Songs betreffen die nicht mehr in der
 Provider
 ~~~~~~~~
 
-Die Oberklasse von der jeder konkreter ``Provider`` ableitet.
-
+Die Oberklasse von der jeder konkreter ``Provider`` ableitet:
 Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
 überschrieben wird. Zudem bieten viele Provider als *,,Convinience''* eine
 ``do_reverse()`` Methode um für Debuggingzwecke den Originalwert vor der
@@ -641,8 +639,7 @@ gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.
 DistanceFuntion
 ~~~~~~~~~~~~~~~
 
-Die Oberklasse von der jede konkrete ``DistanceFunction`` ableitet. 
-
+Die Oberklasse von der jede konkrete ``DistanceFunction`` ableitet: 
 Jede Distanzfunktion bietet eine ``do_compute()`` Methode die von den
 Unterklassen überschrieben wird.
 

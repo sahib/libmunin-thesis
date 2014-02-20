@@ -267,7 +267,7 @@ Songtexte und Genre-Tags aus dem Internet zu besorgen. In der Einleitung dieser
 Arbeit wurden aber schon freie Musikmetadatenbanken wie <em>MusicBrainz</em> erwähnt
 die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
 können.</p>
-<p>Glücklicherweise steht mit <em>beets</em> <a class="reference internal" href="../zzz_bibliography.html#xaj" id="id2">[Link-24]</a> bereits ein entsprechendes,
+<p>Glücklicherweise steht mit <em>beets</em> <a class="reference internal" href="../zzz_bibliography.html#xaj" id="id2">[Link-25]</a> bereits ein entsprechendes,
 praktischerweise in Python geschriebenes Tool bereit - gewissermaßen das
 <em>libhugin</em> für Musik.  In Zukunft könnte <em>beets</em> zusammen mit <em>libglyr also den
 *Information Retrieval</em> Teil übernehmen, ohne dass <em>libmunin</em> das Rad dafür neu
@@ -285,7 +285,8 @@ Kriterien erfüllt sind. So macht es beispielsweise wahrscheinlich wenig Sinn di
 <tt class="docutils literal"><span class="pre">moodbar</span></tt> zweier Songs zu vergleichen wenn sich die Stücklänge um mehr als das
 doppelte unterscheidet - die Daten wären einfach zu unterschiedlich.</p>
 <p>Momentan ist es allerdings noch nicht möglich für die <tt class="docutils literal"><span class="pre">moodbar</span></tt>-Distanzfunktion
-die Länge des Stückes abzufragen.</p>
+die Länge des Stückes abzufragen - da sie nur die für sie relevanten Daten
+bekommt, nicht die ganze <tt class="docutils literal"><span class="pre">Song</span></tt>-Instanz.</p>
 </div>
 <div class="section" id="beschleunigung-des-kaltstarts">
 <h4>6.4.1.2 Beschleunigung des Kaltstarts<a class="headerlink" href="#beschleunigung-des-kaltstarts" title="Permalink to this headline">¶</a></h4>
@@ -332,7 +333,7 @@ fröhliche Musik gespielt wird, zum Ende hin dann langsame, ruhigere Musik.</li>
 Empfehlungen.</li>
 <li>Justierbarkeit der Gewichtungen während der Laufzeit - Momentan erfordert die
 Justierung der Gewichtung eine <tt class="docutils literal"><span class="pre">rebuild</span></tt>-Operation.</li>
-<li>,,Echte'' Audio/Mood-Analyse mittels <em>aubio</em> <a class="reference internal" href="../zzz_bibliography.html#fn" id="id3">[Link-25]</a> oder <em>MARSYAS</em> <a class="reference internal" href="../zzz_bibliography.html#hj7" id="id4">[Link-26]</a>.</li>
+<li>,,Echte'' Audio/Mood-Analyse mittels <em>aubio</em> <a class="reference internal" href="../zzz_bibliography.html#fn" id="id3">[Link-26]</a> oder <em>MARSYAS</em> <a class="reference internal" href="../zzz_bibliography.html#hj7" id="id4">[Link-27]</a>.</li>
 <li>Optionaler Aufsatz auf <em>libmunin</em> der <em>Social-based music recommendation</em>
 ermöglicht - beispielsweise um die Ähnlichkeit von zwei Künstlern durch
 Amazon-Reviews zu bestimmen. Sind diese in der Datenbank nicht vorhanden wird

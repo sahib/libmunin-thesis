@@ -234,7 +234,7 @@ zu speichern - vorzugsweise eine Menge von Songs mit der kleinsten
 <a class="reference internal" href="../appendix.html#term-distanz"><em class="xref std std-term">Distanz</em></a>. Als geeignete Datenstruktur erscheint hier ein Graph - die
 Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.</p>
 <p>Zur besseren optischen Vorstellung, ist unter <a href="#fig-graph-example">3.1</a> ein
-Graphen-Plot gezeigt der diese Anforderungen erfüllt.</p>
+Graphen-Plot (erstellt mit <tt class="docutils literal"><span class="pre">igraph</span></tt> <a class="reference internal" href="../zzz_bibliography.html#igr" id="id1">[Link-15]</a>) gezeigt.</p>
 <div class="figure align-center" id="fig-graph-example">
 <a class="reference internal image-reference" href="../../_images/graph_example.png"><img alt="Beispielgraph aus generierten Testdaten" src="../../_images/graph_example.png" style="width: 85%;" /></a>
 <p class="caption"><strong>Figure 3.1:</strong> Beispielgraph mit 100 Knoten, aus generierten Testdaten. Die Farbe der
@@ -373,7 +373,7 @@ werden.</li>
 </ul>
 <div class="figure align-center" id="fig-startup">
 <a class="reference internal image-reference" href="../../_images/munin_startup.svg"><img alt="Allgemeine Benutzung" src="../../_images/munin_startup.svg" width="75%" /></a>
-<p class="caption"><strong>Figure 3.2:</strong> Allgemeine Benutzung von libmunin</p>
+<p class="caption"><strong>Figure 3.2:</strong> Allgemeine Benutzungs-Prozess von libmunin.</p>
 </div>
 </div>
 <div class="section" id="die-umgebung">
@@ -503,7 +503,7 @@ und kann zudem persistent abgespeichert werden. Dies wird durch das Python-Modul
 <tt class="docutils literal"><span class="pre">Session</span></tt>-Instanz in einem Python-spezifischen Binärformat - Voraussetzung
 hierfür ist, dass alle Objekte direkt oder indirekt an die <tt class="docutils literal"><span class="pre">Session</span></tt>-Instanz
 gebunden sind.</p>
-<p>Der Speicherort entspricht dem XDG-Standard, jede Session wird mit <tt class="docutils literal"><span class="pre">gzip</span></tt>
+<p>Der Speicherort entspricht dem XDG Standard, daher wird jede Session als <tt class="docutils literal"><span class="pre">gzip</span></tt>
 gepackt unter <tt class="docutils literal"><span class="pre">$HOME/.cache/libmunin/&lt;name&gt;.gz</span></tt> gespeichert.
 Der <tt class="docutils literal"><span class="pre">&lt;name&gt;</span></tt> lässt sich der Session beim Instanzieren übergeben.</p>
 <p>Die weitere Hauptzuständigkeit einer <tt class="docutils literal"><span class="pre">Session</span></tt> ist die Implementierung der
@@ -529,7 +529,8 @@ nochmal ein kurzes praktisches Beispiel gezeigt:</p>
 <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt>-Instanz und der Gewichtung dieses Attributes als <tt class="docutils literal"><span class="pre">float</span></tt>.</p>
 <p>Wird statt einer <tt class="docutils literal"><span class="pre">Provider</span></tt> oder ein <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> Instanz etwas
 anderes übergeben, so wird ein <tt class="docutils literal"><span class="pre">DefaultProvider</span></tt> (reicht die Werte unverändert
-weiter), bzw. eine <tt class="docutils literal"><span class="pre">DefaultDistanceFunction</span></tt> (vergleicht Werte mit <tt class="docutils literal"><span class="pre">==</span></tt>).</p>
+weiter), bzw. eine <tt class="docutils literal"><span class="pre">DefaultDistanceFunction</span></tt> (vergleicht Werte mit dem
+<tt class="docutils literal"><span class="pre">==</span></tt>-Operator).</p>
 <p>Der Nutzer hat meist selber wenig mit der <tt class="docutils literal"><span class="pre">Mask</span></tt>-Instanz zu tun. Er übergibt
 der <tt class="docutils literal"><span class="pre">Session</span></tt> eine Hashtable die implizit eine <tt class="docutils literal"><span class="pre">Mask</span></tt>-Instanz erzeugt.</p>
 </div>
@@ -555,7 +556,7 @@ konfiguriert ist.</p>
 <th class="head align-left">Distanzfunktion</th>
 <th class="head">Eingabe</th>
 <th class="head align-left">Weight</th>
-<th class="head">Kompression?</th>
+<th class="head">Kompression</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -651,8 +652,8 @@ vonnöten kann die <tt class="docutils literal"><span class="pre">modify</span><
 <h4>3.3.3.5 Distance<a class="headerlink" href="#distance" title="Permalink to this headline">¶</a></h4>
 <p>Wie die <tt class="docutils literal"><span class="pre">Song</span></tt> Klasse, speichert aber statt den Werten von bestimmten
 Attributen die <a class="reference internal" href="../appendix.html#term-distanz"><em class="xref std std-term">Distanz</em></a> zwischen zwei Attributen. Zusätzlich wird die
-gewichtete Gesamtdistanz gespeichert. Diese Klasse ist ebenfalls <em>Immutable</em>.</p>
-<p>Anschaulich ist das in <a href="#fig-distance-table">3.7</a> dargestellt.</p>
+gewichtete Gesamtdistanz gespeichert. Diese Klasse ist ebenfalls <em>Immutable</em>.
+Anschaulich ist das in <a href="#fig-distance-table">3.7</a> dargestellt.</p>
 <div class="figure align-center" id="fig-distance-table">
 <center><table border="1" class="docutils">
 <colgroup>
@@ -732,7 +733,6 @@ von Empfehlungen.</p>
 <p>Unterklasse von <tt class="docutils literal"><span class="pre">History</span></tt>.</p>
 <p>Speichert die chronologische Reihenfolge von gehörten Songs.</p>
 <p>Es ist die Aufgabe des Nutzers der Bibliothek einzelne Songs über die
-<tt class="docutils literal"><span class="pre">Session</span></tt>-Instanz zur <tt class="docutils literal"><span class="pre">ListenHistory</span></tt> hinzuzufügen. Die Entscheidung ob
 hinzugefügt wird, sollte auf Basis der tatsächlich gehörten Länge des Stücks
 entschieden werden. Songs die der Endnutzer einfach ,,skippt'' und die er zu
 nahe <span class="math">\(0\%\)</span> angehört hat sollten auch nicht als Lerneingabe genutzt werden.</p>
@@ -754,8 +754,8 @@ Songs auf Assoziationsregeln zu halten die als Index dient.</p>
 </div>
 <div class="section" id="provider">
 <h4>3.3.3.12 Provider<a class="headerlink" href="#provider" title="Permalink to this headline">¶</a></h4>
-<p>Die Oberklasse von der jeder konkreter <tt class="docutils literal"><span class="pre">Provider</span></tt> ableitet.</p>
-<p>Jeder Provider bietet eine <tt class="docutils literal"><span class="pre">do_process()</span></tt> Methode die von den Unterklassen
+<p>Die Oberklasse von der jeder konkreter <tt class="docutils literal"><span class="pre">Provider</span></tt> ableitet:
+Jeder Provider bietet eine <tt class="docutils literal"><span class="pre">do_process()</span></tt> Methode die von den Unterklassen
 überschrieben wird. Zudem bieten viele Provider als <em>,,Convinience''</em> eine
 <tt class="docutils literal"><span class="pre">do_reverse()</span></tt> Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.</p>
@@ -772,8 +772,8 @@ gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.</p>
 </div>
 <div class="section" id="distancefuntion">
 <h4>3.3.3.13 DistanceFuntion<a class="headerlink" href="#distancefuntion" title="Permalink to this headline">¶</a></h4>
-<p>Die Oberklasse von der jede konkrete <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> ableitet.</p>
-<p>Jede Distanzfunktion bietet eine <tt class="docutils literal"><span class="pre">do_compute()</span></tt> Methode die von den
+<p>Die Oberklasse von der jede konkrete <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> ableitet:
+Jede Distanzfunktion bietet eine <tt class="docutils literal"><span class="pre">do_compute()</span></tt> Methode die von den
 Unterklassen überschrieben wird.</p>
 <p>Um die bei den Providern mögliche <em>Kompression</em> wieder rückgängig zu machen muss
 die Distanzfunktion den <a class="reference internal" href="../appendix.html#term-provider"><em class="xref std std-term">Provider</em></a> kennen.</p>
