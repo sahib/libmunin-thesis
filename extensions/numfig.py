@@ -1,13 +1,93 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+
 from docutils import nodes
 from sphinx.roles import XRefRole
 import figtable
 import subfig
-from backports import OrderedDict, OrderedSet
+
+from collections import OrderedDict
+from collections.abc import MutableSet
+
+# Helper
+
+# Modified from original source, available here:
+# http://code.activestate.com/recipes/577624-orderedset/
+
+
+class OrderedSet(MutableSet):
+    '''Set that remembers original insertion order.'''
+
+    KEY, PREV, NEXT = range(3)
+
+    def __init__(self, iterable=None):
+        self.end = end = []
+        end += [None, end, end]         # sentinel node for doubly linked list
+        self.map = {}                   # key --> [key, prev, next]
+        if iterable is not None:
+            self |= iterable
+
+    def __contains__(self, key):
+        return key in self.map
+
+    def __eq__(self, other):
+        if isinstance(other, OrderedSet):
+            return len(self) == len(other) and list(self) == list(other)
+        return set(self) == set(other)
+
+    def __iter__(self):
+        end = self.end
+        curr = end[self.NEXT]
+        while curr is not end:
+            yield curr[self.KEY]
+            curr = curr[self.NEXT]
+
+    def __len__(self):
+        return len(self.map)
+
+    def __reversed__(self):
+        end = self.end
+        curr = end[self.PREV]
+        while curr is not end:
+            yield curr[self.KEY]
+            curr = curr[self.PREV]
+
+    def add(self, key):
+        if key not in self.map:
+            end = self.end
+            curr = end[self.PREV]
+            curr[self.NEXT] = end[self.PREV] = self.map[key] = [key, curr, end]
+
+    def discard(self, key):
+        if key in self.map:
+            key, prev, next = self.map.pop(key)
+            prev[self.NEXT] = next
+            next[self.PREV] = prev
+
+    def pop(self, last=True):
+        if not self:
+            raise KeyError('set is empty')
+        key = next(reversed(self)) if last else next(iter(self))
+        self.discard(key)
+        return key
+
+    def __del__(self):
+        self.clear()
+
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        if not self:
+            return '{0!s}()'.format(class_name)
+        return '{0!s}({1!r})'.format(class_name, list(self))
+
 
 # Element classes
 
+
 class page_ref(nodes.reference):
     pass
+
 
 class num_ref(nodes.reference):
     pass
@@ -18,9 +98,11 @@ class num_ref(nodes.reference):
 def skip_page_ref(self, node):
     raise nodes.SkipNode
 
+
 def latex_visit_page_ref(self, node):
     self.body.append("\\pageref{%s:%s}" % (node['refdoc'], node['reftarget']))
     raise nodes.SkipNode
+
 
 def latex_visit_num_ref(self, node):
     fields = node['reftarget'].split('#')
@@ -53,9 +135,12 @@ def doctree_read(app, doctree):
     docname_figs = getattr(env, 'docname_figs', {})
     docnames_by_figname = getattr(env, 'docnames_by_figname', {})
 
-    for figure_info in doctree.traverse(lambda n: isinstance(n, nodes.figure) or \
-                                                  isinstance(n, subfig.subfigend) or \
-                                                  isinstance(n, figtable.figtable)):
+    for figure_info in doctree.traverse(
+        lambda n:
+            isinstance(n, nodes.figure) or
+            isinstance(n, subfig.subfigend) or
+            isinstance(n, figtable.figtable)
+    ):
 
         for id in figure_info['ids']:
             docnames_by_figname[id] = env.docname
@@ -78,19 +163,18 @@ def doctree_read(app, doctree):
     env.docnames_by_figname = docnames_by_figname
     env.docname_figs = docname_figs
 
+
 def doctree_resolved(app, doctree, docname):
     # replace numfig nodes with links
     if app.builder.name in ('html', 'singlehtml', 'epub'):
         env = app.builder.env
 
-        docname_figs = getattr(env, 'docname_figs', {})
         docnames_by_figname = env.docnames_by_figname
-
         figids = getattr(env, 'figids', {})
 
         secnums = []
         fignames_by_secnum = {}
-        for figdocname, figurelist in env.docname_figs.iteritems():
+        for figdocname, figurelist in env.docname_figs.items():
             if figdocname not in env.toc_secnumbers:
                 continue
             secnum = env.toc_secnumbers[figdocname]['']
@@ -103,7 +187,7 @@ def doctree_resolved(app, doctree, docname):
         for secnum in secnums:
             if secnum[0] != last_secnum:
                 figid = 1
-            for figname, subfigs in fignames_by_secnum[secnum].iteritems():
+            for figname, subfigs in fignames_by_secnum[secnum].items():
                 figids[figname] = str(secnum[0]) + '.' + str(figid)
                 for i, subfigname in enumerate(subfigs):
                     subfigid = figids[figname] + chr(ord('a') + i)
@@ -128,7 +212,7 @@ def doctree_resolved(app, doctree, docname):
 
             for cap in figure_info.traverse(nodes.caption):
                 cap.insert(1, nodes.Text(" %s" % cap[0]))
-                if fignum[-1] in map(str, range(10)):
+                if fignum[-1] in list(map(str, list(range(10)))):
                     boldcaption = "%s %s:" % (app.config.figure_caption_prefix, fignum)
                 else:
                     boldcaption = "(%s)" % fignum[-1]
@@ -160,26 +244,33 @@ def doctree_resolved(app, doctree, docname):
             html = '<a href="%s">%s</a>' % (link, linktext)
             ref_info.replace_self(nodes.raw(html, html, format='html'))
 
+
 def setup(app):
+    # Config values:
     app.add_config_value('number_figures', True, True)
     app.add_config_value('figure_caption_prefix', "Figure", True)
 
-    app.add_node(page_ref,
-                 text=(skip_page_ref, None),
-                 html=(skip_page_ref, None),
-                 singlehtml=(skip_page_ref, None),
-                 latex=(latex_visit_page_ref, None))
-
-    app.add_role('page', XRefRole(nodeclass=page_ref))
-
-    app.add_node(num_ref,
-                 latex=(latex_visit_num_ref, None),
-                 text=(skip_page_ref, None),
-                 singlehtml=(skip_page_ref, None),
-                 html=(skip_page_ref, None)
+    # Nodes:
+    app.add_node(
+        page_ref,
+        text=(skip_page_ref, None),
+        html=(skip_page_ref, None),
+        singlehtml=(skip_page_ref, None),
+        latex=(latex_visit_page_ref, None)
     )
 
-    app.add_role('num', XRefRole(nodeclass=num_ref))
+    app.add_node(
+        num_ref,
+        latex=(latex_visit_num_ref, None),
+        text=(skip_page_ref, None),
+        singlehtml=(skip_page_ref, None),
+        html=(skip_page_ref, None)
+    )
 
+    # Roles:
+    app.add_role('num', XRefRole(nodeclass=num_ref))
+    app.add_role('page', XRefRole(nodeclass=page_ref))
+
+    # Signals:
     app.connect('doctree-read', doctree_read)
     app.connect('doctree-resolved', doctree_resolved)

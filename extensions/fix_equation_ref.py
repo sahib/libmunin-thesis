@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 """
 Fixes equation references from Sphinx math domain
 from Equation (1) to Equation 1, which is what they
@@ -8,6 +11,7 @@ extensions list.
 from docutils import nodes
 import sphinx.ext.mathbase
 from sphinx.ext.mathbase import displaymath, eqref
+
 
 def number_equations(app, doctree, docname):
     num = 0
@@ -26,6 +30,7 @@ def number_equations(app, doctree, docname):
         node[0] = nodes.Text(num, num)
 
 sphinx.ext.mathbase.number_equations = number_equations
+
 
 def setup(app):
     pass

@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+
 from docutils import nodes
 
 
@@ -10,7 +14,7 @@ def visit_latex_sign_latex(self, node):
 
 
 def visit_latex_sign_text(self, node):
-    self.body.append('LaTeX')
+    self.add_text('LaTeX')
 
 
 def visit_latex_sign_html(self, node):
