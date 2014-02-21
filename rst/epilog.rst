@@ -14,14 +14,24 @@
 
    <br />
 
-.. |apostart| raw:: latex
+.. |latexapostart| raw:: latex
 
-   \textcolor{gray75}{\Huge ,,}
+    \textcolor{gray75}{\Huge ,,}
 
-.. |apoend| raw:: latex
+.. |htmlapostart| raw:: html or singlehtml
+
+    <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span>
+
+.. |latexapoend| raw:: latex
 
    \textcolor{gray75}{\Huge ''}
 
-.. |apo| raw:: html
+.. |htmlapoend| raw:: html or singlehtml
 
-   ,,
+    <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span>
+
+.. |apostart| replace:: |latexapostart| |htmlapostart|
+
+.. |apoend| replace:: |latexapoend| |htmlapoend|
+
+.. |apopar| replace:: |nbsp| |nbsp| |nbsp| |nbsp|

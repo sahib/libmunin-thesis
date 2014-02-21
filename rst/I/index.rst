@@ -4,7 +4,7 @@ Einleitung
 
 .. epigraph:: 
 
-   |apostart| *Sei froh dass du du bist, und nicht dieser Doktorfisch.* |apoend|
+   |apostart| *Sei froh, dass du du bist, und nicht dieser Doktorfisch.* |apoend|
 
    -- *Das Lied von der Makrele, Marc Uwe Kling*
 
