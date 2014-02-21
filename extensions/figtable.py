@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 """
 Adds a new directive called 'figtable' that creates a figure
 around a table.
@@ -8,14 +11,18 @@ import docutils.parsers.rst.directives as directives
 from sphinx.util.compat import Directive
 from sphinx import addnodes
 
+
 class figtable(nodes.General, nodes.Element):
     pass
+
 
 def visit_figtable_node(self, node):
     pass
 
+
 def depart_figtable_node(self, node):
     pass
+
 
 def visit_figtable_tex(self, node):
     if node['nofig']:
@@ -23,18 +30,22 @@ def visit_figtable_tex(self, node):
     else:
         self.body.append('\n\n\\begin{figure}[ht]\n\\capstart\n\\begin{center}\n')
 
+
 def depart_figtable_tex(self, node):
     if node['nofig']:
         self.body.append('\n\\end{center}\n\\end{table}\n')
     else:
         self.body.append('\n\\end{center}\n\\end{figure}\n')
 
+
 def visit_figtable_html(self, node):
     atts = {'class': 'figure align-center'}
     self.body.append(self.starttag(node, 'div', **atts) + '<center>')
 
+
 def depart_figtable_html(self, node):
     self.body.append('</center></div>')
+
 
 class FigTableDirective(Directive):
 
@@ -42,11 +53,13 @@ class FigTableDirective(Directive):
     optional_arguments = 5
     final_argument_whitespace = True
 
-    option_spec = {'label': directives.uri,
-                   'spec': directives.unchanged,
-                   'caption': directives.unchanged,
-                   'alt': directives.unchanged,
-                   'nofig': directives.flag}
+    option_spec = {
+        'label': directives.uri,
+        'spec': directives.unchanged,
+        'caption': directives.unchanged,
+        'alt': directives.unchanged,
+        'nofig': directives.flag
+    }
 
     def run(self):
         label = self.options.get('label', None)
@@ -80,11 +93,13 @@ class FigTableDirective(Directive):
 
         return [figtable_node]
 
-def setup(app):
-    app.add_node(figtable,
-                 html=(visit_figtable_html, depart_figtable_html),
-                 singlehtml=(visit_figtable_html, depart_figtable_html),
-                 latex=(visit_figtable_tex, depart_figtable_tex),
-                 text=(visit_figtable_node, depart_figtable_node))
 
+def setup(app):
+    app.add_node(
+        figtable,
+        html=(visit_figtable_html, depart_figtable_html),
+        singlehtml=(visit_figtable_html, depart_figtable_html),
+        latex=(visit_figtable_tex, depart_figtable_tex),
+        text=(visit_figtable_node, depart_figtable_node)
+    )
     app.add_directive('figtable', FigTableDirective)

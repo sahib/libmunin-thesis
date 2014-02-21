@@ -8,7 +8,7 @@ libmunin: |br| Projektarbeit
 
 .. only:: not singlehtml
 
-    Preamble
+    Präambel
     --------
 
 .. toctree::
@@ -19,8 +19,8 @@ libmunin: |br| Projektarbeit
 
 .. only:: not singlehtml
 
-    Table of Contents
-    -----------------
+    Inhaltsverzeichnis
+    ------------------
 
 .. include:: toc.rst
 
@@ -29,14 +29,15 @@ libmunin: |br| Projektarbeit
     appendix
     zzz_bibliography
 
-License
--------
+Lizenz
+------
 
 Diese Arbeit ist unter den Bedingungen der *Creative Commons Attribution-3.0*
 lizensiert:
 
     http://creativecommons.org/licenses/by/3.0/de/
 
-.. image:: _static/ccicon88x31.png
+.. image:: _static/cclogo.svg
     :align: center
+    :width: 50%
     :alt: Creative Commons License

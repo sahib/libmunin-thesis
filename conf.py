@@ -5,16 +5,15 @@ import sys
 CURDIR = os.path.abspath(os.path.dirname(__file__))
 
 # add custom extensions directory to python path
-sys.path.insert(
-    0,
-    os.path.join(os.path.abspath(os.path.dirname(__file__)), 'extensions')
-)
+sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname(__file__)), 'extensions'))
 sys.path.insert(0, os.path.abspath('./'))
 
 # import the custom html and latex builders/translators/writers
+# The import already sets them up
 import html_mods
 import latex_mods
 
+# Use a nice theme:
 import sphinx_rtd_theme
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -81,7 +80,7 @@ else:
 # A string of reStructuredText that will be included at the end of
 # every source file that is read.
 with open(os.path.join(CURDIR, 'rst/epilog.rst'), 'r') as f:
-    rst_epilog = f.read().decode('utf8')
+    rst_epilog = f.read()
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'flask_theme_support.FlaskyStyle'
@@ -210,7 +209,7 @@ latex_elements = {
     #   * singlespace
     # * you might want to omit the list of tables (lot)
     #   if you use figtable without the :nofig: option
-    'classoptions': ',german,lof,twoside',
+    'classoptions': ',ngerman,lof,twoside',
 
     # The font size ('10pt', '11pt' or '12pt').
     'pointsize': '11pt',
@@ -235,7 +234,7 @@ latex_elements = {
     'inputenc': '\\usepackage[utf8]{inputenc}',
 
     # Use ,,Kapitel'' instead of chapter
-    'babel': '\\usepackage[german, ngerman]{babel}',
+    'babel': '\\usepackage[ngerman]{babel}',
 
     # override maketitle
     'maketitle': '\\makefrontmatter',
