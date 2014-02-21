@@ -4,9 +4,8 @@ Implementierung
 
 .. epigraph::
 
-
-    *,,Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
-    gewaltbereiter Psychopath, der weiß, wo Sie wohnen.''*
+    | |apostart| *Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein*
+    | |nbsp| |nbsp| |nbsp| |nbsp| *gewaltbereiter Psychopath, der weiß, wo Sie wohnen.* |apoend|
 
     -- *Peter Stöhr*
 

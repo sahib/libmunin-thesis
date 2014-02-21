@@ -109,7 +109,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#einsatzszenarien">2.1 Einsatzszenarien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
@@ -152,6 +152,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#coldstart-py"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#complex-py"><tt class="docutils literal"><span class="pre">complex.py</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
 </ul>
@@ -189,8 +190,8 @@
 <h1>3 Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
 <blockquote class="epigraph">
 <div><div class="line-block">
-<div class="line"><em>,,If the implementation is hard to explain, it's a bad idea.</em></div>
-<div class="line"><em>If the implementation is easy to explain, it</em> may <em>be a good idea.''</em></div>
+<div class="line"> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>If the implementation is hard to explain, it's a bad idea.</em></div>
+<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<em>If the implementation is easy to explain, it</em> may <em>be a good idea.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></div>
 </div>
 <p class="attribution">&mdash;<em>Zen of Python</em>, <tt class="docutils literal"><span class="pre">import</span> <span class="pre">this</span></tt></p>
 </div></blockquote>
@@ -564,63 +565,63 @@ konfiguriert ist.</p>
 <td class="align-center">Default</td>
 <td class="align-center">Artistname</td>
 <td class="align-center">1x</td>
-<td class="align-center"><span class="math">\(\surd\)</span></td>
+<td class="align-center"><span class="math">\(\checkmark\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">album</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></td>
 <td class="align-center">Default</td>
 <td class="align-center">Albumtitel</td>
 <td class="align-center">1x</td>
-<td class="align-center"><span class="math">\(\surd\)</span></td>
+<td class="align-center"><span class="math">\(\checkmark\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">title</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt></td>
 <td class="align-center">Default</td>
 <td class="align-center">Tracktitel</td>
 <td class="align-center">2x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">date</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
 <td class="align-center">Datums-String</td>
 <td class="align-center">4x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">bpm</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">BPMCached</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">BPM</span></tt></td>
 <td class="align-center">Audiofile-Pfad</td>
 <td class="align-center">6x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">lyrics</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
 <td class="align-center">Songtext</td>
 <td class="align-center">6x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">rating</span></tt></td>
 <td class="align-center">Default</td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Rating</span></tt></td>
 <td class="align-center">Integer (<span class="math">\(0 \le x \le 5\)</span>)</td>
 <td class="align-center">4x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">genre</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
 <td class="align-center">Genre-String</td>
 <td class="align-center">8x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">moodbar</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Moodbar</span></tt></td>
 <td class="align-center">Audiofile-Pfad</td>
 <td class="align-center">9x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 </tbody>
 </table>

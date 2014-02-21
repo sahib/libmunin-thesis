@@ -4,12 +4,12 @@ Einstieg
 
 .. epigraph::
 
-    *,,Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''*
+   |apostart| *Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.* |apoend|
 
     -- *Bill Gates*
 
 
-Einsatzszenarien
+Warum überhaupt?
 ================
 
 :dropcaps:`Wo` ist also das konrekte Problem, dass *libmunin* nun lösen soll?
@@ -55,7 +55,7 @@ Bekannte Plattformen
 
 TODO: Nachweise!
 
-- **last.fm** :cite:`9NT`
+**last.fm** :cite:`9NT`
 
     Der wohl bekannteste Musik Empfehlungs-Service im Netz. Benutzer können sich
     mit ihren Account ein personalisiertes Webradio (auch *Station* genannt,
@@ -94,7 +94,7 @@ TODO: Nachweise!
  
         Screenshots von Last.fm. 
 
-- **YouTube** :cite:`WNN`
+**YouTube** :cite:`WNN`
 
     Youtube ist vorrangig als Video-Plattform bekannt, durch die enorme
     Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
@@ -119,7 +119,7 @@ TODO: Nachweise!
 
         Die Vorschläge zu einem Musikvideo auf YouTube
 
-- **Myspace**
+**Myspace**
 
     Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
     viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
@@ -138,7 +138,7 @@ TODO: Nachweise!
 
         Die Vorschläge die MySpace basierend auf den ersten Song macht.
 
-- **Amazon** :cite:`XXX`
+**Amazon** :cite:`XXX`
 
     Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
     Dabei werden die Warenkörbe der Benutzer analysiert und es werden
@@ -190,7 +190,7 @@ Suche nach *Music-Recommendation-(Library|System|Engine)* schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
-- **mirage** :cite:`AHX`
+**mirage** :cite:`AHX`
 
     Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
     Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
@@ -202,7 +202,7 @@ angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
     *Banshee* selbst ist ebenfalls in C# geschrieben - die Wahl der
     Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.
 
-- **mufin audiogen** :cite:`UZB`
+**mufin audiogen** :cite:`UZB`
 
     Eine kommerzielle Bibliothek, in
     :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte

@@ -109,7 +109,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#einsatzszenarien">2.1 Einsatzszenarien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
@@ -152,6 +152,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#glossar">Glossar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#coldstart-py"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#complex-py"><tt class="docutils literal"><span class="pre">complex.py</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appendix.html#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
 </ul>
@@ -188,11 +189,12 @@
   <div class="section" id="einstieg">
 <h1>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h1>
 <blockquote class="epigraph">
-<div><p><em>,,Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''</em></p>
-<p class="attribution">&mdash;<em>Bill Gates</em></p>
+<div><p> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></p>
+<blockquote>
+<div>-- <em>Bill Gates</em></div></blockquote>
 </div></blockquote>
-<div class="section" id="einsatzszenarien">
-<h2>2.1 Einsatzszenarien<a class="headerlink" href="#einsatzszenarien" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="warum-uberhaupt">
+<h2>2.1 Warum überhaupt?<a class="headerlink" href="#warum-uberhaupt" title="Permalink to this headline">¶</a></h2>
 <p>Wo ist also das konrekte Problem, dass <em>libmunin</em> nun lösen soll?
 Das erklärte Ziel ist es eine Bibliothek zu schaffen, die
 einen auf Musik spezialisierten <em>Empfehlungsdienst</em> implementiert.
@@ -231,8 +233,7 @@ und Besonderheiten kurz erklärt.</p>
 <div class="section" id="bekannte-plattformen">
 <h3>2.2.1 Bekannte Plattformen<a class="headerlink" href="#bekannte-plattformen" title="Permalink to this headline">¶</a></h3>
 <p>TODO: Nachweise!</p>
-<ul>
-<li><p class="first"><strong>last.fm</strong> <a class="reference internal" href="../zzz_bibliography.html#nt" id="id2">[Link-4]</a></p>
+<p><strong>last.fm</strong> <a class="reference internal" href="../zzz_bibliography.html#nt" id="id2">[Link-4]</a></p>
 <blockquote>
 <div><p>Der wohl bekannteste Musik Empfehlungs-Service im Netz. Benutzer können sich
 mit ihren Account ein personalisiertes Webradio (auch <em>Station</em> genannt,
@@ -254,8 +255,7 @@ Empfehlungen getroffen - es handelt sich also um ein lernendes System.</p>
 </div>
 <p class="caption"><strong>Figure 2.1:</strong> Screenshots von Last.fm.</p>
 </div></div></blockquote>
-</li>
-<li id="fig-lastfm"><p class="first"><strong>YouTube</strong> <a class="reference internal" href="../zzz_bibliography.html#wnn" id="id3">[Link-5]</a></p>
+<p id="fig-lastfm"><strong>YouTube</strong> <a class="reference internal" href="../zzz_bibliography.html#wnn" id="id3">[Link-5]</a></p>
 <blockquote>
 <div><p>Youtube ist vorrangig als Video-Plattform bekannt, durch die enorme
 Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
@@ -277,8 +277,7 @@ angeschaut wurde)</li>
 <p class="caption"><strong>Figure 2.2:</strong> Die Vorschläge zu einem Musikvideo auf YouTube</p>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>Myspace</strong></p>
+<p><strong>Myspace</strong></p>
 <blockquote>
 <div><p>Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
 viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
@@ -292,8 +291,7 @@ Musikgeschmack haben.</p>
 <p class="caption"><strong>Figure 2.3:</strong> Die Vorschläge die MySpace basierend auf den ersten Song macht.</p>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>Amazon</strong> <a class="reference internal" href="../zzz_bibliography.html#xxx" id="id4">[Link-6]</a></p>
+<p><strong>Amazon</strong> <a class="reference internal" href="../zzz_bibliography.html#xxx" id="id4">[Link-6]</a></p>
 <blockquote>
 <div><p>Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
 Dabei werden die Warenkörbe der Benutzer analysiert und es werden
@@ -310,8 +308,6 @@ Empfehlungen mit ein.</p>
 könnte. Hier zu <em>Knorkator - The Schlechtest of</em></p>
 </div>
 </div></blockquote>
-</li>
-</ul>
 <p><strong>Musicovery</strong> <a class="reference internal" href="../zzz_bibliography.html#zmf" id="id5">[Link-7]</a></p>
 <blockquote>
 <div><p>Diese Seite kategorisiert eine große Anzahl von Musikstücken nach Stimmung
@@ -335,8 +331,7 @@ Entdecken neuer Musik.</p>
 Suche nach <em>Music-Recommendation-(Library|System|Engine)</em> schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:</p>
-<ul>
-<li><p class="first"><strong>mirage</strong> <a class="reference internal" href="../zzz_bibliography.html#ahx" id="id6">[Link-8]</a></p>
+<p><strong>mirage</strong> <a class="reference internal" href="../zzz_bibliography.html#ahx" id="id6">[Link-8]</a></p>
 <blockquote>
 <div><p>Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
 Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
@@ -347,8 +342,7 @@ Audiodaten der Musiksammlung analysiert.</p>
 <em>Banshee</em> selbst ist ebenfalls in C# geschrieben - die Wahl der
 Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.</p>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>mufin audiogen</strong> <a class="reference internal" href="../zzz_bibliography.html#uzb" id="id7">[Link-9]</a></p>
+<p><strong>mufin audiogen</strong> <a class="reference internal" href="../zzz_bibliography.html#uzb" id="id7">[Link-9]</a></p>
 <blockquote>
 <div><p>Eine kommerzielle Bibliothek, in
 <span class="math">\(\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}\)</span> entwickelte
@@ -360,8 +354,6 @@ sondern es können gleich Empfehlungen getroffen werden.</p>
 <p>Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek
 möglich.</p>
 </div></blockquote>
-</li>
-</ul>
 </div>
 </div>
 <div class="section" id="vorhandene-arbeiten">

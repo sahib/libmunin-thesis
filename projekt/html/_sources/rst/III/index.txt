@@ -4,8 +4,8 @@ Design
 
 .. epigraph::
 
-    | *,,If the implementation is hard to explain, it's a bad idea.*
-    | *If the implementation is easy to explain, it* may *be a good idea.''*
+    | |apostart| *If the implementation is hard to explain, it's a bad idea.*
+    | |nbsp| |nbsp| |nbsp| |nbsp| *If the implementation is easy to explain, it* may *be a good idea.* |apoend|
 
     -- *Zen of Python*, ``import this``
 
@@ -458,23 +458,23 @@ konfiguriert ist.
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | |nbsp|  Kompression?|
     +==============+======================+======================+=================================+=========+=====================+
-    | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1x      | :math:`\surd`       |
+    | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1x      | :math:`\surd`       |
+    | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``title``    | ``TitleNormalize``   | Default              | Tracktitel                      | 2x      | :math:`\Box`        |
+    | ``title``    | ``TitleNormalize``   | Default              | Tracktitel                      | 2x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``date``     | ``Date``             | ``Date``             | Datums-String                   | 4x      | :math:`\Box`        |
+    | ``date``     | ``Date``             | ``Date``             | Datums-String                   | 4x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile-Pfad                  | 6x      | :math:`\Box`        |
+    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile-Pfad                  | 6x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``lyrics``   | ``Keywords``         | ``Keywords``         | Songtext                        | 6x      | :math:`\Box`        |
+    | ``lyrics``   | ``Keywords``         | ``Keywords``         | Songtext                        | 6x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``rating``   | Default              | ``Rating``           | Integer (:math:`0 \le x \le 5`) | 4x      | :math:`\Box`        |
+    | ``rating``   | Default              | ``Rating``           | Integer (:math:`0 \le x \le 5`) | 4x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  ``genre``   |  ``GenreTree``       | ``GenreTree``        | Genre-String                    | 8x      | :math:`\Box`        |
+    |  ``genre``   |  ``GenreTree``       | ``GenreTree``        | Genre-String                    | 8x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile-Pfad                  | 9x      | :math:`\Box`        |
+    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile-Pfad                  | 9x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
 
 

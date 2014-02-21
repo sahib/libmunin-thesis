@@ -107,7 +107,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/II/index">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#einsatzszenarien">2.1 Einsatzszenarien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
@@ -150,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#glossar">Glossar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#coldstart-py"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#ausfuhrliches-beispiel">Ausführliches Beispiel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/appendix#complex-py"><tt class="docutils literal"><span class="pre">complex.py</span></tt></a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/appendix#ausgabe-nach-dem-ersten-lauf">Ausgabe nach dem ersten Lauf:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/appendix#ausgabe-nach-dem-10ten-lauf">Ausgabe nach dem 10ten Lauf:</a></li>
 </ul>
@@ -219,7 +220,7 @@ alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.</
 <span id="document-rst/I/index"></span><div class="section" id="einleitung">
 <h2>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>,,Sei froh dass du du bist, und nicht dieser Doktorfisch.''</em></p>
+<div><p> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>Sei froh, dass du du bist, und nicht dieser Doktorfisch.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></p>
 <p class="attribution">&mdash;<em>Das Lied von der Makrele, Marc Uwe Kling</em></p>
 </div></blockquote>
 <div class="section" id="motivation">
@@ -389,11 +390,12 @@ freie Alternative erhält.</p>
 <span id="document-rst/II/index"></span><div class="section" id="einstieg">
 <h2>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>,,Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''</em></p>
-<p class="attribution">&mdash;<em>Bill Gates</em></p>
+<div><p> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></p>
+<blockquote>
+<div>-- <em>Bill Gates</em></div></blockquote>
 </div></blockquote>
-<div class="section" id="einsatzszenarien">
-<h3>2.1 Einsatzszenarien<a class="headerlink" href="#einsatzszenarien" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="warum-uberhaupt">
+<h3>2.1 Warum überhaupt?<a class="headerlink" href="#warum-uberhaupt" title="Permalink to this headline">¶</a></h3>
 <p>Wo ist also das konrekte Problem, dass <em>libmunin</em> nun lösen soll?
 Das erklärte Ziel ist es eine Bibliothek zu schaffen, die
 einen auf Musik spezialisierten <em>Empfehlungsdienst</em> implementiert.
@@ -432,8 +434,7 @@ und Besonderheiten kurz erklärt.</p>
 <div class="section" id="bekannte-plattformen">
 <h4>2.2.1 Bekannte Plattformen<a class="headerlink" href="#bekannte-plattformen" title="Permalink to this headline">¶</a></h4>
 <p>TODO: Nachweise!</p>
-<ul>
-<li><p class="first"><strong>last.fm</strong> <a class="reference internal" href="rst/index.html#nt" id="id2">[Link-4]</a></p>
+<p><strong>last.fm</strong> <a class="reference internal" href="rst/index.html#nt" id="id2">[Link-4]</a></p>
 <blockquote>
 <div><p>Der wohl bekannteste Musik Empfehlungs-Service im Netz. Benutzer können sich
 mit ihren Account ein personalisiertes Webradio (auch <em>Station</em> genannt,
@@ -455,8 +456,7 @@ Empfehlungen getroffen - es handelt sich also um ein lernendes System.</p>
 </div>
 <p class="caption">Screenshots von Last.fm.</p>
 </div></div></blockquote>
-</li>
-<li id="fig-lastfm"><p class="first"><strong>YouTube</strong> <a class="reference internal" href="rst/index.html#wnn" id="id3">[Link-5]</a></p>
+<p id="fig-lastfm"><strong>YouTube</strong> <a class="reference internal" href="rst/index.html#wnn" id="id3">[Link-5]</a></p>
 <blockquote>
 <div><p>Youtube ist vorrangig als Video-Plattform bekannt, durch die enorme
 Beliebtheit laden dort Nutzer allerdings auch Musik - verpackt als Video -
@@ -478,8 +478,7 @@ angeschaut wurde)</li>
 <p class="caption">Die Vorschläge zu einem Musikvideo auf YouTube</p>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>Myspace</strong></p>
+<p><strong>Myspace</strong></p>
 <blockquote>
 <div><p>Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
 viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
@@ -493,8 +492,7 @@ Musikgeschmack haben.</p>
 <p class="caption">Die Vorschläge die MySpace basierend auf den ersten Song macht.</p>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>Amazon</strong> <a class="reference internal" href="rst/index.html#xxx" id="id4">[Link-6]</a></p>
+<p><strong>Amazon</strong> <a class="reference internal" href="rst/index.html#xxx" id="id4">[Link-6]</a></p>
 <blockquote>
 <div><p>Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
 Dabei werden die Warenkörbe der Benutzer analysiert und es werden
@@ -511,8 +509,6 @@ Empfehlungen mit ein.</p>
 könnte. Hier zu <em>Knorkator - The Schlechtest of</em></p>
 </div>
 </div></blockquote>
-</li>
-</ul>
 <p><strong>Musicovery</strong> <a class="reference internal" href="rst/index.html#zmf" id="id5">[Link-7]</a></p>
 <blockquote>
 <div><p>Diese Seite kategorisiert eine große Anzahl von Musikstücken nach Stimmung
@@ -536,8 +532,7 @@ Entdecken neuer Musik.</p>
 Suche nach <em>Music-Recommendation-(Library|System|Engine)</em> schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:</p>
-<ul>
-<li><p class="first"><strong>mirage</strong> <a class="reference internal" href="rst/index.html#ahx" id="id6">[Link-8]</a></p>
+<p><strong>mirage</strong> <a class="reference internal" href="rst/index.html#ahx" id="id6">[Link-8]</a></p>
 <blockquote>
 <div><p>Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
 Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
@@ -548,8 +543,7 @@ Audiodaten der Musiksammlung analysiert.</p>
 <em>Banshee</em> selbst ist ebenfalls in C# geschrieben - die Wahl der
 Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.</p>
 </div></blockquote>
-</li>
-<li><p class="first"><strong>mufin audiogen</strong> <a class="reference internal" href="rst/index.html#uzb" id="id7">[Link-9]</a></p>
+<p><strong>mufin audiogen</strong> <a class="reference internal" href="rst/index.html#uzb" id="id7">[Link-9]</a></p>
 <blockquote>
 <div><p>Eine kommerzielle Bibliothek, in
 <span class="math">\(\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}\)</span> entwickelte
@@ -561,8 +555,6 @@ sondern es können gleich Empfehlungen getroffen werden.</p>
 <p>Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek
 möglich.</p>
 </div></blockquote>
-</li>
-</ul>
 </div>
 </div>
 <div class="section" id="vorhandene-arbeiten">
@@ -800,8 +792,8 @@ beliebige Musiksammlung einlesen kann.</p>
 <h2>3 Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
 <div><div class="line-block">
-<div class="line"><em>,,If the implementation is hard to explain, it's a bad idea.</em></div>
-<div class="line"><em>If the implementation is easy to explain, it</em> may <em>be a good idea.''</em></div>
+<div class="line"> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>If the implementation is hard to explain, it's a bad idea.</em></div>
+<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<em>If the implementation is easy to explain, it</em> may <em>be a good idea.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></div>
 </div>
 <p class="attribution">&mdash;<em>Zen of Python</em>, <tt class="docutils literal"><span class="pre">import</span> <span class="pre">this</span></tt></p>
 </div></blockquote>
@@ -1175,63 +1167,63 @@ konfiguriert ist.</p>
 <td class="align-center">Default</td>
 <td class="align-center">Artistname</td>
 <td class="align-center">1x</td>
-<td class="align-center"><span class="math">\(\surd\)</span></td>
+<td class="align-center"><span class="math">\(\checkmark\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">album</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></td>
 <td class="align-center">Default</td>
 <td class="align-center">Albumtitel</td>
 <td class="align-center">1x</td>
-<td class="align-center"><span class="math">\(\surd\)</span></td>
+<td class="align-center"><span class="math">\(\checkmark\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">title</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt></td>
 <td class="align-center">Default</td>
 <td class="align-center">Tracktitel</td>
 <td class="align-center">2x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">date</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
 <td class="align-center">Datums-String</td>
 <td class="align-center">4x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">bpm</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">BPMCached</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">BPM</span></tt></td>
 <td class="align-center">Audiofile-Pfad</td>
 <td class="align-center">6x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">lyrics</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
 <td class="align-center">Songtext</td>
 <td class="align-center">6x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">rating</span></tt></td>
 <td class="align-center">Default</td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Rating</span></tt></td>
 <td class="align-center">Integer (<span class="math">\(0 \le x \le 5\)</span>)</td>
 <td class="align-center">4x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">genre</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
 <td class="align-center">Genre-String</td>
 <td class="align-center">8x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 <tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">moodbar</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt></td>
 <td class="align-center"><tt class="docutils literal"><span class="pre">Moodbar</span></tt></td>
 <td class="align-center">Audiofile-Pfad</td>
 <td class="align-center">9x</td>
-<td class="align-center"><span class="math">\(\Box\)</span></td>
+<td class="align-center"><span class="math">\(\upchi\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -1394,8 +1386,10 @@ die Distanzfunktion den <a class="reference internal" href="rst/index.html#term-
 <span id="document-rst/IV/index"></span><div class="section" id="implementierung">
 <h2>4 Implementierung<a class="headerlink" href="#implementierung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>,,Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein
-gewaltbereiter Psychopath, der weiß, wo Sie wohnen.''</em></p>
+<div><div class="line-block">
+<div class="line"> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein</em></div>
+<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<em>gewaltbereiter Psychopath, der weiß, wo Sie wohnen.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></div>
+</div>
 <p class="attribution">&mdash;<em>Peter Stöhr</em></p>
 </div></blockquote>
 <div class="section" id="anwendungsbeispiel">
@@ -2305,7 +2299,7 @@ ein ein-minütiges Video dass entsprechend die Entwicklung von <em>libmunin</em>
 <span id="document-rst/V/index"></span><div class="section" id="demonstrationsanwendung">
 <h2>5 Demonstrationsanwendung<a class="headerlink" href="#demonstrationsanwendung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>,,These plus Antithese gleich Hysterese''</em></p>
+<div><p> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>These plus Antithese gleich Hysterese</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></p>
 <p class="attribution">&mdash;<em>Einfach Göttlich, Terry Pratchett</em></p>
 </div></blockquote>
 <div class="section" id="intro">
@@ -2570,9 +2564,10 @@ beginnt).</p>
 <span id="document-rst/VI/index"></span><div class="section" id="zusammenfassung">
 <h2>6 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
 <blockquote class="epigraph">
-<div><p><em>,,Human beings, who are almost unique in having the ability to learn from the
-experience of others, are also remarkable for their apparent disinclination
-to do so.''</em></p>
+<div><div class="line-block">
+<div class="line"> <span style="color:rgb(175,175,175);font-size:250%">&ldquo;</span> <em>Human beings, who are almost unique in having the ability to learn from the</em></div>
+<div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<em>experience of others, are also remarkable for their apparent disinclination to do so.</em>  <span style="color:rgb(175,175,175);font-size:250%">&rdquo;</span></div>
+</div>
 <p class="attribution">&mdash;<em>Douglas Adams, ,,Last Chance to See''</em></p>
 </div></blockquote>
 <div class="section" id="was-wurde-erreicht">
@@ -2978,6 +2973,8 @@ zeigt:</p>
 <li>Mehrere Möglichkeiten zur Empfehlung</li>
 </ul>
 </div></blockquote>
+<div class="section" id="complex-py">
+<h3><tt class="docutils literal"><span class="pre">complex.py</span></tt><a class="headerlink" href="#complex-py" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># encoding: utf-8</span>
 
@@ -3129,6 +3126,7 @@ zeigt:</p>
     <span class="c"># Save it under ~/.cache/libmunin/demo</span>
     <span class="n">session</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 <div class="section" id="ausgabe-nach-dem-ersten-lauf">
 <h3>Ausgabe nach dem ersten Lauf:<a class="headerlink" href="#ausgabe-nach-dem-ersten-lauf" title="Permalink to this headline">¶</a></h3>
