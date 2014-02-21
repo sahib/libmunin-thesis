@@ -2,7 +2,8 @@
 Einstieg
 ********
 
-Schwierigkeit der Vergleichbarkeit
+Warum überhaupt?
+================
 
 Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -> Prototyp)
 
