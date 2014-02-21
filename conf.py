@@ -210,7 +210,7 @@ latex_elements = {
     #   * singlespace
     # * you might want to omit the list of tables (lot)
     #   if you use figtable without the :nofig: option
-    'classoptions': ',german,lof,twoside',
+    'classoptions': ',ngerman,lof,twoside',
 
     # The font size ('10pt', '11pt' or '12pt').
     'pointsize': '11pt',
@@ -235,7 +235,7 @@ latex_elements = {
     'inputenc': '\\usepackage[utf8]{inputenc}',
 
     # Use ,,Kapitel'' instead of chapter
-    'babel': '\\usepackage[german, ngerman]{babel}',
+    'babel': '\\usepackage[ngerman]{babel}',
 
     # override maketitle
     'maketitle': '\\makefrontmatter',
