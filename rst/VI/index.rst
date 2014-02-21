@@ -184,9 +184,10 @@ Entwickler, einiges an Einarbeitungszeit - zuviel für etwas das einfach nur im
 Hintergrund arbeiten sollte. Auch die erstellten Empfehlungen sind - subjektiv
 gesehen - noch teilweise verbesserungswürdig. Besonders die momentane
 Audioanalyse ist sehr primitiver Natur und bietet einiges an Potenzial an
-Verbesserungen.
+Verbesserungen. Es wird momentan mehr auf *Masse* statt auf *Klasse* gesetzt und
+oft ist einiges an *,,Kaffeesatzleserei''* enthalten.
 
 Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von *Moosecat*
-weiter entwickelt werden soll, hofft der Autor mit der Zeit diese *Schnitzer*
-auszubessern - denn dann wäre das Projekt für externe Entwickler von größeren
-Interesse. 
+weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung
+*Klasse* zu gehen - dann wäre das Projekt eine echte Alternative für viele der
+in der Einleitung genannten Projekte.
