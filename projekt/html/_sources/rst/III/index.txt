@@ -453,28 +453,28 @@ konfiguriert ist.
 .. figtable::
     :caption: Default-Konfiguration der ,,EasySession''.
     :alt: Default-Konfiguration der ,,EasySession''
-    :spec: @{}l | l | l | @{}c | l | @{}c
+    :spec: @{}l | l | l | l | l | @{}c
 
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | Kompression         |
+    |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | |nbsp|  Kompression?|
     +==============+======================+======================+=================================+=========+=====================+
-    | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1       | :math:`\CheckedBox` |
+    | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1x      | :math:`\surd`       |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1       | :math:`\CheckedBox` |
+    | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1x      | :math:`\surd`       |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``title``    | ``TitleNormalize``   | Default              | Tracktitel                      | 2       | :math:`\Box`        |
+    | ``title``    | ``TitleNormalize``   | Default              | Tracktitel                      | 2x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``date``     | ``Date``             | ``Date``             | Datums-String                   | 4       | :math:`\Box`        |
+    | ``date``     | ``Date``             | ``Date``             | Datums-String                   | 4x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile-Pfad                  | 6       | :math:`\Box`        |
+    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile-Pfad                  | 6x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``lyrics``   | ``Keywords``         | ``Keywords``         | Songtext                        | 6       | :math:`\Box`        |
+    | ``lyrics``   | ``Keywords``         | ``Keywords``         | Songtext                        | 6x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``rating``   | Default              | ``Rating``           | Integer (:math:`0 \le x \le 5`) | 4       | :math:`\Box`        |
+    | ``rating``   | Default              | ``Rating``           | Integer (:math:`0 \le x \le 5`) | 4x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  ``genre``   |  ``GenreTree``       | ``GenreTreeAvgLink`` | Genre-String                    | 8       | :math:`\Box`        |
+    |  ``genre``   |  ``GenreTree``       | ``GenreTree``        | Genre-String                    | 8x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile-Pfad                  | 9       | :math:`\Box`        |
+    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile-Pfad                  | 9x      | :math:`\Box`        |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
 
 

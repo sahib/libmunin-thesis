@@ -46,10 +46,9 @@
   
     <link rel="top" title="None" href="../index.html"/>
 
-<link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-<link rel="stylesheet" type="text/css" href="../_static/colorbox/colorbox.css" />
+<!-- Include all CSS and JS files, let's you use your own theme. -->
 
-<script type="text/javascript" src="../_static/colorbox/jquery.colorbox-min.js" />
+<link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 <script type="text/javascript">
 	function endsWith(str, suffix) {
 	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -264,10 +263,10 @@ Gebiet feststellen:</p>
 <col width="19%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-center">Jahre</th>
-<th class="head align-center">Anzahl</th>
-<th class="head align-center">Jahre</th>
-<th class="head align-center">Anzahl</th>
+<tr class="row-odd"><th class="headalign-center">Jahre</th>
+<th class="headalign-center">Anzahl</th>
+<th class="headalign-center">Jahre</th>
+<th class="headalign-center">Anzahl</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1162,77 +1161,77 @@ konfiguriert ist.</p>
 <col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribut</th>
-<th class="head align-left">Provider</th>
-<th class="head align-left">Distanzfunktion</th>
-<th class="head">Eingabe</th>
-<th class="head align-left">Weight</th>
-<th class="head">Kompression</th>
+<tr class="row-odd"><th class="headalign-center">Attribut</th>
+<th class="headalign-center">Provider</th>
+<th class="headalign-center">Distanzfunktion</th>
+<th class="headalign-center">Eingabe</th>
+<th class="headalign-center">Weight</th>
+<th class="headalign-center">&nbsp;Kompression?</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">artist</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt></td>
-<td class="align-left">Default</td>
-<td>Artistname</td>
-<td class="align-left">1</td>
-<td><span class="math">\(\CheckedBox\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">artist</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center">Artistname</td>
+<td class="align-center">1x</td>
+<td class="align-center"><span class="math">\(\surd\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">album</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></td>
-<td class="align-left">Default</td>
-<td>Albumtitel</td>
-<td class="align-left">1</td>
-<td><span class="math">\(\CheckedBox\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">album</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center">Albumtitel</td>
+<td class="align-center">1x</td>
+<td class="align-center"><span class="math">\(\surd\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">title</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt></td>
-<td class="align-left">Default</td>
-<td>Tracktitel</td>
-<td class="align-left">2</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">title</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center">Tracktitel</td>
+<td class="align-center">2x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">date</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
-<td>Datums-String</td>
-<td class="align-left">4</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">date</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
+<td class="align-center">Datums-String</td>
+<td class="align-center">4x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">bpm</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">BPMCached</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">BPM</span></tt></td>
-<td>Audiofile-Pfad</td>
-<td class="align-left">6</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">bpm</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">BPMCached</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">BPM</span></tt></td>
+<td class="align-center">Audiofile-Pfad</td>
+<td class="align-center">6x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">lyrics</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
-<td>Songtext</td>
-<td class="align-left">6</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">lyrics</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
+<td class="align-center">Songtext</td>
+<td class="align-center">6x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">rating</span></tt></td>
-<td class="align-left">Default</td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Rating</span></tt></td>
-<td>Integer (<span class="math">\(0 \le x \le 5\)</span>)</td>
-<td class="align-left">4</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">rating</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Rating</span></tt></td>
+<td class="align-center">Integer (<span class="math">\(0 \le x \le 5\)</span>)</td>
+<td class="align-center">4x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">genre</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt></td>
-<td>Genre-String</td>
-<td class="align-left">8</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">genre</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
+<td class="align-center">Genre-String</td>
+<td class="align-center">8x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">moodbar</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Moodbar</span></tt></td>
-<td>Audiofile-Pfad</td>
-<td class="align-left">9</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">moodbar</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Moodbar</span></tt></td>
+<td class="align-center">Audiofile-Pfad</td>
+<td class="align-center">9x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -1272,8 +1271,8 @@ Anschaulich ist das in  dargestellt.</p>
 <col width="35%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-center"><em>Attribut</em></th>
-<th class="head align-center"><em>Distanz</em></th>
+<tr class="row-odd"><th class="headalign-center"><em>Attribut</em></th>
+<th class="headalign-center"><em>Distanz</em></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1754,8 +1753,8 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.</p>
 <col width="85%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-center">Rating</th>
-<th class="head align-center">Keywords</th>
+<tr class="row-odd"><th class="headalign-center">Rating</th>
+<th class="headalign-center">Keywords</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -1932,223 +1931,223 @@ geben welche Funktionen in welchem Modul implementiert worden.</p>
 <col width="42%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Verzeichnisse</strong></th>
-<th class="head">(gekürzt)</th>
-<th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
-<th class="head align-left"><strong>Beschreibung</strong></th>
+<tr class="row-odd"><th class="headalign-center"><strong>Verzeichnisse</strong></th>
+<th class="headalign-center">(gekürzt)</th>
+<th class="headalign-center">&nbsp;</th>
+<th class="headalign-center">&nbsp;</th>
+<th class="headalign-center"><strong>Beschreibung</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><strong>munin/</strong></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Quelltextverzeichnis</td>
+<tr class="row-even"><td class="align-center"><strong>munin/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Quelltextverzeichnis</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><em>__init__.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Versionierungs Info</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>__init__.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Versionierungs Info</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>__main__.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Beispielprogramm</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>__main__.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Beispielprogramm</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><em>database.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Database</span></tt></td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>database.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">Database</span></tt></td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>dbus_service.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Unfertiger DBus Service.</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>dbus_service.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unfertiger DBus Service.</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><em>dbus_client</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Unfertiger DBus Beispielclient.</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>dbus_client</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unfertiger DBus Beispielclient.</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><strong>distance/</strong></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Unterverzeichnis für Distanzfunktionen</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>distance/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für Distanzfunktionen</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>__init__.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>__init__.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>bpm.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">BPMDistance</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>bpm.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">BPMDistance</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>date.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">DateDistance</span></tt></td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>date.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">DateDistance</span></tt></td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>...</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Weitere Subklassen von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>...</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Weitere Subklassen von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><em>session.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">Session</span></tt> (API)</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>session.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der <tt class="docutils literal"><span class="pre">Session</span></tt> (API)</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>easy.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">EasySession</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>easy.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der <tt class="docutils literal"><span class="pre">EasySession</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><em>graph.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung der Graphenoperationen</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>graph.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der Graphenoperationen</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>helper.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Gesammelte, oftgenutzte Funktionen</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>helper.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Gesammelte, oftgenutzte Funktionen</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><em>history.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung der <tt class="docutils literal"><span class="pre">History</span></tt> u. Regeln</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>history.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der <tt class="docutils literal"><span class="pre">History</span></tt> u. Regeln</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>plot.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Visualisierungsfunktionen für Graphen</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>plot.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Visualisierungsfunktionen für Graphen</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><strong>provider/</strong></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Unterverzeichnis für Provider</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>provider/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für Provider</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>__init__.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>__init__.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>bpm.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">BPMProvider</span></tt></td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>bpm.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">BPMProvider</span></tt></td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>composite.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung des <tt class="docutils literal"><span class="pre">CompositeProvider</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>composite.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung des <tt class="docutils literal"><span class="pre">CompositeProvider</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>...</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Weitere Subklassen von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>...</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Weitere Subklassen von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>rake.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung des RAKE-Algorightmus</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>rake.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung des RAKE-Algorightmus</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><strong>scripts/</strong></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Unterverzeichnis für ,,Test Scripts''</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>scripts/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für ,,Test Scripts''</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>visualizer.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Zeichnet ein mood-file mittels <tt class="docutils literal"><span class="pre">cairo</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>visualizer.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Zeichnet ein mood-file mittels <tt class="docutils literal"><span class="pre">cairo</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>walk.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Berechnet vieles mood-files parallel</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>walk.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Berechnet vieles mood-files parallel</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>song.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung von <tt class="docutils literal"><span class="pre">Song</span></tt></td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>song.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">Song</span></tt></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td><strong>stopwords/</strong></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Stoppwortimplementierung:</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>stopwords/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Stoppwortimplementierung:</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>__init__.py</em></td>
-<td>&nbsp;</td>
-<td class="align-left">Implementierung des StopwordsLoader</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>__init__.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung des StopwordsLoader</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><strong>data/</strong></td>
-<td>&nbsp;</td>
-<td class="align-left">Unterverzeichnis für die Stoppwortlisten</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>data/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für die Stoppwortlisten</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>de</em></td>
-<td class="align-left">Gemäß ISO 638-1 benannte Dateien;</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>de</em></td>
+<td class="align-center">Gemäß ISO 638-1 benannte Dateien;</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>en</em></td>
-<td class="align-left">Pro Zeile ist ein Stoppwort gelistet;</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>en</em></td>
+<td class="align-center">Pro Zeile ist ein Stoppwort gelistet;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>es</em></td>
-<td class="align-left">Insgesamt 17 verschiedene Listen.</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>es</em></td>
+<td class="align-center">Insgesamt 17 verschiedene Listen.</td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td><em>...</em></td>
-<td class="align-left">&nbsp;</td>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>...</em></td>
+<td class="align-center">&nbsp;</td>
 </tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td><em>testing.py</em></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td class="align-left">Fixtures und Helper für unittests</td>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>testing.py</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Fixtures und Helper für unittests</td>
 </tr>
 </tbody>
 </table>
@@ -2734,11 +2733,12 @@ Entwickler, einiges an Einarbeitungszeit - zuviel für etwas das einfach nur im
 Hintergrund arbeiten sollte. Auch die erstellten Empfehlungen sind - subjektiv
 gesehen - noch teilweise verbesserungswürdig. Besonders die momentane
 Audioanalyse ist sehr primitiver Natur und bietet einiges an Potenzial an
-Verbesserungen.</p>
+Verbesserungen. Es wird momentan mehr auf <em>Masse</em> statt auf <em>Klasse</em> gesetzt und
+oft ist einiges an <em>,,Kaffeesatzleserei''</em> enthalten.</p>
 <p>Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von <em>Moosecat</em>
-weiter entwickelt werden soll, hofft der Autor mit der Zeit diese <em>Schnitzer</em>
-auszubessern - denn dann wäre das Projekt für externe Entwickler von größeren
-Interesse.</p>
+weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung
+<em>Klasse</em> zu gehen - dann wäre das Projekt eine echte Alternative für viele der
+in der Einleitung genannten Projekte.</p>
 </div>
 </div>
 </div>
@@ -2752,19 +2752,19 @@ Interesse.</p>
 <col width="60%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-right align-top">Abkürzung</th>
-<th class="head align-top">Bedeutung</th>
+<tr class="row-odd"><th class="headalign-center align-top">Abkürzung</th>
+<th class="headalign-center align-top">Bedeutung</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td class="align-right align-top"><strong>API</strong></td>
-<td class="align-top"><em>Application Programming Interface</em></td>
+<tr class="row-even"><td class="align-center align-top"><strong>API</strong></td>
+<td class="align-center align-top"><em>Application Programming Interface</em></td>
 </tr>
-<tr class="row-odd"><td class="align-right align-top"><strong>GUI</strong></td>
-<td class="align-top"><em>Graphical User Interface</em></td>
+<tr class="row-odd"><td class="align-center align-top"><strong>GUI</strong></td>
+<td class="align-center align-top"><em>Graphical User Interface</em></td>
 </tr>
-<tr class="row-even"><td class="align-right align-top"><strong>LoC</strong></td>
-<td class="align-top"><em>Lines of Code</em></td>
+<tr class="row-even"><td class="align-center align-top"><strong>LoC</strong></td>
+<td class="align-center align-top"><em>Lines of Code</em></td>
 </tr>
 </tbody>
 </table>
@@ -3412,13 +3412,14 @@ zeigt:</p>
 </table>
 </p>
 </div>
-<div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lizenz">
+<h2>Lizenz<a class="headerlink" href="#lizenz" title="Permalink to this headline">¶</a></h2>
 <p>Diese Arbeit ist unter den Bedingungen der <em>Creative Commons Attribution-3.0</em>
 lizensiert:</p>
 <blockquote>
 <div><a class="reference external" href="http://creativecommons.org/licenses/by/3.0/de/">http://creativecommons.org/licenses/by/3.0/de/</a></div></blockquote>
-<img alt="Creative Commons License" class="align-center" src="../../_images/ccicon88x31.png" />
+<a class="reference internal image-reference" href="../../_images/cclogo.svg"><div align="center" class="align-center"><img alt="Creative Commons License" src="../../_images/cclogo.svg" width="50%" /></div>
+</a>
 </div>
 </div>
 

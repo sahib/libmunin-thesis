@@ -48,10 +48,9 @@
         <link rel="next" title="4 Implementierung" href="../IV/index.html"/>
         <link rel="prev" title="2 Einstieg" href="../II/index.html"/>
 
-<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-<link rel="stylesheet" type="text/css" href="../../_static/colorbox/colorbox.css" />
+<!-- Include all CSS and JS files, let's you use your own theme. -->
 
-<script type="text/javascript" src="../../_static/colorbox/jquery.colorbox-min.js" />
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
 <script type="text/javascript">
 	function endsWith(str, suffix) {
 	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -551,77 +550,77 @@ konfiguriert ist.</p>
 <col width="17%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Attribut</th>
-<th class="head align-left">Provider</th>
-<th class="head align-left">Distanzfunktion</th>
-<th class="head">Eingabe</th>
-<th class="head align-left">Weight</th>
-<th class="head">Kompression</th>
+<tr class="row-odd"><th class="headalign-center">Attribut</th>
+<th class="headalign-center">Provider</th>
+<th class="headalign-center">Distanzfunktion</th>
+<th class="headalign-center">Eingabe</th>
+<th class="headalign-center">Weight</th>
+<th class="headalign-center">&nbsp;Kompression?</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">artist</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt></td>
-<td class="align-left">Default</td>
-<td>Artistname</td>
-<td class="align-left">1</td>
-<td><span class="math">\(\CheckedBox\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">artist</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center">Artistname</td>
+<td class="align-center">1x</td>
+<td class="align-center"><span class="math">\(\surd\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">album</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></td>
-<td class="align-left">Default</td>
-<td>Albumtitel</td>
-<td class="align-left">1</td>
-<td><span class="math">\(\CheckedBox\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">album</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center">Albumtitel</td>
+<td class="align-center">1x</td>
+<td class="align-center"><span class="math">\(\surd\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">title</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt></td>
-<td class="align-left">Default</td>
-<td>Tracktitel</td>
-<td class="align-left">2</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">title</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center">Tracktitel</td>
+<td class="align-center">2x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">date</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
-<td>Datums-String</td>
-<td class="align-left">4</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">date</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Date</span></tt></td>
+<td class="align-center">Datums-String</td>
+<td class="align-center">4x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">bpm</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">BPMCached</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">BPM</span></tt></td>
-<td>Audiofile-Pfad</td>
-<td class="align-left">6</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">bpm</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">BPMCached</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">BPM</span></tt></td>
+<td class="align-center">Audiofile-Pfad</td>
+<td class="align-center">6x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">lyrics</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
-<td>Songtext</td>
-<td class="align-left">6</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">lyrics</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Keywords</span></tt></td>
+<td class="align-center">Songtext</td>
+<td class="align-center">6x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">rating</span></tt></td>
-<td class="align-left">Default</td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Rating</span></tt></td>
-<td>Integer (<span class="math">\(0 \le x \le 5\)</span>)</td>
-<td class="align-left">4</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">rating</span></tt></td>
+<td class="align-center">Default</td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Rating</span></tt></td>
+<td class="align-center">Integer (<span class="math">\(0 \le x \le 5\)</span>)</td>
+<td class="align-center">4x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">genre</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">GenreTreeAvgLink</span></tt></td>
-<td>Genre-String</td>
-<td class="align-left">8</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">genre</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">GenreTree</span></tt></td>
+<td class="align-center">Genre-String</td>
+<td class="align-center">8x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
-<tr class="row-even"><td><tt class="docutils literal"><span class="pre">moodbar</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt></td>
-<td class="align-left"><tt class="docutils literal"><span class="pre">Moodbar</span></tt></td>
-<td>Audiofile-Pfad</td>
-<td class="align-left">9</td>
-<td><span class="math">\(\Box\)</span></td>
+<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">moodbar</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt></td>
+<td class="align-center"><tt class="docutils literal"><span class="pre">Moodbar</span></tt></td>
+<td class="align-center">Audiofile-Pfad</td>
+<td class="align-center">9x</td>
+<td class="align-center"><span class="math">\(\Box\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -661,8 +660,8 @@ Anschaulich ist das in <a href="#fig-distance-table">3.7</a> dargestellt.</p>
 <col width="35%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head align-center"><em>Attribut</em></th>
-<th class="head align-center"><em>Distanz</em></th>
+<tr class="row-odd"><th class="headalign-center"><em>Attribut</em></th>
+<th class="headalign-center"><em>Distanz</em></th>
 </tr>
 </thead>
 <tbody valign="top">
