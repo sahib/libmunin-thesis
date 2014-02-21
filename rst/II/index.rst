@@ -4,7 +4,7 @@ Einstieg
 
 .. epigraph::
 
-    *,,Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.''*
+   |apostart| *Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.* |apoend|
 
     -- *Bill Gates*
 

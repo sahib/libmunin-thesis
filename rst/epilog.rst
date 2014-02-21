@@ -20,7 +20,7 @@
 
 .. |apoend| raw:: latex
 
-   \hfill\textcolor{gray75}{\Huge ''}
+   \textcolor{gray75}{\Huge ''}
 
 .. |apo| raw:: html
 

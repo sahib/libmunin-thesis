@@ -4,8 +4,8 @@ Design
 
 .. epigraph::
 
-    | *,,If the implementation is hard to explain, it's a bad idea.*
-    | *If the implementation is easy to explain, it* may *be a good idea.''*
+    | |apostart| *If the implementation is hard to explain, it's a bad idea.*
+    | |nbsp| |nbsp| |nbsp| |nbsp| *If the implementation is easy to explain, it* may *be a good idea.* |apoend|
 
     -- *Zen of Python*, ``import this``
 

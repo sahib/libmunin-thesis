@@ -4,7 +4,7 @@ Demonstrationsanwendung
 
 .. epigraph:: 
 
-   *,,These plus Antithese gleich Hysterese''*
+   |apostart| *These plus Antithese gleich Hysterese* |apoend|
 
    -- *Einfach Göttlich, Terry Pratchett*
 
