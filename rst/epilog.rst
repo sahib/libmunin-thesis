@@ -13,3 +13,15 @@
 .. |br| raw:: html
 
    <br />
+
+.. |apostart| raw:: latex
+
+   \textcolor{gray75}{\Huge ,,}
+
+.. |apoend| raw:: latex
+
+   \hfill\textcolor{gray75}{\Huge ''}
+
+.. |apo| raw:: html
+
+   ,,
