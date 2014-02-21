@@ -164,24 +164,31 @@
     \markboth{\ #1}{}
 }
 
-\newcommand{\udot}[1]{%
+\newcommand{\dottedunderline}[1]{%
     \tikz[baseline=(todotted.base)]{%
         \node[inner sep=4pt,outer sep=0pt] (todotted) {#1};
         \draw[loosely dotted, thick, opacity=0.9] (todotted.south west) -- (todotted.south east);
     }%
 }%
 
+
+\newcommand{\prettypage}{
+    % Ugly, but it works.
+    \scshape{\dottedunderline{~\thepage~~~}}
+}
+
 % Configure footer and header
-\setlength{\headheight}{24pt} 
 \fancyfoot[C]{%
     % EasterEgg
     \ifthenelse{\value{page}=42}{%
-        \scshape{\reflectbox{\scalebox{1}[-1]{\udot{~\thepage~~~}}}}
+        % Horizontal and vertical flip
+        \reflectbox{\scalebox{1}[-1]{\prettypage}}
     }{%
         \ifthenelse{\value{page}=23}{%
-            \scshape{\reflectbox{\udot{~\thepage~~~}}}
+            % Horizontal flip
+            \reflectbox{\prettypage}
         }{%
-            \scshape{\udot{~\thepage~~~}}
+            \prettypage
         }%
     }%
 }%
@@ -192,6 +199,7 @@
     \renewcommand{\headrule}{}
 }%
 
+\setlength{\headheight}{24pt} 
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
 \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
 \fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
