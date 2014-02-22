@@ -517,7 +517,7 @@ Anschaulich ist das in :num:`fig-distance-table` dargestellt.
     :caption: Anschauliche Darstellung der Daten die in einer ``Distance``
               Instanz gespeichert werden
     :alt: Beispielhafte Darstellung einer ``Distance`` Instanz.
-    :spec: c | c 
+    :spec: l | l 
 
     +--------------------+-----------+
     | *Attribut*         | *Distanz* |

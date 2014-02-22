@@ -139,10 +139,10 @@ geplantes Musikempfehlungssystem *libmunin* genannt.
 
 .. epigraph::
 
-    In Norse mythology, Hugin (from Old Norse “thought”)
-    and Munin (Old Norse “memory” or “mind”)
-    are a pair of ravens that fly all over the world Midgard,
-    and bring information to the god Odin.
+    *In Norse mythology, Hugin (from Old Norse “thought”)*
+    *and Munin (Old Norse “memory” or “mind”)*
+    *are a pair of ravens that fly all over the world Midgard,*
+    *and bring information to the god Odin.*
 
     -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:`wiki2014hugin`
 

@@ -29,7 +29,6 @@ Pseudodatenbank und erstellt für den ersten zwei Empfehlungen:
         ('Letzte Instanz' , 'Götter auf Abruf' , 'Salve te'       , 'folk rock'),
         ('Debauchery'     , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
     ]
-
     session = EasySession()
     with session.transaction():
         for idx, (artist, album, title, genre) in enumerate(MY_DATABASE):
@@ -419,7 +418,7 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
     :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
               Rating.
     :alt: Extrahierte Keywords aus ,,Yellow Submarine''
-    :spec: c c
+    :spec: l l
 
     ====== =================================
     Rating Keywords 
@@ -613,61 +612,61 @@ geben welche Funktionen in welchem Modul implementiert worden.
     +===================+===================+=================+=======+=============================================+
     | **munin/**        |                   |                 |       | Quelltextverzeichnis                        |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *__init__.py*     |                 |       | Versionierungs Info                         |
+    |                   |  __init__.py      |                 |       | Versionierungs Info                         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *__main__.py*     |                 |       | Beispielprogramm                            |
+    |                   |  __main__.py      |                 |       | Beispielprogramm                            |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *database.py*     |                 |       | Implementierung von ``Database``            |
+    |                   |  database.py      |                 |       | Implementierung von ``Database``            |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *dbus_service.py* |                 |       | Unfertiger DBus Service.                    |
+    |                   |  dbus_service.py  |                 |       | Unfertiger DBus Service.                    |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | *dbus_client*     |                 |       | Unfertiger DBus Beispielclient.             |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | **distance/**     |                 |       | Unterverzeichnis für Distanzfunktionen      |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *__init__.py*   |       | Implementierung von ``DistanceFunction``    |
+    |                   |                   |  __init__.py    |       | Implementierung von ``DistanceFunction``    |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *bpm.py*        |       | Implementierung von ``BPMDistance``         |
+    |                   |                   |  bpm.py         |       | Implementierung von ``BPMDistance``         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *date.py*       |       | Implementierung von ``DateDistance``        |
+    |                   |                   |  date.py        |       | Implementierung von ``DateDistance``        |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   |                   | *...*           |       | Weitere Subklassen von ``DistanceFunction`` |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *session.py*      |                 |       | Implementierung der ``Session`` (API)       |
+    |                   |  session.py       |                 |       | Implementierung der ``Session`` (API)       |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *easy.py*         |                 |       | Implementierung der ``EasySession``         |
+    |                   |  easy.py          |                 |       | Implementierung der ``EasySession``         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *graph.py*        |                 |       | Implementierung der Graphenoperationen      |
+    |                   |  graph.py         |                 |       | Implementierung der Graphenoperationen      |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *helper.py*       |                 |       | Gesammelte, oftgenutzte Funktionen          |
+    |                   |  helper.py        |                 |       | Gesammelte, oftgenutzte Funktionen          |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *history.py*      |                 |       | Implementierung der ``History`` u. Regeln   |
+    |                   |  history.py       |                 |       | Implementierung der ``History`` u. Regeln   |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *plot.py*         |                 |       | Visualisierungsfunktionen für Graphen       |
+    |                   |  plot.py          |                 |       | Visualisierungsfunktionen für Graphen       |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | **provider/**     |                 |       | Unterverzeichnis für Provider               |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *__init__.py*   |       | Implementierung von ``Provider``            |
+    |                   |                   |  __init__.py    |       | Implementierung von ``Provider``            |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *bpm.py*        |       | Implementierung von ``BPMProvider``         |
+    |                   |                   |  bpm.py         |       | Implementierung von ``BPMProvider``         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *composite.py*  |       | Implementierung des ``CompositeProvider``   |
+    |                   |                   |  composite.py   |       | Implementierung des ``CompositeProvider``   |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   |                   | *...*           |       | Weitere Subklassen von ``Provider``         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *rake.py*         |                 |       | Implementierung des RAKE-Algorightmus       |
+    |                   |  rake.py          |                 |       | Implementierung des RAKE-Algorightmus       |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | **scripts/**      |                 |       | Unterverzeichnis für ,,Test Scripts''       |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *visualizer.py* |       | Zeichnet ein mood-file mittels ``cairo``    |
+    |                   |                   |  visualizer.py  |       | Zeichnet ein mood-file mittels ``cairo``    |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *walk.py*       |       | Berechnet vieles mood-files parallel        |
+    |                   |                   |  walk.py        |       | Berechnet vieles mood-files parallel        |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *song.py*         |                 |       | Implementierung von ``Song``                |
+    |                   |  song.py          |                 |       | Implementierung von ``Song``                |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   | **stopwords/**    |                 |       | Stoppwortimplementierung:                   |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *__init__.py*   |       | Implementierung des StopwordsLoader         |
+    |                   |                   |  __init__.py    |       | Implementierung des StopwordsLoader         |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   |                   | **data/**       |       | Unterverzeichnis für die Stoppwortlisten    |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
@@ -679,7 +678,7 @@ geben welche Funktionen in welchem Modul implementiert worden.
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
     |                   |                   |                 | *...* |                                             |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *testing.py*      |                 |       | Fixtures und Helper für unittests           |
+    |                   |  testing.py       |                 |       | Fixtures und Helper für unittests           |
     +-------------------+-------------------+-----------------+-------+---------------------------------------------+
 
 
