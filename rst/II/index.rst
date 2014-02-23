@@ -485,15 +485,15 @@ Vom Autor selbst sind die folgenden zwei Projekte anvisiert:
 
     * **mopidy** :cite:`3W5`
 
+      Da die Entwickler von **mopidy** eine Möglichkeit suchen um Dynamische
+      Playlists zu implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
+
       .. admonition:: *Kurzer Exkurs zu mopidy:*
             
-          Mopidy ist eine Alternative Implementierung zum *MusicPlayerDaemon
+          Mopidy ist eine alternative Implementierung zum *MusicPlayerDaemon
           (MPD)* in Python mit erweiterten Features. Sie bietet eine Anbindung
           zu Music-Streaming-Plattformen wie *Spotify*. Dabei ist es
           kompatibel mit den existierenden MPD-Clients. 
-
-      Da die Entwickler eine Möglichkeit suchen um Dynamische Playlists zu
-      implementieren :cite:`XVG` wäre dies ein guter Anlaufpunkt.
 
 Für Shellskripte wäre auch ein Kommandozeilenprogramm denkbar, welches eine
 beliebige Musiksammlung einlesen kann. 

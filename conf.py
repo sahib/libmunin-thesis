@@ -209,7 +209,7 @@ latex_elements = {
     #   * singlespace
     # * you might want to omit the list of tables (lot)
     #   if you use figtable without the :nofig: option
-    'classoptions': ',ngerman,lof,twoside',
+    'classoptions': ',ngerman,parskip,a4paper,BCOR=5mm,lof,twoside',
 
     # The font size ('10pt', '11pt' or '12pt').
     'pointsize': '11pt',
