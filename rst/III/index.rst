@@ -1,93 +1,99 @@
-*********
-Hauptteil
-*********
-
+###########
 Algorithmen
-===========
+###########
 
 Genre Splitting
+===============
+
+Problemstellung
 ---------------
 
-Problem: Der Vergleich von Musikgenres ist aufgrund der 
+Das Vergleich einzelner Genres ist eine schwierige Angelegenheit da es,
+zumindestens im Bereich der Musik, keine standardisierte Einteilung von Genres
+gibt. Daher ist es nötig, dass die einzelnen Genre-Eingaben anhand einer
+Sammlung von zusammengestellten Genredaten normalisiert werden.
+
+Zusammenstellung der Gernedatenbank
+-----------------------------------
+
+Genres können, wie in einem Baum, in Übergenres (*rock*, *pop*), Untergenres
+(*country* rock, *japanese* pop), Unter-Untergenres (*) (und so weiter)
+aufgeteilt werden. So lassen sich alle Genres unter ihre jeweiligen Untergenres
+als Baum darstellen. Als, meist imaginären, Wurzelknoten nimmt man das
+allumfassende Genre *Musik* an. 
 
 
-- Aufbau der Datenbank: wikipedia, echonest
+.. digraph:: foo
+
+    size=4; 
+    node [shape=record];
+
+    "music (#0)"  -> "rock (#771)"
+    "music (#0)"  -> "alternative (#14)"
+    "music (#0)"  -> "reggae (#753)"
+    "rock (#771)" -> "alternative (#3)"
 
 
+Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
+Genres in diesen Baum einzupflegen - zudem kann man dies bei der hohen Zahl der
+existierenden Genres (Beispiel bringen?) diese nur schwerlich manuell
+einpflegen.
 
-.. code-block:: python
+Existierende Datenbanken wie, das sonst so vollständige, *MusicBrainz* liefern
+laut ihren FAQ keine Genredaten:
 
-    from docutils import nodes
- 
- 
-    # Code Documentation
-    class latex_sign(nodes.General, nodes.Element):
-        """ DOCSTRING """
-        pass
- 
- 
-    def visit_todo_node_latex(self, node):
-        self.body.append('\\LaTeX')
- 
- 
-    def visit_todo_node_text(self, node):
-        self.body.append('LaTeX')
- 
- 
-    def visit_todo_node_html(self, node):
-        self.body.append('''
-            <style type="text/css">
-                .tex sub, .latex sub, .latex sup {
-                    text-transform: uppercase;
-                }
- 
-                .tex sub, .latex sub {
-                    vertical-align: -0.5ex;
-                    margin-left: -0.1667em;
-                    margin-right: -0.125em;
-                }
- 
-                .tex, .latex, .tex sub, .latex sub {
-                    font-size: 1em;
-                }
- 
-                .latex sup {
-                    font-size: 0.85em;
-                    vertical-align: 0.15em;
-                    margin-left: -0.36em;
-                    margin-right: -0.15em;
-                }
-            </style>
-            <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
-        ''')
- 
- 
-    def depart_todo_node(self, node):
-        pass
- 
- 
-    def latex_sign_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-        return[latex_sign()], []
- 
- 
-    def setup(app):
-        app.add_node(
-            latex_sign,
-            html=(
-                visit_todo_node_html,
-                depart_todo_node
-            ),
-            latex=(
-                visit_todo_node_latex,
-                depart_todo_node
-            ),
-            text=(
-                visit_todo_node_text,
-                depart_todo_node
-            )
-        )
-        app.add_role('latex_sign', latex_sign_role)
+.. epigraph::
 
+   **Why does MusicBrainz not support genre information?**
+
+   *Because doing genres right is very hard.
+   We have thought about how to implement genres,
+   but we haven't completely settled on the right approach yet.*
+
+   -- https://musicbrainz.org/doc/General_FAQ
+
+Also musste man sich nach anderen Quellen umschauen. Das vom
+*DiscogsGenre*-Provider verwendete Discogs bietet zwar relative detaillierte
+Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
+*Genre* (*rock*) und dem Subgenre (*blackened death metal*) - eine zu grobe
+Einteilung.
+
+Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* - fast jede Band 
+ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
+*The Echonest* - einem Unternehmen welches verschiedene Dienste rund um
+Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
+Genres. 
+
+Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
+Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
+*The Echonest* ist dies, nachdem man sich einen *API Key* registriert hat
+relativ einfach [#f1]_: 
+
+    http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json
+
+Die Liste enthält, zum Zeitpunkt des Schreibens, 898 konkrete Genres und wird
+kontinuierlich erweitert. 
+
+TODO: APi key in glossar aufnehmen
+
+
+Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
+diese Quelle erst nachträglich nach einer Analyse des Quelltextes von *beets*
+(https://gist.github.com/sampsyo/1241307)
+eingebaut. *beets* hat ebenfalls das Problem das Genre zu normalisieren - also
+muss dort ein entsprechender Mechanismus eingebaut sein. Dieser beruht, ähnlich
+wie hier, ebenfalls auf einem Baum [#f2]_. Um diese Quelle in *libmunin* zu
+nutzen wurde lediglich der Code nach *Python3* portiert. 
+
+
+.. rubric:: Footnotes
+
+.. [#f1] Der *API Key* wurde in der URL gekürzt da man angehalten ist diesen
+   nicht zu veröffentlichen. 
+
+.. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.
+
+ZSIUEIVVZGJVJVWIS&
 
 Keword Extraction
 -----------------
@@ -131,311 +137,3 @@ Various Providers
 Erwähnenswerte Algorithmik hinter den anderen Providern.
 
 levenshtein, bpm, moodbar, wordlist distance, normalize provider, stemming
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
-ijieojfijweifjjijj
