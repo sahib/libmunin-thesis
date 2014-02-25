@@ -83,8 +83,57 @@ diese Quelle erst nachträglich nach einer Analyse des Quelltextes von *beets*
 eingebaut. *beets* hat ebenfalls das Problem das Genre zu normalisieren - also
 muss dort ein entsprechender Mechanismus eingebaut sein. Dieser beruht, ähnlich
 wie hier, ebenfalls auf einem Baum [#f2]_. Um diese Quelle in *libmunin* zu
-nutzen wurde lediglich der Code nach *Python3* portiert. 
+nutzen wurde lediglich der Code nach *Python3* portiert. Von wikipedia werden
+folgende Seiten gescraped, und die darin befindlichen genres in eine datei
+geschrieben: 
 
+    - TODO: wiki sites
+
+
+ueberfuehrung der genre-listen in einem genre-baum
+--------------------------------------------------
+
+.. _zerlegung:
+
+Nachdem eine Liste von Genres nun vorhanden ist muss diese noch in einem Baum
+wie oben gezeigt ueberfuehrt werden. Dazu wird jedes genre in der liste anhand
+von eines regulaeren ausdruck (todo: fussnote) in einzelne woeerter zerlegt. 
+
+... todo
+
+
+
+Matching von Genres
+-------------------
+
+um Normalisieren des Genres wird folgendermaßen vorgegangen:
+
+- Wie in :ref:`zerlegung` wird das Eingabegenre in einzelne Wörter aufgebrochen.
+- TODO
+
+
+Als Resultat kommt jeweils eine Liste von möglichen Pfaden heraus die das
+Eingabegenre anhand der bekannten Genre beschreiben: 
+
+TODO
+
+
+Vergleichen der unterschiedlichen Genre-Pfade-Mengen
+----------------------------------------------------
+
+Es stehen zwei Distanzfunktion in *libmunin* bereit um die Pfade zu vergleihen:
+
+- GenreTree
+- GenreTreeAvgLink (TODO: umbenennen?)
+
+Beide nutzen folgende Methodik um zwei Genrepfade zu vergleichen:
+
+- 
+
+Probleme
+--------
+
+Insgesamt funktioniert dieser Ansatz relativ gut, die meisten genre
 
 .. rubric:: Footnotes
 
