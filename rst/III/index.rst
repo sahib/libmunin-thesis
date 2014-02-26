@@ -2,6 +2,13 @@
 Algorithmen
 ###########
 
+
+.. epigraph::
+
+    Ich verstehe nichts von Musik. In meinem Fach ist das nicht nötig.
+
+    -- Elvis Presley (1935-77), gen. "King of Rock 'n' Roll", amerik. Sänger
+
 Genre Splitting
 ===============
 
@@ -89,18 +96,17 @@ geschrieben:
 
     - TODO: wiki sites
 
-
-ueberfuehrung der genre-listen in einem genre-baum
---------------------------------------------------
-
 .. _zerlegung:
+
+Überfuehrung der genre-listen in einem genre-baum
+-------------------------------------------------
+
 
 Nachdem eine Liste von Genres nun vorhanden ist muss diese noch in einem Baum
 wie oben gezeigt ueberfuehrt werden. Dazu wird jedes genre in der liste anhand
 von eines regulaeren ausdruck (todo: fussnote) in einzelne woeerter zerlegt. 
 
 ... todo
-
 
 
 Matching von Genres
@@ -121,19 +127,70 @@ TODO
 Vergleichen der unterschiedlichen Genre-Pfade-Mengen
 ----------------------------------------------------
 
-Es stehen zwei Distanzfunktion in *libmunin* bereit um die Pfade zu vergleihen:
+.. _single-dist:
 
-- GenreTree
-- GenreTreeAvgLink (TODO: umbenennen?)
+Um zwei einzelne Pfade miteinander zu vergleich wird folgenderndermaßen
+vorgegangen:
 
-Beide nutzen folgende Methodik um zwei Genrepfade zu vergleichen:
+- Zähle die Anzahl an Punkten in denen sich der Pfad überdeckt. 
+- Teile die Anzahl durch die Länge des längeren beider Pfade.
+- Die daraus gewonnene Ähnlichkeit wird von :math:`1.0` abgezogen um die Distanz
+  zu erhalten.
 
-- 
+In *libmunin* sind zwei Distanzfunktionen erhalten welche diese Methode nutzt um
+zwei Mengen mit Genrepfaden zu vergleichen:
+
+GenreTree
+~~~~~~~~~
+
+Vergleicht jeden Genrepfad in der einen Menge mit dem in der anderen Menge
+mittels oben genannter Methode. Die minimalste Distanz wird zurückgegeben. 
+Als Optimierung wird frühzeitig abgebrochen wenn eine Distanz von :math:`0.0`
+erreicht wird.
+
+Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
+vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als *rock* oder
+*metal* eingetragen, ohne Unterscheidung von Subgenres. Deshalb geht diese
+Distanzfunktion davon aus wengie Übereinstimmungen zu finden - sollten welche
+vorkommen werden diese gut bewertet.
+
+GenreTreeAvgLink
+~~~~~~~~~~~~~~~~
+
+Seien *A* und *B* zwei Mengen mit Genrepfaden. *A* ist dabei die größere Menge
+und *B* die kleinere falls die Mengen eine unterschiedliche Mächtigkeit
+besitzen.
+
+Setzt man vorraus, dass *d* die unter :ref:`single-dist` erwähnte
+Distanzunktion ist,  so berechnet sich die
+finale Distanz durch:
+
+.. math:: 
+
+   D(A, B) = \frac{\displaystyle\sum\limits_{a=0}^{|A|} \argmin\!{\bigg(\displaystyle\sum\limits_{b=0}^{|B|} d(a, b)\bigg)}}{\vert A\vert}
+
+
+Diese Distanzfunktion eigent sich für *,,reichhaltig''* befüllte
+Genrebeschreibungen bei denen auch ein oder mehrere Untergenres vorhanden sind.
+Ein Beispiel dafür wäre: ``country rock / folk / rockabilly``. Die
+Distanzfunktion geht also davon aus zumindestens teilweise Überdeckungen in den
+Daten vorzufinden.
+
+Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
+passende Distanzunktion auswählen.
 
 Probleme
 --------
 
-Insgesamt funktioniert dieser Ansatz relativ gut, die meisten genre
+Insgesamt funktioniert dieser Ansatz relativ gut, die meisten Genre werden
+zufriedenstellend in Pfade normalisiert die performant verglichen werden können.
+
+Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
+Es wird davon ausgegangen, dass genres die ähnlich sind auch ähnlich heißen -
+eine Annahme die zwar oft, aber nicht immer wahr ist. So sind die Genres
+*Alternative Rock* und *Grunge* sehr ähnlich - der obige Ansatz würde hier
+allerdings eine Distanz von :math:`0.0` liefern. 
+
 
 .. rubric:: Footnotes
 
