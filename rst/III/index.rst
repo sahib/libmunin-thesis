@@ -30,23 +30,13 @@ als Baum darstellen. Als, meist imaginären, Wurzelknoten nimmt man das
 allumfassende Genre *Musik* an. 
 
 
-.. digraph:: foo
-
-    size=4; 
-    node [shape=record];
-
-    "music (#0)"  -> "rock (#771)"
-    "music (#0)"  -> "alternative (#14)"
-    "music (#0)"  -> "reggae (#753)"
-    "rock (#771)" -> "alternative (#3)"
-
 
 Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
 Genres in diesen Baum einzupflegen - zudem kann man dies bei der hohen Zahl der
 existierenden Genres (Beispiel bringen?) diese nur schwerlich manuell
 einpflegen.
 
-Existierende Datenbanken wie, das sonst so vollständige, *MusicBrainz* liefern
+Existierende Datenbanken wie, das sonst sehr vollständige, *MusicBrainz* liefern
 laut ihren FAQ keine Genredaten:
 
 .. epigraph::
@@ -103,14 +93,99 @@ geschrieben:
 
 
 Nachdem eine Liste von Genres nun vorhanden ist muss diese noch in einem Baum
-wie oben gezeigt ueberfuehrt werden. Dazu wird jedes genre in der liste anhand
-von eines regulaeren ausdruck (todo: fussnote) in einzelne woeerter zerlegt. 
+wie oben gezeigt überführt werden. Ein Beispiel für die Ein- und Ausgabe::
 
-... todo
+    swedish alternative rock
+    alternative rock
+    swedish pop
+    alternative pop
+    reggae
+    j-pop
 
+Nach dem Prozessieren soll der folgende Baum daraus generiert werden:
+
+.. digraph:: foo
+
+    size=4; 
+    node [shape=record];
+
+    music -> rock
+    music -> pop
+    music -> reggae
+    pop -> j
+    pop -> swedish
+    pop -> alternative
+    rock -> alternative
+    alernative -> swedish
+
+
+Der Baum sollte dabei folgende Kriterien erfüllen:
+
+- Der Pfad von einem Blattknoten (*,,Swedish''*) zum Rootknoten (*,,music''*)
+  sollte dabei das ursprüngliche Genre, mit dem optionalen Suffix *music*
+  ergeben *(,,swedish-pop-music'')*.
+- Doppelte Teilgenres dürfen vorkommen. (alternative <-> alternative)
+- Jeder Knoten erhält eine Integer-ID die für jeden Tiefenstufe von 0 wieder
+  anfängt. So hat der Knoten *music* immer die ID 0, bei der nächsten Ebene wird
+  die ID nach alphabetischer Sortierung vergeben, *pop* bekommt daher die 0,
+  *reggae* die 1, *rock* die 2. 
+
+
+Das Umwandeln selbst geschieht folgendermaßen:
+
+- Es wird manuell der Rootknoten *music* angelegt.
+- Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
+- Dann wird rekursiv folgende Prozedur erledigt:
+
+  1. Gehe über alle Kinder des Rootknoten und breche dabei das *letzte Element*
+     Wort des *Genres* ab (*western country rock* wird zu *western country* und
+     *rock*). 
+  2. Der letzte Teil wird als Schlüssel in einer Hashmap gespeichert, mit dem
+     Rest als dazugehöriger Wert. Dies entledigt sich aufgrund der Natur von
+     Hashmaps eventueller Dupletten.
+  3. Die Liste der Kinder des Rootknotens wird zu einer leeren Liste
+     zurückgesetzt.
+  4. Die Schlüssel der Hashmap werden als neue Kinder gesetzt, die dazugehörigen
+     Werte als deren Kinder.
+  5. Iteriere über die neuen Kinder, jedes Kind wird als neuer Wurzelknoten
+     angenommen und es wird von 1) an begonnen. Der Rekursionsstop ist erreicht
+     wenn keine Aufteilung des Genres in letztes Element und Rest mehr möglich
+     ist.
+
+- Zur Veranschaulichung zeigt es die Zwischenschritte unseres obigen Beispiels:
+
+.. digraph:: foo
+
+    size=4; 
+    node [shape=record];
+
+    music -> pop
+    music -> reggae
+    music -> rock
+    rock -> swedish alternative 
+    pop -> j
+    pop -> swedish
+    pop -> alternative
+- Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
+  erledigt:
+
+  1.  die fehlenden ,,Musik''-Genres *,,vocal''* und *,,speech''* werden
+      maneuell eingefügt
+  2.  Bei dem momentanen Vorgehen landen unter Umständen weitere ,,*music*''
+      auf der ersten Ebene. Diese werden bereinigt.
+  3.  Alle Genres die auf *,,core''* enden werden aufgebrochen und dem Knoten
+      *,,core''* auf erster Ebene hinzugefügt.
 
 Matching von Genres
 -------------------
+
+Dazu wird jedes genre in der liste anhand von
+eines regulaeren ausdruck (todo: fussnote) in einzelne Subgenres zerlegt - Oft
+ist es nämlich der Fall dass in einer Eingabe mehrere, durch  bestimmte Zeichen,
+getrennte Subgenres aufgelistet sind (Beispiel: *,,rock / pop''*). Jedes dieser
+Subgenres wird dann in einzelne Wörter aufgebrochen 
+
+
 
 um Normalisieren des Genres wird folgendermaßen vorgegangen:
 
@@ -189,8 +264,14 @@ Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
 Es wird davon ausgegangen, dass genres die ähnlich sind auch ähnlich heißen -
 eine Annahme die zwar oft, aber nicht immer wahr ist. So sind die Genres
 *Alternative Rock* und *Grunge* sehr ähnlich - der obige Ansatz würde hier
-allerdings eine Distanz von :math:`0.0` liefern. 
+allerdings eine Distanz von :math:`0.0` liefern. Auch Genres wie *,,rock'n'roll*
+würde ähnlich schlechte Resultate liefern.
 
+Eine mögliche Lösung wäre eine Liste von ,,Synonymen'' Genres die
+Querverbindungen im Baum erlauben würden. TODO: erkläre .
+
+Allerdings wäre eine solche Liste von Synonymen relative schwer automatisch zu
+erstellen. 
 
 .. rubric:: Footnotes
 
@@ -198,8 +279,6 @@ allerdings eine Distanz von :math:`0.0` liefern.
    nicht zu veröffentlichen. 
 
 .. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.
-
-ZSIUEIVVZGJVJVWIS&
 
 Keword Extraction
 -----------------
