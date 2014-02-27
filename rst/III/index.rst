@@ -16,32 +16,32 @@ Problemstellung
 ---------------
 
 Das Vergleich einzelner Genres ist eine schwierige Angelegenheit da es,
-zumindestens im Bereich der Musik, keine standardisierte Einteilung von Genres
+zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
 gibt. Daher ist es nötig, dass die einzelnen Genre-Eingaben anhand einer
 Sammlung von zusammengestellten Genredaten normalisiert werden.
 
 Zusammenstellung der Gernedatenbank
 -----------------------------------
 
-Genres können, wie in einem Baum, in Übergenres (*rock*, *pop*), Untergenres
-(*country* rock, *japanese* pop), Unter-Untergenres (*) (und so weiter)
-aufgeteilt werden. So lassen sich alle Genres unter ihre jeweiligen Untergenres
-als Baum darstellen. Als, meist imaginären, Wurzelknoten nimmt man das
-allumfassende Genre *Musik* an. 
+Genres können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
+(*country* rock, *japanese* pop), Unter-Untergenres (*western* country rock) -
+und so weiter - aufgeteilt werden. So lassen sich alle Genres und ihre
+jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
+man das allumfassende Genre *Musik* an. 
 
-
+Dieser Baum kann dann genutzt werden um beliebige Genres anhand dieses Baums zu
+normalisieren.
 
 Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen - zudem kann man dies bei der hohen Zahl der
-existierenden Genres (Beispiel bringen?) diese nur schwerlich manuell
-einpflegen.
+Genres in diesen Baum einzupflegen - bei der hohen Zahl der existierenden Genres
+(Beispiel bringen?) diese nur schwerlich manuell einpflegen.
 
 Existierende Datenbanken wie, das sonst sehr vollständige, *MusicBrainz* liefern
 laut ihren FAQ keine Genredaten:
 
 .. epigraph::
 
-   **Why does MusicBrainz not support genre information?**
+   WHY DOES MUSICBRAINZ NOT SUPPORT GENRE INFORMATION?
 
    *Because doing genres right is very hard.
    We have thought about how to implement genres,
@@ -50,7 +50,7 @@ laut ihren FAQ keine Genredaten:
    -- https://musicbrainz.org/doc/General_FAQ
 
 Also musste man sich nach anderen Quellen umschauen. Das vom
-*DiscogsGenre*-Provider verwendete Discogs bietet zwar relative detaillierte
+*DiscogsGenre*-Provider verwendete *Discogs* bietet zwar relative detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
 *Genre* (*rock*) und dem Subgenre (*blackened death metal*) - eine zu grobe
 Einteilung.
@@ -69,59 +69,86 @@ relativ einfach [#f1]_:
     http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json
 
 Die Liste enthält, zum Zeitpunkt des Schreibens, 898 konkrete Genres und wird
-kontinuierlich erweitert. 
-
-TODO: APi key in glossar aufnehmen
-
+kontinuierlich von den Betreiberb erweitert. 
 
 Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
 diese Quelle erst nachträglich nach einer Analyse des Quelltextes von *beets*
-(https://gist.github.com/sampsyo/1241307)
-eingebaut. *beets* hat ebenfalls das Problem das Genre zu normalisieren - also
-muss dort ein entsprechender Mechanismus eingebaut sein. Dieser beruht, ähnlich
-wie hier, ebenfalls auf einem Baum [#f2]_. Um diese Quelle in *libmunin* zu
-nutzen wurde lediglich der Code nach *Python3* portiert. Von wikipedia werden
-folgende Seiten gescraped, und die darin befindlichen genres in eine datei
-geschrieben: 
+(https://gist.github.com/sampsyo/1241307) eingebaut. *beets* hat ebenfalls das
+Problem das Genre zu normalisieren - also muss dort ein entsprechender
+Mechanismus eingebaut sein. Dieser beruht, ähnlich wie hier, ebenfalls auf einem
+Baum [#f2]_. Um diese Quelle in *libmunin* zu nutzen wurde lediglich der Code
+nach *Python3* portiert. Von der englischen Wikipedia werden folgende Seiten
+*gescraped,* und die darin befindlichen Genres in eine Datei geschrieben: 
 
-    - TODO: wiki sites
+- List of popular music genres
+- List of styles of music: A-F
+- List of styles of music: G-M
+- List of styles of music: N-R
+- List of styles of music: S-Z
 
-.. _zerlegung:
+Von Wikipedia kommen 1527 Einträge. Diese werden mit den Einträgen von Echonest
+verschmolzen. Nach einer Entfernung von Dupletten ist die finale Genreliste 1876
+Einträge lang.
 
-Überfuehrung der genre-listen in einem genre-baum
--------------------------------------------------
+Überführung der Genreliste in einem Genrebaum
+---------------------------------------------
 
+.. subfigstart::
+
+.. _fig-tree-input:
+
+.. figure:: figs/tree_input.*
+    :alt: Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+    :width: 100%
+    :align: center
+    
+    Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+
+.. _fig-tree-init:
+
+.. figure:: figs/tree_init.*
+    :alt: Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+    :width: 100%
+    :align: center
+    
+    Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+
+.. _fig-tree-first:
+
+.. figure:: figs/tree_first.*
+    :alt: Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+    :width: 100%
+    :align: center
+    
+    Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+
+.. _fig-tree-final:
+
+.. figure:: figs/tree_final.*
+    :alt: Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+    :width: 100%
+    :align: center
+    
+    Base Mesh + 50% Stream + 512x512 Texture (923 KB)
+
+.. subfigend::
+    :width: 0.6
+    :alt: Example Model Resolutions
+    :label: fig-cc-teddy
+    
+    Example of a teddy bear model at different resolutions of the
+    progressive format (1 draw call) and its original format (16 draw
+    calls). The size in KB assumes downloading progressively, |eg|
+    :num:`fig-cc-teddy-100`'s size includes lower-resolution textures
 
 Nachdem eine Liste von Genres nun vorhanden ist muss diese noch in einem Baum
-wie oben gezeigt überführt werden. Ein Beispiel für die Ein- und Ausgabe::
-
-    swedish alternative rock
-    alternative rock
-    swedish pop
-    alternative pop
-    reggae
-    j-pop
-
-Nach dem Prozessieren soll der folgende Baum daraus generiert werden:
-
-.. digraph:: foo
-
-    size=4; 
-    node [shape=record];
-
-    music -> rock
-    music -> pop
-    music -> reggae
-    pop -> j
-    pop -> swedish
-    pop -> alternative
-    rock -> alternative
-    alernative -> swedish
-
+wie in :num:`fig-tree-final` gezeigt überführt werden. 
+Begleitend werden dazu die unter :num:`fig-tree-input` gezeigte Genreliste als
+Beispieleingabe. verwendet.
 
 Der Baum sollte dabei folgende Kriterien erfüllen:
 
-- Der Pfad von einem Blattknoten (*,,Swedish''*) zum Rootknoten (*,,music''*)
+- Der Pfad von einem Blattknoten (*,,Swedish''*) zum Wurzelknoten (*,,music''*)
   sollte dabei das ursprüngliche Genre, mit dem optionalen Suffix *music*
   ergeben *(,,swedish-pop-music'')*.
 - Doppelte Teilgenres dürfen vorkommen. (alternative <-> alternative)
@@ -130,14 +157,13 @@ Der Baum sollte dabei folgende Kriterien erfüllen:
   die ID nach alphabetischer Sortierung vergeben, *pop* bekommt daher die 0,
   *reggae* die 1, *rock* die 2. 
 
-
 Das Umwandeln selbst geschieht folgendermaßen:
 
-- Es wird manuell der Rootknoten *music* angelegt.
+- Es wird manuell der Wurzelknoten *music* angelegt.
 - Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
 - Dann wird rekursiv folgende Prozedur erledigt:
 
-  1. Gehe über alle Kinder des Rootknoten und breche dabei das *letzte Element*
+  1. Gehe über alle Kinder des Wurzelknoten und breche dabei das *letzte Element*
      Wort des *Genres* ab (*western country rock* wird zu *western country* und
      *rock*). 
   2. Der letzte Teil wird als Schlüssel in einer Hashmap gespeichert, mit dem
@@ -152,57 +178,104 @@ Das Umwandeln selbst geschieht folgendermaßen:
      wenn keine Aufteilung des Genres in letztes Element und Rest mehr möglich
      ist.
 
-- Zur Veranschaulichung zeigt es die Zwischenschritte unseres obigen Beispiels:
-
-.. digraph:: foo
-
-    size=4; 
-    node [shape=record];
-
-    music -> pop
-    music -> reggae
-    music -> rock
-    rock -> swedish alternative 
-    pop -> j
-    pop -> swedish
-    pop -> alternative
+- In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig
+  (:num:`fig-tree-final`). In :num:`fig-tree-first` ist der Baum nach der ersten
+  Iteration zu sehen.
+    
 - Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
   erledigt:
 
   1.  die fehlenden ,,Musik''-Genres *,,vocal''* und *,,speech''* werden
-      maneuell eingefügt
+      manuell eingefügt
   2.  Bei dem momentanen Vorgehen landen unter Umständen weitere ,,*music*''
       auf der ersten Ebene. Diese werden bereinigt.
   3.  Alle Genres die auf *,,core''* enden werden aufgebrochen und dem Knoten
       *,,core''* auf erster Ebene hinzugefügt.
 
+Der resultierende Baum ist im Anhang (TODO Referenz) visualisiert.
+Er besitzt auf der ersten Ebene 1044 Untergenre. Die tiefste Verschachtelung
+erreicht das Genre *,,New Wave of new Wave''* mit einer Tiefe von 5.
+
 Matching von Genres
 -------------------
 
-Dazu wird jedes genre in der liste anhand von
-eines regulaeren ausdruck (todo: fussnote) in einzelne Subgenres zerlegt - Oft
-ist es nämlich der Fall dass in einer Eingabe mehrere, durch  bestimmte Zeichen,
-getrennte Subgenres aufgelistet sind (Beispiel: *,,rock / pop''*). Jedes dieser
-Subgenres wird dann in einzelne Wörter aufgebrochen 
+Die Normalisierung des Genres ist nun mit dem aufgebauten Baum recht einfach.
+Zuerst muss das Eingabegenre in Subgenres aufgeteilt werden - oft sind mehrere
+Genres in einem einzelnen String zusammengefasst, die durch bestimmte Zeichen
+getrennt sind. Ein Beispiel: 
+
+    *,,Rock, Reggae / Alternative Rock, Ska, Punk''*
+    
+Jedes dieser Subgenres wird dann mittels eines regulären Ausdruckes in einzelne
+Wörter aufgeteilt. Die Wörter werden noch in die kleingeschriebene Form
+gebracht. In der Python-Listen Syntax sähe das obige Beispiel dann so aus:
+
+:: 
+
+    [['rock'], ['reggae'], ['alternative', 'rock'], ['ska'], ['punk']]
+
+Die einzelnen Wortlisten können jetzt in *Pfade* umgewandelt werden.
+Dazu wird folgendermaßen vorgegangen:
+
+* Es wird eine leere Liste von Pfaden angelegt.
+* Es wird eine Liste mit Wahrheitswerten angelegt, die genauso lang ist wie die
+  Wortliste. Die Wahrheitswerte werden auf *False* initialisiert.
+  Diese *Maske* wird genutzt um bereits gefunde Wörter ,,abzuhaken''.
+* Es wird eine leere *,,results''* Liste angelegt. 
+* Dann wird eine rekursive Suche nach passenden *Pfaden* mit dem Wurzelknoten
+  *music* gestartet:
+
+  1) Schaue ob der momentane Wurzelknoten Kinder enthält die auch in der
+     Wortliste vorkommen. Wenn das entsprechende Wort noch nicht in der *Maske*
+     abgehakt wurde, wird es in eine temporäre Liste *,,children''* aufgenommen. 
+  2) Wenn *,,children''* leer ist und die *,,results''* Liste nicht leer, so
+     wird die letzere zur Pfadliste hinzugefügt.
+
+  3) Es wird über jedes Kind in der *,,children''* Liste iteriert. Bei jeder
+     Iteration wird:
+
+     A) Eine Kopie der *,,results''* Liste wird erstellt, bei der die ID des Kindes am
+        Ende hinzugefügt wurde.
+     B) Eine Kopie der *Maske* wird erstellt, in der das vom Kind repräsentierte
+        Wort *,,abgehakt''* wird.
+     C) Das Kind wird als neuer Wurzelknoten angenommen und es wird wie bei 1)
+        weitergemacht. 
+
+        Der Rekursionsstopp ist dann erreicht wenn die *,,children''* Liste leer
+        ist.
+
+  4) Nach dem Rekursionsstopp stehen alle validen Pfade in der Pfadliste.
+
+Das Bedarf vermutlich eines Beispiels. Nehmen wir das Subgenre *,,alternative
+rock''* zur Demonstration her. 
+
+.. digraph:: match
+
+    size=4; 
+    splines=false;
+    node [shape=record];
+    
+    "Result 1" [shape=point]
+    "Result 2" [shape=point]
+    "x" [shape=doublecircle]
+
+    "x" -> "[False, False]" [label=" [ ]"]
+    "[False, False]" -> "[True, False]" [label="[alternative]           "]
+    "[False, False]" -> "[True, False]" [label=""]
+    "[False, False]" -> "[False, True]" [label=" [rock]"]
+    "[False, True]" -> "[True, True]" [label=" [rock, alternative]"]
+     "[True, False]" -> "Result 1"
+    "[True, True]" -> "Result 2"
 
 
+Die passenden Pfade sind in diesem Fall also *alternative* und *alternative rock*.
+Es ist zu bemerken dass *rock* zwar ebenfalls ein valider Pfad ist, aber 
+als eine Untermenge von *alternative rock* nicht in der Ergebnismenge ist.
 
-um Normalisieren des Genres wird folgendermaßen vorgegangen:
-
-- Wie in :ref:`zerlegung` wird das Eingabegenre in einzelne Wörter aufgebrochen.
-- TODO
-
-
-Als Resultat kommt jeweils eine Liste von möglichen Pfaden heraus die das
-Eingabegenre anhand der bekannten Genre beschreiben: 
-
-TODO
-
+.. _single-dist:
 
 Vergleichen der unterschiedlichen Genre-Pfade-Mengen
 ----------------------------------------------------
-
-.. _single-dist:
 
 Um zwei einzelne Pfade miteinander zu vergleich wird folgenderndermaßen
 vorgegangen:
@@ -213,7 +286,7 @@ vorgegangen:
   zu erhalten.
 
 In *libmunin* sind zwei Distanzfunktionen erhalten welche diese Methode nutzt um
-zwei Mengen mit Genrepfaden zu vergleichen:
+zwei Mengen mit Genrepfaden zu vergleichen.
 
 GenreTree
 ~~~~~~~~~
@@ -229,6 +302,10 @@ vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als *rock* oder
 Distanzfunktion davon aus wengie Übereinstimmungen zu finden - sollten welche
 vorkommen werden diese gut bewertet.
 
+.. math::
+
+   D(A, B) = \argmin\!\bigg(\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\bigg)
+
 GenreTreeAvgLink
 ~~~~~~~~~~~~~~~~
 
@@ -242,7 +319,7 @@ finale Distanz durch:
 
 .. math:: 
 
-   D(A, B) = \frac{\displaystyle\sum\limits_{a=0}^{|A|} \argmin\!{\bigg(\displaystyle\sum\limits_{b=0}^{|B|} d(a, b)\bigg)}}{\vert A\vert}
+   D(A, B) = \frac{\displaystyle\sum\limits_{a \in A} \argmin\!{\Bigg(\displaystyle\sum\limits_{b \in B} d(a, b)\Bigg)}}{\vert A\vert}
 
 
 Diese Distanzfunktion eigent sich für *,,reichhaltig''* befüllte
