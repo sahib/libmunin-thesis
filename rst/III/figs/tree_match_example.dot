@@ -1,0 +1,18 @@
+digraph {
+    size=4; 
+    splines=false;
+    node [shape=record];
+    rankdir="LR";
+    
+    "Result 1" [shape=point]
+    "Result 2" [shape=point]
+    "S" [shape=doublecircle]
+
+    "S" -> "[False, False]" [label=" [ ]"]
+    "[False, False]" -> "[True, False]" [label="[alternative]"]
+    "[False, False]" -> "[True, False]" [label=""]
+    "[False, False]" -> "[False, True]" [label=" [rock]"]
+    "[False, True]" -> "[True, True]" [label=" [rock, alternative]"]
+     "[True, False]" -> "Result 1"
+    "[True, True]" -> "Result 2"
+}

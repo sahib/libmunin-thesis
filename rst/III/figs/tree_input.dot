@@ -1,0 +1,10 @@
+digraph {
+    size=4; 
+    node [shape=record];
+    splines=false;
+
+    subgraph {
+        core [label="{Reggae | Swedish alternative Rock | j-Pop}"];
+        other [label="{Alternative Pop | Alternative Rock | Swedish Pop}"];
+    }
+}

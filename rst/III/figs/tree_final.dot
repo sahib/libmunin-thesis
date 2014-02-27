@@ -1,0 +1,15 @@
+digraph {
+    size=4; 
+    node [shape=record];
+
+    "Music (#0)" -> "Pop (#0)";
+    "Music (#0)" -> "Reggae (#1)";
+    "Music (#0)" -> "Rock (#2)";
+
+    "Pop (#0)" -> "Alternative (#0) ";
+    "Pop (#0)" -> "j (#1)";
+    "Pop (#0)" -> "Swedish (#2)";
+
+    "Rock (#2)" -> "Alternative (#0)";
+    "Alternative (#0)" -> "Swedish (#0)";
+}

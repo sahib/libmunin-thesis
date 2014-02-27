@@ -189,331 +189,89 @@ Glossar
         Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
         eine schneller zu berechnende Approximation zurückgegriffen.
 
-.. only:: latex
+.. _gengre-graph-vis:
 
-   .. raw:: latex
+Visualisierungen des Genregraph
+===============================
 
-       \newpage
+Der gesamte Genrebaum ist schwer im Ganzen übersichtlich darzustellen. Deshalb
+folgen drei unterschiedliche Versionen, mit unterschiedlichen Detailstufen:
+
+* :num:`fig-genre-graph-min`: Nur die wichtigsten Genres werden gezeigt.
+* :num:`fig-genre-graph-mid`: Grob alle populären Genres werden gezeigt.
+* :num:`fig-genre-graph-big`: Alle Genres werden gezeigt.
+
+**Bedeutung der Farben:** Der Farbton der Knoten varriert je nach Tiefe. Knoten
+der ersten Ebene sind rot. Je tiefer desto mehr wandelt sich der Farbton
+Richtung grün. Die Sättigung der Knoten zeigt die Anzahl der Kinder des Knoten
+an. Sehr gesättigte Knoten haben viele Kinder. Der Wurzelknoten *Music* ist von
+dieser Regel ausgenommen. Der farbliche Hintergrund kennzeichnet einzelne
+Genre-"Länder" die automatisch erkannt werden - diese haben keine tiefere
+Bedeutung.
 
 
-.. _coldstart-example:
+**Plotting Vorgang:** Das Plotting selbst wird durch GraphViz (TODO: link)
+erledigt. Als Eingabe nimmt GraphViz eine textuelle Beschreibung des Graphen die
+von einem Python-Script erstellt wird. 
 
-``coldstart.py``
-================
+.. figtable::
+   :spec: l l l
+   :label: Referenz der Detailstufen
 
-Führt die in :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
-aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
-Songtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
-Beats-per-Minute-Analyse wird lokalisiert. 
+    +----------------------------+------------------+------------------------+
+    | **Abbildung**              |  **Detailstufe** |  **Anzahl** der Knoten |
+    +============================+==================+========================+
+    | :num:`fig-genre-graph-min` | *0.5*            |  2197                  |
+    +----------------------------+------------------+------------------------+
+    | :num:`fig-genre-graph-mid` | *0.1*            |  483                   |
+    +----------------------------+------------------+------------------------+
+    | :num:`fig-genre-graph-big` | *0.0*            |  39                    |
+    +----------------------------+------------------+------------------------+
 
-Im Anschluss wird die Session aufgebaut und unter
-``$HOME/.cache/libmunin/EasySession.gz`` gespeichert.
+.. code-block:: bash
 
-.. code-block:: python
-
-    #!/usr/bin/env python
-    # encoding: utf-8
-    # Stdlib:
-    import logging
-
-    # Internal:
-    import moosecat.boot
-    from moosecat.boot import g
-
-    # External:
-    from munin.easy import EasySession
-    from munin.provider import PlyrLyricsProvider
-
-    # Fetch missing lyrics, or load them from disk.
-    # Also cache missed items for speed reasons.
-    LYRICS_PROVIDER = PlyrLyricsProvider(cache_failures=True)
-
-    def make_entry(song):
-        # Hardcoded, Im sorry:
-        full_uri = '/mnt/testdata/' + song.uri
-        return song.uri, {
-            'artist': song.artist,
-            'album': song.album,
-            'title': song.title,
-            'genre': song.genre,
-            'bpm': full_uri,
-            'moodbar': full_uri,
-            'rating': None,
-            'date': song.date,
-            'lyrics': LYRICS_PROVIDER.do_process((
-                song.album_artist or song.artist, song.title
-            ))
-        }
-
-    if __name__ == '__main__':
-        # Bring up moosecat
-        moosecat.boot.boot_base(verbosity=logging.DEBUG)
-        g.client.connect(port=6601)
-        moosecat.boot.boot_metadata()
-        moosecat.boot.boot_store()
-
-        # Fetch the whole database into entries:
-        entries = []
-        with g.client.store.query('*', queue_only=False) as playlist:
-            for song in playlist:
-                entries.append(make_entry(song))
-
-        # Instance a new EasySession and fill in the values.
-        session = EasySession()
-        with session.transaction():
-            for uri, entry in entries:
-                try:
-                    print('Processing:', entry['bpm'])
-                    session.mapping[session.add(entry)] = uri
-                except:
-                    import traceback
-                    traceback.print_exc()
-
-        # Save the Session to disk (~/.cache/libmunin/EasySession.gz)
-        session.save()
-
-        # Plot if desired.
-        if '--plot' in sys.argv:
-            session.database.plot()
-
-        # Close the connection to MPD, save cached database
-        moosecat.boot.shutdown_application()
+    $ cd libmunin_git_clone/
+    $ python munin/provider/genre.py --cli --plot 0.0  # Detailstufe. Hier: Voll.
+    $ sfdp /tmp/genre.graph | \                        # Layoutting
+      gvmap -e | \                                     # Landkarte einzeichnen
+      neato -n2 -Ecolor="#55555555" -Tpdf \            # Rendern
+      > graph.pdf                                      # In <graph.png> schreiben
+    $ pdf-viewer graph.pdf                             # Resultat anschauen
 
 .. only:: latex
-
-   .. raw:: latex
-
-       \newpage
-
-
-.. _complex-example:
-
-Ausführliches Beispiel
-======================
-
-Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel 
-gezeigt werden, das auch im Vergleich zum einfachen Beispiel folgende Features
-zeigt:
-
-    - Das Erstellen einer eigenen Session
-    - Das Speichern und Laden derselben
-    - Das Füttern der History
-    - Ableiten von Assoziationsregeln
-    - Mehrere Möglichkeiten zur Empfehlung
-
-``complex.py``
-~~~~~~~~~~~~~~
-
-.. code-block:: python
-
-    #!/usr/bin/env python
-    # encoding: utf-8
-
-    import sys
-
-    from munin.helper import pairup
-    from munin.session import Session
-    from munin.distance import GenreTreeDistance, WordlistDistance
-    from munin.provider import \
-            ArtistNormalizeProvider, \
-            GenreTreeProvider, \
-            WordlistProvider,  \
-            StemProvider
+   
+   **Zoombare Version:** In gedruckter Form sind die Plots nur schwer abzudrucken. 
+   Unter TODO:link können die Plots in zoombarer SVG-Version angesehen werden.
 
 
-    MY_DATABASE = [(
-            'Devildriver',                # Artist
-            'Before the Hangmans Noose',  # Title
-            'metal'                       # Genre
-        ), (
-            'Das Niveau',
-            'Beim Pissen gemeuchelt',
-            'folk'
-        ), (
-            'We Butter the Bread with Butter',
-            'Extrem',
-            'metal'
-        ), (
-            'Lady Gaga',
-            'Pokerface',
-            'pop'
-    )]
+.. _fig-genre-graph-min:
+
+.. figure:: figs/genre_graph_min.*
+   :alt: xxx
+   :width: 100%
+   :align: center
+
+   Minimale Version.
+
+.. _fig-genre-graph-mid:
+
+.. figure:: figs/genre_graph_mid.*
+   :alt: xxx
+   :width: 100%
+   :align: center
+
+   Mittlere Version.
 
 
-    def create_session(name):
-        print('-- No saved session found, loading new.')
-        session = Session(
-            name='demo',
-            mask={
-                # Each entry goes like this:
-                'Genre': pairup(
-                    # Pratice: Go lookup what this Providers does.
-                    GenreTreeProvider(),
-                    # Practice: Same for the DistanceFunction.
-                    GenreTreeDistance(),
-                    # This has the highest rating of the three attributes:
-                    8
-                ),
-                'Title': pairup(
-                    # We can also compose Provider, so that the left one
-                    # gets the input value, and the right one the value
-                    # the left one processed.
-                    # In this case we first split the title in words,
-                    # then we stem each word.
-                    WordlistProvider() | StemProvider(),
-                    WordlistDistance(),
-                    1
-                ),
-                'Artist': pairup(
-                    # If no Provider (None) is given the value is forwarded as-is.
-                    # Here we just use the default provider, but enable
-                    # compression. Values are saved once and are givean an ID.
-                    # Duplicate items get the same ID always.
-                    # You can trade off memory vs. speed with this.
-                    ArtistNormalizeProvider(compress=True),
-                    # If not DistanceFunctions is given, all values are
-                    # compare with __eq__ - which might give bad results.
-                    None,
-                    1
-                )
-            }
-        )
+.. _fig-genre-graph-big:
 
-        # As in our first example we fill the session, but we dont insert the full
-        # database, we leave out the last song:
-        with session.transaction():
-            for idx, (artist, title, genre) in enumerate(MY_DATABASE[:3]):
-                # Notice how we use the uppercase keys like above:
-                session.mapping[session.add({
-                    'Genre': genre,
-                    'Title': title,
-                    'Artist': artist,
-                })] = idx
+.. figure:: figs/genre_graph_big.*
+   :alt: xxx
+   :width: 100%
+   :align: center
 
-        return session
+   Riesige Version.
 
-
-    def print_recommendations(session, n=5):
-        # A generator that yields at max 20 songs.
-        recom_generator = session.recommend_from_heuristic(number=n)
-        seed_song = next(recom_generator)
-        print('Recommendations to #{}:'.format(seed_song.uid))
-        for munin_song in recom_generator:
-            print('  normalized values:')
-
-            # Let's take
-            for attribute, normalized_value in munin_song.items():
-                print('    {:<7s}: {:<20s}'.format(attribute, normalized_value))
-
-            original_song = MY_DATABASE[session.mapping[munin_song.uid]]
-            print('  original values:')
-            print('    Artist :', original_song[0])
-            print('    Album  :', original_song[1])
-            print('    Genre  :', original_song[2])
-            print()
-
-
-    if __name__ == '__main__':
-        print('The database:')
-        for idx, song in enumerate(MY_DATABASE):
-            print('  #{} {}'.format(idx, song))
-        print()
-
-        # Perhaps we already had an prior session?
-        session = Session.from_name('demo') or create_session('demo')
-        rules = list(session.rule_index)
-        if rules:
-            print('Association Rules:')
-            for left, right, support, rating in rules:
-                print('  {:>10s} <-> {:<10s} [supp={:>5d}, rating={:.5f}]'.format(
-                    str([song.uid for song in left]),
-                    str([song.uid for song in right]),
-                    support, rating
-                ))
-            print()
-
-        print_recommendations(session)
-
-        # Let's add some history:
-        for munin_uid in [0, 2, 0, 0, 2]:
-            session.feed_history(munin_uid)
-
-        print('Playcounts:')
-        for song, count in session.playcounts().items():
-            print('  #{} was played {}x times'.format(song.uid, count))
-
-        # Let's insert a new song that will be in the graph on the next run:
-        if len(session) != len(MY_DATABASE):
-            with session.fix_graph():
-                session.mapping[session.insert({
-                    'Genre': MY_DATABASE[-1][2],
-                    'Title': MY_DATABASE[-1][1],
-                    'Artist': MY_DATABASE[-1][0]
-                })] = 3
-
-        if '--plot' in sys.argv:
-            session.database.plot()
-
-        # Save it under ~/.cache/libmunin/demo
-        session.save()
-
-Ausgabe nach dem ersten Lauf:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: python
-
-    The database:
-      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
-      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
-      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
-      #3 ('Lady Gaga', 'Pokerface', 'pop')
-
-    -- No saved session found, loading new.
-    matching ['metal']
-    matching ['folk']
-    matching ['metal']
-    Recommendations to #0:
-      normalized values:
-        Artist : (3,)                
-        Genre  : ((583,),)           
-        Title  : ['Extrem']          
-      original values:
-        Artist : We Butter the Bread with Butter
-        Album  : Extrem
-        Genre  : metal
-
-    Playcounts:
-      #0 was played 3x times
-      #2 was played 2x times
-    matching ['pop']
-
-Ausgabe nach dem 10ten Lauf:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: python
-
-    The database:
-      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
-      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
-      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
-      #3 ('Lady Gaga', 'Pokerface', 'pop')
-
-    Association Rules:
-             [2] <-> [0]        [supp=    8, rating=0.83951]
-
-    Recommendations to #2:
-      normalized values:
-        Artist : (1,)                
-        Genre  : ((583,),)           
-        Title  : ['the', 'Befor', 'Noos', 'Hangman']
-      original values:
-        Artist : Devildriver
-        Album  : Before the Hangmans Noose
-        Genre  : metal
-
-    Playcounts:
-      #0 was played 30x times
-      #2 was played 20x times
 
 .. only:: latex
 

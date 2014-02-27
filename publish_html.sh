@@ -3,9 +3,9 @@
 git checkout $1
 make clean html singlehtml && cp _build/*html /tmp -r;
 git checkout gh-pages
-rm projekt -rf  
-mkdir -p projekt 
-cp /tmp/*html projekt -r
-git add projekt
+rm bachelor -rf  
+mkdir -p bachelor
+cp /tmp/*html bachelor -r
+git add bachelor
 git commit -am 'Automated update.'
 git checkout master

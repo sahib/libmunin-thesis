@@ -1,0 +1,16 @@
+digraph {
+    size=4; 
+    node [shape=record];
+    splines=false;
+
+    subgraph {
+        a [label="<0> Alternative Pop (#0) |<1> alternative Rock (#1) |<2> j-Pop (#2) | <3> Reggae (#3) |<4> Swedish Alternative Rock (#4) |<5> Swedish Pop (#5)"];
+    }
+
+    "Music (#0)" -> a:0;
+    "Music (#0)" -> a:1
+    "Music (#0)" -> a:2
+    "Music (#0)" -> a:3
+    "Music (#0)" -> a:4
+    "Music (#0)" -> a:5
+}
