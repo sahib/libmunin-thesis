@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'0.1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="None" href="../index.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html#document-rst/index" class="icon icon-home"> Projektarbeit</a>
+        <form class="wy-form" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/abstract">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/acknowledgements">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/dedication">Widmung</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/I/index">1 Überleitung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/II/index">2 Einstieg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/III/index">3 Algorithmen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#genre-normalisierung-und-vergleich">3.1 Genre-Normalisierung und Vergleich</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/IV/index">4 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#verbesserung-der-algorithmik">4.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#erweiterung-der-algorithm">4.2 Erweiterung der Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#probleme-aktueller-algorithmen">4.3 Probleme aktueller Algorithmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">4.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix">Abkürzungsverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#glossar">Glossar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#visualisierungen-des-genregraph">Visualisierungen des Genregraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/zzz_bibliography">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/zzz_bibliography#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="index.html#document-rst/index">Docs</a> &raquo;</li>
+  <li><a href="">Projektarbeit</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="libmunin-br-projektarbeit">
+<span id="doc-title"></span><h1>libmunin: <br /> Projektarbeit<a class="headerlink" href="#libmunin-br-projektarbeit" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-rst/abstract"></span><div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+</div>
+<p>This paper shows a way to build a music recommendation system based on
+datamining algorithms and a nearest neighbor graph. A extensible python library
+is developed, using a variety of inputs differing from music metadata like
+lyrics or the genre to the analysis of the associated audio data. In order to
+demonstrate and verify the results, a gtk based MPD client is developed that can
+be used either as debugging tool or true media player. Various techniques are
+shown to compare all possible attributes of a song with each other in a
+efficient way.</p>
+<p><em>Keywords:</em></p>
+<blockquote>
+<div>Music Information Retrieval (MIR) <span class="math">\(\cdot\)</span>
+Music Recommendation Engine <span class="math">\(\cdot\)</span>
+Data Mining <span class="math">\(\cdot\)</span>
+k-Nearest-Neighbor-Graph</div></blockquote>
+<span id="document-rst/acknowledgements"></span><div class="section" id="danksagung">
+<h2>Danksagung<a class="headerlink" href="#danksagung" title="Permalink to this headline">¶</a></h2>
+</div>
+<p>Danke an folgende Personen und Dinge: Katzen, Vögel aller Art, Teehersteller
+alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.</p>
+<p>Ihr wisst warum.</p>
+<span id="document-rst/dedication"></span><div class="section" id="widmung">
+<h2>Widmung<a class="headerlink" href="#widmung" title="Permalink to this headline">¶</a></h2>
+</div>
+<p><em>Für meine Katzen.</em></p>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-rst/I/index"></span><div class="section" id="uberleitung">
+<h2>1 Überleitung<a class="headerlink" href="#uberleitung" title="Permalink to this headline">¶</a></h2>
+<p>Implementierung vs. Evaluierung</p>
+<p>MUUUSIK</p>
+<p><a class="reference external" href="http://www2.research.att.com/~yifanhu/MusicMap/index.html">http://www2.research.att.com/&nbsp;yifanhu/MusicMap/index.html</a></p>
+</div>
+<span id="document-rst/II/index"></span><div class="section" id="einstieg">
+<h2>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="warum-uberhaupt">
+<h3>2.1 Warum überhaupt?<a class="headerlink" href="#warum-uberhaupt" title="Permalink to this headline">¶</a></h3>
+<p>Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -&gt; Prototyp)</p>
+<p>kein anspruch auf korrektheit, lediglich Hoffnung auf Nützlichkeit.</p>
+<p>Fehlgeleitete Idee mit chromaprint erwähnen - tauglich um gleiche musikstücke
+zu finden, aber nicht mehr.</p>
+</div>
+</div>
+<span id="document-rst/III/index"></span><div class="section" id="algorithmen">
+<h2>3 Algorithmen<a class="headerlink" href="#algorithmen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="genre-normalisierung-und-vergleich">
+<h3>3.1 Genre-Normalisierung und Vergleich<a class="headerlink" href="#genre-normalisierung-und-vergleich" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="problemstellung">
+<h4>3.1.1 Problemstellung<a class="headerlink" href="#problemstellung" title="Permalink to this headline">¶</a></h4>
+<p>Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
+zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
+gibt. Ein Computer könnte höchstens erkennen wie ähnlich zwei
+Genre Beschreibungen als Zeichenketten sind. Daher ist es nötig, dass die
+einzelnen Genre-Eingaben anhand einer Sammlung von zusammengestellten Genre Daten
+normalisiert werden.</p>
+</div>
+<div class="section" id="zusammenstellung-der-gernedatenbank">
+<h4>3.1.2 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h4>
+<p>Genres können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Unter-Genres
+(<em>country</em> rock, <em>japanese</em> pop), Unter-Unter-Genres (<em>western</em> country rock) -
+und so weiter - aufgeteilt werden. So lassen sich alle Genres und ihre
+jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
+man das allumfassende Genre <em>Music</em> an - einfach weil <em>Music</em> sich hinter fast
+jedes Genre schreiben lässt ohne den Sinn zu verändern.</p>
+<p>Dieser Baum kann dann genutzt werden um beliebige Genres anhand dieses Baums zu
+normalisieren.</p>
+<p>Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
+Genres in diesen Baum einzupflegen - bei der hohen Zahl der existierenden Genres
+kann man diese nur schwerlich manuell einpflegen.</p>
+<p>Existierende Datenbanken wie, das sonst sehr vollständige, <em>MusicBrainz</em> liefern
+laut ihren FAQ keine Genre-Daten:</p>
+<blockquote class="epigraph">
+<div><p>WHY DOES MUSICBRAINZ NOT SUPPORT GENRE INFORMATION?</p>
+<p><em>Because doing genres right is very hard.
+We have thought about how to implement genres,
+but we haven't completely settled on the right approach yet.</em></p>
+<p class="attribution">&mdash;<a class="reference external" href="https://musicbrainz.org/doc/General_FAQ">https://musicbrainz.org/doc/General_FAQ</a></p>
+</div></blockquote>
+<p>Also musste man sich nach anderen Quellen umschauen. Das vom
+<em>DiscogsGenre</em>-Provider verwendete <em>Discogs</em> bietet zwar relative detaillierte
+Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
+<em>Genre</em> (<em>rock</em>) und dem Subgenre (<em>blackened death metal</em>) - eine zu grobe
+Einteilung.</p>
+<p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> - fast jede Band
+ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
+<em>The Echonest</em> - einem Unternehmen welches verschiedene Dienste rund um
+Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
+Genres.</p>
+<p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
+Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
+<em>The Echonest</em> ist dies, nachdem man sich einen <em>API Key</em> registriert hat
+relativ einfach <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>:</p>
+<blockquote>
+<div><a class="reference external" href="http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json">http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json</a></div></blockquote>
+<p>Die Liste enthält, zum Zeitpunkt des Schreibens, 898 konkrete Genres und wird
+kontinuierlich von den Betreiber erweitert.</p>
+<p>Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
+diese Quelle erst nachträglich nach einer Analyse des Quelltextes von <em>beets</em>
+(<a class="reference external" href="https://gist.github.com/sampsyo/1241307">https://gist.github.com/sampsyo/1241307</a>) eingebaut. <em>beets</em> hat ebenfalls das
+Problem das Genre zu normalisieren - also muss dort ein entsprechender
+Mechanismus eingebaut sein. Dieser beruht, ähnlich wie hier, ebenfalls auf einem
+Baum <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a>. Um diese Quelle in <em>libmunin</em> zu nutzen wurde lediglich der Code
+nach <em>Python3</em> portiert. Von der englischen Wikipedia werden folgende Seiten
+<em>gescraped,</em> und die darin befindlichen Genres in eine Datei geschrieben:</p>
+<ul class="simple">
+<li>List of popular music genres</li>
+<li>List of styles of music: A-F</li>
+<li>List of styles of music: G-M</li>
+<li>List of styles of music: N-R</li>
+<li>List of styles of music: S-Z</li>
+</ul>
+<p>Von Wikipedia kommen 1527 Einträge. Diese werden mit den Einträgen von <em>,,The
+Echonest''</em> verschmolzen. Nach einer Entfernung von Dubletten ist die finale
+Genre-Liste 1876 Einträge lang.</p>
+</div>
+<div class="section" id="uberfuhrung-der-genreliste-in-einem-genrebaum">
+<h4>3.1.3 Überführung der Genreliste in einem Genrebaum<a class="headerlink" href="#uberfuhrung-der-genreliste-in-einem-genrebaum" title="Permalink to this headline">¶</a></h4>
+<div class="figure compound align-center" id="fig-tree">
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-input">
+<a class="reference internal image-reference" href="../../_images/tree_input.svg"><img alt="Genreliste als Eingabe vor dem Prozessieren" src="../../_images/tree_input.svg" width="70%" /></a>
+<p class="caption"><strong>(a)</strong> Genreliste als Eingabe vor dem Prozessieren.</p>
+</div>
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-init">
+<a class="reference internal image-reference" href="../../_images/tree_init.svg"><img alt="Initialisierungsschritt" src="../../_images/tree_init.svg" width="130%" /></a>
+<p class="caption"><strong>(b)</strong> Initialisierungsschritt: Vergabe von IDs und Zuordnung zu Wurzelknoten.</p>
+</div>
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-first">
+<a class="reference internal image-reference" href="../../_images/tree_first.svg"><img alt="Der Genrebaum nach der ersten Iteration" src="../../_images/tree_first.svg" width="100%" /></a>
+<p class="caption"><strong>(c)</strong> Der Genrebaum nach der ersten Iteration, ,,swedish alternative'' noch nicht
+aufgebrochen.</p>
+</div>
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-final">
+<a class="reference internal image-reference" href="../../_images/tree_final.svg"><img alt="Der fertige Genrebaum als Ausgabe." src="../../_images/tree_final.svg" width="100%" /></a>
+<p class="caption"><strong>(d)</strong> Der nach zwei Iterationen fertige Genrebaum.</p>
+</div>
+<p class="caption"><strong>Figure 3.1:</strong> Der Baum wird aus der Eingabe unter  erzeugt indem erst
+alle Genres dem Wurzelknoten ,,music'' unterstellt werden
+(). Danach wird der Baum rekursiv (hier in zwei
+Schritten,  und )
+immer weiter vertieft.</p>
+</div><p id="fig-tree">Nachdem eine Liste von Genres nun vorhanden ist muss diese noch in einem Baum
+wie in  gezeigt überführt werden.
+Begleitend werden dazu die unter  gezeigte Genre-Liste als
+Beispieleingabe. verwendet.</p>
+<p>Der Baum sollte dabei folgende Kriterien erfüllen:</p>
+<ul class="simple">
+<li>Der Pfad von einem Blattknoten (<em>,,Swedish''</em>) zum Wurzelknoten (<em>,,music''</em>)
+sollte dabei das ursprüngliche Genre, mit dem optionalen Suffix <em>music</em>
+ergeben <em>(,,swedish-pop-music'')</em>.</li>
+<li>Jeder Knoten erhält eine Integer-ID die für jeden Tiefenstufe von 0 wieder
+anfängt. So hat der Knoten <em>music</em> immer die ID 0, bei der nächsten Ebene wird
+die ID nach alphabetischer Sortierung vergeben, <em>pop</em> bekommt daher die 0,
+<em>reggae</em> die 1, <em>rock</em> die 2.</li>
+</ul>
+<p>Das Umwandeln selbst geschieht folgendermaßen:</p>
+<ul class="simple">
+<li>Es wird manuell der Wurzelknoten <em>music</em> angelegt.</li>
+<li>Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
+(siehe Abbildung )</li>
+<li>Dann wird rekursiv folgende Prozedur erledigt:<ol class="arabic">
+<li>Gehe über alle Kinder des Wurzelknoten und breche dabei das <em>letzte Element</em>
+Wort des <em>Genres</em> ab (<em>western country rock</em> wird zu <em>western country</em> und
+<em>rock</em>).</li>
+<li>Der letzte Teil wird als Schlüssel in einer Hashmap gespeichert, mit dem
+Rest als dazugehöriger Wert. Dies entledigt sich, aufgrund der Natur von
+Hashmaps, eventueller Dupletten.</li>
+<li>Die Liste der Kinder des Wurzelknotens wird zu einer leeren Liste
+zurückgesetzt.</li>
+<li>Die Schlüssel der Hashmap werden als neue Kinder gesetzt, die dazugehörigen
+Werte als deren Kinder.</li>
+<li>Iteriere über die neuen Kinder, jedes Kind wird als neuer Wurzelknoten
+angenommen und es wird von 1) an begonnen. Der Rekursionsstopp ist erreicht
+wenn keine Aufteilung des Genres in letztes Element und Rest mehr möglich
+ist.</li>
+</ol>
+</li>
+<li>In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig
+(). In  ist der Baum nach der ersten
+Iteration zu sehen.</li>
+<li>Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
+erledigt:<ol class="arabic">
+<li>die fehlenden ,,Musik''-Genres <em>,,vocal''</em> und <em>,,speech''</em> werden
+manuell eingefügt.</li>
+<li>Bei dem momentanen Vorgehen landen unter Umständen weitere ,,*music*''
+auf der ersten Ebene. Diese werden bereinigt.</li>
+<li>Alle Genres die auf <em>,,core''</em> enden werden aufgebrochen und dem Knoten
+<em>,,core''</em> auf erster Ebene hinzugefügt.</li>
+</ol>
+</li>
+</ul>
+<p>Der resultierende Baum ist im Anhang <em class="xref std std-ref">genre-graph-vis</em> in verschiedenen
+Detailstufen visualisiert.  Er besitzt auf der ersten Ebene 1044 Unter-Genre. Die
+tiefste Verschachtelung erreicht das Genre <em>,,New Wave of new Wave''</em> mit einer
+Tiefe von 5.</p>
+</div>
+<div class="section" id="matching-von-genres">
+<h4>3.1.4 Matching von Genres<a class="headerlink" href="#matching-von-genres" title="Permalink to this headline">¶</a></h4>
+<p>Die Normalisierung des Genres ist nun mit dem aufgebauten Baum recht einfach.
+Zuerst muss das Eingabegenre in Subgenres aufgeteilt werden - oft sind mehrere
+Genres in einem einzelnen String zusammengefasst, die durch bestimmte Zeichen
+getrennt sind. Ein Beispiel:</p>
+<blockquote>
+<div><em>,,Rock, Reggae / Alternative Rock, Ska, Punk''</em></div></blockquote>
+<p>Jedes dieser Subgenres wird dann mittels eines regulären Ausdruckes in einzelne
+Wörter aufgeteilt. Die Wörter werden noch in die kleingeschriebene Form
+gebracht. In der Python-Listen Syntax sähe das obige Beispiel dann so aus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span><span class="s">&#39;rock&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;reggae&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;alternative&#39;</span><span class="p">,</span> <span class="s">&#39;rock&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;ska&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;punk&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Die einzelnen Wortlisten können jetzt in <em>Pfade</em> umgewandelt werden.
+Dazu wird folgendermaßen vorgegangen:</p>
+<ul class="simple">
+<li>Es wird eine leere Liste von Pfaden angelegt.</li>
+<li>Es wird eine Liste mit Wahrheitswerten angelegt, die genauso lang ist wie die
+Wortliste. Die Wahrheitswerte werden auf <em>False</em> initialisiert.
+Diese <em>Maske</em> wird genutzt um bereits gefundene Wörter ,,ab zu haken''.</li>
+<li>Es wird eine leere <em>,,results''</em> Liste angelegt.</li>
+<li>Dann wird eine rekursive Suche nach passenden <em>Pfaden</em> mit dem Wurzelknoten
+<em>music</em> gestartet:<ol class="arabic">
+<li>Schaue ob der momentane Wurzelknoten Kinder enthält die auch in der
+Wortliste vorkommen. Wenn das entsprechende Wort noch nicht in der <em>Maske</em>
+abgehakt wurde, wird es in eine temporäre Liste <em>,,children''</em> aufgenommen.</li>
+<li>Wenn <em>,,children''</em> leer ist und die <em>,,results''</em> Liste nicht leer, so
+wird die letzere zur Pfadliste hinzugefügt.</li>
+<li>Es wird über jedes Kind in der <em>,,children''</em> Liste iteriert. Bei jeder
+Iteration wird:<ol class="upperalpha">
+<li>Eine Kopie der <em>,,results''</em> Liste wird erstellt, bei der die ID des
+Kindes am Ende hinzugefügt wurde.</li>
+<li>Eine Kopie der <em>Maske</em> wird erstellt, in der das vom Kind repräsentierte
+Wort <em>,,abgehakt''</em> (der entsprechende Index wird auf <em>True</em> gesetzt)
+wird.</li>
+<li>Das Kind wird als neuer Wurzelknoten angenommen und es wird wie bei 1)
+weitergemacht.  Der Rekursionsstopp ist dann erreicht wenn die
+<em>,,children''</em> Liste leer ist.</li>
+</ol>
+</li>
+<li>Nach dem Rekursionsstopp stehen alle validen Pfade in der Pfadliste.</li>
+</ol>
+</li>
+</ul>
+<p>Das Bedarf vermutlich eines Beispiels. Nehmen wir das Subgenre <em>,,alternative
+rock''</em> zur Demonstration her.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/tree_match_example.svg"><img alt="Beispielablauf des Matching Algorithmusses" src="../../_images/tree_match_example.svg" width="100%" /></a>
+<p class="caption">Beispiel-Ablauf des ,,Matching'' an der Eingabe ,,alternative rock''. In den
+Knoten ist die jeweils die momentante Maske eingetragen, an den Kanten das
+aktuelle Ergebniss.</p>
+</div>
+<p>Die passenden Pfade sind in diesem Fall also <em>alternative</em> und <em>alternative rock</em>.
+Es ist zu bemerken dass <em>rock</em> zwar ebenfalls ein valider Pfad ist, aber
+als eine Untermenge von <em>alternative rock</em> nicht in der Ergebnismenge ist.</p>
+</div>
+<div class="section" id="vergleichen-der-unterschiedlichen-genre-pfade-mengen">
+<span id="single-dist"></span><h4>3.1.5 Vergleichen der unterschiedlichen Genre-Pfade-Mengen<a class="headerlink" href="#vergleichen-der-unterschiedlichen-genre-pfade-mengen" title="Permalink to this headline">¶</a></h4>
+<p>Um zwei einzelne Pfade miteinander zu Vergleich wird wie im Folgenden
+vorgegangen:</p>
+<ul class="simple">
+<li>Zähle die Anzahl an Punkten in denen sich der Pfad überdeckt.</li>
+<li>Teile die Anzahl durch die Länge des längeren beider Pfade.</li>
+<li>Die daraus gewonnene Ähnlichkeit wird von <span class="math">\(1.0\)</span> abgezogen um die Distanz
+zu erhalten.</li>
+</ul>
+<p>In <em>libmunin</em> sind zwei Distanzfunktionen erhalten welche diese Methode nutzt um
+zwei Mengen mit Genrepfaden zu vergleichen.</p>
+<p><tt class="docutils literal"><span class="pre">GenreTree</span></tt>: Vergleicht jeden Genrepfad in den Mengen <em>A</em> und <em>B</em> mittels oben
+genannter Methode miteinander. Die minimalste Distanz wird zurückgegeben.  Als
+Optimierung wird frühzeitig abgebrochen wenn eine Distanz von <span class="math">\(0.0\)</span>
+erreicht wird.</p>
+<p>Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
+vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als <em>rock</em> oder
+<em>metal</em> eingetragen, ohne Unterscheidung von Subgenres. Deshalb geht diese
+Distanzfunktion davon aus wenige Übereinstimmungen zu finden - sollten welche
+vorkommen werden diese gut bewertet.</p>
+<p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="rst/index.html#single-dist">3.1.5</a> erwähnte
+<em class="xref std std-term">Distanzunktion</em> ist,  so berechnet sich die finale Distanz durch:</p>
+<div class="math">
+\[D(A, B) = \argmin\!\bigg(\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\bigg)\]</div>
+<p><tt class="docutils literal"><span class="pre">GenreTreeAvg</span></tt>: Seien <em>A</em> und <em>B</em> zwei Mengen mit Genrepfaden. <em>A</em> ist dabei
+die größere Menge und <em>B</em> die kleinere, falls die Mengen eine unterschiedliche
+Mächtigkeit besitzen.</p>
+<div class="math">
+\[D(A, B) = \frac{\displaystyle\sum\limits_{a \in A} \argmin\!{\Bigg(\displaystyle\sum\limits_{b \in B} d(a, b)\Bigg)}}{\vert A\vert}\]</div>
+<p>Diese Distanzfunktion eignet sich für <em>,,reichhaltig''</em> befüllte
+Genrebeschreibungen bei denen auch ein oder mehrere Unter-Genres vorhanden sind.
+Ein Beispiel dafür wäre: <tt class="docutils literal"><span class="pre">country</span> <span class="pre">rock</span> <span class="pre">/</span> <span class="pre">folk</span> <span class="pre">/</span> <span class="pre">rockabilly</span></tt>. Die
+Distanzfunktion geht also davon aus zumindest teilweise Überdeckungen in den
+Daten vorzufinden.</p>
+<p>Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
+passende <em class="xref std std-term">Distanzunktion</em> auswählen.</p>
+</div>
+<div class="section" id="probleme">
+<h4>3.1.6 Probleme<a class="headerlink" href="#probleme" title="Permalink to this headline">¶</a></h4>
+<p>Insgesamt funktioniert dieser Ansatz relativ gut, die meisten Genre werden
+zufriedenstellend in Pfade normalisiert die performant verglichen werden können.</p>
+<p>Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
+Es wird davon ausgegangen, dass Genres die ähnlich sind auch ähnlich heißen -
+eine Annahme die zwar oft, aber nicht immer wahr ist. So sind die Genres
+<em>Alternative Rock</em> und <em>Grunge</em> sehr ähnlich - der obige Ansatz würde hier
+allerdings eine Distanz von <span class="math">\(0.0\)</span> liefern. Auch Genres wie <em>,,rock'n'roll</em>
+würde ähnlich schlechte Resultate liefern.</p>
+<p>Eine mögliche Lösung wäre eine Liste von ,,Synonymen'' Genres die
+Querverbindungen im Baum erlauben würden.</p>
+<p>Allerdings wäre eine solche Liste von Synonymen relative schwer automatisch zu
+erstellen.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Der <em>API Key</em> wurde in der URL gekürzt da man angehalten ist diesen
+nicht zu veröffentlichen.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Anmerkung: Die Idee entstand allerdings ohne Kenntnis von <em>beets</em>.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="keword-extraction">
+<h4>3.1.7 Keword Extraction<a class="headerlink" href="#keword-extraction" title="Permalink to this headline">¶</a></h4>
+<p>KeywordExtraction - KeywordSelection - KeywordDistance</p>
+</div>
+<div class="section" id="rule-generation">
+<h4>3.1.8 Rule Generation<a class="headerlink" href="#rule-generation" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="graph-generation">
+<h4>3.1.9 Graph Generation<a class="headerlink" href="#graph-generation" title="Permalink to this headline">¶</a></h4>
+<p>add, rebuild, fix_graph</p>
+</div>
+<div class="section" id="distance-add">
+<h4>3.1.10 distance_add<a class="headerlink" href="#distance-add" title="Permalink to this headline">¶</a></h4>
+<p>&quot;max_neighbors Dilemma&quot;</p>
+</div>
+<div class="section" id="graphenoperationen">
+<h4>3.1.11 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h4>
+<p>insert, remove, modify</p>
+</div>
+<div class="section" id="graphentraversierung">
+<h4>3.1.12 Graphentraversierung<a class="headerlink" href="#graphentraversierung" title="Permalink to this headline">¶</a></h4>
+<p>Infinite Iteratos - konzept aus funktionalen Programmiersprachen wie Haskell</p>
+</div>
+<div class="section" id="sieving-algorithm">
+<h4>3.1.13 Sieving Algorithm<a class="headerlink" href="#sieving-algorithm" title="Permalink to this headline">¶</a></h4>
+<p>Erklärung &amp; Configuration.</p>
+</div>
+<div class="section" id="various-providers">
+<h4>3.1.14 Various Providers<a class="headerlink" href="#various-providers" title="Permalink to this headline">¶</a></h4>
+<p>Erwähnenswerte Algorithmik hinter den anderen Providern.</p>
+<p>levenshtein, bpm, moodbar, wordlist distance, normalize provider, stemming</p>
+</div>
+</div>
+</div>
+<span id="document-rst/IV/index"></span><div class="section" id="zusammenfassung">
+<h2>4 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="verbesserung-der-algorithmik">
+<h3>4.1 Verbesserung der Algorithmik<a class="headerlink" href="#verbesserung-der-algorithmik" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Rumspinnen über aubio, was möglich ist und wie.</li>
+</ul>
+</div>
+<div class="section" id="erweiterung-der-algorithm">
+<h3>4.2 Erweiterung der Algorithm<a class="headerlink" href="#erweiterung-der-algorithm" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Keyword extraction auch von amazon reviews.
+oft werden vergleiche gezogen.</li>
+</ul>
+</div>
+<div class="section" id="probleme-aktueller-algorithmen">
+<h3>4.3 Probleme aktueller Algorithmen<a class="headerlink" href="#probleme-aktueller-algorithmen" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>moodbar solle freqbar heißen</li>
+<li>bpm liefert schlechte werte.</li>
+</ul>
+</div>
+<div class="section" id="vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">
+<h3>4.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists<a class="headerlink" href="#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists" title="Permalink to this headline">¶</a></h3>
+<p>subfigure mit gegenüberstellung von &nbsp;15 liedern zu seed song, diskussion.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www2.research.att.com/~yifanhu/MusicMap/index.html">http://www2.research.att.com/&nbsp;yifanhu/MusicMap/index.html</a></li>
+<li>Suchengine für natürliche Sprache wie in <a class="reference internal" href="rst/index.html#knees2007music" id="id1">[2]</a></li>
+<li>Transitions. Beispieslweise immer &quot;härter werdende musik&quot;</li>
+<li>Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)</li>
+<li>Auch &quot;disklikes&quot; berücksichtigen (zB. songs die immer gleich geskippt wurden)?</li>
+<li>Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.</li>
+<li>Similar Artist/Album/Genre...</li>
+<li>Einbeziehung der duration als provider/distanz (statistisch untersuchen)</li>
+<li>(Amazon) artist/album reviews mit einbeziehen, keyword-extraction.</li>
+<li>Sprache, Intros und Audio intelligent unterscheiden.</li>
+<li>beschleunigter audioanalyse.</li>
+<li>date origin abhängig vom genre</li>
+<li>genre-bridges: grunge-&gt;rock</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-rst/appendix"></span><div class="section" id="abkurzungsverzeichnis">
+<h2>Abkürzungsverzeichnis<a class="headerlink" href="#abkurzungsverzeichnis" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center align-top">Abkürzung</th>
+<th class="headalign-center align-top">Bedeutung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center align-top"><strong>API</strong></td>
+<td class="align-center align-top"><em>Application Programming Interface</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center align-top"><strong>GUI</strong></td>
+<td class="align-center align-top"><em>Graphical User Interface</em></td>
+</tr>
+<tr class="row-even"><td class="align-center align-top"><strong>LoC</strong></td>
+<td class="align-center align-top"><em>Lines of Code</em></td>
+</tr>
+</tbody>
+</table>
+</center></div></div>
+<div class="section" id="glossar">
+<h2>Glossar<a class="headerlink" href="#glossar" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-song">Song</dt>
+<dd><p class="first">Im Kontext von <em>libmunin</em> ist ein Song eine Menge von Attributen.
+Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet.</p>
+<p>Beispielsweise haben alle Songs ein Attribut <tt class="docutils literal"><span class="pre">artist</span></tt>, aber jeder
+einzelner Song kennt dafür einen bestimmten Wert.</p>
+<p class="last">Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
+Songs gespeichert, sowie einen Integer der als Identifier dient.</p>
+</dd>
+<dt id="term-distanz">Distanz</dt>
+<dd><p class="first">Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute.
+Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
+minimale <em>Entfernung</em> zueinander), eine Distanz von 1.0 maximale
+Unähnlichkeit (oder maximale <em>Entfernung</em>).</p>
+<p class="last">Die Distanz wird durch eine <a class="reference internal" href="rst/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> berechnet.</p>
+</dd>
+<dt id="term-distanzfunktion">Distanzfunktion</dt>
+<dd><p class="first">Eine Distanzfunktion ist im Kontext von <em>libmunin</em> eine Funktion, die
+zwei Songs als Eingabe nimmt und die <a class="reference internal" href="rst/index.html#term-distanz"><em class="xref std std-term">Distanz</em></a> zwischen
+diesen berechnet.</p>
+<p>Dabei wird jedes <a class="reference internal" href="rst/index.html#term-attribut"><em class="xref std std-term">Attribut</em></a> betrachte welchesi n beiden Songs
+vorkommt betrachtet. Für diese wird von der <a class="reference internal" href="rst/index.html#term-maske"><em class="xref std std-term">Maske</em></a> eine
+spezialisierte <a class="reference internal" href="rst/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> festgelegt, die weiß wie diese
+zwei bestimmten Werte sinnvoll verglichen werden können. Die so
+errechneten Werte werden, gemäß der Gewichtung in der <a class="reference internal" href="rst/index.html#term-maske"><em class="xref std std-term">Maske</em></a>, zu
+einem Wert verschmolzen.</p>
+<p>Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
+Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
+eingerechnet.</p>
+<p>Die folgenden Bedingungen müssen sowohl für die allgemeine
+Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten:</p>
+<p><em>Uniformität:</em></p>
+<div class="math">
+\[0 \leq D(i, j) \leq 1 \, \forall \, i,j \in D\]</div>
+<p><em>Symmetrie:</em></p>
+<div class="math">
+\[D(i, j) = D(j, i) \, \forall \, i,j \in D\]</div>
+<p><em>Identität:</em></p>
+<div class="math">
+\[D(i, i) = 0.0 \, \forall \, i \in D\]</div>
+<p><em>Dreiecksungleichung:</em></p>
+<div class="last math">
+\[D(i, j) \leq D(i, x) + (x, j)\]</div>
+</dd>
+<dt id="term-session">Session</dt>
+<dd><p class="first">Eine <em>Session</em> ist eine Nutzung von <em>libmunin</em> über einem bestimmten
+Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
+analysiert und ein <a class="reference internal" href="rst/index.html#term-graph"><em class="xref std std-term">Graph</em></a> wird daraus aufgebaut.</p>
+<p>Zudem kann eine <em>Session</em> persistent für späteren Gebrauch gespeichert
+werden.</p>
+<p class="last">Für Nutzer der Bibliothek ist die <a class="reference internal" href="rst/index.html#term-session"><em class="xref std std-term">Session</em></a> auch Eintrittspunkt
+für jegliche von <em>libmunin</em> bereitgestellte Funktionalität.</p>
+</dd>
+<dt id="term-maske">Maske</dt>
+<dd><p class="first">Die <a class="reference internal" href="rst/index.html#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten die importiert
+werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
+Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
+<p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt, die ein
+einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
+pro Attribut ein <a class="reference internal" href="rst/index.html#term-provider"><em class="xref std std-term">Provider</em></a> und eine <a class="reference internal" href="rst/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a>
+festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
+wird die Gewichtung des Attributes festgelegt - manche Attribute sind
+für die Ähnlichkeit zweier Songs entscheidender als andere.</p>
+</dd>
+<dt id="term-attribut">Attribut</dt>
+<dd>Ein Attribut ist ein <em>Schlüssel</em> in der <a class="reference internal" href="rst/index.html#term-maske"><em class="xref std std-term">Maske</em></a>. Er repräsentiert
+eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
+Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
+andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer
+Menge dieser Paare.</dd>
+<dt id="term-provider">Provider</dt>
+<dd><p class="first">Ein <em>Provider</em> normalisiert einen Wert anhand verschiedener
+Charakteristiken. Sie dienen als vorgelagerte Verarbeitung von den Daten
+die in das System geladen werden. Jeder <em>Provider</em> ist dabei einem
+<a class="reference internal" href="rst/index.html#term-attribut"><em class="xref std std-term">Attribut</em></a> zugeordnet.</p>
+<p class="last">Ihr Ziel ist für die <a class="reference internal" href="rst/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> einfache und effizient
+vergleichbare Werte zu liefern - da die <a class="reference internal" href="rst/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> sehr
+viel öfters aufgerufen wird als der <em>Provider</em>.</p>
+</dd>
+<dt id="term-assoziationsregel">Assoziationsregel</dt>
+<dd><p class="first">Eine Assoziationsregel verbindet zwei Mengen <em>A</em> und <em>B</em> von Songs
+miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
+wahrscheinlich dass auch die andere Menge daraufhin angehört wird.</p>
+<p>Sie werden aus dem Verhalten des Nutzers abgeleitet.</p>
+<p>Die Güte der Regel wird durch ein <em>Rating</em> beschrieben:</p>
+<div class="math">
+\[Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)\]</div>
+<p>wobei:</p>
+<div class="math">
+\[Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}\]</div>
+<div class="math">
+\[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\]</div>
+<div class="admonition-vergleiche-dazu last admonition">
+<p class="first admonition-title">Vergleiche dazu:</p>
+<p class="last"><a class="reference internal" href="rst/index.html#datamining-concepts-and-techniques" id="id1">[1]</a>
+Datamining Concepts and Techniques.</p>
+</div>
+</dd>
+<dt id="term-recommendation">Recommendation</dt>
+<dd><p class="first">Eine Recommendation (dt. Empfehlung) ist ein <a class="reference internal" href="rst/index.html#term-song"><em class="xref std std-term">Song</em></a> der vom System
+auf Geheiß des Benutzers hin vorgeschlagen wird.</p>
+<p class="last">Die Empfehlunge sollte eine geringe Distanz zum <a class="reference internal" href="rst/index.html#term-seedsong"><em class="xref std std-term">Seedsong</em></a> haben.</p>
+</dd>
+<dt id="term-seedsong">Seedsong</dt>
+<dd>Ein Song der als Basis für Empfehlungen ausgewählt wurde.</dd>
+<dt id="term-graph">Graph</dt>
+<dd><p class="first">Im Kontext von <em>libmunin</em> ist der Graph eine Abbildung aller Songs (als
+Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
+kennt jeder <a class="reference internal" href="rst/index.html#term-song"><em class="xref std std-term">Song</em></a> <em>N</em> zu ihm selbst ähnlichsten Songs als
+Nachbarn.</p>
+<p class="last">Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
+eine schneller zu berechnende Approximation zurückgegriffen.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="visualisierungen-des-genregraph">
+<span id="gengre-graph-vis"></span><h2>Visualisierungen des Genregraph<a class="headerlink" href="#visualisierungen-des-genregraph" title="Permalink to this headline">¶</a></h2>
+<p>Der gesamte Genrebaum ist schwer im Ganzen übersichtlich darzustellen. Deshalb
+folgen drei unterschiedliche Versionen, mit unterschiedlichen Detailstufen:</p>
+<ul class="simple">
+<li>: Nur die wichtigsten Genres werden gezeigt.</li>
+<li>: Grob alle populären Genres werden gezeigt.</li>
+<li>: Alle Genres werden gezeigt.</li>
+</ul>
+<p><strong>Bedeutung der Farben:</strong> Der Farbton der Knoten varriert je nach Tiefe. Knoten
+der ersten Ebene sind rot. Je tiefer desto mehr wandelt sich der Farbton
+Richtung grün. Die Sättigung der Knoten zeigt die Anzahl der Kinder des Knoten
+an. Sehr gesättigte Knoten haben viele Kinder. Der Wurzelknoten <em>Music</em> ist von
+dieser Regel ausgenommen. Der farbliche Hintergrund kennzeichnet einzelne
+Genre-&quot;Länder&quot; die automatisch erkannt werden - diese haben keine tiefere
+Bedeutung.</p>
+<p><strong>Plotting Vorgang:</strong> Das Plotting selbst wird durch GraphViz (TODO: link)
+erledigt. Als Eingabe nimmt GraphViz eine textuelle Beschreibung des Graphen die
+von einem Python-Script erstellt wird.</p>
+<div class="figure align-center" id="ReferenzderDetailstufen">
+<center><blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="26%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center"><strong>Abbildung</strong></th>
+<th class="headalign-center"><strong>Detailstufe</strong></th>
+<th class="headalign-center"><strong>Anzahl</strong> der Knoten</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"></td>
+<td class="align-center"><em>0.5</em></td>
+<td class="align-center">2197</td>
+</tr>
+<tr class="row-odd"><td class="align-center"></td>
+<td class="align-center"><em>0.1</em></td>
+<td class="align-center">483</td>
+</tr>
+<tr class="row-even"><td class="align-center"></td>
+<td class="align-center"><em>0.0</em></td>
+<td class="align-center">39</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</center></div><div class="highlight-bash" id="ReferenzderDetailstufen"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>libmunin_git_clone/
+<span class="nv">$ </span>python munin/provider/genre.py --cli --plot 0.0  <span class="c"># Detailstufe. Hier: Voll.</span>
+<span class="nv">$ </span>sfdp /tmp/genre.graph | <span class="se">\ </span>                       <span class="c"># Layoutting</span>
+  gvmap -e | <span class="se">\ </span>                                    <span class="c"># Landkarte einzeichnen</span>
+  neato -n2 -Ecolor<span class="o">=</span><span class="s2">&quot;#55555555&quot;</span> -Tpdf <span class="se">\ </span>           <span class="c"># Rendern</span>
+  &gt; graph.pdf                                      <span class="c"># In &lt;graph.png&gt; schreiben</span>
+<span class="nv">$ </span>pdf-viewer graph.pdf                             <span class="c"># Resultat anschauen</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="fig-genre-graph-min">
+<a class="reference internal image-reference" href="../../_images/genre_graph_min.svg"><img alt="xxx" src="../../_images/genre_graph_min.svg" width="100%" /></a>
+<p class="caption">Minimale Version.</p>
+</div>
+<div class="figure align-center" id="fig-genre-graph-mid">
+<a class="reference internal image-reference" href="../../_images/genre_graph_mid.svg"><img alt="xxx" src="../../_images/genre_graph_mid.svg" width="100%" /></a>
+<p class="caption">Mittlere Version.</p>
+</div>
+<div class="figure align-center" id="fig-genre-graph-big">
+<a class="reference internal image-reference" href="../../_images/genre_graph_big.svg"><img alt="xxx" src="../../_images/genre_graph_big.svg" width="100%" /></a>
+<p class="caption">Riesige Version.</p>
+</div>
+<span class="target" id="end-of-doc"></span></div>
+<span id="document-rst/zzz_bibliography"></span><div class="section" id="bibliographie">
+<h2>Bibliographie<a class="headerlink" href="#bibliographie" title="Permalink to this headline">¶</a></h2>
+</div>
+<p id="bibtex-bibliography-rst/zzz_bibliography-0"><table class="docutils citation" frame="void" id="datamining-concepts-and-techniques" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Jian&nbsp;Pei Jiawei&nbsp;Han, Micheline&nbsp;Kamber. Datamining - concepts and techniques, (3rd edition). In <em>Datamining - Concepts and Techniques</em>, 268–271. 2012.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="knees2007music" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Peter Knees, Tim Pohle, Markus Schedl, and Gerhard Widmer. A music search engine built upon audio-based and web-based similarity measures. In <em>Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval</em>, 447–454. ACM, 2007.</td></tr>
+</tbody>
+</table>
+</p>
+<div class="section" id="weblink-verzeichnis">
+<h2>Weblink Verzeichnis<a class="headerlink" href="#weblink-verzeichnis" title="Permalink to this headline">¶</a></h2>
+</div>
+<p id="bibtex-bibliography-rst/zzz_bibliography-1"></p>
+</div>
+<div class="section" id="lizenz">
+<h2>Lizenz<a class="headerlink" href="#lizenz" title="Permalink to this headline">¶</a></h2>
+<p>Diese Arbeit ist unter den Bedingungen der <em>Creative Commons Attribution-3.0</em>
+lizensiert:</p>
+<blockquote>
+<div><a class="reference external" href="http://creativecommons.org/licenses/by/3.0/de/">http://creativecommons.org/licenses/by/3.0/de/</a></div></blockquote>
+<a class="reference internal image-reference" href="../../_images/cclogo.svg"><div align="center" class="align-center"><img alt="Creative Commons License" src="../../_images/cclogo.svg" width="50%" /></div>
+</a>
+</div>
+</div>
+
+
+          <footer>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright by Christopher Pahl, 2013-2014..
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>
