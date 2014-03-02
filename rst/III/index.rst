@@ -61,7 +61,7 @@ Graphen-Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
     :align: center
 
     Beispielgraph mit 100 Knoten, aus generierten Testdaten. Die Farbe der
-    Knoten zeigt grob die ,,Zentralität" des Knoten an. Pro Knoten wurde ein
+    Knoten zeigt grob die ,,Zentralität'' des Knoten an. Pro Knoten wurde ein
     Integer zwischen 1-100 errechnet, diese wurden mit einer primitiven
     Distanzfunktion verglichen. 
 
@@ -149,7 +149,7 @@ Ausstellen von Empfehlungen
 Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
 mittels einer Breitensuche erledigt. Dabei wird der Ursprung durch ein
 sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
-Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* `` eben
+Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* " eben
 *,,Yellow Submarine"*.
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
@@ -179,7 +179,7 @@ Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen ausgesi
 werden.
 
 Dazu werden die zuletzt gegebenen Empfehlungen betrachtet - ist in
-den letzten 5 Empfehlungen der gleiche Artist bereits vorhanden so wird die
+den letzten 5 Empfehlungen der gleiche Artistbereits vorhanden so wird die
 Empfehlung ausgesiebt. 
 
 Lernen durch die History
@@ -285,7 +285,7 @@ werten.
     :width: 100%
     :align: center
 
-    Betrachtung von libmunin als ,,Whitebox" - Alle Ein- und Ausgaben in einem
+    Betrachtung von libmunin als ,,Whitebox'' - Alle Ein- und Ausgaben in einem
     Bild. In der Box selbst ist die grobe Verarbeitung der Daten skizziert.
 
 Entwurf der Software
@@ -332,7 +332,7 @@ Alternativ kann die ``EasySession`` genutzt werden die eine vordefinierte
 ~~~~~~~~~~~~~~~~~~~~
 
 Implementiert eine große Menge vordefinierter Menge von Providern, die die
-gängigsten Eingabedaten (wie Artist, Album, Lyrics, Genre, ...) abdecken. 
+gängigsten Eingabedaten (wie Artist Album, Lyrics, Genre, ...) abdecken. 
 Manche ``Provider`` dienen auch zum *Information Retrieval* und ziehen
 beispielsweise Songtexte aus dem Internet.
 
@@ -444,14 +444,14 @@ konfiguriert ist.
 .. _fig-easy-session:
 
 .. figtable::
-    :caption: Default-Konfiguration der ,,EasySession".
-    :alt: Default-Konfiguration der ,,EasySession"
+    :caption: Default-Konfiguration der ,,EasySession''.
+    :alt: Default-Konfiguration der ,,EasySession''
     :spec: @{}l | l | l | l | l | @{}c
 
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | |nbsp|  Kompression?|
     +==============+======================+======================+=================================+=========+=====================+
-    | ``artist``   | ``ArtistNormalize``  | Default              | Artistname                      | 1x      | :math:`\checkmark`  |
+    | ``artist`   | ``ArtistNormalize``  | Default              | Artistame                      | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
@@ -613,7 +613,7 @@ Provider
 
 Die Oberklasse von der jeder konkreter ``Provider`` ableitet:
 Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
-überschrieben wird. Zudem bieten viele Provider als *,,Convinience"* eine
+überschrieben wird. Zudem bieten viele Provider als *,,Convenience"* eine
 ``do_reverse()`` Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.
 
@@ -622,7 +622,7 @@ zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt - siehe
 dazu auch :ref:`composite-provider`.
 
 Oft kommt es vor dass die Eingabe für einen :term:`Provider` viele Dupletten
-enthält - beispielsweise wird derselbe Artist-Name für viele Songs eingepflegt. 
+enthält - beispielsweise wird derselbe ArtistName für viele Songs eingepflegt. 
 Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
 jeder Provider die Möglichkeit einer primitiven Kompression: Statt den Wert
 abzuspeichern wird eine bidirektionale Hashtable mit den Werten als Schlüssel

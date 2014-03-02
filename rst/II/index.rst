@@ -28,12 +28,7 @@ Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
        intelligenten Playlist.
     #. Einsatz in sozialen Netzwerken um Menschen mit ähnlichem Musikgeschmack
        zu finden.
-    
-
-* "a"
-* ,,a"
-* ,,x"
-
+   
 Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die bei den
 meisten Diensten  zwischen allen paar Liedern gespielt wird, andererseits ist
 man nicht einer Vorauswahl der Musiklabels unterworfen - denn meist wird nur die
@@ -145,7 +140,7 @@ TODO: Nachweise!
 
     Den Grundstein für die Empfehlungen bei Amazon bildet die Warenkorbanalyse.
     Dabei werden die Warenkörbe der Benutzer analysiert und es werden
-    Assoziationsregeln erstellt - bevorzugtermaßen Regeln die unerwartete
+    Assoziationsregeln erstellt - bevorzugtermaßen Regeln, die unerwartete
     Zusammenhänge aufdecken. Ein Kauf ist auch eine klarere *Absichtserklärung*
     als zB. ein Klick auf *YouTube*. Das typische Beispiel ist dabei: *,,Wer
     Bier kauft, kauft auch Windeln"*. Diese Regeln werden dann genutzt um neue
@@ -195,11 +190,11 @@ angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
 **mirage** :cite:`AHX`
 
-    Eine freie in der Programmiersprache C# (mithilfe von Mono) implementierte
-    Bibliothek für Music Recommendations. Sie kommt den Zielen des Autors am
-    nähsten, ist aber wenig auf große Datenbanken ausgelegt und stützt sich
-    allein auf Audioanalyse - dazu wird während des *Kaltstartes* die gesamten
-    Audiodaten der Musiksammlung analysiert.
+    Eine freie in der Programmiersprache C# (mithilfe von Mono :cite:`MNO`)
+    implementierte Bibliothek für Music Recommendations. Sie kommt den Zielen
+    des Autors am nähsten, ist aber wenig auf große Datenbanken ausgelegt und
+    stützt sich allein auf Audioanalyse - dazu wird während des *Kaltstartes*
+    die gesamten Audiodaten der Musiksammlung analysiert.
 
     Sie ist momentan nur im freien Mediaplayer Banshee als Plugin nutzbar. 
     *Banshee* selbst ist ebenfalls in C# geschrieben - die Wahl der
@@ -207,7 +202,7 @@ angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
 **mufin audiogen** :cite:`UZB`
 
-    Eine kommerzielle Bibliothek, in
+    Eine kommerzielle% , in
     :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte
     Bibliothek, die im (mittlerweile eingestellten) *Mufin-Audioplayer* verwendet
     wurde. Sie bietet - laut der Website - enorm viele, teils fragwürdige

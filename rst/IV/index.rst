@@ -408,9 +408,9 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
 .. _fig-yellow-keywords:
 
 .. figtable::
-    :caption: Die extrahierten Keywords aus ,,Yellow Submarine", samt deren
+    :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
               Rating.
-    :alt: Extrahierte Keywords aus ,,Yellow Submarine"
+    :alt: Extrahierte Keywords aus ,,Yellow Submarine''
     :spec: l l
 
     ====== =================================

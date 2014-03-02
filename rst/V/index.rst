@@ -295,7 +295,7 @@ Erlaubt das Filtern der Playlist oder Datenbank.
 
 Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das *,,beat"*
 im Artist, Album oder Titel beeinhaltet) bis hin zu sehr komplizierten
-Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat*" (Findet
+Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat"* (Findet
 alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich 
 *2003* released wurde, oder dessen Artist ein Wort enthält, dass mit ,,Beat"
 beginnt).
@@ -361,4 +361,4 @@ Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
     :width: 100%
     :align: center
 
-    Die ,,Examine" Page - Die Attribute des aktuellen Songs werden angezeigt.
+    Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.

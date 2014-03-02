@@ -38,18 +38,18 @@ Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten.
 Zielsetzung
 ===========
 
-Viele dieser Arbeiten präsentieren jeweils einen Weg um die Ähnlichkeit zweier 
+Viele dieser Arbeiten präsentieren jeweils einen Weg, um die Ähnlichkeit zweier 
 Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also 
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
-oder nutzen vorhandene Metadaten um beispielsweise aus den Songtexten die Themen 
-zu extrahieren die im Lied behandelt werden.
+oder nutzen vorhandene Metadaten, um beispielsweise aus den Songtexten die Themen 
+zu extrahieren, die im Lied behandelt werden.
 
-Dabei sind heutzutage die Metadaten zu den Musikstücken dank Musikmetadatenbanken
-wie *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die Audiodaten sind aus
-verständlichen, legalen Gründen schwer zu besorgen.
+Dabei sind heutzutage die Metadaten zu den Musikstücken anhand von
+Musikmetadatenbanken wie *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die
+Audiodaten sind aus verständlichen, legalen Gründen schwer zu besorgen.
 
-Die nötigen Bauteile und das Wissen um ein allgemein einsetzbares, qualitatives
-Musikempfehlungssystem zu schaffen sind also vorhanden - nur eine frei
+Die nötigen Bauteile und das Wissen, um ein allgemein einsetzbares, qualitatives
+Musikempfehlungssystem zu schaffen, sind also vorhanden - nur eine frei
 verfügbare Umsetzung fehlt.
 
 Verbesserungsmöglichkeiten
@@ -73,7 +73,7 @@ sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
 Die Tatsache, dass der Autor sich schon seit längerer Zeit ein *,,echtes"*
-Feature für *Intelligente Playlisten* für den MPD Client [#f4]_ den er
+Feature für *Intelligente Playlisten* für den MPD Client [#f4]_, den er
 entwickelt wünscht, trägt natürlich auch zur Motivation bei - vor allem soll
 deshalb auch nach dem Abschluss dieser Arbeit das Projekt weiterentwickelt
 werden. 
@@ -94,7 +94,7 @@ geplantes Musikempfehlungssystem *libmunin* genannt.
     -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:`wiki2014hugin`
 
 Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
-Bibliothek *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine
+Bibliothek *libmunin* benannt. Das hat den humorvollen Nebeneffekt, dass eine
 kommerzielle Bibliothek mit ähnlichem Namen (*mufin-audiogen* :cite:`IKC`) eine
 freie Alternative erhält.
 
