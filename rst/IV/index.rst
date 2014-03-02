@@ -144,7 +144,7 @@ Kurze Implementierungshistorie
 Am 11. Oktober 2013 wurde mit der Implementierung begonnen. 
 
 Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
-der Distanzen und das Berechnen jeder einzelnen Song-Kombination vorgesehen -
+der Distanzen und das Berechnen jeder einzelnen Song--Kombination vorgesehen -
 aus den bereits erwähnten Gründen hat sich das zu einer Approximation geändert.
 Hierbei eine vernünftige Herangehensweise zu finden hat letztlich ca. 1
 :math:`^1/_2` Monate beansprucht.
@@ -164,8 +164,8 @@ Implementierung einer Demonanwendung aufgewendet.
 
 .. _list-of-recom-strategies:
 
-Liste verfügbarer Empfehlungs-Strategien
-========================================
+Liste verfügbarer Empfehlungs--Strategien
+=========================================
 
 Basierend auf einem Seedsong
 ----------------------------
@@ -193,7 +193,7 @@ Basierend auf einer Attributsuche
 ---------------------------------
 
 Es kann nach einen oder mehreren Songs gesucht werden die gewisse
-Attribut-Werte-Paare aufweisen. Als Beispiel kann ein Song gesucht werden der
+Attribut--Werte--Paare aufweisen. Als Beispiel kann ein Song gesucht werden der
 die Merkmale ,,Genre: Rock" und ,,Date: 2012" aufweist.
 
 Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
@@ -261,7 +261,7 @@ Typ ihrer Eingabe unterscheiden:
 
     Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over Nine
     Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
-    Dudelsack-Intro. Später setzen relativ plötzlich harte E-Gitarren und Drums
+    Dudelsack--Intro. Später setzen relativ plötzlich harte E-Gitarren und Drums
     ein.
 
 ``Wordlist``
@@ -272,7 +272,7 @@ Bricht einen String in eine Liste von Wörter auf.
 ``BPM``
 ~~~~~~~
 
-Berechnet die ,,Beats-Per-Minute" eines Lieds, also einem Maß für die
+Berechnet die ,,Beats--Per--Minute" eines Lieds, also einem Maß für die
 Schnelligkeit  --- dies funktioniert nicht nur für stark beatlastige
 Musikrichtungen wie Techno sondern auch für normale Musikrichtungen. 
 
@@ -303,7 +303,7 @@ ist. Beispielsweise wird aus *,,The Beatles"* der String *,,beatles"*
 ``AlbumNormalize``:
 """""""""""""""""""
   
-Entfernt analog zu ``ArtistNormalize`` Unrat aus Album-Namen wie *(live 2012)* 
+Entfernt analog zu ``ArtistNormalize`` Unrat aus Album--Namen wie *(live 2012)* 
 
 ``TitleNormalize``: 
 """"""""""""""""""""
@@ -316,7 +316,7 @@ Momentan ein Synonym für ``AlbumNormalize``.
 ~~~~~~~~~~~~~
 
 Erlaubt das Verketten von Providern. Der erste Eingabewert wird dem ersten
-Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei einer Unix-Pipe, 
+Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei einer Unix--Pipe, 
 wird an den nächsten Provider in der Kette als Eingabe weitergegeben.
 
 Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
@@ -335,12 +335,12 @@ Baukastenprinzip:
    "Eingabe: Artist, Album" ->  PlyrLyrics [label=" Sucht im Web "]
    PlyrLyrics -> Keywords [label="liefert Songtext"]
    Keywords -> Stem [label="extrahiert Keywords"]
-   Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm-Keywords "]
+   Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm--Keywords "]
 
 ``Stem``
 ~~~~~~~~
 
-Bringt mithilfe des Porter-Stemmer-Algorithmus es einzelne Wörter oder eine
+Bringt mithilfe des Porter--Stemmer--Algorithmus es einzelne Wörter oder eine
 Liste von Wörtern auf ihren Wortstamm zurück. Aus den Wörtern *Fisher*, *Fish*,
 *fishing* wird beispielsweise stets *fish*. Dies ist natürlich abhängig von der
 Eingabesprache --- momentan wird aber stets Englisch angenommen.
@@ -377,7 +377,7 @@ Hier werden aus Platzgründen nur die Untergenres im obigen Beispiel gezeigt.
 Jeder Knoten hat zudem einen Indexwert der in Klammern angegeben ist. 
 
 Das finale Resultat dieses Providers mit der obigen Eingabe ist dann in
-Python-Listen Notation:
+Python--Listen Notation:
 
 .. code-block:: python
 
@@ -385,7 +385,7 @@ Python-Listen Notation:
 
 Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
 Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
-Da der Root-Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
+Da der Root--Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
 Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
 
 .. code-block:: python
@@ -438,8 +438,8 @@ Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
 ``DiscogsGenre``
 ~~~~~~~~~~~~~~~~
 
-Besorgt von dem Online-Musikmarktplatz *Discogs* Genre Informationen. Dies ist
-nötig da Musiksammlungen für gewöhnlich mittels einer Online-Musikdatenbank
+Besorgt von dem Online--Musikmarktplatz *Discogs* Genre Informationen. Dies ist
+nötig da Musiksammlungen für gewöhnlich mittels einer Online--Musikdatenbank
 getaggt werden --- die meisten bieten allerdings keine Genreinformationen. 
 
 .. _distance-function-list:
@@ -496,7 +496,7 @@ bietet dem Nutzer eine Möglichkeit direkte *Hinweise* an das System zu geben.
 ``BPM``
 ~~~~~~~
 
-Vergleicht den ,,Beats-per-Minute`` Wert zweier Lieder. 
+Vergleicht den ,,Beats-per--Minute`` Wert zweier Lieder. 
 Als Minimalwert wird 50 und als Maximalwert 250 angenommen.
 
 *Annahme:*
@@ -566,7 +566,7 @@ Vergleicht die unter :ref:`genre-provider` erwähnten Pfade.
 Vergleicht alle Pfade in beiden Eingabemengen miteinander und nimmt die
 **geringste** Distanz von allen. 
 
-Diese Distanzfunktion sollte gewählt werden wenn die Genre-Tags eher kurz
+Diese Distanzfunktion sollte gewählt werden wenn die Genre--Tags eher kurz
 gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
 
 ``GenreTreeAvgLink``:
@@ -575,7 +575,7 @@ gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
 Vergleicht alle Pfade in beiden Eingabemengen miteinander und nimmt die
 **durchschnittliche** Distanz von allen. 
 
-Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre-Tags
+Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre--Tags
 vorhanden --- wie sie beispielsweise vom ``DiscogsGenre`` Provider geliefert
 werden :ref:`discogs-genre-provider` --- sind.
 
@@ -693,7 +693,7 @@ Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 * Der Autor hat gute Kenntnisse in Python.
 
 Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
-sozialen Code-Hosting Plattform *GitHub* :cite:`Y41` --- zur Versionierung wird
+sozialen Code--Hosting Plattform *GitHub* :cite:`Y41` --- zur Versionierung wird
 dann entsprechend das *Distributed Version Control System* ``git`` genutzt.
 
 Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
@@ -701,12 +701,12 @@ besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
 zumindest die Seite für spätere Projekte merken. 
 
 Die dazugehörige Dokumentation wird bei jedem *Commit* automatisch aus den
-Quellen, mittels des freien Dokumentations-Generators Sphinx, auf der
-Dokumentations-Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
+Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der
+Dokumentations--Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
 gemacht :cite:`5LX`.
 
-Zudem werden pro Commit Unittests auf der Continious-Integration Plattform
-*TravisCI* :cite:`JIU` für verschiedene Python-Versionen durchgeführt. Dies hat
+Zudem werden pro Commit Unittests auf der Continious--Integration Plattform
+*TravisCI* :cite:`JIU` für verschiedene Python--Versionen durchgeführt. Dies hat
 den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
 vergessen hat die unittests lokal durchzuführen.
 
@@ -717,13 +717,13 @@ Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge
 
 .. figure:: figs/travis_badge.png
     :align: center
-    :alt: Screenshot der Statusbuttons auf der Github-Seite.
+    :alt: Screenshot der Statusbuttons auf der Github--Seite.
 
-    Screenshot der Statusbuttons auf der Github-Seite.
+    Screenshot der Statusbuttons auf der Github--Seite.
 
 Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
 veröffentlicht :cite:`O6Q`, wo sie mithilfe des folgenden Befehles samt
-Python-Abhängigkeiten installiert werden können (Setzt Python :math:`\ge 3.2`
+Python--Abhängigkeiten installiert werden können (Setzt Python :math:`\ge 3.2`
 vorraus):
 
 .. code-block:: bash
@@ -734,7 +734,7 @@ Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
 vereinfachen --- im Notfall kann man stets auf funktionierende Versionen
 zurückgehen. 
 
-Der Quelltext selber wird in *gVim* geschrieben --- dass sich der Python-Quelltext
+Der Quelltext selber wird in *gVim* geschrieben --- dass sich der Python--Quelltext
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
 und *flake8* überprüft.
 
@@ -778,12 +778,12 @@ Lines of Code (*LoC*)
 
 Was die *Lines of Code* betrifft so verteilen sich insgesamt 4867 Zeilen
 Quelltext auf 46 einzelne Dateien. Die im nächsten Kapitel vorgestellte
-Demo-Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
-Kommentare, die zum größten Teil zur Generation der Online-Dokumentation
+Demo--Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
+Kommentare, die zum größten Teil zur Generation der Online--Dokumentation
 genutzt werden.
 
 Dazu kommen einige weitere Zeilen von *reStructuredText* (einer einfachen
-Markup-Sprache) die das Gerüst der Onlinedokumentation bilden:
+Markup--Sprache) die das Gerüst der Onlinedokumentation bilden:
 
 .. code-block:: bash
 
@@ -817,8 +817,8 @@ geschriebenen (und wieder gelöschten) Zeilen:
 
     :cite:`8MD`
 
-``gource`` Commit-Graph Visualisierungsvideo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``gource`` Commit--Graph Visualisierungsvideo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``gource`` ist ein Programm das in einem optisch ansprechenden Video zeigt wie
 sich das ``git``-Repository mit der Zeit aufbaut. Unter :cite:`8MC` findet sich

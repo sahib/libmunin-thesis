@@ -26,7 +26,7 @@ Grundüberlegungen
 Die *Entfernung* von je einem :term:`Song` *A* und *B* lässt sich durch eine
 :term:`Distanz` definieren.
 
-Um die Distanzen zu speichern wird bei vielen Datamining-Projekten eine
+Um die Distanzen zu speichern wird bei vielen Datamining--Projekten eine
 Distanzmatrix genutzt --- also eine quadratische Dreiecksmatrix in der
 die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.
 
@@ -51,7 +51,7 @@ zu speichern --- vorzugsweise eine Menge von Songs mit der kleinsten
 Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.
 
 Zur besseren optischen Vorstellung, ist unter :num:`fig-graph-example` ein
-Graphen-Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
+Graphen--Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
 
 .. _fig-graph-example:
 
@@ -224,7 +224,7 @@ beinhaltet vier Schritte:
     :width: 75%
     :align: center
 
-    Allgemeine Benutzungs-Prozess von libmunin.
+    Allgemeine Benutzungs--Prozess von libmunin.
 
 .. _environement:
 
@@ -390,7 +390,7 @@ Session
 
 Die Session ist das zentrale Objekt für den Nutzer der Bibliothek.
 Es bietet über Proxymethoden Zugriff auf alle Funktionalitäten von *libmunin*
-und kann zudem persistent abgespeichert werden. Dies wird durch das Python-Modul
+und kann zudem persistent abgespeichert werden. Dies wird durch das Python--Modul
 ``pickle`` realisiert --- es speichert rekursiv alle Member einer
 ``Session``-Instanz in einem Python-spezifischen Binärformat --- Voraussetzung
 hierfür ist, dass alle Objekte direkt oder indirekt an die ``Session``-Instanz
@@ -401,7 +401,7 @@ gepackt unter ``$HOME/.cache/libmunin/<name>.gz`` gespeichert.
 Der ``<name>`` lässt sich der Session beim Instanzieren übergeben.
 
 Die weitere Hauptzuständigkeit einer ``Session`` ist die Implementierung der
-Recommendation-Strategien, die den Graphen traversieren.
+Recommendation--Strategien, die den Graphen traversieren.
 
 Mask
 ~~~~
@@ -444,30 +444,30 @@ konfiguriert ist.
 .. _fig-easy-session:
 
 .. figtable::
-    :caption: Default-Konfiguration der ,,EasySession''.
-    :alt: Default-Konfiguration der ,,EasySession''
+    :caption: Default--Konfiguration der ,,EasySession''.
+    :alt: Default--Konfiguration der ,,EasySession''
     :spec: @{}l | l | l | l | l | @{}c
 
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | |nbsp|  Kompression?|
     +==============+======================+======================+=================================+=========+=====================+
-    | ``artist`    | ``ArtistNormalize``  | Default              | Künstler                        | 1x      | :math:`\checkmark`  |
+    | ``artist``   | ``ArtistNormalize``  | Default              | Künstler                        | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     | ``title``    | ``TitleNormalize``   | Default              | Tracktitel                      | 2x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``date``     | ``Date``             | ``Date``             | Datums-String                   | 4x      | :math:`\upchi`      |
+    | ``date``     | ``Date``             | ``Date``             | Datums--String                  | 4x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile-Pfad                  | 6x      | :math:`\upchi`      |
+    | ``bpm``      |  ``BPMCached``       | ``BPM``              | Audiofile--Pfad                 | 6x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     | ``lyrics``   | ``Keywords``         | ``Keywords``         | Songtext                        | 6x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     | ``rating``   | Default              | ``Rating``           | Integer (:math:`0 \le x \le 5`) | 4x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  ``genre``   |  ``GenreTree``       | ``GenreTree``        | Genre-String                    | 8x      | :math:`\upchi`      |
+    |  ``genre``   |  ``GenreTree``       | ``GenreTree``        | Genre--String                   | 8x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
-    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile-Pfad                  | 9x      | :math:`\upchi`      |
+    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``          | Audiofile--Pfad                 | 9x      | :math:`\upchi`      |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
 
 
@@ -622,11 +622,11 @@ zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt --- sie
 dazu auch :ref:`composite-provider`.
 
 Oft kommt es vor dass die Eingabe für einen :term:`Provider` viele Dupletten
-enthält --- beispielsweise wird derselbe Künstler-String für viele Songs eingepflegt. 
+enthält --- beispielsweise wird derselbe Künstler--String für viele Songs eingepflegt. 
 Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
 jeder Provider die Möglichkeit einer primitiven Kompression: Statt den Wert
 abzuspeichern wird eine bidirektionale Hashtable mit den Werten als Schlüssel
-und einer Integer-ID auf der Gegenseite. Dadurch wird jeder Wert nur einmal
+und einer Integer--ID auf der Gegenseite. Dadurch wird jeder Wert nur einmal
 gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.
 
 DistanceFuntion

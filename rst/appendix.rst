@@ -204,7 +204,7 @@ Glossar
 Führt die in :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
 aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
 Songtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
-Beats-per-Minute-Analyse wird lokalisiert. 
+Beats-per--Minute--Analyse wird lokalisiert. 
 
 Im Anschluss wird die Session aufgebaut und unter
 ``$HOME/.cache/libmunin/EasySession.gz`` gespeichert.

@@ -6,9 +6,9 @@ Intro
 =====
 
 :dropcaps:`Abseits` der Bibliothek wurde eine, auf dem freien
-Oberflächen-Framework :math:`\text{GTK+-}3.0` basierende, GUI-Anwendung entwickelt.
-Entsprechend :ref:`anf-demo` dient diese nicht nur zum *Showoff*, sondern auch
-zur gezielten Fehlersuche.
+Oberflächen--Framework :math:`\text{GTK+-}3.0` basierende, GUI-Anwendung
+entwickelt.  Wie eingangs erwähnt, dient diese nicht nur zum *Showoff*, sondern
+auch zur gezielten Fehlersuche.
 
 Die Anwendung, die den ebenfalls nordischen Namen *Naglfar* erhielt, stellt
 einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.
@@ -141,15 +141,15 @@ gleich, daher erstellt dies nach einem Neustart stets dieselbe Liste.
 
 Siehe Abbildung :num:`fig-demo-playlist`.
 
-Wie die *Database-Ansicht*, zeigt aber lediglich die Songs an die empfohlen
-wurden. Sonst ist diese Ansicht funktionsidentisch mit der *Database-Ansicht*.
+Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an die empfohlen
+wurden. Sonst ist diese Ansicht funktionsidentisch mit der *Database--Ansicht*.
 
 *Graph* 
 ~~~~~~~
 
 Siehe Abbildung :num:`fig-demo-graph`.
 
-Im *Graphen-Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet
+Im *Graphen--Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet
 werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
 gegeben wurden.
 
@@ -228,7 +228,7 @@ erweitert werden.
 (8) Attributsuche
 -----------------
 
-Eingabe einer Folge von Attribut-Werte Paaren die ein :term:`Seedsong` 
+Eingabe einer Folge von Attribut--Werte Paaren die ein :term:`Seedsong` 
 bei der Attributsuche (:ref:`attribute-search`) haben sollte.
 
 (9) Rating
@@ -242,7 +242,7 @@ Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
 eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
 Rating auf ,,0" (und damit *ungesetzt*) zurückzusetzen.
 
-Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen-Ansicht
+Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen--Ansicht
 zufolge.
 
 (10) Playcount
@@ -300,7 +300,7 @@ alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich
 *2003* released wurde, oder dessen Künstler ein Wort enthält, dass mit ,,Beat"
 beginnt).
  
-*Anmerkung:* Die ,,Such-Engine" dahinter ist in *Moosecat* implementiert.
+*Anmerkung:* Die ,,Such--Engine" dahinter ist in *Moosecat* implementiert.
 
 Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
 :kbd:`Esc` wieder versteckt werden.
@@ -352,12 +352,12 @@ Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
     :width: 100%
     :align: center
 
-    History-Ansicht, die zuletzt gehörten und empfohlenen Songs.
+    History--Ansicht, die zuletzt gehörten und empfohlenen Songs.
 
 .. _fig-demo-examine:
 
 .. figure:: figs/demo_examine.png
-    :alt: Die Ansicht der Examine-Page
+    :alt: Die Ansicht der Examine--Page
     :width: 100%
     :align: center
 

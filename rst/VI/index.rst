@@ -6,7 +6,7 @@ Was wurde erreicht?
 ===================
 
 :dropcaps:`Es` wurde eine Softwarebibliothek in Python implementiert, die ein
-Musikempfehlungssystem auf Graphen-Basis mit einer flexiblen Schnittstelle
+Musikempfehlungssystem auf Graphen--Basis mit einer flexiblen Schnittstelle
 bietet. Das System lernt dabei vom Nutzer mittels expliziten (Vergeben von
 Ratings) und impliziten (Beobachtung des Endnutzers und Ableitung von
 Assoziationsregeln) Methoden.
@@ -17,10 +17,10 @@ implementiert welche diese Daten vergleichen können.
 Im Vergleich zu bestehenden Systemen ist man nicht von Audiodaten abhängig.
 Durch die freie Lizenz ist ein weitläufiger Einsatz möglich.
 
-Was hatte das mit Data-Mining zu tun?
-=====================================
+Was hatte das mit Data--Mining zu tun?
+======================================
 
-*Data-Mining* meint landläufig das automatisierte *Abbauen* von unerwarteten
+*Data--Mining* meint landläufig das automatisierte *Abbauen* von unerwarteten
 Wissen aus einem großen *Datenberg*. So gesehen ist *libmunin* die *Spitzhacke*
 für *Musikdatenbanken*.
 
@@ -28,7 +28,7 @@ Insgesamt wurden hauptsächlich folgende Techniken aus diesem Gebiet genutzt:
 
 * *Warenkorbanalyse* um *Assoziationsregeln* abzuleiten.
 * Verschiedene *Distanzfunktionen* und *Fusionierungsverfahren*.
-* *Spracherkennung* und *Keyword-Extrahierung*.
+* *Spracherkennung* und *Keyword--Extrahierung*.
 * Verschiedenste *Normalisierung* von Eingabedaten.
 
 Welche Anforderungen wurden nicht oder unvollständig erfüllt?
@@ -39,7 +39,7 @@ Unabhängigkeit von der Programmiersprache
 
 Momentan ist *libmunin* nur von *Python* aus zu benutzen. Dies ist zum Teil dem
 Format geschuldet in dem die internen Daten abgespeichert werden: Dem
-Python-spezifischen ``pickle`` Format, welches beliebige Python-Objekte
+Python-spezifischen ``pickle`` Format, welches beliebige Python--Objekte
 serialisieren kann, macht es natürlich schwierig Software zu schreiben die
 eine serialisierte *Session* einlesen kann ohne dabei auf *libmunin* oder
 *Python* zurückzugreifen. 
@@ -57,7 +57,7 @@ Servers zurückgreifen --- das ist beispielsweise die Herangehensweise von MPD.
 Ein konkrete Umsetzung dieser Idee könnte relativ einfach mit *D-Bus* [#f1]_
 erreicht werden. Der Server würde dabei die API von *libmunin* als
 *D-Bus Service* implementieren. Der Client könnte eine der in zahlreichen
-Programmiersprachen verfügbaren *DBus-Libraries* nutzen, um im Server Methoden
+Programmiersprachen verfügbaren *DBus--Libraries* nutzen, um im Server Methoden
 aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Falls mehrere 
 Programme die gleiche Session nutzen wollen --- momentan ist das aus Gründen der 
 Nebenläufigkeit noch nicht möglich.
@@ -77,7 +77,7 @@ etwa), wird auch eine gute :term:`Distanzfunktion` nur mittelmäßig genaue
 Ergebnisse erzielen. 
 
 Momentan bietet *libmunin* bereits dem Nutzer Möglichkeiten an um fehlende
-Songtexte und Genre-Tags aus dem Internet zu besorgen. In der Einleitung dieser
+Songtexte und Genre--Tags aus dem Internet zu besorgen. In der Einleitung dieser
 Arbeit wurden aber schon freie Musikmetadatenbanken wie *MusicBrainz* erwähnt
 die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
 können. 
@@ -124,7 +124,7 @@ Speicherung
 ~~~~~~~~~~~
 
 Wie oben erwähnt erfolgt die Speicherung der *Session* mittels Python's
-``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt-Hierarchie,
+``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt--Hierarchie,
 ausgehend vom *Session* Objekt. Da in *libmunin* der Graph allerdings als
 rekursive Datenstruktur implementiert ist ,,verläuft" sich ``pickle`` darin -
 zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
@@ -136,7 +136,7 @@ sind die Folge. Hier ist Abhilfe nötig.
 Korrekte Berechnung des *BPM-Wertes*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Die Berechnung des *Beats-Per-Minute*-Wertes ist momentan in ein separates Tool
+Die Berechnung des *Beats--Per--Minute*-Wertes ist momentan in ein separates Tool
 ausgelagert. Dieses Tool hat das Problem, dass es bei fehlerhaften Dateien oder
 Formaten die es nicht versteht fehlerhafte (beispielsweise Werte *über* 300 bpm)
 Werte zurückgibt. 
@@ -150,14 +150,14 @@ in denen die Implementierung verbessert werden kann:
 - Verläufe: Manchmal ist es wünschenswert dass die dynamisch erstellte Playlist
   einem gewissen Verlauf folgt. Man denke an eine Party bei der erst schnelle,
   fröhliche Musik gespielt wird, zum Ende hin dann langsame, ruhigere Musik.
-- Weitere Empfehlungs-Strategien, wie beispielsweise von rein Genre-basierenden 
+- Weitere Empfehlungs--Strategien, wie beispielsweise von rein Genre-basierenden 
   Empfehlungen.
 - Justierbarkeit der Gewichtungen während der Laufzeit --- Momentan erfordert die
   Justierung der Gewichtung eine ``rebuild``-Operation.
-- ,,Echte" Audio/Mood-Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
+- ,,Echte" Audio/Mood--Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
 - Optionaler Aufsatz auf *libmunin* der *Social-based music recommendation*
   ermöglicht --- beispielsweise um die Ähnlichkeit von zwei Künstlern durch
-  Amazon-Reviews zu bestimmen. Sind diese in der Datenbank nicht vorhanden wird
+  Amazon--Reviews zu bestimmen. Sind diese in der Datenbank nicht vorhanden wird
   die Ähnlichkeit --- wie jetzt schon --- automatisch bestimmt.
 - Portierbarkeit auf andere Plattformen, momentan wurde nur Linux getestet.
 
@@ -166,7 +166,7 @@ Abschließendes Fazit
 
 *libmunin* ist ein solide Fundament für weitere Entwicklungen --- und so flexibel
 dass mit entsprechenden *Providern* und *Distanzfunktionen* sogar
-Empfehlungs-Systeme für andere Dokumente wie Videos, Bücher oder Filmen möglich
+Empfehlungs--Systeme für andere Dokumente wie Videos, Bücher oder Filmen möglich
 wären.
 
 Noch ist der Einsatz relativ kompliziert und erfordert, auch für kundige

@@ -100,7 +100,7 @@ freie Alternative erhält.
 
 .. rubric:: Footnotes
 
-.. [#f1] *MusicBrainz* ist eine freie, populäre Online-Musikmetadaten-Datenbank. :cite:`3A3`
+.. [#f1] *MusicBrainz* ist eine freie, populäre Online--Musikmetadaten--Datenbank. :cite:`3A3`
 
 .. [#f2] *Intelligente Playlisten* bezeichnen Playlisten, die nach bestimmten,
    vom Nutzer vorgegebenen, Kriterien aus einer Menge von Songs fortlaufend generiert werden.

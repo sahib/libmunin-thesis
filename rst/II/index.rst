@@ -11,8 +11,8 @@ einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
 Allgemein gesprochen ist ein *Empfehlungsdienst* ein Dienst, der zu bestimmten
 Objekten ähnliche Objekte vorschlägt. Zur Ermittelung der ähnlichen Objekte
 nutzt er Metadaten welche die einzelnen Objekte beschreiben. Die Metadaten
-werden durch Methoden des *Information-Retrieval* besorgt und durch Methoden
-des *Data-Minings* analysiert werden. Zudem wird während der Laufzeit der Nutzer
+werden durch Methoden des *Information--Retrieval* besorgt und durch Methoden
+des *Data--Minings* analysiert werden. Zudem wird während der Laufzeit der Nutzer
 beobachtet um spätere *exaktere* Empfehlungen abzugeben.
 
 In unserem konkreten Fall soll also ein Prototyp eines *Empfehlungsdienstes*
@@ -53,7 +53,7 @@ Bekannte Plattformen
 
 TODO: Nachweise!
 
-**last.fm:** :cite:`9NT` Der wohl bekannteste Musik Empfehlungs-Service im Netz.
+**last.fm:** :cite:`9NT` Der wohl bekannteste Musik Empfehlungs--Service im Netz.
 Benutzer können sich mit ihren Account ein personalisiertes Webradio (auch
 *Station* genannt, siehe Abb. :num:`fig-lastfm-webradio`) zusammenstellen. Dabei
 wählen sie ein Lied auf der Seite aus und lassen sich darauf basierend dann
@@ -90,7 +90,7 @@ Empfehlungen getroffen --- es handelt sich also um ein lernendes System.
  
     Screenshots von Last.fm. 
 
-**YouTube:** :cite:`WNN` Youtube ist vorrangig als Video-Plattform bekannt,
+**YouTube:** :cite:`WNN` Youtube ist vorrangig als Video--Plattform bekannt,
 durch die enorme Beliebtheit laden dort Nutzer allerdings auch Musik ---
 verpackt als Video - hoch. Interessant dabei ist, dass in der Sidebar stets
 Empfehlungen für weitere Videos angezeigt (siehe Abb. :num:`fig-youtube`) werden
@@ -100,7 +100,7 @@ Empfehlungen für weitere Videos angezeigt (siehe Abb. :num:`fig-youtube`) werde
 Einige der Attribute die in die Empfehlung mit eingehen:
 
     * Videometadaten (Qualität, Beschreibung, Titel)
-    * Upload-Datum
+    * Upload--Datum
     * ,,Plays" und tatsächliche ,,Plays" (also ob das Video lang genug
       angeschaut wurde)
 
@@ -137,7 +137,7 @@ Zusammenhänge aufdecken. Ein Kauf ist auch eine klarere *Absichtserklärung* al
 zB. ein Klick auf *YouTube*. Das typische Beispiel ist dabei: *,,Wer Bier kauft,
 kauft auch Windeln"*. Diese Regeln werden dann genutzt um neue Artikel für
 bestimmte Artikel vorzuschlagen (siehe Abb. :num:`fig-amazon`).  Natürlich
-fließt auch die personalisierte Shopping-Historie in die Empfehlungen mit ein.
+fließt auch die personalisierte Shopping--Historie in die Empfehlungen mit ein.
 
 .. _fig-amazon: 
 
@@ -169,11 +169,11 @@ Der sonstige Hauptzweck der Seite besteht aus der *Music Discovery* (daher
 auch das Kofferwort aus *Music* und *Discovery* als Name) --- also dem
 Entdecken neuer Musik.  
 
-Software-Bibliotheken
----------------------
+Software--Bibliotheken
+----------------------
 
 Während die Anzahl der Plattformen noch ins Unermeßliche ging, so liefert eine
-Suche nach *Music-Recommendation-(Library|System|Engine)* schon deutlich weniger
+Suche nach *Music--Recommendation-(Library|System|Engine)* schon deutlich weniger
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
@@ -189,7 +189,7 @@ Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.
 
 **Mufin Audiogen** :cite:`UZB` Eine kommerzielle, in
 :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte
-Bibliothek, die im (mittlerweile eingestellten) *Mufin-Audioplayer* verwendet
+Bibliothek, die im (mittlerweile eingestellten) *Mufin--Audioplayer* verwendet
 wurde. Sie bietet --- laut der Website --- enorm viele, teils fragwürdige oder
 unklare, Features und hat nicht das Problem des *Kaltstartes*. Das soll heißen:
 Die Musikdatenbank muss nicht erst aufwändig importiert werden, sondern es
@@ -279,7 +279,7 @@ Nachdem man sich also das Umfeld angeschaut, hat kann man versuchen
 und Arbeiten bildet, welche dann das System erfüllen muss.
 
 
-**Performanz:** Später ist damit zu rechnen, besonders im Client- und Server-Betrieb, dass sehr
+**Performanz:** Später ist damit zu rechnen, besonders im Client- und Server--Betrieb, dass sehr
 viele Anfragen gleichzeitig gestellt werden. Um lange Antwortzeiten zu
 verhindern sollte, dass das Ausstellen von Empfehlungen sehr performant
 erfolgen.
@@ -295,11 +295,11 @@ wird ein *Iterator* zurückgegeben der alle dem System bekannten Songs nach
 Relevanz absteigend sortiert ausgibt. 
 
 
-**Handhabung großer Datenmengen:** Bei vielen Datamining-Anwendungen ist die
+**Handhabung großer Datenmengen:** Bei vielen Datamining--Anwendungen ist die
 Menge der *Dokumente* der Flaschenhals --- in unserem Fall also sind die
 *Dokumente* einzelne *Lieder*.  Herkömmliche private Musiksammlungen können
 bereits Größen von Zehntausend Liedern erreichen.  Betreiber von
-Streaming-Plattformen haben noch weitaus größere Datenmengen. 
+Streaming--Plattformen haben noch weitaus größere Datenmengen. 
 
 
 **Lizenz:** Die Lizenz sollte einen libertären Einsatz ermöglichen und
@@ -400,7 +400,7 @@ Backend dafür dienen.
 
 **Moosecat:** Implementierung als Plugin für *Intelligente Playlisten*.
 
-**Shellskripte:** Mittels eines Kommandozeilen-Frontends von *libmunin* wäre ein
+**Shellskripte:** Mittels eines Kommandozeilen--Frontends von *libmunin* wäre ein
 einfacher Einsatz in Shellskripten möglich. Das Programm könnte versuchen die
 gängigsten Musiksammlungen einzulesen und auf Kommando Empfehlungen generieren.
 
@@ -409,7 +409,7 @@ gängigsten Musiksammlungen einzulesen und auf Kommando Empfehlungen generieren.
 Dynamische Playlists zu implementieren :cite:`XVG`, wäre dies ein guter
 Anlaufpunkt.  Mopidy ist eine alternative Implementierung zum *MusicPlayerDaemon
 (MPD)* in Python mit erweiterten Features. Sie bietet eine Anbindung zu
-Music-Streaming-Plattformen wie *Spotify*. Dabei ist es kompatibel mit den
+Music--Streaming--Plattformen wie *Spotify*. Dabei ist es kompatibel mit den
 existierenden MPD-Clients. 
 
 .. rubric:: Footnotes
