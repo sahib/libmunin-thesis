@@ -47,19 +47,19 @@ eine serialisierte *Session* einlesen kann ohne dabei auf *libmunin* oder
 Davon unabhängig ist *libmunin* momentan durch die Implementierung in Python auf
 diese Sprache eingeschränkt. Für solche Probleme gibt es zwei populäre
 Lösungsansätze. Der erste ist das Schreiben von *Languagebindings* für die
-Zielsprache - das würde erheblichen Aufwand involvieren wenn mehr als einige
+Zielsprache --- das würde erheblichen Aufwand involvieren wenn mehr als einige
 wenige Sprachen unterstützt werden sollen. Die zweite Möglichkeit ist eine
 Aufteilung in *Server* (der dann in Python geschrieben wäre) und *Client* (der
 in einer beliebigen Programmiersprache geschrieben ist).
 Der *Client* könnte dann über ein definiertes Protokoll auf die Funktionen des
-Servers zurückgreifen - das ist beispielsweise die Herangehensweise von MPD.
+Servers zurückgreifen --- das ist beispielsweise die Herangehensweise von MPD.
 
 Ein konkrete Umsetzung dieser Idee könnte relativ einfach mit *D-Bus* [#f1]_
 erreicht werden. Der Server würde dabei die API von *libmunin* als
 *D-Bus Service* implementieren. Der Client könnte eine der in zahlreichen
 Programmiersprachen verfügbaren *DBus-Libraries* nutzen, um im Server Methoden
 aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Falls mehrere 
-Programme die gleiche Session nutzen wollen - momentan ist das aus Gründen der 
+Programme die gleiche Session nutzen wollen --- momentan ist das aus Gründen der 
 Nebenläufigkeit noch nicht möglich.
 
 .. rubric:: Footnotes
@@ -83,7 +83,7 @@ die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
 können. 
 
 Glücklicherweise steht mit *beets* :cite:`XAJ` bereits ein entsprechendes,
-praktischerweise in Python geschriebenes Tool bereit - gewissermaßen das
+praktischerweise in Python geschriebenes Tool bereit --- gewissermaßen das
 *libhugin* für Musik.  In Zukunft könnte *beets* zusammen mit *libglyr also den
 *Information Retrieval* Teil übernehmen, ohne dass *libmunin* das Rad dafür neu
 erfinden muss.
@@ -100,10 +100,10 @@ Vermeidung unnötiger Vergleiche
 Der Aufruf von einigen Distanzfunktionen macht nur dann Sinn, wenn bestimmte
 Kriterien erfüllt sind. So macht es beispielsweise wahrscheinlich wenig Sinn die
 ``moodbar`` zweier Songs zu vergleichen wenn sich die Stücklänge um mehr als das
-doppelte unterscheidet - die Daten wären einfach zu unterschiedlich.
+doppelte unterscheidet --- die Daten wären einfach zu unterschiedlich.
 
 Momentan ist es allerdings noch nicht möglich für die ``moodbar``-Distanzfunktion
-die Länge des Stückes abzufragen - da sie nur die für sie relevanten Daten
+die Länge des Stückes abzufragen --- da sie nur die für sie relevanten Daten
 bekommt, nicht die ganze ``Song``-Instanz.
 
 Beschleunigung des Kaltstarts
@@ -130,7 +130,7 @@ rekursive Datenstruktur implementiert ist ,,verläuft" sich ``pickle`` darin -
 zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
 
 Python hat ein eingebautes *Rekursionslimit* welches ein wenig aussagekräftiges
-*Segmentation Fault* verhindern soll - Abstürze beim Speichern der *Session*
+*Segmentation Fault* verhindern soll --- Abstürze beim Speichern der *Session*
 sind die Folge. Hier ist Abhilfe nötig.
 
 Korrekte Berechnung des *BPM-Wertes*
@@ -152,32 +152,32 @@ in denen die Implementierung verbessert werden kann:
   fröhliche Musik gespielt wird, zum Ende hin dann langsame, ruhigere Musik.
 - Weitere Empfehlungs-Strategien, wie beispielsweise von rein Genre-basierenden 
   Empfehlungen.
-- Justierbarkeit der Gewichtungen während der Laufzeit - Momentan erfordert die
+- Justierbarkeit der Gewichtungen während der Laufzeit --- Momentan erfordert die
   Justierung der Gewichtung eine ``rebuild``-Operation.
 - ,,Echte" Audio/Mood-Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
 - Optionaler Aufsatz auf *libmunin* der *Social-based music recommendation*
-  ermöglicht - beispielsweise um die Ähnlichkeit von zwei Künstlern durch
+  ermöglicht --- beispielsweise um die Ähnlichkeit von zwei Künstlern durch
   Amazon-Reviews zu bestimmen. Sind diese in der Datenbank nicht vorhanden wird
-  die Ähnlichkeit - wie jetzt schon - automatisch bestimmt.
+  die Ähnlichkeit --- wie jetzt schon --- automatisch bestimmt.
 - Portierbarkeit auf andere Plattformen, momentan wurde nur Linux getestet.
 
 Abschließendes Fazit
 ====================
 
-*libmunin* ist ein solide Fundament für weitere Entwicklungen - und so flexibel
+*libmunin* ist ein solide Fundament für weitere Entwicklungen --- und so flexibel
 dass mit entsprechenden *Providern* und *Distanzfunktionen* sogar
 Empfehlungs-Systeme für andere Dokumente wie Videos, Bücher oder Filmen möglich
 wären.
 
 Noch ist der Einsatz relativ kompliziert und erfordert, auch für kundige
-Entwickler, einiges an Einarbeitungszeit - zuviel für etwas das einfach nur im
-Hintergrund arbeiten sollte. Auch die erstellten Empfehlungen sind - subjektiv
-gesehen - noch teilweise verbesserungswürdig. Besonders die momentane
+Entwickler, einiges an Einarbeitungszeit --- zuviel für etwas das einfach nur im
+Hintergrund arbeiten sollte. Auch die erstellten Empfehlungen sind --- subjektiv
+gesehen --- noch teilweise verbesserungswürdig. Besonders die momentane
 Audioanalyse ist sehr primitiver Natur und bietet einiges an Potenzial an
 Verbesserungen. Es wird momentan mehr auf *Masse* statt auf *Klasse* gesetzt und
 oft ist einiges an *,,Kaffeesatzleserei"* enthalten.
 
 Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von *Moosecat*
 weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung
-*Klasse* zu gehen - dann wäre das Projekt eine echte Alternative für viele der
+*Klasse* zu gehen --- dann wäre das Projekt eine echte Alternative für viele der
 in der Einleitung genannten Projekte.

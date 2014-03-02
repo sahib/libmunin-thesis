@@ -54,7 +54,7 @@ Kurze Erläuterung des Beispiels
   Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
   Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
   und Weighting) mitunter recht anstrengend werden kann greifen wir auf eine
-  Session mit vorgefertigter :term:`Maske` zurück - die sogenannte
+  Session mit vorgefertigter :term:`Maske` zurück --- die sogenannte
   ``EasySession``.
   
 * **Zeile 3:**
@@ -65,7 +65,7 @@ Kurze Erläuterung des Beispiels
 * **Zeile 11:** 
 
   Hier wird die oben erwähnte ``EasySession`` instanziert. Sie dient uns jetzt
-  als *Sitzung* - alle relevanten Methoden von *libmunin* können auf der
+  als *Sitzung* --- alle relevanten Methoden von *libmunin* können auf der
   *Session* aufgerufen werden.
 
 * **Zeile 12:**
@@ -80,7 +80,7 @@ Kurze Erläuterung des Beispiels
   Wir iterieren (**Zeile 13**) über alle Songs in unserer Pseudodatenbank und 
   fügen diese der *Session* hinzu (über die ``add`` Operation). zu beachten ist
   dabei: Es wird eine Hashtable übergeben in denen bestimmte Schlüssel (wie
-  ``artist``) von der ``EasySession`` vorgegeben sind - erstellt man eine eigene
+  ``artist``) von der ``EasySession`` vorgegeben sind --- erstellt man eine eigene
   Session kann man diese nach Belieben Konfigurieren.
   
   Ein Problem dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
@@ -103,7 +103,7 @@ Kurze Erläuterung des Beispiels
   In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen uns von der
   ``EasySession`` über die Methode ``recommend_from_seed`` zwei Empfehlungen zum ersten
   Song der über ``add`` hinzugefügt wurde geben. Die Empfehlung selbst wird als
-  ``Song`` Objekt ausgegeben - dieses hat unter anderen eine *ID* gespeichert mit
+  ``Song`` Objekt ausgegeben --- dieses hat unter anderen eine *ID* gespeichert mit
   der wir die ursprünglichen Daten finden können.
 
 Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
@@ -121,7 +121,7 @@ das Genre effektiv vergleichen lässt und wir uns von dem ersten Song (,,
 In Abbildung :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* (0) 
 ist direkt mit den Songs 1 (*Vogelfrey*) und 3 (*Debauchery*) benachbart. 
 Da die beiden Genres *folk rock* und *death metal* keine gemeinsame Schnittmenge
-haben ist dieser auch kein Nachbar - Valide Nachbarn müssen stets eine Distanz
+haben ist dieser auch kein Nachbar --- Valide Nachbarn müssen stets eine Distanz
 :math:`\le 1.0` besitzen.
 
 Ein komplizierteres Beispiel das die meisten Aspekte von libmunin abdeckt 
@@ -150,12 +150,12 @@ Hierbei eine vernünftige Herangehensweise zu finden hat letztlich ca. 1
 :math:`^1/_2` Monate beansprucht.
 
 Die zwischenzeitlich aufgekommene Idee Audiodaten mittels Audiofingerprints wie
-*Chromaprint* zu vergleichen wurde wieder aufgegeben - damit ließen sich
+*Chromaprint* zu vergleichen wurde wieder aufgegeben --- damit ließen sich
 wirklich nur fast gleiche Stücke ermitteln. Selbst *Live* und *Studio* Versionen
 ließen sich manchmal nicht differenzieren.
 
 Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst das
-dazu dienen sollte Ideen und Geschehnisse festzuhalten - allerdings weniger als
+dazu dienen sollte Ideen und Geschehnisse festzuhalten --- allerdings weniger als
 Information für Dritte, mehr als persönliche Erinnerung.
 
 Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt. 
@@ -202,8 +202,8 @@ Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
 Liste verfügbarer Provider und Distanzfunktionen
 ================================================
 
-Insgesamt wurden 13 unterschiedliche Provider implementiert - davon variieren
-einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen - auch
+Insgesamt wurden 13 unterschiedliche Provider implementiert --- davon variieren
+einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen --- auch
 manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.
 
 .. _provider-list:
@@ -236,10 +236,10 @@ einem Tausendstel des Audiostücks.
 Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
 *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
 lediglich herauslesen wie ,,energetisch" ein Lied zu einem bestimmten
-Zeitpunkt ist - mit etwas Glück kann man auch Instrumente erkennen - so ist
+Zeitpunkt ist --- mit etwas Glück kann man auch Instrumente erkennen --- so ist
 die Kombination von E-Gitarre und Drums oft ein helles Türkis.
 
-Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet - die
+Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet --- die
 dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
 
 Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
@@ -273,7 +273,7 @@ Bricht einen String in eine Liste von Wörter auf.
 ~~~~~~~
 
 Berechnet die ,,Beats-Per-Minute" eines Lieds, also einem Maß für die
-Schnelligkeit  - dies funktioniert nicht nur für stark beatlastige
+Schnelligkeit  --- dies funktioniert nicht nur für stark beatlastige
 Musikrichtungen wie Techno sondern auch für normale Musikrichtungen. 
 
 Die Funktionalität wird momentan, eher primitiv, durch den Aufurf eines externen
@@ -297,7 +297,7 @@ daraus stets den ersten Fall.
 ``ArtistNormalize``:
 """"""""""""""""""""
 
-Entfernt zusätzlich *Unrat* der bei Artistnamen vorhanden
+Entfernt zusätzlich *Unrat* der bei Künstlernamen vorhanden
 ist. Beispielsweise wird aus *,,The Beatles"* der String *,,beatles"*
 
 ``AlbumNormalize``:
@@ -343,7 +343,7 @@ Baukastenprinzip:
 Bringt mithilfe des Porter-Stemmer-Algorithmus es einzelne Wörter oder eine
 Liste von Wörtern auf ihren Wortstamm zurück. Aus den Wörtern *Fisher*, *Fish*,
 *fishing* wird beispielsweise stets *fish*. Dies ist natürlich abhängig von der
-Eingabesprache - momentan wird aber stets Englisch angenommen.
+Eingabesprache --- momentan wird aber stets Englisch angenommen.
 
 .. _genre-provider:
 
@@ -440,7 +440,7 @@ Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
 
 Besorgt von dem Online-Musikmarktplatz *Discogs* Genre Informationen. Dies ist
 nötig da Musiksammlungen für gewöhnlich mittels einer Online-Musikdatenbank
-getaggt werden - die meisten bieten allerdings keine Genreinformationen. 
+getaggt werden --- die meisten bieten allerdings keine Genreinformationen. 
 
 .. _distance-function-list:
 
@@ -536,7 +536,7 @@ erhöhte Rechenaufwand.
 """"""""""
 
 Ähnlich wie bei ``Wordlist``, aber eben auch für Daten bei denen man kleine
-Unterschiede in der Schreibweise erwartet. Beispielsweise bei Artist-Namen wie 
+Unterschiede in der Schreibweise erwartet. Beispielsweise bei Künstlern
 ``ZZ-Top`` und ``zz Top``.
 
 Ähnlich wie 
@@ -553,7 +553,7 @@ einzelnen Keywords in die Distanz mit ein.
 """"""""""
 
 Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied vorgeschlagen
-bekommen - oder zumindest in derselben Sprache.
+bekommen --- oder zumindest in derselben Sprache.
 
 ``GenreTreeAvgLink``, ``GenreTree``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -567,7 +567,7 @@ Vergleicht alle Pfade in beiden Eingabemengen miteinander und nimmt die
 **geringste** Distanz von allen. 
 
 Diese Distanzfunktion sollte gewählt werden wenn die Genre-Tags eher kurz
-gefasst sind - beispielsweise wenn nur *Rock* darin steht.
+gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
 
 ``GenreTreeAvgLink``:
 """""""""""""""""""""
@@ -576,8 +576,8 @@ Vergleicht alle Pfade in beiden Eingabemengen miteinander und nimmt die
 **durchschnittliche** Distanz von allen. 
 
 Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre-Tags
-vorhanden - wie sie beispielsweise vom ``DiscogsGenre`` Provider geliefert
-werden :ref:`discogs-genre-provider` - sind.
+vorhanden --- wie sie beispielsweise vom ``DiscogsGenre`` Provider geliefert
+werden :ref:`discogs-genre-provider` --- sind.
 
 *Annahme:*
 """"""""""
@@ -683,7 +683,7 @@ Entwicklungsumgebung
 
 Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 
-* Exzellenter Support für *Rapid Prototyping* - eine wichtige Eigenschaft bei
+* Exzellenter Support für *Rapid Prototyping* --- eine wichtige Eigenschaft bei
   nur knapp 3 Monaten Implementierungszeit.
 * Große Zahl an nützlichen Bibliotheken, besonders für den wissenschaftlichen
   Einsatz.
@@ -693,7 +693,7 @@ Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
 * Der Autor hat gute Kenntnisse in Python.
 
 Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
-sozialen Code-Hosting Plattform *GitHub* :cite:`Y41` - zur Versionierung wird
+sozialen Code-Hosting Plattform *GitHub* :cite:`Y41` --- zur Versionierung wird
 dann entsprechend das *Distributed Version Control System* ``git`` genutzt.
 
 Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
@@ -731,17 +731,17 @@ vorraus):
     $ sudo pip install libmunin
 
 Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
-vereinfachen - im Notfall kann man stets auf funktionierende Versionen
+vereinfachen --- im Notfall kann man stets auf funktionierende Versionen
 zurückgehen. 
 
-Der Quelltext selber wird in *gVim* geschrieben - dass sich der Python-Quelltext
+Der Quelltext selber wird in *gVim* geschrieben --- dass sich der Python-Quelltext
 dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
 und *flake8* überprüft.
 
 Auch dieses Dokument wurde mit dem :latex_sign:`sigh`-Backend einer
 modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
 *reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML
-Variante :cite:`8MD` erstellt wird - letztere ist sogar für mobile Endgeräte
+Variante :cite:`8MD` erstellt wird --- letztere ist sogar für mobile Endgeräte
 ausgelegt.  
 
 Unittests
@@ -791,7 +791,7 @@ Markup-Sprache) die das Gerüst der Onlinedokumentation bilden:
     2231 insgesamt
 
 Die Onlinedokumentation wird aus den Kommentaren im Quelltext
-extrahiert - das entspricht dem vom *Donald Knuth* vorgeschlagenem
+extrahiert --- das entspricht dem vom *Donald Knuth* vorgeschlagenem
 Ansatz des *Literate Programming*.
 
 Sonstige Statistiken
@@ -812,7 +812,7 @@ die beispielsweise viel über den eigenen Arbeitszyklus verraten:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
 Das kleine Programm ``gitstats`` baut aus dem ``git log`` eine HTML-Seite mit
-einigen interessanten Statistiken - wie beispielsweise der absoluten Anzahl von
+einigen interessanten Statistiken --- wie beispielsweise der absoluten Anzahl von
 geschriebenen (und wieder gelöschten) Zeilen:
 
     :cite:`8MD`

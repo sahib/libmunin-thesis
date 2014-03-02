@@ -27,7 +27,7 @@ Die *Entfernung* von je einem :term:`Song` *A* und *B* lässt sich durch eine
 :term:`Distanz` definieren.
 
 Um die Distanzen zu speichern wird bei vielen Datamining-Projekten eine
-Distanzmatrix genutzt - also eine quadratische Dreiecksmatrix in der
+Distanzmatrix genutzt --- also eine quadratische Dreiecksmatrix in der
 die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.
 
 Da das System auch für eine sehr hohe Anzahl von Songs funktionieren soll,
@@ -41,13 +41,13 @@ importieren, so bräuchten wir soviele Felder in der Matrix:
 
 Nimmt man für jedes Feld einen günstig geschätzten Speicherverbrauch von 4 Byte
 an, so bräuchte man allein für die Distanzmatrix hier aufgerundet 3 Gigabyte
-Hauptspeicher - was selbst für diesen günstig geschätzten Fall unakzeptabel
+Hauptspeicher --- was selbst für diesen günstig geschätzten Fall unakzeptabel
 wäre. Auch eine Sparsematrix wäre hier kaum sinnvoll, da in allen Fällen ja
 etwas weniger als die Hälfte aller Felder befüllt ist.
 
 Man muss also versuchen nur eine bestimmte Anzahl von Distanzen für einen Song
-zu speichern - vorzugsweise eine Menge von Songs mit der kleinsten
-:term:`Distanz`. Als geeignete Datenstruktur erscheint hier ein Graph - die
+zu speichern --- vorzugsweise eine Menge von Songs mit der kleinsten
+:term:`Distanz`. Als geeignete Datenstruktur erscheint hier ein Graph --- die
 Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.
 
 Zur besseren optischen Vorstellung, ist unter :num:`fig-graph-example` ein
@@ -81,23 +81,23 @@ definieren:
 
 Bevor der Graph benutzt werden kann, muss er natürlich erstmal aufgebaut werden. 
 Der naive Ansatz wäre dabei für jeden Song die Distanzen zu jedem anderen Song
-zu berechnen - dies hätte einen Aufwand von :math:`O(n^2)` zur Folge. Dies ist
+zu berechnen --- dies hätte einen Aufwand von :math:`O(n^2)` zur Folge. Dies ist
 aus oben genannten Gründen ebenfalls kaum wünschenswert.
 
 Deshalb kann die ``rebuild`` Operation keinen *perfekten* Graph erzeugen, sondern
 muss für hinreichend große Datenmengen auf eine Approximation zurückgreifen. 
 
 Nach dem Aufbau sollte ein ungerichteter Graph dabei herauskommen, im dem
-idealerweise jeder Knoten vom jedem anderen Knoten erreichbar ist - es sollten
+idealerweise jeder Knoten vom jedem anderen Knoten erreichbar ist --- es sollten
 also keine *Inseln* dabei entstehen. Es gibt keine maximale Anzahl von Nachbarn,
-die ein Song haben darf - lediglich einen *Richtwert*.
+die ein Song haben darf --- lediglich einen *Richtwert*.
 
 ``rebuild_stupid``
 ~~~~~~~~~~~~~~~~~~
 
 Wie ``rebuild``, nutzt aber quadratischen Aufwand indem es jeden Song mit jedem
 anderen vergleicht. Dies ist für kleine Mengen (:math:`\le 400`) von Songs
-verträglich und für *sehr* kleine Mengen sogar schneller - tatsächlich fällt die
+verträglich und für *sehr* kleine Mengen sogar schneller --- tatsächlich fällt die
 normale ``rebuild``-Operation tatsächlich auf diese zurück, falls die Menge an
 Songs :math:`\le 200`.
 
@@ -109,7 +109,7 @@ aufzudecken.
 
 Füge einen einzelnen Song zu dem Graphen hinzu, verbinde ihn aber noch nicht.
 Dies ist die bevorzugte Operation um viele Songs dem Graphen hinzuzufügen -
-beispielsweise beim *Kaltstart* - da das Verbinden später in einem
+beispielsweise beim *Kaltstart* --- da das Verbinden später in einem
 ``rebuild``-Schritt erledigt werden kann.
 
 ``insert``
@@ -128,8 +128,8 @@ verkuppelt werden.
 ``modify``
 ~~~~~~~~~~
 
-Manchmal ist es nötig das Attribut eines einzelnen Songs - wie beispielsweise
-das stark vom Benutzer abhängige **Rating** - zu ändern. Dabei wird der Song
+Manchmal ist es nötig das Attribut eines einzelnen Songs --- wie beispielsweise
+das stark vom Benutzer abhängige **Rating** --- zu ändern. Dabei wird der Song
 erst mittels ``remove`` entfernt, die Attribute werden angepasst und er wird
 mittels ``insert`` wieder eingefügt. 
 
@@ -149,17 +149,17 @@ Ausstellen von Empfehlungen
 Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
 mittels einer Breitensuche erledigt. Dabei wird der Ursprung durch ein
 sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
-Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* " eben
+Anfrage wie ,,10 ähnliche Songs zu *The Beatles --- Yellow Submarine* " eben
 *,,Yellow Submarine"*.
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
 Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste
 wird ein Versprechen herausgegeben die Empfehlungen genau dann zu berechnen wenn
 sie gebraucht werden (*Lazy Evaluation*). Dadurch ist auch die Zahl der
-zu gebenden Empfehlungen variabel - was sehr nützlich beim Erstellen einer 
+zu gebenden Empfehlungen variabel --- was sehr nützlich beim Erstellen einer 
 dynamischen Playlist ist.
 
-Es können auch mehrere Seedsongs verwendet werden - dann werden die einzelnen
+Es können auch mehrere Seedsongs verwendet werden --- dann werden die einzelnen
 *Iteratoren* im Reißschlußverfahren verwebt.
 
 Basierend auf dieser Idee ist es möglich bestimmte Strategien zu implementieren,
@@ -178,14 +178,14 @@ möchte, dass zu einem :term:`Seedsong` ein Lied vom selben Album oder gar selbe
 Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen ausgesiebt
 werden.
 
-Dazu werden die zuletzt gegebenen Empfehlungen betrachtet - ist in
-den letzten 5 Empfehlungen der gleiche Artistbereits vorhanden so wird die
+Dazu werden die zuletzt gegebenen Empfehlungen betrachtet --- ist in
+den letzten 5 Empfehlungen der gleiche Künstler bereits vorhanden so wird die
 Empfehlung ausgesiebt. 
 
 Lernen durch die History
 ------------------------
 
-Nur eine bestimmte Anzahl von Regeln wird gespeichert - zuviele Regeln würden
+Nur eine bestimmte Anzahl von Regeln wird gespeichert --- zuviele Regeln würden
 *historische Altlasten* immer weiter mitschleppen und der aktuelle Geschmack des
 Benutzers würde nicht widergespiegelt werden.
 
@@ -274,7 +274,7 @@ Tatsächlich besteht ein großer Teil von *libmunin* aus diesem *Layer* der Date
 aus der Umwelt nimmt und in die interne Graphendarstellung transferiert.
 
 In Abbildung :num:`fig-arch` findet sich eine Darstellung von *libmunin* als
-,,Whitebox" - sprich, als Box mit allen Ein- und Ausgängen, sowie der groben
+,,Whitebox" --- sprich, als Box mit allen Ein- und Ausgängen, sowie der groben
 Verarbeitung dazwischen. Dies ist als Zusammenfassung des oben gesagten zu
 werten.
 
@@ -285,7 +285,7 @@ werten.
     :width: 100%
     :align: center
 
-    Betrachtung von libmunin als ,,Whitebox'' - Alle Ein- und Ausgaben in einem
+    Betrachtung von libmunin als ,,Whitebox'' --- Alle Ein- und Ausgaben in einem
     Bild. In der Box selbst ist die grobe Verarbeitung der Daten skizziert.
 
 Entwurf der Software
@@ -332,7 +332,7 @@ Alternativ kann die ``EasySession`` genutzt werden die eine vordefinierte
 ~~~~~~~~~~~~~~~~~~~~
 
 Implementiert eine große Menge vordefinierter Menge von Providern, die die
-gängigsten Eingabedaten (wie Artist Album, Lyrics, Genre, ...) abdecken. 
+gängigsten Eingabedaten (wie Künstler, Album, Lyrics, Genre, ...) abdecken. 
 Manche ``Provider`` dienen auch zum *Information Retrieval* und ziehen
 beispielsweise Songtexte aus dem Internet.
 
@@ -391,8 +391,8 @@ Session
 Die Session ist das zentrale Objekt für den Nutzer der Bibliothek.
 Es bietet über Proxymethoden Zugriff auf alle Funktionalitäten von *libmunin*
 und kann zudem persistent abgespeichert werden. Dies wird durch das Python-Modul
-``pickle`` realisiert - es speichert rekursiv alle Member einer
-``Session``-Instanz in einem Python-spezifischen Binärformat - Voraussetzung
+``pickle`` realisiert --- es speichert rekursiv alle Member einer
+``Session``-Instanz in einem Python-spezifischen Binärformat --- Voraussetzung
 hierfür ist, dass alle Objekte direkt oder indirekt an die ``Session``-Instanz
 gebunden sind. 
 
@@ -451,7 +451,7 @@ konfiguriert ist.
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     |  Attribut    |  Provider            |  Distanzfunktion     | Eingabe                         |  Weight | |nbsp|  Kompression?|
     +==============+======================+======================+=================================+=========+=====================+
-    | ``artist`   | ``ArtistNormalize``  | Default              | Artistame                      | 1x      | :math:`\checkmark`  |
+    | ``artist`    | ``ArtistNormalize``  | Default              | Künstler                        | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
     | ``album``    | ``AlbumNormalize``   | Default              | Albumtitel                      | 1x      | :math:`\checkmark`  |
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
@@ -487,8 +487,8 @@ die :term:`Distanz` zu einen bestimmten Nachbarn abzufragen
 und eine ``disconnect()`` Methode um den ``Song`` zu entfernt ohne dabei ein
 ,,Loch" zu hinterlassen.
 
-Tatsächlich gibt es kein eigene ``Graph``-Klasse - der :term:`Graph` an sich
-wird durch die Verknüpfung der einzelnen Songs in der ``Database`` gebildet - 
+Tatsächlich gibt es kein eigene ``Graph``-Klasse --- der :term:`Graph` an sich
+wird durch die Verknüpfung der einzelnen Songs in der ``Database`` gebildet --- 
 jede ``Song`` Instanz bildet dabei einen Knoten.
 
 Da eine Veränderung von Attributen im Song auch eine Veränderung im Graphen zur
@@ -530,7 +530,7 @@ gespeichert. Sie fließen aber dennoch in die gewichtete Gesamtdistanz mit ein.
 
 Man hätte auch einen einzelnen ``float`` als ``Distanz`` nehmen könne, da aber
 die einzelnen Unterdistanzen für jedes :term:``Attribut`` bekannt sind kann
-später eine Empfehlung ,,erklärt" werden - beispielsweise kann man dadurch
+später eine Empfehlung ,,erklärt" werden --- beispielsweise kann man dadurch
 feststellen dass das ``lyrics``-Attribut fast komplett unähnlich war, da das
 ``genre``-Attribut aber eine Distanz von :math:`0.05` hat wurde dieser Song
 vorgeschlagen. 
@@ -618,11 +618,11 @@ Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
 Verarbeitung durch den Provider anzuzeigen.
 
 Provider können zudem mittels des ,,|" Operators in einer Kette
-zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt - siehe
+zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt --- siehe
 dazu auch :ref:`composite-provider`.
 
 Oft kommt es vor dass die Eingabe für einen :term:`Provider` viele Dupletten
-enthält - beispielsweise wird derselbe ArtistName für viele Songs eingepflegt. 
+enthält --- beispielsweise wird derselbe Künstler-String für viele Songs eingepflegt. 
 Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
 jeder Provider die Möglichkeit einer primitiven Kompression: Statt den Wert
 abzuspeichern wird eine bidirektionale Hashtable mit den Werten als Schlüssel

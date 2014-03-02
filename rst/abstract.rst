@@ -13,15 +13,3 @@ demonstrate and verify the results, a gtk based MPD client is developed that can
 be used either as debugging tool or true media player. Various techniques are
 shown to compare all possible attributes of a song with each other in an
 efficient way.
-
-.. silly hack to get the bullet unicode working:
-
-*Keywords:* 
-
-    :math:`\Theta` Music Information Retrieval (*MIR*) 
-
-    :math:`\Theta` Music Recommendation Engine 
-
-    :math:`\Theta` Data-Mining 
-
-    :math:`\Theta` Graph-Theory

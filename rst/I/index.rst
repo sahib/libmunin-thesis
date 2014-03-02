@@ -13,7 +13,7 @@ Menschen mit ähnlichem Musik Geschmack zu finden (*YouTube,* *Myspace*).
 
 All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderen Songs die der Benutzer möglicherweise ebenfalls anhören
-möchte - natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese anhört
+möchte --- natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese anhört
 oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
 diesen bestellen sind natürlich ein wichtiger wirtschaftlicher Faktor.
 
@@ -39,17 +39,17 @@ Zielsetzung
 ===========
 
 Viele dieser Arbeiten präsentieren jeweils einen Weg, um die Ähnlichkeit zweier 
-Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also 
+Musikstücke zu bestimmen --- viele greifen dabei auf Audioanalyse zurück, also 
 beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
 oder nutzen vorhandene Metadaten, um beispielsweise aus den Songtexten die Themen 
 zu extrahieren, die im Lied behandelt werden.
 
 Dabei sind heutzutage die Metadaten zu den Musikstücken anhand von
-Musikmetadatenbanken wie *MusicBrainz* [#f1]_ leicht aufzufinden - lediglich die
+Musikmetadatenbanken wie *MusicBrainz* [#f1]_ leicht aufzufinden --- lediglich die
 Audiodaten sind aus verständlichen, legalen Gründen schwer zu besorgen.
 
 Die nötigen Bauteile und das Wissen, um ein allgemein einsetzbares, qualitatives
-Musikempfehlungssystem zu schaffen, sind also vorhanden - nur eine frei
+Musikempfehlungssystem zu schaffen, sind also vorhanden --- nur eine frei
 verfügbare Umsetzung fehlt.
 
 Verbesserungsmöglichkeiten
@@ -57,31 +57,31 @@ Verbesserungsmöglichkeiten
 
 Weit verbreitet sind bei Musicplayern *Intelligente Playlists* [#f2]_  die
 allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
-``Last.fm`` suchen, um Musikempfehlungen auszusprechen - was  keineswegs eine
+``Last.fm`` suchen, um Musikempfehlungen auszusprechen --- was  keineswegs eine
 schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern. 
 
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
-nicht immer möglich oder gar wünschenswert - eine Lösung welche rein auf
-einem Rechner laufen kann wäre von Nöten - gewißermaßen das Backend von
+nicht immer möglich oder gar wünschenswert --- eine Lösung welche rein auf
+einem Rechner laufen kann wäre von Nöten --- gewißermaßen das Backend von
 ``Last.fm`` für den freien (frei wie in *Free Open Source Software*) Einsatz.
 
 Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll, kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
 existierenden Backends, wie sie beispielsweise hinter ``Last.fm`` stehen, wäre
-ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
+ein solches System auf Qualität optimiert --- weniger auf Wirtschaftlichkeit,
 sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
 Die Tatsache, dass der Autor sich schon seit längerer Zeit ein *,,echtes"*
 Feature für *Intelligente Playlisten* für den MPD Client [#f4]_, den er
-entwickelt wünscht, trägt natürlich auch zur Motivation bei - vor allem soll
+entwickelt wünscht, trägt natürlich auch zur Motivation bei --- vor allem soll
 deshalb auch nach dem Abschluss dieser Arbeit das Projekt weiterentwickelt
 werden. 
 
 Namensgebung
 ============
 
-Menschen neigen dazu Dingen einen Namen zu geben - im Folgenden wird unser
+Menschen neigen dazu Dingen einen Namen zu geben --- im Folgenden wird unser
 geplantes Musikempfehlungssystem *libmunin* genannt.
 
 .. epigraph::

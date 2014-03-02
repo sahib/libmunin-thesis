@@ -14,9 +14,9 @@ Die Anwendung, die den ebenfalls nordischen Namen *Naglfar* erhielt, stellt
 einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.
 
 Vor der ersten Benutzung muss gemäß :num:`fig-startup` eine Session aufgebaut
-werden - dies erledigt das Skript ``coldstart.py`` (siehe
-:ref:`coldstart-example` im *Angang C*) - dies kann durch das Ziehen der
-Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern - bis zu 2
+werden --- dies erledigt das Skript ``coldstart.py`` (siehe
+:ref:`coldstart-example` im *Angang C*) --- dies kann durch das Ziehen der
+Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern --- bis zu 2
 Stunden. Danach sind allerdings die Songtext zwischengelagert und der zweite
 Lauf dauert dann nur noch wenige Minuten. 
 
@@ -90,7 +90,7 @@ folgenden Form angegeben werden::
 
     <attribut>: <wert>[, <attribut>: <value>, ...]
 
-Folgendes Beispiel findet alle Songs mit dem Artist *,,Billy Talent"* **und**
+Folgendes Beispiel findet alle Songs mit dem Künstler *,,Billy Talent"* **und**
 dem Genre *,,Rock"* ::
 
     genre: rock, artist: Billy Talent
@@ -212,8 +212,8 @@ Die Anzahl an Empfehlungen die ein Klick im Kontextmenü liefert.
 
 Togglebutton (,,durchgestrichenes *a*" als Icon) der anzeigt ob der Filtermodus
 aktiviert ist.  Ist er aktiv so darf sich in einer dynamisch erstellten Playlist
-der Artist nur alle 3 Stücke wiederholen, der selbe Artist *und* das selbe Album
-nur alle 5 Stücke.
+der Künstler nur alle 3 Stücke wiederholen, der selbe Künstler *und* das selbe
+Album nur alle 5 Stücke.
 
 (7) Mininmaler Höranteil
 ------------------------
@@ -236,7 +236,7 @@ bei der Attributsuche (:ref:`attribute-search`) haben sollte.
 
 Spezielles Widget auf den man das *Rating* des aktuell spielenden Songs zu
 setzen. Beim erstellen der *Session* durch ``analyse.py`` wird ein *Rating* von
-:math:`0` angenommen - also *ungesetzt*.
+:math:`0` angenommen --- also *ungesetzt*.
 
 Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
 eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
@@ -252,7 +252,7 @@ Zeigt an wie oft ein Lied bereits gehört wurde. Ein Lied gilt als nicht gehört
 wenn prozentuell nur ein kleiner Teil als der gesetzte minimale Höranteil
 angehört wurde.
 
-Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt - sobald
+Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt --- sobald
 man 100x mal ein Lied hört, zeigt diese vollen Füllstand an.
 
 (11) Volumebar
@@ -263,7 +263,7 @@ Regler für die Lautstärke.
 (12) Title Label
 ----------------
 
-Zeit das aktuell spielende Lied mit Titel, Album und Artist an.
+Zeit das aktuell spielende Lied mit Titel, Album und Künstler an.
 
 (13) Modebuttons
 ----------------
@@ -278,7 +278,7 @@ Abspielen).
 
 Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des aktuellen Liedes.
 Übersprunge Parts eines Liedes fließen nicht die *Höranteil* ein, 
-doppelt gehörte Parts schon - daher sind Werte :math:`\ge 100\%` möglich.
+doppelt gehörte Parts schon --- daher sind Werte :math:`\ge 100\%` möglich.
 
 (15) Playbuttons
 ----------------
@@ -294,10 +294,10 @@ Playlist springen), *Nächstes* und *Vorheriges* Lied .
 Erlaubt das Filtern der Playlist oder Datenbank.
 
 Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das *,,beat"*
-im Artist, Album oder Titel beeinhaltet) bis hin zu sehr komplizierten
+im Artist, Album oder Titel--Tag beeinhaltet) bis hin zu sehr komplizierten
 Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat"* (Findet
 alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich 
-*2003* released wurde, oder dessen Artist ein Wort enthält, dass mit ,,Beat"
+*2003* released wurde, oder dessen Künstler ein Wort enthält, dass mit ,,Beat"
 beginnt).
  
 *Anmerkung:* Die ,,Such-Engine" dahinter ist in *Moosecat* implementiert.
@@ -316,7 +316,7 @@ Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
     :width: 100%
     :align: center
 
-    Die Datenbank Ansicht - Anzeige aller Songs.
+    Die Datenbank Ansicht --- Anzeige aller Songs.
 
 .. _fig-demo-playlist:
 
@@ -361,4 +361,4 @@ Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
     :width: 100%
     :align: center
 
-    Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.
+    Die ,,Examine'' Page --- Die Attribute des aktuellen Songs werden angezeigt.
