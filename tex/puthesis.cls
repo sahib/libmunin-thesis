@@ -56,7 +56,7 @@
 \newcommand*{\makefrontmatter}{%
     \bodyspacing
     \frontmatter\maketitlepage\makecopyrightpage\makeabstract
-    \makeacknowledgements\makededication\maketoc
+    \makeacknowledgements\maketoc
     \makelot\clearpage\makelof\clearpage\makelos
     \clearpage\mainmatter
 }%

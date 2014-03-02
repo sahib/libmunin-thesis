@@ -2,15 +2,6 @@
 Zusammenfassung
 ***************
 
-.. epigraph::
-
-
-   | |apostart| *Human beings, who are almost unique in having the ability to learn from the*
-   | |nbsp| |nbsp| |nbsp| |nbsp| *experience of others, are also remarkable for their apparent disinclination to do so.* |apoend|
-
-   -- *Douglas Adams, ,,Last Chance to See''*
-
-
 Was wurde erreicht?
 ===================
 
@@ -135,7 +126,7 @@ Speicherung
 Wie oben erwähnt erfolgt die Speicherung der *Session* mittels Python's
 ``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt-Hierarchie,
 ausgehend vom *Session* Objekt. Da in *libmunin* der Graph allerdings als
-rekursive Datenstruktur implementiert ist ,,verläuft'' sich ``pickle`` darin -
+rekursive Datenstruktur implementiert ist ,,verläuft" sich ``pickle`` darin -
 zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
 
 Python hat ein eingebautes *Rekursionslimit* welches ein wenig aussagekräftiges
@@ -163,7 +154,7 @@ in denen die Implementierung verbessert werden kann:
   Empfehlungen.
 - Justierbarkeit der Gewichtungen während der Laufzeit - Momentan erfordert die
   Justierung der Gewichtung eine ``rebuild``-Operation.
-- ,,Echte'' Audio/Mood-Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
+- ,,Echte" Audio/Mood-Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
 - Optionaler Aufsatz auf *libmunin* der *Social-based music recommendation*
   ermöglicht - beispielsweise um die Ähnlichkeit von zwei Künstlern durch
   Amazon-Reviews zu bestimmen. Sind diese in der Datenbank nicht vorhanden wird
@@ -184,7 +175,7 @@ Hintergrund arbeiten sollte. Auch die erstellten Empfehlungen sind - subjektiv
 gesehen - noch teilweise verbesserungswürdig. Besonders die momentane
 Audioanalyse ist sehr primitiver Natur und bietet einiges an Potenzial an
 Verbesserungen. Es wird momentan mehr auf *Masse* statt auf *Klasse* gesetzt und
-oft ist einiges an *,,Kaffeesatzleserei''* enthalten.
+oft ist einiges an *,,Kaffeesatzleserei"* enthalten.
 
 Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von *Moosecat*
 weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung

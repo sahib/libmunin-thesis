@@ -2,13 +2,6 @@
 Design
 ******
 
-.. epigraph::
-
-    | |apostart| *If the implementation is hard to explain, it's a bad idea.*
-    | |nbsp| |nbsp| |nbsp| |nbsp| *If the implementation is easy to explain, it* may *be a good idea.* |apoend|
-
-    -- *Zen of Python*, ``import this``
-
 Algorithmik
 ===========
 
@@ -68,7 +61,7 @@ Graphen-Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
     :align: center
 
     Beispielgraph mit 100 Knoten, aus generierten Testdaten. Die Farbe der
-    Knoten zeigt grob die ,,Zentralität'' des Knoten an. Pro Knoten wurde ein
+    Knoten zeigt grob die ,,Zentralität" des Knoten an. Pro Knoten wurde ein
     Integer zwischen 1-100 errechnet, diese wurden mit einer primitiven
     Distanzfunktion verglichen. 
 
@@ -157,7 +150,7 @@ Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
 mittels einer Breitensuche erledigt. Dabei wird der Ursprung durch ein
 sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
 Anfrage wie ,,10 ähnliche Songs zu *The Beatles - Yellow Submarine* `` eben
-*,,Yellow Submarine''*.
+*,,Yellow Submarine"*.
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
 Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste
@@ -281,7 +274,7 @@ Tatsächlich besteht ein großer Teil von *libmunin* aus diesem *Layer* der Date
 aus der Umwelt nimmt und in die interne Graphendarstellung transferiert.
 
 In Abbildung :num:`fig-arch` findet sich eine Darstellung von *libmunin* als
-,,Whitebox'' - sprich, als Box mit allen Ein- und Ausgängen, sowie der groben
+,,Whitebox" - sprich, als Box mit allen Ein- und Ausgängen, sowie der groben
 Verarbeitung dazwischen. Dies ist als Zusammenfassung des oben gesagten zu
 werten.
 
@@ -292,7 +285,7 @@ werten.
     :width: 100%
     :align: center
 
-    Betrachtung von libmunin als ,,Whitebox'' - Alle Ein- und Ausgaben in einem
+    Betrachtung von libmunin als ,,Whitebox" - Alle Ein- und Ausgaben in einem
     Bild. In der Box selbst ist die grobe Verarbeitung der Daten skizziert.
 
 Entwurf der Software
@@ -300,7 +293,7 @@ Entwurf der Software
 
 Da wir jetzt grob wissen aus welchen Komponenten unsere Software besteht können
 wir uns Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.  Im
-folgenden werden die *,,Hauptakteure''* der Software vorgestellt:
+folgenden werden die *,,Hauptakteure"* der Software vorgestellt:
 
 Übersicht
 ---------
@@ -428,8 +421,8 @@ nochmal ein kurzes praktisches Beispiel gezeigt:
    })
    session = Session(m)                    # Instanziere eine Session mit dieser Maske
 
-Wie man sieht wird als ,,Key'' der Name des Attributes festgelegt, und als
-,,Value'' ein Tupel aus einer ``Provider``-Instanz, aus einer
+Wie man sieht wird als ,,Key" der Name des Attributes festgelegt, und als
+,,Value" ein Tupel aus einer ``Provider``-Instanz, aus einer
 ``DistanceFunction``-Instanz und der Gewichtung dieses Attributes als ``float``.
 
 Wird statt einer ``Provider`` oder ein ``DistanceFunction`` Instanz etwas
@@ -451,8 +444,8 @@ konfiguriert ist.
 .. _fig-easy-session:
 
 .. figtable::
-    :caption: Default-Konfiguration der ,,EasySession''.
-    :alt: Default-Konfiguration der ,,EasySession''
+    :caption: Default-Konfiguration der ,,EasySession".
+    :alt: Default-Konfiguration der ,,EasySession"
     :spec: @{}l | l | l | l | l | @{}c
 
     +--------------+----------------------+----------------------+---------------------------------+---------+---------------------+
@@ -483,7 +476,7 @@ Song
 
 Speichert fur jedes :term:`Attribut` einen Wert, oder einen leeren Wert falls
 das :term:`Attribut` nicht gesetzt wurde. Dies ähnelt einer Hashtable,
-allerdings werden nur die Werte gespeichert, die ,,Keys'' der Hashtable werden
+allerdings werden nur die Werte gespeichert, die ,,Keys" der Hashtable werden
 in der ``Maske`` gespeichert und werden nur referenziert. Der Grund dieser
 Optimierung liegt in verminderten Speicherverbrauch. 
 
@@ -492,7 +485,7 @@ Nachbarsongs. Er muss Methoden bieten um eine :term:`Distanz` zu einem Nachbarn
 hinzuzufügen oder zu entfernen, Methoden um über alle Nachbarn zu iterieren oder
 die :term:`Distanz` zu einen bestimmten Nachbarn abzufragen 
 und eine ``disconnect()`` Methode um den ``Song`` zu entfernt ohne dabei ein
-,,Loch'' zu hinterlassen.
+,,Loch" zu hinterlassen.
 
 Tatsächlich gibt es kein eigene ``Graph``-Klasse - der :term:`Graph` an sich
 wird durch die Verknüpfung der einzelnen Songs in der ``Database`` gebildet - 
@@ -537,7 +530,7 @@ gespeichert. Sie fließen aber dennoch in die gewichtete Gesamtdistanz mit ein.
 
 Man hätte auch einen einzelnen ``float`` als ``Distanz`` nehmen könne, da aber
 die einzelnen Unterdistanzen für jedes :term:``Attribut`` bekannt sind kann
-später eine Empfehlung ,,erklärt'' werden - beispielsweise kann man dadurch
+später eine Empfehlung ,,erklärt" werden - beispielsweise kann man dadurch
 feststellen dass das ``lyrics``-Attribut fast komplett unähnlich war, da das
 ``genre``-Attribut aber eine Distanz von :math:`0.05` hat wurde dieser Song
 vorgeschlagen. 
@@ -550,7 +543,7 @@ Database
 ~~~~~~~~
 
 Die ``Database`` Klasse ist eine logische Abtrennung der ``Session`` um eine
-einzige, allmächtige ,,Superklasse'' zu verhindern. 
+einzige, allmächtige ,,Superklasse" zu verhindern. 
 
 Sie hat folgende Aufgaben:
 
@@ -575,7 +568,7 @@ eine neue *Gruppe* begonnen. Jede abgeschlossene *Gruppe* wird in der
 Das Ziel der zeitlichen Gruppierung ist eine Abbildung des Nutzerverhaltens.
 Die Annahme ist hierbei dass große zeitliche Lücken zwischen zwei Liedern auf 
 wenig zusammenhängende Songs hindeuten. Zudem bilden die einzelnen *Gruppen* eine
-Art ,,Warenkorb'' der dann bei der Ableitung von Regeln genutzt werden kann.
+Art ,,Warenkorb" der dann bei der Ableitung von Regeln genutzt werden kann.
 
 RecommendationHistory 
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -594,7 +587,7 @@ Speichert die chronologische Reihenfolge von gehörten Songs.
 
 Es ist die Aufgabe des Nutzers der Bibliothek einzelne Songs über die
 hinzugefügt wird, sollte auf Basis der tatsächlich gehörten Länge des Stücks
-entschieden werden. Songs die der Endnutzer einfach ,,skippt'' und die er zu
+entschieden werden. Songs die der Endnutzer einfach ,,skippt" und die er zu
 nahe :math:`0\%` angehört hat sollten auch nicht als Lerneingabe genutzt werden.
 
 RuleGenerator
@@ -612,7 +605,7 @@ Da es später möglich sein muss jede :term:`Assoziationsregel` abzufragen die
 einen bestimmten Song betrifft ist es vonnöten eine zusätzliche Hashtable von
 Songs auf Assoziationsregeln zu halten die als Index dient.
 
-Zudem *,,vergisst''* der Index Regeln die Songs betreffen die nicht mehr in der
+Zudem *,,vergisst"* der Index Regeln die Songs betreffen die nicht mehr in der
 ``ListenHistory`` vorhanden sind.
 
 Provider
@@ -620,11 +613,11 @@ Provider
 
 Die Oberklasse von der jeder konkreter ``Provider`` ableitet:
 Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
-überschrieben wird. Zudem bieten viele Provider als *,,Convinience''* eine
+überschrieben wird. Zudem bieten viele Provider als *,,Convinience"* eine
 ``do_reverse()`` Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.
 
-Provider können zudem mittels des ,,|'' Operators in einer Kette
+Provider können zudem mittels des ,,|" Operators in einer Kette
 zusammengeschaltet werden. Intern wird ein ``CompositeProvider`` erzeugt - siehe
 dazu auch :ref:`composite-provider`.
 

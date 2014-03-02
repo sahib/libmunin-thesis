@@ -24,7 +24,7 @@
 
 .. |latexapoend| raw:: latex
 
-   \textcolor{gray75}{\Huge ''}
+   \textcolor{gray75}{\Huge "}
 
 .. |htmlapoend| raw:: html or singlehtml
 

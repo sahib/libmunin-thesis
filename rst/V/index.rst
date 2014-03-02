@@ -2,12 +2,6 @@
 Demonstrationsanwendung
 ***********************
 
-.. epigraph:: 
-
-   |apostart| *These plus Antithese gleich Hysterese* |apoend|
-
-   -- *Einfach Göttlich, Terry Pratchett*
-
 Intro
 =====
 
@@ -96,8 +90,8 @@ folgenden Form angegeben werden::
 
     <attribut>: <wert>[, <attribut>: <value>, ...]
 
-Folgendes Beispiel findet alle Songs mit dem Artist *,,Billy Talent''* **und**
-dem Genre *,,Rock''* ::
+Folgendes Beispiel findet alle Songs mit dem Artist *,,Billy Talent"* **und**
+dem Genre *,,Rock"* ::
 
     genre: rock, artist: Billy Talent
 
@@ -105,7 +99,7 @@ Werden mehrere Suchergebnisse gefunden so werden alle als Seedsongs genutzt um
 in die Playlist :math:`\lambda` neue Songs einzureihen.
 
 Diese Funktionalität ist momentan relativ eingeschränkt da nur exakte Treffer
-funktioneren. Ist das *Genre* also als *,,rock / pop''* getaggt, so wird die
+funktioneren. Ist das *Genre* also als *,,rock / pop"* getaggt, so wird die
 Sucher erfolglos verlaufen.
 
 Lasse *libmunin* einen :term:`Seedsong` auswählen:
@@ -216,7 +210,7 @@ Die Anzahl an Empfehlungen die ein Klick im Kontextmenü liefert.
 (6) Filter
 ----------
 
-Togglebutton (,,durchgestrichenes *a*'' als Icon) der anzeigt ob der Filtermodus
+Togglebutton (,,durchgestrichenes *a*" als Icon) der anzeigt ob der Filtermodus
 aktiviert ist.  Ist er aktiv so darf sich in einer dynamisch erstellten Playlist
 der Artist nur alle 3 Stücke wiederholen, der selbe Artist *und* das selbe Album
 nur alle 5 Stücke.
@@ -246,7 +240,7 @@ setzen. Beim erstellen der *Session* durch ``analyse.py`` wird ein *Rating* von
 
 Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
 eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
-Rating auf ,,0'' (und damit *ungesetzt*) zurückzusetzen.
+Rating auf ,,0" (und damit *ungesetzt*) zurückzusetzen.
 
 Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen-Ansicht
 zufolge.
@@ -289,7 +283,7 @@ doppelt gehörte Parts schon - daher sind Werte :math:`\ge 100\%` möglich.
 (15) Playbuttons
 ----------------
 
-Die ,,üblichen'' Kontrollen eines Musicplayers zum *Pausieren/Abspielen* (an
+Die ,,üblichen" Kontrollen eines Musicplayers zum *Pausieren/Abspielen* (an
 momentaner Stelle anhalten/weiterspielen), *Stoppen* (Anhalt und zum Anfang der
 Playlist springen), *Nächstes* und *Vorheriges* Lied .
 
@@ -299,14 +293,14 @@ Playlist springen), *Nächstes* und *Vorheriges* Lied .
 
 Erlaubt das Filtern der Playlist oder Datenbank.
 
-Suchbegriffe können einfacher Natur wie *,,beat''* (Findet alles das *,,beat''*
+Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das *,,beat"*
 im Artist, Album oder Titel beeinhaltet) bis hin zu sehr komplizierten
-Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat*'' (Findet
-alles das *,,rock''* im Genre hat und in den Jahren *2001* bis einschließlich 
-*2003* released wurde, oder dessen Artist ein Wort enthält, dass mit ,,Beat''
+Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat*" (Findet
+alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich 
+*2003* released wurde, oder dessen Artist ein Wort enthält, dass mit ,,Beat"
 beginnt).
  
-*Anmerkung:* Die ,,Such-Engine'' dahinter ist in *Moosecat* implementiert.
+*Anmerkung:* Die ,,Such-Engine" dahinter ist in *Moosecat* implementiert.
 
 Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
 :kbd:`Esc` wieder versteckt werden.
@@ -367,4 +361,4 @@ Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
     :width: 100%
     :align: center
 
-    Die ,,Examine'' Page - Die Attribute des aktuellen Songs werden angezeigt.
+    Die ,,Examine" Page - Die Attribute des aktuellen Songs werden angezeigt.

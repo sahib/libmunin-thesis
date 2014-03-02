@@ -2,13 +2,6 @@
 Implementierung
 ***************
 
-.. epigraph::
-
-    | |apostart| *Programmieren Sie immer so, als wäre der Typ, der den Code pflegen muss, ein*
-    | |nbsp| |nbsp| |nbsp| |nbsp| *gewaltbereiter Psychopath, der weiß, wo Sie wohnen.* |apoend|
-
-    -- *Peter Stöhr*
-
 Anwendungsbeispiel
 ==================
                                
@@ -122,7 +115,7 @@ Kurze Erläuterung der Ausgabe
 
 Die Ausgabe ist bei näherer Betrachtung nicht weiter überraschend: Da sich nur
 das Genre effektiv vergleichen lässt und wir uns von dem ersten Song (,,
-*Trugbild* '') zwei Empfehlungen geben ließen werden die zwei Songs mit dem
+*Trugbild* ") zwei Empfehlungen geben ließen werden die zwei Songs mit dem
 ähnlichsten Genre ausgegeben.
 
 In Abbildung :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* (0) 
@@ -161,7 +154,7 @@ Die zwischenzeitlich aufgekommene Idee Audiodaten mittels Audiofingerprints wie
 wirklich nur fast gleiche Stücke ermitteln. Selbst *Live* und *Studio* Versionen
 ließen sich manchmal nicht differenzieren.
 
-Parallel zur Implementierung wurde ein ,,Tagebuch'' :cite:`THV` verfasst das
+Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst das
 dazu dienen sollte Ideen und Geschehnisse festzuhalten - allerdings weniger als
 Information für Dritte, mehr als persönliche Erinnerung.
 
@@ -201,7 +194,7 @@ Basierend auf einer Attributsuche
 
 Es kann nach einen oder mehreren Songs gesucht werden die gewisse
 Attribut-Werte-Paare aufweisen. Als Beispiel kann ein Song gesucht werden der
-die Merkmale ,,Genre: Rock'' und ,,Date: 2012'' aufweist.
+die Merkmale ,,Genre: Rock" und ,,Date: 2012" aufweist.
 
 Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
 Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
@@ -242,7 +235,7 @@ einem Tausendstel des Audiostücks.
 
 Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
 *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
-lediglich herauslesen wie ,,energetisch'' ein Lied zu einem bestimmten
+lediglich herauslesen wie ,,energetisch" ein Lied zu einem bestimmten
 Zeitpunkt ist - mit etwas Glück kann man auch Instrumente erkennen - so ist
 die Kombination von E-Gitarre und Drums oft ein helles Türkis.
 
@@ -267,7 +260,7 @@ Typ ihrer Eingabe unterscheiden:
     :align: center
 
     Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over Nine
-    Waves'' der Band ,,Suidakra''. Der grüne Teil am Anfang ist ein
+    Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
     Dudelsack-Intro. Später setzen relativ plötzlich harte E-Gitarren und Drums
     ein.
 
@@ -279,7 +272,7 @@ Bricht einen String in eine Liste von Wörter auf.
 ``BPM``
 ~~~~~~~
 
-Berechnet die ,,Beats-Per-Minute'' eines Lieds, also einem Maß für die
+Berechnet die ,,Beats-Per-Minute" eines Lieds, also einem Maß für die
 Schnelligkeit  - dies funktioniert nicht nur für stark beatlastige
 Musikrichtungen wie Techno sondern auch für normale Musikrichtungen. 
 
@@ -297,15 +290,15 @@ verschiedene Art und Weise:
 
 Normalisiert einen String mittels *NKFC Unicode Normalization*.
 Bei Unicode gibt es oft mehrere Arten einen *Glyph* zu schreiben. So kann
-ein ,,ä'' als einzelner Glyph (*Codepoint U+e4*) oder als *Composite
-Glyph* geschrieben werden: ,,\" + a'' (*U+30B + U+61*). Dieser Provider macht
+ein ,,ä" als einzelner Glyph (*Codepoint U+e4*) oder als *Composite
+Glyph* geschrieben werden: ,,\" + a" (*U+30B + U+61*). Dieser Provider macht
 daraus stets den ersten Fall.
 
 ``ArtistNormalize``:
 """"""""""""""""""""
 
 Entfernt zusätzlich *Unrat* der bei Artistnamen vorhanden
-ist. Beispielsweise wird aus *,,The Beatles''* der String *,,beatles''*
+ist. Beispielsweise wird aus *,,The Beatles"* der String *,,beatles"*
 
 ``AlbumNormalize``:
 """""""""""""""""""
@@ -415,9 +408,9 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
 .. _fig-yellow-keywords:
 
 .. figtable::
-    :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
+    :caption: Die extrahierten Keywords aus ,,Yellow Submarine", samt deren
               Rating.
-    :alt: Extrahierte Keywords aus ,,Yellow Submarine''
+    :alt: Extrahierte Keywords aus ,,Yellow Submarine"
     :spec: l l
 
     ====== =================================
@@ -463,7 +456,7 @@ gegeben.
 ~~~~~~~~
 
 Vergleicht zwei Jahreszahlen. Eine hohe Differenz führt dabei zu einer hohen
-Distanz. Also ,,erstes'' Jahr wird das Jahr 1950 angenommen.
+Distanz. Also ,,erstes" Jahr wird das Jahr 1950 angenommen.
 
 *Annahme:*
 """"""""""
@@ -528,8 +521,8 @@ kommt eine Distanz von :math:`0.0` dabei heraus.
 
 Diese :term:`Distanzfunktion` ist beispielsweise beim Vergleich von Titeln
 nützlich. Ähnliche Wörter in Titeln deuten oft auf ähnliche Themen hin. 
-Als Beispiel kann man die Titel *,,Hey Staat'' (Hans Söllner)* und *,,Lieber
-Staat'' (Farin Urlaub)* nennen.
+Als Beispiel kann man die Titel *,,Hey Staat" (Hans Söllner)* und *,,Lieber
+Staat" (Farin Urlaub)* nennen.
 
 ``Levenshtein``:
 """"""""""""""""
@@ -607,79 +600,79 @@ geben welche Funktionen in welchem Modul implementiert worden.
     :alt: Verzeichnisbaum der Implementierung
     :spec: @{}l @{}l @{}l @{}l | l
 
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    | **Verzeichnisse** | (gekürzt)         |                 |       | **Beschreibung**                            |
-    +===================+===================+=================+=======+=============================================+
-    | **munin/**        |                   |                 |       | Quelltextverzeichnis                        |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  __init__.py      |                 |       | Versionierungs Info                         |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  __main__.py      |                 |       | Beispielprogramm                            |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  database.py      |                 |       | Implementierung von ``Database``            |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  dbus_service.py  |                 |       | Unfertiger DBus Service.                    |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | *dbus_client*     |                 |       | Unfertiger DBus Beispielclient.             |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | **distance/**     |                 |       | Unterverzeichnis für Distanzfunktionen      |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  __init__.py    |       | Implementierung von ``DistanceFunction``    |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  bpm.py         |       | Implementierung von ``BPMDistance``         |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  date.py        |       | Implementierung von ``DateDistance``        |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *...*           |       | Weitere Subklassen von ``DistanceFunction`` |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  session.py       |                 |       | Implementierung der ``Session`` (API)       |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  easy.py          |                 |       | Implementierung der ``EasySession``         |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  graph.py         |                 |       | Implementierung der Graphenoperationen      |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  helper.py        |                 |       | Gesammelte, oftgenutzte Funktionen          |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  history.py       |                 |       | Implementierung der ``History`` u. Regeln   |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  plot.py          |                 |       | Visualisierungsfunktionen für Graphen       |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | **provider/**     |                 |       | Unterverzeichnis für Provider               |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  __init__.py    |       | Implementierung von ``Provider``            |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  bpm.py         |       | Implementierung von ``BPMProvider``         |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  composite.py   |       | Implementierung des ``CompositeProvider``   |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | *...*           |       | Weitere Subklassen von ``Provider``         |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  rake.py          |                 |       | Implementierung des RAKE-Algorightmus       |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | **scripts/**      |                 |       | Unterverzeichnis für ,,Test Scripts''       |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  visualizer.py  |       | Zeichnet ein mood-file mittels ``cairo``    |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  walk.py        |       | Berechnet vieles mood-files parallel        |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  song.py          |                 |       | Implementierung von ``Song``                |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   | **stopwords/**    |                 |       | Stoppwortimplementierung:                   |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |  __init__.py    |       | Implementierung des StopwordsLoader         |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   | **data/**       |       | Unterverzeichnis für die Stoppwortlisten    |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |                 | *de*  | Gemäß ISO 638-1 benannte Dateien;           |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |                 | *en*  | Pro Zeile ist ein Stoppwort gelistet;       |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |                 | *es*  | Insgesamt 17 verschiedene Listen.           |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |                   |                 | *...* |                                             |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
-    |                   |  testing.py       |                 |       | Fixtures und Helper für unittests           |
-    +-------------------+-------------------+-----------------+-------+---------------------------------------------+
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    | **Verzeichnisse** | (gekürzt)        |                |       | **Beschreibung**                            |
+    +===================+==================+================+=======+=============================================+
+    | **munin/**        |                  |                |       | Quelltextverzeichnis                        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  __init__.py     |                |       | Versionierungs Info                         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  __main__.py     |                |       | Beispielprogramm                            |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  database.py     |                |       | Implementierung von ``Database``            |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  dbus_service.py |                |       | Unfertiger DBus Service.                    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | *dbus_client*    |                |       | Unfertiger DBus Beispielclient.             |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **distance/**    |                |       | Unterverzeichnis für Distanzfunktionen      |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  __init__.py   |       | Implementierung von ``DistanceFunction``    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  bpm.py        |       | Implementierung von ``BPMDistance``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  date.py       |       | Implementierung von ``DateDistance``        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  | *...*          |       | Weitere Subklassen von ``DistanceFunction`` |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  session.py      |                |       | Implementierung der ``Session`` (API)       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  easy.py         |                |       | Implementierung der ``EasySession``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  graph.py        |                |       | Implementierung der Graphenoperationen      |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  helper.py       |                |       | Gesammelte, oftgenutzte Funktionen          |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  history.py      |                |       | Implementierung der ``History`` u. Regeln   |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  plot.py         |                |       | Visualisierungsfunktionen für Graphen       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **provider/**    |                |       | Unterverzeichnis für Provider               |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  __init__.py   |       | Implementierung von ``Provider``            |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  bpm.py        |       | Implementierung von ``BPMProvider``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  composite.py  |       | Implementierung des ``CompositeProvider``   |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  | *...*          |       | Weitere Subklassen von ``Provider``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  rake.py         |                |       | Implementierung des RAKE-Algorightmus       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **scripts/**     |                |       | Unterverzeichnis für ,,Test Scripts"        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  visualizer.py |       | Zeichnet ein mood-file mittels ``cairo``    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  walk.py       |       | Berechnet vieles mood-files parallel        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  song.py         |                |       | Implementierung von ``Song``                |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **stopwords/**   |                |       | Stoppwortimplementierung:                   |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  __init__.py   |       | Implementierung des StopwordsLoader         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  | **data/**      |       | Unterverzeichnis für die Stoppwortlisten    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *de*  | Gemäß ISO 638-1 benannte Dateien;           |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *en*  | Pro Zeile ist ein Stoppwort gelistet;       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *es*  | Insgesamt 17 verschiedene Listen.           |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *...* |                                             |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  testing.py      |                |       | Fixtures und Helper für unittests           |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
 
 
 Trivia

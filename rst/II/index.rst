@@ -2,32 +2,22 @@
 Einstieg
 ********
 
-.. epigraph::
-
-   |apostart| *Der Computer wurde zur Lösung von Problemen erfunden, die es früher nicht gab.* |apoend|
-
-    -- *Bill Gates*
-
-
 Warum überhaupt?
 ================
 
-:dropcaps:`Wo` ist also das konrekte Problem, dass *libmunin* nun lösen soll?
+:dropcaps:`Wo` ist also das konkrete Problem, dass *libmunin* nun lösen soll?
 Das erklärte Ziel ist es eine Bibliothek zu schaffen, die
-einen auf Musik spezialisierten *Empfehlungsdienst* implementiert.
-In dieser Arbeit wird ein entsprechender Prototyp entwickelt.
+einen auf Musik spezialisierten *Empfehlungsdienst* implementiert. 
+Allgemein gesprochen ist ein *Empfehlungsdienst* ein Dienst, der zu bestimmten
+Objekten ähnliche Objekte vorschlägt. Zur Ermittelung der ähnlichen Objekte
+nutzt er Metadaten welche die einzelnen Objekte beschreiben. Die Metadaten
+werden durch Methoden des *Information-Retrieval* besorgt und durch Methoden
+des *Data-Minings* analysiert werden. Zudem wird während der Laufzeit der Nutzer
+beobachtet um spätere *exaktere* Empfehlungen abzugeben.
 
-.. epigraph::
-
-    *Ein Empfehlungsdienst (englisch Recommender System) ist ein automatisches
-    Verfahren, das ausgehend von vorhandenen Webseiten oder anderen Objekten
-    ähnliche Objekte ermittelt und empfiehlt. Zur Ermittlung der passenden
-    Empfehlungen verwendet ein Empfehlungsdienst Methoden des Data-Minings und
-    Information Retrieval. [...] darüber hinaus [werden] Informationen aus dem
-    konkreten Kontext (Webseiten-Zugriff) und zusätzliche Informationen wie z.
-    B. die Kauf-, Navigations- oder Klick-Historie herangezogen.*
-
-    -- http://de.wikipedia.org/wiki/Empfehlungsdienst :cite:`wiki2014empfehlungsdienst`
+In unserem konkreten Fall soll also ein Prototyp eines *Empfehlungsdienstes*
+entwickelt werden bei dem die oben genannten *Objekte* einzelne *Lieder*
+darstellen. 
 
 Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
 
@@ -39,6 +29,19 @@ Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
     #. Einsatz in sozialen Netzwerken um Menschen mit ähnlichem Musikgeschmack
        zu finden.
     
+
+* "a"
+* ,,a"
+* ,,x"
+
+Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die bei den
+meisten Diensten  zwischen allen paar Liedern gespielt wird, andererseits ist
+man nicht einer Vorauswahl der Musiklabels unterworfen - denn meist wird nur die
+momentan *populäre* Musik bei den oben genannten Plattformen gespielt. Zudem ist
+diese Musik kommerzieller Natur - freie, *Creative Commons* lizenzierte Musik,
+wie man sie beispielsweise auf Jamendo [#f3]_ findet, sucht man anderswo
+vergebens.
+
 Weitere Einsatzmöglichkeiten sind natürlich denkbar, und sind bei kreativen
 Nutzern zu erwarten. 
 
@@ -107,7 +110,7 @@ TODO: Nachweise!
 
         * Videometadaten (Qualität, Beschreibung, Titel)
         * Upload-Datum
-        * ,,Plays'' und tatsächliche ,,Plays'' (also ob das Video lang genug
+        * ,,Plays" und tatsächliche ,,Plays" (also ob das Video lang genug
           angeschaut wurde)
 
     .. _fig-youtube: 
@@ -145,7 +148,7 @@ TODO: Nachweise!
     Assoziationsregeln erstellt - bevorzugtermaßen Regeln die unerwartete
     Zusammenhänge aufdecken. Ein Kauf ist auch eine klarere *Absichtserklärung*
     als zB. ein Klick auf *YouTube*. Das typische Beispiel ist dabei: *,,Wer
-    Bier kauft, kauft auch Windeln''*. Diese Regeln werden dann genutzt um neue
+    Bier kauft, kauft auch Windeln"*. Diese Regeln werden dann genutzt um neue
     Artikel für bestimmte Artikel vorzuschlagen (siehe Abb. :num:`fig-amazon`).
     Natürlich fließt auch die personalisierte Shopping-Historie in die
     Empfehlungen mit ein.
@@ -272,12 +275,12 @@ Folgende Ideen erschienen übernehmenswert (*Quellen in Klammern*):
 
 * Ein System welches von seinen Nutzern lernt *(last.fm)*
 * Umfangreiche Einbeziehung von Metadaten *(YouTube)*
-* Nutze zum Lernen die ,,Warenkorbanalyse'' um Assoziationsregeln abzuleiten. *(Amazon)*
+* Nutze zum Lernen die ,,Warenkorbanalyse" um Assoziationsregeln abzuleiten. *(Amazon)*
 * Nutze Audioanalyse *(mirage)* um Ähnlichkeiten festzustellen - beispielsweise
-  die Stimmung bzw. ,,Mood'' in einem Lied. (*Musicovery*)
+  die Stimmung bzw. ,,Mood" in einem Lied. (*Musicovery*)
 * Graphen als interne Datenstruktur (*mufin audiogen*)
 
-Es ist natürlich empfehlenswert aus den ,,Fehlern'' anderer zu lernen, daher
+Es ist natürlich empfehlenswert aus den ,,Fehlern" anderer zu lernen, daher
 sollte man folgende Probleme beim Design und der Implementierung berücksichtigen:
 
 * *Kaltstart*, also die Verzögerung beim ersten Start, möglichst klein halten
@@ -461,7 +464,7 @@ Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 Einpflegen manuell erstellter Empfehlungen:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Dies ist per *,,Wrapper''* um die Bibliothek möglich.
+Dies ist per *,,Wrapper"* um die Bibliothek möglich.
 
 *Social-based music recommendation*:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -497,3 +500,8 @@ Vom Autor selbst sind die folgenden zwei Projekte anvisiert:
 
 Für Shellskripte wäre auch ein Kommandozeilenprogramm denkbar, welches eine
 beliebige Musiksammlung einlesen kann. 
+
+
+.. rubric:: Footnotes
+
+.. [#f3] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`

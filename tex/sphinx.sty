@@ -181,7 +181,9 @@
 
 \newcommand{\prettypage}{
     % Ugly, but it works.
-    \scshape{\dottedunderline{~\thepage~~~}}
+    % For koehler's sake
+    % \scshape{\dottedunderline{~\thepage~~~}}
+    \scshape{~\thepage~~~}
 }
 
 % Configure footer and header
@@ -206,12 +208,17 @@
     \renewcommand{\headrule}{}
 }%
 
-\setlength{\headheight}{24pt} 
+% \setlength{\headheight}{24pt} 
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
 \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
 \fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
 \fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
-\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
+
+% Dotted line: 
+% \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
+
+% Empty
+% \renewcommand{\headrule}{}
 
 % Some custom font markup commands.
 \newcommand{\strong}[1]{{\bf #1}}
@@ -330,9 +337,9 @@
     pdftex,
     pdfauthor={\theauthor},
     pdftitle={Design und Implemtierung eines Musikempfehlungssystems
-    basierend auf Datamining Algorithmen},
+    basierend auf Datamining-Algorithmen},
     pdfsubject={Design und Implemtierung eines Musikempfehlungssystems
-    basierend auf Datamining Algorithmen},
+    basierend auf Datamining-Algorithmen},
     pdfkeywords={Music Recommendation, Music Information Retrieval, MIR, Data Mining, Graph Theory},
     pdfproducer={LaTeX with hyperref},
     pdfcreator={pdflatex},

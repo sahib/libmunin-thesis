@@ -1,18 +1,9 @@
 **********
-Einleitung
+Motivation
 **********
 
-.. epigraph:: 
-
-   |apostart| *Sei froh, dass du du bist, und nicht dieser Doktorfisch.* |apoend|
-
-   -- *Das Lied von der Makrele, Marc Uwe Kling*
-
-Motivation
-==========
-
 Stand der Technik
------------------
+=================
 
 :dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
@@ -27,7 +18,7 @@ oder gar kauft. Kunden die neue Bands entdecken und später weitere Alben von
 diesen bestellen sind natürlich ein wichtiger wirtschaftlicher Faktor.
 
 Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
-von den Betreibern gepflegt? Bei der großen Anzahl an *,,Waren''* wohl kaum.
+von den Betreibern gepflegt? Bei der großen Anzahl an *,,Waren"* wohl kaum.
 Schaut sich ein System an was die Benutzer oft zusammen hören?
 Kann es ein System geben, das komplett automatisch arbeitet?
 
@@ -44,30 +35,8 @@ mit echten Personen.
 Wie man sieht sind die Wege nahezu unendlich, das Ziel aber immer gleich:
 Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten.
 
-In letzter Zeit gibt es ein steigendes Interesse an *,,Music Recommendation
-Engines* - das lässt sich auch an den wissenschaftlichen Arbeiten auf diesem
-Gebiet feststellen:
-
-.. figtable::
-    :caption: Anzahl der Arbeiten auf Google Scholar zum Suchbegriff
-              ,,Music Recommendation'' aufgeteilt auf die Jahre 1994-2014.
-    :alt: Arbeiten zum Thema 'Music Recommendation' über die Jahre
-    :spec: c c | c c
-
-    ========== ====== ========== ======
-    Jahre      Anzahl Jahre      Anzahl
-    ========== ====== ========== ======
-    1994-2000  1      2007-2008  8
-    2001-2002  4      2009-2010  9
-    2003-2004  3      2011-2012  6
-    2005-2006  8      2013-2014  5+  
-    ========== ====== ========== ======
-
-Und mittlerweile gibt es mit *Music Recommendation and Discovery* sogar ein 200
-Seiten starkes Buch zum Thema. :cite:`celma2010music`.
-
-Was fehlt also?
----------------
+Zielsetzung
+===========
 
 Viele dieser Arbeiten präsentieren jeweils einen Weg um die Ähnlichkeit zweier 
 Musikstücke zu bestimmen - viele greifen dabei auf Audioanalyse zurück, also 
@@ -83,14 +52,10 @@ Die nötigen Bauteile und das Wissen um ein allgemein einsetzbares, qualitatives
 Musikempfehlungssystem zu schaffen sind also vorhanden - nur eine frei
 verfügbare Umsetzung fehlt.
 
-.. rubric:: Footnotes
+Verbesserungsmöglichkeiten
+==========================
 
-.. [#f1] eine frei verfügbare Musikmetadatendatenbank. :cite:`3A3`
-
-Quo vadis?
-----------
-
-Weit verbreitet sind bei Musicplayern *,,Intelligente Playlists''* [#f4]_  die
+Weit verbreitet sind bei Musicplayern *Intelligente Playlists* [#f2]_  die
 allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
 ``Last.fm`` suchen, um Musikempfehlungen auszusprechen - was  keineswegs eine
 schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern. 
@@ -100,14 +65,6 @@ nicht immer möglich oder gar wünschenswert - eine Lösung welche rein auf
 einem Rechner laufen kann wäre von Nöten - gewißermaßen das Backend von
 ``Last.fm`` für den freien (frei wie in *Free Open Source Software*) Einsatz.
 
-Ein zusätzlicher Vorteil: Man entgeht einerseits der Werbung, die bei den
-meisten Diensten  zwischen allen paar Liedern gespielt wird, andererseits ist
-man nicht einer Vorauswahl der Musiklabels unterworfen - denn meist wird nur die
-momentan *populäre* Musik bei den oben genannten Plattformen gespielt. Zudem ist
-diese Musik kommerzieller Natur - freie, *Creative Commons* lizenzierte Musik,
-wie man sie beispielsweise auf Jamendo [#f3]_ findet, sucht man anderswo
-vergebens.
-
 Dadurch dass das entstehende System frei in den Quellen verfügbar sein soll, kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
 existierenden Backends, wie sie beispielsweise hinter ``Last.fm`` stehen, wäre
@@ -115,21 +72,11 @@ ein solches System auf Qualität optimiert - weniger auf Wirtschaftlichkeit,
 sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
-Die Tatsache, dass der Autor sich schon seit längerer Zeit ein *,,echtes''*
-Feature für *,,Intelligente Playlisten''* für den MPD Client [#f4]_ den er
+Die Tatsache, dass der Autor sich schon seit längerer Zeit ein *,,echtes"*
+Feature für *Intelligente Playlisten* für den MPD Client [#f4]_ den er
 entwickelt wünscht, trägt natürlich auch zur Motivation bei - vor allem soll
 deshalb auch nach dem Abschluss dieser Arbeit das Projekt weiterentwickelt
 werden. 
-
-.. rubric:: Footnotes
-
-.. [#f2] *Intelligente Playlisten* bezeichnen die automatisch nach bestimmten
-   Kriterien aus einen Pool von Songs fortlaufen generiert werden.
-
-.. [#f3] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`
-
-.. [#f4] Ein MPD Client ist eine *,,Fernbedienung''* für den unter Unix weit
-   vebreitenden MPD (MusicPlayerDaemon).
 
 Namensgebung
 ============
@@ -142,7 +89,7 @@ geplantes Musikempfehlungssystem *libmunin* genannt.
     *In Norse mythology, Hugin (from Old Norse “thought”)*
     *and Munin (Old Norse “memory” or “mind”)*
     *are a pair of ravens that fly all over the world Midgard,*
-    *and bring information to the god Odin.*
+    *and bring information to Odin.*
 
     -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:`wiki2014hugin`
 
@@ -150,3 +97,13 @@ Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
 Bibliothek *libmunin* benannt. Das hat den humorvollen Nebeneffekt dass eine
 kommerzielle Bibliothek mit ähnlichem Namen (*mufin-audiogen* :cite:`IKC`) eine
 freie Alternative erhält.
+
+.. rubric:: Footnotes
+
+.. [#f1] *MusicBrainz* ist eine freie, populäre Online-Musikmetadaten-Datenbank. :cite:`3A3`
+
+.. [#f2] *Intelligente Playlisten* bezeichnen Playlisten, die nach bestimmten,
+   vom Nutzer vorgegebenen, Kriterien aus einer Menge von Songs fortlaufend generiert werden.
+
+.. [#f4] Ein MPD Client ist eine *,,Fernbedienung"* für den unter Unix weit
+   vebreitenden MPD (MusicPlayerDaemon).
