@@ -52,7 +52,7 @@ Graphen--Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
     :align: center
 
     Beispielgraph mit 100 Knoten, aus generierten Testdaten. Die Farbe der
-    Knoten zeigt grob die ,,Zentralität'' des Knoten an. Pro Knoten wurde
+    Knoten zeigt grob die ,,Zentralität" des Knoten an. Pro Knoten wurde
     ein Integer zwischen 1-100 willkürlich generiert, diese wurden mit einer
     primitiven Distanzfunktion verglichen. Die Länge der Kanten ist durch das
     Layout bedingt und deutet nicht auf die Distanz hin.
@@ -165,7 +165,7 @@ Empfehlung ausgesiebt.
 Lernen durch die Historie
 -------------------------
 
-Wie in Kapitel 2 (TODO?) erwähnt, soll *libmunin* Mechanismen bieten um sowohl
+Wie bereits erwähnt, soll *libmunin* Mechanismen bieten um sowohl
 *explizit* als auch *implizit* vom Nutzer zu lernen.  Das *implizite* Lernen 
 erfolgt dabei durch Assoziationsregeln, die aus der Aufzeichnung des Gehörten
 abgeleitet werden.
@@ -176,7 +176,7 @@ Nur eine bestimmte Anzahl von Regeln wird gespeichert --- zuviele Regeln würden
 *historische Altlasten* immer weiter mitschleppen und der aktuelle Geschmack des
 Benutzers würde nicht widergespiegelt werden. Beispielsweise kann man hier einem
 Hörer nennen der *libmunin* zwei Jahre lang nutzt und anfangs viel elektronische
-Ambient-Musik hört, in letzter Zeit aber auf Klassik umgesattelt hat. Nach
+*Ambient-Musik* hört, in letzter Zeit aber auf *Klassik* umgesattelt hat. Nach
 einiger Zeit sollten also keine Empfehlungen zu elektronischer Musik mehr
 kommen.
 
@@ -426,27 +426,27 @@ Detail konfiguriert ist.
     :alt: Default--Konfiguration der ,,EasySession''
     :spec: @{}l | l | l | l | l | c
 
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    |  Attribut    |  Provider            |  Distanzfunktion | Eingabe                         |  Weight         |  Kompression?      |
-    +==============+======================+==================+=================================+=================+====================+
-    | ``artist``   | ``ArtistNormalize``  | Default          | Künstler                        | :math:`1\times` | :math:`\checkmark` |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    | ``album``    | ``AlbumNormalize``   | Default          | Albumtitel                      | :math:`1\times` | :math:`\checkmark` |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    | ``title``    | ``TitleNormalize``   | Default          | Tracktitel                      | :math:`2\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    | ``date``     | ``Date``             | ``Date``         | Datums--String                  | :math:`4\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    | ``bpm``      |  ``BPMCached``       | ``BPM``          | Audiofile--Pfad                 | :math:`6\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    | ``lyrics``   | ``Keywords``         | ``Keywords``     | Songtext                        | :math:`6\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    | ``rating``   | Default              | ``Rating``       | Integer (:math:`0 \le x \le 5`) | :math:`4\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    |  ``genre``   |  ``GenreTree``       | ``GenreTree``    | Genre--String                   | :math:`8\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
-    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``      | Audiofile--Pfad                 | :math:`9\times` |                    |
-    +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    |  Attribut    |  Provider            |  Distanzfunktion | Eingabe                      |  Weight         |  Kompression?      |
+    +==============+======================+==================+==============================+=================+====================+
+    | ``artist``   | ``ArtistNormalize``  | Default          | Künstler                     | :math:`1\times` | :math:`\checkmark` |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    | ``album``    | ``AlbumNormalize``   | Default          | Albumtitel                   | :math:`1\times` | :math:`\checkmark` |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    | ``title``    | ``TitleNormalize``   | Default          | Tracktitel                   | :math:`2\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    | ``date``     | ``Date``             | ``Date``         | Datums--String               | :math:`4\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    | ``bpm``      |  ``BPMCached``       | ``BPM``          | Audiofile--Pfad              | :math:`6\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    | ``lyrics``   | ``Keywords``         | ``Keywords``     | Songtext                     | :math:`6\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    | ``rating``   | Default              | ``Rating``       | Integer (:math:`\in [0, 5]`) | :math:`4\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    |  ``genre``   |  ``GenreTree``       | ``GenreTreeAvg`` | Genre--String                | :math:`8\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
+    |  ``moodbar`` | ``MoodbarAudioFile`` | ``Moodbar``      | Audiofile--Pfad              | :math:`9\times` |                    |
+    +--------------+----------------------+------------------+------------------------------+-----------------+--------------------+
 
 
 **Song:** Speichert fur jedes Attribut einen Wert, oder einen leeren
@@ -482,11 +482,11 @@ wird die gewichtete Gesamtdistanz gespeichert.  Beispielhaft ist das in
 .. _fig-distance-table:
 
 .. figtable::
-    :caption: Anschauliche Darstellung der Daten die in einer ,,Distance"
+    :caption: Anschauliche Darstellung der Daten die in einer ,,Distance''
               Instanz gespeichert werden. Im Beispiel mit einer Maske die nur 3
               Attribute hat: date, genre und lyrics. Die Gewichtiungen wurde von
-              der ,,EasySession" übernommen.
-    :alt: Beispielhafte Darstellung einer ,,Distance" Instanz.
+              der ,,EasySession'' übernommen.
+    :alt: Beispielhafte Darstellung einer ,,Distance'' Instanz.
     :spec: l | l 
 
     +--------------------+----------------------------------------------------------------------------------+
@@ -569,7 +569,8 @@ Jeder Provider bietet eine ``do_process()`` Methode die von den Unterklassen
 Verarbeitung durch den Provider anzuzeigen.
 
 Provider können, mittels eines speziellen Providers, zu einer Kette
-zusammengeschaltet werden. Siehe dazu auch :ref:`composite-provider`.
+zusammengeschaltet werden. Siehe dazu auch: ``Composite`` unter
+:ref:`provider-list`.
 
 Oft kommt es vor dass die Eingabe für einen Provider viele Dupletten
 enthält --- beispielsweise wird derselbe Künstler--String für viele Songs eingepflegt. 

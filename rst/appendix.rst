@@ -302,13 +302,11 @@ zeigt:
     - Ableiten von Assoziationsregeln
     - Mehrere Möglichkeiten zur Empfehlung
 
-``complex.py``
-~~~~~~~~~~~~~~
-
 .. code-block:: python
 
     #!/usr/bin/env python
     # encoding: utf-8
+    # complex.py
 
     import sys
 
@@ -458,8 +456,7 @@ zeigt:
         # Save it under ~/.cache/libmunin/demo
         session.save()
 
-Ausgabe nach dem ersten Lauf:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Ausgabe nach dem ersten Lauf:**
 
 .. code-block:: python
 
@@ -488,8 +485,7 @@ Ausgabe nach dem ersten Lauf:
       #2 was played 2x times
     matching ['pop']
 
-Ausgabe nach dem 10ten Lauf:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Ausgabe nach dem 10ten Lauf:**
 
 .. code-block:: python
 

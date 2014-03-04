@@ -49,62 +49,54 @@ Ist *libmunin* korrekt installiert, so lässt sich dieses Skript als
 Kurze Erläuterung des Beispiels 
 -------------------------------
 
-* **Zeile 1:** 
-  
-  Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
+* **Zeile 1:** Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
   Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
   und Weighting) mitunter recht anstrengend werden kann greifen wir auf eine
-  Session mit vorgefertigter Maske zurück --- die sogenannte
-  ``EasySession``.
+  Session mit vorgefertigter Maske zurück --- die sogenannte ``EasySession``.
   
-* **Zeile 3:**
+* **Zeile 3:** Hier erstellen wir uns eine Pseudodatenbank aus vier Liedern mit
+  vier einzelnen Attributen jeweils.
 
-  Hier erstellen wir uns eine Pseudodatenbank aus vier Liedern mit vier
-  einzelnen Attributen jeweils.
+* **Zeile 11:** Hier wird die oben erwähnte ``EasySession`` instanziert. Sie
+  dient uns jetzt als *Sitzung* --- alle relevanten Methoden von *libmunin*
+  können auf der *Session* aufgerufen werden.
 
-* **Zeile 11:** 
-
-  Hier wird die oben erwähnte ``EasySession`` instanziert. Sie dient uns jetzt
-  als *Sitzung* --- alle relevanten Methoden von *libmunin* können auf der
-  *Session* aufgerufen werden.
-
-* **Zeile 12:**
-
-  Bein initialen Importieren der Datenbank werden alle Songs über die ``add``
-  Operation hinzugefügt. Da ``add`` noch keine Verbindungen zwischen den
-  einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
+* **Zeile 12:** Bein initialen Importieren der Datenbank werden alle Songs über
+  die ``add`` Operation hinzugefügt. Da ``add`` noch keine Verbindungen zwischen
+  den einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
   Importieren ein ``rebuild`` ausgeführt wird.
 
-* **Zeile 14:**
-
-  Wir iterieren (**Zeile 13**) über alle Songs in unserer Pseudodatenbank und 
-  fügen diese der *Session* hinzu (über die ``add`` Operation). zu beachten ist
-  dabei: Es wird eine Hashtable übergeben in denen bestimmte Schlüssel (wie
-  ``artist``) von der ``EasySession`` vorgegeben sind --- erstellt man eine eigene
-  Session kann man diese nach Belieben Konfigurieren.
+* **Zeile 14:** Wir iterieren (**Zeile 13**) über alle Songs in unserer
+  Pseudodatenbank und fügen diese der *Session* hinzu (über die ``add``
+  Operation). Zu beachten ist dabei: Es wird eine Hashtable übergeben in denen
+  bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben sind
+  --- erstellt man eine eigene Session kann man diese nach Belieben
+  Konfigurieren.
   
+
   Ein Problem dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
   Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
   verwaltet die Originaldaten mit denen er arbeitet während *libmunin* nur
   normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
   welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
 
-  Dazu ist ein Mapping erforderlich das 
+
+  Dazu ist eine Abbildung erforderlich, das 
   Zu diesem Zwecke geben die Operationen ``add``, ``insert``, ``modify`` und
   ``remove`` eine eindeutige *ID* zurück die einen von *libmunin's* Songs
   referenziert. Der Benutzer kann diese nutzen um auf eine *ID* innerhalb *seiner*
   Datenbank zu referenzieren. 
 
+  
   Im obigen Beispiel wird die von ``add`` zurückgebene *ID* auf die *ID* innerhalb
-  von *MY_DATABASE* gemappt.
+  von *MY_DATABASE* abgebildet. 
 
-* **Zeile 21:**
-
-  In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen uns von der
-  ``EasySession`` über die Methode ``recommend_from_seed`` zwei Empfehlungen zum ersten
-  Song der über ``add`` hinzugefügt wurde geben. Die Empfehlung selbst wird als
-  ``Song`` Objekt ausgegeben --- dieses hat unter anderen eine *ID* gespeichert mit
-  der wir die ursprünglichen Daten finden können.
+* **Zeile 21:** In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen
+  uns von der ``EasySession`` über die Methode ``recommend_from_seed`` zwei
+  Empfehlungen zum ersten Song der über ``add`` hinzugefügt wurde geben. Die
+  Empfehlung selbst wird als ``Song`` Objekt ausgegeben --- dieses hat unter
+  anderen eine *ID* gespeichert mit der wir die ursprünglichen Daten finden
+  können.
 
 Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
 :cite:`5LX`.
@@ -114,17 +106,17 @@ Kurze Erläuterung der Ausgabe
 -----------------------------
 
 Die Ausgabe ist bei näherer Betrachtung nicht weiter überraschend: Da sich nur
-das Genre effektiv vergleichen lässt und wir uns von dem ersten Song (,,
-*Trugbild* ") zwei Empfehlungen geben ließen werden die zwei Songs mit dem
+das Genre effektiv vergleichen lässt und wir uns von dem ersten Song 
+(,,*Trugbild*") zwei Empfehlungen geben ließen werden die zwei Songs mit dem
 ähnlichsten Genre ausgegeben.
 
 In Abbildung :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* (0) 
 ist direkt mit den Songs 1 (*Vogelfrey*) und 3 (*Debauchery*) benachbart. 
 Da die beiden Genres *folk rock* und *death metal* keine gemeinsame Schnittmenge
-haben ist dieser auch kein Nachbar --- Valide Nachbarn müssen stets eine Distanz
-:math:`\le 1.0` besitzen.
+haben ist dieser auch kein Nachbar --- Verbindungen zwischen zwei Knoten, werden 
+nur dann hergestellt, wenn die Distanz :math:`< 1.0` ist.
 
-Ein komplizierteres Beispiel das die meisten Aspekte von libmunin abdeckt 
+Ein komplizierteres Beispiel das die meisten Aspekte von *libmunin* abdeckt 
 findet sich in :ref:`complex-example`.
 
 .. _fig-minigraph: 
@@ -160,440 +152,332 @@ Information für Dritte, mehr als persönliche Erinnerung.
 
 Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt. 
 Die letzten 3 :math:`^1/_2` Wochen dieser Zeit wurden für die
-Implementierung einer Demonanwendung aufgewendet.
+Implementierung einer Demo--Anwendung aufgewendet.
 
 .. _list-of-recom-strategies:
 
 Liste verfügbarer Empfehlungs--Strategien
 =========================================
 
-Basierend auf einem Seedsong
-----------------------------
+* **Basierend auf einem Seedsong:** Basierend auf einem vom Endnutzer
+  ausgewählten Song wird ein Iterator zurückgegeben der gemäß :ref:`recom-out`
+  eine Breitensuche von diesem Seedsong aus ausführt. Optional wird  der
+  *Iterator* gemäß :ref:`recom-filter` gefiltert.
 
-Basierend auf einem vom Endnutzer ausgewählten Song
-wird ein Iterator zurückgegeben der gemäß :ref:`recom-out` eine Breitensuche von
-diesem Seedsong aus ausführt. Optional wird  der *Iterator* gemäß
-:ref:`recom-filter` gefiltert.
+* **Basierend auf einer Heuristik:** *libmunin* kann auch automatisch einen oder
+  mehrere geeignete Seedsongs auswählen. Dabei wird der Reihe nach das folgende
+  probiert:
+  
+  1. Wähle die Regel mit der besten Bewertung aus und nehme alle darin erwähnten
+     Songs als Seedsongs an.
+  2. Wähle den Song mit der höchsten Abspielanzahl als Seedsong.
+  3. Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
+     abgespielt wurde, so wird ein zufälliger Seedsong gezogen.
+  
+  Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
 
-Basierend auf einer Heuristik
------------------------------
+* **Basierend auf einer Attributsuche:** Es kann nach einen oder mehreren Songs
+  gesucht werden die gewisse Attribut--Werte--Paare aufweisen. Als Beispiel kann
+  ein Song gesucht werden der die Merkmale ,,Genre: Rock" und ,,Date: 2012"
+  aufweist.
+  
+  Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
+  Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
 
-*libmunin* kann auch automatisch einen oder mehrere geeignete Seedsongs
-auswählen. Dabei wird der Reihe nach das folgende probiert:
+.. _provider-list:
 
-* Wähle die Regel mit der besten Bewertung aus und nehme alle darin erwähnten
-  Songs als Seedsongs an.
-* Wähle den Song mit der höchsten Abspielanzahl als Seedsong.
-* Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
-  abgespielt wurde, so wird ein zufälliger Seedsong gezogen.
-
-Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
-
-Basierend auf einer Attributsuche
----------------------------------
-
-Es kann nach einen oder mehreren Songs gesucht werden die gewisse
-Attribut--Werte--Paare aufweisen. Als Beispiel kann ein Song gesucht werden der
-die Merkmale ,,Genre: Rock" und ,,Date: 2012" aufweist.
-
-Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
-Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
-
-Liste verfügbarer Provider und Distanzfunktionen
-================================================
+Liste der Provider
+==================
 
 Insgesamt wurden 13 unterschiedliche Provider implementiert --- davon variieren
 einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen --- auch
 manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.
 
-.. _provider-list:
-
-Liste der Provider
-------------------
-
-Die genaue Funtkionsweise der Provider wird in der Bachelorarbeitet betrachtet.
+Die genaue Funktionsweise der Provider wird in der Bachelorarbeitet betrachtet.
 Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
 Eingabe sie erwarten sowie welche Ausgabe sie produzieren.
 
+* ``Date``: Wandelt und normalisiert ein Datum dass als String übergeben wird zu
+  einer Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
+  Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+  unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
 
-``Date``
-~~~~~~~~
-
-Wandelt und normalisiert ein Datum dass als String übergeben wird zu einer
-Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
-Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
-unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
-
-``Moodbar``
-~~~~~~~~~~~
-
-Berechnet mit dem ``moodbar`` (vgl. :cite:`wood2005techniques`) Programm aus
-einen beliebigen Audio File einen Vektor mit 1000 RGB-Farbwerten (siehe
-:num:`fig-moodbar-suidakra`). Jeder dieser Farbwerte repräsentiert den Anteil
-niedriger Frequenzen (rot), mittlerer (grün) und hoher Frequenzen (blau) in
-einem Tausendstel des Audiostücks. 
-
-Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
-*Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
-lediglich herauslesen wie ,,energetisch" ein Lied zu einem bestimmten
-Zeitpunkt ist --- mit etwas Glück kann man auch Instrumente erkennen --- so ist
-die Kombination von E-Gitarre und Drums oft ein helles Türkis.
-
-Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet --- die
-dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
-
-Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
-Typ ihrer Eingabe unterscheiden:
-
-* ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
-* ``MoodbarFile``: Nimmt ein Pfad zu einem von der ``moodbar`` erstellten Datei
-  entgegen die einen Vektor aus 1000 RGB-Werten binär beinhaltet.
-* ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audiodatei entgegen
-  und führt das ``moodbar``-Utility darauf aus falls noch keine weiter Datei mit
-  demselben Pfad plus der zusätzlichen Endung ``.mood`` vorhanden ist.
-
-.. _fig-moodbar-suidakra:
-
-.. figure:: figs/moodbar_suidakra.*
-    :alt: Moodbar Beispielsvisualisierung
-    :width: 100%
-    :align: center
-
-    Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over Nine
-    Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
-    Dudelsack--Intro. Bei 30% setzen relativ plötzlich harte E-Gitarren und Drums
-    ein, die in verschiedenen Variationen durch das ganze Lied gehen. 
-    Musik--Link auf YouTube: :cite:`YTS`.
-
-
-
-``Wordlist``
-~~~~~~~~~~~~
-
-Bricht einen String in eine Liste von Wörter auf.
-
-``BPM``
-~~~~~~~
-
-Berechnet die ,,Beats--Per--Minute" eines Lieds, also einem Maß für die
-Schnelligkeit  --- dies funktioniert nicht nur für stark beatlastige
-Musikrichtungen wie Techno sondern auch für normale Musikrichtungen. 
-
-Die Funktionalität wird momentan, eher primitiv, durch den Aufurf eines externen
-Tools realisiert :cite:`4YZ`. 
-
-``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``, `TitleNormalize`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Diese Provider normalisieren die häufig unsauberen Tags einer Musiksammlung auf
-verschiedene Art und Weise: 
-
-``Normalize``:
-""""""""""""""
-
-Normalisiert einen String mittels *NKFC Unicode Normalization*.
-Bei Unicode gibt es oft mehrere Arten einen *Glyph* zu schreiben. So kann
-ein ,,ä" als einzelner Glyph (*Codepoint U+e4*) oder als *Composite
-Glyph* geschrieben werden: ,,\" + a" (*U+30B + U+61*). Dieser Provider macht
-daraus stets den ersten Fall.
-
-``ArtistNormalize``:
-""""""""""""""""""""
-
-Entfernt zusätzlich *Unrat* der bei Künstlernamen vorhanden
-ist. Beispielsweise wird aus *,,The Beatles"* der String *,,beatles"*
-
-``AlbumNormalize``:
-"""""""""""""""""""
+* ``Moodbar``: Berechnet mit dem ``moodbar`` (vgl. :cite:`wood2005techniques`)
+  Programm aus einen beliebigen Audio File einen Vektor mit 1000 RGB-Farbwerten
+  (siehe :num:`fig-moodbar-suidakra`). Jeder dieser Farbwerte repräsentiert den
+  Anteil niedriger Frequenzen (rot), mittlerer (grün) und hoher Frequenzen
+  (blau) in einem Tausendstel des Audiostücks. 
   
-Entfernt analog zu ``ArtistNormalize`` Unrat aus Album--Namen wie *(live 2012)* 
+  Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
+  *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
+  lediglich herauslesen wie ,,energetisch" ein Lied zu einem bestimmten
+  Zeitpunkt ist --- mit etwas Glück kann man auch Instrumente erkennen --- so ist
+  die Kombination von E--Gitarre und Drums oft ein helles Türkis.
+  
+  Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet --- die
+  dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
+  
+  Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
+  Typ ihrer Eingabe unterscheiden:
+  
+  1. ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
+  2. ``MoodbarFile``: Nimmt ein Pfad zu einem von der ``moodbar`` erstellten Datei
+     entgegen die einen Vektor aus 1000 RGB-Werten binär beinhaltet.
+  3. ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audiodatei entgegen
+     und führt das ``moodbar``-Utility darauf aus falls noch keine weiter Datei mit
+     demselben Pfad plus der zusätzlichen Endung ``.mood`` vorhanden ist.
+  
+  .. _fig-moodbar-suidakra:
+  
+  .. figure:: figs/moodbar_suidakra.*
+      :alt: Moodbar Beispielsvisualisierung
+      :width: 100%
+      :align: center
+  
+      Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over
+      Nine Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
+      Dudelsack--Intro. Bei 30% setzen relativ plötzlich harte E--Gitarren und
+      Drums ein, die in verschiedenen Variationen durch das ganze Lied gehen. 
+      Musik--Link auf YouTube: :cite:`YTS`.
 
-``TitleNormalize``: 
-""""""""""""""""""""
+* ``Wordlist``: Bricht einen String in eine Liste von Wörter auf.
 
-Momentan ein Synonym für ``AlbumNormalize``.
+* ``BPM``: Berechnet die ,,Beats--Per--Minute" eines Lieds, also einem Maß für
+  die Schnelligkeit  --- dies funktioniert nicht nur für stark beatlastige
+  Musikrichtungen wie Techno, sondern auch für normale Musik. 
 
-.. _composite-provider:
+  Die Funktionalität wird momentan, eher primitiv, durch den Aufruf eines externen
+  Tools, namens ``bpm-tools`` realisiert :cite:`4YZ`. 
 
-``Composite``
-~~~~~~~~~~~~~
+* ``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``, ``TitleNormalize``:
+  Diese Provider normalisieren die häufig unsauberen Tags einer Musiksammlung
+  auf verschiedene Art und Weise: 
 
-Erlaubt das Verketten von Providern. Der erste Eingabewert wird dem ersten
-Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei einer Unix--Pipe, 
-wird an den nächsten Provider in der Kette als Eingabe weitergegeben.
+  * ``Normalize``: Normalisiert einen String mittels *NKFC Unicode
+    Normalization*.  Bei Unicode gibt es oft mehrere Arten einen *Glyph* zu
+    schreiben. So kann ein ,,ä" als einzelner Glyph (*Codepoint U+e4*) oder als
+    *Composite Glyph* geschrieben werden: ,,\" + a" (*U+30B + U+61*). Dieser
+    Provider macht daraus stets den ersten Fall.
+  
+  * ``ArtistNormalize``: Entfernt zusätzlich *Unrat* der bei Künstlernamen
+    vorhanden ist. Beispielsweise wird aus *,,The Beatles"* der String
+    *,,beatles"*
+  
+  * ``AlbumNormalize``: Entfernt analog zu ``ArtistNormalize`` Unrat aus
+    Album--Namen wie *(live 2012)* 
+  
+  * ``TitleNormalize``: Momentan ein Synonym für ``AlbumNormalize``.
 
-Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
-Baukastenprinzip:
+* ``Composite``: Erlaubt das Verketten von Providern. Der erste Eingabewert wird
+  dem ersten Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei
+  einer Unix--Pipe, wird an den nächsten Provider in der Kette als Eingabe
+  weitergegeben.
 
-.. digraph:: foo
+  Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
+  Baukastenprinzip:
+  
+  .. digraph:: foo
+  
+     size=4.5;
+  
+     node [shape=record];
+  
+     subgraph {
+         rank = same; PlyrLyrics; Keywords; Stem
+     }
+  
+     "Eingabe: Artist, Album" ->  PlyrLyrics [label=" Sucht im Web "]
+     PlyrLyrics -> Keywords [label="liefert Songtext"]
+     Keywords -> Stem [label="extrahiert Keywords"]
+     Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm--Keywords "]
 
-   size=5;
+* ``Stem``: Bringt mithilfe des Porter--Stemmer--Algorithmus es einzelne Wörter
+  oder eine Liste von Wörtern auf ihren Wortstamm zurück. Aus den Wörtern
+  *Fisher*, *Fish*, *fishing* wird beispielsweise stets *fish*. Dies ist
+  natürlich abhängig von der Eingabesprache --- momentan wird aber stets
+  Englisch angenommen.
 
-   node [shape=record];
+* ``GenreTree``: Der wohl komplizierteste Provider.
 
-   subgraph {
-       rank = same; PlyrLyrics; Keywords; Stem
-   }
+  Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert. 
+  Beispielsweise wird die Genrebeschreibung *Rock, Reggae / Alternative Rock*
+  mittels einer Regular Expression in die Unterbestandteile aufgebrochen:
+  
+  * *Rock*
+  * *Reggae*
+  * *Alternative Rock*
+  
+  Danach wird jedes so entstandene Untergenre in einzelne Wörter aufgebrochen und
+  in einem *Baum* bekannter Genres (momentan 1876 einzelne Genres) eingepasst:
+  
+  .. digraph:: foo
+  
+      size=4; 
+      node [shape=record];
+  
+      "music (#0)"  -> "rock (#771)"
+      "music (#0)"  -> "alternative (#14)"
+      "music (#0)"  -> "reggae (#753)"
+      "rock (#771)" -> "alternative (#3)"
+  
+  Hier werden aus Platzgründen nur die Untergenres im obigen Beispiel gezeigt.
+  Jeder Knoten hat zudem einen Indexwert der in Klammern angegeben ist. 
+  
+  Das finale Resultat dieses Providers mit der obigen Eingabe ist dann in
+  Python--Listen Notation:
+  
+  .. code-block:: python
+  
+      [[14], [771, 3], [753], [771]]
+  
+  Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
+  Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
+  Da der Root--Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
+  Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
+  
+  .. code-block:: python
+  
+      [['alternative'], ['alternative', 'rock'], ['reggae'], ['rock']] 
+  
+  Da die einzelnen Pfade allerdings weniger Speicher verbrauchen und sich bei
+  weitem leichter auflösen und vergleichen lassen werden diese vom Provider
+  zurückgegeben.
 
-   "Eingabe: Artist, Album" ->  PlyrLyrics [label=" Sucht im Web "]
-   PlyrLyrics -> Keywords [label="liefert Songtext"]
-   Keywords -> Stem [label="extrahiert Keywords"]
-   Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm--Keywords "]
+* ``Keywords``: Extrahiert aus einem Text als Eingabe alle *relevanten*
+  Stichwörter.  Ein Beispiel dieser *Keywords* wird in
+  :num:`fig-yellow-keywords` gezeigt.  Zudem wird die Sprache des Eingabetextes
+  erkannt und mit abgespeichert.
 
-``Stem``
-~~~~~~~~
+  .. _fig-yellow-keywords:
+  
+  .. figtable::
+      :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
+                Rating.
+      :alt: Extrahierte Keywords aus ,,Yellow Submarine''
+      :spec: l l
+  
+      ====== =================================
+      Rating Keywords 
+      ====== =================================
+      22.558 'yellow', 'submarin'
+      20.835 'full', 'speed', 'ahead', 'mr'
+       8.343 'live', 'beneath'
+       5.247 'band', 'begin'
+       3.297 'sea'
+       3.227 'green'
+       2.797 'captain'
+         ... ...
+      ====== ================================= 
 
-Bringt mithilfe des Porter--Stemmer--Algorithmus es einzelne Wörter oder eine
-Liste von Wörtern auf ihren Wortstamm zurück. Aus den Wörtern *Fisher*, *Fish*,
-*fishing* wird beispielsweise stets *fish*. Dies ist natürlich abhängig von der
-Eingabesprache --- momentan wird aber stets Englisch angenommen.
+* ``PlyrLyrics``: Besorgt mittels *libglyr* Liedtexte aus dem Internet. Bereits
+  gesuchte Liedtexte werden dabei zwischengespeichert. Dieser Provider eignet
+  sich besonders im Zusammenhang mit dem *Keywords* zusammen als *Composite*
+  Provider.
 
-.. _genre-provider:
-
-``GenreTree``
-~~~~~~~~~~~~~
-
-Der wohl komplizierteste Provider.
-
-Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert. 
-Beispielsweise wird die Genrebeschreibung *Rock, Reggae / Alternative Rock*
-mittels einer Regular Expression in die Unterbestandteile aufgebrochen:
-
-* *Rock*
-* *Reggae*
-* *Alternative Rock*
-
-Danach wird jedes so entstandene Untergenre in einzelne Wörter aufgebrochen und
-in einem *Baum* bekannter Genres (momentan 1876 einzelne Genres) eingepasst:
-
-.. digraph:: foo
-
-    size=4; 
-    node [shape=record];
-
-    "music (#0)"  -> "rock (#771)"
-    "music (#0)"  -> "alternative (#14)"
-    "music (#0)"  -> "reggae (#753)"
-    "rock (#771)" -> "alternative (#3)"
-
-Hier werden aus Platzgründen nur die Untergenres im obigen Beispiel gezeigt.
-Jeder Knoten hat zudem einen Indexwert der in Klammern angegeben ist. 
-
-Das finale Resultat dieses Providers mit der obigen Eingabe ist dann in
-Python--Listen Notation:
-
-.. code-block:: python
-
-    [[14], [771, 3], [753], [771]]
-
-Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
-Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
-Da der Root--Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
-Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
-
-.. code-block:: python
-
-    [['alternative'], ['alternative', 'rock'], ['reggae'], ['rock']] 
-
-Da die einzelnen Pfade allerdings weniger Speicher verbrauchen und sich bei
-weitem leichter auflösen und vergleichen lassen werden diese vom Provider
-zurückgegeben.
-
-.. _keyword-provider:
-
-``Keywords``
-~~~~~~~~~~~~
-
-Extrahiert aus einem Text als Eingabe alle *relevanten* Stichwörter. 
-Ein Beispiel dieser *Keywords* wird in :num:`fig-yellow-keywords` gezeigt.
-Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
-
-.. _fig-yellow-keywords:
-
-.. figtable::
-    :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
-              Rating.
-    :alt: Extrahierte Keywords aus ,,Yellow Submarine''
-    :spec: l l
-
-    ====== =================================
-    Rating Keywords 
-    ====== =================================
-    22.558 'yellow', 'submarin'
-    20.835 'full', 'speed', 'ahead', 'mr'
-     8.343 'live', 'beneath'
-     5.247 'band', 'begin'
-     3.297 'sea'
-     3.227 'green'
-     2.797 'captain'
-       ... ...
-    ====== ================================= 
-
-``PlyrLyrics``
-~~~~~~~~~~~~~~
-
-Besorgt mittels *libglyr* Liedtexte aus dem Internet. Bereits gesuchte Liedtexte
-werden dabei zwischengespeichert. Dieser Provider eignet sich besonders im
-Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
-
-.. _discogs-genre-provider:
-
-``DiscogsGenre``
-~~~~~~~~~~~~~~~~
-
-Besorgt von dem Online--Musikmarktplatz *Discogs* Genre Informationen. Dies ist
-nötig da Musiksammlungen für gewöhnlich mittels einer Online--Musikdatenbank
-getaggt werden --- die meisten bieten allerdings keine Genreinformationen. 
+* ``DiscogsGenre``: Besorgt von dem Online--Musikmarktplatz *Discogs* Genre
+  Informationen. Dies ist nötig da Musiksammlungen für gewöhnlich mittels einer
+  Online--Musikdatenbank getaggt werden --- die meisten bieten allerdings keine
+  Genreinformationen. 
 
 .. _distance-function-list:
 
 Liste der Distanzfunktionen
----------------------------
+===========================
 
 Die genaue Funktionsweise der einzelnen Distanzfunktionen wird in der
 Bachelorarbeit genauer betrachtet. Im Folgenden wird aber eine kurze Auflistung
 jeder vorhandenen Distanzfunktion und der Annahme auf der sie basiert
 gegeben.
 
-``Date``
-~~~~~~~~
-
-Vergleicht zwei Jahreszahlen. Eine hohe Differenz führt dabei zu einer hohen
-Distanz. Also ,,erstes" Jahr wird das Jahr 1950 angenommen.
-
-*Annahme:*
-""""""""""
-
-Lieder mit einer großen zeitlichen Differenz zueinander werden selten zusammen
-gehört.
-
-``Moodbar``
-~~~~~~~~~~~
-
-Vergleicht die ``moodbar`` zweier unterschiedlicher Lieder.
-
-*Annahme:*
-""""""""""
-
-Ähnliche Moodbars implizeren auch ähnliche Lieder. Da man oft
-gewissen Instrumente anhand deren Farbe erkennen kann werden unter anderen die
-dominanten Farben und der Stilleanteil verglichen.
-
-``Rating``
-~~~~~~~~~~
-
-Vergleicht ein vom Benutzer vergebenes Rating. Dabei wird zwischen
-nichtgesetzten *(z.B. 0)* und gesetzten Rating unterschieden *(z.B. 1-5)* die
-sich unterschiedlich auf die finale Distanz auswirken.
-
-Die Werte für das Minima, Maxima und den Nullwert können beim Erstellen der
-Session konfiguriert werden.
-
-*Annahme:*
-""""""""""
-
-Zeichnet der Benutzer ein Lied mit einem hohen Rating aus so möchte er
-vermutlich Empfehlungen zu ebenfalls hoch ausgezeichneten Liedern haben.  Dies
-bietet dem Nutzer eine Möglichkeit direkte *Hinweise* an das System zu geben.
-
-``BPM``
-~~~~~~~
-
-Vergleicht den ,,Beats-per--Minute`` Wert zweier Lieder. 
-Als Minimalwert wird 50 und als Maximalwert 250 angenommen.
-
-*Annahme:*
-""""""""""
-
-Ähnlich schnelle Lieder werden oft zusammen gespielt.
-
-``Wordlist``, ``Levenshtein``, ``Keywords``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Diese Distanzen vergleiche alle, auf unterschiedliche Art und Weise, zwei Menge
-von Wörtern miteinander.
-
-``Wordlist``:
-"""""""""""""
-
-Vergleicht eine Menge von Wörtern auf Identität. Sind die Mengen identisch so
-kommt eine Distanz von :math:`0.0` dabei heraus. 
-
-*Annahme:* 
-""""""""""
-
-Diese Distanzfunktion ist beispielsweise beim Vergleich von Titeln
-nützlich. Ähnliche Wörter in Titeln deuten oft auf ähnliche Themen hin. 
-Als Beispiel kann man die Titel *,,Hey Staat" (Hans Söllner)* und *,,Lieber
-Staat" (Farin Urlaub)* nennen.
-
-``Levenshtein``:
-""""""""""""""""
-
-Wie ``Wordlist``, die einzelnen Wörter werden aber mittels der Levenshtein
-Distanzfunktion verglichen.  So spielen kleine Abweichung wie der Vergleich von
-``color`` und ``colour`` keine große Rolle mehr. Der große Nachteil ist der
-erhöhte Rechenaufwand.
-
-*Annahme:* 
-""""""""""
-
-Ähnlich wie bei ``Wordlist``, aber eben auch für Daten bei denen man kleine
-Unterschiede in der Schreibweise erwartet. Beispielsweise bei Künstlern
-``ZZ-Top`` und ``zz Top``.
-
-Ähnlich wie 
+* ``Date``: Vergleicht zwei Jahreszahlen. Eine hohe Differenz führt dabei zu
+  einer hohen Distanz. Also ,,erstes" Jahr wird das Jahr 1950 angenommen.
 
 
-``Keywords``:
-"""""""""""""
+  *Annahme:* Lieder mit einer großen zeitlichen Differenz zueinander werden
+  selten zusammen gehört.
 
-Nimmt die Ergebnisse des ``Keyword`` (:ref:`keyword-provider`) Providers
-entgegen und bezieht die Sprache beider Keywordmengen sowie die länge der
-einzelnen Keywords in die Distanz mit ein.
-
-*Annahme:* 
-""""""""""
-
-Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied vorgeschlagen
-bekommen --- oder zumindest in derselben Sprache.
-
-``GenreTreeAvgLink``, ``GenreTree``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Vergleicht die unter :ref:`genre-provider` erwähnten Pfade.
-
-``GenreTree``:
-""""""""""""""
-
-Vergleicht alle Pfade in beiden Eingabemengen miteinander und nimmt die
-**geringste** Distanz von allen. 
-
-Diese Distanzfunktion sollte gewählt werden wenn die Genre--Tags eher kurz
-gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
-
-``GenreTreeAvgLink``:
-"""""""""""""""""""""
-
-Vergleicht alle Pfade in beiden Eingabemengen miteinander und nimmt die
-**durchschnittliche** Distanz von allen. 
-
-Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre--Tags
-vorhanden --- wie sie beispielsweise vom ``DiscogsGenre`` Provider geliefert
-werden :ref:`discogs-genre-provider` --- sind.
-
-*Annahme:*
-""""""""""
-
-Ähnliche Genres deuten auf ähnliche Musikstile hin.
+* ``Moodbar`` Vergleicht die ``moodbar`` zweier unterschiedlicher Lieder.
 
 
-Modul- und Paketübersicht
-=========================
+  *Annahme:* Ähnliche *Moodbars* implizieren auch ähnliche Lieder. Da man oft
+  gewissen Instrumente anhand deren Farbe erkennen kann werden unter anderen die
+  dominanten Farben und der Stilleanteil verglichen.
+
+* ``Rating``: Vergleicht ein vom Benutzer vergebenes Rating. Dabei wird zwischen
+  nicht gesetzten *(z.B. 0)* und gesetzten Rating unterschieden *(z.B. 1-5)* die
+  sich unterschiedlich auf die finale Distanz auswirken.  Die Werte für das
+  Minima, Maxima und den Nullwert können beim Erstellen der Session konfiguriert
+  werden.
+
+
+  *Annahme:* Zeichnet der Benutzer ein Lied mit einem hohen Rating aus so möchte
+  er vermutlich Empfehlungen zu ebenfalls hoch ausgezeichneten Liedern haben.
+  Dies bietet dem Nutzer eine Möglichkeit direkte *Hinweise* an das System zu
+  geben.
+
+* ``BPM``: Vergleicht den ,,Beats-per--Minute`` Wert zweier Lieder.  Als
+  Minimalwert wird 50 und als Maximalwert 250 angenommen.
+
+
+  *Annahme:* Ähnlich schnelle Lieder werden oft zusammen gespielt.
+
+* ``Wordlist``: Vergleicht eine Menge von Wörtern auf Identität. Sind die Mengen
+  identisch so kommt eine Distanz von :math:`0.0` dabei heraus. 
+
+
+  *Annahme:* Diese Distanzfunktion ist beispielsweise beim Vergleich von Titeln
+  nützlich. Ähnliche Wörter in Titeln deuten oft auf ähnliche Themen hin.  Als
+  Beispiel kann man die Titel *,,Hey Staat" (Hans Söllner)* und *,,Lieber Staat"
+  (Farin Urlaub)* nennen.
+
+* ``Levenshtein``:
+  Wie ``Wordlist``, die einzelnen Wörter werden aber mittels der Levenshtein
+  Distanzfunktion verglichen.  So spielen kleine Abweichung wie der Vergleich von
+  ``color`` und ``colour`` keine große Rolle mehr. Der große Nachteil ist der
+  erhöhte Rechenaufwand.
+  
+
+  *Annahme:* Ähnlich wie bei ``Wordlist``, aber eben auch für Daten bei denen man
+  kleine Unterschiede in der Schreibweise erwartet. Beispielsweise bei Künstlern
+  ``ZZ-Top`` und ``zz Top``.
+
+* ``Keywords``: Nimmt die Ergebnisse des ``Keyword``--Providers entgegen und
+  bezieht die Sprache beider Keywordmengen sowie die länge der einzelnen
+  Keywords in die Distanz mit ein.
+  
+
+  *Annahme:* Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied
+  vorgeschlagen bekommen --- oder zumindest in derselben Sprache.
+
+* ``GenreTree``, ``GenreTreeAvg``: Vergleicht die vom ``GenreTree``--Provider
+  erzeugten Pfade.
+  
+  - ``GenreTree``: Vergleicht alle Pfade in beiden Eingabemengen miteinander und
+    nimmt die **geringste** Distanz von allen. 
+  
+    Diese Distanzfunktion sollte gewählt werden wenn die Genre--Tags eher kurz
+    gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
+
+  - ``GenreTreeAvg``: Vergleicht alle Pfade in beiden Eingabemengen miteinander
+    und nimmt die **durchschnittliche** Distanz von allen. 
+    
+    Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre--Tags
+    vorhanden --- wie sie beispielsweise vom ``DiscogsGenre``--Provider geliefert
+    werden --- sind.
+    
+
+  *Annahme:* Ähnliche Genres deuten auf ähnliche Musikstile hin.
+
+
+Modul-- und Paketübersicht
+==========================
 
 In der Programmiersprache *Python* entspricht jede einzelne ``.py`` Datei einem
 *Modul*. Die Auflistung unter :num:`fig-module-tree` soll eine Übersicht darüber
 geben welche Funktionen in welchem Modul implementiert worden.
+
+*Anmerkung:* ``__init__.py`` ist eine spezielle Datei, die beim Laden
+eines Verzeichnisses durch Python ausgeführt wird.
 
 .. _fig-module-tree:
 
@@ -677,22 +561,22 @@ geben welche Funktionen in welchem Modul implementiert worden.
     |                   |  testing.py      |                |       | Fixtures und Helper für unittests           |
     +-------------------+------------------+----------------+-------+---------------------------------------------+
 
-
 Trivia
 ======
 
 Entwicklungsumgebung
 --------------------
 
-Als Programmiersprache wurde *Python* aus folgenden Gründen ausgewählt:
+Als Programmiersprache wurde *Python*, in Version :math:`3.2`, aus folgenden
+Gründen ausgewählt:
 
 * Exzellenter Support für *Rapid Prototyping* --- eine wichtige Eigenschaft bei
   nur knapp 3 Monaten Implementierungszeit.
 * Große Zahl an nützlichen Bibliotheken, besonders für den wissenschaftlichen
   Einsatz.
 * Bei Performanceproblemen ist eine Auslagerung von Code nach
-  :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` mittels *Cython* sehr
-  einfach möglich.
+  :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` mittels
+  *Cython* sehr einfach möglich.
 * Der Autor hat gute Kenntnisse in Python.
 
 Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
@@ -703,12 +587,12 @@ Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
 besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
 zumindest die Seite für spätere Projekte merken. 
 
-Die dazugehörige Dokumentation wird bei jedem *Commit* automatisch aus den
+Die dazugehörige Dokumentation wird bei jedem *Commit* [#f1]_ automatisch aus den
 Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der
 Dokumentations--Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
 gemacht :cite:`5LX`.
 
-Zudem werden pro Commit Unittests auf der Continious--Integration Plattform
+Zudem werden pro Commit Unit--Tests auf der Continious--Integration Plattform
 *TravisCI* :cite:`JIU` für verschiedene Python--Versionen durchgeführt. Dies hat
 den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
 vergessen hat die unittests lokal durchzuführen.
@@ -747,8 +631,8 @@ modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
 Variante :cite:`8MD` erstellt wird --- letztere ist sogar für mobile Endgeräte
 ausgelegt.  
 
-Unittests
----------
+Unit--Tests
+-----------
 
 Die meisten Module sind mit ``unittests`` ausgestattet, die sich, für Python
 typisch, am Ende von jeder ``.py``-Datei befinden:
@@ -773,7 +657,7 @@ typisch, am Ende von jeder ``.py``-Datei befinden:
 
         
 Auf einer detaillierten Erklärung der im einzelnen getesteten Funktionalitäten
-wird verzichtet-  diese würden den Rahmen der Projektarbeit ohne erkenntlichen
+wird verzichtet --- diese würden den Rahmen der Projektarbeit ohne erkenntlichen
 Mehrwert sprengen.
 
 Lines of Code (*LoC*)
@@ -786,14 +670,14 @@ Kommentare, die zum größten Teil zur Generation der Online--Dokumentation
 genutzt werden.
 
 Dazu kommen einige weitere Zeilen von *reStructuredText* (einer einfachen
-Markup--Sprache) die das Gerüst der Onlinedokumentation bilden:
+Markup--Sprache) die das Gerüst der Online--Dokumentation bilden:
 
 .. code-block:: bash
 
     $ wc -l $(find . -iname '*.rst')
     2231 insgesamt
 
-Die Onlinedokumentation wird aus den Kommentaren im Quelltext
+Die Online--Dokumentation wird aus den Kommentaren im Quelltext
 extrahiert --- das entspricht dem vom *Donald Knuth* vorgeschlagenem
 Ansatz des *Literate Programming*.
 
@@ -803,26 +687,22 @@ Sonstige Statistiken
 Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
 ``git log`` entstanden sind:
 
-GitHub Visualisierungen
-~~~~~~~~~~~~~~~~~~~~~~~
+**GitHub Visualisierungen:** *GitHub* stellt einige optisch ansprechende und
+interaktive Statistiken bereit die beispielsweise viel über den eigenen
+Arbeitszyklus verraten: :cite:`IBL`
 
-*GitHub* stellt einige optisch ansprechende und interaktive Statistiken bereit
-die beispielsweise viel über den eigenen Arbeitszyklus verraten:
+``gitstats`` **Visualisierungen:** Das kleine Programm ``gitstats`` baut aus dem
+``git log`` eine HTML-Seite mit einigen interessanten Statistiken --- wie
+beispielsweise der absoluten Anzahl von geschriebenen (und wieder gelöschten)
+Zeilen: :cite:`8MD`
 
-    :cite:`IBL`
+**Commit--Graph Visualisierungsvideo**: ``gource`` ist ein Programm
+das in einem optisch ansprechenden Video zeigt wie sich das ``git``-Repository
+mit der Zeit aufbaut. Unter :cite:`8MC` findet sich ein ein-minütiges Video dass
+entsprechend die Entwicklung von *libmunin* zeigt.
 
-``gitstats`` Visualisierungen
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      
-Das kleine Programm ``gitstats`` baut aus dem ``git log`` eine HTML-Seite mit
-einigen interessanten Statistiken --- wie beispielsweise der absoluten Anzahl von
-geschriebenen (und wieder gelöschten) Zeilen:
 
-    :cite:`8MD`
+.. rubric:: Footnotes
 
-``gource`` Commit--Graph Visualisierungsvideo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-``gource`` ist ein Programm das in einem optisch ansprechenden Video zeigt wie
-sich das ``git``-Repository mit der Zeit aufbaut. Unter :cite:`8MC` findet sich
-ein ein-minütiges Video dass entsprechend die Entwicklung von *libmunin* zeigt.
+.. [#f1] In einem *Commit* werden eine Reihe zusammengehöriger Änderungen
+   verpackt. Man kann später einen *Commit* immer wieder zurückspulen.

@@ -41,8 +41,12 @@ gegeben. Detailliertere Ansichten werden am Ende des Kapitels gezeigt.
 
 Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben.
 
-(1) Ansichten
--------------
+Ansichten
+---------
+
+Die Anwendung ist in unterschiedliche *Ansichten* (englisch *Views*) aufteilt
+die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
+über alle *Views* gegeben:
 
 * **Database:** Siehe Abbildung :num:`fig-demo-database`.
    
@@ -54,7 +58,7 @@ Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben
   bietet um die Playlist mit Empfehlungen zu befüllen (entsprechend
   :ref:`list-of-recom-strategies`).  Im folgenden ist :math:`N` die Anzahl
   der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
-  :ref:`empfehlungs-zaehler`) eingestellt ist.
+  Nr. 5 in :num:`fig-demo-overview`) eingestellt ist.
   
   * **Ausgewählter Song als Seedsong:** Erstellt :math:`N`
     Empfehlungen basierend auf dem selektierten Song und reiht sie in die Playlist
@@ -62,8 +66,6 @@ Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben
   
   * **Playlist säubern und ausgewählter Song als Seedsong:** Wie oben,
     leert aber vor dem Einreihen die Playlist.
-  
-  .. _attribute-search:
   
   * **Suche einen Seedsong mit einem bestimmten Attribut:** Sucht einen
     Seedsong nach bestimmten Kriterien, die der Nutzer im Eingabefeld oben
@@ -110,8 +112,6 @@ Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben
   
       Die Einträge des Kontextmenüs in der Playlist und Database Ansicht 
 
-.. _playlist-view:
-
 **Playlist:** Siehe Abbildung :num:`fig-demo-playlist`.
 
 Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an die empfohlen
@@ -157,9 +157,7 @@ gezeigten Elemente noch erklärt.
 3. **Current Song:** Ein dreieckiges Icon das den aktuell spielenden (oder
    pausierten) Song anzeigt.
 
-4. **Playlist:** Die Playlistview. Siehe :ref:`playlist-view`.
-
-.. _empfehlungs-zaehler:
+4. **Playlist:** Die Playlist--Ansicht, wie bereits oben gezeigt.
 
 5. **Empfehlungszähler:** Die Anzahl an Empfehlungen die ein Klick im
    Kontextmenü liefert.
@@ -178,8 +176,7 @@ gezeigten Elemente noch erklärt.
    Funktionalität erweitert werden.
 
 8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
-   Seedsong bei der Attributsuche (:ref:`attribute-search`) haben
-   sollte.
+   Seedsong bei der Attributsuche  haben sollte.
 
 9. **Rating:** Spezielles Widget auf den man das *Rating* des aktuell spielenden
    Songs zu setzen. Beim erstellen der *Session* durch ``analyse.py`` wird ein
@@ -241,70 +238,153 @@ gezeigten Elemente noch erklärt.
 
 .. figure:: figs/demo_overview.*
     :alt: Übersicht über die Demoanwendung
-    :width: 68% 
+    :width: 80% 
     :align: center
     
     Übersicht über die Demonanwendung.
 
+.. -------------------------------
+
 .. _fig-demo-database:
 
-.. figure:: figs/demo_database.png
-    :alt: Die Datenbank Ansicht
-    :width: 78%
-    :align: center
+.. only:: html
 
-    Die Datenbank Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
-    Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
+   .. figure:: figs/demo_database.png
+       :alt: Die Datenbank Ansicht
+       :width: 100%
+       :align: center
 
+       Die Datenbank Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
+
+.. only:: latex
+
+   .. figure:: figs/demo_database270.png
+       :alt: Die Datenbank Ansicht
+       :width: 93%
+       :align: center
+
+       Die Datenbank Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
+
+.. -------------------------------
 
 .. _fig-demo-playlist:
 
-.. figure:: figs/demo_playlist.png
-    :alt: Die aktuelle Playlist
-    :width: 78%
-    :align: center
+.. only:: html
 
-    Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
-    Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+   .. figure:: figs/demo_playlist.png
+       :alt: Die aktuelle Playlist
+       :width: 100%
+       :align: center
+
+       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
+       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+
+.. only:: latex
+
+   .. figure:: figs/demo_playlist270.png
+       :alt: Die aktuelle Playlist
+       :width: 93%
+       :align: center
+
+       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
+       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+
+.. -------------------------------
 
 .. _fig-demo-rules:
 
-.. figure:: figs/demo_rules.png
-    :alt: Die Regelansicht
-    :width: 78%
-    :align: center
+.. only:: html
 
-    Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
-    Mengen der Regel, der Supportcount und das Rating.
+   .. figure:: figs/demo_rules.png
+       :alt: Die Regelansicht
+       :width: 100%
+       :align: center
+
+       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
+       Mengen der Regel, der Supportcount und das Rating.
+
+.. only:: latex
+
+   .. figure:: figs/demo_rules270.png
+       :alt: Die Regelansicht
+       :width: 93%
+       :align: center
+
+       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
+       Mengen der Regel, der Supportcount und das Rating.
+
+.. -------------------------------
 
 .. _fig-demo-graph:
 
-.. figure:: figs/demo_graph.png
-    :alt: Die Graphenansicht
-    :width: 78%
-    :align: center
+.. only:: html
 
-    Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
-    geplottet. Eine Interaktion ist nicht möglich.
+   .. figure:: figs/demo_graph.png
+       :alt: Die Graphenansicht
+       :width: 100%
+       :align: center
 
+       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       geplottet. Eine Interaktion ist nicht möglich.
+
+.. only:: latex
+
+   .. figure:: figs/demo_graph270.png
+       :alt: Die Graphenansicht
+       :width: 93%
+       :align: center
+
+       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       geplottet. Eine Interaktion ist nicht möglich.
+
+.. -------------------------------
 
 .. _fig-demo-history:
 
-.. figure:: figs/demo_history.png
-    :alt: Die Ansicht der History
-    :width: 78%
-    :align: center
+.. only:: html
 
-    History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
-    (rechts) Songs werden aufgelistet.
+   .. figure:: figs/demo_history.png
+       :alt: Die Ansicht der History
+       :width: 100%
+       :align: center
+
+       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
+       (rechts) Songs werden aufgelistet.
+
+.. only:: latex
+
+   .. figure:: figs/demo_history270.png
+       :alt: Die Ansicht der History
+       :width: 93%
+       :align: center
+
+       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
+       (rechts) Songs werden aufgelistet.
+
+.. -------------------------------
 
 .. _fig-demo-examine:
 
-.. figure:: figs/demo_examine.png
-    :alt: Die Ansicht der Examine--Page
-    :width: 78%
-    :align: center
+.. only:: html
 
-    Die ,,Examine'' Page --- Die Attribute des aktuellen Songs werden angezeigt.
-    Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
-    gerendert.
+   .. figure:: figs/demo_examine.png
+       :alt: Die Ansicht der Examine--Page
+       :width: 100%
+       :align: center
+
+       Die ,,Examine" Page --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar" --- falls vorhanden --- mittels cairo :cite:`CRO`
+       gerendert.
+
+.. only:: latex
+
+   .. figure:: figs/demo_examine270.png
+       :alt: Die Ansicht der Examine--Page
+       :width: 93%
+       :align: center
+
+       Die ,,Examine" Page --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar" --- falls vorhanden --- mittels cairo :cite:`CRO`
+       gerendert.
