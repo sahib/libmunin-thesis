@@ -14,7 +14,14 @@ class CustomHTMLTranslator(BaseTranslator):
         raise nodes.SkipNode
 
     def bulk_text_processor(self, text):
-        return text.replace('~', '&nbsp;')
+        replacements = {
+            '~': '&nbsp;',
+            '--': '&ndash;',
+            '---': '&mdash;'
+        }
+        for key, subs in replacements.items():
+            text = text.replace(key, subs)
+        return text
 
     def visit_entry(self, node):
         atts = {'class': []}

@@ -261,8 +261,11 @@ Typ ihrer Eingabe unterscheiden:
 
     Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over Nine
     Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
-    Dudelsack--Intro. Später setzen relativ plötzlich harte E-Gitarren und Drums
-    ein.
+    Dudelsack--Intro. Bei 30% setzen relativ plötzlich harte E-Gitarren und Drums
+    ein, die in verschiedenen Variationen durch das ganze Lied gehen. 
+    Musik--Link auf YouTube: :cite:`YTS`.
+
+
 
 ``Wordlist``
 ~~~~~~~~~~~~

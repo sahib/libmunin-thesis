@@ -7,6 +7,6 @@
 
 Danke an folgende Personen und Dinge: Katzen, Vögel aller Art, Teehersteller
 aller Länder, Herrn Prof. Dr. Jörg Scheidt (für die Zelle), Herrn Prof. Dr.
-Günter Köhler (für das Meckern) und meiner Familie sowie Freunden.
+Günter Köhler (für die Freiheit) und meiner Familie sowie Freunden.
 
 Ihr wisst warum.

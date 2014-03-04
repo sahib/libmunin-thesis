@@ -73,25 +73,25 @@ Glossar
         
         .. math::
 
-            0 \leq D(i, j) \leq 1 \, \forall \, i,j \in D
+            0 \leq D(i, j) \leq 1\forall i,j \in D
 
         *Symmetrie:*
 
         .. math::
 
-            D(i, j) = D(j, i) \, \forall \, i,j \in D
+            D(i, j) = D(j, i) \forall i,j \in D
 
         *Identität:*
 
         .. math::
 
-            D(i, i) = 0.0 \, \forall \, i \in D
+            D(i, i) = 0.0 \forall i \in D
 
         *Dreiecksungleichung:*
 
         .. math::
 
-            D(i, j) \leq D(i, x) + (x, j)
+            D(i, j) \leq D(i, x) + (x, j) \forall i,j,x \in D
 
     Session
 
@@ -161,11 +161,12 @@ Glossar
 
             ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}
 
+        .. math::
 
-        .. admonition:: Vergleiche dazu:
+            support(X) = H_n(X)
 
-            :cite:`datamining-concepts-and-techniques`
-            Datamining Concepts and Techniques.
+        Vergleiche dazu: :cite:`datamining-concepts-and-techniques` Datamining
+        Concepts and Techniques.
 
 
     Recommendation

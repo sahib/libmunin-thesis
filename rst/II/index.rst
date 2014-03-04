@@ -92,7 +92,7 @@ Empfehlungen getroffen --- es handelt sich also um ein lernendes System.
 
 **YouTube:** :cite:`WNN` Youtube ist vorrangig als Video--Plattform bekannt,
 durch die enorme Beliebtheit laden dort Nutzer allerdings auch Musik ---
-verpackt als Video - hoch. Interessant dabei ist, dass in der Sidebar stets
+verpackt als Video --- hoch. Interessant dabei ist, dass in der Sidebar stets
 Empfehlungen für weitere Videos angezeigt (siehe Abb. :num:`fig-youtube`) werden
 --- in den meisten Fällen dann auch weitere Musikvideos. Dabei haben die
 (meisten) Videos auch etwas mit dem Aktuellen zu tun.
@@ -113,7 +113,7 @@ Einige der Attribute die in die Empfehlung mit eingehen:
 
     Die Vorschläge zu einem Musikvideo auf YouTube
 
-**Myspace:** Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
+**Myspace:** :cite:`MYS` Obwohl das soziale Netzwerk Myspace seine besten Tage hinter sich hat, haben
 viele Bands noch auf der Seite ein Profil unter dem man sich oft kostenlos
 Musik anhören kann (siehe Abb. :num:`fig-myspace`). Ähnlich wie bei anderen
 populären sozialen Netzen kann man diese Seite *liken*. Diese Information
@@ -177,15 +177,18 @@ Suche nach *Music--Recommendation-(Library|System|Engine)* schon deutlich wenige
 Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
 angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
-**Mirage:** :cite:`AHX` Eine freie in der Programmiersprache C# (mithilfe von
-Mono :cite:`MNO`) implementierte Bibliothek für *Music Recommendations*. Sie
-kommt den Zielen des Autors am nähsten, ist aber wenig auf große Datenbanken
-ausgelegt und stützt sich allein auf Audioanalyse --- dazu wird während des
-*Kaltstartes* die gesamten Audiodaten der Musiksammlung analysiert.
+**Mirage:** :cite:`AHX` Eine freie in der Programmiersprache
+:math:`\mathrm{C{\scriptstyle\overset{\#}{\vphantom{\_}}}}` (mithilfe von Mono
+:cite:`MNO`) implementierte Bibliothek für *Music Recommendations*. Sie kommt
+den Zielen des Autors am nähsten, ist aber wenig auf große Datenbanken ausgelegt
+und stützt sich allein auf Audioanalyse --- dazu wird während des *Kaltstartes*
+die gesamten Audiodaten der Musiksammlung analysiert.
 
-Sie ist momentan nur im freien Mediaplayer Banshee als Plugin nutzbar. 
-*Banshee* selbst ist ebenfalls in C# geschrieben --- die Wahl der
-Programmiersprache ist für die Bibliothek also von nicht geringer Bedeutung.
+Sie ist momentan nur im freien Mediaplayer Banshee als Plugin nutzbar.
+*Banshee* selbst ist ebenfalls in
+:math:`\mathrm{C{\scriptstyle\overset{\#}{\vphantom{\_}}}}` geschrieben --- die
+Wahl der Programmiersprache ist für die Bibliothek also von nicht geringer
+Bedeutung.
 
 **Mufin Audiogen** :cite:`UZB` Eine kommerzielle, in
 :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte
