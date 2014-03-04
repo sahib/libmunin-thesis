@@ -74,7 +74,7 @@ Einfaches Information Retrieval
 
 Die Ergebnisse die *libmunin* liefern kann, können nur so gut sein wie die
 Eingabedaten. Sind diese falsch oder unzureichend (durch schlechtes Tagging
-etwa), wird auch eine gute :term:`Distanzfunktion` nur mittelmäßig genaue
+etwa), wird auch eine gute Distanzfunktion nur mittelmäßig genaue
 Ergebnisse erzielen. 
 
 Momentan bietet *libmunin* bereits dem Nutzer Möglichkeiten an um fehlende

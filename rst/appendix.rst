@@ -47,19 +47,19 @@ Glossar
         minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
         Unähnlichkeit (oder maximale *Entfernung*).
 
-        Die Distanz wird durch eine :term:`Distanzfunktion` berechnet.
+        Die Distanz wird durch eine Distanzfunktion berechnet.
 
     Distanzfunktion
 
         Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
-        zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
+        zwei Songs als Eingabe nimmt und die Distanz zwischen
         diesen berechnet.
 
-        Dabei wird jedes :term:`Attribut` betrachte welchesi n beiden Songs
-        vorkommt betrachtet. Für diese wird von der :term:`Maske` eine
-        spezialisierte :term:`Distanzfunktion` festgelegt, die weiß wie diese
+        Dabei wird jedes Attribut betrachte welchesi n beiden Songs
+        vorkommt betrachtet. Für diese wird von der Maske eine
+        spezialisierte Distanzfunktion festgelegt, die weiß wie diese
         zwei bestimmten Werte sinnvoll verglichen werden können. Die so
-        errechneten Werte werden, gemäß der Gewichtung in der :term:`Maske`, zu
+        errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
         einem Wert verschmolzen.
 
         Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
@@ -97,30 +97,30 @@ Glossar
 
         Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
         Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
-        analysiert und ein :term:`Graph` wird daraus aufgebaut.
+        analysiert und ein Graph wird daraus aufgebaut.
     
         Zudem kann eine *Session* persistent für späteren Gebrauch gespeichert
         werden. 
 
-        Für Nutzer der Bibliothek ist die :term:`Session` auch Eintrittspunkt
+        Für Nutzer der Bibliothek ist die Session auch Eintrittspunkt
         für jegliche von *libmunin* bereitgestellte Funktionalität.
 
     Maske
 
-        Die :term:`Session` benötigt eine Beschreibung der Daten die importiert
+        Die Session benötigt eine Beschreibung der Daten die importiert
         werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
         Schlüssel ``genre`` abgespeichert wird.
     
         In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
         einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
-        pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
+        pro Attribut ein Provider und eine Distanzfunktion
         festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
         wird die Gewichtung des Attributes festgelegt - manche Attribute sind
         für die Ähnlichkeit zweier Songs entscheidender als andere.
 
     Attribut
 
-        Ein Attribut ist ein *Schlüssel* in der :term:`Maske`. Er repräsentiert
+        Ein Attribut ist ein *Schlüssel* in der Maske. Er repräsentiert
         eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
         Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
         andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
@@ -131,10 +131,10 @@ Glossar
         Ein *Provider* normalisiert einen Wert anhand verschiedener
         Charakteristiken. Sie dienen als vorgelagerte Verarbeitung von den Daten
         die in das System geladen werden. Jeder *Provider* ist dabei einem 
-        :term:`Attribut` zugeordnet.
+        Attribut zugeordnet.
 
-        Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
-        vergleichbare Werte zu liefern - da die :term:`Distanzfunktion` sehr
+        Ihr Ziel ist für die Distanzfunktion einfache und effizient 
+        vergleichbare Werte zu liefern - da die Distanzfunktion sehr
         viel öfters aufgerufen wird als der *Provider*.
 
     Assoziationsregel
@@ -171,10 +171,10 @@ Glossar
 
     Recommendation
 
-        Eine Recommendation (dt. Empfehlung) ist ein :term:`Song` der vom System
+        Eine Recommendation (dt. Empfehlung) ist ein Song der vom System
         auf Geheiß des Benutzers hin vorgeschlagen wird. 
 
-        Die Empfehlunge sollte eine geringe Distanz zum :term:`Seedsong` haben.
+        Die Empfehlunge sollte eine geringe Distanz zum Seedsong haben.
 
     Seedsong
 
@@ -184,7 +184,7 @@ Glossar
 
         Im Kontext von *libmunin* ist der Graph eine Abbildung aller Songs (als
         Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
-        kennt jeder :term:`Song` *N* zu ihm selbst ähnlichsten Songs als
+        kennt jeder Song *N* zu ihm selbst ähnlichsten Songs als
         Nachbarn.
 
         Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf

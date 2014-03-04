@@ -54,7 +54,7 @@ Kurze Erläuterung des Beispiels
   Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
   Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
   und Weighting) mitunter recht anstrengend werden kann greifen wir auf eine
-  Session mit vorgefertigter :term:`Maske` zurück --- die sogenannte
+  Session mit vorgefertigter Maske zurück --- die sogenannte
   ``EasySession``.
   
 * **Zeile 3:**
@@ -172,7 +172,7 @@ Basierend auf einem Seedsong
 
 Basierend auf einem vom Endnutzer ausgewählten Song
 wird ein Iterator zurückgegeben der gemäß :ref:`recom-out` eine Breitensuche von
-diesem :term:`Seedsong` aus ausführt. Optional wird  der *Iterator* gemäß
+diesem Seedsong aus ausführt. Optional wird  der *Iterator* gemäß
 :ref:`recom-filter` gefiltert.
 
 Basierend auf einer Heuristik
@@ -183,9 +183,9 @@ auswählen. Dabei wird der Reihe nach das folgende probiert:
 
 * Wähle die Regel mit der besten Bewertung aus und nehme alle darin erwähnten
   Songs als Seedsongs an.
-* Wähle den Song mit der höchsten Abspielanzahl als :term:`Seedsong`.
+* Wähle den Song mit der höchsten Abspielanzahl als Seedsong.
 * Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
-  abgespielt wurde, so wird ein zufälliger :term:`Seedsong` gezogen.
+  abgespielt wurde, so wird ein zufälliger Seedsong gezogen.
 
 Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
 
@@ -353,7 +353,7 @@ Eingabesprache --- momentan wird aber stets Englisch angenommen.
 ``GenreTree``
 ~~~~~~~~~~~~~
 
-Der wohl komplizierteste :term:`Provider`.
+Der wohl komplizierteste Provider.
 
 Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert. 
 Beispielsweise wird die Genrebeschreibung *Rock, Reggae / Alternative Rock*
@@ -433,7 +433,7 @@ Zudem wird die Sprache des Eingabetextes erkannt und mit abgespeichert.
 ~~~~~~~~~~~~~~
 
 Besorgt mittels *libglyr* Liedtexte aus dem Internet. Bereits gesuchte Liedtexte
-werden dabei zwischengespeichert. Dieser :term:`Provider` eignet sich besonders im
+werden dabei zwischengespeichert. Dieser Provider eignet sich besonders im
 Zusammenhang mit dem *Keywords* zusammen als *Composite* Provider.
 
 .. _discogs-genre-provider:
@@ -452,7 +452,7 @@ Liste der Distanzfunktionen
 
 Die genaue Funktionsweise der einzelnen Distanzfunktionen wird in der
 Bachelorarbeit genauer betrachtet. Im Folgenden wird aber eine kurze Auflistung
-jeder vorhandenen :term:`Distanzfunktion` und der Annahme auf der sie basiert
+jeder vorhandenen Distanzfunktion und der Annahme auf der sie basiert
 gegeben.
 
 ``Date``
@@ -522,7 +522,7 @@ kommt eine Distanz von :math:`0.0` dabei heraus.
 *Annahme:* 
 """"""""""
 
-Diese :term:`Distanzfunktion` ist beispielsweise beim Vergleich von Titeln
+Diese Distanzfunktion ist beispielsweise beim Vergleich von Titeln
 nützlich. Ähnliche Wörter in Titeln deuten oft auf ähnliche Themen hin. 
 Als Beispiel kann man die Titel *,,Hey Staat" (Hans Söllner)* und *,,Lieber
 Staat" (Farin Urlaub)* nennen.

@@ -13,8 +13,8 @@ hauptsächlich dazu dienen einen Einblick in die verwendeten Techniken zu geben.
 Grundüberlegungen
 -----------------
 
-Die *Ähnlichkeit* von je einem :term:`Song` *A* und *B* lässt sich durch eine
-:term:`Distanz` definieren.
+Die *Ähnlichkeit* von je einem Song *A* und *B* lässt sich durch eine
+Distanz definieren.
 
 Um die Distanzen zu speichern wird bei vielen Datamining--Projekten eine
 Distanzmatrix genutzt --- also eine quadratische Dreiecksmatrix, in der
@@ -38,7 +38,7 @@ Hälfte aller Felder befüllt ist.
 
 Man muss also versuchen, nur eine bestimmte Anzahl von Distanzen für einen Song
 zu speichern --- vorzugsweise eine Menge von Songs mit der kleinsten
-:term:`Distanz`. Als geeignete Datenstruktur erscheint hier ein Graph --- die
+Distanz. Als geeignete Datenstruktur erscheint hier ein Graph --- die
 Knoten desselben sind die Songs und die Kanten dazwischen die Distanzen.
 
 Zur besseren optischen Vorstellung, ist unter :num:`fig-graph-example` ein
@@ -127,7 +127,7 @@ Ausstellen von Empfehlungen
 
 Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
 mittels einer Breitensuche (TODO) erledigt. Dabei wird der Ursprung durch ein
-sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
+sogenannten Seedsong bestimmt. Anschaulich wäre der Seedsong bei einer
 Anfrage wie ,,10 ähnliche Songs zu *The Beatles --- Yellow Submarine* " eben
 *,,Yellow Submarine"*.
 
@@ -154,7 +154,7 @@ Filtern von Empfehlungen
 Oft ist es nötig, die gegebenen Empfehlungen noch zusätzlich zu filtern. Das hat
 den simplen Grund, dass im Graphen die meisten Alben einzelne *Cluster* bilden -
 die Lieder auf einem Album sind meist unter sich sehr ähnlich. Da man aber
-vermeiden möchte, dass zu einem :term:`Seedsong` ein Lied vom selben Album oder
+vermeiden möchte, dass zu einem Seedsong ein Lied vom selben Album oder
 gar selben Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen
 ausgesiebt werden.
 
@@ -198,13 +198,13 @@ beinhaltet vier Schritte:
   *libmunin* bietet hier nur Hilfsfunktionen an.
   Der *Kaltstart* ist nur bei der ersten Benutzung einer Musikdatenbank nötig.
 * **Analyse:** Bei der *Analyse* werden die nun vorhandenen Daten untersucht und
-  durch sogenannte :term:`Provider` normalisiert. Die Normalisierung ist nötig,
+  durch sogenannte Provider normalisiert. Die Normalisierung ist nötig,
   um im nächsten Schritt eine einfache und effiziente Vergleichbarkeit der Daten
   zu gewährleisten. 
 * **Rebuild:** Dies entspricht der ``rebuild``-Operation.
   In diesem Schritt werden die normalisierten Daten untereinander mittels einer
-  passenden :term:`Distanzfunktion` untersucht. Unter Zuhilfenahme, der dabei
-  entstehenden :term:`Distanz` wird der Graph aufgebaut. 
+  passenden Distanzfunktion untersucht. Unter Zuhilfenahme, der dabei
+  entstehenden Distanz wird der Graph aufgebaut. 
 * **Einsatz:** Durch Traversierung des Graphen können jetzt Ergebnisse abgeleitet 
   werden.
 
@@ -233,17 +233,17 @@ verfahren werden soll.
 
 Da diese Daten sehr unterschiedlich aufgebaut sind, muss *libmunin* sehr
 generisch aufgebaut sein. Der Ansatz ist dabei, zusätzlich vom Nutzer eine
-:term:`Maske` zu verlangen die beschreibt welche möglichen *Tags* (oder
-:term:`Attribut`) ein einzelner Song besitzt Für jedes :term:`Attribut` kann
-dann, nach Baukastenprinzip, ein :term:`Provider`, eine :term:`Distanzfunktion`
+Maske zu verlangen die beschreibt welche möglichen *Tags* (oder
+Attribut) ein einzelner Song besitzt Für jedes Attribut kann
+dann, nach Baukastenprinzip, ein Provider, eine Distanzfunktion
 und eine Gewichtung ausgewählt werden. Letzere beschreibt, wie *wichtig* diese
 Attribut aus Sicht des Nutzers in Bezug auf die Ähnlichkeit ist. Der
-:term:`Provider` normalisiert die Werte von einem :term:`Attribut` auf bestimmte
-Art und Weise, während die :term:`Distanzfunktion` sich um das Vergleichen der
+Provider normalisiert die Werte von einem Attribut auf bestimmte
+Art und Weise, während die Distanzfunktion sich um das Vergleichen der
 normalisierten Werte nach bestimmten, je auf Art des Attributs spezialisierten
 Weise, kümmert.
 
-Nachdem das Format, in Form der :term:`Maske`, geklärt ist, kann der Nutzer
+Nachdem das Format, in Form der Maske, geklärt ist, kann der Nutzer
 jeden Song mittels der ``add``-Operation hinzufügen und im Anschluss eine
 ``rebuild``-Operation triggern.
 
@@ -333,7 +333,7 @@ Im Folgenden werden diese Regionen vorgestellt.
    Liste von verfügbaren Providern wird unter :ref:`provider-list` gegeben. 
 
    In der Übersicht :num:`fig-class-overview` wurde aus Gründen der
-   Übersichtlichkeit exemplarisch nur drei :term:`Provider` gezeigt.
+   Übersichtlichkeit exemplarisch nur drei Provider gezeigt.
 
 3. **DistanceFunction Pool:** Implementiert eine Menge vordefinierter
    Distanzfunktionen, welche die Werte der obigen ``Provider`` vergleichen.
@@ -388,7 +388,7 @@ Die weitere Hauptzuständigkeit einer ``Session`` ist die Implementierung der
 Recommendation--Strategien, die den Graphen traversieren.
 
 **Mask:** Ein Hashtable--ähnliches Objekt, das die Namen der einzelnen
-:term:`Attribut` festlegt. Da dies bereits in :ref:`environement` erklärt wurde,
+Attribut festlegt. Da dies bereits in :ref:`environement` erklärt wurde,
 wird hier nochmal ein kurzes praktisches Beispiel gezeigt:
 
 .. code-block:: python
@@ -415,7 +415,7 @@ Der Nutzer hat meist selber wenig mit der ``Mask``-Instanz zu tun. Er übergibt
 der ``Session`` eine Hashtable die implizit eine ``Mask``-Instanz erzeugt. 
 
 **EasySession:** Wie die normale ``Session``, bietet aber eine bereits
-fertigkonfigurierte :term:`Maske` an, die für viele Anwendungsfälle ausreicht.
+fertigkonfigurierte Maske an, die für viele Anwendungsfälle ausreicht.
 In Tabelle :num:`fig-easy-session` ist eine Auflistung, gegeben wie diese im
 Detail konfiguriert ist.
 
@@ -449,20 +449,20 @@ Detail konfiguriert ist.
     +--------------+----------------------+------------------+---------------------------------+-----------------+--------------------+
 
 
-**Song:** Speichert fur jedes :term:`Attribut` einen Wert, oder einen leeren
-Wert falls das :term:`Attribut` nicht gesetzt wurde. Dies ähnelt einer
+**Song:** Speichert fur jedes Attribut einen Wert, oder einen leeren
+Wert falls das Attribut nicht gesetzt wurde. Dies ähnelt einer
 Hashtable, allerdings werden nur die Werte gespeichert, die ,,Keys" der
 Hashtable werden in der ``Maske`` gespeichert und werden nur referenziert. Der
 Grund dieser Optimierung liegt in verminderten Speicherverbrauch. 
 
 Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
-Nachbarsongs. Er muss Methoden bieten um eine :term:`Distanz` zu einem Nachbarn
+Nachbarsongs. Er muss Methoden bieten um eine Distanz zu einem Nachbarn
 hinzuzufügen oder zu entfernen, Methoden um über alle Nachbarn zu iterieren oder
-die :term:`Distanz` zu einen bestimmten Nachbarn abzufragen 
+die Distanz zu einen bestimmten Nachbarn abzufragen 
 und eine ``disconnect()`` Methode um den ``Song`` zu entfernt ohne dabei ein
 ,,Loch" zu hinterlassen.
 
-Tatsächlich gibt es keine eigene ``Graph``--Klasse --- der :term:`Graph` an sich
+Tatsächlich gibt es keine eigene ``Graph``--Klasse --- der Graph an sich
 wird durch die Verknüpfung der einzelnen Songs in der ``Database`` gebildet --- 
 jede ``Song`` Instanz bildet dabei einen Knoten.
 
@@ -475,7 +475,7 @@ sollte allerdings erwähnt werden, dass die ``modify`` Operation relativ
 aufwendig ist --- schließlich muss der Song entfernt und neu eingefügt werden.
 
 **Distance:** Wie die ``Song``--Klasse, speichert aber statt den Werten von
-bestimmten Attributen die :term:`Distanz` zwischen zwei Attributen. Zusätzlich
+bestimmten Attributen die Distanz zwischen zwei Attributen. Zusätzlich
 wird die gewichtete Gesamtdistanz gespeichert.  Beispielhaft ist das in
 :num:`fig-distance-table` dargestellt.
 
@@ -571,7 +571,7 @@ Verarbeitung durch den Provider anzuzeigen.
 Provider können, mittels eines speziellen Providers, zu einer Kette
 zusammengeschaltet werden. Siehe dazu auch :ref:`composite-provider`.
 
-Oft kommt es vor dass die Eingabe für einen :term:`Provider` viele Dupletten
+Oft kommt es vor dass die Eingabe für einen Provider viele Dupletten
 enthält --- beispielsweise wird derselbe Künstler--String für viele Songs eingepflegt. 
 Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
 jeder Provider die Möglichkeit einer primitiven Kompression* Statt den Wert
@@ -584,4 +584,4 @@ ableitet: Jede Distanzfunktion bietet eine ``do_compute()`` Methode die von den
 Unterklassen überschrieben wird.
 
 Um die bei den Providern mögliche Kompression wieder rückgängig zu machen muss
-die Distanzfunktion den :term:`Provider` kennen.
+die Distanzfunktion den Provider kennen.

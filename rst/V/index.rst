@@ -66,7 +66,7 @@ Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben
   .. _attribute-search:
   
   * **Suche einen Seedsong mit einem bestimmten Attribut:** Sucht einen
-    :term:`Seedsong` nach bestimmten Kriterien, die der Nutzer im Eingabefeld oben
+    Seedsong nach bestimmten Kriterien, die der Nutzer im Eingabefeld oben
     rechts angeben kann. Dort kann ein *Suchbegriff* in der folgenden Form
     angegeben werden::
     
@@ -84,13 +84,13 @@ Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben
     funktioneren. Ist das *Genre* also als *,,rock / pop"* getaggt, so wird die
     Sucher erfolglos verlaufen.
   
-  * **Lasse libmunin einen :term:`Seedsong` auswählen:** *libmunin* wählt
-    automatisch einen :term:`Seedsong` nach folgenden Kriterien:
+  * **Lasse libmunin einen Seedsong auswählen:** *libmunin* wählt
+    automatisch einen Seedsong nach folgenden Kriterien:
     
     1. Nutze die Seedsongs, die in der am besten bewertesten Regel vorkommen.
-    2. Falls keine Regel vorhanden, nutze den meist abgespielten :term:`Song` als
-       :term:`Seedsong`.
-    3. Schlägt auch das fehl wird ein zufälliger :term:`Song` ausgewählt.
+    2. Falls keine Regel vorhanden, nutze den meist abgespielten Song als
+       Seedsong.
+    3. Schlägt auch das fehl wird ein zufälliger Song ausgewählt.
     
     In allen Fällen werden dann :math:`N` Empfehlungen in die Playlist
     eingereiht.
@@ -125,7 +125,7 @@ gegeben wurden.
 
 **Rules:** Siehe Abbildung :num:`fig-demo-rules`.
 
-In einer Liste werden alle bekannten :term:`Assoziationsregel`
+In einer Liste werden alle bekannten Assoziationsregel
 angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
 und das Rating der Regel angezeigt.
 
@@ -151,7 +151,7 @@ Aus Gründen der Vollständigkeit werden hier, die unter :num:`fig-demo-overview
 gezeigten Elemente noch erklärt.
 
 2. **Seedsong:** Zeigt mit einem roten Kreis den zuletzt ausgewählten
-   :term:`Seedsong` an.  Falls es mehrere Seedsongs gab, wird nur der erste
+   Seedsong an.  Falls es mehrere Seedsongs gab, wird nur der erste
    markiert.
 
 3. **Current Song:** Ein dreieckiges Icon das den aktuell spielenden (oder
@@ -178,7 +178,7 @@ gezeigten Elemente noch erklärt.
    Funktionalität erweitert werden.
 
 8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
-   :term:`Seedsong` bei der Attributsuche (:ref:`attribute-search`) haben
+   Seedsong bei der Attributsuche (:ref:`attribute-search`) haben
    sollte.
 
 9. **Rating:** Spezielles Widget auf den man das *Rating* des aktuell spielenden
