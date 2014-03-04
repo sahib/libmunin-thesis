@@ -245,8 +245,6 @@ gezeigten Elemente noch erklärt.
 
 .. -------------------------------
 
-.. _fig-demo-database:
-
 .. only:: html
 
    .. figure:: figs/demo_database.png
@@ -254,22 +252,23 @@ gezeigten Elemente noch erklärt.
        :width: 100%
        :align: center
 
-       Die Datenbank Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
        Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
 
 .. only:: latex
+
+   .. _fig-demo-database:
 
    .. figure:: figs/demo_database270.png
        :alt: Die Datenbank Ansicht
        :width: 93%
        :align: center
 
-       Die Datenbank Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
        Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
 
 .. -------------------------------
 
-.. _fig-demo-playlist:
 
 .. only:: html
 
@@ -283,6 +282,8 @@ gezeigten Elemente noch erklärt.
 
 .. only:: latex
 
+   .. _fig-demo-playlist:
+
    .. figure:: figs/demo_playlist270.png
        :alt: Die aktuelle Playlist
        :width: 93%
@@ -292,8 +293,6 @@ gezeigten Elemente noch erklärt.
        Der Seedsong ist durch einen roten Kreis gekennzeichnet.
 
 .. -------------------------------
-
-.. _fig-demo-rules:
 
 .. only:: html
 
@@ -307,6 +306,8 @@ gezeigten Elemente noch erklärt.
 
 .. only:: latex
 
+   .. _fig-demo-rules:
+
    .. figure:: figs/demo_rules270.png
        :alt: Die Regelansicht
        :width: 93%
@@ -316,8 +317,6 @@ gezeigten Elemente noch erklärt.
        Mengen der Regel, der Supportcount und das Rating.
 
 .. -------------------------------
-
-.. _fig-demo-graph:
 
 .. only:: html
 
@@ -331,6 +330,8 @@ gezeigten Elemente noch erklärt.
 
 .. only:: latex
 
+   .. _fig-demo-graph:
+
    .. figure:: figs/demo_graph270.png
        :alt: Die Graphenansicht
        :width: 93%
@@ -340,8 +341,6 @@ gezeigten Elemente noch erklärt.
        geplottet. Eine Interaktion ist nicht möglich.
 
 .. -------------------------------
-
-.. _fig-demo-history:
 
 .. only:: html
 
@@ -355,6 +354,8 @@ gezeigten Elemente noch erklärt.
 
 .. only:: latex
 
+   .. _fig-demo-history:
+
    .. figure:: figs/demo_history270.png
        :alt: Die Ansicht der History
        :width: 93%
@@ -365,8 +366,6 @@ gezeigten Elemente noch erklärt.
 
 .. -------------------------------
 
-.. _fig-demo-examine:
-
 .. only:: html
 
    .. figure:: figs/demo_examine.png
@@ -374,17 +373,19 @@ gezeigten Elemente noch erklärt.
        :width: 100%
        :align: center
 
-       Die ,,Examine" Page --- Die Attribute des aktuellen Songs werden angezeigt.
-       Zudem wird die ,,moodbar" --- falls vorhanden --- mittels cairo :cite:`CRO`
+       Die ,,Examine''--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
        gerendert.
 
 .. only:: latex
+
+   .. _fig-demo-examine:
 
    .. figure:: figs/demo_examine270.png
        :alt: Die Ansicht der Examine--Page
        :width: 93%
        :align: center
 
-       Die ,,Examine" Page --- Die Attribute des aktuellen Songs werden angezeigt.
-       Zudem wird die ,,moodbar" --- falls vorhanden --- mittels cairo :cite:`CRO`
+       Die ,,Examine''--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
        gerendert.

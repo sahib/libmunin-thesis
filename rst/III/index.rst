@@ -125,11 +125,11 @@ definieren:
 Ausstellen von Empfehlungen
 ---------------------------
 
-Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen
-mittels einer Breitensuche (TODO) erledigt. Dabei wird der Ursprung durch ein
-sogenannten Seedsong bestimmt. Anschaulich wäre der Seedsong bei einer
-Anfrage wie ,,10 ähnliche Songs zu *The Beatles --- Yellow Submarine* " eben
-*,,Yellow Submarine"*.
+Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen mittels
+einer Breitensuche erledigt. Dabei wird der Ursprung durch ein sogenannten
+Seedsong bestimmt. Anschaulich wäre der Seedsong bei einer Anfrage wie ,,10
+ähnliche Songs zu *The Beatles --- Yellow Submarine* " eben *,,Yellow
+Submarine"*.
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
 Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste

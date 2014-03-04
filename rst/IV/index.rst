@@ -639,21 +639,16 @@ typisch, am Ende von jeder ``.py``-Datei befinden:
 
 .. code-block:: python
 
-    # Implementierung:
-    def func():
-        return 42
+    def func(): return 42
 
-    # Tests werden nur ausgeführt wenn das script direkt ausgeführt wird.
+    # Tests werden nur ausgeführt wenn das Script direkt ausgeführt wird.
     if __name__ == '__main__':
         import unittest
+        
+        class TestFunc(unittest.TestCase):  # Ein einzelner Unittest:
+            def test_func(self): self.assertEqual(func(), 42)
 
-        # Ein Unittest:
-        class TestFunc(unittest.TestCase):
-            def test_func(self):
-                self.assertEqual(func(), 42)
-
-        # Führe tests aus:
-        unittest.main()
+        unittest.main()  # Führe tests aus:
 
         
 Auf einer detaillierten Erklärung der im einzelnen getesteten Funktionalitäten
@@ -700,7 +695,6 @@ Zeilen: :cite:`8MD`
 das in einem optisch ansprechenden Video zeigt wie sich das ``git``-Repository
 mit der Zeit aufbaut. Unter :cite:`8MC` findet sich ein ein-minütiges Video dass
 entsprechend die Entwicklung von *libmunin* zeigt.
-
 
 .. rubric:: Footnotes
 
