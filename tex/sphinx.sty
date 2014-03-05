@@ -36,7 +36,7 @@
 \setkomafont{chapterentry}{\rmfamily\bfseries}
 
 % Fix the bold sans-serif font in description items:
-\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}{\rmfamily\scshape\Large{#1}}}
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}{\rmfamily\bfseries{#1:}}}
 
 % nice description style
 \RequirePackage{enumitem}
@@ -450,6 +450,7 @@
     {\color{gray75}\thesubsubsection}{1em}{}
 
 
+% Decrease Chapter Spacing.
 \titlespacing{\chapter}{0pt}{0.0em}{2em}
 
 
@@ -481,6 +482,6 @@
 \DeclareMathOperator*{\argmin}{\,min}
 \DeclareMathOperator*{\argmax}{\,max}
 
-\RequirePackage{enumitem}
+% \RequirePackage{enumitem}
 % \setlist{nolistsep}
 % \setlist{noitemsep}

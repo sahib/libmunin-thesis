@@ -24,6 +24,8 @@ libmunin: |br| Projektarbeit
 
 .. include:: toc.rst
 
+.. include:: abbrevs.rst
+
 .. toctree::
 
     appendix

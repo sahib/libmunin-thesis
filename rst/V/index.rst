@@ -1,391 +1,702 @@
-***********************
-Demonstrationsanwendung
-***********************
+***************
+Implementierung
+***************
 
-Intro
-=====
+Anwendungsbeispiel
+==================
+                               
+:dropcaps:`Beispiele` sind oft ein guter Weg um ein Gefühl für eine Bibliothek
+zu bekommen. Das folgende minimale, in Python gechriebene Beispiel liest *Songs*
+aus einer Pseudodatenbank und erstellt für den ersten zwei Empfehlungen:
 
-:dropcaps:`Abseits` der Bibliothek wurde eine, auf dem freien
-Oberflächen--Framework :math:`\text{GTK+-}3.0` basierende, GUI-Anwendung
-entwickelt.  Wie eingangs erwähnt, dient diese nicht nur zum *Showoff*, sondern
-auch zur gezielten Fehlersuche.
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 1,3,11,12,14,21
 
-Die Anwendung, die den ebenfalls nordischen Namen *Naglfar* erhielt, stellt
-einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.
+    from munin.easy import EasySession
 
-Vor der ersten Benutzung muss gemäß :num:`fig-startup` eine Session aufgebaut
-werden --- dies erledigt das Skript ``coldstart.py`` (siehe
-:ref:`coldstart-example` im *Angang C*) --- dies kann durch das Ziehen der
-Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern --- bis zu 2
-Stunden. Danach sind allerdings die Liedtext zwischengelagert und der zweite
-Lauf dauert dann nur noch wenige Minuten. 
+    MY_DATABASE = [
+        # Artist:           Album:               Title:             Genre:
+        ('Akrea'          , 'Lebenslinie'      , 'Trugbild'       , 'death metal'),
+        ('Vogelfrey'      , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
+        ('Letzte Instanz' , 'Götter auf Abruf' , 'Salve te'       , 'folk rock'),
+        ('Debauchery'     , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
+    ]
+    session = EasySession()
+    with session.transaction():
+        for idx, (artist, album, title, genre) in enumerate(MY_DATABASE):
+             session.mapping[session.add({
+                 'artist': artist,
+                 'album': album,
+                 'title': title,
+                 'genre': genre
+             })] = idx
 
-Nach dem ``coldstart.py`` die *Session* auf die Platte geschrieben hat, kann die
-eigentliche Anwendung gestartet werden. Diese verbindet sich zuallererst mit
-einem MPD-Server der auf *localhost* unter Port *6601* lauscht und besorgt sich
-dort alle Metadaten um die *Playlist* und *Database*-Ansicht zu befüllen. Danach
-wird besagte *Session* geladen. Nach der Initialisierung der *GUI* ist die
-Anwendung nun bereit benutzt zu werden.
+    for munin_song in session.recommend_from_seed(session[0], 2):
+        print(MY_DATABASE[munin_song.uid])
 
-Damit zwischen den von *libmunin* herausgegebenen Empfehlungen und den internen
-Songs unterschieden werden kann, generiert ``coldstart.py`` eine Hashtable, die
-zwischen den *ID* von *libmunin's* Songs und den Dateipfaden innerhalb der
-Musikdatenbank eine Beziehung herstellt. Diese Hashtable wird in der Session
-gespeichert.
 
-Anwendungsübersicht
-===================
+Ist *libmunin* korrekt installiert, so lässt sich dieses Skript als
+``minimal.py`` ablegen und ausführen:
 
-In :num:`fig-demo-overview` wird eine Übersicht über die GUI der Anwendung
-gegeben. Detailliertere Ansichten werden am Ende des Kapitels gezeigt.
+.. code-block:: bash
 
-Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben.
-
-Ansichten
----------
-
-Die Anwendung ist in unterschiedliche *Ansichten* (englisch *Views*) aufteilt
-die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
-über alle *Views* gegeben:
-
-* **Database:** Siehe Abbildung :num:`fig-demo-database`.
+    $ python minimal.py 
+    ('Debauchery' , 'Continue to Kill' , 'Apostle of War' , 'brutal death')
+    ('Vogelfrey'  , 'Wiegenfest'       , 'Heldentod'      , 'folk metal'),
    
-  Anzeige der gesamten Musikdatenbank durch die Spalten ``Artist``, ``Album``,
-  ``Titel``, ``Datum`` und ``Genre``. Jede Zeile entspricht dabei einem Song. 
+
+Kurze Erläuterung des Beispiels 
+-------------------------------
+
+* **Zeile 1:** Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
+  Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
+  und Weighting) mitunter recht anstrengend werden kann greifen wir auf eine
+  Session mit vorgefertigter Maske zurück --- die sogenannte ``EasySession``.
   
-  Ein Rechtsklickmenü auf einen beliebigen Song fördert ein Kontextmenü zu Tage
-  (siehe Abbildung :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten
-  bietet um die Playlist mit Empfehlungen zu befüllen (entsprechend
-  :ref:`list-of-recom-strategies`).  Im folgenden ist :math:`N` die Anzahl
-  der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
-  Nr. 5 in :num:`fig-demo-overview`) eingestellt ist.
+* **Zeile 3:** Hier erstellen wir uns eine Pseudodatenbank aus vier Liedern mit
+  vier einzelnen Attributen jeweils.
+
+* **Zeile 11:** Hier wird die oben erwähnte ``EasySession`` instanziert. Sie
+  dient uns jetzt als *Sitzung* --- alle relevanten Methoden von *libmunin*
+  können auf der *Session* aufgerufen werden.
+
+* **Zeile 12:** Bein initialen Importieren der Datenbank werden alle Songs über
+  die ``add`` Operation hinzugefügt. Da ``add`` noch keine Verbindungen zwischen
+  den einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
+  Importieren ein ``rebuild`` ausgeführt wird.
+
+* **Zeile 14:** Wir iterieren (**Zeile 13**) über alle Songs in unserer
+  Pseudodatenbank und fügen diese der *Session* hinzu (über die ``add``
+  Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben in denen
+  bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben sind
+  --- erstellt man eine eigene Session kann man diese nach Belieben
+  Konfigurieren.
   
-  * **Ausgewählter Song als Seedsong:** Erstellt :math:`N`
-    Empfehlungen basierend auf dem selektierten Song und reiht sie in die Playlist
-    ein. 
+
+  Ein Problem dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
+  Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
+  verwaltet die Originaldaten mit denen er arbeitet während *libmunin* nur
+  normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
+  welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
+
+
+  Dazu ist eine Abbildung erforderlich, das 
+  Zu diesem Zwecke geben die Operationen ``add``, ``insert``, ``modify`` und
+  ``remove`` eine eindeutige *ID* zurück die einen von *libmunin's* Songs
+  referenziert. Der Benutzer kann diese nutzen um auf eine *ID* innerhalb *seiner*
+  Datenbank zu referenzieren. 
+
   
-  * **Playlist säubern und ausgewählter Song als Seedsong:** Wie oben,
-    leert aber vor dem Einreihen die Playlist.
+  Im obigen Beispiel wird die von ``add`` zurückgebene *ID* auf die *ID* innerhalb
+  von *MY_DATABASE* abgebildet. 
+
+* **Zeile 21:** In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen
+  uns von der ``EasySession`` über die Methode ``recommend_from_seed`` zwei
+  Empfehlungen zum ersten Song der über ``add`` hinzugefügt wurde geben. Die
+  Empfehlung selbst wird als ``Song`` Objekt ausgegeben --- dieses hat unter
+  anderen eine *ID* gespeichert mit der wir die ursprünglichen Daten finden
+  können.
+
+Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
+:cite:`5LX`.
+
+
+Kurze Erläuterung der Ausgabe
+-----------------------------
+
+Die Ausgabe ist bei näherer Betrachtung nicht weiter überraschend: Da sich nur
+das Genre effektiv vergleichen lässt und wir uns von dem ersten Song 
+(,,*Trugbild*") zwei Empfehlungen geben ließen werden die zwei Songs mit dem
+ähnlichsten Genre ausgegeben.
+
+In Abbildung :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* (0) 
+ist direkt mit den Songs 1 (*Vogelfrey*) und 3 (*Debauchery*) benachbart. 
+Da die beiden Genres *folk rock* und *death metal* keine gemeinsame Schnittmenge
+haben ist dieser auch kein Nachbar --- Verbindungen zwischen zwei Knoten, werden 
+nur dann hergestellt, wenn die Distanz :math:`< 1.0` ist.
+
+Ein komplizierteres Beispiel das die meisten Aspekte von *libmunin* abdeckt 
+findet sich in :ref:`complex-example`.
+
+.. _fig-minigraph: 
+
+.. figure:: figs/minigraph.png
+    :alt: Minimaler Beispielgraph
+    :width: 42%
+    :align: center
+
+    Minimaler Beispielgraph der hinter dem obigen Beispiel steht. Die Dicke der
+    Kanten indiziert die Distanz. Dünne Kanten implizieren eine kleine Distanz.
+    Die Farbe der Knoten ist hier nicht relevant.
+
+Kurze Implementierungshistorie
+==============================
+
+Am 11. Oktober 2013 wurde mit der Implementierung begonnen. 
+
+Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
+der Distanzen und das Berechnen jeder einzelnen Song--Kombination vorgesehen -
+aus den bereits erwähnten Gründen hat sich das zu einer Approximation geändert.
+Hierbei eine vernünftige Herangehensweise zu finden hat letztlich ca. 1
+:math:`^1/_2` Monate beansprucht.
+
+Die zwischenzeitlich aufgekommene Idee Audiodaten mittels Audiofingerprints wie
+*Chromaprint* zu vergleichen wurde wieder aufgegeben --- damit ließen sich
+wirklich nur fast gleiche Stücke ermitteln. Selbst *Live* und *Studio* Versionen
+ließen sich manchmal nicht differenzieren.
+
+Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst das
+dazu dienen sollte Ideen und Geschehnisse festzuhalten --- allerdings weniger als
+Information für Dritte, mehr als persönliche Erinnerung.
+
+Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt. 
+Die letzten 3 :math:`^1/_2` Wochen dieser Zeit wurden für die
+Implementierung einer Demo--Anwendung aufgewendet.
+
+.. _list-of-recom-strategies:
+
+Liste verfügbarer Empfehlungs--Strategien
+=========================================
+
+* **Basierend auf einem Seedsong:** Basierend auf einem vom Endnutzer
+  ausgewählten Song wird ein Iterator zurückgegeben der gemäß :ref:`recom-out`
+  eine Breitensuche von diesem Seedsong aus ausführt. Optional wird  der
+  *Iterator* gemäß :ref:`recom-filter` gefiltert.
+
+* **Basierend auf einer Heuristik:** *libmunin* kann auch automatisch einen oder
+  mehrere geeignete Seedsongs auswählen. Dabei wird der Reihe nach das folgende
+  probiert:
   
-  * **Suche einen Seedsong mit einem bestimmten Attribut:** Sucht einen
-    Seedsong nach bestimmten Kriterien, die der Nutzer im Eingabefeld oben
-    rechts angeben kann. Dort kann ein *Suchbegriff* in der folgenden Form
-    angegeben werden::
-    
-        <attribut>: <wert>[, <attribut>: <value>, ...]
-    
-    Folgendes Beispiel findet alle Songs mit dem Künstler *,,Billy Talent"* **und**
-    dem Genre *,,Rock"* ::
-    
-        genre: rock, artist: Billy Talent
-    
-    Werden mehrere Suchergebnisse gefunden so werden alle als Seedsongs genutzt um
-    in die Playlist :math:`N` neue Songs einzureihen.
-    
-    Diese Funktionalität ist momentan relativ eingeschränkt da nur exakte Treffer
-    funktioneren. Ist das *Genre* also als *,,rock / pop"* getaggt, so wird die
-    Sucher erfolglos verlaufen.
+  1. Wähle die Regel mit der besten Bewertung aus und nehme alle darin erwähnten
+     Songs als Seedsongs an.
+  2. Wähle den Song mit der höchsten Abspielanzahl als Seedsong.
+  3. Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
+     abgespielt wurde, so wird ein zufälliger Seedsong gezogen.
   
-  * **Lasse libmunin einen Seedsong auswählen:** *libmunin* wählt
-    automatisch einen Seedsong nach folgenden Kriterien:
-    
-    1. Nutze die Seedsongs, die in der am besten bewertesten Regel vorkommen.
-    2. Falls keine Regel vorhanden, nutze den meist abgespielten Song als
-       Seedsong.
-    3. Schlägt auch das fehl wird ein zufälliger Song ausgewählt.
-    
-    In allen Fällen werden dann :math:`N` Empfehlungen in die Playlist
-    eingereiht.
+  Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
+
+* **Basierend auf einer Attributsuche:** Es kann nach einen oder mehreren Songs
+  gesucht werden die gewisse Attribut--Werte--Paare aufweisen. Als Beispiel kann
+  ein Song gesucht werden der die Merkmale ,,Genre: Rock" und ,,Date: 2012"
+  aufweist.
   
-  * **Erstelle eine komplett zufällige Playlist:** Reiht :math:`N` neue,
-    komplett zufällig aus der Datenbank gewählte, Songs in die Playlist ein.
-    Nützlich um die komplett zufällige Playlist mit einer von *libmunin* erstellten
-    Playlist zu vergleichen. Der Seed für die ``random()``-Funktion ist dabei immer
-    gleich, daher erstellt dies nach einem Neustart stets dieselbe Liste.
+  Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
+  Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
+
+.. _provider-list:
+
+Liste der Provider
+==================
+
+Insgesamt wurden 13 unterschiedliche Provider implementiert --- davon variieren
+einige allerdings nur in Details. Dazu gesellen sich 9 Distanzfunktionen --- auch
+manche davon unterscheiden sich nur in ihrer Fusionierungsmethode.
+
+Die genaue Funktionsweise der Provider wird in der Bachelorarbeitet betrachtet.
+Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
+Eingabe sie erwarten sowie welche Ausgabe sie produzieren.
+
+* ``Date``: Wandelt und normalisiert ein Datum dass als String übergeben wird zu
+  einer Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
+  Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+  unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
+
+* ``Moodbar``: Berechnet mit dem ``moodbar`` (vgl. :cite:`wood2005techniques`)
+  Programm aus einen beliebigen Audio File einen Vektor mit 1000 RGB-Farbwerten
+  (siehe :num:`fig-moodbar-suidakra`). Jeder dieser Farbwerte repräsentiert den
+  Anteil niedriger Frequenzen (rot), mittlerer (grün) und hoher Frequenzen
+  (blau) in einem Tausendstel des Audiostücks. 
   
-  .. _fig-demo-context-menu:
+  Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
+  *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
+  lediglich herauslesen wie ,,energetisch" ein Lied zu einem bestimmten
+  Zeitpunkt ist --- mit etwas Glück kann man auch Instrumente erkennen --- so ist
+  die Kombination von E--Gitarre und Drums oft ein helles Türkis.
   
-  .. figure:: figs/demo_context_menu.png
-      :alt: Das Kontextmenu in der Playlist und Database Ansicht
-      :width: 30%
+  Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet --- die
+  dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
+  
+  Dieser Provider kommt in drei verschiedenen Ausführungen daher die sich in dem
+  Typ ihrer Eingabe unterscheiden:
+  
+  1. ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
+  2. ``MoodbarFile``: Nimmt ein Pfad zu einem von der ``moodbar`` erstellten Datei
+     entgegen die einen Vektor aus 1000 RGB-Werten binär beinhaltet.
+  3. ``MoodbarAudioFile``: Nimmt ein Pfad zu einer beliebigen Audiodatei entgegen
+     und führt das ``moodbar``-Utility darauf aus falls noch keine weiter Datei mit
+     demselben Pfad plus der zusätzlichen Endung ``.mood`` vorhanden ist.
+  
+  .. _fig-moodbar-suidakra:
+  
+  .. figure:: figs/moodbar_suidakra.*
+      :alt: Moodbar Beispielsvisualisierung
+      :width: 100%
       :align: center
   
-      Die Einträge des Kontextmenüs in der Playlist und Database Ansicht 
+      Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over
+      Nine Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
+      Dudelsack--Intro. Bei 30% setzen relativ plötzlich harte E--Gitarren und
+      Drums ein, die in verschiedenen Variationen durch das ganze Lied gehen. 
+      Musik--Link auf YouTube: :cite:`YTS`.
 
-**Playlist:** Siehe Abbildung :num:`fig-demo-playlist`.
+* ``Wordlist``: Bricht einen String in eine Liste von Wörter auf.
 
-Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an die empfohlen
-wurden. Sonst ist diese Ansicht funktionsidentisch mit der *Database--Ansicht*.
+* ``BPM``: Berechnet die ,,Beats--Per--Minute" eines Lieds, also einem Maß für
+  die Schnelligkeit  --- dies funktioniert nicht nur für stark beatlastige
+  Musikrichtungen wie Techno, sondern auch für normale Musik. 
 
-**Graph:** Siehe Abbildung :num:`fig-demo-graph`.
+  Die Funktionalität wird momentan, eher primitiv, durch den Aufruf eines externen
+  Tools, namens ``bpm-tools`` realisiert :cite:`4YZ`. 
 
-Im *Graphen--Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet
-werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
-gegeben wurden.
+* ``Normalize``, ``ArtistNormalize``, ``AlbumNormalize``, ``TitleNormalize``:
+  Diese Provider normalisieren die häufig unsauberen Tags einer Musiksammlung
+  auf verschiedene Art und Weise: 
 
-**Rules:** Siehe Abbildung :num:`fig-demo-rules`.
+  * ``Normalize``: Normalisiert einen String mittels *NKFC Unicode
+    Normalization*.  Bei Unicode gibt es oft mehrere Arten einen *Glyph* zu
+    schreiben. So kann ein ,,ä" als einzelner Glyph (*Codepoint U+e4*) oder als
+    *Composite Glyph* geschrieben werden: ,,\" + a" (*U+30B + U+61*). Dieser
+    Provider macht daraus stets den ersten Fall.
+  
+  * ``ArtistNormalize``: Entfernt zusätzlich *Unrat* der bei Künstlernamen
+    vorhanden ist. Beispielsweise wird aus *,,The Beatles"* der String
+    *,,beatles"*
+  
+  * ``AlbumNormalize``: Entfernt analog zu ``ArtistNormalize`` Unrat aus
+    Album--Namen wie *(live 2012)* 
+  
+  * ``TitleNormalize``: Momentan ein Synonym für ``AlbumNormalize``.
 
-In einer Liste werden alle bekannten Assoziationsregel
-angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
-und das Rating der Regel angezeigt.
+* ``Composite``: Erlaubt das Verketten von Providern. Der erste Eingabewert wird
+  dem ersten Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei
+  einer Unix--Pipe, wird an den nächsten Provider in der Kette als Eingabe
+  weitergegeben.
 
-**Examine:** Siehe Abbildung :num:`fig-demo-examine`.
+  Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
+  Baukastenprinzip:
+  
+  .. digraph:: foo
+  
+     size=4.5;
+  
+     node [shape=record];
+  
+     subgraph {
+         rank = same; PlyrLyrics; Keywords; Stem
+     }
+  
+     "Eingabe: Artist, Album" ->  PlyrLyrics [label=" Sucht im Web "]
+     PlyrLyrics -> Keywords [label="liefert Songtext"]
+     Keywords -> Stem [label="extrahiert Keywords"]
+     Stem -> "Ausgabe: Stemmed Keywords" [label=" Wortstamm--Keywords "]
 
-Hier werden alle Attribute des momentan spielenden Songs angezeigt.  Es wird die
-von *libmunin* normalisierte Form angezeigt, also auch, falls verfügbar, der
-Originalwert.  Zudem wird die ``moodbar`` (falls vorhanden) oben im Fenster
-geplottet.
+* ``Stem``: Bringt mithilfe des Porter--Stemmer--Algorithmus es einzelne Wörter
+  oder eine Liste von Wörtern auf ihren Wortstamm zurück. Aus den Wörtern
+  *Fisher*, *Fish*, *fishing* wird beispielsweise stets *fish*. Dies ist
+  natürlich abhängig von der Eingabesprache --- momentan wird aber stets
+  Englisch angenommen.
 
-**History:** Siehe Abbildung :num:`fig-demo-history`.
+* ``GenreTree``: Der wohl komplizierteste Provider.
 
-Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
-gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt 
-ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
+  Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert. 
+  Beispielsweise wird die Genrebeschreibung *Rock, Reggae / Alternative Rock*
+  mittels einer Regular Expression in die Unterbestandteile aufgebrochen:
+  
+  * *Rock*
+  * *Reggae*
+  * *Alternative Rock*
+  
+  Danach wird jedes so entstandene Untergenre in einzelne Wörter aufgebrochen und
+  in einem *Baum* bekannter Genres (momentan 1876 einzelne Genres) eingepasst:
+  
+  .. digraph:: foo
+  
+      size=4; 
+      node [shape=record];
+  
+      "music (#0)"  -> "rock (#771)"
+      "music (#0)"  -> "alternative (#14)"
+      "music (#0)"  -> "reggae (#753)"
+      "rock (#771)" -> "alternative (#3)"
+  
+  Hier werden aus Platzgründen nur die Untergenres im obigen Beispiel gezeigt.
+  Jeder Knoten hat zudem einen Indexwert der in Klammern angegeben ist. 
+  
+  Das finale Resultat dieses Providers mit der obigen Eingabe ist dann in
+  Python--Listen Notation:
+  
+  .. code-block:: python
+  
+      [[14], [771, 3], [753], [771]]
+  
+  Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
+  Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
+  Da der Root--Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
+  Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
+  
+  .. code-block:: python
+  
+      [['alternative'], ['alternative', 'rock'], ['reggae'], ['rock']] 
+  
+  Da die einzelnen Pfade allerdings weniger Speicher verbrauchen und sich bei
+  weitem leichter auflösen und vergleichen lassen werden diese vom Provider
+  zurückgegeben.
 
-Letzteres ist für das Debugging der Filterfunktion nützlich.
+* ``Keywords``: Extrahiert aus einem Text als Eingabe alle *relevanten*
+  Stichwörter.  Ein Beispiel dieser *Keywords* wird in
+  :num:`fig-yellow-keywords` gezeigt.  Zudem wird die Sprache des Eingabetextes
+  erkannt und mit abgespeichert.
 
-Weitere Steuerlemente
+  .. _fig-yellow-keywords:
+  
+  .. figtable::
+      :caption: Die extrahierten Keywords aus ,,Yellow Submarine'', samt deren
+                Rating.
+      :alt: Extrahierte Keywords aus ,,Yellow Submarine''
+      :spec: l l
+  
+      ====== =================================
+      Rating Keywords 
+      ====== =================================
+      22.558 'yellow', 'submarin'
+      20.835 'full', 'speed', 'ahead', 'mr'
+       8.343 'live', 'beneath'
+       5.247 'band', 'begin'
+       3.297 'sea'
+       3.227 'green'
+       2.797 'captain'
+         ... ...
+      ====== ================================= 
+
+* ``PlyrLyrics``: Besorgt mittels *libglyr* Liedtexte aus dem Internet. Bereits
+  gesuchte Liedtexte werden dabei zwischengespeichert. Dieser Provider eignet
+  sich besonders im Zusammenhang mit dem *Keywords* zusammen als *Composite*
+  Provider.
+
+* ``DiscogsGenre``: Besorgt von dem Online--Musikmarktplatz *Discogs* Genre
+  Informationen. Dies ist nötig da Musiksammlungen für gewöhnlich mittels einer
+  Online--Musikdatenbank getaggt werden --- die meisten bieten allerdings keine
+  Genreinformationen. 
+
+.. _distance-function-list:
+
+Liste der Distanzfunktionen
+===========================
+
+Die genaue Funktionsweise der einzelnen Distanzfunktionen wird in der
+Bachelorarbeit genauer betrachtet. Im Folgenden wird aber eine kurze Auflistung
+jeder vorhandenen Distanzfunktion und der Annahme auf der sie basiert
+gegeben.
+
+* ``Date``: Vergleicht zwei Jahreszahlen. Eine hohe Differenz führt dabei zu
+  einer hohen Distanz. Also ,,erstes" Jahr wird das Jahr 1950 angenommen.
+
+
+  *Annahme:* Lieder mit einer großen zeitlichen Differenz zueinander werden
+  selten zusammen gehört.
+
+* ``Moodbar`` Vergleicht die ``moodbar`` zweier unterschiedlicher Lieder.
+
+
+  *Annahme:* Ähnliche *Moodbars* implizieren auch ähnliche Lieder. Da man oft
+  gewissen Instrumente anhand deren Farbe erkennen kann werden unter anderen die
+  dominanten Farben und der Stilleanteil verglichen.
+
+* ``Rating``: Vergleicht ein vom Benutzer vergebenes Rating. Dabei wird zwischen
+  nicht gesetzten *(z.B. 0)* und gesetzten Rating unterschieden *(z.B. 1-5)* die
+  sich unterschiedlich auf die finale Distanz auswirken.  Die Werte für das
+  Minima, Maxima und den Nullwert können beim Erstellen der Session konfiguriert
+  werden.
+
+
+  *Annahme:* Zeichnet der Benutzer ein Lied mit einem hohen Rating aus so möchte
+  er vermutlich Empfehlungen zu ebenfalls hoch ausgezeichneten Liedern haben.
+  Dies bietet dem Nutzer eine Möglichkeit direkte *Hinweise* an das System zu
+  geben.
+
+* ``BPM``: Vergleicht den ,,Beats-per--Minute`` Wert zweier Lieder.  Als
+  Minimalwert wird 50 und als Maximalwert 250 angenommen.
+
+
+  *Annahme:* Ähnlich schnelle Lieder werden oft zusammen gespielt.
+
+* ``Wordlist``: Vergleicht eine Menge von Wörtern auf Identität. Sind die Mengen
+  identisch so kommt eine Distanz von :math:`0.0` dabei heraus. 
+
+
+  *Annahme:* Diese Distanzfunktion ist beispielsweise beim Vergleich von Titeln
+  nützlich. Ähnliche Wörter in Titeln deuten oft auf ähnliche Themen hin.  Als
+  Beispiel kann man die Titel *,,Hey Staat" (Hans Söllner)* und *,,Lieber Staat"
+  (Farin Urlaub)* nennen.
+
+* ``Levenshtein``:
+  Wie ``Wordlist``, die einzelnen Wörter werden aber mittels der Levenshtein
+  Distanzfunktion verglichen.  So spielen kleine Abweichung wie der Vergleich von
+  ``color`` und ``colour`` keine große Rolle mehr. Der große Nachteil ist der
+  erhöhte Rechenaufwand.
+  
+
+  *Annahme:* Ähnlich wie bei ``Wordlist``, aber eben auch für Daten bei denen man
+  kleine Unterschiede in der Schreibweise erwartet. Beispielsweise bei Künstlern
+  ``ZZ-Top`` und ``zz Top``.
+
+* ``Keywords``: Nimmt die Ergebnisse des ``Keyword``--Providers entgegen und
+  bezieht die Sprache beider Keywordmengen sowie die länge der einzelnen
+  Keywords in die Distanz mit ein.
+  
+
+  *Annahme:* Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied
+  vorgeschlagen bekommen --- oder zumindest in derselben Sprache.
+
+* ``GenreTree``, ``GenreTreeAvg``: Vergleicht die vom ``GenreTree``--Provider
+  erzeugten Pfade.
+  
+  - ``GenreTree``: Vergleicht alle Pfade in beiden Eingabemengen miteinander und
+    nimmt die **geringste** Distanz von allen. 
+  
+    Diese Distanzfunktion sollte gewählt werden wenn die Genre--Tags eher kurz
+    gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
+
+  - ``GenreTreeAvg``: Vergleicht alle Pfade in beiden Eingabemengen miteinander
+    und nimmt die **durchschnittliche** Distanz von allen. 
+    
+    Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre--Tags
+    vorhanden --- wie sie beispielsweise vom ``DiscogsGenre``--Provider geliefert
+    werden --- sind.
+    
+
+  *Annahme:* Ähnliche Genres deuten auf ähnliche Musikstile hin.
+
+
+Modul-- und Paketübersicht
+==========================
+
+In der Programmiersprache *Python* entspricht jede einzelne ``.py`` Datei einem
+*Modul*. Die Auflistung unter :num:`fig-module-tree` soll eine Übersicht darüber
+geben welche Funktionen in welchem Modul implementiert worden.
+
+*Anmerkung:* ``__init__.py`` ist eine spezielle Datei, die beim Laden
+eines Verzeichnisses durch Python ausgeführt wird.
+
+.. _fig-module-tree:
+
+.. figtable::
+    :caption: Verzeichnisbaum mit den einzelnen Modulen von libmunin's
+              Implementierung
+    :alt: Verzeichnisbaum der Implementierung
+    :spec: @{}l @{}l @{}l @{}l | l
+
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    | **Verzeichnisse** | (gekürzt)        |                |       | **Beschreibung**                            |
+    +===================+==================+================+=======+=============================================+
+    | **munin/**        |                  |                |       | Quelltextverzeichnis                        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  __init__.py     |                |       | Versionierungs Info                         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  __main__.py     |                |       | Beispielprogramm                            |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  database.py     |                |       | Implementierung von ``Database``            |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  dbus_service.py |                |       | Unfertiger DBus Service.                    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | *dbus_client*    |                |       | Unfertiger DBus Beispielclient.             |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **distance/**    |                |       | Unterverzeichnis für Distanzfunktionen      |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  __init__.py   |       | Implementierung von ``DistanceFunction``    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  bpm.py        |       | Implementierung von ``BPMDistance``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  date.py       |       | Implementierung von ``DateDistance``        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  | *...*          |       | Weitere Subklassen von ``DistanceFunction`` |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  session.py      |                |       | Implementierung der ``Session`` (API)       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  easy.py         |                |       | Implementierung der ``EasySession``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  graph.py        |                |       | Implementierung der Graphenoperationen      |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  helper.py       |                |       | Gesammelte, oftgenutzte Funktionen          |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  history.py      |                |       | Implementierung der ``History`` u. Regeln   |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  plot.py         |                |       | Visualisierungsfunktionen für Graphen       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **provider/**    |                |       | Unterverzeichnis für Provider               |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  __init__.py   |       | Implementierung von ``Provider``            |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  bpm.py        |       | Implementierung von ``BPMProvider``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  composite.py  |       | Implementierung des ``CompositeProvider``   |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  | *...*          |       | Weitere Subklassen von ``Provider``         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  rake.py         |                |       | Implementierung des RAKE-Algorightmus       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **scripts/**     |                |       | Unterverzeichnis für ,,Test Scripts"        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  visualizer.py |       | Zeichnet ein mood-file mittels ``cairo``    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  walk.py       |       | Berechnet vieles mood-files parallel        |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  song.py         |                |       | Implementierung von ``Song``                |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   | **stopwords/**   |                |       | Stoppwortimplementierung:                   |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |  __init__.py   |       | Implementierung des StopwordsLoader         |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  | **data/**      |       | Unterverzeichnis für die Stoppwortlisten    |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *de*  | Gemäß ISO 638-1 benannte Dateien;           |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *en*  | Pro Zeile ist ein Stoppwort gelistet;       |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *es*  | Insgesamt 17 verschiedene Listen.           |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |                  |                | *...* |                                             |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+    |                   |  testing.py      |                |       | Fixtures und Helper für unittests           |
+    +-------------------+------------------+----------------+-------+---------------------------------------------+
+
+Trivia
+======
+
+Entwicklungsumgebung
+--------------------
+
+Als Programmiersprache wurde *Python*, in Version :math:`3.2`, aus folgenden
+Gründen ausgewählt:
+
+* Exzellenter Support für *Rapid Prototyping* --- eine wichtige Eigenschaft bei
+  nur knapp 3 Monaten Implementierungszeit.
+* Große Zahl an nützlichen Bibliotheken, besonders für den wissenschaftlichen
+  Einsatz.
+* Bei Performanceproblemen ist eine Auslagerung von Code nach
+  :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` mittels
+  *Cython* sehr einfach möglich.
+* Der Autor hat gute Kenntnisse in Python.
+
+Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
+sozialen Code--Hosting Plattform *GitHub* :cite:`Y41` --- zur Versionierung wird
+dann entsprechend das *Distributed Version Control System* ``git`` genutzt.
+
+Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
+besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
+zumindest die Seite für spätere Projekte merken. 
+
+Die dazugehörige Dokumentation wird bei jedem *Commit* [#f1]_ automatisch aus den
+Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der
+Dokumentations--Hosting Plattform *ReadTheDocs* gebaut und dort verfügbar
+gemacht :cite:`5LX`.
+
+Zudem werden pro Commit Unit--Tests auf der Continious--Integration Plattform
+*TravisCI* :cite:`JIU` für verschiedene Python--Versionen durchgeführt. Dies hat
+den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
+vergessen hat die unittests lokal durchzuführen.
+
+Schlägt der *Build* fehl so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
+
+.. _fig-travis-badge:
+
+.. figure:: figs/travis_badge.png
+    :align: center
+    :alt: Screenshot der Statusbuttons auf der Github--Seite.
+
+    Screenshot der Statusbuttons auf der Github--Seite.
+
+Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
+veröffentlicht :cite:`O6Q`, wo sie mithilfe des folgenden Befehles samt
+Python--Abhängigkeiten installiert werden können (Setzt Python :math:`\ge 3.2`
+vorraus):
+
+.. code-block:: bash
+
+    $ sudo pip install libmunin
+
+Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
+vereinfachen --- im Notfall kann man stets auf funktionierende Versionen
+zurückgehen. 
+
+Der Quelltext selber wird in *gVim* geschrieben --- dass sich der Python--Quelltext
+dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
+und *flake8* überprüft.
+
+Auch dieses Dokument wurde mit dem :latex_sign:`sigh`-Backend einer
+modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
+*reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML
+Variante :cite:`8MD` erstellt wird --- letztere ist sogar für mobile Endgeräte
+ausgelegt.  
+
+Unit--Tests
+-----------
+
+Die meisten Module sind mit ``unittests`` ausgestattet, die sich, für Python
+typisch, am Ende von jeder ``.py``-Datei befinden:
+
+.. code-block:: python
+
+    def func(): return 42
+
+    # Tests werden nur ausgeführt wenn das Script direkt ausgeführt wird.
+    if __name__ == '__main__':
+        import unittest
+        
+        class TestFunc(unittest.TestCase):  # Ein einzelner Unittest:
+            def test_func(self): self.assertEqual(func(), 42)
+
+        unittest.main()  # Führe tests aus:
+
+        
+Auf einer detaillierten Erklärung der im einzelnen getesteten Funktionalitäten
+wird verzichtet --- diese würden den Rahmen der Projektarbeit ohne erkenntlichen
+Mehrwert sprengen.
+
+Lines of Code (*LoC*)
 ---------------------
 
-Aus Gründen der Vollständigkeit werden hier, die unter :num:`fig-demo-overview`
-gezeigten Elemente noch erklärt.
+Was die *Lines of Code* betrifft so verteilen sich insgesamt 4867 Zeilen
+Quelltext auf 46 einzelne Dateien. Die im nächsten Kapitel vorgestellte
+Demo--Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
+Kommentare, die zum größten Teil zur Generation der Online--Dokumentation
+genutzt werden.
 
-2. **Seedsong:** Zeigt mit einem roten Kreis den zuletzt ausgewählten
-   Seedsong an.  Falls es mehrere Seedsongs gab, wird nur der erste
-   markiert.
+Dazu kommen einige weitere Zeilen von *reStructuredText* (einer einfachen
+Markup--Sprache) die das Gerüst der Online--Dokumentation bilden:
 
-3. **Current Song:** Ein dreieckiges Icon das den aktuell spielenden (oder
-   pausierten) Song anzeigt.
+.. code-block:: bash
 
-4. **Playlist:** Die Playlist--Ansicht, wie bereits oben gezeigt.
+    $ wc -l $(find . -iname '*.rst')
+    2231 insgesamt
 
-5. **Empfehlungszähler:** Die Anzahl an Empfehlungen die ein Klick im
-   Kontextmenü liefert.
+Die Online--Dokumentation wird aus den Kommentaren im Quelltext
+extrahiert --- das entspricht dem vom *Donald Knuth* vorgeschlagenem
+Ansatz des *Literate Programming*.
 
-6. **Filter:** Togglebutton (:math:`$\sout{a}$` als Icon) der anzeigt ob
-   der Filtermodus aktiviert ist.  Ist er aktiv so darf sich in einer dynamisch
-   erstellten Playlist der Künstler nur alle 3 Stücke wiederholen, der selbe
-   Künstler *und* das selbe Album nur alle 5 Stücke.
+Sonstige Statistiken
+--------------------
 
-7. **Mininmaler Höranteil:** Ein Klick auf den Button fördert einen Slider zu
-   Tage auf dem man eine Prozentzahl einstellt. Diese legt fest welcher Anteil
-   eines Liedes (in Prozent) *mindestens* angehört werden muss damit er zur
-   Historie hinzugefügt wird.
-   
-   Um diese Funktionalität zu realisieren musste *Moosecat* um diese
-   Funktionalität erweitert werden.
+Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
+``git log`` entstanden sind:
 
-8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
-   Seedsong bei der Attributsuche  haben sollte.
+**GitHub Visualisierungen:** *GitHub* stellt einige optisch ansprechende und
+interaktive Statistiken bereit die beispielsweise viel über den eigenen
+Arbeitszyklus verraten: :cite:`IBL`
 
-9. **Rating:** Spezielles Widget auf den man das *Rating* des aktuell spielenden
-   Songs zu setzen. Beim erstellen der *Session* durch ``analyse.py`` wird ein
-   *Rating* von :math:`0` angenommen --- also *ungesetzt*.
-   
-   Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
-   eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
-   Rating auf ,,0" (und damit *ungesetzt*) zurückzusetzen.
-   
-   Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen--Ansicht
-   zufolge.
+``gitstats`` **Visualisierungen:** Das kleine Programm ``gitstats`` baut aus dem
+``git log`` eine HTML-Seite mit einigen interessanten Statistiken --- wie
+beispielsweise der absoluten Anzahl von geschriebenen (und wieder gelöschten)
+Zeilen: :cite:`8MD`
 
-10. **Playcount:** Zeigt an wie oft ein Lied bereits gehört wurde. Ein Lied gilt
-    als nicht gehört wenn prozentuell nur ein kleiner Teil als der gesetzte
-    minimale Höranteil angehört wurde.
-   
-    Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt ---
-    sobald man 100x mal ein Lied hört, zeigt diese vollen Füllstand an.
+**Commit--Graph Visualisierungsvideo**: ``gource`` ist ein Programm
+das in einem optisch ansprechenden Video zeigt wie sich das ``git``-Repository
+mit der Zeit aufbaut. Unter :cite:`8MC` findet sich ein ein-minütiges Video dass
+entsprechend die Entwicklung von *libmunin* zeigt.
 
-11. **Volumebar** Regler für die Lautstärke. 
+.. rubric:: Footnotes
 
-12. **Title Label:** Zeit das aktuell spielende Lied mit Titel, Album und
-    Künstler an.
-
-13. **Modebuttons:** Umschalten zwischen *Random* (nächstes Lied ist zufällig),
-    *Single* (höre nach diesem Lied auf zu spielen), *Repeat* (spring zum Anfang
-    der Playlist nach dem letzten Lied) und *Consume* (Lösche das Lied aus der
-    Playlist nach dem Abspielen).
-
-14. **Seekbar:** Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des
-    aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht die
-    *Höranteil* ein, doppelt gehörte Parts schon --- daher sind Werte :math:`\ge
-    100\%` möglich.
-
-15. **Playbuttons:** Die ,,üblichen" Kontrollen eines Musicplayers zum
-    *Pausieren/Abspielen* (an momentaner Stelle anhalten/weiterspielen),
-    *Stoppen* (Anhalt und zum Anfang der Playlist springen), *Nächstes* und
-    *Vorheriges* Lied .
-
-16. **Suche:** Erlaubt das Filtern der Playlist oder Datenbank.
-   
-    Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das *,,beat"*
-    im Artist, Album oder Titel--Tag beeinhaltet) bis hin zu sehr komplizierten
-    Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat"* (Findet
-    alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich
-    *2003* released wurde, oder dessen Künstler ein Wort enthält, dass mit
-    ,,Beat" beginnt).
-     
-    *Anmerkung:* Die ,,Such--Engine" dahinter ist in *Moosecat* implementiert.
-    
-    Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
-    :kbd:`Esc` wieder versteckt werden.
-
-.. raw:: latex
-
-    \newpage
-
-.. _fig-demo-overview:
-
-.. figure:: figs/demo_overview.*
-    :alt: Übersicht über die Demoanwendung
-    :width: 80% 
-    :align: center
-    
-    Übersicht über die Demonanwendung.
-
-.. -------------------------------
-
-.. only:: html
-
-   .. figure:: figs/demo_database.png
-       :alt: Die Datenbank Ansicht
-       :width: 100%
-       :align: center
-
-       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
-       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
-
-.. only:: latex
-
-   .. _fig-demo-database:
-
-   .. figure:: figs/demo_database270.png
-       :alt: Die Datenbank Ansicht
-       :width: 93%
-       :align: center
-
-       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
-       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
-
-.. -------------------------------
-
-
-.. only:: html
-
-   .. figure:: figs/demo_playlist.png
-       :alt: Die aktuelle Playlist
-       :width: 100%
-       :align: center
-
-       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
-       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
-
-.. only:: latex
-
-   .. _fig-demo-playlist:
-
-   .. figure:: figs/demo_playlist270.png
-       :alt: Die aktuelle Playlist
-       :width: 93%
-       :align: center
-
-       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
-       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
-
-.. -------------------------------
-
-.. only:: html
-
-   .. figure:: figs/demo_rules.png
-       :alt: Die Regelansicht
-       :width: 100%
-       :align: center
-
-       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
-       Mengen der Regel, der Supportcount und das Rating.
-
-.. only:: latex
-
-   .. _fig-demo-rules:
-
-   .. figure:: figs/demo_rules270.png
-       :alt: Die Regelansicht
-       :width: 93%
-       :align: center
-
-       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
-       Mengen der Regel, der Supportcount und das Rating.
-
-.. -------------------------------
-
-.. only:: html
-
-   .. figure:: figs/demo_graph.png
-       :alt: Die Graphenansicht
-       :width: 100%
-       :align: center
-
-       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
-       geplottet. Eine Interaktion ist nicht möglich.
-
-.. only:: latex
-
-   .. _fig-demo-graph:
-
-   .. figure:: figs/demo_graph270.png
-       :alt: Die Graphenansicht
-       :width: 93%
-       :align: center
-
-       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
-       geplottet. Eine Interaktion ist nicht möglich.
-
-.. -------------------------------
-
-.. only:: html
-
-   .. figure:: figs/demo_history.png
-       :alt: Die Ansicht der History
-       :width: 100%
-       :align: center
-
-       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
-       (rechts) Songs werden aufgelistet.
-
-.. only:: latex
-
-   .. _fig-demo-history:
-
-   .. figure:: figs/demo_history270.png
-       :alt: Die Ansicht der History
-       :width: 93%
-       :align: center
-
-       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
-       (rechts) Songs werden aufgelistet.
-
-.. -------------------------------
-
-.. only:: html
-
-   .. figure:: figs/demo_examine.png
-       :alt: Die Ansicht der Examine--Page
-       :width: 100%
-       :align: center
-
-       Die ,,Examine''--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
-       Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
-       gerendert.
-
-.. only:: latex
-
-   .. _fig-demo-examine:
-
-   .. figure:: figs/demo_examine270.png
-       :alt: Die Ansicht der Examine--Page
-       :width: 93%
-       :align: center
-
-       Die ,,Examine''--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
-       Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
-       gerendert.
+.. [#f1] In einem *Commit* werden eine Reihe zusammengehöriger Änderungen
+   verpackt. Man kann später einen *Commit* immer wieder zurückspulen.

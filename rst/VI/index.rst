@@ -1,189 +1,240 @@
-***************
-Zusammenfassung
-***************
+***********************
+Demonstrationsanwendung
+***********************
 
-Aktueller Stand
-===============
+Intro
+=====
 
-:dropcaps:`Es` wurde eine Softwarebibliothek in Python implementiert, die ein
-Musikempfehlungssystem auf Graphen--Basis mit einer flexiblen Schnittstelle
-bietet. Das System lernt dabei vom Nutzer mittels expliziten (Vergeben von
-Ratings) und impliziten (Beobachtung des Endnutzers und Ableitung von
-Assoziationsregeln) Methoden.
+:dropcaps:`Abseits` der Bibliothek wurde eine, auf dem freien
+Oberflächen--Framework :math:`\text{GTK+-}3.0` basierende, GUI-Anwendung
+entwickelt.  Wie eingangs erwähnt, dient diese nicht nur zum *Showoff*, sondern
+auch zur gezielten Fehlersuche.
 
-Es wurde eine große Anzahl von sogenannten *Providern* zum Normalisieren der
-Eingabedaten, sowie eine entsprechend hohe Anzahl von *Distanzfunktionen*
-implementiert welche diese Daten vergleichen können.
-Im Vergleich zu bestehenden Systemen ist man nicht von Audiodaten abhängig.
-Durch die freie Lizenz ist ein weitläufiger Einsatz möglich.
+Die Anwendung, die den ebenfalls nordischen Namen *Naglfar* erhielt, stellt
+einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.
 
-Zusammenhand mit Data--Mining
-=============================
+Vor der ersten Benutzung muss gemäß :num:`fig-startup` eine Session aufgebaut
+werden --- dies erledigt das Skript ``coldstart.py`` (siehe
+:ref:`coldstart-example` im *Angang C*) --- dies kann durch das Ziehen der
+Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern --- bis zu 2
+Stunden. Danach sind allerdings die Liedtext zwischengelagert und der zweite
+Lauf dauert dann nur noch wenige Minuten. 
 
-*Data--Mining* meint landläufig das automatisierte *Abbauen* von unerwarteten
-Wissen aus einem großen *Datenberg*. So gesehen ist *libmunin* die *Spitzhacke*
-für *Musikdatenbanken*.
+Nach dem ``coldstart.py`` die *Session* auf die Platte geschrieben hat, kann die
+eigentliche Anwendung gestartet werden. Diese verbindet sich zuallererst mit
+einem MPD-Server der auf *localhost* unter Port *6601* lauscht und besorgt sich
+dort alle Metadaten um die *Playlist* und *Database*-Ansicht zu befüllen. Danach
+wird besagte *Session* geladen. Nach der Initialisierung der *GUI* ist die
+Anwendung nun bereit benutzt zu werden.
 
-Insgesamt wurden hauptsächlich folgende Techniken aus diesem Gebiet genutzt:
+Damit zwischen den von *libmunin* herausgegebenen Empfehlungen und den internen
+Songs unterschieden werden kann, generiert ``coldstart.py`` eine Hashtabelle, die
+zwischen den *ID* von *libmunin's* Songs und den Dateipfaden innerhalb der
+Musikdatenbank eine Beziehung herstellt. Diese Hashtabelle wird in der Session
+gespeichert.
 
-* *Warenkorbanalyse* um *Assoziationsregeln* abzuleiten.
-* Verschiedene *Distanzfunktionen* und *Fusionierungsverfahren*.
-* *Spracherkennung* und *Keyword--Extrahierung*.
-* Verschiedenste *Normalisierung* von Eingabedaten.
+Anwendungsübersicht
+===================
 
-Welche Anforderungen wurden nicht oder unvollständig erfüllt?
-=============================================================
+In :num:`fig-demo-overview` wird eine Übersicht über die GUI der Anwendung
+gegeben. Detailliertere Ansichten werden am Ende des Kapitels gezeigt.
 
-Unabhängigkeit von der Programmiersprache
------------------------------------------
+Im Folgenden wird nun eine Übersicht über die *Features* der Anwendung gegeben.
 
-Momentan ist *libmunin* nur von *Python* aus zu benutzen. Dies ist zum Teil dem
-Format geschuldet in dem die internen Daten abgespeichert werden: Dem
-Python-spezifischen ``pickle`` Format, welches beliebige Python--Objekte
-serialisieren kann, macht es natürlich schwierig Software zu schreiben die
-eine serialisierte *Session* einlesen kann ohne dabei auf *libmunin* oder
-*Python* zurückzugreifen. 
+Ansichten
+---------
 
-Davon unabhängig ist *libmunin* momentan durch die Implementierung in Python auf
-diese Sprache eingeschränkt --- da viele Musicplayer in anderen Sprachen
-geschrieben sind, kann das durchaus zum Problem werden. Zur Lösung gibt es zwei
-Lösungsansätze. Der erste ist das Schreiben von *Languagebindings* für die
-Zielsprache --- das würde erheblichen Aufwand mit sich bringen, wenn mehr als
-einige wenige Sprachen unterstützt werden sollen. Die zweite Möglichkeit ist
-eine Aufteilung in *Server* (der dann in Python geschrieben wäre) und *Client*
-(der in einer beliebigen Programmiersprache geschrieben ist).  Der *Client*
-könnte dann über ein definiertes Protokoll auf die Funktionen des Servers
-zurückgreifen --- das ist beispielsweise die Herangehensweise von MPD.
+Die Anwendung ist in unterschiedliche *Ansichten* (englisch *Views*) aufteilt
+die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
+über alle *Views* gegeben:
 
-Ein konkrete Umsetzung dieser Idee könnte relativ einfach mit *D-Bus* [#f1]_
-erreicht werden. Der Server würde dabei die API von *libmunin* als
-*D-Bus Service* implementieren. Der Client könnte eine der in zahlreichen
-Programmiersprachen verfügbaren *DBus--Libraries* nutzen, um im Server Methoden
-aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Falls mehrere 
-Programme die gleiche Session nutzen wollen --- momentan ist das aus Gründen der 
-Nebenläufigkeit noch nicht möglich.
+* **Database:** Siehe Abbildung :num:`fig-demo-database`.
+   
+  Anzeige der gesamten Musikdatenbank durch die Spalten ``Artist``, ``Album``,
+  ``Titel``, ``Datum`` und ``Genre``. Jede Zeile entspricht dabei einem Song. 
+  
+  Ein Rechtsklickmenü auf einen beliebigen Song fördert ein Kontextmenü zu Tage
+  (siehe Abbildung :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten
+  bietet um die Playlist mit Empfehlungen zu befüllen (entsprechend
+  :ref:`list-of-recom-strategies`).  Im folgenden ist :math:`N` die Anzahl
+  der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
+  Nr. 5 in :num:`fig-demo-overview`) eingestellt ist.
+  
+  * **Ausgewählter Song als Seedsong:** Erstellt :math:`N`
+    Empfehlungen basierend auf dem selektierten Song und reiht sie in die Playlist
+    ein. 
+  
+  * **Playlist säubern und ausgewählter Song als Seedsong:** Wie oben,
+    leert aber vor dem Einreihen die Playlist.
+  
+  * **Suche einen Seedsong mit einem bestimmten Attribut:** Sucht einen
+    Seedsong nach bestimmten Kriterien, die der Nutzer im Eingabefeld oben
+    rechts angeben kann. Dort kann ein *Suchbegriff* in der folgenden Form
+    angegeben werden::
+    
+        <attribut>: <wert>[, <attribut>: <value>, ...]
+    
+    Folgendes Beispiel findet alle Songs mit dem Künstler *,,Billy Talent"* **und**
+    dem Genre *,,Rock"* ::
+    
+        genre: rock, artist: Billy Talent
+    
+    Werden mehrere Suchergebnisse gefunden so werden alle als Seedsongs genutzt um
+    in die Playlist :math:`N` neue Songs einzureihen.
+    
+    Diese Funktionalität ist momentan relativ eingeschränkt da nur exakte Treffer
+    funktioneren. Ist das *Genre* also als *,,rock / pop"* getaggt, so wird die
+    Sucher erfolglos verlaufen.
+  
+  * **Lasse libmunin einen Seedsong auswählen:** *libmunin* wählt
+    automatisch einen Seedsong nach folgenden Kriterien:
+    
+    1. Nutze die Seedsongs, die in der am besten bewertesten Regel vorkommen.
+    2. Falls keine Regel vorhanden, nutze den meist abgespielten Song als
+       Seedsong.
+    3. Schlägt auch das fehl wird ein zufälliger Song ausgewählt.
+    
+    In allen Fällen werden dann :math:`N` Empfehlungen in die Playlist
+    eingereiht.
+  
+  * **Erstelle eine komplett zufällige Playlist:** Reiht :math:`N` neue,
+    komplett zufällig aus der Datenbank gewählte, Songs in die Playlist ein.
+    Nützlich um die komplett zufällige Playlist mit einer von *libmunin* erstellten
+    Playlist zu vergleichen. Der Seed für die ``random()``-Funktion ist dabei immer
+    gleich, daher erstellt dies nach einem Neustart stets dieselbe Liste.
+  
+  .. _fig-demo-context-menu:
+  
+  .. figure:: figs/demo_context_menu.png
+      :alt: Das Kontextmenu in der Playlist und Database Ansicht
+      :width: 30%
+      :align: center
+  
+      Die Einträge des Kontextmenüs in der Playlist und Database Ansicht 
 
-.. rubric:: Footnotes
+**Playlist:** Siehe Abbildung :num:`fig-demo-playlist`.
 
-.. [#f1] Ein unter Unix sehr weit verbreitetes IPC-Framework und Messagebroker,
-         bei dem Services in einem *Bus* bereitgestellt werden. Clients können
-         dann, ähnlich wie bei RPC, Methoden auf den Services aufrufen.
+Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an die empfohlen
+wurden. Sonst ist diese Ansicht funktionsidentisch mit der *Database--Ansicht*.
 
-Einfaches Information Retrieval
--------------------------------
+**Graph:** Siehe Abbildung :num:`fig-demo-graph`.
 
-Die Ergebnisse die *libmunin* liefern kann, können nur so gut sein wie die
-Eingabedaten. Sind diese falsch oder unzureichend (durch schlechtes Tagging
-etwa), wird auch eine gute Distanzfunktion nur mittelmäßig genaue
-Ergebnisse erzielen. 
+Im *Graphen--Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet
+werden. Dies ist oft nützlich um nachvollziehen welche Empfehlungen warum
+gegeben wurden.
 
-Momentan bietet *libmunin* bereits dem Nutzer Möglichkeiten an um fehlende
-Songtexte und Genre--Tags aus dem Internet zu besorgen. In der Einleitung dieser
-Arbeit wurden aber schon freie Musikmetadatenbanken wie *MusicBrainz* erwähnt
-die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
-können. 
+**Rules:** Siehe Abbildung :num:`fig-demo-rules`.
 
-Glücklicherweise steht mit *beets* :cite:`XAJ` bereits ein entsprechendes,
-praktischerweise in Python geschriebenes Tool bereit --- gewissermaßen das
-*libhugin* [#f2]_ für Musik.  In Zukunft könnte *beets* zusammen mit *libglyr
-also den *Information Retrieval* Teil übernehmen, ohne dass *libmunin* das Rad
-dafür neu erfinden muss.
+In einer Liste werden alle bekannten Assoziationsregel
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
+und das Rating der Regel angezeigt.
 
-.. rubric:: Footnotes
+**Examine:** Siehe Abbildung :num:`fig-demo-examine`.
 
-.. [#f2] *libhugin* ist das Schwesterprojekt zu *libmunin*. Die Bibliothek dient
-         unter anderem zum Auffinden zahlreicher Arten von Film--Metadaten.
-         :cite:`HGN`
-         
-Implementierungsdefizite
-========================
+Hier werden alle Attribute des momentan spielenden Songs angezeigt.  Es wird die
+von *libmunin* normalisierte Form angezeigt, also auch, falls verfügbar, der
+Originalwert.  Zudem wird die ``moodbar`` (falls vorhanden) oben im Fenster
+geplottet.
 
-Vermeidung unnötiger Vergleiche
--------------------------------
+**History:** Siehe Abbildung :num:`fig-demo-history`.
 
-Der Aufruf von einigen Distanzfunktionen macht nur dann Sinn, wenn bestimmte
-Kriterien erfüllt sind. So macht es beispielsweise wahrscheinlich wenig Sinn die
-``moodbar`` zweier Songs zu vergleichen wenn sich die Stücklänge um mehr als das
-doppelte unterscheidet --- die Daten wären einfach zu unterschiedlich.
+Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
+gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt 
+ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
 
-Momentan ist es allerdings noch nicht möglich für die ``moodbar``-Distanzfunktion
-die Länge des Stückes abzufragen --- da sie nur die für sie relevanten Daten
-bekommt, nicht die ganze ``Song``-Instanz.
+Letzteres ist für das Debugging der Filterfunktion nützlich.
 
-Beschleunigung des Kaltstarts
------------------------------
+Weitere Steuerlemente
+---------------------
 
-Alle Operationen von *libmunin* verlaufen momentan sequentiell. Dabei ließen
-sich zumindest einige Teile des *Kaltstartes* optimieren indem eine gewisse
-Anzahl von Songtexten (oder anderem *Information Retrieval*) parallel
-heruntergeladen werden. Auch das Analysieren von Audiodaten könnte beschleunigt
-werden indem ein (bei normalen Festplatten)  oder mehrere (bei SSDs) *Threads*
-Audiodaten einliest und diese dann an *Workerthreads* weiterleitet, die die
-eigentliche Analyse durchführen.
+Aus Gründen der Vollständigkeit werden hier, die unter :num:`fig-demo-overview`
+gezeigten Elemente noch erklärt.
 
-Verbessertes Speicherformat
----------------------------
+2. **Seedsong:** Zeigt mit einem roten Kreis den zuletzt ausgewählten
+   Seedsong an.  Falls es mehrere Seedsongs gab, wird nur der erste
+   markiert.
 
-Wie oben erwähnt erfolgt die Speicherung der *Session* mittels Python's
-``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt--Hierarchie,
-ausgehend vom *Session* Objekt. Da in *libmunin* der Graph allerdings als
-rekursive Datenstruktur implementiert ist ,,verläuft" sich ``pickle`` darin -
-zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
+3. **Current Song:** Ein dreieckiges Icon das den aktuell spielenden (oder
+   pausierten) Song anzeigt.
 
-Python hat ein eingebautes *Rekursionslimit* welches ein wenig aussagekräftiges
-*Segmentation Fault* verhindern soll --- Abstürze beim Speichern der *Session*
-sind die Folge. Hier ist Abhilfe nötig.
+4. **Playlist:** Die Playlist--Ansicht, wie bereits oben gezeigt.
 
-Korrekte Berechnung des *BPM-Wertes*
-------------------------------------
+5. **Empfehlungszähler:** Die Anzahl an Empfehlungen die ein Klick im
+   Kontextmenü liefert.
 
-Die Berechnung des *Beats--Per--Minute*-Wertes ist momentan in ein separates Tool
-ausgelagert. Dieses Tool hat das Problem, dass es bei fehlerhaften Dateien oder
-Formaten die es nicht versteht fehlerhafte (beispielsweise Werte *über* 300 bpm)
-Werte zurückgibt. 
+6. **Filter:** Togglebutton (:math:`$,,\sout{a}''$` als Icon) der anzeigt ob
+   der Filtermodus aktiviert ist.  Ist er aktiv so darf sich in einer dynamisch
+   erstellten Playlist der Künstler nur alle 3 Stücke wiederholen, der selbe
+   Künstler *und* das selbe Album nur alle 5 Stücke.
 
-Denkbare Weiterentwicklungen
-============================
+7. **Mininmaler Höranteil:** Ein Klick auf den Button fördert einen Slider zu
+   Tage auf dem man eine Prozentzahl einstellt. Diese legt fest welcher Anteil
+   eines Liedes (in Prozent) *mindestens* angehört werden muss damit er zur
+   Historie hinzugefügt wird.
+   
+   Um diese Funktionalität zu realisieren musste *Moosecat* um diese
+   Funktionalität erweitert werden.
 
-Abgesehen von den obigen Defiziten hier noch einige Stichpunktartige Richtungen
-in denen die Implementierung verbessert werden kann:
+8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
+   Seedsong bei der Attributsuche  haben sollte.
 
-- Verläufe: Manchmal ist es wünschenswert dass die dynamisch erstellte Playlist
-  einem gewissen Verlauf folgt. Man denke an eine Party bei der erst schnelle,
-  fröhliche Musik gespielt wird, zum Ende hin dann langsame, ruhigere Musik.
-- Weitere Empfehlungs--Strategien, wie beispielsweise von rein Genre-basierenden 
-  Empfehlungen.
-- Justierbarkeit der Gewichtungen während der Laufzeit --- Momentan erfordert die
-  Justierung der Gewichtung jeweils eine teure ``rebuild``-Operation.
-- ,,Echte" Audio/Mood--Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
-- Optionaler Aufsatz auf *libmunin* der *Social-based music recommendation*
-  ermöglicht --- beispielsweise um die Ähnlichkeit von zwei Künstlern durch
-  Amazon--Reviews zu bestimmen. Sind diese in der Datenbank nicht vorhanden wird
-  die Ähnlichkeit --- wie jetzt schon --- automatisch bestimmt.
-- Portierbarkeit auf andere Plattformen. Die Software wurde momentan nur auf dem
-  System des Autors getestet *(Arch Linux)*.
+9. **Rating:** Spezielles Widget auf den man das *Rating* des aktuell spielenden
+   Songs zu setzen. Beim erstellen der *Session* durch ``analyse.py`` wird ein
+   *Rating* von :math:`0` angenommen --- also *ungesetzt*.
+   
+   Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
+   eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
+   Rating auf ,,0" (und damit *ungesetzt*) zurückzusetzen.
+   
+   Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen--Ansicht
+   zufolge.
 
-Abschließendes Fazit
-====================
+10. **Playcount:** Zeigt an wie oft ein Lied bereits gehört wurde. Ein Lied gilt
+    als nicht gehört wenn prozentuell nur ein kleiner Teil als der gesetzte
+    minimale Höranteil angehört wurde.
+   
+    Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt ---
+    sobald man 100x mal ein Lied hört, zeigt diese vollen Füllstand an.
 
-*libmunin* ist ein solide Fundament für weitere Entwicklungen --- und so flexibel
-dass mit entsprechenden *Providern* und *Distanzfunktionen* sogar
-Empfehlungs--Systeme für andere Dokumente wie Videos, Bücher oder Filmen möglich
-wären.
+11. **Volumebar** Regler für die Lautstärke. 
 
-Noch ist der Einsatz relativ kompliziert und erfordert, auch für kundige
-Entwickler, einiges an Einarbeitungszeit --- zuviel für etwas das einfach nur im
-Hintergrund arbeiten sollte. Auch die erstellten Empfehlungen sind --- subjektiv
-gesehen --- noch teilweise verbesserungswürdig. Besonders die momentane
-Audioanalyse ist sehr primitiver Natur und bietet einiges an Potenzial an
-Verbesserungen. Es wird momentan mehr auf *Masse* statt auf *Klasse* gesetzt und
-oft ist einiges an *,,Kaffeesatzleserei"* enthalten.
+12. **Title Label:** Zeit das aktuell spielende Lied mit Titel, Album und
+    Künstler an.
 
-Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von *Moosecat*
-weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung
-*Klasse* zu gehen. Nach einem öffentlichen Release in einschlägigen Foren,
-können dann auch erste Resonanzen gesammelt werden --- vor allem ist es
-interessant zu sehen ob *libmunin* dann tatsächlich für andere Entwickler
-einsetzbar ist. Zumindest Interesse scheint vorhanden zu sein: Selbst ohne
-Veröffentlichung, haben etwa 50 Entwickler die Projektseite auf *GitHub*
-,,gestarred" (vergleichbar mit einem *Like*).
+13. **Modebuttons:** Umschalten zwischen *Random* (nächstes Lied ist zufällig),
+    *Single* (höre nach diesem Lied auf zu spielen), *Repeat* (spring zum Anfang
+    der Playlist nach dem letzten Lied) und *Consume* (Lösche das Lied aus der
+    Playlist nach dem Abspielen).
+
+14. **Seekbar:** Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des
+    aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht die
+    *Höranteil* ein, doppelt gehörte Parts schon --- daher sind Werte :math:`\ge
+    100\%` möglich.
+
+15. **Playbuttons:** Die ,,üblichen" Kontrollen eines Musicplayers zum
+    *Pausieren/Abspielen* (an momentaner Stelle anhalten/weiterspielen),
+    *Stoppen* (Anhalt und zum Anfang der Playlist springen), *Nächstes* und
+    *Vorheriges* Lied .
+
+16. **Suche:** Erlaubt das Filtern der Playlist oder Datenbank.
+   
+    Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das *,,beat"*
+    im Artist, Album oder Titel--Tag beeinhaltet) bis hin zu sehr komplizierten
+    Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat"* (Findet
+    alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich
+    *2003* released wurde, oder dessen Künstler ein Wort enthält, dass mit
+    ,,Beat" beginnt).
+     
+    *Anmerkung:* Die ,,Such--Engine" dahinter ist in *Moosecat* implementiert.
+    
+    Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit
+    :kbd:`Esc` wieder versteckt werden.
+
+.. _fig-demo-overview:
+
+.. figure:: figs/demo_overview.*
+    :alt: Übersicht über die Demoanwendung
+    :width: 80% 
+    :align: center
+    
+    Übersicht über die Demonanwendung.

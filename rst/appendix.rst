@@ -4,199 +4,6 @@
 
        \appendix
 
-Abkürzungsverzeichnis
-======================
-
-.. figtable::
-    :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} | p{0.65\linewidth}
-
-    =======================  ==================================
-    Abkürzung                Bedeutung
-    =======================  ==================================
-    **API**                  *Application Programming Interface*
-    **GUI**                  *Graphical User Interface*
-    **LoC**                  *Lines of Code*
-    =======================  ==================================
-
-.. only:: latex
-
-   .. raw:: latex
-
-       \newpage
-
-Glossar
-=======
-
-.. glossary:: 
-
-    Song
-
-        Im Kontext von *libmunin* ist ein Song eine Menge von Attributen.
-        Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet. 
-
-        Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
-        einzelner Song kennt dafür einen bestimmten Wert.
-
-        Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
-        Songs gespeichert, sowie einen Integer der als Identifier dient.
-
-    Distanz
-
-        Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
-        Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
-        minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
-        Unähnlichkeit (oder maximale *Entfernung*).
-
-        Die Distanz wird durch eine Distanzfunktion berechnet.
-
-    Distanzfunktion
-
-        Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
-        zwei Songs als Eingabe nimmt und die Distanz zwischen
-        diesen berechnet.
-
-        Dabei wird jedes Attribut betrachte welchesi n beiden Songs
-        vorkommt betrachtet. Für diese wird von der Maske eine
-        spezialisierte Distanzfunktion festgelegt, die weiß wie diese
-        zwei bestimmten Werte sinnvoll verglichen werden können. Die so
-        errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
-        einem Wert verschmolzen.
-
-        Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
-        Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
-        eingerechnet.
-
-        Die folgenden Bedingungen müssen sowohl für die allgemeine
-        Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten:
- 
-        *Uniformität:*
-        
-        .. math::
-
-            0 \leq D(i, j) \leq 1\forall i,j \in D
-
-        *Symmetrie:*
-
-        .. math::
-
-            D(i, j) = D(j, i) \forall i,j \in D
-
-        *Identität:*
-
-        .. math::
-
-            D(i, i) = 0.0 \forall i \in D
-
-        *Dreiecksungleichung:*
-
-        .. math::
-
-            D(i, j) \leq D(i, x) + (x, j) \forall i,j,x \in D
-
-    Session
-
-        Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
-        Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
-        analysiert und ein Graph wird daraus aufgebaut.
-    
-        Zudem kann eine *Session* persistent für späteren Gebrauch gespeichert
-        werden. 
-
-        Für Nutzer der Bibliothek ist die Session auch Eintrittspunkt
-        für jegliche von *libmunin* bereitgestellte Funktionalität.
-
-    Maske
-
-        Die Session benötigt eine Beschreibung der Daten die importiert
-        werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
-        Schlüssel ``genre`` abgespeichert wird.
-    
-        In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
-        einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
-        pro Attribut ein Provider und eine Distanzfunktion
-        festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
-        wird die Gewichtung des Attributes festgelegt - manche Attribute sind
-        für die Ähnlichkeit zweier Songs entscheidender als andere.
-
-    Attribut
-
-        Ein Attribut ist ein *Schlüssel* in der Maske. Er repräsentiert
-        eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
-        Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
-        andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
-        Menge dieser Paare.
-
-    Provider
-
-        Ein *Provider* normalisiert einen Wert anhand verschiedener
-        Charakteristiken. Sie dienen als vorgelagerte Verarbeitung von den Daten
-        die in das System geladen werden. Jeder *Provider* ist dabei einem 
-        Attribut zugeordnet.
-
-        Ihr Ziel ist für die Distanzfunktion einfache und effizient 
-        vergleichbare Werte zu liefern - da die Distanzfunktion sehr
-        viel öfters aufgerufen wird als der *Provider*.
-
-    Assoziationsregel
-        
-        Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-        miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
-        wahrscheinlich dass auch die andere Menge daraufhin angehört wird.
-
-        Sie werden aus dem Verhalten des Nutzers abgeleitet.
-
-        Die Güte der Regel wird durch ein *Rating* beschrieben:
-
-        .. math::
-
-            Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)
-
-        wobei:
-
-        .. math::
-
-            Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}
-
-        .. math::
-
-            ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}
-
-        .. math::
-
-            support(X) = H_n(X)
-
-        Vergleiche dazu: :cite:`datamining-concepts-and-techniques` Datamining
-        Concepts and Techniques.
-
-
-    Recommendation
-
-        Eine Recommendation (dt. Empfehlung) ist ein Song der vom System
-        auf Geheiß des Benutzers hin vorgeschlagen wird. 
-
-        Die Empfehlunge sollte eine geringe Distanz zum Seedsong haben.
-
-    Seedsong
-
-        Ein Song der als Basis für Empfehlungen ausgewählt wurde. 
-
-    Graph 
-
-        Im Kontext von *libmunin* ist der Graph eine Abbildung aller Songs (als
-        Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
-        kennt jeder Song *N* zu ihm selbst ähnlichsten Songs als
-        Nachbarn.
-
-        Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
-        eine schneller zu berechnende Approximation zurückgegriffen.
-
-.. only:: latex
-
-   .. raw:: latex
-
-       \newpage
-
-
 .. _coldstart-example:
 
 ``coldstart.py``
@@ -247,7 +54,7 @@ Im Anschluss wird die Session aufgebaut und unter
         }
 
     if __name__ == '__main__':
-        # Bring up moosecat
+        # Bring up moosecat:
         moosecat.boot.boot_base(verbosity=logging.DEBUG)
         g.client.connect(port=6601)
         moosecat.boot.boot_metadata()
@@ -296,11 +103,11 @@ Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel
 gezeigt werden, das auch im Vergleich zum einfachen Beispiel folgende Features
 zeigt:
 
-    - Das Erstellen einer eigenen Session
-    - Das Speichern und Laden derselben
-    - Das Füttern der History
-    - Ableiten von Assoziationsregeln
-    - Mehrere Möglichkeiten zur Empfehlung
+    - Das Erstellen einer eigenen Session.
+    - Das Speichern und Laden derselben.
+    - Das Füttern der Historie.
+    - Ableiten von Assoziationsregeln.
+    - Mehrere Möglichkeiten zur Empfehlung.
 
 .. code-block:: python
 
@@ -512,10 +319,153 @@ zeigt:
       #0 was played 30x times
       #2 was played 20x times
 
+
+Bilder der Demoanwendung
+========================
+
+.. only:: html
+
+   .. figure:: figs/demo_database.png
+       :alt: Die Datenbank Ansicht
+       :width: 100%
+       :align: center
+
+       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
+
 .. only:: latex
 
-   .. raw:: latex
+   .. _fig-demo-database:
 
-       \newpage
+   .. figure:: figs/demo_database270.png
+       :alt: Die Datenbank Ansicht
+       :width: 86%
+       :align: center
+
+       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount. [h!]
+
+.. -------------------------------
+
+
+.. only:: html
+
+   .. figure:: figs/demo_playlist.png
+       :alt: Die aktuelle Playlist
+       :width: 100%
+       :align: center
+
+       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
+       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+
+.. only:: latex
+
+   .. _fig-demo-playlist:
+
+   .. figure:: figs/demo_playlist270.png
+       :alt: Die aktuelle Playlist
+       :width: 93%
+       :align: center
+
+       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
+       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_rules.png
+       :alt: Die Regelansicht
+       :width: 100%
+       :align: center
+
+       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
+       Mengen der Regel, der Supportcount und das Rating.
+
+.. only:: latex
+
+   .. _fig-demo-rules:
+
+   .. figure:: figs/demo_rules270.png
+       :alt: Die Regelansicht
+       :width: 93%
+       :align: center
+
+       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
+       Mengen der Regel, der Supportcount und das Rating.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_graph.png
+       :alt: Die Graphenansicht
+       :width: 100%
+       :align: center
+
+       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       geplottet. Eine Interaktion ist nicht möglich.
+
+.. only:: latex
+
+   .. _fig-demo-graph:
+
+   .. figure:: figs/demo_graph270.png
+       :alt: Die Graphenansicht
+       :width: 93%
+       :align: center
+
+       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       geplottet. Eine Interaktion ist nicht möglich.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_history.png
+       :alt: Die Ansicht der History
+       :width: 100%
+       :align: center
+
+       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
+       (rechts) Songs werden aufgelistet.
+
+.. only:: latex
+
+   .. _fig-demo-history:
+
+   .. figure:: figs/demo_history270.png
+       :alt: Die Ansicht der History
+       :width: 93%
+       :align: center
+
+       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
+       (rechts) Songs werden aufgelistet.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_examine.png
+       :alt: Die Ansicht der Examine--Page
+       :width: 100%
+       :align: center
+
+       Die ,,Examine''--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
+       gerendert.
+
+.. only:: latex
+
+   .. _fig-demo-examine:
+
+   .. figure:: figs/demo_examine270.png
+       :alt: Die Ansicht der Examine--Page
+       :width: 93%
+       :align: center
+
+       Die ,,Examine''--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar'' --- falls vorhanden --- mittels cairo :cite:`CRO`
+       gerendert.
 
 .. _end-of-doc:

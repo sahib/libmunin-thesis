@@ -6,7 +6,6 @@
 libmunin: |br| Projektarbeit
 ############################
 
-
 .. raw:: latex
    
    \pagestyle{empty}
