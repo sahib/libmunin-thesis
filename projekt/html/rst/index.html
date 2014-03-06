@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>libmunin: Projektarbeit &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'0.1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../index.html"/>
+        <link rel="next" title="Abstract" href="abstract.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="#" class="icon icon-home"> Projektarbeit</a>
+        <form class="wy-form" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedication.html">Widmung</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="I/index.html">1 Motivation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#stand-der-technik">1.1 Stand der Technik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#zielsetzung">1.2 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#verbesserungsmoglichkeiten">1.3 Verbesserungsmöglichkeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#namensgebung">1.4 Namensgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="II/index.html">2 Einführung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#anforderungen">2.5 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Begriffsklärungen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#allgemeine-fachbegriffe">3.1 Allgemeine Fachbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#kontextspezifische-fachbegriffe">3.2 Kontextspezifische Fachbegriffe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#algorithmik">4.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#integration-von-libmunin-in-die-umwelt">4.2 Integration von <em>libmunin</em> in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#entwurf-der-software">4.3 Entwurf der Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Implementierung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#anwendungsbeispiel">5.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#kurze-implementierungshistorie">5.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#liste-verfugbarer-empfehlungs-strategien">5.3 Liste verfügbarer Empfehlungs&ndash;Strategien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#liste-der-provider">5.4 Liste der Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#liste-der-distanzfunktionen">5.5 Liste der Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#modul-und-paketubersicht">5.6 Modul&ndash; und Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#trivia">5.7 Trivia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Demonstrationsanwendung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#intro">6.1 Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#anwendungsubersicht">6.2 Anwendungsübersicht</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VII/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#abschlieszendes-fazit">7.6 Abschließendes Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#bilder-der-demoanwendung">Bilder der Demoanwendung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="#">Docs</a> &raquo;</li>
+  <li><a href="">libmunin: <br /> Projektarbeit</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="libmunin-br-projektarbeit">
+<span id="doc-title"></span><h1>libmunin: <br /> Projektarbeit<a class="headerlink" href="#libmunin-br-projektarbeit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="praambel">
+<h2>Präambel<a class="headerlink" href="#praambel" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedication.html">Widmung</a></li>
+</ul>
+</div>
+<div class="section" id="inhaltsverzeichnis">
+<h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="I/index.html">1 Motivation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#stand-der-technik">1.1 Stand der Technik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#zielsetzung">1.2 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#verbesserungsmoglichkeiten">1.3 Verbesserungsmöglichkeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="I/index.html#namensgebung">1.4 Namensgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="II/index.html">2 Einführung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="II/index.html#bekannte-plattformen">2.2.1 Bekannte Plattformen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="II/index.html#software-bibliotheken">2.2.2 Software&ndash;Bibliotheken</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#anforderungen">2.5 Anforderungen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="II/index.html#nichtanforderungen">2.5.1 Nichtanforderungen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Begriffsklärungen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#allgemeine-fachbegriffe">3.1 Allgemeine Fachbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="III/index.html#kontextspezifische-fachbegriffe">3.2 Kontextspezifische Fachbegriffe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#algorithmik">4.1 Algorithmik</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#grunduberlegungen">4.1.1 Grundüberlegungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#graphenoperationen">4.1.2 Graphenoperationen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#ausstellen-von-empfehlungen">4.1.3 Ausstellen von Empfehlungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#filtern-von-empfehlungen">4.1.4 Filtern von Empfehlungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#lernen-durch-die-historie">4.1.5 Lernen durch die Historie</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#integration-von-libmunin-in-die-umwelt">4.2 Integration von <em>libmunin</em> in die Umwelt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#allgemeiner-ablauf">4.2.1 Allgemeiner Ablauf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#die-umgebung">4.2.2 Die Umgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="IV/index.html#entwurf-der-software">4.3 Entwurf der Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#ubersicht">4.3.1 Übersicht</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#grobe-unterteilung">4.3.2 Grobe Unterteilung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IV/index.html#einzelne-komponenten">4.3.3 Einzelne Komponenten</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Implementierung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#anwendungsbeispiel">5.1 Anwendungsbeispiel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#kurze-erlauterung-des-beispiels">5.1.1 Kurze Erläuterung des Beispiels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#kurze-erlauterung-der-ausgabe">5.1.2 Kurze Erläuterung der Ausgabe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#kurze-implementierungshistorie">5.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#liste-verfugbarer-empfehlungs-strategien">5.3 Liste verfügbarer Empfehlungs&ndash;Strategien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#liste-der-provider">5.4 Liste der Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#liste-der-distanzfunktionen">5.5 Liste der Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#modul-und-paketubersicht">5.6 Modul&ndash; und Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V/index.html#trivia">5.7 Trivia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#entwicklungsumgebung">5.7.1 Entwicklungsumgebung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#unit-tests">5.7.2 Unit&ndash;Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#lines-of-code-loc">5.7.3 Lines of Code (<em>LoC</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="V/index.html#sonstige-statistiken">5.7.4 Sonstige Statistiken</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Demonstrationsanwendung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#intro">6.1 Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI/index.html#anwendungsubersicht">6.2 Anwendungsübersicht</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#ansichten">6.2.1 Ansichten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VI/index.html#weitere-steuerlemente">6.2.2 Weitere Steuerlemente</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VII/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VII/index.html#unabhangigkeit-von-der-programmiersprache">7.3.1 Unabhängigkeit von der Programmiersprache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VII/index.html#einfaches-information-retrieval">7.3.2 Einfaches Information Retrieval</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="VII/index.html#vermeidung-unnotiger-vergleiche">7.4.1 Vermeidung unnötiger Vergleiche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VII/index.html#beschleunigung-des-kaltstarts">7.4.2 Beschleunigung des Kaltstarts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VII/index.html#verbessertes-speicherformat">7.4.3 Verbessertes Speicherformat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VII/index.html#korrekte-berechnung-des-bpm-wertes">7.4.4 Korrekte Berechnung des <em>BPM-Wertes</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VII/index.html#abschlieszendes-fazit">7.6 Abschließendes Fazit</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">orphan:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Abkürzungsverzeichnis</strong></p>
+<div class="figure align-center">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center align-top">Abkürzung</th>
+<th class="headalign-center align-top">Bedeutung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center align-top"><strong>API</strong></td>
+<td class="align-center align-top"><em>Application Programming Interface</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center align-top"><strong>GUI</strong></td>
+<td class="align-center align-top"><em>Graphical User Interface</em></td>
+</tr>
+<tr class="row-even"><td class="align-center align-top"><strong>LoC</strong></td>
+<td class="align-center align-top"><em>Lines of Code</em></td>
+</tr>
+</tbody>
+</table>
+</center></div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#bilder-der-demoanwendung">Bilder der Demoanwendung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+</div>
+<div class="section" id="lizenz">
+<h2>Lizenz<a class="headerlink" href="#lizenz" title="Permalink to this headline">¶</a></h2>
+<p>Diese Arbeit ist unter den Bedingungen der <em>Creative Commons Attribution-3.0</em>
+lizensiert:</p>
+<blockquote>
+<div><a class="reference external" href="http://creativecommons.org/licenses/by/3.0/de/">http://creativecommons.org/licenses/by/3.0/de/</a></div></blockquote>
+<a class="reference internal image-reference" href="../_images/cclogo.svg"><div align="center" class="align-center"><img alt="Creative Commons License" src="../_images/cclogo.svg" width="50%" /></div>
+</a>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="abstract.html" class="btn btn-neutral float-right" title="Abstract"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright by Christopher Pahl, 2013-2014..
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

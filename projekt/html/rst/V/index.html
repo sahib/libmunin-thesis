@@ -1,0 +1,1054 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5 Implementierung &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../../',
+        VERSION:'0.1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+        <link rel="next" title="6 Demonstrationsanwendung" href="../VI/index.html"/>
+        <link rel="prev" title="4 Design" href="../IV/index.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Projektarbeit</a>
+        <form class="wy-form" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dedication.html">Widmung</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../I/index.html">1 Motivation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../I/index.html#stand-der-technik">1.1 Stand der Technik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I/index.html#zielsetzung">1.2 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I/index.html#verbesserungsmoglichkeiten">1.3 Verbesserungsmöglichkeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../I/index.html#namensgebung">1.4 Namensgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einführung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Begriffsklärungen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#allgemeine-fachbegriffe">3.1 Allgemeine Fachbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#kontextspezifische-fachbegriffe">3.2 Kontextspezifische Fachbegriffe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#algorithmik">4.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#integration-von-libmunin-in-die-umwelt">4.2 Integration von <em>libmunin</em> in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwurf-der-software">4.3 Entwurf der Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">5 Implementierung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#anwendungsbeispiel">5.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kurze-implementierungshistorie">5.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liste-verfugbarer-empfehlungs-strategien">5.3 Liste verfügbarer Empfehlungs&ndash;Strategien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liste-der-provider">5.4 Liste der Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liste-der-distanzfunktionen">5.5 Liste der Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modul-und-paketubersicht">5.6 Modul&ndash; und Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trivia">5.7 Trivia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Demonstrationsanwendung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#intro">6.1 Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#anwendungsubersicht">6.2 Anwendungsübersicht</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VII/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#abschlieszendes-fazit">7.6 Abschließendes Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-der-demoanwendung">Bilder der Demoanwendung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="../index.html">Docs</a> &raquo;</li>
+  <li><a href="">5 Implementierung</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="implementierung">
+<h1>5 Implementierung<a class="headerlink" href="#implementierung" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="anwendungsbeispiel">
+<h2>5.1 Anwendungsbeispiel<a class="headerlink" href="#anwendungsbeispiel" title="Permalink to this headline">¶</a></h2>
+<p>Beispiele sind oft ein guter Weg um ein Gefühl für eine Bibliothek
+zu bekommen. Das folgende minimale, in Python gechriebene Beispiel liest <em>Songs</em>
+aus einer Pseudodatenbank und erstellt für den ersten zwei Empfehlungen:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="kn">from</span> <span class="nn">munin.easy</span> <span class="kn">import</span> <span class="n">EasySession</span>
+</span>
+<span class="hll"><span class="n">MY_DATABASE</span> <span class="o">=</span> <span class="p">[</span>
+</span>    <span class="c"># Artist:           Album:               Title:             Genre:</span>
+    <span class="p">(</span><span class="s">&#39;Akrea&#39;</span>          <span class="p">,</span> <span class="s">&#39;Lebenslinie&#39;</span>      <span class="p">,</span> <span class="s">&#39;Trugbild&#39;</span>       <span class="p">,</span> <span class="s">&#39;death metal&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Vogelfrey&#39;</span>      <span class="p">,</span> <span class="s">&#39;Wiegenfest&#39;</span>       <span class="p">,</span> <span class="s">&#39;Heldentod&#39;</span>      <span class="p">,</span> <span class="s">&#39;folk metal&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Letzte Instanz&#39;</span> <span class="p">,</span> <span class="s">&#39;Götter auf Abruf&#39;</span> <span class="p">,</span> <span class="s">&#39;Salve te&#39;</span>       <span class="p">,</span> <span class="s">&#39;folk rock&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;Debauchery&#39;</span>     <span class="p">,</span> <span class="s">&#39;Continue to Kill&#39;</span> <span class="p">,</span> <span class="s">&#39;Apostle of War&#39;</span> <span class="p">,</span> <span class="s">&#39;brutal death&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">EasySession</span><span class="p">()</span>
+<span class="hll"><span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
+</span><span class="hll">    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">album</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">genre</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">):</span>
+</span>         <span class="n">session</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+<span class="hll">             <span class="s">&#39;artist&#39;</span><span class="p">:</span> <span class="n">artist</span><span class="p">,</span>
+</span>             <span class="s">&#39;album&#39;</span><span class="p">:</span> <span class="n">album</span><span class="p">,</span>
+             <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span>
+             <span class="s">&#39;genre&#39;</span><span class="p">:</span> <span class="n">genre</span>
+         <span class="p">})]</span> <span class="o">=</span> <span class="n">idx</span>
+
+<span class="k">for</span> <span class="n">munin_song</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">recommend_from_seed</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">):</span>
+<span class="hll">    <span class="k">print</span><span class="p">(</span><span class="n">MY_DATABASE</span><span class="p">[</span><span class="n">munin_song</span><span class="o">.</span><span class="n">uid</span><span class="p">])</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>Ist <em>libmunin</em> korrekt installiert <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>, so lässt sich dieses Skript als
+<tt class="docutils literal"><span class="pre">minimal.py</span></tt> ablegen und ausführen:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python minimal.py
+<span class="o">(</span><span class="s1">&#39;Debauchery&#39;</span> , <span class="s1">&#39;Continue to Kill&#39;</span> , <span class="s1">&#39;Apostle of War&#39;</span> , <span class="s1">&#39;brutal death&#39;</span><span class="o">)</span>
+<span class="o">(</span><span class="s1">&#39;Vogelfrey&#39;</span>  , <span class="s1">&#39;Wiegenfest&#39;</span>       , <span class="s1">&#39;Heldentod&#39;</span>      , <span class="s1">&#39;folk metal&#39;</span><span class="o">)</span>,
+</pre></div>
+</div>
+<div class="section" id="kurze-erlauterung-des-beispiels">
+<h3>5.1.1 Kurze Erläuterung des Beispiels<a class="headerlink" href="#kurze-erlauterung-des-beispiels" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><strong>Zeile 1:</strong> Der Einstiegspunkt von <em>libmunin's</em> API ist immer eine <em>Session</em>.
+Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
+und Weighting) mitunter recht anstrengend werden kann, greifen wir auf eine
+Session mit vorgefertigter Maske zurück &ndash;- die sogenannte <tt class="docutils literal"><span class="pre">EasySession</span></tt>.</p>
+</li>
+<li><p class="first"><strong>Zeile 3:</strong> Hier erstellen wir uns eine Pseudodatenbank (als Python&ndash;Liste)
+aus vier Liedern mit vier einzelnen Attributen (als Quadrupel) jeweils.</p>
+</li>
+<li><p class="first"><strong>Zeile 10:</strong> Hier wird die oben erwähnte <tt class="docutils literal"><span class="pre">EasySession</span></tt> instanziert. Sie
+dient uns jetzt als <em>Sitzung</em> &ndash;- alle relevanten Methoden von <em>libmunin</em>
+können auf der <em>Session</em> aufgerufen werden.</p>
+</li>
+<li><p class="first"><strong>Zeile 11:</strong> Bein initialen Importieren der Datenbank werden alle Songs über
+die <tt class="docutils literal"><span class="pre">add</span></tt>&ndash;Operation hinzugefügt. Da <tt class="docutils literal"><span class="pre">add</span></tt> noch keine Verbindungen zwischen
+den einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
+Importieren ein <tt class="docutils literal"><span class="pre">rebuild</span></tt> ausgeführt wird (implizit in <em>,,Zeile&quot;</em> 19, nach
+dem verlassen des vorigen <em>,,Blocks&quot;</em>).</p>
+</li>
+<li><p class="first"><strong>Zeile 13:</strong> Wir iterieren (<strong>Zeile 12</strong>) über alle Songs in unserer
+Pseudodatenbank und fügen diese der <em>Session</em> hinzu (über die <tt class="docutils literal"><span class="pre">add</span></tt>
+Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben in denen
+bestimmte Schlüssel (wie <tt class="docutils literal"><span class="pre">artist</span></tt>) von der <tt class="docutils literal"><span class="pre">EasySession</span></tt> vorgegeben sind
+&ndash;- erstellt man eine eigene Session kann man diese nach Belieben
+Konfigurieren.</p>
+<p>Ein Problem dass man bei der Benutzung der Bibliothek hat ist: <em>libmunin</em> und der
+Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
+verwaltet die Originaldaten mit denen er arbeitet während <em>libmunin</em> nur
+normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
+welche Empfehlung zu welchen Song in seinen Originaldaten gehört?</p>
+<p>Dazu ist eine Abbildung erforderlich, welche die <em>ID,</em> die <tt class="docutils literal"><span class="pre">add()</span></tt> zurückgibt,
+auf den Index innerhalb von <em>MY_DATABASE</em> abbildet. Diese Abbildung ist
+<tt class="docutils literal"><span class="pre">session.mapping</span></tt>. Sie erlaubt eine bidirektionales Auflösen der <em>ID</em> von
+<em>libmunin</em> zu dem Index in <em>MY_DATABASE</em>, und umgekehrt.</p>
+<p><em>Anmerkung:</em> Zugegeben, dieses Beispiel ist hier etwas konstruiert. Später hat man meist
+keinen Index in einer Pseudodatenbank, sondern beispielsweise einen Dateipfad
+als Identifier.</p>
+</li>
+<li><p class="first"><strong>Zeile 21:</strong> In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen
+uns von der <tt class="docutils literal"><span class="pre">EasySession</span></tt> über die Methode <tt class="docutils literal"><span class="pre">recommend_from_seed</span></tt> zwei
+Empfehlungen zum ersten Song der über <tt class="docutils literal"><span class="pre">add</span></tt> hinzugefügt wurde geben. Die
+Empfehlung selbst wird als <tt class="docutils literal"><span class="pre">Song</span></tt> Objekt ausgegeben &ndash;- dieses hat unter
+anderen eine <em>ID</em> gespeichert mit der wir die ursprünglichen Daten finden
+können.</p>
+</li>
+</ul>
+<p>Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
+<a class="reference internal" href="../zzz_bibliography.html#lx" id="id2">[Link-22]</a>.</p>
+</div>
+<div class="section" id="kurze-erlauterung-der-ausgabe">
+<h3>5.1.2 Kurze Erläuterung der Ausgabe<a class="headerlink" href="#kurze-erlauterung-der-ausgabe" title="Permalink to this headline">¶</a></h3>
+<p>Die Ausgabe ist bei näherer Betrachtung nicht weiter überraschend: Da sich nur
+das Genre effektiv vergleichen lässt und wir uns von dem ersten Song
+<em>,,Trugbild&quot;</em> zwei Empfehlungen geben ließen werden die zwei Songs mit dem
+ähnlichsten Genre ausgegeben.</p>
+<p>In Abbildung <a href="#fig-minigraph">5.1</a> ist dies nochmal zu sehen: Der <em>Seedsong</em> (0)
+ist direkt mit den Songs 1 (<em>Vogelfrey</em>) und 3 (<em>Debauchery</em>) benachbart.
+Da die beiden Genres <em>folk rock</em> und <em>death metal</em> keine gemeinsame Schnittmenge
+haben ist dieser auch kein Nachbar &ndash;- Verbindungen zwischen zwei Knoten, werden
+nur dann hergestellt, wenn die Distanz <span class="math">\(&lt; 1.0\)</span> ist.</p>
+<p>Ein komplizierteres Beispiel das die meisten Aspekte von <em>libmunin</em> abdeckt
+findet sich in <a class="reference internal" href="../appendix.html#complex-example"><em>Ausführliches Beispiel</em></a>.</p>
+<div class="figure align-center" id="fig-minigraph">
+<a class="reference internal image-reference" href="../../_images/minigraph.png"><img alt="Minimaler Beispielgraph" src="../../_images/minigraph.png" style="width: 42%;" /></a>
+<p class="caption"><strong>Figure 5.1:</strong> Minimaler Beispielgraph der hinter dem obigen Beispiel steht. Die Dicke der
+Kanten indiziert die Distanz. Dünne Kanten implizieren eine kleine Distanz.
+Die Farbe der Knoten ist hier nicht relevant.</p>
+</div>
+</div>
+</div>
+<div class="section" id="kurze-implementierungshistorie">
+<h2>5.2 Kurze Implementierungshistorie<a class="headerlink" href="#kurze-implementierungshistorie" title="Permalink to this headline">¶</a></h2>
+<p>Am 11. Oktober 2013 wurde mit der Implementierung begonnen.
+Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
+der Distanzen und das Berechnen jeder einzelnen Song&ndash;Kombination vorgesehen &ndash;-
+aus den bereits erwähnten Gründen hat sich das zu einer Approximation geändert.
+Hierbei eine vernünftige Herangehensweise zu finden hat letztlich ca. 1
+<span class="math">\(^1/_2\)</span> Monate beansprucht.</p>
+<p>Die zwischenzeitlich aufgekommene Idee, Audiodaten mittels Audiofingerprints wie
+<em>Chromaprint</em> zu vergleichen wurde wieder aufgegeben &ndash;- damit ließen sich
+wirklich nur fast gleiche Stücke ermitteln. Selbst <em>Live</em> und <em>Studio</em> Versionen
+ließen sich manchmal nicht differenzieren.</p>
+<p>Parallel zur Implementierung wurde ein ,,Tagebuch&quot; <a class="reference internal" href="../zzz_bibliography.html#thv" id="id3">[Link-23]</a> verfasst das
+dazu dienen sollte Ideen und Geschehnisse festzuhalten &ndash;- allerdings weniger als
+Information für Dritte, mehr als persönliche Erinnerung.</p>
+<p>Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt.
+Die letzten 3 <span class="math">\(^1/_2\)</span> Wochen dieser Zeit wurden für die
+Implementierung einer Demo&ndash;Anwendung aufgewendet.</p>
+</div>
+<div class="section" id="liste-verfugbarer-empfehlungs-strategien">
+<span id="list-of-recom-strategies"></span><h2>5.3 Liste verfügbarer Empfehlungs&ndash;Strategien<a class="headerlink" href="#liste-verfugbarer-empfehlungs-strategien" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Basierend auf einem Seedsong:</strong> Basierend auf einem vom Endnutzer
+ausgewählten Song wird ein Iterator zurückgegeben der gemäß <a class="reference internal" href="../IV/index.html#recom-out">4.1.3</a>
+eine Breitensuche von diesem Seedsong aus ausführt. Optional wird  der
+<em>Iterator</em> gemäß <a class="reference internal" href="../IV/index.html#recom-filter">4.1.4</a> gefiltert.</p>
+</li>
+<li><p class="first"><strong>Basierend auf einer Heuristik:</strong> <em>libmunin</em> kann auch automatisch einen oder
+mehrere geeignete Seedsongs auswählen. Dabei wird der Reihe nach das folgende
+probiert:</p>
+<ol class="arabic simple">
+<li>Wähle die Regel mit der besten Bewertung aus und nehme alle darin, erwähnten
+Songs als Seedsongs an.</li>
+<li>Wähle den Song mit der höchsten Abspielanzahl als Seedsong.</li>
+<li>Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
+abgespielt wurde, so wird ein zufälliger Seedsong gezogen.</li>
+</ol>
+<p>Optional wird  der entstehende Iterator gemäß <a class="reference internal" href="../IV/index.html#recom-filter">4.1.4</a> gefiltert.</p>
+</li>
+<li><p class="first"><strong>Basierend auf einer Attributsuche:</strong> Es kann nach einen oder mehreren Songs
+gesucht werden die gewisse Attribut&ndash;Werte&ndash;Paare aufweisen. Als Beispiel kann
+ein Song gesucht werden der die Merkmale ,,Genre: Rock&quot; und ,,Date: 2012&quot;
+aufweist.</p>
+<p>Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
+Optional wird  der entstehende Iterator gemäß <a class="reference internal" href="../IV/index.html#recom-filter">4.1.4</a> gefiltert.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="liste-der-provider">
+<span id="provider-list"></span><h2>5.4 Liste der Provider<a class="headerlink" href="#liste-der-provider" title="Permalink to this headline">¶</a></h2>
+<p>Insgesamt wurden 13 unterschiedliche Provider und 9 Distanzfunktionen
+implementiert  &ndash;- davon variieren einige allerdings nur in Details.</p>
+<p>Die genaue Funktionsweise der Provider wird in der Bachelorarbeitet betrachtet.
+Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
+Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Date</span></tt>: Wandelt und normalisiert ein Datum, dass als String übergeben wird zu
+einer Jahreszahl (<em>1975</em> beispielsweise). Dabei werden die häufigsten
+Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+unterschiedliche Datumsangaben in den Audiofiles getaggt sind.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Moodbar</span></tt>: Berechnet mit dem <tt class="docutils literal"><span class="pre">moodbar</span></tt> (vgl. <a class="reference internal" href="../zzz_bibliography.html#wood2005techniques" id="id4">[12]</a>)
+Programm aus einen beliebigen Audio File einen Vektor mit 1000 RGB-Farbwerten
+(siehe <a href="#fig-moodbar-suidakra">5.2</a>). Jeder dieser Farbwerte repräsentiert den
+Anteil niedriger Frequenzen <em>(rot),</em> mittlerer <em>(grün)</em> und hoher Frequenzen
+<em>(blau)</em> in einem Tausendstel des Audiostücks.</p>
+<p>Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
+<em>Stimmung</em> im Lied angedeutet wird, kann man aus diesen Informationen
+lediglich herauslesen wie ,,energiegeladen&quot; die Stimmung in einem Lied zu
+einem bestimmten Zeitpunkt ist &ndash;- mit etwas Glück kann man auch Instrumente
+erkennen &ndash;- so ist die Kombination von E&ndash;Gitarre und Drums oft ein helles
+Türkis.</p>
+<p>Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet &ndash;- die
+dominanten Farben, der Stilleanteil (<em>schwarz</em>) und einige weitere Merkmale.</p>
+<p>Dieser Provider kommt in drei verschiedenen Ausführungen daher, die sich in dem
+Typ ihrer Eingabe unterscheiden:</p>
+<ol class="arabic simple">
+<li><tt class="docutils literal"><span class="pre">Moodbar</span></tt>: Nimmt eine Liste von 1000 RGB-Werten.</li>
+<li><tt class="docutils literal"><span class="pre">MoodbarFile</span></tt>: Nimmt ein Dateipfad zu einem von der <tt class="docutils literal"><span class="pre">moodbar</span></tt>
+erstellten Datei entgegen die einen Vektor aus 1000 RGB-Werten binär
+beinhaltet.</li>
+<li><tt class="docutils literal"><span class="pre">MoodbarAudioFile</span></tt>: Nimmt ein Dateipfad zu einer beliebigen Audiodatei
+entgegen und führt das <tt class="docutils literal"><span class="pre">moodbar</span></tt>-Utility darauf aus falls noch keine
+weiter Datei mit demselben Dateipfad plus der zusätzlichen Endung <tt class="docutils literal"><span class="pre">.mood</span></tt>
+vorhanden ist.</li>
+</ol>
+<div class="figure align-center" id="fig-moodbar-suidakra">
+<a class="reference internal image-reference" href="../../_images/moodbar_suidakra.svg"><img alt="Moodbar Beispielsvisualisierung" src="../../_images/moodbar_suidakra.svg" width="100%" /></a>
+<p class="caption"><strong>Figure 5.2:</strong> Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over
+Nine Waves&quot; der Band ,,Suidakra&quot;. Der grüne Teil am Anfang ist ein
+Dudelsack&ndash;Intro. Bei 30% setzen relativ plötzlich harte E&ndash;Gitarren und
+Drums ein, die in verschiedenen Variationen durch das ganze Lied gehen.
+Musik&ndash;Link auf YouTube: <a class="reference internal" href="../zzz_bibliography.html#yts" id="id5">[Link-24]</a>.</p>
+</div>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Wordlist</span></tt>: Bricht einen String in eine Liste von Wörtern auf.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">BPM</span></tt>: Berechnet die ,,Beats&ndash;Per&ndash;Minute&quot; eines Lieds, also einem Maß für
+die Schnelligkeit  &ndash;- dies funktioniert nicht nur für stark beatlastige
+Musikrichtungen wie <em>Techno,</em> sondern auch für normale Musik.</p>
+<p>Die Funktionalität wird momentan, eher primitiv, durch den Aufruf eines externen
+Tools, namens <tt class="docutils literal"><span class="pre">bpm-tools</span></tt> realisiert <a class="reference internal" href="../zzz_bibliography.html#yz" id="id6">[Link-25]</a>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Normalize</span></tt>, <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>, <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt>, <tt class="docutils literal"><span class="pre">TitleNormalize</span></tt>:
+Diese Provider normalisieren die häufig unsauberen Tags einer Musiksammlung
+auf verschiedene Art und Weise:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Normalize</span></tt>: Normalisiert einen String mittels <em>NKFC Unicode
+Normalization</em>.  Bei Unicode gibt es oft mehrere Arten einen <em>Glyph</em> zu
+schreiben. So kann ein ,,ä&quot; als einzelner Glyph (<em>Codepoint U+e4</em>) oder als
+<em>Composite Glyph</em> geschrieben werden: ,,&quot; + a&quot; (<em>U+30B + U+61</em>). Dieser
+Provider macht daraus stets den ersten Fall.</li>
+<li><tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt>: Entfernt zusätzlich <em>Unrat</em> der bei Künstlernamen
+vorhanden ist. Beispielsweise wird aus <em>,,The Beatles&quot;</em> der String
+<em>,,beatles&quot;</em></li>
+<li><tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt>: Entfernt analog zu <tt class="docutils literal"><span class="pre">ArtistNormalize</span></tt> <em>Unrat</em> aus
+Album&ndash;Namen wie <em>(live 2012)</em></li>
+<li><tt class="docutils literal"><span class="pre">TitleNormalize</span></tt>: Momentan ein Synonym für <tt class="docutils literal"><span class="pre">AlbumNormalize</span></tt>.</li>
+</ul>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Composite</span></tt>: Erlaubt das Verketten von Providern. Der erste Eingabewert wird
+dem ersten Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei
+einer Unix&ndash;Pipe, wird an den nächsten Provider in der Kette als Eingabe
+weitergegeben.</p>
+<p>Ein Anwendungsbeispiel wäre das Zusammenschalten mehrerer Provider nach
+Baukastenprinzip:</p>
+<p class="graphviz">
+<img src="../../_images/graphviz-2c5aec3d6708265de1dddd8d0db3d50483019111.png" alt="digraph foo {
+size=4.5;
+
+node [shape=record];
+
+subgraph {
+    rank = same; PlyrLyrics; Keywords; Stem
+}
+
+&quot;Eingabe: Artist, Album&quot; -&gt;  PlyrLyrics [label=&quot; Sucht im Web &quot;]
+PlyrLyrics -&gt; Keywords [label=&quot;liefert Songtext&quot;]
+Keywords -&gt; Stem [label=&quot;extrahiert Keywords&quot;]
+Stem -&gt; &quot;Ausgabe: Stemmed Keywords&quot; [label=&quot; Wortstamm--Keywords &quot;]
+}" />
+</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Stem</span></tt>: Bringt mithilfe des Porter&ndash;Stemmer&ndash;Algorithmus (<a class="reference internal" href="../zzz_bibliography.html#prt" id="id7">[Link-26]</a>)
+einzelne Wörter oder eine Liste von Wörtern auf ihren Wortstamm zurück. Aus
+den Wörtern <em>Fisher</em>, <em>Fish</em>, <em>fishing</em> wird beispielsweise stets <em>fish</em>. Dies
+ist natürlich abhängig von der Eingabesprache &ndash;- momentan wird aber stets
+Englisch angenommen.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">GenreTree</span></tt>: Der wohl komplizierteste Provider.</p>
+<p>Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert.
+Beispielsweise wird die Genrebeschreibung <em>Rock, Reggae / Alternative Rock</em>
+mittels einer Regular Expression in die Unterbestandteile aufgebrochen:</p>
+<ul class="simple">
+<li><em>Rock</em></li>
+<li><em>Reggae</em></li>
+<li><em>Alternative Rock</em></li>
+</ul>
+<p>Danach wird jedes so entstandene Untergenre in einzelne Wörter aufgebrochen und
+in einem <em>Baum</em> bekannter Genres (momentan 1876 einzelne Genres) eingepasst:</p>
+<p class="graphviz">
+<img src="../../_images/graphviz-47db664b9c86f43c03ba9eecac40c5be943d6098.png" alt="digraph foo {
+size=4;
+node [shape=record];
+
+&quot;music (#0)&quot;  -&gt; &quot;rock (#771)&quot;
+&quot;music (#0)&quot;  -&gt; &quot;alternative (#14)&quot;
+&quot;music (#0)&quot;  -&gt; &quot;reggae (#753)&quot;
+&quot;rock (#771)&quot; -&gt; &quot;alternative (#3)&quot;
+}" />
+</p>
+<p>Hier werden aus Platzgründen nur die Untergenres im obigen Beispiel gezeigt.
+Jeder Knoten hat zudem einen Indexwert der in Klammern angegeben ist.  Das
+finale Resultat dieses Providers mit der obigen Eingabe, ist dann in
+Python&ndash;Listen Notation:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span><span class="mi">14</span><span class="p">],</span> <span class="p">[</span><span class="mi">771</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">753</span><span class="p">],</span> <span class="p">[</span><span class="mi">771</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Das Resultat ist also eine Liste mit einzelnen <em>Pfaden</em> durch den Genrebaum.
+Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
+Da der Root&ndash;Knoten (<em>music</em>) immer den Index <em>0</em> hat wird dieser weggelassen.
+Löst man diese wieder auf, so erhält man die ursprünglichen Genres:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span><span class="s">&#39;alternative&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;alternative&#39;</span><span class="p">,</span> <span class="s">&#39;rock&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;reggae&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;rock&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Da die einzelnen Pfade allerdings weniger Speicher verbrauchen und sich bei
+weitem leichter auflösen und vergleichen lassen werden diese vom Provider
+zurückgegeben.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Keywords</span></tt>: Extrahiert aus einem Text als Eingabe alle <em>relevanten</em>
+Stichwörter.  Ein Beispiel dieser <em>Keywords</em> wird in
+<a href="#fig-yellow-keywords">5.3</a> gezeigt.  Zudem wird die Sprache des Eingabetextes
+erkannt und mit abgespeichert.</p>
+<div class="figure align-center" id="fig-yellow-keywords">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center">Rating</th>
+<th class="headalign-center">Keywords</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center">22.558</td>
+<td class="align-center">yellow, submarin</td>
+</tr>
+<tr class="row-odd"><td class="align-center">20.835</td>
+<td class="align-center">full, speed, ahead, mr</td>
+</tr>
+<tr class="row-even"><td class="align-center">8.343</td>
+<td class="align-center">live, beneath</td>
+</tr>
+<tr class="row-odd"><td class="align-center">5.247</td>
+<td class="align-center">band, begin</td>
+</tr>
+<tr class="row-even"><td class="align-center">3.297</td>
+<td class="align-center">sea</td>
+</tr>
+<tr class="row-odd"><td class="align-center">3.227</td>
+<td class="align-center">green</td>
+</tr>
+<tr class="row-even"><td class="align-center">2.797</td>
+<td class="align-center">captain</td>
+</tr>
+<tr class="row-odd"><td class="align-center">...</td>
+<td class="align-center">...</td>
+</tr>
+</tbody>
+</table>
+<p class="caption"><strong>Figure 5.3:</strong> Die extrahierten Keywords aus ,,Yellow Submarine”, samt deren
+Rating.</p>
+</center></div></li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">PlyrLyrics</span></tt>: Besorgt mittels <em>libglyr</em> Liedtexte aus dem Internet. Bereits
+gesuchte Liedtexte werden dabei zwischengespeichert. Dieser Provider eignet
+sich besonders im Zusammenhang mit dem <em>Keywords</em> zusammen als <em>Composite</em>
+Provider.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt>: Besorgt von dem Online&ndash;Musikmarktplatz <em>Discogs</em> Genre
+Informationen. Dies ist nötig da Musiksammlungen für gewöhnlich mittels einer
+Online&ndash;Musikdatenbank getaggt werden &ndash;- die meisten bieten allerdings keine
+Genreinformationen.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="liste-der-distanzfunktionen">
+<span id="distance-function-list"></span><h2>5.5 Liste der Distanzfunktionen<a class="headerlink" href="#liste-der-distanzfunktionen" title="Permalink to this headline">¶</a></h2>
+<p>Die genaue Funktionsweise der einzelnen Distanzfunktionen wird in der
+Bachelorarbeit genauer betrachtet. Im Folgenden wird aber eine kurze Auflistung
+jeder vorhandenen Distanzfunktion und der Annahme auf der sie basiert
+gegeben.</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Date</span></tt>: Vergleicht zwei Jahreszahlen. Eine hohe Differenz führt dabei zu
+einer hohen Distanz. Also ,,erstes&quot; Jahr wird das Jahr 1950 angenommen.</p>
+<p><em>Annahme:</em> Lieder mit einer großen zeitlichen Differenz zueinander werden
+selten zusammen gehört.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Moodbar</span></tt> Vergleicht die <tt class="docutils literal"><span class="pre">moodbar</span></tt> zweier unterschiedlicher Lieder.</p>
+<p><em>Annahme:</em> Ähnliche <em>Moodbars</em> implizieren auch ähnliche Lieder. Da man oft
+gewissen Instrumente anhand deren Farbe erkennen kann werden unter anderen die
+dominanten Farben und der Stilleanteil verglichen.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Rating</span></tt>: Vergleicht ein vom Benutzer vergebenes Rating. Dabei wird zwischen
+nicht gesetzten <em>(z.B. 0)</em> und gesetzten Rating unterschieden <em>(z.B. 1-5)</em> die
+sich unterschiedlich auf die finale Distanz auswirken.  Die Werte für das
+Minima, Maxima und den Nullwert können beim Erstellen der Session konfiguriert
+werden.</p>
+<p><em>Annahme:</em> Zeichnet der Benutzer ein Lied mit einem hohen Rating aus so möchte
+er vermutlich Empfehlungen zu ebenfalls hoch ausgezeichneten Liedern haben.
+Dies bietet dem Nutzer eine Möglichkeit direkte <em>Hinweise</em> an das System zu
+geben (Stichwort <em>explizites Lernen</em>).</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">BPM</span></tt>: Vergleicht den ,,Beats-per&ndash;Minute`` Wert zweier Lieder.  Als
+Minimalwert wird 50 und als Maximalwert 250 angenommen.</p>
+<p><em>Annahme:</em> Ähnlich schnelle Lieder werden oft zusammen gespielt.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Wordlist</span></tt>: Vergleicht eine Menge von Wörtern auf Identität. Sind die Mengen
+identisch so kommt eine Distanz von <span class="math">\(0.0\)</span> dabei heraus.</p>
+<p><em>Annahme:</em> Diese Distanzfunktion ist beispielsweise beim Vergleich von Titeln
+nützlich. Ähnliche Wörter in Titeln deuten oft auf ähnliche Themen hin.  Als
+Beispiel kann man die Titel <em>,,Hey Staat&quot; (Hans Söllner)</em> und <em>,,Lieber Staat&quot;
+(Farin Urlaub)</em> nennen.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Levenshtein</span></tt>: Wie <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, die einzelnen Wörter werden aber mittels
+der Levenshtein&ndash;Distanzfunktion <a class="reference internal" href="../zzz_bibliography.html#brill2000improved" id="id8">[1]</a> verglichen.  So
+spielen kleine Abweichung wie der Vergleich von <tt class="docutils literal"><span class="pre">color</span></tt> und <tt class="docutils literal"><span class="pre">colour</span></tt> keine
+große Rolle mehr. Der große Nachteil ist der erhöhte Rechenaufwand.</p>
+<p><em>Annahme:</em> Ähnlich wie bei <tt class="docutils literal"><span class="pre">Wordlist</span></tt>, aber eben auch für Daten bei denen man
+kleine Unterschiede in der Schreibweise erwartet. Beispielsweise bei Künstlern
+<tt class="docutils literal"><span class="pre">ZZ-Top</span></tt> und <tt class="docutils literal"><span class="pre">zz</span> <span class="pre">Top</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">Keywords</span></tt>: Nimmt die Ergebnisse des <tt class="docutils literal"><span class="pre">Keyword</span></tt>&ndash;Providers entgegen und
+bezieht die Sprache beider Keywordmengen sowie die länge der einzelnen
+Keywords in die Distanz mit ein.</p>
+<p><em>Annahme:</em> Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied
+vorgeschlagen bekommen &ndash;- oder wenigstens in derselben Sprache.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">GenreTree</span></tt>, <tt class="docutils literal"><span class="pre">GenreTreeAvg</span></tt>: Vergleicht die vom <tt class="docutils literal"><span class="pre">GenreTree</span></tt>&ndash;Provider
+erzeugten Genrepfade.</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">GenreTree</span></tt>: Vergleicht alle Pfade in beiden Eingabemengen miteinander und
+nimmt die <em>geringste</em> Distanz von allen.</p>
+<p>Diese Distanzfunktion sollte gewählt werden wenn die Genre&ndash;Tags eher kurz
+gefasst sind &ndash;- beispielsweise wenn nur <em>Rock</em> darin steht.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">GenreTreeAvg</span></tt>: Vergleicht alle Pfade in beiden Eingabemengen miteinander
+und nimmt die <em>durchschnittliche</em> Distanz von allen.</p>
+<p>Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre&ndash;Tags
+vorhanden &ndash;- wie sie beispielsweise vom <tt class="docutils literal"><span class="pre">DiscogsGenre</span></tt>&ndash;Provider geliefert
+werden &ndash;- sind.</p>
+</li>
+</ul>
+<p><em>Annahme:</em> Ähnliche Genres deuten auf ähnliche Musikstile hin.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="modul-und-paketubersicht">
+<h2>5.6 Modul&ndash; und Paketübersicht<a class="headerlink" href="#modul-und-paketubersicht" title="Permalink to this headline">¶</a></h2>
+<p>In der Programmiersprache <em>Python</em> entspricht jede einzelne <tt class="docutils literal"><span class="pre">.py</span></tt> Datei einem
+<em>Modul</em>. Die Auflistung unter <a href="#fig-module-tree">5.4</a> soll eine Übersicht darüber
+geben welche Funktionen in welchem Modul implementiert worden.</p>
+<p><em>Anmerkung:</em> <tt class="docutils literal"><span class="pre">__init__.py</span></tt> ist eine spezielle Datei, die beim Laden
+eines Verzeichnisses durch Python ausgeführt wird.</p>
+<div class="figure align-center" id="fig-module-tree">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="17%" />
+<col width="15%" />
+<col width="7%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center"><strong>Verzeichnisse</strong></th>
+<th class="headalign-center">(gekürzt)</th>
+<th class="headalign-center">&nbsp;</th>
+<th class="headalign-center">&nbsp;</th>
+<th class="headalign-center"><strong>Beschreibung</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><strong>munin/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Quelltextverzeichnis</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">__init__.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Versionierungs Info</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">__main__.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Beispielprogramm</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">database.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">Database</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">dbus_service.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unfertiger DBus Service.</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><em>dbus_client</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unfertiger DBus Beispielclient.</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>distance/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für Distanzfunktionen</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">__init__.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">bpm.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">BPMDistance</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">date.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">DateDistance</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>...</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Weitere Subklassen von <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">session.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der <tt class="docutils literal"><span class="pre">Session</span></tt> (API)</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">easy.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der <tt class="docutils literal"><span class="pre">EasySession</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">graph.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der Graphenoperationen</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">helper.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Gesammelte, oftgenutzte Funktionen</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">history.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung der <tt class="docutils literal"><span class="pre">History</span></tt> u. Regeln</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">plot.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Visualisierungsfunktionen für Graphen</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>provider/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für Provider</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">__init__.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">bpm.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">BPMProvider</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">composite.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung des <tt class="docutils literal"><span class="pre">CompositeProvider</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>...</em></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Weitere Subklassen von <tt class="docutils literal"><span class="pre">Provider</span></tt></td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">rake.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung des RAKE-Algorightmus</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>scripts/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für ,,Test Scripts&quot;</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">visualizer.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Zeichnet ein mood-file mittels <tt class="docutils literal"><span class="pre">cairo</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">walk.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Berechnet vieles mood-files parallel</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">song.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung von <tt class="docutils literal"><span class="pre">Song</span></tt></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>stopwords/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Stoppwortimplementierung:</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">__init__.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Implementierung des StopwordsLoader</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><strong>data/</strong></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Unterverzeichnis für die Stoppwortlisten</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>de</em></td>
+<td class="align-center">Gemäß ISO 638-1 benannte Dateien;</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>en</em></td>
+<td class="align-center">Pro Zeile ist ein Stoppwort gelistet;</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>es</em></td>
+<td class="align-center">Insgesamt 17 verschiedene Listen.</td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><em>...</em></td>
+<td class="align-center">&nbsp;</td>
+</tr>
+<tr class="row-even"><td class="align-center">&nbsp;</td>
+<td class="align-center">testing.py</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center">Fixtures und Helper für unittests</td>
+</tr>
+</tbody>
+</table>
+<p class="caption"><strong>Figure 5.4:</strong> Verzeichnisbaum mit den einzelnen Modulen von libmunin's
+Implementierung</p>
+</center></div></div>
+<div class="section" id="trivia">
+<h2>5.7 Trivia<a class="headerlink" href="#trivia" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="entwicklungsumgebung">
+<h3>5.7.1 Entwicklungsumgebung<a class="headerlink" href="#entwicklungsumgebung" title="Permalink to this headline">¶</a></h3>
+<p>Als Programmiersprache wurde <em>Python</em>, in Version <span class="math">\(3.2\)</span>, aus folgenden
+Gründen ausgewählt:</p>
+<ul class="simple">
+<li>Exzellenter Support für <em>Rapid Prototyping</em> &ndash;- eine wichtige Eigenschaft bei
+nur knapp 3 Monaten Implementierungszeit.</li>
+<li>Große Zahl an nützlichen Bibliotheken, besonders für den wissenschaftlichen
+Einsatz.</li>
+<li>Bei Performanceproblemen ist eine Auslagerung von Code nach
+<span class="math">\(\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}\)</span> mittels
+<em>Cython</em> sehr einfach möglich.</li>
+<li>Der Autor hat gute Kenntnisse in Python.</li>
+</ul>
+<p>Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
+sozialen Code&ndash;Hosting Plattform <em>GitHub</em> <a class="reference internal" href="../zzz_bibliography.html#y41" id="id9">[Link-27]</a> &ndash;- zur Versionierung wird
+entsprechend das <em>Distributed Version Control System</em> <tt class="docutils literal"><span class="pre">git</span></tt> genutzt.</p>
+<p>Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
+besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
+zumindest die Seite für spätere Projekte merken.</p>
+<p>Die dazugehörige Dokumentation wird bei jedem <em>Commit</em> <a class="footnote-reference" href="#f2" id="id10"><sup>2</sup></a> automatisch aus
+den Quellen, mittels des freien Dokumentations&ndash;Generators Sphinx, auf der, für
+Python&ndash;Projekte populären, Dokumentations&ndash;Hosting&ndash;Plattform <em>ReadTheDocs</em>
+gebaut und dort verfügbar gemacht <a class="reference internal" href="../zzz_bibliography.html#lx" id="id11">[Link-22]</a>.</p>
+<p>Zudem werden pro <em>Commit</em> Unit&ndash;Tests auf der Continious&ndash;Integration Plattform
+<em>TravisCI</em> <a class="reference internal" href="../zzz_bibliography.html#jiu" id="id12">[Link-28]</a> für verschiedene Python&ndash;Versionen durchgeführt. Dies hat
+den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
+vergessen hat die unittests lokal durchzuführen.</p>
+<p>Schlägt der <em>Build</em> fehl so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt. (Siehe <a href="#fig-travis-badge">5.5</a>)</p>
+<div class="figure align-center" id="fig-travis-badge">
+<img alt="Screenshot der Statusbuttons auf der Github--Seite." src="../../_images/travis_badge.png" />
+<p class="caption"><strong>Figure 5.5:</strong> Screenshot der Statusbuttons auf der Github&ndash;Seite.</p>
+</div>
+<p>Versionen die als stabil eingestuft werden, werden auf <em>PyPi (Python Package Index)</em>
+veröffentlicht <a class="reference internal" href="../zzz_bibliography.html#o6q" id="id13">[Link-29]</a>, wo sie mithilfe des folgenden Befehles samt
+Python&ndash;Abhängigkeiten installiert werden können (Setzt Python <span class="math">\(\ge 3.2\)</span>
+vorraus):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo pip install libmunin
+</pre></div>
+</div>
+<p>Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
+vereinfachen &ndash;- im Notfall kann man stets auf funktionierende Versionen
+zurückgehen.</p>
+<p>Der Quelltext selber wird in <em>gVim</em> geschrieben &ndash;- dass sich der Python&ndash;Quelltext
+dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme <em>PEP8</em>
+und <em>flake8</em> überprüft.</p>
+<p>Auch dieses Dokument wurde mit dem 
+        <style type="text/css">
+            .tex sub, .latex sub, .latex sup {
+                text-transform: uppercase;
+            }
+
+            .tex sub, .latex sub {
+                vertical-align: -0.5ex;
+                margin-left: -0.1667em;
+                margin-right: -0.125em;
+            }
+
+            .tex, .latex, .tex sub, .latex sub {
+                font-size: 1em;
+            }
+
+            .latex sup {
+                font-size: 0.85em;
+                vertical-align: 0.15em;
+                margin-left: -0.36em;
+                margin-right: -0.15em;
+            }
+        </style>
+        <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
+    -Backend einer
+modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
+<em>reStructuredText</em> geschrieben werden kann und einerseits als PDF und als HTML&ndash;
+Variante <a class="reference internal" href="../zzz_bibliography.html#md" id="id14">[Link-30]</a> erstellt wird &ndash;- letztere ist sogar für mobile Endgeräte
+ausgelegt.</p>
+</div>
+<div class="section" id="unit-tests">
+<h3>5.7.2 Unit&ndash;Tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<p>Die meisten Module sind mit <tt class="docutils literal"><span class="pre">unittests</span></tt> ausgestattet, die sich, für Python
+typisch, am Ende von jeder <tt class="docutils literal"><span class="pre">.py</span></tt>-Datei befinden:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">func</span><span class="p">():</span> <span class="k">return</span> <span class="mi">42</span>
+
+<span class="c"># Tests werden nur ausgeführt wenn das Skript direkt ausgeführt wird.</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">unittest</span>
+    <span class="k">class</span> <span class="nc">TestFunc</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>  <span class="c"># Ein einzelner Unittest:</span>
+        <span class="k">def</span> <span class="nf">test_func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">func</span><span class="p">(),</span> <span class="mi">42</span><span class="p">)</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>  <span class="c"># Führe tests aus.</span>
+</pre></div>
+</div>
+<p>Auf einer detaillierten Erklärung der im einzelnen getesteten Funktionalitäten
+wird verzichtet &ndash;- diese würden den Rahmen der Projektarbeit ohne erkenntlichen
+Mehrwert sprengen.</p>
+</div>
+<div class="section" id="lines-of-code-loc">
+<h3>5.7.3 Lines of Code (<em>LoC</em>)<a class="headerlink" href="#lines-of-code-loc" title="Permalink to this headline">¶</a></h3>
+<p>Was die <em>Lines of Code</em> betrifft so verteilen sich insgesamt 4867 Zeilen
+Quelltext auf 46 einzelne Dateien. Die im nächsten Kapitel vorgestellte
+Demo&ndash;Anwendung ist dabei mit eingerechnet. Dazu gesellen sich 2169 Zeilen
+Kommentare, die zum größten Teil zur Generation der Online&ndash;Dokumentation
+genutzt werden.</p>
+<p>Dazu kommen einige weitere Zeilen von <em>reStructuredText</em> (einer einfachen, aber
+mächtigen Markup&ndash;Sprache) die das Gerüst der Online&ndash;Dokumentation bilden:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>wc -l <span class="k">$(</span>find . -iname <span class="s1">&#39;*.rst&#39;</span><span class="k">)</span>
+2231 insgesamt
+</pre></div>
+</div>
+<p>Die Online&ndash;Dokumentation wird aus den Kommentaren im Quelltext
+extrahiert &ndash;- das entspricht dem vom <em>Donald Knuth</em> vorgeschlagenem
+Ansatz des <em>Literate Programming</em>.</p>
+</div>
+<div class="section" id="sonstige-statistiken">
+<h3>5.7.4 Sonstige Statistiken<a class="headerlink" href="#sonstige-statistiken" title="Permalink to this headline">¶</a></h3>
+<p>Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></tt> entstanden sind:</p>
+<p><strong>GitHub Visualisierungen:</strong> <em>GitHub</em> stellt einige optisch ansprechende und
+interaktive Statistiken bereit die beispielsweise viel über den eigenen
+Arbeitszyklus verraten: <a class="reference internal" href="../zzz_bibliography.html#ibl" id="id15">[Link-31]</a></p>
+<p><tt class="docutils literal"><span class="pre">gitstats</span></tt> <strong>Visualisierungen:</strong> Das kleine Programm <tt class="docutils literal"><span class="pre">gitstats</span></tt> baut aus dem
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">log</span></tt> eine HTML-Seite mit einigen interessanten Statistiken &ndash;- wie
+beispielsweise der absoluten Anzahl von geschriebenen (und wieder gelöschten)
+Zeilen: <a class="reference internal" href="../zzz_bibliography.html#md" id="id16">[Link-30]</a></p>
+<p><strong>Commit&ndash;Graph Visualisierungsvideo</strong>: <tt class="docutils literal"><span class="pre">gource</span></tt> ist ein Programm,
+das in einem optisch ansprechenden Video zeigt wie sich das <tt class="docutils literal"><span class="pre">git</span></tt>-Repository
+mit der Zeit aufbaut. Unter <a class="reference internal" href="../zzz_bibliography.html#mc" id="id17">[Link-32]</a> findet sich ein ein&ndash;minütiges Video dass
+entsprechend die Entwicklung von <em>libmunin</em> zeigt.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">libmunin</span></tt> &ndash; bisher nur auf Entwicklersystem getestet!</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[2]</a></td><td>In einem <em>Commit</em> werden eine Reihe zusammengehöriger Änderungen
+verpackt. Später kann man einen <em>Commit</em> immer wieder zurückspulen.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="../VI/index.html" class="btn btn-neutral float-right" title="6 Demonstrationsanwendung"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../IV/index.html" class="btn btn-neutral" title="4 Design"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright by Christopher Pahl, 2013-2014..
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

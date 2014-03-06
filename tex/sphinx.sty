@@ -334,6 +334,7 @@
 }
 
 % % Include hyperref last.
+% \PassOptionsToPackage{hyphens}{url}
 \RequirePackage[
     final,
     pdftex,
@@ -482,6 +483,14 @@
 \DeclareMathOperator*{\argmin}{\,min}
 \DeclareMathOperator*{\argmax}{\,max}
 
-% \RequirePackage{enumitem}
-% \setlist{nolistsep}
-% \setlist{noitemsep}
+% Lower the space in lists a tiny bit:
+\RequirePackage{enumitem}
+\setitemize{itemsep=-0.5em}
+
+% Lower the space between bibitems:
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{5pt}
+  \setlength{\itemsep}{0pt plus 0.5ex}
+}

@@ -1,12 +1,14 @@
+:orphan:
+
 .. One big hack.
 
 .. only:: html or singlehtml or singletext
 
-    Abkürzungsverzeichnis
-    ======================
+    **Abkürzungsverzeichnis**
 
 .. raw:: latex
 
+    \thispagestyle{plain}
     \renewcommand{\thepage}{\roman{page}}
     \setcounter{page}{8} % cough.
     \addcontentsline{toc}{section}{Abk"urzungsverzeichnis}
@@ -25,8 +27,7 @@
 
 .. raw:: latex
 
-    % \pagenumbering{arabic}
     \newpage
     \renewcommand{\thepage}{\arabic{page}}
-    % \pagestyle{fancy}
+    \pagestyle{fancy}
     \setcounter{page}{1}

@@ -5,7 +5,7 @@
 \bibliographystyle{refstyle}
 
 % add the Bibliography to the Table of Contents
-\cleardoublepage
+% \cleardoublepage
 \ifdefined\phantomsection
   \phantomsection  % makes hyperref recognize this section properly for pdf link
 \else

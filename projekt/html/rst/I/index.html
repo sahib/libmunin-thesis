@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1 Motivation &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../../',
+        VERSION:'0.1',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+        <link rel="next" title="2 Einführung" href="../II/index.html"/>
+        <link rel="prev" title="Widmung" href="../dedication.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Projektarbeit</a>
+        <form class="wy-form" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search docs" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dedication.html">Widmung</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1 Motivation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#stand-der-technik">1.1 Stand der Technik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zielsetzung">1.2 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verbesserungsmoglichkeiten">1.3 Verbesserungsmöglichkeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#namensgebung">1.4 Namensgebung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../II/index.html">2 Einführung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../III/index.html">3 Begriffsklärungen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#allgemeine-fachbegriffe">3.1 Allgemeine Fachbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../III/index.html#kontextspezifische-fachbegriffe">3.2 Kontextspezifische Fachbegriffe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../IV/index.html">4 Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#algorithmik">4.1 Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#integration-von-libmunin-in-die-umwelt">4.2 Integration von <em>libmunin</em> in die Umwelt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IV/index.html#entwurf-der-software">4.3 Entwurf der Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../V/index.html">5 Implementierung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#anwendungsbeispiel">5.1 Anwendungsbeispiel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#kurze-implementierungshistorie">5.2 Kurze Implementierungshistorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#liste-verfugbarer-empfehlungs-strategien">5.3 Liste verfügbarer Empfehlungs&ndash;Strategien</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#liste-der-provider">5.4 Liste der Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#liste-der-distanzfunktionen">5.5 Liste der Distanzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#modul-und-paketubersicht">5.6 Modul&ndash; und Paketübersicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../V/index.html#trivia">5.7 Trivia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VI/index.html">6 Demonstrationsanwendung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#intro">6.1 Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VI/index.html#anwendungsubersicht">6.2 Anwendungsübersicht</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VII/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#abschlieszendes-fazit">7.6 Abschließendes Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html"><tt class="docutils literal"><span class="pre">coldstart.py</span></tt></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#ausfuhrliches-beispiel">Ausführliches Beispiel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-der-demoanwendung">Bilder der Demoanwendung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="/">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <ul class="wy-breadcrumbs">
+  <li><a href="../index.html">Docs</a> &raquo;</li>
+  <li><a href="">1 Motivation</a></li>
+  
+</ul>
+<hr/>
+
+          
+  <div class="section" id="motivation">
+<h1>1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stand-der-technik">
+<h2>1.1 Stand der Technik<a class="headerlink" href="#stand-der-technik" title="Permalink to this headline">¶</a></h2>
+<p>Empfehlungen sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
+Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
+Vielzahl von Plattformen, die Musik anbieten, entweder zum Kaufen (<em>Amazon</em>), zum
+<em>Streamen</em> (<tt class="docutils literal"><span class="pre">Last.fm</span></tt>, <em>Spotify</em>, <em>Rhapsody</em>, <em>Pandora</em>, <em>u.v.m</em>) oder auch um
+Menschen mit ähnlichem Musikgeschmack zu finden (<em>YouTube,</em> <em>Myspace</em>).</p>
+<p>All diese Plattformen bieten neben der eigentlichen Musik auch immer
+Empfehlungen zu anderen Liedern, die der Benutzer möglicherweise ebenfalls anhören
+möchte &ndash;- natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese
+anhört oder gar kauft. Kunden, die neue Bands entdecken und später weitere Alben
+von diesen bestellen, sind natürlich ein wichtiger wirtschaftlicher Faktor.</p>
+<p>Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
+von den Betreibern gepflegt? Bei der großen Anzahl an, <em>,,Waren&quot;</em> wohl kaum.
+Schaut sich ein System an was die Benutzer oft zusammen hören?
+Kann es ein System geben, das komplett automatisch arbeitet?</p>
+<p>Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
+Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben
+<a class="reference internal" href="../zzz_bibliography.html#jacobi2006personalized" id="id1">[5]</a> - aus diesen werden dann Alben abgeleitet, die
+oft zusammen gekauft werden.  <tt class="docutils literal"><span class="pre">Last.fm</span></tt> hingegen setzt auf mehrere Strategien,
+indem es seine Nutzer die gestreamten Lieder bewerten lässt und dann deren
+Hörverhalten <a class="reference internal" href="../zzz_bibliography.html#henning2008mendeley" id="id2">[4]</a> analysiert. Eine andere Möglich wäre, Reviews aus dem
+Netz zu nutzen, um Verbindungen zwischen Künstlern <a class="reference internal" href="../zzz_bibliography.html#vembu2005self" id="id3">[10]</a>
+herzustellen.</p>
+<p>Wie man sieht, sind die Wege nahezu unendlich, das Ziel aber immer gleich:
+Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten.</p>
+</div>
+<div class="section" id="zielsetzung">
+<h2>1.2 Zielsetzung<a class="headerlink" href="#zielsetzung" title="Permalink to this headline">¶</a></h2>
+<p>Viele dieser Arbeiten präsentieren jeweils einen Weg, um die Ähnlichkeit zweier
+Musikstücke zu bestimmen &ndash;- viele greifen dabei auf Audioanalyse zurück, also
+beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
+oder nutzen vorhandene Metadaten, um beispielsweise aus den Songtexten die Themen
+zu extrahieren, die im Lied behandelt werden.</p>
+<p>Dabei sind heutzutage die Metadaten zu den Musikstücken anhand von
+Musikmetadatenbanken wie <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id4"><sup>1</sup></a> leicht aufzufinden &ndash;- lediglich die
+Audiodaten sind aus verständlichen, legalen Gründen schwer zu besorgen.</p>
+<p>Die nötigen Bauteile und das Wissen, um ein allgemein einsetzbares, qualitatives
+Musikempfehlungssystem zu schaffen, sind also vorhanden &ndash;- nur eine frei
+verfügbare Umsetzung fehlt.</p>
+</div>
+<div class="section" id="verbesserungsmoglichkeiten">
+<h2>1.3 Verbesserungsmöglichkeiten<a class="headerlink" href="#verbesserungsmoglichkeiten" title="Permalink to this headline">¶</a></h2>
+<p>Weit verbreitet sind bei Musicplayern <em>Intelligente Playlisten</em> <a class="footnote-reference" href="#f2" id="id5"><sup>2</sup></a>,  die
+allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
+<tt class="docutils literal"><span class="pre">Last.fm</span></tt> suchen, um Musikempfehlungen auszusprechen &ndash;- was  keineswegs eine
+schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern.</p>
+<p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
+nicht immer möglich oder gar wünschenswert &ndash;- eine Lösung welche rein auf
+einem Rechner laufen kann, wäre von Nöten &ndash;- gewissermaßen das Backend von
+<tt class="docutils literal"><span class="pre">Last.fm</span></tt> für den freien (frei wie in <em>Free Open Source Software</em>) Einsatz.</p>
+<p>Dadurch, dass das entstehende System frei in den Quellen verfügbar sein soll, kann
+jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
+existierenden Backends, wie sie beispielsweise hinter <tt class="docutils literal"><span class="pre">Last.fm</span></tt> stehen, wäre
+ein solches System auf Qualität optimiert &ndash;- weniger auf Wirtschaftlichkeit,
+sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
+qualitative Empfehlungen möglich sein.</p>
+<p>Die Tatsache, dass der Autor sich schon seit längerer Zeit ein <em>,,echtes&quot;</em>
+Feature für <em>Intelligente Playlisten</em> für den MPD Client <a class="footnote-reference" href="#f4" id="id6"><sup>3</sup></a>, den er
+entwickelt wünscht, trägt natürlich auch zur Motivation bei &ndash;- vor allem soll
+deshalb auch nach dem Abschluss dieser Arbeit das Projekt weiterentwickelt
+werden.</p>
+</div>
+<div class="section" id="namensgebung">
+<h2>1.4 Namensgebung<a class="headerlink" href="#namensgebung" title="Permalink to this headline">¶</a></h2>
+<p>Menschen neigen dazu Dingen einen Namen zu geben &ndash;- im Folgenden wird unser
+geplantes Musikempfehlungssystem <em>libmunin</em> genannt.</p>
+<blockquote class="epigraph">
+<div><p><em>In Norse mythology, Hugin (from Old Norse “thought”)</em>
+<em>and Munin (Old Norse “memory” or “mind”)</em>
+<em>are a pair of ravens that fly all over the world Midgard,</em>
+<em>and bring information to Odin.</em></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014hugin" id="id7">[11]</a></p>
+</div></blockquote>
+<p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
+Bibliothek <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt, dass eine
+kommerzielle Bibliothek mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="reference internal" href="../zzz_bibliography.html#ikc" id="id8">[Link-1]</a>) eine
+freie Alternative erhält.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><em>MusicBrainz</em> ist eine freie, populäre Online&ndash;Musikmetadaten&ndash;Datenbank. <a class="reference internal" href="../zzz_bibliography.html#a3" id="id9">[Link-2]</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td><em>Intelligente Playlisten</em> bezeichnen Playlisten, die nach bestimmten,
+vom Nutzer vorgegebenen, Kriterien aus einer Menge von Songs fortlaufend generiert werden.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td>Ein MPD Client ist eine <em>,,Fernbedienung&quot;</em> für den unter Unix weit
+vebreitenden MPD (MusicPlayerDaemon <a class="reference internal" href="../zzz_bibliography.html#mpd" id="id10">[Link-3]</a>).</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          <footer>
+  
+    <div class="rst-footer-buttons">
+      
+        <a href="../II/index.html" class="btn btn-neutral float-right" title="2 Einführung"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dedication.html" class="btn btn-neutral" title="Widmung"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <p>
+      &copy; Copyright by Christopher Pahl, 2013-2014..
+  </p>
+
+  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+</body>
+</html>

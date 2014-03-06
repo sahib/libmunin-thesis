@@ -35,3 +35,9 @@
 .. |apoend| replace:: |latexapoend| |htmlapoend|
 
 .. |apopar| replace:: |nbsp| |nbsp| |nbsp| |nbsp|
+
+.. There's no HTML variant yet:
+
+.. |hfill| raw:: latex 
+
+   \hfill
