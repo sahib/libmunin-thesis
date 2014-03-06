@@ -63,7 +63,6 @@ exclude_patterns = [
     'tex',
     'rst/epilog.rst',
     'rst/toc.rst',
-    'rst/abbrevs.rst',
     '*venv*',
     'README.rst',
 ]
