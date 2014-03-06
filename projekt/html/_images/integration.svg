@@ -25,14 +25,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.2632716"
-     inkscape:cx="3121.9864"
-     inkscape:cy="2108.3621"
+     inkscape:cx="2790.9044"
+     inkscape:cy="1994.9572"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1888"
+     inkscape:window-width="896"
      inkscape:window-height="1028"
-     inkscape:window-x="12"
+     inkscape:window-x="1004"
      inkscape:window-y="32"
      inkscape:window-maximized="0"
      showguides="true"
@@ -326,7 +326,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -495,29 +495,29 @@
          y="72.400253"
          x="1713.0514"
          id="tspan4279"
-         sodipodi:role="line">• Music player</tspan><tspan
-         y="231.68839"
+         sodipodi:role="line">• Musicplayer</tspan><tspan
+         y="214.85042"
          x="1713.0514"
          sodipodi:role="line"
-         id="tspan7483">• Mpd clients/Server</tspan><tspan
+         id="tspan7483">• MPD-Clients/Server</tspan><tspan
          id="tspan4281"
-         y="390.9765"
+         y="357.3006"
          x="1713.0514"
-         sodipodi:role="line">• webradios</tspan><tspan
+         sodipodi:role="line">• Webradios</tspan><tspan
          id="tspan4283"
-         y="550.26465"
+         y="499.75076"
          x="1713.0514"
-         sodipodi:role="line">• Music Stream-sites</tspan><tspan
-         y="709.5528"
+         sodipodi:role="line">• Music Stream-Sites</tspan><tspan
+         y="642.20093"
          x="1713.0514"
          sodipodi:role="line"
-         id="tspan5915">• ,,Dj'' Software</tspan><tspan
+         id="tspan5915">• ,,DJ'' Software</tspan><tspan
          id="tspan4289"
-         y="868.84088"
+         y="784.65112"
          x="1713.0514"
          sodipodi:role="line">• …</tspan><tspan
          id="tspan4287"
-         y="1011.2911"
+         y="927.10126"
          x="1713.0514"
          sodipodi:role="line" /></text>
     <path
@@ -577,12 +577,12 @@
          y="-827.54675"
          x="4313.813"
          id="tspan3410"
-         sodipodi:role="line">Entwickler Bereich</tspan><tspan
+         sodipodi:role="line">Entwickler-Bereich</tspan><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
          id="tspan3412"
          y="-737.54675"
          x="4313.813"
-         sodipodi:role="line">Nutzer Bereich</tspan></text>
+         sodipodi:role="line">Nutzer-Bereich</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4218"
@@ -597,19 +597,19 @@
          sodipodi:role="line" /><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
          id="tspan4222"
-         y="-1065.5078"
+         y="-1076.146"
          x="2355.4861"
          sodipodi:role="line">Füttert ,,History''</tspan><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
-         y="-975.50781"
+         y="-986.146"
          x="2355.4861"
          sodipodi:role="line"
          id="tspan3519">Informationen - </tspan><tspan
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
-         y="-885.50781"
+         y="-896.146"
          x="2355.4861"
          sodipodi:role="line"
-         id="tspan3521">was gehoert wurde.</tspan></text>
+         id="tspan3521">was gehört wurde.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -645,7 +645,7 @@
          x="783.54938"
          y="359.41406"
          id="tspan4238"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Stellt datenbank</tspan><tspan
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Stellt Datenbank</tspan><tspan
          sodipodi:role="line"
          x="783.54938"
          y="449.41406"
@@ -692,8 +692,8 @@
          id="tspan4256"
          y="-1734.6805"
          x="2302.9973"
-         sodipodi:role="line">Zukunfts-Musik: Suche fehlende/falsche Tags auf <tspan
-   style="-inkscape-font-specification:Gentium Book Basic Italic;font-family:Gentium Book Basic;font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:72px;text-anchor:end;text-align:end;writing-mode:lr;line-height:125%"
+         sodipodi:role="line">Zukunftsmusik: Suche fehlende/falsche Tags auf <tspan
+   style="font-size:72px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic Italic"
    id="tspan4419">musicbrainz.com</tspan></tspan></text>
     <path
        inkscape:connector-curvature="0"
@@ -723,7 +723,7 @@
          sodipodi:role="line"
          x="4313.813"
          y="-1922.6346"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Entwickler Bereich</tspan></text>
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;writing-mode:lr-tb;text-anchor:end;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic">Entwickler-Bereich</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:206.8923645px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.42323656;stroke:none;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
@@ -740,12 +740,12 @@
        style="fill:#191919"
        inkscape:connector-curvature="0"
        id="path4463"
-       d="m 1639.3433,-1615.8541 c 15.2028,-1.1712 30.4773,-0.4566 45.7105,-0.5758 88.8483,0 177.6963,0.079 266.5446,-0.06 10.805,0.1998 23.1065,-0.268 31.9841,6.8289 9.2774,8.4666 8.9186,21.6178 9.0826,32.933 -0.1325,87.6831 -0.071,175.3561 -0.051,263.0391 -0.1023,13.3599 0.5945,26.7793 -0.6869,40.1094 -0.7586,8.6651 -5.4332,17.4591 -13.6854,21.4195 -7.2477,3.6328 -15.7665,2.2631 -23.5577,2.8884 -102.5233,0.2481 -205.057,0 -307.5805,0.1282 -10.3947,0.2392 -21.5993,-1.866 -28.806,-9.8264 -7.176,-6.1937 -6.561,-16.4667 -7.0221,-24.9133 -0.1325,-97.6186 0.081,-195.237 -0.1023,-292.8455 0,-8.3377 0.1115,-17.221 4.2853,-24.7644 4.2541,-8.8042 14.1363,-13.8463 23.8854,-14.3624 z" />
+       d="m 1639.3433,-1601.1355 c 15.2028,-1.1712 30.4773,-0.4566 45.7105,-0.5758 88.8483,0 177.6963,0.079 266.5446,-0.06 10.805,0.1998 23.1065,-0.268 31.9841,6.8289 9.2774,8.4666 8.9186,21.6178 9.0826,32.933 -0.1325,87.6831 -0.071,175.3561 -0.051,263.0391 -0.1023,13.3599 0.5945,26.7793 -0.6869,40.1094 -0.7586,8.6651 -5.4332,17.4591 -13.6854,21.4195 -7.2477,3.6328 -15.7665,2.2631 -23.5577,2.8884 -102.5233,0.2481 -205.057,0 -307.5805,0.1282 -10.3947,0.2392 -21.5993,-1.866 -28.806,-9.8264 -7.176,-6.1937 -6.561,-16.4667 -7.0221,-24.9133 -0.1325,-97.6186 0.081,-195.237 -0.1023,-292.8455 0,-8.3377 0.1115,-17.221 4.2853,-24.7644 4.2541,-8.8042 14.1363,-13.8463 23.8854,-14.3624 z" />
     <path
        style="fill:#ffffff;fill-opacity:1"
        inkscape:connector-curvature="0"
        id="path4465"
-       d="m 1635.4888,-1604.8466 c 8.8467,-1.9753 18.0014,-1.5681 27.0122,-1.727 99.0996,0.2481 198.2093,-0.099 297.319,0.1579 7.791,0.5557 18.2882,2.2033 20.3385,10.9678 2.7577,8.9429 1.9886,18.4417 2.2655,27.6625 -0.328,56.3976 0.2667,112.8049 -0.3175,169.2022 -24.347,-13.4193 -41.6409,-35.8415 -65.301,-50.1938 -14.4953,-8.7841 -26.8584,-20.2185 -39.9289,-30.7693 -7.678,-5.4296 -15.9511,-10.2136 -24.7671,-13.6974 -14.28,-4.159 -29.3394,-2.6006 -43.9986,-2.3821 -9.0622,-2.4518 -15.9,-9.3005 -24.5827,-12.5659 -13.3371,-3.5632 -27.3301,-4.4668 -41.108,-4.0101 -9.9743,1.4392 -16.9656,9.0224 -22.7476,16.3873 7.4528,-0.1479 15.4796,-0.665 22.2865,2.8287 10.4667,5.3102 19.2928,13.0622 28.2527,20.4071 3.2905,3.0374 7.2579,5.6774 9.6258,9.5188 0.8407,7.1166 1.2303,14.4713 -0.092,21.5584 -0.4716,3.7617 -4.7567,4.9329 -7.4732,6.8586 -11.1433,6.1935 -22.4402,12.1391 -33.9523,17.6675 -9.6467,4.6255 -18.0219,11.7322 -23.1885,20.9432 16.0431,-1.2706 31.6046,-6.4715 47.7198,-6.7297 11.7276,6.4814 24.2853,13.3499 31.4613,24.8935 2.9729,4.3674 4.1212,9.5883 5.7408,14.5013 1.2507,4.5361 3.5365,9.6279 1.1789,14.2334 -6.1405,14.2037 -5.4025,30.2333 -1.8352,44.9927 4.1519,15.5635 9.9131,30.6405 15.1824,45.8565 -11.379,0.8041 -22.7887,1.2605 -34.1882,1.2109 -42.7171,-0.069 -85.4345,-0.069 -128.1516,0.039 -8.9701,-0.025 -18.8419,0.108 -26.4792,-5.2108 -5.9355,-7.3649 -3.6393,-17.0723 -4.2543,-25.6183 -0.051,-95.9609 0.062,-191.9118 -0.071,-287.8727 0.041,-6.9777 0.3588,-14.2531 3.2803,-20.7247 1.8658,-4.3276 6.1303,-7.355 10.7742,-8.3872 z" />
+       d="m 1635.4888,-1590.128 c 8.8467,-1.9753 18.0014,-1.5681 27.0122,-1.727 99.0996,0.2481 198.2093,-0.099 297.319,0.1579 7.791,0.5557 18.2882,2.2033 20.3385,10.9678 2.7577,8.9429 1.9886,18.4417 2.2655,27.6625 -0.328,56.3976 0.2667,112.8049 -0.3175,169.2022 -24.347,-13.4193 -41.6409,-35.8415 -65.301,-50.1938 -14.4953,-8.7841 -26.8584,-20.2185 -39.9289,-30.7693 -7.678,-5.4296 -15.9511,-10.2136 -24.7671,-13.6974 -14.28,-4.159 -29.3394,-2.6006 -43.9986,-2.3821 -9.0622,-2.4518 -15.9,-9.3005 -24.5827,-12.5659 -13.3371,-3.5632 -27.3301,-4.4668 -41.108,-4.0101 -9.9743,1.4392 -16.9656,9.0224 -22.7476,16.3873 7.4528,-0.1479 15.4796,-0.665 22.2865,2.8287 10.4667,5.3102 19.2928,13.0622 28.2527,20.4071 3.2905,3.0374 7.2579,5.6774 9.6258,9.5188 0.8407,7.1166 1.2303,14.4713 -0.092,21.5584 -0.4716,3.7617 -4.7567,4.9329 -7.4732,6.8586 -11.1433,6.1935 -22.4402,12.1391 -33.9523,17.6675 -9.6467,4.6255 -18.0219,11.7322 -23.1885,20.9432 16.0431,-1.2706 31.6046,-6.4715 47.7198,-6.7297 11.7276,6.4814 24.2853,13.3499 31.4613,24.8935 2.9729,4.3674 4.1212,9.5883 5.7408,14.5013 1.2507,4.5361 3.5365,9.6279 1.1789,14.2334 -6.1405,14.2037 -5.4025,30.2333 -1.8352,44.9927 4.1519,15.5635 9.9131,30.6405 15.1824,45.8565 -11.379,0.8041 -22.7887,1.2605 -34.1882,1.2109 -42.7171,-0.069 -85.4345,-0.069 -128.1516,0.039 -8.9701,-0.025 -18.8419,0.108 -26.4792,-5.2108 -5.9355,-7.3649 -3.6393,-17.0723 -4.2543,-25.6183 -0.051,-95.9609 0.062,-191.9118 -0.071,-287.8727 0.041,-6.9777 0.3588,-14.2531 3.2803,-20.7247 1.8658,-4.3276 6.1303,-7.355 10.7742,-8.3872 z" />
     <path
        style="fill:#191919"
        inkscape:connector-curvature="0"
@@ -777,7 +777,7 @@
          x="1583.3055"
          y="-880.07922"
          style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Gentium Book Basic;-inkscape-font-specification:Gentium Book Basic"
-         id="tspan3517">&amp; lernt von user</tspan></text>
+         id="tspan3517">&amp; Lernt von Nutzer</tspan></text>
     <g
        transform="matrix(0.49057306,0,0,0.48163574,373.44506,-1645.7307)"
        id="g4841"
@@ -854,7 +854,7 @@
          id="tspan7481"
          y="-1413.2437"
          x="769.49445"
-         sodipodi:role="line">Speichert und laedt</tspan></text>
+         sodipodi:role="line">Speichert und lädt</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5215"
@@ -865,5 +865,17 @@
            height="770.83765"
            x="1710.8835"
            y="2133.4316" /></flowRegion><flowPara
-         id="flowPara5221" /></flowRoot>  </g>
+         id="flowPara5221" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5598.7808"
+       y="1302.837"
+       id="text3209"
+       sodipodi:linespacing="125%"
+       transform="translate(0,-2187.6378)"><tspan
+         sodipodi:role="line"
+         id="tspan3211"
+         x="5598.7808"
+         y="1302.837"> </tspan></text>
+  </g>
 </svg>

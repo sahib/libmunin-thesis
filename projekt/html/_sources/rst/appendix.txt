@@ -4,198 +4,6 @@
 
        \appendix
 
-Abkürzungsverzeichnis
-======================
-
-.. figtable::
-    :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} | p{0.65\linewidth}
-
-    =======================  ==================================
-    Abkürzung                Bedeutung
-    =======================  ==================================
-    **API**                  *Application Programming Interface*
-    **GUI**                  *Graphical User Interface*
-    **LoC**                  *Lines of Code*
-    =======================  ==================================
-
-.. only:: latex
-
-   .. raw:: latex
-
-       \newpage
-
-Glossar
-=======
-
-.. glossary:: 
-
-    Song
-
-        Im Kontext von *libmunin* ist ein Song eine Menge von Attributen.
-        Jedem Attribut ist, wie in einer Hashmap, ein Wert zugeordnet. 
-
-        Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
-        einzelner Song kennt dafür einen bestimmten Wert.
-
-        Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
-        Songs gespeichert, sowie einen Integer der als Identifier dient.
-
-    Distanz
-
-        Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
-        Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
-        minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
-        Unähnlichkeit (oder maximale *Entfernung*).
-
-        Die Distanz wird durch eine :term:`Distanzfunktion` berechnet.
-
-    Distanzfunktion
-
-        Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
-        zwei Songs als Eingabe nimmt und die :term:`Distanz` zwischen
-        diesen berechnet.
-
-        Dabei wird jedes :term:`Attribut` betrachte welchesi n beiden Songs
-        vorkommt betrachtet. Für diese wird von der :term:`Maske` eine
-        spezialisierte :term:`Distanzfunktion` festgelegt, die weiß wie diese
-        zwei bestimmten Werte sinnvoll verglichen werden können. Die so
-        errechneten Werte werden, gemäß der Gewichtung in der :term:`Maske`, zu
-        einem Wert verschmolzen.
-
-        Fehlen Attribute in einen der beiedn Songs wird für diese jeweils eine
-        Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
-        eingerechnet.
-
-        Die folgenden Bedingungen müssen sowohl für die allgemeine
-        Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten:
- 
-        *Uniformität:*
-        
-        .. math::
-
-            0 \leq D(i, j) \leq 1 \, \forall \, i,j \in D
-
-        *Symmetrie:*
-
-        .. math::
-
-            D(i, j) = D(j, i) \, \forall \, i,j \in D
-
-        *Identität:*
-
-        .. math::
-
-            D(i, i) = 0.0 \, \forall \, i \in D
-
-        *Dreiecksungleichung:*
-
-        .. math::
-
-            D(i, j) \leq D(i, x) + (x, j)
-
-    Session
-
-        Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
-        Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
-        analysiert und ein :term:`Graph` wird daraus aufgebaut.
-    
-        Zudem kann eine *Session* persistent für späteren Gebrauch gespeichert
-        werden. 
-
-        Für Nutzer der Bibliothek ist die :term:`Session` auch Eintrittspunkt
-        für jegliche von *libmunin* bereitgestellte Funktionalität.
-
-    Maske
-
-        Die :term:`Session` benötigt eine Beschreibung der Daten die importiert
-        werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
-        Schlüssel ``genre`` abgespeichert wird.
-    
-        In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
-        einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
-        pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
-        festgelegt die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
-        wird die Gewichtung des Attributes festgelegt - manche Attribute sind
-        für die Ähnlichkeit zweier Songs entscheidender als andere.
-
-    Attribut
-
-        Ein Attribut ist ein *Schlüssel* in der :term:`Maske`. Er repräsentiert
-        eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
-        Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
-        andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
-        Menge dieser Paare.
-
-    Provider
-
-        Ein *Provider* normalisiert einen Wert anhand verschiedener
-        Charakteristiken. Sie dienen als vorgelagerte Verarbeitung von den Daten
-        die in das System geladen werden. Jeder *Provider* ist dabei einem 
-        :term:`Attribut` zugeordnet.
-
-        Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
-        vergleichbare Werte zu liefern - da die :term:`Distanzfunktion` sehr
-        viel öfters aufgerufen wird als der *Provider*.
-
-    Assoziationsregel
-        
-        Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-        miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
-        wahrscheinlich dass auch die andere Menge daraufhin angehört wird.
-
-        Sie werden aus dem Verhalten des Nutzers abgeleitet.
-
-        Die Güte der Regel wird durch ein *Rating* beschrieben:
-
-        .. math::
-
-            Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)
-
-        wobei:
-
-        .. math::
-
-            Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}
-
-        .. math::
-
-            ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}
-
-
-        .. admonition:: Vergleiche dazu:
-
-            :cite:`datamining-concepts-and-techniques`
-            Datamining Concepts and Techniques.
-
-
-    Recommendation
-
-        Eine Recommendation (dt. Empfehlung) ist ein :term:`Song` der vom System
-        auf Geheiß des Benutzers hin vorgeschlagen wird. 
-
-        Die Empfehlunge sollte eine geringe Distanz zum :term:`Seedsong` haben.
-
-    Seedsong
-
-        Ein Song der als Basis für Empfehlungen ausgewählt wurde. 
-
-    Graph 
-
-        Im Kontext von *libmunin* ist der Graph eine Abbildung aller Songs (als
-        Knoten) und deren Distanz (als Kanten) untereinander. Im idealen Graphen
-        kennt jeder :term:`Song` *N* zu ihm selbst ähnlichsten Songs als
-        Nachbarn.
-
-        Da die Erstellung eines idealen Graphen sehr aufwendig ist, wird auf
-        eine schneller zu berechnende Approximation zurückgegriffen.
-
-.. only:: latex
-
-   .. raw:: latex
-
-       \newpage
-
-
 .. _coldstart-example:
 
 ``coldstart.py``
@@ -203,8 +11,8 @@ Glossar
 
 Führt die in :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
 aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
-Songtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
-Beats-per-Minute-Analyse wird lokalisiert. 
+Liedtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
+Beats-per--Minute--Analyse wird lokalisiert. 
 
 Im Anschluss wird die Session aufgebaut und unter
 ``$HOME/.cache/libmunin/EasySession.gz`` gespeichert.
@@ -213,14 +21,15 @@ Im Anschluss wird die Session aufgebaut und unter
 
     #!/usr/bin/env python
     # encoding: utf-8
-    # Stdlib:
+
+    # Python Stdlib:
     import logging
 
-    # Internal:
+    # Moosecat imports:
     import moosecat.boot
     from moosecat.boot import g
 
-    # External:
+    # External imports:
     from munin.easy import EasySession
     from munin.provider import PlyrLyricsProvider
 
@@ -228,9 +37,12 @@ Im Anschluss wird die Session aufgebaut und unter
     # Also cache missed items for speed reasons.
     LYRICS_PROVIDER = PlyrLyricsProvider(cache_failures=True)
 
+    # Construct a munin-song from a mpd-song
     def make_entry(song):
         # Hardcoded, Im sorry:
         full_uri = '/mnt/testdata/' + song.uri
+
+        # Also return the uri, as unique Identifier.
         return song.uri, {
             'artist': song.artist,
             'album': song.album,
@@ -246,13 +58,15 @@ Im Anschluss wird die Session aufgebaut und unter
         }
 
     if __name__ == '__main__':
-        # Bring up moosecat
+        # Bring up moosecat:
+        # First connect to the server under 6601,
+        # then boot the metadata system, afterwards the database.
         moosecat.boot.boot_base(verbosity=logging.DEBUG)
         g.client.connect(port=6601)
         moosecat.boot.boot_metadata()
         moosecat.boot.boot_store()
 
-        # Fetch the whole database into entries:
+        # Fetch the whole database into `entries`:
         entries = []
         with g.client.store.query('*', queue_only=False) as playlist:
             for song in playlist:
@@ -260,31 +74,29 @@ Im Anschluss wird die Session aufgebaut und unter
 
         # Instance a new EasySession and fill in the values.
         session = EasySession()
+
+        # Remember to call a rebuild afterwards:
         with session.transaction():
             for uri, entry in entries:
                 try:
                     print('Processing:', entry['bpm'])
+
+                    # Remember the song under the uri
                     session.mapping[session.add(entry)] = uri
                 except:
+                    # In case something gets wrong: Prettyprint it.
                     import traceback
                     traceback.print_exc()
 
         # Save the Session to disk (~/.cache/libmunin/EasySession.gz)
         session.save()
 
-        # Plot if desired.
+        # Plot, if desired.
         if '--plot' in sys.argv:
             session.database.plot()
 
         # Close the connection to MPD, save cached database
         moosecat.boot.shutdown_application()
-
-.. only:: latex
-
-   .. raw:: latex
-
-       \newpage
-
 
 .. _complex-example:
 
@@ -295,19 +107,19 @@ Der Vollständigkeit halber soll hier noch ein ausführliches Beispiel
 gezeigt werden, das auch im Vergleich zum einfachen Beispiel folgende Features
 zeigt:
 
-    - Das Erstellen einer eigenen Session
-    - Das Speichern und Laden derselben
-    - Das Füttern der History
-    - Ableiten von Assoziationsregeln
-    - Mehrere Möglichkeiten zur Empfehlung
-
-``complex.py``
-~~~~~~~~~~~~~~
+    - Das Erstellen einer eigenen Session (mittels ``Session``).
+    - Das Speichern und Laden derselben (mittels ``Session.load()`` /
+      ``Session.save()``).
+    - Das Füttern der Historie (mittels ``Session.feed_history()``). 
+    - Anzeige der abgeleiteten Assoziationsregeln (mittels ``Session.rule_index``).
+    - Mehrere Möglichkeiten zur Empfehlung (wie
+      ``Session.recommend_from_heuristic()``).
 
 .. code-block:: python
 
     #!/usr/bin/env python
     # encoding: utf-8
+    # complex.py
 
     import sys
 
@@ -371,8 +183,8 @@ zeigt:
                     # Duplicate items get the same ID always.
                     # You can trade off memory vs. speed with this.
                     ArtistNormalizeProvider(compress=True),
-                    # If not DistanceFunctions is given, all values are
-                    # compare with __eq__ - which might give bad results.
+                    # If no DistanceFunctions is given, all values are
+                    # compared with __eq__ - which might give bad results.
                     None,
                     1
                 )
@@ -434,7 +246,8 @@ zeigt:
 
         print_recommendations(session)
 
-        # Let's add some history:
+        # Let's add some history.
+        # Here: First the song 0 (as munin-id) then 2 .. and so on.
         for munin_uid in [0, 2, 0, 0, 2]:
             session.feed_history(munin_uid)
 
@@ -457,8 +270,7 @@ zeigt:
         # Save it under ~/.cache/libmunin/demo
         session.save()
 
-Ausgabe nach dem ersten Lauf:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Ausgabe nach dem ersten Lauf:**
 
 .. code-block:: python
 
@@ -467,28 +279,22 @@ Ausgabe nach dem ersten Lauf:
       #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
       #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
       #3 ('Lady Gaga', 'Pokerface', 'pop')
-
     -- No saved session found, loading new.
-    matching ['metal']
-    matching ['folk']
-    matching ['metal']
     Recommendations to #0:
       normalized values:
         Artist : (3,)                
         Genre  : ((583,),)           
         Title  : ['Extrem']          
       original values:
-        Artist : We Butter the Bread with Butter
-        Album  : Extrem
-        Genre  : metal
+        Artist : "We Butter the Bread with Butter"
+        Album  : "Extrem"
+        Genre  : "metal"
 
     Playcounts:
       #0 was played 3x times
       #2 was played 2x times
-    matching ['pop']
 
-Ausgabe nach dem 10ten Lauf:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Ausgabe nach dem 5ten Lauf:**
 
 .. code-block:: python
 
@@ -497,28 +303,201 @@ Ausgabe nach dem 10ten Lauf:
       #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
       #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
       #3 ('Lady Gaga', 'Pokerface', 'pop')
-
-    Association Rules:
-             [2] <-> [0]        [supp=    8, rating=0.83951]
-
     Recommendations to #2:
       normalized values:
         Artist : (1,)                
         Genre  : ((583,),)           
         Title  : ['the', 'Befor', 'Noos', 'Hangman']
       original values:
-        Artist : Devildriver
-        Album  : Before the Hangmans Noose
-        Genre  : metal
+        Artist : "Devildriver"
+        Album  : "Before the Hangmans Noose"
+        Genre  : "metal"
+
+    Playcounts:
+      #0 was played 15x times
+      #2 was played 10x times
+
+**Ausgabe nach dem 10ten Lauf:**
+
+.. code-block:: python
+
+    The database:
+      #0 ('Devildriver', 'Before the Hangmans Noose', 'metal')
+      #1 ('Das Niveau', 'Beim Pissen gemeuchelt', 'folk')
+      #2 ('We Butter the Bread with Butter', 'Extrem', 'metal')
+      #3 ('Lady Gaga', 'Pokerface', 'pop')
+    Association Rules:
+             [2] <-> [0]        [supp=8, rating=0.83951]
+    Recommendations to #2:
+      normalized values:
+        Artist : (1,)                
+        Genre  : ((583,),)           
+        Title  : ['the', 'Befor', 'Noos', 'Hangman']
+      original values:
+        Artist : "Devildriver"
+        Album  : "Before the Hangmans Noose"
+        Genre  : "metal"
 
     Playcounts:
       #0 was played 30x times
       #2 was played 20x times
 
+
+.. raw:: latex
+
+    % Reduce chapterspacing - so we can fit it on one page :P
+    \titlespacing{\chapter}{0pt}{-5.5em}{0em}
+
+.. _demo-pics:
+
+Bilder der Demoanwendung
+========================
+
+.. only:: html
+
+   .. figure:: figs/demo_database.png
+       :alt: Die Datenbank Ansicht
+       :width: 100%
+       :align: center
+
+       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
+
 .. only:: latex
 
-   .. raw:: latex
+   .. _fig-demo-database:
 
-       \newpage
+   .. figure:: figs/demo_database270.png
+       :alt: Die Datenbank Ansicht
+       :width: 91%
+       :align: center
+
+       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount. [h!]
+
+.. -------------------------------
+
+
+.. only:: html
+
+   .. figure:: figs/demo_playlist.png
+       :alt: Die aktuelle Playlist
+       :width: 100%
+       :align: center
+
+       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
+       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+
+.. only:: latex
+
+   .. _fig-demo-playlist:
+
+   .. figure:: figs/demo_playlist270.png
+       :alt: Die aktuelle Playlist
+       :width: 93%
+       :align: center
+
+       Die aktuelle Playlist, bestehend aus den zuvor erstellten Empfehlungen.
+       Der Seedsong ist durch einen roten Kreis gekennzeichnet.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_rules.png
+       :alt: Die Regelansicht
+       :width: 100%
+       :align: center
+
+       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
+       Mengen der Regel, der Supportcount und das Rating.
+
+.. only:: latex
+
+   .. _fig-demo-rules:
+
+   .. figure:: figs/demo_rules270.png
+       :alt: Die Regelansicht
+       :width: 93%
+       :align: center
+
+       Eine Auflistung der momentan bekannten Regeln. Angezeigt werden: Beide
+       Mengen der Regel, der Supportcount und das Rating.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_graph.png
+       :alt: Die Graphenansicht
+       :width: 100%
+       :align: center
+
+       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       geplottet. Eine Interaktion ist nicht möglich. Über dem Knoten steht die
+       ID des Songs, darunter der Liedtitel. Sonst wie :num:`fig-graph-example`.
+
+.. only:: latex
+
+   .. _fig-demo-graph:
+
+   .. figure:: figs/demo_graph270.png
+       :alt: Die Graphenansicht
+       :width: 91%
+       :align: center
+
+       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       geplottet. Eine Interaktion ist nicht möglich. Über dem Knoten steht die
+       ID des Songs, darunter der Liedtitel. Sonst wie :num:`fig-graph-example`.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_history.png
+       :alt: Die Ansicht der History
+       :width: 100%
+       :align: center
+
+       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
+       (rechts) Songs werden aufgelistet.
+
+.. only:: latex
+
+   .. _fig-demo-history:
+
+   .. figure:: figs/demo_history270.png
+       :alt: Die Ansicht der History
+       :width: 93%
+       :align: center
+
+       History--Ansicht: die zuletzt gehörten (links) und kürzlich empfohlenen
+       (rechts) Songs werden aufgelistet.
+
+.. -------------------------------
+
+.. only:: html
+
+   .. figure:: figs/demo_examine.png
+       :alt: Die Ansicht der Examine--Page
+       :width: 100%
+       :align: center
+
+       Die ,,Examine”--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar” --- falls vorhanden --- mittels cairo :cite:`CRO`
+       gerendert.
+
+.. only:: latex
+
+   .. _fig-demo-examine:
+
+   .. figure:: figs/demo_examine270.png
+       :alt: Die Ansicht der Examine--Page
+       :width: 93%
+       :align: center
+
+       Die ,,Examine”--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar” --- falls vorhanden --- mittels cairo :cite:`CRO`
+       gerendert.
 
 .. _end-of-doc:
