@@ -1,8 +1,6 @@
-.. only:: latex
+.. raw:: latex
 
-   .. raw:: latex
-
-       \appendix
+   \appendix
 
 .. _coldstart-example:
 
