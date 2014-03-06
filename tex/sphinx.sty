@@ -36,7 +36,7 @@
 \setkomafont{chapterentry}{\rmfamily\bfseries}
 
 % Fix the bold sans-serif font in description items:
-\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}{\rmfamily\scshape\Large{#1}}}
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}{\rmfamily\bfseries{#1:}}}
 
 % nice description style
 \RequirePackage{enumitem}
@@ -51,6 +51,8 @@
 % for subfigure
 \RequirePackage[margin=8pt]{subcaption}
 \captionsetup{labelfont=bf}
+
+\RequirePackage[normalem]{ulem}
 
 % for code listings
 \IfFileExists{inconsolata.sty}{\RequirePackage{inconsolata}}{\RequirePackage[varqu,varl]{zi4}}
@@ -118,7 +120,7 @@
 
 % Use Garamond as main font and Inconsolata for Code
 \RequirePackage{inconsolata}
-\RequirePackage[scaled=.95]{garamondx}
+\RequirePackage{garamondx}
 
 \RequirePackage{titlesec}
 
@@ -155,7 +157,7 @@
 
 % Style parameters and macros used by most documents here
 \raggedbottom
-\sloppy
+% \sloppy
 
 % don't print trivial gripes
 \hbadness = 4000                
@@ -181,7 +183,9 @@
 
 \newcommand{\prettypage}{
     % Ugly, but it works.
-    \scshape{\dottedunderline{~\thepage~~~}}
+    % For koehler's sake
+    % \scshape{\dottedunderline{~\thepage~~~}}
+    \scshape{~\thepage~~~}
 }
 
 % Configure footer and header
@@ -206,12 +210,17 @@
     \renewcommand{\headrule}{}
 }%
 
-\setlength{\headheight}{24pt} 
+% \setlength{\headheight}{24pt} 
 \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
 \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
 \fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
 \fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
-\renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
+
+% Dotted line: 
+% \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
+
+% Empty
+% \renewcommand{\headrule}{}
 
 % Some custom font markup commands.
 \newcommand{\strong}[1]{{\bf #1}}
@@ -325,14 +334,15 @@
 }
 
 % % Include hyperref last.
+% \PassOptionsToPackage{hyphens}{url}
 \RequirePackage[
     final,
     pdftex,
     pdfauthor={\theauthor},
     pdftitle={Design und Implemtierung eines Musikempfehlungssystems
-    basierend auf Datamining Algorithmen},
+    basierend auf Datamining-Algorithmen},
     pdfsubject={Design und Implemtierung eines Musikempfehlungssystems
-    basierend auf Datamining Algorithmen},
+    basierend auf Datamining-Algorithmen},
     pdfkeywords={Music Recommendation, Music Information Retrieval, MIR, Data Mining, Graph Theory},
     pdfproducer={LaTeX with hyperref},
     pdfcreator={pdflatex},
@@ -441,6 +451,8 @@
     {\color{gray75}\thesubsubsection}{1em}{}
 
 
+% Decrease Chapter Spacing.
+\titlespacing{\chapter}{0pt}{0.0em}{2em}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
@@ -471,5 +483,16 @@
 \DeclareMathOperator*{\argmin}{\,min}
 \DeclareMathOperator*{\argmax}{\,max}
 
+% Lower the space in lists a tiny bit:
 \RequirePackage{enumitem}
-\setlist{nolistsep}
+\setitemize{itemsep=-0.5em}
+
+% Lower the space between bibitems:
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{5pt}
+  \setlength{\itemsep}{0pt plus 0.5ex}
+}
+
+\addto\captionsngerman{\renewcommand{\bibname}{\textcolor{gray75}{D\hsp|\hsp}Literaturverzeichniss}}

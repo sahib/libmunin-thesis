@@ -118,6 +118,17 @@ class DocTranslator(BaseTranslator):
         for id in self.next_figure_ids:
             ids += self.hypertarget(id, anchor=False)
         self.next_figure_ids.clear()
+
+        place_here = False
+
+        for subnode in node:
+            if isinstance(subnode, nodes.caption):
+                text = subnode.astext()
+                if '[h!]' in text:
+                    place_here = True
+                    left, right = text.split('[h!]', maxsplit=1)
+                    subnode.children[0] = nodes.Text(left + right)
+
         if 'width' in node and node.get('align', '') in ('left', 'right'):
             self.body.append('\\begin{wrapfigure}{%s}{%s}\n\\centering' %
                              (node['align'] == 'right' and 'r' or 'l',
@@ -132,7 +143,11 @@ class DocTranslator(BaseTranslator):
                 # TODO non vertical space for other alignments.
                 align = '\\begin{flush%s}' % node.attributes['align']
                 align_end = '\\end{flush%s}' % node.attributes['align']
-            self.body.append('\\begin{figure}[tbp]%s\n' % align)
+
+            if place_here:
+                self.body.append('\\begin{figure}[ht!]%s\n' % align)
+            else:
+                self.body.append('\\begin{figure}[tbp]%s\n' % align)
             if any(isinstance(child, nodes.caption) for child in node):
                 self.body.append('\\capstart\n')
             self.context.append(ids + align_end + '\\end{figure}\n')

@@ -239,7 +239,7 @@ def doctree_resolved(app, doctree, docname):
                     link = "%s#%s" % (app.builder.get_relative_uri(docname, target_doc),
                                       target)
 
-                linktext = labelfmt % figids[target]
+                linktext = labelfmt % figids.get(target, '[broken link :-(]')
 
             html = '<a href="%s">%s</a>' % (link, linktext)
             ref_info.replace_self(nodes.raw(html, html, format='html'))
