@@ -431,7 +431,7 @@ Bilder der Demoanwendung
        :width: 100%
        :align: center
 
-       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       Der Graph der hinter den Empfehlungen steckt, wird hier in 3500x3500px
        geplottet. Eine Interaktion ist nicht möglich. Über dem Knoten steht die
        ID des Songs, darunter der Liedtitel. Sonst wie :num:`fig-graph-example`.
 
@@ -444,7 +444,7 @@ Bilder der Demoanwendung
        :width: 91%
        :align: center
 
-       Der Graph der hinter den Empfehlungen steckt wird hier in 3500x3500px
+       Der Graph der hinter den Empfehlungen steckt, wird hier in 3500x3500px
        geplottet. Eine Interaktion ist nicht möglich. Über dem Knoten steht die
        ID des Songs, darunter der Liedtitel. Sonst wie :num:`fig-graph-example`.
 

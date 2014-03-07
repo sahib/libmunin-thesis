@@ -62,11 +62,11 @@ Graphen--Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
 
 Jedem :term:`Attribut` eines Songs ist ein Wert zugeordnet. Um eine sinnvolle
 Distanzfunktion zu definieren, die zwei Songs miteinander vergleicht, muss man
-für jedes spezielle Attribut eine eigene Unter--Distanzfunktion definieren. 
+für jedes spezielle Attribut eine eigene Unterdistanzfunktion definieren. 
 Beispielsweise muss für das *Genre* eine andere Distanzfunktion definiert sein als
 für den *Liedtext.* 
 
-Um aus den Unter--Distanzfunktion eine gemeinsame Distanz zu erhalten, werden die
+Um aus den Unterdistanzfunktion eine gemeinsame Distanz zu erhalten, werden die
 einzelnen Ergebnisse durch einen gewichteten Mittelwert in eine einzelne
 Distanz zusammengeschmolzen.
 
@@ -486,7 +486,7 @@ wird die gewichtete Gesamtdistanz gespeichert.  Beispielhaft ist das in
     :spec: l | l 
 
     +--------------------+----------------------------------------------------------------------------------+
-    | *Attribut*         | *Unter--Distanzen*                                                               |
+    | *Attribut*         | *Unterdistanzen*                                                                 |
     +====================+==================================================================================+
     | ``date``           |  0.9                                                                             |
     +--------------------+----------------------------------------------------------------------------------+
@@ -500,19 +500,19 @@ wird die gewichtete Gesamtdistanz gespeichert.  Beispielhaft ist das in
 Manchmal kann es passieren, dass Distanzen nicht berechnet werden können. Als
 Beispiel ist der Vergleich zweier Lieder anhand den Liedtexten - wenn nur einer
 davon nicht gefunden werden konnte, muss das Attribut in der ``Distance`` leer
-bleiben. In diesem Fall wird eine Unter--Distanz von 1.0 als ,,Strafwert"
+bleiben. In diesem Fall wird eine Unterdistanz von 1.0 als ,,Strafwert"
 angenommen.
 
 Der Grund warum man nicht nur die gewichtete Gesamtdistanz abspeichert, sondern
-auch auch alle Unterdistanzen liegt darin, dass es möglich sein soll
-Empfehlungen zu *erklären.* Durch das Vorhandensein der Unterdistanzen, kann man
-später feststellen welches Attribut am stärksten in die Empfehlung mit
+auch auch alle Unterdistanzen, liegt darin, dass es möglich sein soll
+Empfehlungen zu *erklären.* Durch das Vorhandensein der Unterdistanzen kann man
+später feststellen, welches Attribut am stärksten in die Empfehlung mit
 eingespielt hat. Zudem wird es dadurch technisch möglich, die Gewichtungen in
 der Maske zur Laufzeit zu ändern. Statt jede Distanz neu zu berechnen, müssen
 lediglich die einzelnen ``Distance``--Instanzen neu gewichtet werden.
 
 **Database:** Die ``Database`` Klasse ist eine logische Abtrennung der
-``Session`` um eine einzige, allmächtige ,,Superklasse" zu verhindern. 
+``Session``, um eine einzige, allmächtige ,,Superklasse" zu verhindern. 
 
 Sie hat folgende Aufgaben:
 
@@ -526,7 +526,7 @@ Sie hat folgende Aufgaben:
 **History:** Oberklasse für ``RecommendationHistory`` und ``ListenHistory``.
 Implementiert die gemeinsame Funktionalität, Songs die zeitlich hintereinander
 zur ``History`` hinzugefügt werden, in *Gruppen* einzuteilen. Gruppen beinhalten
-maximal eine bestimmte Anzahl von Songs. Ist eine *Gruppe* voll so wird eine
+maximal eine bestimmte Anzahl von Songs. Ist eine *Gruppe* voll, so wird eine
 neue angefangen.  Vergeht aber eine zu lange Zeit seit dem letzten Hinzufügen
 wird ebenfalls eine neue *Gruppe* begonnen. Jede abgeschlossene *Gruppe* wird in
 der ``History`` abgespeichert. 
@@ -551,11 +551,11 @@ daraus mittels einer Warenkorbanalyse Assoziationsregeln ab. Diese werden danach
 im ``RuleIndex`` gespeichert. 
 
 **RuleIndex:** Speichert und indiziert die vom ``RuleGenerator`` erzeugten
-Assoziationsregeln. Die Regeln werden beim Traversieren des Graphen genutzt um
+Assoziationsregeln. Die Regeln werden beim Traversieren des Graphen genutzt, um
 zusätzliche Seedsongs auszuwählen. Daher muss es möglich sein Abfragen wie
 *,,Gib mir alle Regeln die Song X betreffen"* effizient abzusetzen. 
 
-Zudem *,,vergisst"* der Index Regeln die Songs betreffen die nicht mehr in der
+Zudem *,,vergisst"* der Index Regeln, die Songs betreffen, die nicht mehr in der
 ``ListenHistory`` vorhanden sind.
 
 **Provider:** Die Oberklasse von der jeder konkreter ``Provider`` ableitet:
@@ -568,9 +568,9 @@ Provider können, mittels eines speziellen Providers, zu einer Kette
 zusammengeschaltet werden. Siehe dazu auch: ``Composite`` unter
 :ref:`provider-list`.
 
-Oft kommt es vor dass die Eingabe für einen Provider viele Dupletten
+Oft kommt es vor, dass die Eingabe für einen Provider viele Dupletten
 enthält --- beispielsweise wird derselbe Künstler--String für viele Songs eingepflegt. 
-Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
+Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch, daher bietet
 jeder Provider die Möglichkeit einer primitiven Kompression. Statt den Wert
 abzuspeichern wird eine bidirektionale Hashtabelle mit den Werten als Schlüssel
 und einer *Integer--ID* auf der Gegenseite. Dadurch wird jeder Wert nur einmal
@@ -580,6 +580,6 @@ gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.
 ableitet: Jede Distanzfunktion bietet eine ``do_compute()`` Methode die von den
 Unterklassen überschrieben wird.
 
-Um die bei den Providern mögliche Kompression wieder rückgängig zu machen muss
+Um die bei den Providern mögliche Kompression wieder rückgängig zu machen, muss
 die Distanzfunktion den Provider für dieses Attribut kennen. Denn nur dieser
 kann die *Integer--ID* wieder auflösen.
