@@ -190,8 +190,8 @@
           
   <div class="section" id="begriffsklarungen">
 <h1>3 Begriffsklärungen<a class="headerlink" href="#begriffsklarungen" title="Permalink to this headline">¶</a></h1>
-<p>Im Folgenden werden häufig, gewisse Begriffe gebraucht, die nicht allgemein
-verständlich sind, oder die im Kontext von <em>libmunin</em> anders besetzt sind.
+<p>Im Folgenden werden häufig gewisse Begriffe gebraucht, die nicht allgemein
+verständlich, oder die im Kontext von <em>libmunin</em> anders besetzt sind.
 Diese sollen hier definiert werden, bevor wir fortfahren.</p>
 <div class="section" id="allgemeine-fachbegriffe">
 <h2>3.1 Allgemeine Fachbegriffe<a class="headerlink" href="#allgemeine-fachbegriffe" title="Permalink to this headline">¶</a></h2>
@@ -207,14 +207,14 @@ Hinzufügen neuer Schlüssel/Wert&ndash;Paare.</dd>
 wird ausgehend von einem Knoten zuerst jeder Nachbarknoten besucht. Erst
 dann wird analog mit den Nachbarknoten verfahren.</dd>
 <dt id="term-tags">Tags</dt>
-<dd>In Audiofiles können bei den meisten Formatten, Metadaten abgelegt
+<dd>In Audiofiles können bei den meisten Formaten, Metadaten abgelegt
 werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den <em>Artist</em>,
 <em>Album</em> und <em>Titel</em>, aber auch komplexere Daten wie das <em>Coverart</em>,
 abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
 ausgelesen werden.</dd>
 <dt id="term-iterator">Iterator</dt>
 <dd>Ein Iterator ist ein <em>Versprechen</em> einen Wert genau dann zu berechnen wenn
-er gebraucht wird. Meistens werden Iteratoren dazu genutzt um
+er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
 Datenstrukturen zu traversieren &ndash;- jeder Aufruf des Iterator liefert
 dabei den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden sind.</dd>
 <dt id="term-proxymethode">Proxymethode</dt>
@@ -250,7 +250,7 @@ für die API benutzen.</p>
 </dd>
 <dt id="term-maske">Maske</dt>
 <dd><p class="first">Die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten die importiert
-werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
+werden. So muss sich darauf geeinigt werden was beispielsweise unter dem
 Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
 <p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt die ein
 einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
@@ -298,8 +298,8 @@ Menge dieser Paare.</dd>
 <dt id="term-provider">Provider</dt>
 <dd><p class="first">Ein <em>Provider</em> normalisiert einen Wert anhand verschiedener
 Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
-die in das System geladen werden. Jeder <em>Provider</em> ist dabei durch die Mask einem
-Attribut zugeordnet.</p>
+die in <em>libmunin</em> geladen werden. Jeder <em>Provider</em> ist dabei durch die
+Mask einem Attribut zugeordnet.</p>
 <p class="last">Ihr Ziel ist für die <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> einfache und effizient
 vergleichbare Werte zu liefern - da die Distanzfunktion sehr
 viel öfters aufgerufen wird als der <em>Provider</em>.</p>

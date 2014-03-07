@@ -5,9 +5,9 @@ Implementierung
 Anwendungsbeispiel
 ==================
                                
-:dropcaps:`Beispiele` sind oft ein guter Weg um ein Gefühl für eine Bibliothek
+:dropcaps:`Beispiele` sind oft ein guter Weg, um ein Gefühl für eine Bibliothek
 zu bekommen. Das folgende minimale, in Python gechriebene Beispiel liest *Songs*
-aus einer Pseudodatenbank und erstellt für den ersten zwei Empfehlungen:
+aus einer Pseudodatenbank und erstellt für den ersten Song zwei Empfehlungen:
 
 .. code-block:: python
     :linenos:
@@ -62,21 +62,21 @@ Kurze Erläuterung des Beispiels
   können auf der *Session* aufgerufen werden.
 
 * **Zeile 11:** Bein initialen Importieren der Datenbank werden alle Songs über
-  die ``add``--Operation hinzugefügt. Da ``add`` noch keine Verbindungen zwischen
-  den einzelnen Songs herstellt stellen wir mit dieser Zeile sicher nach dem
-  Importieren ein ``rebuild`` ausgeführt wird (implizit in *,,Zeile"* 19, nach
-  dem verlassen des vorigen *,,Blocks"*).
+  die ``add``--Operation hinzugefügt. Da ``add`` noch keine Verbindungen
+  zwischen den einzelnen Songs herstellt, stellen wir mit dieser Zeile sicher,
+  das nach dem Importieren ein ``rebuild`` ausgeführt wird (implizit in
+  *,,Zeile"* 19, nach dem verlassen des vorigen *,,Blocks"*).
 
 * **Zeile 13:** Wir iterieren (**Zeile 12**) über alle Songs in unserer
   Pseudodatenbank und fügen diese der *Session* hinzu (über die ``add``
   Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben in denen
   bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben sind
-  --- erstellt man eine eigene Session kann man diese nach Belieben
-  Konfigurieren.
+  --- erstellt man eine eigene Session, kann man diese nach Belieben
+  konfigurieren.
   
-  Ein Problem dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
+  Ein Problem, dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
   Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
-  verwaltet die Originaldaten mit denen er arbeitet während *libmunin* nur
+  verwaltet die Originaldaten mit denen er arbeitet, während *libmunin* nur
   normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
   welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
 
@@ -91,9 +91,9 @@ Kurze Erläuterung des Beispiels
   
 * **Zeile 21:** In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen
   uns von der ``EasySession`` über die Methode ``recommend_from_seed`` zwei
-  Empfehlungen zum ersten Song der über ``add`` hinzugefügt wurde geben. Die
+  Empfehlungen zum ersten Song, der über ``add`` hinzugefügt wurde, geben. Die
   Empfehlung selbst wird als ``Song`` Objekt ausgegeben --- dieses hat unter
-  anderen eine *ID* gespeichert mit der wir die ursprünglichen Daten finden
+  anderen eine *ID* gespeichert, mit der wir die ursprünglichen Daten finden
   können.
 
 Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
@@ -103,18 +103,18 @@ Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
 Kurze Erläuterung der Ausgabe
 -----------------------------
 
-Die Ausgabe ist bei näherer Betrachtung nicht weiter überraschend: Da sich nur
+Die Ausgabe ist, bei näherer Betrachtung, nicht weiter überraschend: Da sich nur
 das Genre effektiv vergleichen lässt und wir uns von dem ersten Song 
-*,,Trugbild"* zwei Empfehlungen geben ließen werden die zwei Songs mit dem
+*,,Trugbild"* zwei Empfehlungen geben ließen, werden die zwei Songs mit dem
 ähnlichsten Genre ausgegeben.
 
 In Abbildung :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* (0) 
 ist direkt mit den Songs 1 (*Vogelfrey*) und 3 (*Debauchery*) benachbart. 
 Da die beiden Genres *folk rock* und *death metal* keine gemeinsame Schnittmenge
-haben ist dieser auch kein Nachbar --- Verbindungen zwischen zwei Knoten, werden 
+haben, ist dieser auch kein Nachbar --- Verbindungen zwischen zwei Knoten, werden 
 nur dann hergestellt, wenn die Distanz :math:`< 1.0` ist.
 
-Ein komplizierteres Beispiel das die meisten Aspekte von *libmunin* abdeckt 
+Ein komplizierteres Beispiel, das die meisten Aspekte von *libmunin* abdeckt,
 findet sich in :ref:`complex-example`.
 
 .. _fig-minigraph: 
@@ -135,7 +135,7 @@ Am 11. Oktober 2013 wurde mit der Implementierung begonnen.
 Anfangs war, wie im Exposé vorgesehen, noch eine Distanzmatrix zur Speicherung
 der Distanzen und das Berechnen jeder einzelnen Song--Kombination vorgesehen ---
 aus den bereits erwähnten Gründen hat sich das zu einer Approximation geändert.
-Hierbei eine vernünftige Herangehensweise zu finden hat letztlich ca. 1
+Hierbei eine vernünftige Herangehensweise zu finden, hat letztlich ca. 1
 :math:`^1/_2` Monate beansprucht.
 
 Die zwischenzeitlich aufgekommene Idee, Audiodaten mittels Audiofingerprints wie
@@ -143,7 +143,7 @@ Die zwischenzeitlich aufgekommene Idee, Audiodaten mittels Audiofingerprints wie
 wirklich nur fast gleiche Stücke ermitteln. Selbst *Live* und *Studio* Versionen
 ließen sich manchmal nicht differenzieren.
 
-Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst das
+Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst, das
 dazu dienen sollte Ideen und Geschehnisse festzuhalten --- allerdings weniger als
 Information für Dritte, mehr als persönliche Erinnerung.
 
@@ -195,7 +195,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 
 * ``Date``: Wandelt und normalisiert ein Datum, dass als String übergeben wird zu
   einer Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
-  Datumformatierungen automatisch erkannt. Dies ist nötig da je nach Region ganz
+  Datumformatierungen automatisch erkannt. Dies ist nötig, da je nach Region ganz
   unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
 
 * ``Moodbar``: Berechnet mit dem ``moodbar`` (vgl. :cite:`wood2005techniques`)
@@ -204,9 +204,9 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   Anteil niedriger Frequenzen *(rot),* mittlerer *(grün)* und hoher Frequenzen
   *(blau)* in einem Tausendstel des Audiostücks. 
   
-  Obwohl man aus dem Namen dieses Verfahren schließen könnte dass hier die
+  Obwohl man aus dem Namen dieses Verfahren schließen könnte, dass hier die
   *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
-  lediglich herauslesen wie ,,energiegeladen" die Stimmung in einem Lied zu
+  lediglich herauslesen, wie ,,energiegeladen" die Stimmung in einem Lied zu
   einem bestimmten Zeitpunkt ist --- mit etwas Glück kann man auch Instrumente
   erkennen --- so ist die Kombination von E--Gitarre und Drums oft ein helles
   Türkis.
@@ -222,7 +222,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
      erstellten Datei entgegen die einen Vektor aus 1000 RGB-Werten binär
      beinhaltet.
   3. ``MoodbarAudioFile``: Nimmt ein Dateipfad zu einer beliebigen Audiodatei
-     entgegen und führt das ``moodbar``-Utility darauf aus falls noch keine
+     entgegen und führt das ``moodbar``-Utility darauf aus, falls noch keine
      weiter Datei mit demselben Dateipfad plus der zusätzlichen Endung ``.mood``
      vorhanden ist.
   
@@ -330,7 +330,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   
   Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
   Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
-  Da der Root--Knoten (*music*) immer den Index *0* hat wird dieser weggelassen.
+  Da der Root--Knoten (*music*) immer den Index *0* hat, wird dieser weggelassen.
   Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
   
   .. code-block:: python
@@ -338,7 +338,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
       [['alternative'], ['alternative', 'rock'], ['reggae'], ['rock']] 
   
   Da die einzelnen Pfade allerdings weniger Speicher verbrauchen und sich bei
-  weitem leichter auflösen und vergleichen lassen werden diese vom Provider
+  weitem leichter auflösen und vergleichen lassen, werden diese vom Provider
   zurückgegeben.
 
 * ``Keywords``: Extrahiert aus einem Text als Eingabe alle *relevanten*
@@ -373,7 +373,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   Provider.
 
 * ``DiscogsGenre``: Besorgt von dem Online--Musikmarktplatz *Discogs* Genre
-  Informationen. Dies ist nötig da Musiksammlungen für gewöhnlich mittels einer
+  Informationen. Dies ist nötig, da Musiksammlungen für gewöhnlich mittels einer
   Online--Musikdatenbank getaggt werden --- die meisten bieten allerdings keine
   Genreinformationen. 
 
@@ -408,9 +408,9 @@ gegeben.
   werden.
 
 
-  *Annahme:* Zeichnet der Benutzer ein Lied mit einem hohen Rating aus so möchte
+  *Annahme:* Zeichnet der Benutzer ein Lied mit einem hohen Rating aus, so möchte
   er vermutlich Empfehlungen zu ebenfalls hoch ausgezeichneten Liedern haben.
-  Dies bietet dem Nutzer eine Möglichkeit direkte *Hinweise* an das System zu
+  Dies bietet dem Nutzer eine Möglichkeit direkte *Hinweise* an *libmunin* zu
   geben (Stichwort *explizites Lernen*).
 
 * ``BPM``: Vergleicht den ,,Beats-per--Minute`` Wert zweier Lieder.  Als
@@ -430,8 +430,8 @@ gegeben.
 
 * ``Levenshtein``: Wie ``Wordlist``, die einzelnen Wörter werden aber mittels
   der Levenshtein--Distanzfunktion :cite:`brill2000improved` verglichen.  So
-  spielen kleine Abweichung wie der Vergleich von ``color`` und ``colour`` keine
-  große Rolle mehr. Der große Nachteil ist der erhöhte Rechenaufwand.
+  spielen kleine Abweichung, wie der Vergleich von ``color`` und ``colour``,
+  keine große Rolle mehr. Der große Nachteil ist der erhöhte Rechenaufwand.
   
 
   *Annahme:* Ähnlich wie bei ``Wordlist``, aber eben auch für Daten bei denen man
@@ -452,13 +452,13 @@ gegeben.
   - ``GenreTree``: Vergleicht alle Pfade in beiden Eingabemengen miteinander und
     nimmt die *geringste* Distanz von allen. 
   
-    Diese Distanzfunktion sollte gewählt werden wenn die Genre--Tags eher kurz
+    Diese Distanzfunktion sollte gewählt werden, wenn die Genre--Tags eher kurz
     gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
 
   - ``GenreTreeAvg``: Vergleicht alle Pfade in beiden Eingabemengen miteinander
     und nimmt die *durchschnittliche* Distanz von allen. 
     
-    Diese Distanzfunktion sollte gewählt werden wenn ausführliche Genre--Tags
+    Diese Distanzfunktion sollte gewählt werden, wenn ausführliche Genre--Tags
     vorhanden --- wie sie beispielsweise vom ``DiscogsGenre``--Provider geliefert
     werden --- sind.
     
@@ -471,7 +471,7 @@ Modul-- und Paketübersicht
 
 In der Programmiersprache *Python* entspricht jede einzelne ``.py`` Datei einem
 *Modul*. Die Auflistung unter :num:`fig-module-tree` soll eine Übersicht darüber
-geben welche Funktionen in welchem Modul implementiert worden.
+geben, welche Funktionen in welchem Modul implementiert worden.
 
 *Anmerkung:* ``__init__.py`` ist eine spezielle Datei, die beim Laden
 eines Verzeichnisses durch Python ausgeführt wird.
@@ -582,19 +582,19 @@ entsprechend das *Distributed Version Control System* ``git`` genutzt.
 
 Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
 besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
-zumindest die Seite für spätere Projekte merken. 
+sich zumindest die Seite für spätere Projekte merken. 
 
 Die dazugehörige Dokumentation wird bei jedem *Commit* [#f2]_ automatisch aus
-den Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der, für
+den Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der für
 Python--Projekte populären, Dokumentations--Hosting--Plattform *ReadTheDocs*
 gebaut und dort verfügbar gemacht :cite:`5LX`.
 
 Zudem werden pro *Commit* Unit--Tests auf der Continious--Integration Plattform
 *TravisCI* :cite:`JIU` für verschiedene Python--Versionen durchgeführt. Dies hat
 den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
-vergessen hat die unittests lokal durchzuführen.
+vergessen hat, die Unit-Tests lokal durchzuführen.
 
-Schlägt der *Build* fehl so färben sich kleine Buttons in den oben genannten
+Schlägt der *Build* fehl, so färben sich kleine Buttons in den oben genannten
 Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
 
 .. _fig-travis-badge:
@@ -674,7 +674,7 @@ Ansatz des *Literate Programming*.
 Sonstige Statistiken
 --------------------
 
-Zudem lassen sich einige Statistiken präsentieren die automatisch aus den
+Zudem lassen sich einige Statistiken präsentieren, die automatisch aus den
 ``git log`` entstanden sind:
 
 **GitHub Visualisierungen:** *GitHub* stellt einige optisch ansprechende und

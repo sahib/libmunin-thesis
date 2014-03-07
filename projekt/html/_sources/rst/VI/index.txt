@@ -22,7 +22,7 @@ Lauf dauert dann nur noch wenige Minuten.
 Nach dem ``coldstart.py`` die *Session* auf die Platte geschrieben hat, kann die
 eigentliche Anwendung gestartet werden. Diese verbindet sich zuallererst mit
 einem MPD-Server der auf *localhost* unter Port *6601* lauscht. Dort  besorgt
-sich die Anwendung alle Metadaten um die *Playlist* und *Database*-Ansicht zu
+sich die Anwendung alle Metadaten, um die *Playlist* und *Database*-Ansicht zu
 befüllen.  Danach wird besagte *Session* geladen. Nach der Initialisierung der
 *GUI* ist die Anwendung nun bereit benutzt zu werden.
 
@@ -44,7 +44,7 @@ gegeben.
 Ansichten
 ---------
 
-Die Anwendung ist in unterschiedliche *Ansichten* (englisch *Views*) aufteilt
+Die Anwendung ist in unterschiedliche *Ansichten* (englisch *Views*) aufteilt,
 die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
 über alle *Views* gegeben:
 
@@ -54,7 +54,7 @@ die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
   ``Titel``, ``Datum`` und ``Genre``. Jede Zeile entspricht dabei einem Song. 
   Ein Rechtsklickmenü auf einen beliebigen Song fördert ein Kontextmenü zu Tage
   (siehe Abbildung :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten
-  bietet um die Playlist mit Empfehlungen zu befüllen (entsprechend
+  bietet, um die Playlist mit Empfehlungen zu befüllen (entsprechend
   :ref:`list-of-recom-strategies`).  Im folgenden ist :math:`N` die Anzahl
   der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
   Nr. 5 in :num:`fig-demo-overview`) eingestellt ist.
@@ -78,12 +78,12 @@ die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
     
         genre: rock, artist: Billy Talent
     
-    Werden mehrere Suchergebnisse gefunden so werden alle als Seedsongs genutzt um
-    in die Playlist :math:`N` neue Songs einzureihen.
+    Werden mehrere Suchergebnisse gefunden, so werden alle als Seedsongs
+    genutzt, um in die Playlist :math:`N` neue Songs einzureihen.
     
-    Diese Funktionalität ist momentan relativ eingeschränkt da nur exakte Treffer
-    funktioneren. Ist das *Genre* also als *,,rock / pop"* getaggt, so wird die
-    Suche erfolglos verlaufen.
+    Diese Funktionalität ist momentan relativ eingeschränkt, da nur exakte
+    Treffer funktionieren. Ist das *Genre* also als *,,rock / pop"* getaggt, so
+    wird die Suche erfolglos verlaufen.
   
   * **Lasse libmunin einen Seedsong auswählen:** *libmunin* wählt automatisch
     einen Seedsong nach folgenden Kriterien (gemäß
@@ -114,15 +114,15 @@ die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
 
 **Playlist:** Siehe Abbildung :num:`fig-demo-playlist`.
 
-Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an die empfohlen
+Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an, die empfohlen
 wurden. Sonst ist diese Ansicht funktionsidentisch mit der *Database--Ansicht*.
 
 **Graph:** Siehe Abbildung :num:`fig-demo-graph`.
 
-Im *Graphen--Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet
-werden. Dies ist oft nützlich um nachzuvollziehen welche Empfehlungen aus welchen
-Grund gegeben wurden, da man im Graphen die Nachbarschaft eines Seedsongs
-betrachten kann.
+Im *Graphen--Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet werden.
+Dies ist oft nützlich, um nachzuvollziehen welche Empfehlungen aus welchen Grund
+gegeben wurden, da man im Graphen die Nachbarschaft eines Seedsongs betrachten
+kann.
 
 **Rules:** Siehe Abbildung :num:`fig-demo-rules`.
 
@@ -140,7 +140,7 @@ geplottet.
 **History:** Siehe Abbildung :num:`fig-demo-history`.
 
 Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
-gehört wurden (Begrenzung auf 1000 Stück) werden hier auch die zuletzt 
+gehört wurden (Begrenzung auf 1000 Stück), werden hier auch die zuletzt 
 ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
 Letzteres ist für das Debugging der Filterfunktion nützlich.
 
@@ -154,7 +154,7 @@ gezeigten Elemente noch erklärt.
    Seedsong an.  Falls es mehrere Seedsongs gab, wird nur der erste
    markiert.
 
-3. **Current Song:** Ein dreieckiges Icon das den aktuell spielenden (oder
+3. **Current Song:** Ein dreieckiges Icon, das den aktuell spielenden (oder
    pausierten) Song anzeigt.
 
 4. **Playlist:** Die Playlist--Ansicht, wie bereits oben gezeigt.
@@ -162,13 +162,13 @@ gezeigten Elemente noch erklärt.
 5. **Empfehlungszähler:** Die Anzahl an Empfehlungen, die ein Klick im
    Kontextmenü liefert.
 
-6. **Filter:** Togglebutton (:math:`$,,\sout{a}”$` als Icon) der anzeigt ob
-   der Filtermodus aktiviert ist.  Ist er aktiv so darf sich in einer dynamisch
+6. **Filter:** Togglebutton (:math:`$,,\sout{a}”$` als Icon) der anzeigt, ob
+   der Filtermodus aktiviert ist.  Ist er aktiv, so darf sich in einer dynamisch
    erstellten Playlist der Künstler nur alle 3 Stücke wiederholen, der selbe
    Künstler *und* das selbe Album nur alle 5 Stücke.
 
 7. **Mininmaler Höranteil:** Ein Klick auf den Button fördert einen Slider zu
-   Tage auf dem man eine Prozentzahl einstellt. Diese legt fest welcher Anteil
+   Tage auf dem man eine Prozentzahl einstellt. Diese legt fest, welcher Anteil
    eines Liedes (in Prozent) *mindestens* angehört werden muss, damit er zur
    Historie hinzugefügt wird.
    
@@ -178,21 +178,22 @@ gezeigten Elemente noch erklärt.
 8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
    Seedsong bei der Attributsuche  haben sollte.
 
-9. **Rating:** Spezielles Widget auf den man das *Rating* des aktuell spielenden
-   Songs zu setzen. Beim erstellen der *Session* durch ``coldstart.py`` wird ein
-   *Rating* von :math:`0` angenommen --- also *ungesetzt*.
+9. **Rating:** Ein spezielles Widget, in den man das *Rating* des aktuell
+   spielenden Songs setzen kann. Beim erstellen der *Session* durch
+   ``coldstart.py`` wird ein *Rating* von :math:`0` angenommen --- also
+   *ungesetzt*.
    
    Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
-   eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken um das
+   eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken, um das
    Rating auf ,,0" (und damit *ungesetzt*) zurückzusetzen.
    
    Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen--Ansicht
-   zufolge. Dies liegt daran, dass das ändern des Ratings mittels der
+   zufolge. Dies liegt daran, dass das Ändern des Ratings mittels der
    ``modify``--Operation erfolgt. Diese fügt den Song an (möglicherweise)
    anderer Stelle im Graphen wieder ein.
 
 10. **Playcount:** Zeigt an wie oft ein Lied bereits gehört wurde. Ein Lied gilt
-    als nicht gehört wenn prozentuell nur ein kleiner Teil als der gesetzte
+    als nicht gehört, wenn prozentuell nur ein kleiner Teil als der gesetzte
     minimale Höranteil angehört wurde.
    
     Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt ---
@@ -200,7 +201,7 @@ gezeigten Elemente noch erklärt.
 
 11. **Volumebar** Regler für die Lautstärke. 
 
-12. **Title Label:** Zeit das aktuell spielende Lied mit Titel, Album und
+12. **Title Label:** Zeigt das aktuell spielende Lied mit Titel, Album und
     Künstler an.
 
 13. **Modebuttons:** Umschalten zwischen *Random* (nächstes Lied ist zufällig),
@@ -209,8 +210,8 @@ gezeigten Elemente noch erklärt.
     Playlist nach dem Abspielen).
 
 14. **Seekbar:** Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des
-    aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht die
-    *Höranteil* ein, doppelt gehörte Parts schon --- daher sind Werte :math:`\ge
+    aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht in den
+    *Höranteil* ein. Doppelt gehörte Parts schon --- daher sind Werte :math:`\ge
     100\%` möglich.
 
 15. **Playbuttons:** Die ,,üblichen" Kontrollen eines Musicplayers zum
@@ -224,7 +225,7 @@ gezeigten Elemente noch erklärt.
     im Artist, Album oder Titel--Tag beeinhaltet) bis hin zu sehr komplizierten
     Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat"* (Findet
     alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich
-    *2003* released wurde, oder dessen Künstler ein Wort enthält, dass mit
+    *2003* released wurde, oder dessen Künstler ein Wort enthält, das mit
     ,,Beat" beginnt).
      
     *Anmerkung:* Die ,,Such--Engine" dahinter ist in *Moosecat* implementiert.

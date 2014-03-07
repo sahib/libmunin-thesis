@@ -29,7 +29,7 @@ Einsatzmöglichkeiten eines auf Musik spezialisierten *Empfehlungsdienstes*:
     #. Einsatz in sozialen Netzwerken, um Menschen mit ähnlichem Musikgeschmack
        zu finden.
 
-Weitere Einsatzmöglichkeiten sind natürlich denkbar, und sind bei kreativen
+Weitere Einsatzmöglichkeiten sind natürlich denkbar, und bei kreativen
 Nutzern zu erwarten. 
    
 Ein zusätzlicher Vorteil von *libmunin*: Man entgeht einerseits der Werbung, die
@@ -119,7 +119,7 @@ hinter sich hat, haben viele Bands noch auf der Seite ein Profil unter dem man
 sich oft kostenlos Musik anhören kann (siehe Abb. :num:`fig-myspace`). Ähnlich
 wie bei anderen populären sozialen Netzen kann man diese Seite *liken*. Diese
 Information wird dann dafür genutzt einem Benutzer Bands vorzuschlagen, die auch
-seine Freunde mögen --- unter der Annahme dass die Freunde einen ähnlichen
+seine Freunde mögen --- unter der Annahme, dass die Freunde einen ähnlichen
 Musikgeschmack haben.
 
 .. _fig-myspace:
@@ -135,7 +135,7 @@ Musikgeschmack haben.
 die Warenkorbanalyse :cite:`jacobi2006personalized`. Dabei werden die Warenkörbe
 der Benutzer analysiert und es werden Assoziationsregeln erstellt ---
 bevorzugtermaßen Regeln, die unerwartete Zusammenhänge aufdecken. Ein Kauf ist
-auch eine klarere *Absichtserklärung*, als zB. ein Klick auf *YouTube*. Das
+auch eine klarere *Absichtserklärung*, als ein Klick auf *YouTube*. Das
 typische Beispiel ist dabei: *,,Wer Bier kauft, kauft auch Windeln"*. Diese
 Regeln werden dann genutzt um neue Artikel für bestimmte Artikel vorzuschlagen
 (siehe Abb. :num:`fig-amazon`).  Natürlich fließt auch die personalisierte
@@ -275,8 +275,8 @@ sollte man folgende Probleme beim Design und der Implementierung berücksichtige
 Anforderungen
 =============
 
-Nachdem man sich also das Umfeld angeschaut, hat kann man versuchen
-*Anforderungen* abzuleiten die eine gute Schnittmenge aus den obigen Plattformen
+Nachdem man sich also das Umfeld angeschaut hat, kann man versuchen
+*Anforderungen* abzuleiten, die eine gute Schnittmenge aus den obigen Plattformen
 und Arbeiten bildet, welche dann *libmunin* erfüllen sollte. 
 
 
@@ -287,19 +287,19 @@ performant erfolgen.
 
 Die eigentliche Arbeit muss daher in einem vorgelagerten Analyseschritt 
 erfolgen. Die daraus gewonnenen Kenntnisse können in einer geeigneten
-Datenstruktur gespeichert werden. Diese kann dann beim Austellen der Empfehlung
+Datenstruktur gespeichert werden. Diese kann beim Austellen der Empfehlung
 dann einfach nur noch ausgelesen werden.
 
 
-**Empfehlungen bilden eine Kette:** Wird eine Anfrage an das System gestellt, so
-wird ein *Iterator* zurückgegeben der alle dem System bekannten Songs nach
+**Empfehlungen bilden eine Kette:** Wird eine Anfrage an *libmunin* gestellt, so
+wird ein *Iterator* zurückgegeben der alle *libmunin* bekannten Songs nach
 Relevanz absteigend sortiert ausgibt. 
 
 
 **Handhabung großer Datenmengen:** Bei vielen Datamining--Anwendungen ist die
 Menge der *Dokumente* der Flaschenhals --- in unserem Fall also sind die
 *Dokumente* einzelne *Lieder*.  Herkömmliche private Musiksammlungen können
-bereits Größen von mehreren Zehntausend Liedern erreichen.  Betreiber von
+bereits Größen von mehreren zehntausend Liedern erreichen.  Betreiber von
 Streaming--Plattformen haben noch weitaus größere Datenmengen. 
 
 
@@ -320,14 +320,14 @@ Musiksammlungen sind unterschiedlich gut mit Metadaten (*Tags*) versorgt. So
 sind manche *Tags* gar nicht erst vorhanden oder sind je nach Format und
 verwendeten Tagging--Tool/Datenbank anders benannt.
 
-Das fertige System soll mit Szenarien zurecht kommen, wo lediglich die Metadaten
+Das fertige *libmunin* soll mit Szenarien zurecht kommen, wo lediglich die Metadaten
 der zu untersuchenden Songs zur Verfügung stehen, aber nicht die eigentlichen
 Audiodaten. Dies kann vorteilhaft sein, wenn man keinen Zugriff auf die
 Audiodaten hat, aber die Metadaten bei Musikmetadatenbanken wie *MusicBrainz*
 vervollständigen kann.
 
 
-**Unabhängigkeit von der Programmiersprache:** Das System soll von mehreren
+**Unabhängigkeit von der Programmiersprache:** *libmunin* soll von mehreren
 Programmiersprachen aus benutzbar sein.  Dieses Ziel könnte entweder durch
 verschiedene *Languagebindings* erreicht werden, oder alternativ durch eine
 Server/Client Struktur mit einem definierten Protokoll in der Mitte.
@@ -339,8 +339,8 @@ bevorzugten Betriebssystem des Autors, unterstützt werden.
 
 **Demonstrations und Debuggeranwendung:** Eine Demonstrationsanwendung soll
 entwickelt werden, die zur Fehlersuche, Verbesserung und als Einsatzbeispiel
-dient.  Als Demonstrationsanwendung eignet sich ein Musicplayer der dem Nutzer
-mithilfe des zu entwickelnden System Musikstücke vorschlägt und diese Empfehlung
+dient.  Als Demonstrationsanwendung eignet sich ein Musicplayer, der dem Nutzer
+mithilfe *libmunin* Musikstücke vorschlägt und diese Empfehlung
 auch *begründen* kann. So kann die Anwendung auch als *Debugger* für Entwickler
 von *libmunin* dienen.
 

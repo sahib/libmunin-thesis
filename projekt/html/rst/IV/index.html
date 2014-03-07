@@ -204,7 +204,7 @@ geben.</p>
 <p>Um die Distanzen zu speichern wird bei vielen Datamining&ndash;Projekten eine
 Distanzmatrix genutzt &ndash;- also eine quadratische Dreiecksmatrix, in der
 die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.</p>
-<p>Da das System auch für eine sehr hohe Anzahl von Songs funktionieren soll,
+<p>Da <em>libmunin</em> auch für eine sehr hohe Anzahl von Songs funktionieren soll,
 schließt sich die Benutzung einer Distanzmatrix allerdings durch den Aufwand von
 <span class="math">\(O(n^2)\)</span> aus.  Nehmen wir an ein Benutzer möchte seine Musiksammlung mit
 <span class="math">\(40.000\)</span> Liedern importieren, so bräuchten wir soviele Felder in der
@@ -233,11 +233,11 @@ Layout bedingt und deutet nicht auf die Distanz hin.</p>
 </div>
 <p>Jedem <a class="reference internal" href="../III/index.html#term-attribut"><em class="xref std std-term">Attribut</em></a> eines Songs ist ein Wert zugeordnet. Um eine sinnvolle
 Distanzfunktion zu definieren, die zwei Songs miteinander vergleicht, muss man
-für jedes spezielle Attribut eine eigene Unter&ndash;Distanzfunktion definieren.
+für jedes spezielle Attribut eine eigene Unterdistanzfunktion definieren.
 Beispielsweise muss für das <em>Genre</em> eine andere Distanzfunktion definiert sein als
 für den <em>Liedtext.</em></p>
-<p>Um aus den Unter&ndash;Distanzfunktion eine gemeinsame Distanz zu erhalten werden die
-einzelnen Ergebnisse, durch einen gewichteten Mittelwert in eine einzelne
+<p>Um aus den Unterdistanzfunktion eine gemeinsame Distanz zu erhalten, werden die
+einzelnen Ergebnisse durch einen gewichteten Mittelwert in eine einzelne
 Distanz zusammengeschmolzen.</p>
 </div>
 <div class="section" id="graphenoperationen">
@@ -262,7 +262,7 @@ die ein Song haben darf &ndash;- lediglich einen <em>Richtwert</em>.</p>
 <li><p class="first"><tt class="docutils literal"><span class="pre">rebuild_stupid:</span></tt> Wie <tt class="docutils literal"><span class="pre">rebuild</span></tt>, nutzt aber quadratischen Aufwand, indem es
 jeden Song mit jedem anderen vergleicht. Dies ist für kleine Mengen (<span class="math">\(\le
 400\)</span>) von Songs verträglich und für <em>sehr</em> kleine Mengen sogar schneller &ndash;-
-tatsächlich fällt die normale <tt class="docutils literal"><span class="pre">rebuild</span></tt>-Operation tatsächlich auf diese
+tatsächlich fällt die normale <tt class="docutils literal"><span class="pre">rebuild</span></tt>-Operation auf diese
 zurück, falls die Menge an Songs <span class="math">\(\le 200\)</span>.</p>
 <p>Hauptsächlich für Debugging&ndash;Zwecke, um Fehler beim herkömmlichen <tt class="docutils literal"><span class="pre">rebuild</span></tt>
 aufzudecken.</p>
@@ -286,7 +286,7 @@ und er wird mittels <tt class="docutils literal"><span class="pre">insert</span>
 relativ teuer und sollte mit Bedacht eingesetzt werden.</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">fixing:</span></tt> Durch das Löschen und Hinzufügen von Songs können <em>Einbahnstraßen</em>
-im Graphen entstehen. Durch dem nach gelagerten <em>fixing</em>&ndash;Schritt werden diese,
+im Graphen entstehen. Durch den nachgelagerten <em>fixing</em>&ndash;Schritt werden diese,
 nach bestimmten Regeln, entweder entfernt oder in bidirektionale Verbindungen
 umgebaut.</p>
 </li>
@@ -295,7 +295,7 @@ umgebaut.</p>
 <div class="section" id="ausstellen-von-empfehlungen">
 <span id="recom-out"></span><h3>4.1.3 Ausstellen von Empfehlungen<a class="headerlink" href="#ausstellen-von-empfehlungen" title="Permalink to this headline">¶</a></h3>
 <p>Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen mittels
-einer <a class="reference internal" href="../III/index.html#term-breitensuche"><em class="xref std std-term">Breitensuche</em></a> erledigt. Dabei wird der Ursprung durch ein
+einer <a class="reference internal" href="../III/index.html#term-breitensuche"><em class="xref std std-term">Breitensuche</em></a> erledigt. Dabei wird der Ursprung durch einen
 sogenannten <a class="reference internal" href="../III/index.html#term-seedsong"><em class="xref std std-term">Seedsong</em></a> bestimmt. Anschaulich wäre der Seedsong bei einer
 Anfrage wie ,,10 ähnliche Songs zu <em>The Beatles &ndash;- Yellow Submarine</em> &quot; eben
 <em>,,Yellow Submarine&quot;</em>.</p>
@@ -320,7 +320,7 @@ den simplen Grund, dass im Graphen die meisten Alben einzelne <em>Cluster</em> b
 vermeiden möchte, dass zu einem Seedsong ein Lied vom selben Album oder gar
 selben Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen
 ausgesiebt werden.</p>
-<p>Dazu werden die zuletzt gegebenen Empfehlungen betrachtet &ndash;- ist, zum Beispiel,
+<p>Dazu werden die zuletzt gegebenen Empfehlungen betrachtet &ndash;- ist zum Beispiel
 in den letzten 5 Empfehlungen der gleiche Künstler bereits vorhanden so wird die
 Empfehlung ausgesiebt.</p>
 </div>
@@ -344,8 +344,8 @@ kommen.</p>
 <div class="section" id="allgemeiner-ablauf">
 <h3>4.2.1 Allgemeiner Ablauf<a class="headerlink" href="#allgemeiner-ablauf" title="Permalink to this headline">¶</a></h3>
 <p>Eine gut definierte Datenstruktur nützt nichts wenn man nicht weiß wie die
-Daten, die aus der <em>Umwelt</em> hereinkommen aussehen. Diese müssen schließlich
-erstmal in die Form eines Graphen gebracht werden bevor man Empfehlungen
+Daten, die aus der <em>Umwelt</em> hereinkommen, aussehen. Diese müssen schließlich
+erstmal in die Form eines Graphen gebracht werden, bevor man Empfehlungen
 aussprechen kann. Dieser <em>Prozess</em> (siehe Abbildung <a href="#fig-startup">4.2</a>)
 beinhaltet vier Schritte:</p>
 <ul class="simple">
@@ -373,17 +373,17 @@ werden.</li>
 </div>
 <div class="section" id="die-umgebung">
 <span id="environement"></span><h3>4.2.2 Die Umgebung<a class="headerlink" href="#die-umgebung" title="Permalink to this headline">¶</a></h3>
-<p>In Abbildung <a href="#fig-integration">4.3</a> ist eine Übersicht gegeben in welcher
+<p>In Abbildung <a href="#fig-integration">4.3</a> ist eine Übersicht gegeben, in welcher
 Umgebung <em>libmunin</em> eingesetzt wird. Eine Frage die sich dabei stellt ist: <em>Wie</em>
 stellen die Nutzer der Bibliothek ihre Musikdatenbank bereit? Und <em>wie</em> geben
-sie diese in das System ein?</p>
+sie diese an <em>libmunin</em> weiter?</p>
 <p>Dazu bedarf es einer weiteren Eingabe vom Nutzer: Einer Beschreibung, wie die
 Lieder in seiner Musikdatenbank aufgebaut sind. Also welche <a class="reference internal" href="../III/index.html#term-tags"><em class="xref std std-term">Tags</em></a> sie
 enthalten und wie mit diesen Daten verfahren werden soll.</p>
 <p>Da diese Daten sehr unterschiedlich aufgebaut sind, muss <em>libmunin</em> sehr
 generisch aufgebaut sein. Der Ansatz ist dabei, zusätzlich vom Nutzer eine
 <a class="reference internal" href="../III/index.html#term-maske"><em class="xref std std-term">Maske</em></a> zu verlangen, die beschreibt welche möglichen <em>Tags</em> (oder
-Attribute) ein einzelner Song besitzt Für jedes Attribut kann
+Attribute) ein einzelner Song besitzt. Für jedes Attribut kann
 dann, nach Baukastenprinzip, ein Provider, eine Distanzfunktion
 und eine Gewichtung ausgewählt werden. Letzere beschreibt, wie <em>wichtig</em> diese
 Attribut aus Sicht des Nutzers in Bezug auf die Ähnlichkeit ist. Der
@@ -404,7 +404,7 @@ libmunin zugreifen kann.</p>
 </div>
 <p>Wir wissen nun wie unsere interne Datenstruktur auszusehen hat. Wir wissen auch
 wie die Daten aussehen die von der Umwelt hereinkommen. Der nächste Schritt
-besteht darin, sich Gedanken über den <em>Layer</em> zu machen welcher zwischen beiden
+besteht darin, sich Gedanken über den <em>Layer</em> zu machen, welcher zwischen beiden
 vermittelt.</p>
 <p>Tatsächlich besteht ein großer Teil von <em>libmunin</em> aus diesem <em>Layer</em>, der Daten
 aus der Umwelt nimmt und in die interne Graphendarstellung transferiert.</p>
@@ -423,7 +423,7 @@ Verarbeitung der Daten skizziert.</p>
 <div class="section" id="entwurf-der-software">
 <h2>4.3 Entwurf der Software<a class="headerlink" href="#entwurf-der-software" title="Permalink to this headline">¶</a></h2>
 <p>Da wir jetzt grob wissen aus welchen Komponenten unsere Software besteht, können
-wir uns Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.  Im
+wir uns Gedanken darüber machen, wie diese einzelnen Teile konkret aussehen.  Im
 folgenden werden die <em>,,Hauptakteure&quot;</em> der Software vorgestellt:</p>
 <div class="section" id="ubersicht">
 <h3>4.3.1 Übersicht<a class="headerlink" href="#ubersicht" title="Permalink to this headline">¶</a></h3>
@@ -447,7 +447,7 @@ vorgestellt.</p>
 <ol class="arabic">
 <li><p class="first"><strong>API:</strong> Die API ist die Schnittstelle zum Benutzer hin. Der Nutzer kann
 mittels einer <tt class="docutils literal"><span class="pre">Session</span></tt> auf alle Funktionen von <em>libmunin</em> zugreifen. Dazu
-muss er beim Instanzieren derselben eine <tt class="docutils literal"><span class="pre">Maske</span></tt> angeben die die
+muss er beim Instanzieren derselben eine <tt class="docutils literal"><span class="pre">Maske</span></tt> angeben, die die
 Musikdatenbank beschreibt.  Alternativ kann die <tt class="docutils literal"><span class="pre">EasySession</span></tt> genutzt
 werden, die eine vordefinierte <tt class="docutils literal"><span class="pre">Maske</span></tt> bereitstellt, die für viele
 Anwendungsfälle ausreichend ist.</p>
@@ -501,10 +501,10 @@ als <tt class="docutils literal"><span class="pre">gzip</span></tt> gepackt unte
 <tt class="docutils literal"><span class="pre">&lt;name&gt;</span></tt> lässt sich der Session beim Instanzieren übergeben.</p>
 <p>Die weitere Hauptzuständigkeit einer <tt class="docutils literal"><span class="pre">Session</span></tt> ist die Implementierung der
 Recommendation&ndash;Strategien, die den Graphen traversieren.</p>
-<p><strong>Song:</strong> Speichert fur jedes Attribut einen Wert, oder einen leeren
+<p><strong>Song:</strong> Speichert für jedes Attribut einen Wert, oder einen leeren
 Wert falls das Attribut nicht gesetzt wurde. Dies ähnelt einer
 Hashtabelle, allerdings werden nur die Werte gespeichert, die ,,Keys&quot; der
-Hashtabelle werden in der <tt class="docutils literal"><span class="pre">Maske</span></tt> gespeichert und werden nur referenziert. Der
+Hashtabelle werden in der <tt class="docutils literal"><span class="pre">Maske</span></tt> gespeichert und dort nur referenziert. Der
 Grund dieser Optimierung liegt im verminderten Speicherverbrauch.</p>
 <p>Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
 Nachbarsongs. Er muss Methoden bieten um eine Distanz zu einem Nachbarn
@@ -516,7 +516,7 @@ und eine <tt class="docutils literal"><span class="pre">disconnect()</span></tt>
 sich wird durch die Verknüpfung der einzelnen Songs in der <tt class="docutils literal"><span class="pre">Database</span></tt> gebildet
 &ndash;- jede <tt class="docutils literal"><span class="pre">Song</span></tt> Instanz bildet dabei einen Knoten.</p>
 <p>Da eine Veränderung von Attributen im Song auch eine Veränderung im Graphen zur
-Folge haben kann sind Instanzen der <tt class="docutils literal"><span class="pre">Song</span></tt>&ndash;Klasse <em>Immutable</em>, sprich nach
+Folge haben kann,, sind Instanzen der <tt class="docutils literal"><span class="pre">Song</span></tt>&ndash;Klasse <em>Immutable</em>, sprich nach
 ihrer Erstellung kann ihr Inhalt nicht mehr verändern werden. Ist dies trotzdem
 vonnöten, kann die <tt class="docutils literal"><span class="pre">modify</span></tt>-Operation eingesetzt werden. Ein praktischer
 Einsatzgrund wäre beispielsweise das Ändern  des <em>Ratings</em> eines Songs. Es
@@ -538,14 +538,14 @@ wird hier ein kurzes, praktisches Python&ndash;Beispiel gezeigt:</p>
 <p>Wie man sieht wird als ,,Key&quot; der Name des Attributes festgelegt, und als
 ,,Value&quot; ein Tupel aus einer <tt class="docutils literal"><span class="pre">Provider</span></tt>-Instanz, aus einer
 <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt>-Instanz und der Gewichtung dieses Attributes als <tt class="docutils literal"><span class="pre">float</span></tt>.</p>
-<p>Wird statt einer <tt class="docutils literal"><span class="pre">Provider</span></tt> oder ein <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> Instanz, der leere
+<p>Wird statt einem <tt class="docutils literal"><span class="pre">Provider</span></tt> oder ein <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt> Instanz, der leere
 Wert <tt class="docutils literal"><span class="pre">None</span></tt> übergeben, so wird ein <tt class="docutils literal"><span class="pre">DefaultProvider</span></tt> (reicht die Werte
 unverändert weiter), beziehungsweise eine <tt class="docutils literal"><span class="pre">DefaultDistanceFunction</span></tt>
 (vergleicht Werte mit dem Standard <tt class="docutils literal"><span class="pre">==</span></tt>-Operator).</p>
 <p>Ein weitaus ausführlichereres Beispiel findet sich unter <a class="reference internal" href="../appendix.html#complex-example"><em>Ausführliches Beispiel</em></a>.</p>
 <p><strong>EasySession:</strong> Wie die normale <tt class="docutils literal"><span class="pre">Session</span></tt>, bietet aber eine bereits
 fertigkonfigurierte Maske an, die für viele Anwendungsfälle ausreicht.
-In Tabelle <a href="#fig-easy-session">4.6</a> ist eine Auflistung, gegeben wie diese im
+In Tabelle <a href="#fig-easy-session">4.6</a> ist eine Auflistung gegeben, wie diese im
 Detail konfiguriert ist. Die einzelnen Provider werden später noch erklärt.</p>
 <div class="figure align-center" id="fig-easy-session">
 <center><table border="1" class="docutils">
@@ -645,7 +645,7 @@ wird die gewichtete Gesamtdistanz gespeichert.  Beispielhaft ist das in
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="headalign-center"><em>Attribut</em></th>
-<th class="headalign-center"><em>Unter&ndash;Distanzen</em></th>
+<th class="headalign-center"><em>Unterdistanzen</em></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -670,17 +670,17 @@ Gewichtungen wurden von der ,,EasySession” übernommen.</p>
 </center></div><p>Manchmal kann es passieren, dass Distanzen nicht berechnet werden können. Als
 Beispiel ist der Vergleich zweier Lieder anhand den Liedtexten - wenn nur einer
 davon nicht gefunden werden konnte, muss das Attribut in der <tt class="docutils literal"><span class="pre">Distance</span></tt> leer
-bleiben. In diesem Fall wird eine Unter&ndash;Distanz von 1.0 als ,,Strafwert&quot;
+bleiben. In diesem Fall wird eine Unterdistanz von 1.0 als ,,Strafwert&quot;
 angenommen.</p>
 <p>Der Grund warum man nicht nur die gewichtete Gesamtdistanz abspeichert, sondern
-auch auch alle Unterdistanzen liegt darin, dass es möglich sein soll
-Empfehlungen zu <em>erklären.</em> Durch das Vorhandensein der Unterdistanzen, kann man
-später feststellen welches Attribut am stärksten in die Empfehlung mit
+auch auch alle Unterdistanzen, liegt darin, dass es möglich sein soll
+Empfehlungen zu <em>erklären.</em> Durch das Vorhandensein der Unterdistanzen kann man
+später feststellen, welches Attribut am stärksten in die Empfehlung mit
 eingespielt hat. Zudem wird es dadurch technisch möglich, die Gewichtungen in
 der Maske zur Laufzeit zu ändern. Statt jede Distanz neu zu berechnen, müssen
 lediglich die einzelnen <tt class="docutils literal"><span class="pre">Distance</span></tt>&ndash;Instanzen neu gewichtet werden.</p>
 <p><strong>Database:</strong> Die <tt class="docutils literal"><span class="pre">Database</span></tt> Klasse ist eine logische Abtrennung der
-<tt class="docutils literal"><span class="pre">Session</span></tt> um eine einzige, allmächtige ,,Superklasse&quot; zu verhindern.</p>
+<tt class="docutils literal"><span class="pre">Session</span></tt>, um eine einzige, allmächtige ,,Superklasse&quot; zu verhindern.</p>
 <p>Sie hat folgende Aufgaben:</p>
 <ul class="simple">
 <li>Implementierung der einzelnen, oben besprochenen Graphenoperationen.</li>
@@ -693,7 +693,7 @@ lediglich die einzelnen <tt class="docutils literal"><span class="pre">Distance<
 <p><strong>History:</strong> Oberklasse für <tt class="docutils literal"><span class="pre">RecommendationHistory</span></tt> und <tt class="docutils literal"><span class="pre">ListenHistory</span></tt>.
 Implementiert die gemeinsame Funktionalität, Songs die zeitlich hintereinander
 zur <tt class="docutils literal"><span class="pre">History</span></tt> hinzugefügt werden, in <em>Gruppen</em> einzuteilen. Gruppen beinhalten
-maximal eine bestimmte Anzahl von Songs. Ist eine <em>Gruppe</em> voll so wird eine
+maximal eine bestimmte Anzahl von Songs. Ist eine <em>Gruppe</em> voll, so wird eine
 neue angefangen.  Vergeht aber eine zu lange Zeit seit dem letzten Hinzufügen
 wird ebenfalls eine neue <em>Gruppe</em> begonnen. Jede abgeschlossene <em>Gruppe</em> wird in
 der <tt class="docutils literal"><span class="pre">History</span></tt> abgespeichert.</p>
@@ -713,10 +713,10 @@ Anteil auch angehört wurden.</p>
 daraus mittels einer Warenkorbanalyse Assoziationsregeln ab. Diese werden danach
 im <tt class="docutils literal"><span class="pre">RuleIndex</span></tt> gespeichert.</p>
 <p><strong>RuleIndex:</strong> Speichert und indiziert die vom <tt class="docutils literal"><span class="pre">RuleGenerator</span></tt> erzeugten
-Assoziationsregeln. Die Regeln werden beim Traversieren des Graphen genutzt um
+Assoziationsregeln. Die Regeln werden beim Traversieren des Graphen genutzt, um
 zusätzliche Seedsongs auszuwählen. Daher muss es möglich sein Abfragen wie
 <em>,,Gib mir alle Regeln die Song X betreffen&quot;</em> effizient abzusetzen.</p>
-<p>Zudem <em>,,vergisst&quot;</em> der Index Regeln die Songs betreffen die nicht mehr in der
+<p>Zudem <em>,,vergisst&quot;</em> der Index Regeln, die Songs betreffen, die nicht mehr in der
 <tt class="docutils literal"><span class="pre">ListenHistory</span></tt> vorhanden sind.</p>
 <p><strong>Provider:</strong> Die Oberklasse von der jeder konkreter <tt class="docutils literal"><span class="pre">Provider</span></tt> ableitet:
 Jeder Provider bietet eine <tt class="docutils literal"><span class="pre">do_process()</span></tt> Methode die von den Unterklassen
@@ -726,9 +726,9 @@ Verarbeitung durch den Provider anzuzeigen.</p>
 <p>Provider können, mittels eines speziellen Providers, zu einer Kette
 zusammengeschaltet werden. Siehe dazu auch: <tt class="docutils literal"><span class="pre">Composite</span></tt> unter
 <a class="reference internal" href="../V/index.html#provider-list">5.4</a>.</p>
-<p>Oft kommt es vor dass die Eingabe für einen Provider viele Dupletten
+<p>Oft kommt es vor, dass die Eingabe für einen Provider viele Dupletten
 enthält &ndash;- beispielsweise wird derselbe Künstler&ndash;String für viele Songs eingepflegt.
-Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch daher bietet
+Diese redundant zu speichern wäre bei großen Sammlungen unpraktisch, daher bietet
 jeder Provider die Möglichkeit einer primitiven Kompression. Statt den Wert
 abzuspeichern wird eine bidirektionale Hashtabelle mit den Werten als Schlüssel
 und einer <em>Integer&ndash;ID</em> auf der Gegenseite. Dadurch wird jeder Wert nur einmal
@@ -736,7 +736,7 @@ gespeichert und statt dem eigentlichen Wert wird eine ID herausgegeben.</p>
 <p><strong>DistanceFuntion:</strong> Die Oberklasse von der jede konkrete <tt class="docutils literal"><span class="pre">DistanceFunction</span></tt>
 ableitet: Jede Distanzfunktion bietet eine <tt class="docutils literal"><span class="pre">do_compute()</span></tt> Methode die von den
 Unterklassen überschrieben wird.</p>
-<p>Um die bei den Providern mögliche Kompression wieder rückgängig zu machen muss
+<p>Um die bei den Providern mögliche Kompression wieder rückgängig zu machen, muss
 die Distanzfunktion den Provider für dieses Attribut kennen. Denn nur dieser
 kann die <em>Integer&ndash;ID</em> wieder auflösen.</p>
 </div>

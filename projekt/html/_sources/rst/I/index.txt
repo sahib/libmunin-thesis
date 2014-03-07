@@ -5,7 +5,7 @@ Motivation
 Stand der Technik
 =================
 
-:dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, ob in
+:dropcaps:`Empfehlungen` sind allgegenwärtig. Ob in sozialen Netzwerken, in
 Webshops oder gar im Supermarkt.  Besonders im weltweitem Netz gibt es eine
 Vielzahl von Plattformen, die Musik anbieten, entweder zum Kaufen (*Amazon*), zum
 *Streamen* (``Last.fm``, *Spotify*, *Rhapsody*, *Pandora*, *u.v.m*) oder auch um
@@ -18,7 +18,7 @@ anhört oder gar kauft. Kunden, die neue Bands entdecken und später weitere Alb
 von diesen bestellen, sind natürlich ein wichtiger wirtschaftlicher Faktor.
 
 Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
-von den Betreibern gepflegt? Bei der großen Anzahl an, *,,Waren"* wohl kaum.
+von den Betreibern gepflegt? Bei der großen Anzahl an *,,Waren"* wohl kaum.
 Schaut sich ein System an was die Benutzer oft zusammen hören?
 Kann es ein System geben, das komplett automatisch arbeitet?
 
@@ -45,7 +45,7 @@ zu extrahieren, die im Lied behandelt werden.
 
 Dabei sind heutzutage die Metadaten zu den Musikstücken anhand von
 Musikmetadatenbanken wie *MusicBrainz* [#f1]_ leicht aufzufinden --- lediglich die
-Audiodaten sind aus verständlichen, legalen Gründen schwer zu besorgen.
+Audiodaten sind aus verständlichen Gründen schwer kostenlos zu besorgen.
 
 Die nötigen Bauteile und das Wissen, um ein allgemein einsetzbares, qualitatives
 Musikempfehlungssystem zu schaffen, sind also vorhanden --- nur eine frei
@@ -71,11 +71,10 @@ ein solches System auf Qualität optimiert --- weniger auf Wirtschaftlichkeit,
 sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
-Die Tatsache, dass der Autor sich schon seit längerer Zeit ein *,,echtes"*
-Feature für *Intelligente Playlisten* für den MPD Client [#f4]_, den er
-entwickelt wünscht, trägt natürlich auch zur Motivation bei --- vor allem soll
-deshalb auch nach dem Abschluss dieser Arbeit das Projekt weiterentwickelt
-werden. 
+Was natürlich auch zur Motivation beiträgt:
+Der Autor entwickelt einen *MPD--Client* [#f4], für den er sich schon
+länger ein *echtes* Feature für *Intelligente Playlisten* wünscht.
+Daher soll auch nach Abschluss der Arbeit das Projekt weiterentwickelt werden.
 
 Namensgebung
 ============

@@ -199,7 +199,7 @@ Ratings) und impliziten (Beobachtung des Endnutzers und Ableitung von
 Assoziationsregeln) Methoden.</p>
 <p>Es wurde eine große Anzahl von sogenannten <em>Providern</em> zum Normalisieren der
 Eingabedaten, sowie eine entsprechend hohe Anzahl von <em>Distanzfunktionen</em>
-implementiert welche diese Daten vergleichen können.
+implementiert, welche diese Daten vergleichen können.
 Im Vergleich zu bestehenden Systemen ist man nicht von Audiodaten abhängig.
 Durch die freie Lizenz ist ein weitläufiger Einsatz möglich.</p>
 </div>
@@ -223,8 +223,8 @@ für <em>Musikdatenbanken</em>.</p>
 <p>Momentan ist <em>libmunin</em> nur von <em>Python</em> aus zu benutzen. Dies ist zum Teil dem
 Format geschuldet in dem die internen Daten abgespeichert werden: Dem
 Python-spezifischen <tt class="docutils literal"><span class="pre">pickle</span></tt> Format, welches beliebige Python&ndash;Objekte
-serialisieren kann, macht es natürlich schwierig Software zu schreiben die
-eine serialisierte <em>Session</em> einlesen kann ohne dabei auf <em>libmunin</em> oder
+serialisieren kann, macht es natürlich schwierig Software zu schreiben, die
+eine serialisierte <em>Session</em> einlesen kann, ohne dabei auf <em>libmunin</em> oder
 <em>Python</em> zurückzugreifen.</p>
 <p>Davon unabhängig ist <em>libmunin</em> momentan durch die Implementierung in Python auf
 diese Sprache eingeschränkt &ndash;- da viele Musicplayer in anderen Sprachen
@@ -237,7 +237,7 @@ Python geschrieben wäre) und <em>Client</em> (der in einer beliebigen
 Programmiersprache geschrieben ist).  Der <em>Client</em> könnte dann über ein
 definiertes Protokoll auf die Funktionen des Servers zurückgreifen &ndash;- das ist
 beispielsweise die Herangehensweise von MPD.</p>
-<p>Ein konkrete Umsetzung dieser Idee könnte relativ einfach mit <em>D-Bus</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>
+<p>Eine konkrete Umsetzung dieser Idee könnte relativ einfach mit <em>D-Bus</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>
 erreicht werden. Der Server würde dabei die API von <em>libmunin</em> als
 <em>D-Bus Service</em> implementieren. Der Client könnte eine der in zahlreichen
 Programmiersprachen verfügbaren <em>DBus&ndash;Libraries</em> nutzen, um im Server Methoden
@@ -259,9 +259,9 @@ dann, ähnlich wie bei RPC, Methoden auf den Services aufrufen.</td></tr>
 <p>Die Ergebnisse die <em>libmunin</em> liefern kann, können nur so gut sein wie die
 Eingabedaten. Sind diese falsch oder unzureichend (durch schlechtes <em>Tags</em>
 etwa), wird auch eine gute Distanzfunktion nur mittelmäßige Ergebnisse erzielen.</p>
-<p>Momentan bietet <em>libmunin</em> bereits dem Nutzer Möglichkeiten an um fehlende
+<p>Momentan bietet <em>libmunin</em> bereits dem Nutzer Möglichkeiten an, um fehlende
 Songtexte und Genre&ndash;Tags aus dem Internet zu besorgen. In der Einleitung dieser
-Arbeit wurden aber schon freie Musikmetadatenbanken wie <em>MusicBrainz</em> erwähnt
+Arbeit wurden aber schon freie Musikmetadatenbanken wie <em>MusicBrainz</em> erwähnt,
 die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
 können.</p>
 <p>Glücklicherweise steht mit <em>beets</em> <a class="reference internal" href="../zzz_bibliography.html#xaj" id="id2">[Link-33]</a> bereits ein entsprechendes,
@@ -286,11 +286,11 @@ unter anderem zum Auffinden zahlreicher Arten von Film&ndash;Metadaten.
 <h3>7.4.1 Vermeidung unnötiger Vergleiche<a class="headerlink" href="#vermeidung-unnotiger-vergleiche" title="Permalink to this headline">¶</a></h3>
 <p>Der Aufruf von einigen Distanzfunktionen macht nur dann Sinn, wenn bestimmte
 Kriterien erfüllt sind. So macht es beispielsweise meist wenig Sinn die
-<tt class="docutils literal"><span class="pre">moodbar</span></tt> zweier Songs zu vergleichen wenn sich die Stücklänge um mehr als das
+<tt class="docutils literal"><span class="pre">moodbar</span></tt> zweier Songs zu vergleichen, wenn sich die Stücklänge um mehr als das
 doppelte unterscheidet &ndash;- die Daten wären einfach zu unterschiedlich.</p>
-<p>Momentan ist es allerdings noch nicht möglich für die <tt class="docutils literal"><span class="pre">moodbar</span></tt>-Distanzfunktion
-die Länge des Stückes abzufragen &ndash;- da sie nur die, für sie relevanten Daten
-bekommt, nicht die ganze <tt class="docutils literal"><span class="pre">Song</span></tt>&ndash;Instanz.</p>
+<p>Momentan ist es allerdings noch nicht möglich, für die
+<tt class="docutils literal"><span class="pre">moodbar</span></tt>-Distanzfunktion die Länge des Stückes abzufragen &ndash;- da sie nur die
+für sie relevanten Daten bekommt, nicht die ganze <tt class="docutils literal"><span class="pre">Song</span></tt>&ndash;Instanz.</p>
 </div>
 <div class="section" id="beschleunigung-des-kaltstarts">
 <h3>7.4.2 Beschleunigung des Kaltstarts<a class="headerlink" href="#beschleunigung-des-kaltstarts" title="Permalink to this headline">¶</a></h3>
@@ -298,7 +298,7 @@ bekommt, nicht die ganze <tt class="docutils literal"><span class="pre">Song</sp
 sich zumindest einige Teile des <em>Kaltstartes</em> optimieren, indem eine gewisse
 Anzahl von Songtexten (oder anderem <em>Information Retrieval</em>) parallel
 heruntergeladen werden. Auch das Analysieren von Audiodaten könnte beschleunigt
-werden indem ein (bei normalen Festplatten)  oder mehrere (bei SSDs) <em>Threads</em>
+werden, indem ein (bei normalen Festplatten)  oder mehrere (bei SSDs) <em>Threads</em>
 Audiodaten einliest und diese dann an <em>Workerthreads</em> weiterleitet, die die
 eigentliche Analyse durchführen.</p>
 </div>
@@ -307,9 +307,9 @@ eigentliche Analyse durchführen.</p>
 <p>Wie oben erwähnt erfolgt die Speicherung der <em>Session</em> mittels Python's
 <tt class="docutils literal"><span class="pre">pickle</span></tt> Modul. Dieses serialisiert <em>rekursiv</em> die Objekt&ndash;Hierarchie,
 ausgehend vom <em>Session</em> Objekt. Da in <em>libmunin</em> der Graph allerdings als
-rekursive Datenstruktur implementiert ist ,,verläuft&quot; sich <tt class="docutils literal"><span class="pre">pickle</span></tt> darin -
+rekursive Datenstruktur implementiert ist, ,,verläuft&quot; sich <tt class="docutils literal"><span class="pre">pickle</span></tt> darin -
 zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen.</p>
-<p>Python hat ein eingebautes <em>Rekursionslimit</em> welches ein wenig aussagekräftiges
+<p>Python hat ein eingebautes <em>Rekursionslimit</em>, welches ein wenig aussagekräftiges
 <em>Segmentation Fault</em> verhindern soll &ndash;- Abstürze beim Speichern der <em>Session</em>
 sind die Folge. Hier ist Abhilfe nötig.</p>
 </div>
@@ -317,8 +317,8 @@ sind die Folge. Hier ist Abhilfe nötig.</p>
 <h3>7.4.4 Korrekte Berechnung des <em>BPM-Wertes</em><a class="headerlink" href="#korrekte-berechnung-des-bpm-wertes" title="Permalink to this headline">¶</a></h3>
 <p>Die Berechnung des <em>Beats&ndash;Per&ndash;Minute</em>-Wertes ist momentan in ein separates Tool
 ausgelagert. Dieses Tool hat das Problem, dass es bei fehlerhaften Dateien oder
-Formaten die es nicht versteht fehlerhafte (beispielsweise Werte <em>über</em> 300 bpm)
-Werte zurückgibt. Da dies nicht von <em>libmunin's</em> Seite aus gelöst werden kann
+Formaten die es nicht versteht, falsche (beispielsweise Werte <em>über</em> 300 bpm)
+Werte zurückgibt. Da dies nicht von <em>libmunin's</em> Seite aus gelöst werden kann,
 sollte nach Möglichkeit hier eine eigene Lösung implementiert werden.</p>
 </div>
 </div>
@@ -327,7 +327,7 @@ sollte nach Möglichkeit hier eine eigene Lösung implementiert werden.</p>
 <p>Abgesehen von den obigen ,,Defiziten&quot; hier noch einige stichpunktartige
 Richtungen in denen die Implementierung verbessert werden kann:</p>
 <ul class="simple">
-<li>Verläufe: Manchmal ist es wünschenswert dass die dynamisch erstellte Playlist
+<li>Verläufe: Manchmal ist es wünschenswert, dass die dynamisch erstellte Playlist
 einem gewissen Verlauf folgt. Man denke an eine Party bei der erst schnelle,
 fröhliche Musik gespielt wird, zum Ende hin dann langsame, ruhigere Musik.</li>
 <li>Weitere Empfehlungs&ndash;Strategien, wie beispielsweise von rein Genre-basierenden
@@ -336,14 +336,14 @@ das Problem.</li>
 <li>Justierbarkeit der Gewichtungen während der Laufzeit &ndash;- Momentan erfordert die
 Justierung der Gewichtung jeweils eine teure <tt class="docutils literal"><span class="pre">rebuild</span></tt>-Operation.
 Technisch möglich ist das allerdings bereits, durch die Speicherung der
-Unter&ndash;Distanzen.</li>
+Unterdistanzen.</li>
 <li>,,Echte&quot; Audio/Mood&ndash;Analyse mittels <em>aubio</em> <a class="reference internal" href="../zzz_bibliography.html#fn" id="id5">[Link-35]</a> oder <em>MARSYAS</em> <a class="reference internal" href="../zzz_bibliography.html#hj7" id="id6">[Link-36]</a>.</li>
-<li>Optionaler Aufsatz auf <em>libmunin</em> der <em>Social-based music recommendation</em>
+<li>Optionaler <em>,,Aufsatz&quot;</em> auf <em>libmunin</em>, der <em>Social-based music recommendation</em>
 ermöglicht &ndash;- beispielsweise um die Ähnlichkeit von zwei Künstlern durch
 Amazon&ndash;Reviews zu bestimmen. Sind diese in der Review&ndash;Datenbank nicht
 vertreten wird die Ähnlichkeit &ndash;- wie jetzt schon &ndash;- automatisch bestimmt.</li>
 <li>Portierbarkeit auf andere Plattformen. Die Software wurde momentan nur auf dem
-System des Autors getestet <em>(Arch Linux)</em>.</li>
+Betriebssystem des Autors getestet <em>(Arch Linux)</em>.</li>
 </ul>
 </div>
 <div class="section" id="abschlieszendes-fazit">
@@ -359,13 +359,14 @@ Empfehlungen sind &ndash;- subjektiv gesehen &ndash;- noch teilweise verbesserun
 Besonders die momentane Audioanalyse ist sehr primitiver Natur und bietet
 einiges an Potenzial an Verbesserungen. Es wird momentan mehr auf <em>Masse</em> statt
 auf <em>Klasse</em> gesetzt und oft ist einiges an <em>,,Kaffeesatzleserei&quot;</em> enthalten.
-Zudem entsprichen manche Funktionsweise dem Geschmack und Gewohnheiten des Autors
-(wie dem Vergeben von Ratings) &ndash; diese müssen nicht allgemein gültig sein.</p>
+Zudem entsprechen manche Funktionsweisen dem Geschmack und Gewohnheiten des
+Autors (wie dem Vergeben von Ratings, was nicht jeder macht) &ndash; diese müssen
+nicht allgemein gültig sein.</p>
 <p>Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von <em>Moosecat</em>
 weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung
 <em>Klasse</em> zu gehen. Nach einem öffentlichen Release in einschlägigen Foren,
 können dann auch erste Resonanzen gesammelt werden &ndash;- vor allem ist es
-interessant zu sehen ob <em>libmunin</em> dann tatsächlich für andere Entwickler
+interessant zu sehen, ob <em>libmunin</em> dann tatsächlich für andere Entwickler
 einsetzbar ist. Zumindest Interesse scheint vorhanden zu sein: Selbst ohne
 Veröffentlichung, haben etwa 50 Entwickler die Projektseite auf <em>GitHub</em>
 ,,gestarred&quot; (vergleichbar mit einem <em>Like</em> auf anderen Seiten).</p>
