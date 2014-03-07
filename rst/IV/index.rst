@@ -21,7 +21,7 @@ Um die Distanzen zu speichern wird bei vielen Datamining--Projekten eine
 Distanzmatrix genutzt --- also eine quadratische Dreiecksmatrix, in der
 die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.
 
-Da das System auch für eine sehr hohe Anzahl von Songs funktionieren soll,
+Da *libmunin* auch für eine sehr hohe Anzahl von Songs funktionieren soll,
 schließt sich die Benutzung einer Distanzmatrix allerdings durch den Aufwand von
 :math:`O(n^2)` aus.  Nehmen wir an ein Benutzer möchte seine Musiksammlung mit
 :math:`40.000` Liedern importieren, so bräuchten wir soviele Felder in der
@@ -66,8 +66,8 @@ für jedes spezielle Attribut eine eigene Unter--Distanzfunktion definieren.
 Beispielsweise muss für das *Genre* eine andere Distanzfunktion definiert sein als
 für den *Liedtext.* 
 
-Um aus den Unter--Distanzfunktion eine gemeinsame Distanz zu erhalten werden die
-einzelnen Ergebnisse, durch einen gewichteten Mittelwert in eine einzelne
+Um aus den Unter--Distanzfunktion eine gemeinsame Distanz zu erhalten, werden die
+einzelnen Ergebnisse durch einen gewichteten Mittelwert in eine einzelne
 Distanz zusammengeschmolzen.
 
 Graphenoperationen
@@ -95,7 +95,7 @@ definieren:
 * ``rebuild_stupid:`` Wie ``rebuild``, nutzt aber quadratischen Aufwand, indem es
   jeden Song mit jedem anderen vergleicht. Dies ist für kleine Mengen (:math:`\le
   400`) von Songs verträglich und für *sehr* kleine Mengen sogar schneller ---
-  tatsächlich fällt die normale ``rebuild``-Operation tatsächlich auf diese
+  tatsächlich fällt die normale ``rebuild``-Operation auf diese
   zurück, falls die Menge an Songs :math:`\le 200`.
   
   Hauptsächlich für Debugging--Zwecke, um Fehler beim herkömmlichen ``rebuild``
@@ -120,7 +120,7 @@ definieren:
   relativ teuer und sollte mit Bedacht eingesetzt werden.
 
 * ``fixing:`` Durch das Löschen und Hinzufügen von Songs können *Einbahnstraßen*
-  im Graphen entstehen. Durch dem nach gelagerten *fixing*--Schritt werden diese,
+  im Graphen entstehen. Durch den nachgelagerten *fixing*--Schritt werden diese,
   nach bestimmten Regeln, entweder entfernt oder in bidirektionale Verbindungen
   umgebaut.
 
@@ -130,7 +130,7 @@ Ausstellen von Empfehlungen
 ---------------------------
 
 Das Ausstellen von Empfehlungen wird durch das Traversieren des Graphen mittels
-einer :term:`Breitensuche` erledigt. Dabei wird der Ursprung durch ein
+einer :term:`Breitensuche` erledigt. Dabei wird der Ursprung durch einen
 sogenannten :term:`Seedsong` bestimmt. Anschaulich wäre der Seedsong bei einer
 Anfrage wie ,,10 ähnliche Songs zu *The Beatles --- Yellow Submarine* " eben
 *,,Yellow Submarine"*.
@@ -162,7 +162,7 @@ vermeiden möchte, dass zu einem Seedsong ein Lied vom selben Album oder gar
 selben Künstler empfohlen wird, müssen diese beim Iterieren über den Graphen
 ausgesiebt werden.
 
-Dazu werden die zuletzt gegebenen Empfehlungen betrachtet --- ist, zum Beispiel,
+Dazu werden die zuletzt gegebenen Empfehlungen betrachtet --- ist zum Beispiel
 in den letzten 5 Empfehlungen der gleiche Künstler bereits vorhanden so wird die
 Empfehlung ausgesiebt. 
 
@@ -189,8 +189,8 @@ Allgemeiner Ablauf
 ------------------
 
 Eine gut definierte Datenstruktur nützt nichts wenn man nicht weiß wie die
-Daten, die aus der *Umwelt* hereinkommen aussehen. Diese müssen schließlich
-erstmal in die Form eines Graphen gebracht werden bevor man Empfehlungen
+Daten, die aus der *Umwelt* hereinkommen, aussehen. Diese müssen schließlich
+erstmal in die Form eines Graphen gebracht werden, bevor man Empfehlungen
 aussprechen kann. Dieser *Prozess* (siehe Abbildung :num:`fig-startup`)
 beinhaltet vier Schritte:
 
@@ -225,10 +225,10 @@ beinhaltet vier Schritte:
 Die Umgebung
 ------------
 
-In Abbildung :num:`fig-integration` ist eine Übersicht gegeben in welcher
+In Abbildung :num:`fig-integration` ist eine Übersicht gegeben, in welcher
 Umgebung *libmunin* eingesetzt wird. Eine Frage die sich dabei stellt ist: *Wie*
 stellen die Nutzer der Bibliothek ihre Musikdatenbank bereit? Und *wie* geben
-sie diese in das System ein? 
+sie diese an *libmunin* weiter? 
 
 Dazu bedarf es einer weiteren Eingabe vom Nutzer: Einer Beschreibung, wie die
 Lieder in seiner Musikdatenbank aufgebaut sind. Also welche :term:`Tags` sie
@@ -237,7 +237,7 @@ enthalten und wie mit diesen Daten verfahren werden soll.
 Da diese Daten sehr unterschiedlich aufgebaut sind, muss *libmunin* sehr
 generisch aufgebaut sein. Der Ansatz ist dabei, zusätzlich vom Nutzer eine
 :term:`Maske` zu verlangen, die beschreibt welche möglichen *Tags* (oder
-Attribute) ein einzelner Song besitzt Für jedes Attribut kann
+Attribute) ein einzelner Song besitzt. Für jedes Attribut kann
 dann, nach Baukastenprinzip, ein Provider, eine Distanzfunktion
 und eine Gewichtung ausgewählt werden. Letzere beschreibt, wie *wichtig* diese
 Attribut aus Sicht des Nutzers in Bezug auf die Ähnlichkeit ist. Der
@@ -265,7 +265,7 @@ jeden Song mittels der ``add``-Operation hinzufügen und im Anschluss eine
 
 Wir wissen nun wie unsere interne Datenstruktur auszusehen hat. Wir wissen auch
 wie die Daten aussehen die von der Umwelt hereinkommen. Der nächste Schritt
-besteht darin, sich Gedanken über den *Layer* zu machen welcher zwischen beiden
+besteht darin, sich Gedanken über den *Layer* zu machen, welcher zwischen beiden
 vermittelt.
 
 Tatsächlich besteht ein großer Teil von *libmunin* aus diesem *Layer*, der Daten
@@ -291,7 +291,7 @@ Entwurf der Software
 ====================
 
 Da wir jetzt grob wissen aus welchen Komponenten unsere Software besteht, können
-wir uns Gedanken darüber machen wie diese einzelnen Teile konkret aussehen.  Im
+wir uns Gedanken darüber machen, wie diese einzelnen Teile konkret aussehen.  Im
 folgenden werden die *,,Hauptakteure"* der Software vorgestellt:
 
 Übersicht
@@ -323,7 +323,7 @@ vorgestellt.
 
 1. **API:** Die API ist die Schnittstelle zum Benutzer hin. Der Nutzer kann
    mittels einer ``Session`` auf alle Funktionen von *libmunin* zugreifen. Dazu
-   muss er beim Instanzieren derselben eine ``Maske`` angeben die die
+   muss er beim Instanzieren derselben eine ``Maske`` angeben, die die
    Musikdatenbank beschreibt.  Alternativ kann die ``EasySession`` genutzt
    werden, die eine vordefinierte ``Maske`` bereitstellt, die für viele
    Anwendungsfälle ausreichend ist.
@@ -383,10 +383,10 @@ als ``gzip`` gepackt unter ``$HOME/.cache/libmunin/<name>.gz`` gespeichert.  Der
 Die weitere Hauptzuständigkeit einer ``Session`` ist die Implementierung der
 Recommendation--Strategien, die den Graphen traversieren.
 
-**Song:** Speichert fur jedes Attribut einen Wert, oder einen leeren
+**Song:** Speichert für jedes Attribut einen Wert, oder einen leeren
 Wert falls das Attribut nicht gesetzt wurde. Dies ähnelt einer
 Hashtabelle, allerdings werden nur die Werte gespeichert, die ,,Keys" der
-Hashtabelle werden in der ``Maske`` gespeichert und werden nur referenziert. Der
+Hashtabelle werden in der ``Maske`` gespeichert und dort nur referenziert. Der
 Grund dieser Optimierung liegt im verminderten Speicherverbrauch. 
 
 Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
@@ -401,7 +401,7 @@ sich wird durch die Verknüpfung der einzelnen Songs in der ``Database`` gebilde
 --- jede ``Song`` Instanz bildet dabei einen Knoten.
 
 Da eine Veränderung von Attributen im Song auch eine Veränderung im Graphen zur
-Folge haben kann sind Instanzen der ``Song``--Klasse *Immutable*, sprich nach
+Folge haben kann,, sind Instanzen der ``Song``--Klasse *Immutable*, sprich nach
 ihrer Erstellung kann ihr Inhalt nicht mehr verändern werden. Ist dies trotzdem
 vonnöten, kann die ``modify``-Operation eingesetzt werden. Ein praktischer
 Einsatzgrund wäre beispielsweise das Ändern  des *Ratings* eines Songs. Es
@@ -427,7 +427,7 @@ Wie man sieht wird als ,,Key" der Name des Attributes festgelegt, und als
 ,,Value" ein Tupel aus einer ``Provider``-Instanz, aus einer
 ``DistanceFunction``-Instanz und der Gewichtung dieses Attributes als ``float``.
 
-Wird statt einer ``Provider`` oder ein ``DistanceFunction`` Instanz, der leere
+Wird statt einem ``Provider`` oder ein ``DistanceFunction`` Instanz, der leere
 Wert ``None`` übergeben, so wird ein ``DefaultProvider`` (reicht die Werte
 unverändert weiter), beziehungsweise eine ``DefaultDistanceFunction``
 (vergleicht Werte mit dem Standard ``==``-Operator).
@@ -436,7 +436,7 @@ Ein weitaus ausführlichereres Beispiel findet sich unter :ref:`complex-example`
 
 **EasySession:** Wie die normale ``Session``, bietet aber eine bereits
 fertigkonfigurierte Maske an, die für viele Anwendungsfälle ausreicht.
-In Tabelle :num:`fig-easy-session` ist eine Auflistung, gegeben wie diese im
+In Tabelle :num:`fig-easy-session` ist eine Auflistung gegeben, wie diese im
 Detail konfiguriert ist. Die einzelnen Provider werden später noch erklärt.
 
 .. _fig-easy-session:

@@ -2,8 +2,8 @@
 Begriffsklärungen
 *****************
 
-Im Folgenden werden häufig, gewisse Begriffe gebraucht, die nicht allgemein
-verständlich sind, oder die im Kontext von *libmunin* anders besetzt sind.
+Im Folgenden werden häufig gewisse Begriffe gebraucht, die nicht allgemein
+verständlich, oder die im Kontext von *libmunin* anders besetzt sind.
 Diese sollen hier definiert werden, bevor wir fortfahren.
 
 Allgemeine Fachbegriffe
@@ -27,7 +27,7 @@ Allgemeine Fachbegriffe
 
     Tags
 
-      In Audiofiles können bei den meisten Formatten, Metadaten abgelegt
+      In Audiofiles können bei den meisten Formaten, Metadaten abgelegt
       werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den *Artist*,
       *Album* und *Titel*, aber auch komplexere Daten wie das *Coverart*,
       abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
@@ -36,7 +36,7 @@ Allgemeine Fachbegriffe
     Iterator
 
       Ein Iterator ist ein *Versprechen* einen Wert genau dann zu berechnen wenn
-      er gebraucht wird. Meistens werden Iteratoren dazu genutzt um 
+      er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um 
       Datenstrukturen zu traversieren --- jeder Aufruf des Iterator liefert
       dabei den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden sind.
     
@@ -85,7 +85,7 @@ Kontextspezifische Fachbegriffe
     Maske
 
       Die :term:`Session` benötigt eine Beschreibung der Daten die importiert
-      werden. So muss ich darauf geeinigt werden was beispielsweise unter dem
+      werden. So muss sich darauf geeinigt werden was beispielsweise unter dem
       Schlüssel ``genre`` abgespeichert wird.
     
       In der *Maske* werden daher die einzelnen Attribute festgelegt die ein
@@ -142,8 +142,8 @@ Kontextspezifische Fachbegriffe
 
       Ein *Provider* normalisiert einen Wert anhand verschiedener
       Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
-      die in das System geladen werden. Jeder *Provider* ist dabei durch die Mask einem 
-      Attribut zugeordnet.
+      die in *libmunin* geladen werden. Jeder *Provider* ist dabei durch die
+      Mask einem Attribut zugeordnet.
 
       Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
       vergleichbare Werte zu liefern - da die Distanzfunktion sehr
