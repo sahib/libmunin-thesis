@@ -11,17 +11,17 @@ entwickelt.  Wie eingangs erwähnt, dient diese nicht nur zum *Showoff*, sondern
 auch zur gezielten Fehlersuche.
 
 Die Anwendung, die den ebenfalls nordischen Namen *Naglfar* erhielt, stellt
-einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.
-Vor der ersten Benutzung muss gemäß :num:`fig-startup` eine Session aufgebaut
-werden --- dies erledigt das Skript ``coldstart.py`` (siehe
+einen MPD-Client bereit. Im Hintergrund werkelt dabei *Moosecat*.  Vor der
+ersten Benutzung muss gemäß Abb. :num:`fig-startup` eine Session aufgebaut
+werden. Dies erledigt das Skript ``coldstart.py`` (siehe
 :ref:`coldstart-example` im *Angang C*). Dies kann durch das Ziehen der
-Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern --- bis zu 2
-Stunden. Danach sind allerdings die Liedtext zwischengelagert und der zweite
-Lauf dauert dann nur noch wenige Minuten. 
+Liedtexte und der Audioanalyse beim ersten Lauf sehr lange dauern --- bis zu
+zwei Stunden. Danach sind allerdings die Liedtexte zwischengelagert und der
+zweite Lauf dauert dann nur noch wenige Minuten. 
 
 Nach dem ``coldstart.py`` die *Session* auf die Platte geschrieben hat, kann die
 eigentliche Anwendung gestartet werden. Diese verbindet sich zuallererst mit
-einem MPD-Server der auf *localhost* unter Port *6601* lauscht. Dort  besorgt
+einem MPD-Server der auf *localhost* unter Port *6601* lauscht. Dort  beschafft
 sich die Anwendung alle Metadaten, um die *Playlist* und *Database*-Ansicht zu
 befüllen.  Danach wird besagte *Session* geladen. Nach der Initialisierung der
 *GUI* ist die Anwendung nun bereit benutzt zu werden.
@@ -36,7 +36,7 @@ Liedern aus der privaten Musiksammlung des Autors.
 Anwendungsübersicht
 ===================
 
-In :num:`fig-demo-overview` wird eine Übersicht über die GUI der Anwendung
+In Abb. :num:`fig-demo-overview` wird eine Übersicht über die GUI der Anwendung
 gegeben. Detailliertere Ansichten werden unter :ref:`demo-pics` gezeigt.  Im
 Folgenden wird nun eine textuelle Übersicht über die *Features* der Anwendung
 gegeben.
@@ -45,19 +45,19 @@ Ansichten
 ---------
 
 Die Anwendung ist in unterschiedliche *Ansichten* (englisch *Views*) aufteilt,
-die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
+die jeweils in unterschiedlichen Reitern stecken. Im Folgenden wird eine Übersicht
 über alle *Views* gegeben:
 
-* **Database:** Siehe Abbildung :num:`fig-demo-database`.
+* **Database:** Siehe Abb. :num:`fig-demo-database`.
    
   Anzeige der gesamten Musikdatenbank durch die Spalten ``Artist``, ``Album``,
   ``Titel``, ``Datum`` und ``Genre``. Jede Zeile entspricht dabei einem Song. 
   Ein Rechtsklickmenü auf einen beliebigen Song fördert ein Kontextmenü zu Tage
-  (siehe Abbildung :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten
-  bietet, um die Playlist mit Empfehlungen zu befüllen (entsprechend
-  :ref:`list-of-recom-strategies`).  Im folgenden ist :math:`N` die Anzahl
+  (siehe Abb. :num:`fig-demo-context-menu`), dass mehrere Möglichkeiten
+  bietet, um die Playlist mit Empfehlungen zu befüllen (entsprechend Kapitel
+  :ref:`list-of-recom-strategies`).  Im Folgenden ist :math:`N` die Anzahl
   der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
-  Nr. 5 in :num:`fig-demo-overview`) eingestellt ist.
+  Nr. 5 in Abb. :num:`fig-demo-overview`) eingestellt ist.
   
   * **Ausgewählten Song als Seedsong nehmen:** Erstellt :math:`N`
     Empfehlungen basierend auf dem selektierten Song und reiht sie in die Playlist
@@ -86,7 +86,7 @@ die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
     wird die Suche erfolglos verlaufen.
   
   * **Lasse libmunin einen Seedsong auswählen:** *libmunin* wählt automatisch
-    einen Seedsong nach folgenden Kriterien (gemäß
+    einen Seedsong nach folgenden Kriterien (gemäß Kapitel
     :ref:`list-of-recom-strategies`):
     
     1. Nutze die Seedsongs, die in der am besten bewertesten Regel vorkommen.
@@ -112,32 +112,32 @@ die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
   
       Die Einträge des Kontextmenüs in der Playlist und Database Ansicht 
 
-**Playlist:** Siehe Abbildung :num:`fig-demo-playlist`.
+**Playlist:** Siehe Abb. :num:`fig-demo-playlist`.
 
 Wie die *Database--Ansicht*, zeigt aber lediglich die Songs an, die empfohlen
 wurden. Sonst ist diese Ansicht funktionsidentisch mit der *Database--Ansicht*.
 
-**Graph:** Siehe Abbildung :num:`fig-demo-graph`.
+**Graph:** Siehe Abb. :num:`fig-demo-graph`.
 
-Im *Graphen--Ansicht* kann ein Plot von *libmunin's* Graphen begutachtet werden.
+In der *Graphenansicht* kann ein Plot von *libmunin's* Graphen begutachtet werden.
 Dies ist oft nützlich, um nachzuvollziehen welche Empfehlungen aus welchen Grund
-gegeben wurden, da man im Graphen die Nachbarschaft eines Seedsongs betrachten
+gegeben wurden, da man im Graphen die Nachbarn eines Seedsongs betrachten
 kann.
 
-**Rules:** Siehe Abbildung :num:`fig-demo-rules`.
+**Rules:** Siehe Abb. :num:`fig-demo-rules`.
 
 In einer Liste werden alle bekannten Assoziationsregel
-angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
-und das Rating der Regel angezeigt.
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der *Supportcount*
+und das *Rating* der Regel angezeigt. Beide werden hier nicht näher erklärt.
 
-**Examine:** Siehe Abbildung :num:`fig-demo-examine`.
+**Examine:** Siehe Abb. :num:`fig-demo-examine`.
 
 Hier werden alle Attribute des momentan spielenden Songs angezeigt.  Es wird die
 von *libmunin* normalisierte Form angezeigt, als auch, falls verfügbar, der
 Originalwert.  Zudem wird die ``moodbar`` (falls vorhanden) oben im Fenster
 geplottet.
 
-**History:** Siehe Abbildung :num:`fig-demo-history`.
+**History:** Siehe Abb. :num:`fig-demo-history`.
 
 Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
 gehört wurden (Begrenzung auf 1000 Stück), werden hier auch die zuletzt 
@@ -147,8 +147,8 @@ Letzteres ist für das Debugging der Filterfunktion nützlich.
 Weitere Steuerlemente
 ---------------------
 
-Aus Gründen der Vollständigkeit werden hier, die unter :num:`fig-demo-overview`
-gezeigten Elemente noch erklärt.
+Aus Gründen der Vollständigkeit werden hier, die unter Abb.
+:num:`fig-demo-overview` gezeigten Elemente noch erklärt.
 
 2. **Seedsong:** Zeigt mit einem roten Kreis den zuletzt ausgewählten
    Seedsong an.  Falls es mehrere Seedsongs gab, wird nur der erste
@@ -164,24 +164,23 @@ gezeigten Elemente noch erklärt.
 
 6. **Filter:** Togglebutton (:math:`$,,\sout{a}”$` als Icon) der anzeigt, ob
    der Filtermodus aktiviert ist.  Ist er aktiv, so darf sich in einer dynamisch
-   erstellten Playlist der Künstler nur alle 3 Stücke wiederholen, der selbe
-   Künstler *und* das selbe Album nur alle 5 Stücke.
+   erstellten Playlist der Künstler nur alle drei Stücke wiederholen, der selbe
+   Künstler *und* das selbe Album nur alle fünf Stücke.
 
 7. **Mininmaler Höranteil:** Ein Klick auf den Button fördert einen Slider zu
    Tage auf dem man eine Prozentzahl einstellt. Diese legt fest, welcher Anteil
    eines Liedes (in Prozent) *mindestens* angehört werden muss, damit er zur
    Historie hinzugefügt wird.
    
-   Um diese Funktionalität zu realisieren musste *Moosecat* um diese
+   Um diese Funktionalität zu realisieren, musste *Moosecat* um diese
    Funktionalität erweitert werden.
 
 8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
    Seedsong bei der Attributsuche  haben sollte.
 
-9. **Rating:** Ein spezielles Widget, in den man das *Rating* des aktuell
-   spielenden Songs setzen kann. Beim erstellen der *Session* durch
-   ``coldstart.py`` wird ein *Rating* von :math:`0` angenommen --- also
-   *ungesetzt*.
+9. **Rating:** Ein spezielles Steuerelement, in den man das *Rating* des aktuell
+   spielenden Songs setzen kann. Beim Erstellen der *Session* durch
+   ``coldstart.py`` wird ein ungesetztes *Rating* von :math:`0` angenommen.
    
    Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
    eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken, um das
@@ -196,8 +195,8 @@ gezeigten Elemente noch erklärt.
     als nicht gehört, wenn prozentuell nur ein kleiner Teil als der gesetzte
     minimale Höranteil angehört wurde.
    
-    Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt ---
-    sobald man 100x mal ein Lied hört, zeigt diese vollen Füllstand an.
+    Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt.
+    Sobald man 100 mal ein Lied hört, zeigt diese vollen Füllstand an.
 
 11. **Volumebar** Regler für die Lautstärke. 
 
@@ -210,9 +209,9 @@ gezeigten Elemente noch erklärt.
     Playlist nach dem Abspielen).
 
 14. **Seekbar:** Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des
-    aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht in den
-    *Höranteil* ein. Doppelt gehörte Parts schon --- daher sind Werte :math:`\ge
-    100\%` möglich.
+    aktuellen Liedes.  Übersprungene Abschnitte eines Liedes fließen nicht in
+    den *Höranteil* ein. Doppelt gehörte Parts schon.  Daher sind Werte
+    :math:`\ge 100\%` möglich.
 
 15. **Playbuttons:** Die ,,üblichen" Kontrollen eines Musicplayers zum
     *Pausieren/Abspielen* (an momentaner Stelle anhalten/weiterspielen),
@@ -221,12 +220,12 @@ gezeigten Elemente noch erklärt.
 
 16. **Suche:** Erlaubt das Filtern der Playlist oder Datenbank.
    
-    Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das *,,beat"*
-    im Artist, Album oder Titel--Tag beeinhaltet) bis hin zu sehr komplizierten
-    Suchbegriffen wie *,,(genre:rock + y:2001..2003) | artist:Beat"* (Findet
-    alles das *,,rock"* im Genre hat und in den Jahren *2001* bis einschließlich
-    *2003* released wurde, oder dessen Künstler ein Wort enthält, das mit
-    ,,Beat" beginnt).
+    Suchbegriffe können einfacher Natur wie *,,beat"* (Findet alles das
+    *,,beat"* im Künstler-, Album- oder Titel--Tag beeinhaltet) sein. Oder auch
+    eher komplizierter Natur: *,,(genre:rock + y:2001..2003) | artist:Beat"*
+    (Findet alles das *,,rock"* im Genre hat und in den Jahren *2001* bis
+    einschließlich *2003* released wurde, oder dessen Künstler ein Wort enthält,
+    das mit ,,Beat" beginnt).
      
     *Anmerkung:* Die ,,Such--Engine" dahinter ist in *Moosecat* implementiert.
     Die Suche kann mit :kbd:`Strg-f` oder :kbd:`/` *(Slash)* aktiviert und mit

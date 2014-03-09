@@ -30,7 +30,9 @@
   \else
   \fi
 
+  \titlespacing{\chapter}{0pt}{0.0em}{0.5em}
   \tableofcontents
+  \titlespacing{\chapter}{0pt}{0.0em}{2em}
   \clearpage
 }%
 
@@ -105,8 +107,8 @@
   \thispagestyle{empty}
   \vspace*{0in}
   \begin{center}
-    {\Large\reflectbox{$_\copyright$}}\ Copyright by \@author, \@copyrightyear. \\
-    Alle Rechte vorbehalten. \\
+    {\Large\reflectbox{\huge$_\copyright$}}\ Copyleft by \@author, \@copyrightyear. \\
+    Some rights reserved. \\
     \vspace{1in}
     \begin{minipage}[c]{0.2\linewidth}
       \hfill {\Huge \ccLogo~\ccAttribution}

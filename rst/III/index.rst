@@ -29,26 +29,27 @@ Allgemeine Fachbegriffe
 
       In Audiofiles können bei den meisten Formaten, Metadaten abgelegt
       werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den *Artist*,
-      *Album* und *Titel*, aber auch komplexere Daten wie das *Coverart*,
+      *Album* und *Title*, aber auch komplexere Daten wie das *Coverart*,
       abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
       ausgelesen werden.
 
     Iterator
 
       Ein Iterator ist ein *Versprechen* einen Wert genau dann zu berechnen wenn
-      er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um 
-      Datenstrukturen zu traversieren --- jeder Aufruf des Iterator liefert
-      dabei den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden sind.
+      er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
+      Datenstrukturen zu traversieren. Jeder Aufruf des Iterator liefert dabei
+      den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
+      sind.
     
     Proxymethode
 
-      Eine *Methode* die ihre Parameter lediglich an eine andere Methode oder
-      Funktion weiterreicht. Sie werden meist aus Gründen der API-Gestaltung
+      Eine *Methode*, die ihre Parameter lediglich an eine andere Methode oder
+      Funktion weiterreicht. Sie werden meist aus Gründen der API--Gestaltung
       eingesetzt.
 
     Languagebindings
 
-      Eine *Wrapper--Schicht*, die es möglich macht, eine in einer bestimmten
+      Eine Zusatzprogrammschicht, die es möglich macht, eine in einer bestimmten
       Programmiersprache (beispielsweise in :math:`\mathrm{C}`) geschriebene
       Bibliothek in einer anderen Programmiersprache (beispielsweise Python) zu
       nutzen. 
@@ -79,7 +80,7 @@ Kontextspezifische Fachbegriffe
       Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
       analysiert und ein Graph wird daraus aufgebaut.
     
-      Wer die Bibliothek benutzt wird die *Session* zudem als Eintrittspunkt
+      Wer die Bibliothek benutzt, wird die *Session* zudem als Eintrittspunkt
       für die API benutzen.
 
     Maske
@@ -92,12 +93,12 @@ Kontextspezifische Fachbegriffe
       einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
       pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
       festgelegt, die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
-      wird die Gewichtung des Attributes festgelegt - manche Attribute sind
+      wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
       für die Ähnlichkeit zweier Songs entscheidender als andere.
 
     Distanz
 
-      Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute. 
+      Eine Distanz beschreibt die Ähnlichkeit zweier Songs.
       Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
       minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
       Unähnlichkeit (oder maximale *Entfernung*).
@@ -117,7 +118,7 @@ Kontextspezifische Fachbegriffe
       errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
       einem Wert verschmolzen.
 
-      Fehlen Attribute in einen der beiden Songs wird für diese jeweils eine
+      Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
       Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
       eingerechnet.
 
@@ -143,7 +144,7 @@ Kontextspezifische Fachbegriffe
       Ein *Provider* normalisiert einen Wert anhand verschiedener
       Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
       die in *libmunin* geladen werden. Jeder *Provider* ist dabei durch die
-      Mask einem Attribut zugeordnet.
+      Maske einem Attribut zugeordnet.
 
       Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
       vergleichbare Werte zu liefern - da die Distanzfunktion sehr
@@ -155,23 +156,8 @@ Kontextspezifische Fachbegriffe
       miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
       wahrscheinlich, dass auch die andere Menge daraufhin angehört wird.
 
-      Sie werden aus dem Verhalten des Nutzers abgeleitet.
+      Sie werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied
+      zwischengespeichert, das der Nutzer anhört.
 
-      Die Güte der Regel wird durch ein *Rating* beschrieben:
-
-      .. math::
-
-          Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)
-
-      *wobei:* |hfill| *Aussagekraft:*
-             
-          * :math:`Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}` |hfill| Güte der Regel
-          * :math:`ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}` |hfill| Gleichmäßigkeit der Regel
-          * :math:`support(X) = H_n(X)` |hfill|  Absolute Häufigkeit von X in allen Transaktionen
-
-      Mehr dazu in der Bachelorarbeit.    
-
-      TODO: am besten gleich ganz in die BA verschieben?
-
-      *Vergleiche zudem:* :cite:`datamining-concepts-and-techniques` Datamining
-      Concepts and Techniques.
+      Die Güte jeder Regel wird durch ein *Rating* beschrieben, welche die
+      generelle Anwendbarkeit beschreibt.

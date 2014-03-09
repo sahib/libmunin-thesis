@@ -203,6 +203,7 @@
         }%
     }%
 }%
+\setlength{\footskip}{25pt}
 
 % Remove the header from pages with chapters on them:
 \fancypagestyle{plain}{%
@@ -402,15 +403,15 @@
 \renewcommand{\hyperref}[2][\newdef]{%
     % Oh, god. I fucking hate that.
     \ifthenelse{\pageref{#1}>\pageref{rst/appendix:end-of-doc}}{%
-        \SavedHyperref[{#1}]{#2}
+        \SavedHyperref[{#1}]{#2}\!\!
     }{%
         \ifthenelse{\pageref{#1}=\pageref{rst/appendix:end-of-doc}}{%
-            \SavedHyperref[{#1}]{#2}
+            \SavedHyperref[{#1}]{#2}\!\!
         }{%
             \ifthenelse{\pageref{#1}=\thepage}{%
                 \SavedHyperref[{#1}]{#2}
             }{%
-                \SavedHyperref[{#1}]{#2 (S.\pageref{#1})}
+                \SavedHyperref[{#1}]{#2 (S.\pageref{#1})\!\!}
             }%
         }%
     }%
@@ -495,4 +496,5 @@
   \setlength{\itemsep}{0pt plus 0.5ex}
 }
 
+% Hack
 \addto\captionsngerman{\renewcommand{\bibname}{\textcolor{gray75}{D\hsp|\hsp}Literaturverzeichniss}}

@@ -32,7 +32,7 @@ aus einer Pseudodatenbank und erstellt für den ersten Song zwei Empfehlungen:
                  'genre': genre
              })] = idx
 
-    for munin_song in session.recommend_from_seed(session[0], 2):
+    for munin_song in session.recommend_from_seed(0, 2):
         print(MY_DATABASE[munin_song.uid])
 
 
@@ -50,8 +50,8 @@ Kurze Erläuterung des Beispiels
 -------------------------------
 
 * **Zeile 1:** Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
-  Da die Konfiguration einer solchen (Auswahl von Provider, Distanzfunktionen
-  und Weighting) mitunter recht anstrengend werden kann, greifen wir auf eine
+  Da die Konfiguration (Auswahl von Provider, Distanzfunktionen und Weighting)
+  einer solchen  recht anstrengend werden kann, greifen wir auf eine
   Session mit vorgefertigter Maske zurück --- die sogenannte ``EasySession``.
   
 * **Zeile 3:** Hier erstellen wir uns eine Pseudodatenbank (als Python--Liste)
@@ -61,43 +61,44 @@ Kurze Erläuterung des Beispiels
   dient uns jetzt als *Sitzung* --- alle relevanten Methoden von *libmunin*
   können auf der *Session* aufgerufen werden.
 
-* **Zeile 11:** Bein initialen Importieren der Datenbank werden alle Songs über
+* **Zeile 11:** Beim initialen Importieren der Datenbank werden alle Songs über
   die ``add``--Operation hinzugefügt. Da ``add`` noch keine Verbindungen
   zwischen den einzelnen Songs herstellt, stellen wir mit dieser Zeile sicher,
-  das nach dem Importieren ein ``rebuild`` ausgeführt wird (implizit in
-  *,,Zeile"* 19, nach dem verlassen des vorigen *,,Blocks"*).
+  dass nach dem Importieren ein ``rebuild`` ausgeführt wird (implizit in
+  **Zeile 19**, nach dem Verlassen des vorherigen *,,Blocks"*).
 
 * **Zeile 13:** Wir iterieren (**Zeile 12**) über alle Songs in unserer
   Pseudodatenbank und fügen diese der *Session* hinzu (über die ``add``
-  Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben in denen
-  bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben sind
-  --- erstellt man eine eigene Session, kann man diese nach Belieben
+  Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben in der 
+  bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben sind.
+  Erstellt man eine eigene Session, kann man diese nach Belieben
   konfigurieren.
   
-  Ein Problem, dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und der
-  Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
+  Ein Problem, dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und
+  der Nutzer halten zwei verschiedene Datenbanken im Speicher. Der Benutzer
   verwaltet die Originaldaten mit denen er arbeitet, während *libmunin* nur
-  normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer wissen
-  welche Empfehlung zu welchen Song in seinen Originaldaten gehört?
+  normalisierte Daten speichert. Das Problem dabei: Wie soll der Benutzer
+  wissen, welche Empfehlung zu welchem Song in seinen Originaldaten gehört?
 
-  Dazu ist eine Abbildung erforderlich, welche die *ID,* die ``add()`` zurückgibt,
-  auf den Index innerhalb von *MY_DATABASE* abbildet. Diese Abbildung ist
-  ``session.mapping``. Sie erlaubt eine bidirektionales Auflösen der *ID* von
-  *libmunin* zu dem Index in *MY_DATABASE*, und umgekehrt.
+  Dazu ist eine Abbildung erforderlich, welche die *ID,* die ``add()``
+  zurückgibt, auf den Index innerhalb von *MY_DATABASE* abbildet. Diese
+  Abbildung ist im Beispiel ``session.mapping``. Sie erlaubt eine
+  bidirektionales Auflösen der *ID* von *libmunin* zum Index in
+  *MY_DATABASE*, und umgekehrt.
 
   *Anmerkung:* Zugegeben, dieses Beispiel ist hier etwas konstruiert. Später hat man meist
   keinen Index in einer Pseudodatenbank, sondern beispielsweise einen Dateipfad
   als Identifier.
   
-* **Zeile 21:** In dieser Zeile geben wir die ersten Empfehlung aus. Wir lassen
+* **Zeile 21:** In dieser Zeile geben wir die ersten Empfehlungen aus. Wir lassen
   uns von der ``EasySession`` über die Methode ``recommend_from_seed`` zwei
   Empfehlungen zum ersten Song, der über ``add`` hinzugefügt wurde, geben. Die
-  Empfehlung selbst wird als ``Song`` Objekt ausgegeben --- dieses hat unter
+  Empfehlung selbst wird als ``Song`` Objekt ausgegeben. Dieses hat unter
   anderen eine *ID* gespeichert, mit der wir die ursprünglichen Daten finden
   können.
 
-Dieses und weitere Beispiele finden sich auf der API-Dokumentation im Web
-:cite:`5LX`.
+Dieses und weitere Beispiele finden sich auf der API-Dokumentation :cite:`5LX`
+im Web.
 
 
 Kurze Erläuterung der Ausgabe
@@ -108,10 +109,10 @@ das Genre effektiv vergleichen lässt und wir uns von dem ersten Song
 *,,Trugbild"* zwei Empfehlungen geben ließen, werden die zwei Songs mit dem
 ähnlichsten Genre ausgegeben.
 
-In Abbildung :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* (0) 
-ist direkt mit den Songs 1 (*Vogelfrey*) und 3 (*Debauchery*) benachbart. 
+In Abb. :num:`fig-minigraph` ist dies nochmal zu sehen: Der *Seedsong* *(ID 0)*
+ist direkt mit den Songs *1* (*Vogelfrey*) und *3* (*Debauchery*) benachbart. 
 Da die beiden Genres *folk rock* und *death metal* keine gemeinsame Schnittmenge
-haben, ist dieser auch kein Nachbar --- Verbindungen zwischen zwei Knoten, werden 
+haben, ist dieser auch kein Nachbar. Verbindungen zwischen zwei Knoten, werden 
 nur dann hergestellt, wenn die Distanz :math:`< 1.0` ist.
 
 Ein komplizierteres Beispiel, das die meisten Aspekte von *libmunin* abdeckt,
@@ -139,13 +140,13 @@ Hierbei eine vernünftige Herangehensweise zu finden, hat letztlich ca. 1
 :math:`^1/_2` Monate beansprucht.
 
 Die zwischenzeitlich aufgekommene Idee, Audiodaten mittels Audiofingerprints wie
-*Chromaprint* zu vergleichen wurde wieder aufgegeben --- damit ließen sich
-wirklich nur fast gleiche Stücke ermitteln. Selbst *Live* und *Studio* Versionen
-ließen sich manchmal nicht differenzieren.
+*Chromaprint* zu vergleichen wurde wieder aufgegeben. Damit ließen sich
+wirklich nur fast gleiche Stücke ermitteln. Selbst *Live-* und
+*Studio--Versionen* der Lieder ließen sich manchmal nicht differenzieren.
 
 Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst, das
-dazu dienen sollte Ideen und Geschehnisse festzuhalten --- allerdings weniger als
-Information für Dritte, mehr als persönliche Erinnerung.
+dazu dienen sollte Ideen und Geschehnisse festzuhalten, allerdings weniger als
+Information für Dritte, mehr als persönliches Notizheft.
 
 Nach gut drei Monaten wurde am 15. Januar 2014 der erste Prototyp fertiggestellt. 
 Die letzten 3 :math:`^1/_2` Wochen dieser Zeit wurden für die
@@ -157,15 +158,15 @@ Liste verfügbarer Empfehlungs--Strategien
 =========================================
 
 * **Basierend auf einem Seedsong:** Basierend auf einem vom Endnutzer
-  ausgewählten Song wird ein Iterator zurückgegeben der gemäß :ref:`recom-out`
-  eine Breitensuche von diesem Seedsong aus ausführt. Optional wird  der
-  *Iterator* gemäß :ref:`recom-filter` gefiltert.
+  ausgewählten Song wird ein Iterator zurückgegeben, der gemäß Kapitel
+  :ref:`recom-out` eine Breitensuche von diesem Seedsong aus ausführt. Optional
+  wird  der *Iterator* gemäß Kapitel :ref:`recom-filter` gefiltert.
 
 * **Basierend auf einer Heuristik:** *libmunin* kann auch automatisch einen oder
-  mehrere geeignete Seedsongs auswählen. Dabei wird der Reihe nach das folgende
+  mehrere geeignete Seedsongs auswählen. Dabei wird der Reihe nach das Folgende
   probiert:
   
-  1. Wähle die Regel mit der besten Bewertung aus und nehme alle darin, erwähnten
+  1. Wähle die Regel mit der besten Bewertung aus und nehme alle darin erwähnten
      Songs als Seedsongs an.
   2. Wähle den Song mit der höchsten Abspielanzahl als Seedsong.
   3. Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
@@ -179,7 +180,8 @@ Liste verfügbarer Empfehlungs--Strategien
   aufweist.
   
   Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
-  Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
+  Optional wird  der entstehende Iterator gemäß Kapitel :ref:`recom-filter`
+  gefiltert.
 
 .. _provider-list:
 
@@ -187,43 +189,43 @@ Liste der Provider
 ==================
 
 Insgesamt wurden 13 unterschiedliche Provider und 9 Distanzfunktionen
-implementiert  --- davon variieren einige allerdings nur in Details. 
+implementiert. Davon variieren einige allerdings nur in Details. 
 
-Die genaue Funktionsweise der Provider wird in der Bachelorarbeitet betrachtet.
-Im folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
+Die genaue Funktionsweise der Provider wird in der Bachelorarbeit betrachtet.
+Im Folgenden wird nur eine Auflistung verfügbarer Provider gegeben und welche
 Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 
-* ``Date``: Wandelt und normalisiert ein Datum, dass als String übergeben wird zu
+* ``Date``: Wandelt und normalisiert ein Datum, das als String übergeben wird zu
   einer Jahreszahl (*1975* beispielsweise). Dabei werden die häufigsten
   Datumformatierungen automatisch erkannt. Dies ist nötig, da je nach Region ganz
   unterschiedliche Datumsangaben in den Audiofiles getaggt sind. 
 
 * ``Moodbar``: Berechnet mit dem ``moodbar`` (vgl. :cite:`wood2005techniques`)
-  Programm aus einen beliebigen Audio File einen Vektor mit 1000 RGB-Farbwerten
-  (siehe :num:`fig-moodbar-suidakra`). Jeder dieser Farbwerte repräsentiert den
-  Anteil niedriger Frequenzen *(rot),* mittlerer *(grün)* und hoher Frequenzen
-  *(blau)* in einem Tausendstel des Audiostücks. 
+  Programm aus einem beliebigen Audio File einen Vektor mit 1000 RGB--Farbwerten
+  (siehe Abb. :num:`fig-moodbar-suidakra`). Jeder dieser Farbwerte repräsentiert
+  den Anteil niedriger *(rot),* mittlerer *(grün)* und hoher
+  Frequenzen *(blau)* in einem Tausendstel der Audiodaten.
   
-  Obwohl man aus dem Namen dieses Verfahren schließen könnte, dass hier die
+  Obwohl man aus dem Namen dieses Verfahrens schließen könnte, dass hier die
   *Stimmung* im Lied angedeutet wird, kann man aus diesen Informationen
   lediglich herauslesen, wie ,,energiegeladen" die Stimmung in einem Lied zu
-  einem bestimmten Zeitpunkt ist --- mit etwas Glück kann man auch Instrumente
-  erkennen --- so ist die Kombination von E--Gitarre und Drums oft ein helles
+  einem bestimmten Zeitpunkt ist, mit etwas Glück kann man auch Instrumente
+  erkennen, so ist die Kombination von E--Gitarre und Drums oft ein helles
   Türkis.
   
-  Aus diesem RGB-Vektoren werden die prägnantesten Merkmale abgeleitet --- die
+  Aus diesem RGB--Vektoren werden die prägnantesten Merkmale abgeleitet: die
   dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
   
   Dieser Provider kommt in drei verschiedenen Ausführungen daher, die sich in dem
   Typ ihrer Eingabe unterscheiden:
   
-  1. ``Moodbar``: Nimmt eine Liste von 1000 RGB-Werten.
-  2. ``MoodbarFile``: Nimmt ein Dateipfad zu einem von der ``moodbar``
-     erstellten Datei entgegen die einen Vektor aus 1000 RGB-Werten binär
+  1. ``Moodbar``: Nimmt eine Liste von 1000 RGB--Werten.
+  2. ``MoodbarFile``: Nimmt einen Dateipfad zu einer von der ``moodbar``
+     erstellten Datei entgegen die einen Vektor aus 1000 RGB--Werten binär
      beinhaltet.
-  3. ``MoodbarAudioFile``: Nimmt ein Dateipfad zu einer beliebigen Audiodatei
+  3. ``MoodbarAudioFile``: Nimmt einen Dateipfad zu einer beliebigen Audiodatei
      entgegen und führt das ``moodbar``-Utility darauf aus, falls noch keine
-     weiter Datei mit demselben Dateipfad plus der zusätzlichen Endung ``.mood``
+     weitere Datei mit demselben Dateipfad plus der zusätzlichen Endung ``.mood``
      vorhanden ist.
   
   .. _fig-moodbar-suidakra:
@@ -233,7 +235,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
       :width: 100%
       :align: center
   
-      Anzeige des RGB-Vektors samt Histogram und Verlauf für das Lied ,,Over
+      Anzeige des RGB-Vektors samt Histogramm und Verlauf für das Lied ,,Over
       Nine Waves" der Band ,,Suidakra". Der grüne Teil am Anfang ist ein
       Dudelsack--Intro. Bei 30% setzen relativ plötzlich harte E--Gitarren und
       Drums ein, die in verschiedenen Variationen durch das ganze Lied gehen. 
@@ -242,8 +244,9 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 * ``Wordlist``: Bricht einen String in eine Liste von Wörtern auf.
 
 * ``BPM``: Berechnet die ,,Beats--Per--Minute" eines Lieds, also einem Maß für
-  die Schnelligkeit  --- dies funktioniert nicht nur für stark beatlastige
-  Musikrichtungen wie *Techno,* sondern auch für normale Musik. 
+  die Schnelligkeit. Dies funktioniert nicht nur für stark *beatlastige*
+  Musikrichtungen wie *Techno,* sondern auch für *normale* Musik mit echten
+  Instrumenten. 
 
   Die Funktionalität wird momentan, eher primitiv, durch den Aufruf eines externen
   Tools, namens ``bpm-tools`` realisiert :cite:`4YZ`. 
@@ -254,21 +257,21 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 
   * ``Normalize``: Normalisiert einen String mittels *NKFC Unicode
     Normalization*.  Bei Unicode gibt es oft mehrere Arten einen *Glyph* zu
-    schreiben. So kann ein ,,ä" als einzelner Glyph (*Codepoint U+e4*) oder als
-    *Composite Glyph* geschrieben werden: ,,\" + a" (*U+30B + U+61*). Dieser
+    schreiben. So kann ein *ä* als einzelner Glyph (*Codepoint U+e4*) oder als
+    *Composite Glyph* geschrieben werden: *\"+a* (*U+30B + U+61*). Dieser
     Provider macht daraus stets den ersten Fall.
   
-  * ``ArtistNormalize``: Entfernt zusätzlich *Unrat* der bei Künstlernamen
-    vorhanden ist. Beispielsweise wird aus *,,The Beatles"* der String
-    *,,beatles"*
+  * ``ArtistNormalize``: Entfernt zusätzlich *Unrat* (welcher beim Vergleichen
+    stört) der oft bei *Artist--Tags* vorhanden ist. Beispielsweise wird aus
+    *,,The Beatles"* der String *,,beatles"*
   
   * ``AlbumNormalize``: Entfernt analog zu ``ArtistNormalize`` *Unrat* aus
-    Album--Namen wie *(live 2012)* 
+    Album--Namen wie *,,(live 2012)"* .
   
   * ``TitleNormalize``: Momentan ein Synonym für ``AlbumNormalize``.
 
 * ``Composite``: Erlaubt das Verketten von Providern. Der erste Eingabewert wird
-  dem ersten Provider in der Kette gegeben und die Ausgabe, ähnliche wie bei
+  dem ersten Provider in der Kette gegeben und die Ausgabe, ähnlich wie bei
   einer Unix--Pipe, wird an den nächsten Provider in der Kette als Eingabe
   weitergegeben.
 
@@ -277,7 +280,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   
   .. digraph:: foo
   
-     size=4.5;
+     size=4;
   
      node [shape=record];
   
@@ -293,25 +296,21 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 * ``Stem``: Bringt mithilfe des Porter--Stemmer--Algorithmus (:cite:`PRT`) 
   einzelne Wörter oder eine Liste von Wörtern auf ihren Wortstamm zurück. Aus
   den Wörtern *Fisher*, *Fish*, *fishing* wird beispielsweise stets *fish*. Dies
-  ist natürlich abhängig von der Eingabesprache --- momentan wird aber stets
+  ist natürlich abhängig von der Eingabesprache. Momentan wird aber stets
   Englisch angenommen.
 
 * ``GenreTree``: Der wohl komplizierteste Provider.
-
-  Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und normalisiert. 
-  Beispielsweise wird die Genrebeschreibung *Rock, Reggae / Alternative Rock*
-  mittels einer Regular Expression in die Unterbestandteile aufgebrochen:
-  
-  * *Rock*
-  * *Reggae*
-  * *Alternative Rock*
+  Ein beliebiges Eingabegenre wird in einzelne Untergenres aufgeteilt und
+  normalisiert.  Beispielsweise wird die Genrebeschreibung *Rock, Reggae /
+  Alternative Rock* mittels eines regulären Ausdrucks in die Unterbestandteile
+  aufgebrochen: *Rock*, *Reggae* und *Alternative Rock*.
   
   Danach wird jedes so entstandene Untergenre in einzelne Wörter aufgebrochen und
   in einem *Baum* bekannter Genres (momentan 1876 einzelne Genres) eingepasst:
   
   .. digraph:: foo
   
-      size=4; 
+      size=3; 
       node [shape=record];
   
       "music (#0)"  -> "rock (#771)"
@@ -329,8 +328,8 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
       [[14], [771, 3], [753], [771]]
   
   Das Resultat ist also eine Liste mit einzelnen *Pfaden* durch den Genrebaum.
-  Jeder Pfad ist dabei eine Liste von mindestens einen Indexwert.
-  Da der Root--Knoten (*music*) immer den Index *0* hat, wird dieser weggelassen.
+  Jeder Pfad ist dabei eine Liste von mindestens einem Indexwert.
+  Da der Wurzelknoten (*music*) immer den Index *0* hat, wird dieser weggelassen.
   Löst man diese wieder auf, so erhält man die ursprünglichen Genres:
   
   .. code-block:: python
@@ -342,15 +341,14 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   zurückgegeben.
 
 * ``Keywords``: Extrahiert aus einem Text als Eingabe alle *relevanten*
-  Stichwörter.  Ein Beispiel dieser *Keywords* wird in
+  Stichwörter.  Ein Beispiel dieser *Keywords* wird in Tabelle
   :num:`fig-yellow-keywords` gezeigt.  Zudem wird die Sprache des Eingabetextes
   erkannt und mit abgespeichert.
 
-  .. _fig-yellow-keywords:
-  
   .. figtable::
+      :label: fig-yellow-keywords
       :caption: Die extrahierten Keywords aus ,,Yellow Submarine”, samt deren
-                Rating.
+                Rating. Das Rating soll hier nicht weiter erklärt werden.
       :alt: Extrahierte Keywords aus ,,Yellow Submarine”
       :spec: l l
   
@@ -367,14 +365,14 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
          ... ...
       ====== ================================= 
 
-* ``PlyrLyrics``: Besorgt mittels *libglyr* Liedtexte aus dem Internet. Bereits
-  gesuchte Liedtexte werden dabei zwischengespeichert. Dieser Provider eignet
-  sich besonders im Zusammenhang mit dem *Keywords* zusammen als *Composite*
-  Provider.
+* ``PlyrLyrics``: Beschafft mittels *libglyr* Liedtexte aus dem Internet.
+  Bereits gesuchte Liedtexte werden dabei zwischengespeichert. Dieser Provider
+  eignet sich besonders im Zusammenhang mit dem *Keywords*--Provider zusammen
+  als *Composite*--Provider.
 
-* ``DiscogsGenre``: Besorgt von dem Online--Musikmarktplatz *Discogs* Genre
+* ``DiscogsGenre``: Beschafft von dem Online--Musikmarktplatz *Discogs* Genre
   Informationen. Dies ist nötig, da Musiksammlungen für gewöhnlich mittels einer
-  Online--Musikdatenbank getaggt werden --- die meisten bieten allerdings keine
+  Online--Musikdatenbank getaggt werden --- die meisten bieten aber leider keine
   Genreinformationen. 
 
 .. _distance-function-list:
@@ -398,7 +396,7 @@ gegeben.
 
 
   *Annahme:* Ähnliche *Moodbars* implizieren auch ähnliche Lieder. Da man oft
-  gewissen Instrumente anhand deren Farbe erkennen kann werden unter anderen die
+  gewisse Instrumente anhand deren Farbe erkennen kann werden unter anderen die
   dominanten Farben und der Stilleanteil verglichen.
 
 * ``Rating``: Vergleicht ein vom Benutzer vergebenes Rating. Dabei wird zwischen
@@ -420,7 +418,7 @@ gegeben.
   *Annahme:* Ähnlich schnelle Lieder werden oft zusammen gespielt.
 
 * ``Wordlist``: Vergleicht eine Menge von Wörtern auf Identität. Sind die Mengen
-  identisch so kommt eine Distanz von :math:`0.0` dabei heraus. 
+  identisch, so kommt eine Distanz von :math:`0` dabei heraus. 
 
 
   *Annahme:* Diese Distanzfunktion ist beispielsweise beim Vergleich von Titeln
@@ -430,7 +428,7 @@ gegeben.
 
 * ``Levenshtein``: Wie ``Wordlist``, die einzelnen Wörter werden aber mittels
   der Levenshtein--Distanzfunktion :cite:`brill2000improved` verglichen.  So
-  spielen kleine Abweichung, wie der Vergleich von ``color`` und ``colour``,
+  spielen kleine Abweichungen, wie der Vergleich von ``color`` und ``colour``,
   keine große Rolle mehr. Der große Nachteil ist der erhöhte Rechenaufwand.
   
 
@@ -439,12 +437,12 @@ gegeben.
   ``ZZ-Top`` und ``zz Top``.
 
 * ``Keywords``: Nimmt die Ergebnisse des ``Keyword``--Providers entgegen und
-  bezieht die Sprache beider Keywordmengen sowie die länge der einzelnen
+  bezieht die Sprache beider Keywordmengen sowie die Länge der einzelnen
   Keywords in die Distanz mit ein.
   
 
-  *Annahme:* Der Nutzer möchte Lieder mit ähnliche Themen zu einem Lied
-  vorgeschlagen bekommen --- oder wenigstens in derselben Sprache.
+  *Annahme:* Der Nutzer möchte Lieder mit ähnlichen Themen zu einem Lied
+  vorgeschlagen bekommen, oder wenigstens in derselben Sprache.
 
 * ``GenreTree``, ``GenreTreeAvg``: Vergleicht die vom ``GenreTree``--Provider
   erzeugten Genrepfade.
@@ -453,32 +451,23 @@ gegeben.
     nimmt die *geringste* Distanz von allen. 
   
     Diese Distanzfunktion sollte gewählt werden, wenn die Genre--Tags eher kurz
-    gefasst sind --- beispielsweise wenn nur *Rock* darin steht.
+    gefasst sind. Beispielsweise wenn nur *Rock* darin steht.
 
   - ``GenreTreeAvg``: Vergleicht alle Pfade in beiden Eingabemengen miteinander
     und nimmt die *durchschnittliche* Distanz von allen. 
     
     Diese Distanzfunktion sollte gewählt werden, wenn ausführliche Genre--Tags
-    vorhanden --- wie sie beispielsweise vom ``DiscogsGenre``--Provider geliefert
-    werden --- sind.
+    vorhanden sind --- wie sie beispielsweise vom ``DiscogsGenre``--Provider
+    geliefert werden.
     
-
-  *Annahme:* Ähnliche Genres deuten auf ähnliche Musikstile hin.
+  *Annahme:* Viele Hörer bleiben oft innerhalb eines Genres.
 
 
 Modul-- und Paketübersicht
 ==========================
 
-In der Programmiersprache *Python* entspricht jede einzelne ``.py`` Datei einem
-*Modul*. Die Auflistung unter :num:`fig-module-tree` soll eine Übersicht darüber
-geben, welche Funktionen in welchem Modul implementiert worden.
-
-*Anmerkung:* ``__init__.py`` ist eine spezielle Datei, die beim Laden
-eines Verzeichnisses durch Python ausgeführt wird.
-
-.. _fig-module-tree:
-
 .. figtable::
+    :label: fig-module-tree
     :caption: Verzeichnisbaum mit den einzelnen Modulen von libmunin's
               Implementierung
     :alt: Verzeichnisbaum der Implementierung
@@ -558,6 +547,14 @@ eines Verzeichnisses durch Python ausgeführt wird.
     |                   |  testing.py      |                |       | Fixtures und Helper für unittests           |
     +-------------------+------------------+----------------+-------+---------------------------------------------+
 
+
+In der Programmiersprache *Python* entspricht jede einzelne ``.py`` Datei einem
+*Modul*. Die Auflistung unter Tabelle :num:`fig-module-tree` soll eine Übersicht
+darüber geben, welche Funktionen in welchem Modul implementiert worden.
+
+*Anmerkung:* ``__init__.py`` ist eine spezielle Datei, die beim Laden
+eines Verzeichnisses durch Python ausgeführt wird.
+
 Trivia
 ======
 
@@ -568,17 +565,18 @@ Als Programmiersprache wurde *Python*, in Version :math:`3.2`, aus folgenden
 Gründen ausgewählt:
 
 * Exzellenter Support für *Rapid Prototyping* --- eine wichtige Eigenschaft bei
-  nur knapp 3 Monaten Implementierungszeit.
+  nur knapp drei Monaten Implementierungszeit.
 * Große Zahl an nützlichen Bibliotheken, besonders für den wissenschaftlichen
   Einsatz.
 * Bei Performanceproblemen ist eine Auslagerung von Code nach
   :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` mittels
   *Cython* sehr einfach möglich.
-* Der Autor hat gute Kenntnisse in Python.
+* Der Autor hat gute Erfahrungen mit Python in mehreren Projekten gesammelt.
 
 Alle Quellen die während dieses Projektes entstanden sind, finden sich auf der
-sozialen Code--Hosting Plattform *GitHub* :cite:`Y41` --- zur Versionierung wird
-entsprechend das *Distributed Version Control System* ``git`` genutzt.
+sozialen Code--Hosting Plattform *GitHub* :cite:`Y41`. Zur Versionierung der
+Quelltexte wird entsprechend das *Distributed Version Control System* ``git``
+genutzt.
 
 Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
 besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
@@ -587,15 +585,12 @@ sich zumindest die Seite für spätere Projekte merken.
 Die dazugehörige Dokumentation wird bei jedem *Commit* [#f2]_ automatisch aus
 den Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der für
 Python--Projekte populären, Dokumentations--Hosting--Plattform *ReadTheDocs*
-gebaut und dort verfügbar gemacht :cite:`5LX`.
+gebaut und dort verfügbar gemacht. :cite:`5LX`
 
 Zudem werden pro *Commit* Unit--Tests auf der Continious--Integration Plattform
 *TravisCI* :cite:`JIU` für verschiedene Python--Versionen durchgeführt. Dies hat
 den Vorteil, dass fehlerhafte Versionen aufgedeckt werden, selbst wenn man
 vergessen hat, die Unit-Tests lokal durchzuführen.
-
-Schlägt der *Build* fehl, so färben sich kleine Buttons in den oben genannten
-Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge`)
 
 .. _fig-travis-badge:
 
@@ -605,6 +600,9 @@ Diensten rot und man wird per Mail benachrichtigt. (Siehe :num:`fig-travis-badge
 
     Screenshot der Statusbuttons auf der Github--Seite.
 
+Schlägt der *Build* fehl, so färben sich kleine Buttons in den oben genannten
+Diensten rot und man wird per Mail benachrichtigt (Siehe Abb.
+:num:`fig-travis-badge`).
 Versionen die als stabil eingestuft werden, werden auf *PyPi (Python Package Index)*
 veröffentlicht :cite:`O6Q`, wo sie mithilfe des folgenden Befehles samt
 Python--Abhängigkeiten installiert werden können (Setzt Python :math:`\ge 3.2`
@@ -615,18 +613,63 @@ vorraus):
     $ sudo pip install libmunin
 
 Auf lokaler Seite wird jede Änderungen versioniert, um die Fehlersuche zu
-vereinfachen --- im Notfall kann man stets auf funktionierende Versionen
+vereinfachen. Im Notfall kann man stets auf funktionierende Versionen
 zurückgehen. 
 
-Der Quelltext selber wird in *gVim* geschrieben --- dass sich der Python--Quelltext
-dabei an die gängigen Konventionen hält wird durch die Zusatzprogramme *PEP8*
-und *flake8* überprüft.
+Der Quelltext selber wird in *gVim* geschrieben. Um sich an die gängigen
+Python--Konventionen zu halten, wird bei jedem Speichern der Quelltext mit den
+Zusatzprogrammen *PEP8* und *flake8* statisch überprüft.
 
 Auch dieses Dokument wurde mit dem :latex_sign:`sigh`-Backend einer
 modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
 *reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML--
 Variante :cite:`8MD` erstellt wird --- letztere ist sogar für mobile Endgeräte
 ausgelegt.  
+
+Abhängigkeiten von *libmunin*
+-----------------------------
+
+
+.. figtable::
+    :label: table-deps
+    :caption:  Übersicht über die Abhängigkeiten von libmunin. Es wird
+               angezeigt ob das Paket auf PyPI vorhanden ist und ob es
+               rein optionale Funktionalität bereitstellt.
+    :alt: Übersicht über die Abhängigkeiten von libmunin.
+    :spec: l l l l l
+
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | *Abhängigkeit*        | *PyPI?*            | *Optional?*        | *Referenz*                 | *Aufgabe*                     |
+    +=======================+====================+====================+============================+===============================+
+    | moodbar               |                    | :math:`\checkmark` | :cite:`wood2005techniques` | Moodbar--Berechnung.          |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | bpm-utils             |                    | :math:`\checkmark` | :cite:`4YZ`                | BPM--Berechnung.              |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | plyr                  | :math:`\checkmark` | :math:`\checkmark` | :cite:`9XU`                | Liedtextbeschaffung.          |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | python--igraph        | :math:`\checkmark` | :math:`\checkmark` | :cite:`IGR`                | Graphenplotting.              |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | pymining              | :math:`\checkmark` |                    |                            | Datamining--Hilfsfunktionen.  |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | bidict                | :math:`\checkmark` |                    |                            | Bidirektionale Hashtabelle.   |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | guess_language        | :math:`\checkmark` |                    |                            | Spracherkennung.              |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | pyenchant             | :math:`\checkmark` | :math:`\checkmark` |                            | Verbesserte Spracherkennung.  |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | magicdate             | :math:`\checkmark` |                    |                            | Datumsformaterkennung.        |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | pyxDamerauLevenshtein | :math:`\checkmark` |                    |                            | Levenshtein--Distanzfunktion. |
+    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+
+In Tabelle :num:`table-deps` wird eine Übersicht über die *direkten*
+Abhängigkeiten von *libmunin* gegeben.  Abhängigkeiten von Drittanbietern sind nicht
+aufgelistet. Auf die Abhängigkeiten ohne Referenz wird noch in der
+Bachelorarbeit genauer eingegangen.
+Die auf *PyPI* gelisteten Pakete werden automatisch mit dem ``libmunin``--Paket
+installiert. Die anderen Pakete müssen über das Paketsystem der verwendeten
+Distribution, oder aus den Quellen installiert werden.
+
 
 Unit--Tests
 -----------
@@ -647,7 +690,7 @@ typisch, am Ende von jeder ``.py``-Datei befinden:
 
         
 Auf einer detaillierten Erklärung der im einzelnen getesteten Funktionalitäten
-wird verzichtet --- diese würden den Rahmen der Projektarbeit ohne erkenntlichen
+wird verzichtet. Diese würden den Rahmen der Projektarbeit ohne erkenntlichen
 Mehrwert sprengen.
 
 Lines of Code (*LoC*)
@@ -668,23 +711,23 @@ mächtigen Markup--Sprache) die das Gerüst der Online--Dokumentation bilden:
     2231 insgesamt
 
 Die Online--Dokumentation wird aus den Kommentaren im Quelltext
-extrahiert --- das entspricht dem vom *Donald Knuth* vorgeschlagenem
+extrahiert. Das entspricht dem vom *Donald Knuth* vorgeschlagenem
 Ansatz des *Literate Programming*.
 
 Sonstige Statistiken
 --------------------
 
-Zudem lassen sich einige Statistiken präsentieren, die automatisch aus den
-``git log`` entstanden sind:
+Zudem lassen sich einige Statistiken präsentieren, die aus dem ``git log``
+generiert wurden:
 
 **GitHub Visualisierungen:** *GitHub* stellt einige optisch ansprechende und
 interaktive Statistiken bereit die beispielsweise viel über den eigenen
-Arbeitszyklus verraten: :cite:`IBL`
+Arbeitszyklus verraten: :cite:`IBL`.
 
 ``gitstats`` **Visualisierungen:** Das kleine Programm ``gitstats`` baut aus dem
-``git log`` eine HTML-Seite mit einigen interessanten Statistiken --- wie
+``git log`` eine HTML-Seite mit einigen interessanten Statistiken, wie
 beispielsweise der absoluten Anzahl von geschriebenen (und wieder gelöschten)
-Zeilen: :cite:`8MD`
+Zeilen: :cite:`8MD`.
 
 **Commit--Graph Visualisierungsvideo**: ``gource`` ist ein Programm,
 das in einem optisch ansprechenden Video zeigt wie sich das ``git``-Repository

@@ -7,7 +7,7 @@
 ``coldstart.py``
 ================
 
-Führt die in :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
+Führt die in Abb. :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
 aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
 Liedtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
 Beats-per--Minute--Analyse wird lokalisiert. 
@@ -358,7 +358,7 @@ Bilder der Demoanwendung
        :width: 100%
        :align: center
 
-       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Die Datenbank--Ansicht: Anzeige aller verfügbaren Songs mit folgenden
        Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount.
 
 .. only:: latex
@@ -370,7 +370,7 @@ Bilder der Demoanwendung
        :width: 91%
        :align: center
 
-       Die Datenbank--Ansicht --- Anzeige aller verfügbaren Songs mit folgenden
+       Die Datenbank--Ansicht: Anzeige aller verfügbaren Songs mit folgenden
        Tags: Artist, Album, Title, Datum, Genre sowie dem Playcount. [h!]
 
 .. -------------------------------
@@ -433,7 +433,8 @@ Bilder der Demoanwendung
 
        Der Graph der hinter den Empfehlungen steckt, wird hier in 3500x3500px
        geplottet. Eine Interaktion ist nicht möglich. Über dem Knoten steht die
-       ID des Songs, darunter der Liedtitel. Sonst wie :num:`fig-graph-example`.
+       ID des Songs, darunter der Liedtitel. Sonst wie Abb.
+       :num:`fig-graph-example`.
 
 .. only:: latex
 
@@ -446,7 +447,8 @@ Bilder der Demoanwendung
 
        Der Graph der hinter den Empfehlungen steckt, wird hier in 3500x3500px
        geplottet. Eine Interaktion ist nicht möglich. Über dem Knoten steht die
-       ID des Songs, darunter der Liedtitel. Sonst wie :num:`fig-graph-example`.
+       ID des Songs, darunter der Liedtitel. Sonst wie Abb.
+       :num:`fig-graph-example`.
 
 .. -------------------------------
 
@@ -481,8 +483,8 @@ Bilder der Demoanwendung
        :width: 100%
        :align: center
 
-       Die ,,Examine”--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
-       Zudem wird die ,,moodbar” --- falls vorhanden --- mittels cairo :cite:`CRO`
+       Die ,,Examine”--Ansicht: Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar”, falls vorhanden, mittels cairo :cite:`CRO`
        gerendert.
 
 .. only:: latex
@@ -494,8 +496,8 @@ Bilder der Demoanwendung
        :width: 93%
        :align: center
 
-       Die ,,Examine”--Ansicht --- Die Attribute des aktuellen Songs werden angezeigt.
-       Zudem wird die ,,moodbar” --- falls vorhanden --- mittels cairo :cite:`CRO`
+       Die ,,Examine”--Ansicht: Die Attribute des aktuellen Songs werden angezeigt.
+       Zudem wird die ,,moodbar”, falls vorhanden, mittels cairo :cite:`CRO`
        gerendert.
 
 .. _end-of-doc:

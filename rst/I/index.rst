@@ -24,7 +24,7 @@ Kann es ein System geben, das komplett automatisch arbeitet?
 
 Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben
-:cite:`jacobi2006personalized` - aus diesen werden dann Alben abgeleitet, die
+:cite:`jacobi2006personalized`. Aus diesen werden dann Alben abgeleitet, die
 oft zusammen gekauft werden.  ``Last.fm`` hingegen setzt auf mehrere Strategien,
 indem es seine Nutzer die gestreamten Lieder bewerten lässt und dann deren
 Hörverhalten :cite:`henning2008mendeley` analysiert. Eine andere Möglich wäre, Reviews aus dem
@@ -32,54 +32,56 @@ Netz zu nutzen, um Verbindungen zwischen Künstlern :cite:`vembu2005self`
 herzustellen.
 
 Wie man sieht, sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten.
+Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten oder
+ihn neue Künstler entdecken lässt.
 
 Zielsetzung
 ===========
 
-Viele dieser Arbeiten präsentieren jeweils einen Weg, um die Ähnlichkeit zweier 
-Musikstücke zu bestimmen --- viele greifen dabei auf Audioanalyse zurück, also
-beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
-oder nutzen vorhandene Metadaten, um beispielsweise aus den Songtexten die Themen 
-zu extrahieren, die im Lied behandelt werden.
+Viele dieser Arbeiten und Plattformen zeigen jeweils einen Weg, um die
+Ähnlichkeit zweier Musikstücke zu bestimmen. Viele greifen dabei auf
+Audioanalyse zurück, also beispielsweise die Bestimmung der Schnelligkeit und
+der Stimmung des Liedes. Oder sie nutzen vorhandene Metadaten, um beispielsweise
+aus den Songtexten die Themen zu extrahieren welche im Lied behandelt werden.
 
 Dabei sind heutzutage die Metadaten zu den Musikstücken anhand von
-Musikmetadatenbanken wie *MusicBrainz* [#f1]_ leicht aufzufinden --- lediglich die
-Audiodaten sind aus verständlichen Gründen schwer kostenlos zu besorgen.
+Musikmetadatenbanken wie *MusicBrainz* [#f1]_ leicht aufzufinden. Lediglich die
+Audiodaten sind aus legalen Gründen schwer kostenfrei zu besorgen.
 
 Die nötigen Bauteile und das Wissen, um ein allgemein einsetzbares, qualitatives
-Musikempfehlungssystem zu schaffen, sind also vorhanden --- nur eine frei
-verfügbare Umsetzung fehlt.
+Musikempfehlungssystem zu schaffen, sind also vorhanden. Nur eine qualitative,
+frei verfügbare Umsetzung fehlt.
 
 Verbesserungsmöglichkeiten
 ==========================
 
 Weit verbreitet sind bei Musicplayern *Intelligente Playlisten* [#f2]_,  die
 allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
-``Last.fm`` suchen, um Musikempfehlungen auszusprechen --- was  keineswegs eine
-schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern. 
+``Last.fm`` suchen, um Musikempfehlungen auszusprechen. Dies ist keineswegs eine
+schlechte Lösung, denn solche Dienste können, aufgrund ihrer großen Nutzerbasis,
+sehr gute Resultate liefern. 
 
 Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
-nicht immer möglich oder gar wünschenswert --- eine Lösung welche rein auf
-einem Rechner laufen kann, wäre von Nöten --- gewissermaßen das Backend von
+nicht immer möglich oder gar wünschenswert. Eine Lösung welche rein auf
+einem Rechner laufen kann, wäre von Nöten. Gewissermaßen das Backend von
 ``Last.fm`` für den freien (frei wie in *Free Open Source Software*) Einsatz.
 
 Dadurch, dass das entstehende System frei in den Quellen verfügbar sein soll, kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
 existierenden Backends, wie sie beispielsweise hinter ``Last.fm`` stehen, wäre
-ein solches System auf Qualität optimiert --- weniger auf Wirtschaftlichkeit,
-sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
+ein solches System auf Qualität optimiert und weniger auf Wirtschaftlichkeit.
+Sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
 Was natürlich auch zur Motivation beiträgt:
-Der Autor entwickelt einen *MPD--Client* [#f4], für den er sich schon
+Der Autor entwickelt einen *MPD--Client* [#f3]_, für den er sich schon
 länger ein *echtes* Feature für *Intelligente Playlisten* wünscht.
 Daher soll auch nach Abschluss der Arbeit das Projekt weiterentwickelt werden.
 
 Namensgebung
 ============
 
-Menschen neigen dazu Dingen einen Namen zu geben --- im Folgenden wird unser
+Menschen neigen dazu Dingen einen Namen zu geben. Im Folgenden wird unser
 geplantes Musikempfehlungssystem *libmunin* genannt.
 
 .. epigraph::
@@ -91,7 +93,7 @@ geplantes Musikempfehlungssystem *libmunin* genannt.
 
     -- http://en.wikipedia.org/wiki/Huginn_and_Muninn :cite:`wiki2014hugin`
 
-Der Name *Munin* war bereits vergeben an ein Monitoring Tool, deswegen wurde die
+Der Name *Munin* war bereits vergeben an ein Monitoring--Tool, deswegen wurde die
 Bibliothek *libmunin* benannt. Das hat den humorvollen Nebeneffekt, dass eine
 kommerzielle Bibliothek mit ähnlichem Namen (*mufin-audiogen* :cite:`IKC`) eine
 freie Alternative erhält.
@@ -103,5 +105,5 @@ freie Alternative erhält.
 .. [#f2] *Intelligente Playlisten* bezeichnen Playlisten, die nach bestimmten,
    vom Nutzer vorgegebenen, Kriterien aus einer Menge von Songs fortlaufend generiert werden.
 
-.. [#f4] Ein MPD Client ist eine *,,Fernbedienung"* für den unter Unix weit
+.. [#f3] Ein MPD Client ist eine *,,Fernbedienung"* für den unter Unix weit
    vebreitenden MPD (MusicPlayerDaemon :cite:`MPD`).
