@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#id17">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
 </ul>
@@ -147,7 +147,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VII/index.html">7 Zusammenfassung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-datamining">7.2 Zusammenhang mit Datamining</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
@@ -199,79 +199,81 @@ Vielzahl von Plattformen, die Musik anbieten, entweder zum Kaufen (<em>Amazon</e
 Menschen mit ähnlichem Musikgeschmack zu finden (<em>YouTube,</em> <em>Myspace</em>).</p>
 <p>All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderen Liedern, die der Benutzer möglicherweise ebenfalls anhören
-möchte &ndash;- natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese
+möchte &mdash; natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese
 anhört oder gar kauft. Kunden, die neue Bands entdecken und später weitere Alben
-von diesen bestellen, sind natürlich ein wichtiger wirtschaftlicher Faktor.</p>
+von diesen bestellen, sind ein wichtiger wirtschaftlicher Faktor.</p>
 <p>Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
 von den Betreibern gepflegt? Bei der großen Anzahl an <em>,,Waren&quot;</em> wohl kaum.
 Schaut sich ein System an was die Benutzer oft zusammen hören?
 Kann es ein System geben, das komplett automatisch arbeitet?</p>
 <p>Die oben genannten Plattformen lösen diese Probleme auf unterschiedliche Weise.
 Amazon verlässt sich dabei auf die großen Mengen an gespeicherten Warenkörben
-<a class="reference internal" href="../zzz_bibliography.html#jacobi2006personalized" id="id1">[5]</a> - aus diesen werden dann Alben abgeleitet, die
+<a class="reference internal" href="../zzz_bibliography.html#jacobi2006personalized" id="id1">[4]</a>. Aus diesen werden dann Alben abgeleitet, die
 oft zusammen gekauft werden.  <tt class="docutils literal"><span class="pre">Last.fm</span></tt> hingegen setzt auf mehrere Strategien,
 indem es seine Nutzer die gestreamten Lieder bewerten lässt und dann deren
-Hörverhalten <a class="reference internal" href="../zzz_bibliography.html#henning2008mendeley" id="id2">[4]</a> analysiert. Eine andere Möglich wäre, Reviews aus dem
-Netz zu nutzen, um Verbindungen zwischen Künstlern <a class="reference internal" href="../zzz_bibliography.html#vembu2005self" id="id3">[10]</a>
+Hörverhalten <a class="reference internal" href="../zzz_bibliography.html#henning2008mendeley" id="id2">[3]</a> analysiert. Eine andere Möglich wäre, Reviews aus dem
+Netz zu nutzen, um Verbindungen zwischen Künstlern <a class="reference internal" href="../zzz_bibliography.html#vembu2005self" id="id3">[8]</a>
 herzustellen.</p>
 <p>Wie man sieht, sind die Wege nahezu unendlich, das Ziel aber immer gleich:
-Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten.</p>
+Musikempfehlungen auszusprechen, die den Nutzer länger auf der Seite halten oder
+ihn neue Künstler entdecken lässt.</p>
 </div>
 <div class="section" id="zielsetzung">
 <h2>1.2 Zielsetzung<a class="headerlink" href="#zielsetzung" title="Permalink to this headline">¶</a></h2>
-<p>Viele dieser Arbeiten präsentieren jeweils einen Weg, um die Ähnlichkeit zweier
-Musikstücke zu bestimmen &ndash;- viele greifen dabei auf Audioanalyse zurück, also
-beispielsweise die Bestimmung der Schnelligkeit und der Stimmung des Liedes,
-oder nutzen vorhandene Metadaten, um beispielsweise aus den Songtexten die Themen
-zu extrahieren, die im Lied behandelt werden.</p>
+<p>Viele dieser Arbeiten und Plattformen zeigen jeweils einen Weg, um die
+Ähnlichkeit zweier Musikstücke zu bestimmen. Viele greifen dabei auf
+Audioanalyse zurück, also beispielsweise die Bestimmung der Schnelligkeit und
+der Stimmung des Liedes. Oder sie nutzen vorhandene Metadaten, um beispielsweise
+aus den Songtexten die Themen zu extrahieren welche im Lied behandelt werden.</p>
 <p>Dabei sind heutzutage die Metadaten zu den Musikstücken anhand von
-Musikmetadatenbanken wie <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id4"><sup>1</sup></a> leicht aufzufinden &ndash;- lediglich die
-Audiodaten sind aus verständlichen Gründen schwer kostenlos zu besorgen.</p>
+Musikmetadatenbanken wie <em>MusicBrainz</em> <a class="footnote-reference" href="#f1" id="id4"><sup>1</sup></a> leicht aufzufinden. Lediglich die
+Audiodaten sind aus legalen Gründen schwer kostenfrei zu besorgen.</p>
 <p>Die nötigen Bauteile und das Wissen, um ein allgemein einsetzbares, qualitatives
-Musikempfehlungssystem zu schaffen, sind also vorhanden &ndash;- nur eine frei
-verfügbare Umsetzung fehlt.</p>
+Musikempfehlungssystem zu schaffen, sind also vorhanden. Nur eine qualitative,
+frei verfügbare Umsetzung fehlt.</p>
 </div>
 <div class="section" id="verbesserungsmoglichkeiten">
 <h2>1.3 Verbesserungsmöglichkeiten<a class="headerlink" href="#verbesserungsmoglichkeiten" title="Permalink to this headline">¶</a></h2>
 <p>Weit verbreitet sind bei Musicplayern <em>Intelligente Playlisten</em> <a class="footnote-reference" href="#f2" id="id5"><sup>2</sup></a>,  die
 allerdings bei den meisten Implementierungen bei vorhandenen Plattformen wie
-<tt class="docutils literal"><span class="pre">Last.fm</span></tt> suchen, um Musikempfehlungen auszusprechen &ndash;- was  keineswegs eine
-schlechte Lösung ist, denn solche Dienste können sehr gute Resultate liefern.</p>
+<tt class="docutils literal"><span class="pre">Last.fm</span></tt> suchen, um Musikempfehlungen auszusprechen. Dies ist keineswegs eine
+schlechte Lösung, denn solche Dienste können, aufgrund ihrer großen Nutzerbasis,
+sehr gute Resultate liefern.</p>
 <p>Trotzdem ist die Abhängigkeit von externen Diensten und einer Internetverbindung
-nicht immer möglich oder gar wünschenswert &ndash;- eine Lösung welche rein auf
-einem Rechner laufen kann, wäre von Nöten &ndash;- gewissermaßen das Backend von
+nicht immer möglich oder gar wünschenswert. Eine Lösung welche rein auf
+einem Rechner laufen kann, wäre von Nöten. Gewissermaßen das Backend von
 <tt class="docutils literal"><span class="pre">Last.fm</span></tt> für den freien (frei wie in <em>Free Open Source Software</em>) Einsatz.</p>
 <p>Dadurch, dass das entstehende System frei in den Quellen verfügbar sein soll, kann
 jeder daran mitarbeiten und es selbst einsetzen. Im Gegensatz zu den
 existierenden Backends, wie sie beispielsweise hinter <tt class="docutils literal"><span class="pre">Last.fm</span></tt> stehen, wäre
-ein solches System auf Qualität optimiert &ndash;- weniger auf Wirtschaftlichkeit,
-sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
+ein solches System auf Qualität optimiert und weniger auf Wirtschaftlichkeit.
+Sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein.</p>
-<p>Was natürlich auch zur Motivation beiträgt:
-Der Autor entwickelt einen <em>MPD&ndash;Client</em> [#f4], für den er sich schon
+<p>Was ebenfalls zur Motivation beiträgt:
+Der Autor entwickelt einen <em>MPD&ndash;Client</em> <a class="footnote-reference" href="#f3" id="id6"><sup>3</sup></a>, für den er sich schon
 länger ein <em>echtes</em> Feature für <em>Intelligente Playlisten</em> wünscht.
 Daher soll auch nach Abschluss der Arbeit das Projekt weiterentwickelt werden.</p>
 </div>
 <div class="section" id="namensgebung">
 <h2>1.4 Namensgebung<a class="headerlink" href="#namensgebung" title="Permalink to this headline">¶</a></h2>
-<p>Menschen neigen dazu Dingen einen Namen zu geben &ndash;- im Folgenden wird unser
+<p>Menschen neigen dazu Dingen einen Namen zu geben. Im Folgenden wird unser
 geplantes Musikempfehlungssystem <em>libmunin</em> genannt.</p>
 <blockquote class="epigraph">
 <div><p><em>In Norse mythology, Hugin (from Old Norse “thought”)</em>
 <em>and Munin (Old Norse “memory” or “mind”)</em>
 <em>are a pair of ravens that fly all over the world Midgard,</em>
 <em>and bring information to Odin.</em></p>
-<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014hugin" id="id6">[11]</a></p>
+<p class="attribution">&mdash;<a class="reference external" href="http://en.wikipedia.org/wiki/Huginn_and_Muninn">http://en.wikipedia.org/wiki/Huginn_and_Muninn</a> <a class="reference internal" href="../zzz_bibliography.html#wiki2014hugin" id="id7">[9]</a></p>
 </div></blockquote>
-<p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring Tool, deswegen wurde die
+<p>Der Name <em>Munin</em> war bereits vergeben an ein Monitoring&ndash;Tool, deswegen wurde die
 Bibliothek <em>libmunin</em> benannt. Das hat den humorvollen Nebeneffekt, dass eine
-kommerzielle Bibliothek mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="reference internal" href="../zzz_bibliography.html#ikc" id="id7">[Link-1]</a>) eine
+kommerzielle Bibliothek mit ähnlichem Namen (<em>mufin-audiogen</em> <a class="reference internal" href="../zzz_bibliography.html#ikc" id="id8">[Link&ndash;1]</a>) eine
 freie Alternative erhält.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><em>MusicBrainz</em> ist eine freie, populäre Online&ndash;Musikmetadaten&ndash;Datenbank. <a class="reference internal" href="../zzz_bibliography.html#a3" id="id8">[Link-2]</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><em>MusicBrainz</em> ist eine freie, populäre Online&ndash;Musikmetadaten&ndash;Datenbank. <a class="reference internal" href="../zzz_bibliography.html#a3" id="id9">[Link&ndash;2]</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="f2" rules="none">
@@ -281,11 +283,11 @@ freie Alternative erhält.</p>
 vom Nutzer vorgegebenen, Kriterien aus einer Menge von Songs fortlaufend generiert werden.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="f4" rules="none">
+<table class="docutils footnote" frame="void" id="f3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[3]</td><td>Ein MPD Client ist eine <em>,,Fernbedienung&quot;</em> für den unter Unix weit
-vebreitenden MPD (MusicPlayerDaemon <a class="reference internal" href="../zzz_bibliography.html#mpd" id="id9">[Link-3]</a>).</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[3]</a></td><td>Ein MPD Client ist eine <em>,,Fernbedienung&quot;</em> für den unter Unix weit
+vebreitenden MPD (MusicPlayerDaemon <a class="reference internal" href="../zzz_bibliography.html#mpd" id="id10">[Link&ndash;3]</a>).</td></tr>
 </tbody>
 </table>
 </div>

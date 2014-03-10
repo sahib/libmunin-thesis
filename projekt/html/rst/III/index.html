@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#id17">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
 </ul>
@@ -147,7 +147,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VII/index.html">7 Zusammenfassung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-datamining">7.2 Zusammenhang mit Datamining</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
@@ -192,7 +192,7 @@
 <h1>3 Begriffsklärungen<a class="headerlink" href="#begriffsklarungen" title="Permalink to this headline">¶</a></h1>
 <p>Im Folgenden werden häufig gewisse Begriffe gebraucht, die nicht allgemein
 verständlich, oder die im Kontext von <em>libmunin</em> anders besetzt sind.
-Diese sollen hier definiert werden, bevor wir fortfahren.</p>
+Diese sollen hier definiert werden, bevor fortgefahren wird.</p>
 <div class="section" id="allgemeine-fachbegriffe">
 <h2>3.1 Allgemeine Fachbegriffe<a class="headerlink" href="#allgemeine-fachbegriffe" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary docutils">
@@ -205,24 +205,26 @@ Hinzufügen neuer Schlüssel/Wert&ndash;Paare.</dd>
 <dt id="term-breitensuche">Breitensuche</dt>
 <dd>Verfahren um in definierter Weise einen Graphen zu traversieren. Dabei
 wird ausgehend von einem Knoten zuerst jeder Nachbarknoten besucht. Erst
-dann wird analog mit den Nachbarknoten verfahren.</dd>
+dann wird analog mit den Nachbarknoten verfahren. Bereits besuchte Knoten
+werden markiert und nicht weiter verfolgt.</dd>
 <dt id="term-tags">Tags</dt>
-<dd>In Audiofiles können bei den meisten Formaten, Metadaten abgelegt
+<dd>In Audiofiles können bei den meisten Formaten Metadaten abgelegt
 werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den <em>Artist</em>,
-<em>Album</em> und <em>Titel</em>, aber auch komplexere Daten wie das <em>Coverart</em>,
+<em>Album</em> und <em>Title</em>, aber auch komplexere Daten wie das <em>Coverart</em>,
 abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
 ausgelesen werden.</dd>
 <dt id="term-iterator">Iterator</dt>
 <dd>Ein Iterator ist ein <em>Versprechen</em> einen Wert genau dann zu berechnen wenn
 er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
-Datenstrukturen zu traversieren &ndash;- jeder Aufruf des Iterator liefert
-dabei den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden sind.</dd>
+Datenstrukturen zu traversieren. Jeder Aufruf des Iterator liefert dabei
+den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
+sind.</dd>
 <dt id="term-proxymethode">Proxymethode</dt>
-<dd>Eine <em>Methode</em> die ihre Parameter lediglich an eine andere Methode oder
-Funktion weiterreicht. Sie werden meist aus Gründen der API-Gestaltung
+<dd>Eine <em>Methode</em>, die ihre Parameter lediglich an eine andere Methode oder
+Funktion weiterreicht. Sie werden meist aus Gründen der API&ndash;Gestaltung
 eingesetzt.</dd>
 <dt id="term-languagebindings">Languagebindings</dt>
-<dd>Eine <em>Wrapper&ndash;Schicht</em>, die es möglich macht, eine in einer bestimmten
+<dd>Eine Zusatzprogrammschicht, die es möglich macht, eine in einer bestimmten
 Programmiersprache (beispielsweise in <span class="math">\(\mathrm{C}\)</span>) geschriebene
 Bibliothek in einer anderen Programmiersprache (beispielsweise Python) zu
 nutzen.</dd>
@@ -245,24 +247,24 @@ Songs gespeichert, sowie einen Integer der als Identifier dient.</p>
 <dd><p class="first">Eine <em>Session</em> ist eine Nutzung von <em>libmunin</em> über einem bestimmten
 Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
 analysiert und ein Graph wird daraus aufgebaut.</p>
-<p class="last">Wer die Bibliothek benutzt wird die <em>Session</em> zudem als Eintrittspunkt
+<p class="last">Wer die Bibliothek benutzt, wird die <em>Session</em> zudem als Eintrittspunkt
 für die API benutzen.</p>
 </dd>
 <dt id="term-maske">Maske</dt>
 <dd><p class="first">Die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten die importiert
-werden. So muss sich darauf geeinigt werden was beispielsweise unter dem
-Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
+werden. So muss sich beispielsweise darauf geeinigt werden, <em>was</em> in einem
+<a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a> unter dem Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
 <p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt die ein
 einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
 pro Attribut ein <a class="reference internal" href="#term-provider"><em class="xref std std-term">Provider</em></a> und eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a>
 festgelegt, die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
-wird die Gewichtung des Attributes festgelegt - manche Attribute sind
+wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
 für die Ähnlichkeit zweier Songs entscheidender als andere.</p>
 </dd>
 <dt id="term-distanz">Distanz</dt>
-<dd><p class="first">Eine Distanz beschreibt die Ähnlichkeit zweier Songs oder Attribute.
+<dd><p class="first">Eine Distanz beschreibt die Ähnlichkeit zweier Songs.
 Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
-minimale <em>Entfernung</em> zueinander), eine Distanz von 1.0 maximale
+minimale <em>Entfernung</em> zueinander), eine Distanz von 1 maximale
 Unähnlichkeit (oder maximale <em>Entfernung</em>).</p>
 <p class="last">Die Distanz wird durch eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> berechnet.</p>
 </dd>
@@ -276,9 +278,9 @@ spezialisierte Distanzfunktion festgelegt, die weiß wie diese
 zwei bestimmten Werte sinnvoll verglichen werden können. Die so
 errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
 einem Wert verschmolzen.</p>
-<p>Fehlen Attribute in einen der beiden Songs wird für diese jeweils eine
-Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
-eingerechnet.</p>
+<p>Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
+Distanz von 1 angenommen. Diese wird dann ebenfalls in die gewichtete
+Oberdistanz eingerechnet.</p>
 <p>Die folgenden Bedingungen müssen sowohl für die allgemeine
 Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
 <span class="math">\(D\)</span> ist dabei die Menge aller Songs, <span class="math">\(d\)</span> eine Distanzfunktion:</p>
@@ -290,7 +292,7 @@ Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
 </ul>
 </dd>
 <dt id="term-attribut">Attribut</dt>
-<dd>Ein Attribut ist ein <em>Schlüssel</em> in der Maske. Er repräsentiert
+<dd>Ein Attribut ist ein <em>Schlüssel</em> in der <a class="reference internal" href="#term-maske"><em class="xref std std-term">Maske</em></a>. Er repräsentiert
 eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
 Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
 andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer
@@ -299,31 +301,25 @@ Menge dieser Paare.</dd>
 <dd><p class="first">Ein <em>Provider</em> normalisiert einen Wert anhand verschiedener
 Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
 die in <em>libmunin</em> geladen werden. Jeder <em>Provider</em> ist dabei durch die
-Mask einem Attribut zugeordnet.</p>
+<a class="reference internal" href="#term-maske"><em class="xref std std-term">Maske</em></a> einem Attribut zugeordnet.</p>
 <p class="last">Ihr Ziel ist für die <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> einfache und effizient
 vergleichbare Werte zu liefern - da die Distanzfunktion sehr
 viel öfters aufgerufen wird als der <em>Provider</em>.</p>
 </dd>
 <dt id="term-assoziationsregeln">Assoziationsregeln</dt>
 <dd><p class="first">Eine Assoziationsregel verbindet zwei Mengen <em>A</em> und <em>B</em> von Songs
-miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
-wahrscheinlich, dass auch die andere Menge daraufhin angehört wird.</p>
-<p>Sie werden aus dem Verhalten des Nutzers abgeleitet.</p>
-<p>Die Güte der Regel wird durch ein <em>Rating</em> beschrieben:</p>
-<div class="math">
-\[Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)\]</div>
-<p><em>wobei:</em>  <em>Aussagekraft:</em></p>
-<blockquote>
-<div><ul class="simple">
-<li><span class="math">\(Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}\)</span>  Güte der Regel</li>
-<li><span class="math">\(ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\)</span>  Gleichmäßigkeit der Regel</li>
-<li><span class="math">\(support(X) = H_n(X)\)</span>   Absolute Häufigkeit von X in allen Transaktionen</li>
-</ul>
-</div></blockquote>
-<p>Mehr dazu in der Bachelorarbeit.</p>
-<p>TODO: am besten gleich ganz in die BA verschieben?</p>
-<p class="last"><em>Vergleiche zudem:</em> <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id1">[6]</a> Datamining
-Concepts and Techniques.</p>
+miteinander. Sie besagen, dass wenn eine der beiden Mengen miteinander
+gehört wird, dann ist es <em>wahrscheinlich</em>, dass auch die andere Menge
+daraufhin angehört wird.</p>
+<p>Die Güte jeder Regel wird durch ein <em>Rating</em> beschrieben, welche grob die
+generelle Anwendbarkeit beschreibt.</p>
+<p>Sie werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied
+zwischengespeichert, das der Nutzer anhört.</p>
+<p class="last"><em>Anmerkung:</em> Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
+Richtung definiert.  In <em>libmunin</em> sind die Regeln aus Gründen der
+Einfachkeit allerdings <em>bidirektional.</em>  So gilt nicht nur, dass man
+wahrscheinlich die Menge <em>B</em> hört, wenn man <em>A</em> gehört hat (<span class="math">\(A
+\rightarrow B\)</span>), sondern auch umgekehrt (<span class="math">\(A \leftrightarrow B\)</span>).</p>
 </dd>
 </dl>
 </div>

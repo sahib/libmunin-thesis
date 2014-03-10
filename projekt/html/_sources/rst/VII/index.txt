@@ -17,19 +17,15 @@ implementiert, welche diese Daten vergleichen können.
 Im Vergleich zu bestehenden Systemen ist man nicht von Audiodaten abhängig.
 Durch die freie Lizenz ist ein weitläufiger Einsatz möglich.
 
-Zusammenhang mit Data--Mining
-=============================
-
-*Data--Mining* meint landläufig das automatisierte *Abbauen* von unerwarteten
-Wissen aus einem großen *Datenberg*. So gesehen ist *libmunin* die *Spitzhacke*
-für *Musikdatenbanken*.
+Zusammenhang mit Datamining
+===========================
 
 Insgesamt wurden hauptsächlich folgende Techniken aus diesem Gebiet genutzt:
 
 * *Warenkorbanalyse* um *Assoziationsregeln* abzuleiten.
 * Verschiedene *Distanzfunktionen* und *Fusionierungsverfahren*.
 * *Spracherkennung* und *Keyword--Extrahierung*.
-* Verschiedenste *Normalisierung* von Eingabedaten.
+* *Normalisierung* von Eingabedaten.
 
 Nicht oder unvollständig erfüllte Anforderungen
 ===============================================
@@ -45,24 +41,25 @@ eine serialisierte *Session* einlesen kann, ohne dabei auf *libmunin* oder
 *Python* zurückzugreifen. 
 
 Davon unabhängig ist *libmunin* momentan durch die Implementierung in Python auf
-diese Sprache eingeschränkt --- da viele Musicplayer in anderen Sprachen
+diese Sprache eingeschränkt. Da viele Musicplayer in anderen Sprachen
 geschrieben sind, kann das durchaus zum Problem werden. Hier gibt es zwei
 bekannte Lösungsansätze. Der erste ist das Schreiben von
-:term:`Languagebindings` für die Zielsprache --- das würde erheblichen Aufwand
+:term:`Languagebindings` für die Zielsprache. Das würde erheblichen Aufwand
 mit sich bringen, wenn mehr als einige wenige Sprachen unterstützt werden
 sollen. Die zweite Möglichkeit ist eine Aufteilung in *Server* (der dann in
 Python geschrieben wäre) und *Client* (der in einer beliebigen
 Programmiersprache geschrieben ist).  Der *Client* könnte dann über ein
-definiertes Protokoll auf die Funktionen des Servers zurückgreifen --- das ist
-beispielsweise die Herangehensweise von MPD.
+definiertes Protokoll auf die Funktionen des Servers zurückgreifen, was
+beispielsweise die Herangehensweise von MPD ist.
 
 Eine konkrete Umsetzung dieser Idee könnte relativ einfach mit *D-Bus* [#f1]_
 erreicht werden. Der Server würde dabei die API von *libmunin* als
-*D-Bus Service* implementieren. Der Client könnte eine der in zahlreichen
+*D-Bus--Service* implementieren. Der Client könnte eine der in zahlreichen
 Programmiersprachen verfügbaren *DBus--Libraries* nutzen, um im Server Methoden
-aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Falls mehrere 
-Programme die gleiche Session nutzen wollen --- momentan ist das aus Gründen der 
-fehlenden Nebenläufigkeit noch nicht möglich.
+aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Momentan ist
+es aus Gründen fehlender Nebenläufigkeit nicht möglich, dass verschiedene
+Programme dies selbe Session nutzen. Der Server könnte hier die Synchronisierung
+übernehmen.
 
 .. rubric:: Footnotes
 
@@ -74,14 +71,14 @@ Einfaches Information Retrieval
 -------------------------------
 
 Die Ergebnisse die *libmunin* liefern kann, können nur so gut sein wie die
-Eingabedaten. Sind diese falsch oder unzureichend (durch schlechtes *Tags*
+Eingabedaten. Sind diese falsch oder unzureichend (durch schlechte *Tags*
 etwa), wird auch eine gute Distanzfunktion nur mittelmäßige Ergebnisse erzielen. 
 
 Momentan bietet *libmunin* bereits dem Nutzer Möglichkeiten an, um fehlende
-Songtexte und Genre--Tags aus dem Internet zu besorgen. In der Einleitung dieser
-Arbeit wurden aber schon freie Musikmetadatenbanken wie *MusicBrainz* erwähnt,
-die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
-können. 
+Liedtexte und Genre--Tags aus dem Internet zu beschaffen. In der Einleitung
+dieser Arbeit wurden aber schon freie Musikmetadatenbanken wie *MusicBrainz*
+erwähnt, die mittels eines Audiofingerprints die Metadaten eines Stückes
+nachschlagen können. 
 
 Glücklicherweise steht mit *beets* :cite:`XAJ` bereits ein entsprechendes,
 praktischerweise in Python geschriebenes Tool bereit --- gewissermassen das
@@ -104,7 +101,7 @@ Vermeidung unnötiger Vergleiche
 Der Aufruf von einigen Distanzfunktionen macht nur dann Sinn, wenn bestimmte
 Kriterien erfüllt sind. So macht es beispielsweise meist wenig Sinn die
 ``moodbar`` zweier Songs zu vergleichen, wenn sich die Stücklänge um mehr als das
-doppelte unterscheidet --- die Daten wären einfach zu unterschiedlich.
+Doppelte unterscheidet --- die Daten wären einfach zu unterschiedlich.
 
 Momentan ist es allerdings noch nicht möglich, für die
 ``moodbar``-Distanzfunktion die Länge des Stückes abzufragen --- da sie nur die
@@ -115,7 +112,7 @@ Beschleunigung des Kaltstarts
 
 Alle Operationen von *libmunin* verlaufen momentan sequentiell. Dabei ließen
 sich zumindest einige Teile des *Kaltstartes* optimieren, indem eine gewisse
-Anzahl von Songtexten (oder anderem *Information Retrieval*) parallel
+Anzahl von Liedtexten (oder anderem *Information Retrieval*) parallel
 heruntergeladen werden. Auch das Analysieren von Audiodaten könnte beschleunigt
 werden, indem ein (bei normalen Festplatten)  oder mehrere (bei SSDs) *Threads*
 Audiodaten einliest und diese dann an *Workerthreads* weiterleitet, die die
@@ -127,12 +124,12 @@ Verbessertes Speicherformat
 Wie oben erwähnt erfolgt die Speicherung der *Session* mittels Python's
 ``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt--Hierarchie,
 ausgehend vom *Session* Objekt. Da in *libmunin* der Graph allerdings als
-rekursive Datenstruktur implementiert ist, ,,verläuft" sich ``pickle`` darin -
+rekursive Datenstruktur implementiert ist, ,,verläuft" sich ``pickle`` darin ---
 zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
 
 Python hat ein eingebautes *Rekursionslimit*, welches ein wenig aussagekräftiges
 *Segmentation Fault* verhindern soll --- Abstürze beim Speichern der *Session*
-sind die Folge. Hier ist Abhilfe nötig.
+sind die Folge. Hier ist dringend Abhilfe nötig.
 
 Korrekte Berechnung des *BPM-Wertes*
 ------------------------------------
@@ -141,55 +138,56 @@ Die Berechnung des *Beats--Per--Minute*-Wertes ist momentan in ein separates Too
 ausgelagert. Dieses Tool hat das Problem, dass es bei fehlerhaften Dateien oder
 Formaten die es nicht versteht, falsche (beispielsweise Werte *über* 300 bpm)
 Werte zurückgibt. Da dies nicht von *libmunin's* Seite aus gelöst werden kann,
-sollte nach Möglichkeit hier eine eigene Lösung implementiert werden.
+sollte hierfür eine eigene Lösung implementiert werden.
 
 Denkbare Weiterentwicklungen
 ============================
 
-Abgesehen von den obigen ,,Defiziten" hier noch einige stichpunktartige
+Abgesehen von den obigen *,,Defiziten"* hier noch einige stichpunktartige
 Richtungen in denen die Implementierung verbessert werden kann:
 
 - Verläufe: Manchmal ist es wünschenswert, dass die dynamisch erstellte Playlist
   einem gewissen Verlauf folgt. Man denke an eine Party bei der erst schnelle,
   fröhliche Musik gespielt wird, zum Ende hin dann langsame, ruhigere Musik.
-- Weitere Empfehlungs--Strategien, wie beispielsweise von rein Genre-basierenden 
+- Weitere Empfehlungsstrategien, wie  rein Genrebasierte
   Empfehlungen. Die Auswahl eines repräsentativen Seedsongs ist hier momentan
   das Problem. 
-- Justierbarkeit der Gewichtungen während der Laufzeit --- Momentan erfordert die
+- Justierbarkeit der Gewichtungen während der Laufzeit: Momentan erfordert die
   Justierung der Gewichtung jeweils eine teure ``rebuild``-Operation.
   Technisch möglich ist das allerdings bereits, durch die Speicherung der
-  Unterdistanzen.
+  Unterdistanzen. Spätere Versionen könnten sogar versuchen die Justierung, nach
+  Beobachtung des Nutzers, automatisch vorzunehmen.
 - ,,Echte" Audio/Mood--Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
 - Optionaler *,,Aufsatz"* auf *libmunin*, der *Social-based music recommendation*
-  ermöglicht --- beispielsweise um die Ähnlichkeit von zwei Künstlern durch
+  ermöglicht, beispielsweise um die Ähnlichkeit von zwei Künstlern durch
   Amazon--Reviews zu bestimmen. Sind diese in der Review--Datenbank nicht
-  vertreten wird die Ähnlichkeit --- wie jetzt schon --- automatisch bestimmt.
+  vertreten wird die Ähnlichkeit, wie jetzt bereits, automatisch bestimmt.
 - Portierbarkeit auf andere Plattformen. Die Software wurde momentan nur auf dem
   Betriebssystem des Autors getestet *(Arch Linux)*.
 
 Abschließendes Fazit
 ====================
 
-*libmunin* ist ein solides Fundament für weitere Entwicklungen --- und so
+*libmunin* ist ein solides Fundament für weitere Entwicklungen und so
 flexibel, dass mit entsprechenden *Providern* und *Distanzfunktionen* sogar
-Empfehlungs--Systeme für andere Dokumente wie Videos, Bücher oder Filmen möglich
-wären.
+Empfehlungssysteme für andere *Dokumente* wie Videos, Bücher oder anderen
+Artikeln möglich wären.
 
 Noch ist der Einsatz relativ kompliziert (momentan nur über MPD möglich) und
 erfordert, auch für kundige Entwickler, einiges an Einarbeitungszeit --- zuviel
-für etwas das einfach nur im Hintergrund arbeiten sollte. Auch die erstellten
-Empfehlungen sind --- subjektiv gesehen --- noch teilweise verbesserungswürdig.
-Besonders die momentane Audioanalyse ist sehr primitiver Natur und bietet
-einiges an Potenzial an Verbesserungen. Es wird momentan mehr auf *Masse* statt
-auf *Klasse* gesetzt und oft ist einiges an *,,Kaffeesatzleserei"* enthalten.
-Zudem entsprechen manche Funktionsweisen dem Geschmack und Gewohnheiten des
-Autors (wie dem Vergeben von Ratings, was nicht jeder macht) -- diese müssen
-nicht allgemein gültig sein.
+für etwas das eigentlich *still* im Hintergrund arbeiten sollte. Auch die
+erstellten Empfehlungen sind, subjektiv gesehen, noch teilweise
+verbesserungswürdig.  Besonders die momentane Audioanalyse ist sehr primitiver
+Natur und bietet einiges an Potenzial an Verbesserungen. Es wird momentan mehr
+auf *Masse* statt auf *Klasse* gesetzt und oft ist einiges an
+*,,Kaffeesatzleserei"* enthalten.  Zudem entsprechen manche Funktionsweisen dem
+Geschmack und Gewohnheiten des Autors (wie dem Vergeben von Ratings, was nicht
+jeder macht) -- diese müssen nicht allgemein gültig sein.
 
 Da das Projekt auch nach Abschluss dieser Arbeit, im Rahmen von *Moosecat*
 weiter entwickelt werden soll, hofft der Autor mit der Zeit mehr Richtung
 *Klasse* zu gehen. Nach einem öffentlichen Release in einschlägigen Foren,
-können dann auch erste Resonanzen gesammelt werden --- vor allem ist es
+können dann auch erste Resonanzen gesammelt werden. Vor allem ist es
 interessant zu sehen, ob *libmunin* dann tatsächlich für andere Entwickler
 einsetzbar ist. Zumindest Interesse scheint vorhanden zu sein: Selbst ohne
 Veröffentlichung, haben etwa 50 Entwickler die Projektseite auf *GitHub*

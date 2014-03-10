@@ -114,7 +114,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielsetzung">2.1 Zielsetzung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-alternativen">2.2 Vorhandene Alternativen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#vorhandene-arbeiten">2.3 Vorhandene Arbeiten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../II/index.html#schlussfolgerungen">2.4 Schlussfolgerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../II/index.html#id17">2.4 Schlussfolgerungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#anforderungen">2.5 Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../II/index.html#zielgruppe">2.6 Zielgruppe</a></li>
 </ul>
@@ -147,7 +147,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../VII/index.html">7 Zusammenfassung</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#aktueller-stand">7.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-data-mining">7.2 Zusammenhang mit Data&ndash;Mining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VII/index.html#zusammenhang-mit-datamining">7.2 Zusammenhang mit Datamining</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#nicht-oder-unvollstandig-erfullte-anforderungen">7.3 Nicht oder unvollständig erfüllte Anforderungen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#implementierungsdefizite">7.4 Implementierungsdefizite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VII/index.html#denkbare-weiterentwicklungen">7.5 Denkbare Weiterentwicklungen</a></li>
@@ -197,16 +197,16 @@ Oberflächen&ndash;Framework <span class="math">\(\text{GTK+-}3.0\)</span> basie
 entwickelt.  Wie eingangs erwähnt, dient diese nicht nur zum <em>Showoff</em>, sondern
 auch zur gezielten Fehlersuche.</p>
 <p>Die Anwendung, die den ebenfalls nordischen Namen <em>Naglfar</em> erhielt, stellt
-einen MPD-Client bereit. Im Hintergrund werkelt dabei <em>Moosecat</em>.
-Vor der ersten Benutzung muss gemäß <a href="../IV/index.html#fig-startup">4.2</a> eine Session aufgebaut
-werden &ndash;- dies erledigt das Skript <tt class="docutils literal"><span class="pre">coldstart.py</span></tt> (siehe
+einen MPD-Client bereit. Im Hintergrund werkelt dabei <em>Moosecat</em>.  Vor der
+ersten Benutzung muss gemäß Abb. <a href="../IV/index.html#fig-startup">4.2</a> eine Session aufgebaut
+werden. Dies erledigt das Skript <tt class="docutils literal"><span class="pre">coldstart.py</span></tt> (siehe
 <a class="reference internal" href="../appendix.html#coldstart-example"><em>coldstart.py</em></a> im <em>Angang C</em>). Dies kann durch das Ziehen der
-Songtexte und der Audioanalyse beim ersten Lauf sehr lange dauern &ndash;- bis zu 2
-Stunden. Danach sind allerdings die Liedtext zwischengelagert und der zweite
-Lauf dauert dann nur noch wenige Minuten.</p>
+Liedtexte und der Audioanalyse beim ersten Lauf sehr lange dauern &mdash; bis zu
+zwei Stunden. Danach sind allerdings die Liedtexte zwischengelagert und der
+zweite Lauf dauert dann nur noch wenige Minuten.</p>
 <p>Nach dem <tt class="docutils literal"><span class="pre">coldstart.py</span></tt> die <em>Session</em> auf die Platte geschrieben hat, kann die
 eigentliche Anwendung gestartet werden. Diese verbindet sich zuallererst mit
-einem MPD-Server der auf <em>localhost</em> unter Port <em>6601</em> lauscht. Dort  besorgt
+einem MPD-Server der auf <em>localhost</em> unter Port <em>6601</em> lauscht. Dort  beschafft
 sich die Anwendung alle Metadaten, um die <em>Playlist</em> und <em>Database</em>-Ansicht zu
 befüllen.  Danach wird besagte <em>Session</em> geladen. Nach der Initialisierung der
 <em>GUI</em> ist die Anwendung nun bereit benutzt zu werden.</p>
@@ -214,30 +214,30 @@ befüllen.  Danach wird besagte <em>Session</em> geladen. Nach der Initialisieru
 Songs unterschieden werden kann, generiert <tt class="docutils literal"><span class="pre">coldstart.py</span></tt> eine Hashtabelle, die
 zwischen den <em>ID</em> von <em>libmunin's</em> Songs und den Dateipfaden innerhalb der
 Musikdatenbank eine Beziehung herstellt. Diese Hashtabelle wird in der Session
-gespeichert. Die Musikdatenbank selbst besteht dabei aus genau <em>666</em> ausgewählten
+gespeichert. Die Musikdatenbank selbst besteht dabei aus <em>666</em> ausgewählten
 Liedern aus der privaten Musiksammlung des Autors.</p>
 </div>
 <div class="section" id="anwendungsubersicht">
 <h2>6.2 Anwendungsübersicht<a class="headerlink" href="#anwendungsubersicht" title="Permalink to this headline">¶</a></h2>
-<p>In <a href="#fig-demo-overview">6.2</a> wird eine Übersicht über die GUI der Anwendung
+<p>In Abb. <a href="#fig-demo-overview">6.2</a> wird eine Übersicht über die GUI der Anwendung
 gegeben. Detailliertere Ansichten werden unter <a class="reference internal" href="../appendix.html#demo-pics"><em>Bilder der Demoanwendung</em></a> gezeigt.  Im
 Folgenden wird nun eine textuelle Übersicht über die <em>Features</em> der Anwendung
 gegeben.</p>
 <div class="section" id="ansichten">
 <h3>6.2.1 Ansichten<a class="headerlink" href="#ansichten" title="Permalink to this headline">¶</a></h3>
 <p>Die Anwendung ist in unterschiedliche <em>Ansichten</em> (englisch <em>Views</em>) aufteilt,
-die jeweils in unterschiedlichen Tabs stecken. Im folgenden wird eine Übersicht
+die jeweils in unterschiedlichen Reitern stecken. Im Folgenden wird eine Übersicht
 über alle <em>Views</em> gegeben:</p>
 <ul>
-<li><p class="first"><strong>Database:</strong> Siehe Abbildung <a href="../appendix.html#fig-demo-database">[broken link :-(]</a>.</p>
+<li><p class="first"><strong>Database:</strong> Siehe Abb. <a href="../appendix.html#fig-demo-database">[broken link :-(]</a>.</p>
 <p>Anzeige der gesamten Musikdatenbank durch die Spalten <tt class="docutils literal"><span class="pre">Artist</span></tt>, <tt class="docutils literal"><span class="pre">Album</span></tt>,
 <tt class="docutils literal"><span class="pre">Titel</span></tt>, <tt class="docutils literal"><span class="pre">Datum</span></tt> und <tt class="docutils literal"><span class="pre">Genre</span></tt>. Jede Zeile entspricht dabei einem Song.
 Ein Rechtsklickmenü auf einen beliebigen Song fördert ein Kontextmenü zu Tage
-(siehe Abbildung <a href="#fig-demo-context-menu">6.1</a>), dass mehrere Möglichkeiten
-bietet, um die Playlist mit Empfehlungen zu befüllen (entsprechend
-<a class="reference internal" href="../V/index.html#list-of-recom-strategies">5.3</a>).  Im folgenden ist <span class="math">\(N\)</span> die Anzahl
+(siehe Abb. <a href="#fig-demo-context-menu">6.1</a>), dass mehrere Möglichkeiten
+bietet, um die Playlist mit Empfehlungen zu befüllen (entsprechend Kapitel
+<a class="reference internal" href="../V/index.html#list-of-recom-strategies">5.3</a>).  Im Folgenden ist <span class="math">\(N\)</span> die Anzahl
 der gewünschten Empfehlungen, die im Empfehlungszähler (siehe
-Nr. 5 in <a href="#fig-demo-overview">6.2</a>) eingestellt ist.</p>
+Nr. 5 in Abb. <a href="#fig-demo-overview">6.2</a>) eingestellt ist.</p>
 <ul>
 <li><p class="first"><strong>Ausgewählten Song als Seedsong nehmen:</strong> Erstellt <span class="math">\(N\)</span>
 Empfehlungen basierend auf dem selektierten Song und reiht sie in die Playlist
@@ -250,7 +250,7 @@ leert aber vor dem Einreihen die Playlist.</p>
 Seedsong nach bestimmten Kriterien, die der Nutzer im Eingabefeld oben
 rechts angeben kann. Dort kann ein <em>Suchbegriff</em> in der folgenden Form
 angegeben werden:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;attribut&gt;: &lt;wert&gt;[, &lt;attribut&gt;: &lt;value&gt;, ...]
+<div class="highlight-python"><div class="highlight"><pre>&lt;attribut&gt;: &lt;wert&gt;[, &lt;attribut&gt;: &lt;wert&gt;, ...]
 </pre></div>
 </div>
 <p>Folgendes Beispiel findet alle Songs mit dem Künstler <em>,,Billy Talent&quot;</em> <strong>und</strong>
@@ -265,7 +265,7 @@ Treffer funktionieren. Ist das <em>Genre</em> also als <em>,,rock / pop&quot;</e
 wird die Suche erfolglos verlaufen.</p>
 </li>
 <li><p class="first"><strong>Lasse libmunin einen Seedsong auswählen:</strong> <em>libmunin</em> wählt automatisch
-einen Seedsong nach folgenden Kriterien (gemäß
+einen Seedsong nach folgenden Kriterien (gemäß Kapitel
 <a class="reference internal" href="../V/index.html#list-of-recom-strategies">5.3</a>):</p>
 <ol class="arabic simple">
 <li>Nutze die Seedsongs, die in der am besten bewertesten Regel vorkommen.</li>
@@ -289,24 +289,24 @@ gleich, daher erstellt dies nach einem Neustart stets dieselbe Liste.</p>
 </div>
 </li>
 </ul>
-<p><strong>Playlist:</strong> Siehe Abbildung <a href="../appendix.html#fig-demo-playlist">[broken link :-(]</a>.</p>
+<p><strong>Playlist:</strong> Siehe Abb. <a href="../appendix.html#fig-demo-playlist">[broken link :-(]</a>.</p>
 <p>Wie die <em>Database&ndash;Ansicht</em>, zeigt aber lediglich die Songs an, die empfohlen
 wurden. Sonst ist diese Ansicht funktionsidentisch mit der <em>Database&ndash;Ansicht</em>.</p>
-<p><strong>Graph:</strong> Siehe Abbildung <a href="../appendix.html#fig-demo-graph">[broken link :-(]</a>.</p>
-<p>Im <em>Graphen&ndash;Ansicht</em> kann ein Plot von <em>libmunin's</em> Graphen begutachtet werden.
+<p><strong>Graph:</strong> Siehe Abb. <a href="../appendix.html#fig-demo-graph">[broken link :-(]</a>.</p>
+<p>In der <em>Graphenansicht</em> kann ein Plot von <em>libmunin's</em> Graphen begutachtet werden.
 Dies ist oft nützlich, um nachzuvollziehen welche Empfehlungen aus welchen Grund
-gegeben wurden, da man im Graphen die Nachbarschaft eines Seedsongs betrachten
+gegeben wurden, da man im Graphen die Nachbarn eines Seedsongs betrachten
 kann.</p>
-<p><strong>Rules:</strong> Siehe Abbildung <a href="../appendix.html#fig-demo-rules">[broken link :-(]</a>.</p>
+<p><strong>Rules:</strong> Siehe Abb. <a href="../appendix.html#fig-demo-rules">[broken link :-(]</a>.</p>
 <p>In einer Liste werden alle bekannten Assoziationsregel
-angezeigt. Dabei wird neben beiden Seiten der Regel auch der Supportcount
-und das Rating der Regel angezeigt.</p>
-<p><strong>Examine:</strong> Siehe Abbildung <a href="../appendix.html#fig-demo-examine">[broken link :-(]</a>.</p>
+angezeigt. Dabei wird neben beiden Seiten der Regel auch der <em>Supportcount</em>
+und das <em>Rating</em> der Regel angezeigt. Beide werden hier nicht näher erklärt.</p>
+<p><strong>Examine:</strong> Siehe Abb. <a href="../appendix.html#fig-demo-examine">[broken link :-(]</a>.</p>
 <p>Hier werden alle Attribute des momentan spielenden Songs angezeigt.  Es wird die
 von <em>libmunin</em> normalisierte Form angezeigt, als auch, falls verfügbar, der
 Originalwert.  Zudem wird die <tt class="docutils literal"><span class="pre">moodbar</span></tt> (falls vorhanden) oben im Fenster
 geplottet.</p>
-<p><strong>History:</strong> Siehe Abbildung <a href="../appendix.html#fig-demo-history">[broken link :-(]</a>.</p>
+<p><strong>History:</strong> Siehe Abb. <a href="../appendix.html#fig-demo-history">[broken link :-(]</a>.</p>
 <p>Neben einer chronologischen Auflistung aller Songs die in letzter Zeit
 gehört wurden (Begrenzung auf 1000 Stück), werden hier auch die zuletzt
 ausgestellten Empfehlungen (Begrenzung auf 10 Stück) angezeigt.
@@ -314,8 +314,8 @@ Letzteres ist für das Debugging der Filterfunktion nützlich.</p>
 </div>
 <div class="section" id="weitere-steuerlemente">
 <h3>6.2.2 Weitere Steuerlemente<a class="headerlink" href="#weitere-steuerlemente" title="Permalink to this headline">¶</a></h3>
-<p>Aus Gründen der Vollständigkeit werden hier, die unter <a href="#fig-demo-overview">6.2</a>
-gezeigten Elemente noch erklärt.</p>
+<p>Aus Gründen der Vollständigkeit werden hier, die unter Abb.
+<a href="#fig-demo-overview">6.2</a> gezeigten Elemente noch erklärt.</p>
 <ol class="arabic" start="2">
 <li><p class="first"><strong>Seedsong:</strong> Zeigt mit einem roten Kreis den zuletzt ausgewählten
 Seedsong an.  Falls es mehrere Seedsongs gab, wird nur der erste
@@ -331,36 +331,35 @@ Kontextmenü liefert.</p>
 </li>
 <li><p class="first"><strong>Filter:</strong> Togglebutton (<span class="math">\($,,\sout{a}”$\)</span> als Icon) der anzeigt, ob
 der Filtermodus aktiviert ist.  Ist er aktiv, so darf sich in einer dynamisch
-erstellten Playlist der Künstler nur alle 3 Stücke wiederholen, der selbe
-Künstler <em>und</em> das selbe Album nur alle 5 Stücke.</p>
+erstellten Playlist der Künstler nur alle drei Stücke wiederholen, der selbe
+Künstler <em>und</em> das selbe Album nur alle fünf Stücke.</p>
 </li>
 <li><p class="first"><strong>Mininmaler Höranteil:</strong> Ein Klick auf den Button fördert einen Slider zu
 Tage auf dem man eine Prozentzahl einstellt. Diese legt fest, welcher Anteil
 eines Liedes (in Prozent) <em>mindestens</em> angehört werden muss, damit er zur
 Historie hinzugefügt wird.</p>
-<p>Um diese Funktionalität zu realisieren musste <em>Moosecat</em> um diese
+<p>Um diese Funktionalität zu realisieren, musste <em>Moosecat</em> um diese
 Funktionalität erweitert werden.</p>
 </li>
-<li><p class="first"><strong>Attributsuche:</strong> Eingabe einer Folge von Attribut&ndash;Werte Paaren die ein
+<li><p class="first"><strong>Attributsuche:</strong> Eingabe einer Folge von Attribut&ndash;Werte&ndash;Paaren die ein
 Seedsong bei der Attributsuche  haben sollte.</p>
 </li>
-<li><p class="first"><strong>Rating:</strong> Ein spezielles Widget, in den man das <em>Rating</em> des aktuell
-spielenden Songs setzen kann. Beim erstellen der <em>Session</em> durch
-<tt class="docutils literal"><span class="pre">coldstart.py</span></tt> wird ein <em>Rating</em> von <span class="math">\(0\)</span> angenommen &ndash;- also
-<em>ungesetzt</em>.</p>
+<li><p class="first"><strong>Rating:</strong> Ein spezielles Steuerelement, in den man das <em>Rating</em> des aktuell
+spielenden Songs setzen kann. Beim Erstellen der <em>Session</em> durch
+<tt class="docutils literal"><span class="pre">coldstart.py</span></tt> wird ein ungesetztes <em>Rating</em> von ,,:math:<cite>0</cite>&quot; angenommen.</p>
 <p>Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
 eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken, um das
 Rating auf ,,0&quot; (und damit <em>ungesetzt</em>) zurückzusetzen.</p>
 <p>Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen&ndash;Ansicht
 zufolge. Dies liegt daran, dass das Ändern des Ratings mittels der
-<tt class="docutils literal"><span class="pre">modify</span></tt>&ndash;Operation erfolgt. Diese fügt den Song an (möglicherweise)
-anderer Stelle im Graphen wieder ein.</p>
+<tt class="docutils literal"><span class="pre">modify</span></tt>&ndash;Operation erfolgt. Diese fügt den Song an einer möglicherweise
+anderen Stelle im Graphen wieder ein.</p>
 </li>
 <li><p class="first"><strong>Playcount:</strong> Zeigt an wie oft ein Lied bereits gehört wurde. Ein Lied gilt
 als nicht gehört, wenn prozentuell nur ein kleiner Teil als der gesetzte
 minimale Höranteil angehört wurde.</p>
-<p>Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt &ndash;-
-sobald man 100x mal ein Lied hört, zeigt diese vollen Füllstand an.</p>
+<p>Zur optischen Vorhebung ist es mit einer Fortschrittsanzeige hinterlegt.
+Sobald man 100 mal ein Lied hört, zeigt diese vollen Füllstand an.</p>
 </li>
 <li><p class="first"><strong>Volumebar</strong> Regler für die Lautstärke.</p>
 </li>
@@ -373,9 +372,9 @@ der Playlist nach dem letzten Lied) und <em>Consume</em> (Lösche das Lied aus d
 Playlist nach dem Abspielen).</p>
 </li>
 <li><p class="first"><strong>Seekbar:</strong> Ermöglicht das wahlfreie Hin- und Herspringen innerhalb des
-aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht in den
-<em>Höranteil</em> ein. Doppelt gehörte Parts schon &ndash;- daher sind Werte <span class="math">\(\ge
-100\%\)</span> möglich.</p>
+aktuellen Liedes.  Übersprungene Abschnitte eines Liedes fließen nicht in
+den <em>Höranteil</em> ein. Doppelt gehörte Parts schon.  Daher sind Werte
+<span class="math">\(\ge 100\%\)</span> möglich.</p>
 </li>
 <li><p class="first"><strong>Playbuttons:</strong> Die ,,üblichen&quot; Kontrollen eines Musicplayers zum
 <em>Pausieren/Abspielen</em> (an momentaner Stelle anhalten/weiterspielen),
@@ -383,12 +382,12 @@ aktuellen Liedes.  Übersprunge Parts eines Liedes fließen nicht in den
 <em>Vorheriges</em> Lied .</p>
 </li>
 <li><p class="first"><strong>Suche:</strong> Erlaubt das Filtern der Playlist oder Datenbank.</p>
-<p>Suchbegriffe können einfacher Natur wie <em>,,beat&quot;</em> (Findet alles das <em>,,beat&quot;</em>
-im Artist, Album oder Titel&ndash;Tag beeinhaltet) bis hin zu sehr komplizierten
-Suchbegriffen wie <em>,,(genre:rock + y:2001..2003) | artist:Beat&quot;</em> (Findet
-alles das <em>,,rock&quot;</em> im Genre hat und in den Jahren <em>2001</em> bis einschließlich
-<em>2003</em> released wurde, oder dessen Künstler ein Wort enthält, das mit
-,,Beat&quot; beginnt).</p>
+<p>Suchbegriffe können einfacher Natur wie <em>,,beat&quot;</em> (Findet alles das
+<em>,,beat&quot;</em> im Künstler-, Album- oder Titel&ndash;Tag beeinhaltet) sein. Oder auch
+eher komplizierter Natur: <em>,,(genre:rock + y:2001..2003) | artist:Beat&quot;</em>
+(Findet alles das <em>,,rock&quot;</em> im Genre hat und in den Jahren <em>2001</em> bis
+einschließlich <em>2003</em> released wurde, oder dessen Künstler ein Wort enthält,
+das mit ,,Beat&quot; beginnt).</p>
 <p><em>Anmerkung:</em> Die ,,Such&ndash;Engine&quot; dahinter ist in <em>Moosecat</em> implementiert.
 Die Suche kann mit <tt class="kbd docutils literal"><span class="pre">Strg-f</span></tt> oder <tt class="kbd docutils literal"><span class="pre">/</span></tt> <em>(Slash)</em> aktiviert und mit
 <tt class="kbd docutils literal"><span class="pre">Esc</span></tt> wieder versteckt werden.</p>

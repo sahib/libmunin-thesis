@@ -12,7 +12,11 @@
     \renewcommand{\thepage}{\roman{page}}
     \setcounter{page}{8} % cough.
     \addcontentsline{toc}{section}{Abk"urzungsverzeichnis}
-    {\centering\Huge \textbf{Abk"urzungsverzeichnis}}
+    {%
+        \vspace*{2em}
+        \Huge\textbf{Abk"urzungsverzeichnis}
+        \vspace{1em}
+    }%
 
 .. figtable::
     :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} p{0.65\linewidth}
@@ -20,9 +24,11 @@
     =======================  ==================================
     Abkürzung                Bedeutung
     =======================  ==================================
-    **API**                  *Application Programming Interface*
-    **GUI**                  *Graphical User Interface*
-    **LoC**                  *Lines of Code*
+    API                      *Application Programming Interface*
+    GUI                      *Graphical User Interface*
+    LoC                      *Lines of Code*
+    ID                       *Identifier*
+    UID                      *Unique Identifier*
     =======================  ==================================
 
 .. raw:: latex
