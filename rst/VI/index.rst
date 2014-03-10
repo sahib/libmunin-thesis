@@ -30,7 +30,7 @@ Damit zwischen den von *libmunin* herausgegebenen Empfehlungen und den internen
 Songs unterschieden werden kann, generiert ``coldstart.py`` eine Hashtabelle, die
 zwischen den *ID* von *libmunin's* Songs und den Dateipfaden innerhalb der
 Musikdatenbank eine Beziehung herstellt. Diese Hashtabelle wird in der Session
-gespeichert. Die Musikdatenbank selbst besteht dabei aus genau *666* ausgewählten
+gespeichert. Die Musikdatenbank selbst besteht dabei aus *666* ausgewählten
 Liedern aus der privaten Musiksammlung des Autors.
 
 Anwendungsübersicht
@@ -71,7 +71,7 @@ die jeweils in unterschiedlichen Reitern stecken. Im Folgenden wird eine Übersi
     rechts angeben kann. Dort kann ein *Suchbegriff* in der folgenden Form
     angegeben werden::
     
-        <attribut>: <wert>[, <attribut>: <value>, ...]
+        <attribut>: <wert>[, <attribut>: <wert>, ...]
     
     Folgendes Beispiel findet alle Songs mit dem Künstler *,,Billy Talent"* **und**
     dem Genre *,,Rock"*::
@@ -175,12 +175,12 @@ Aus Gründen der Vollständigkeit werden hier, die unter Abb.
    Um diese Funktionalität zu realisieren, musste *Moosecat* um diese
    Funktionalität erweitert werden.
 
-8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte Paaren die ein
+8. **Attributsuche:** Eingabe einer Folge von Attribut--Werte--Paaren die ein
    Seedsong bei der Attributsuche  haben sollte.
 
 9. **Rating:** Ein spezielles Steuerelement, in den man das *Rating* des aktuell
    spielenden Songs setzen kann. Beim Erstellen der *Session* durch
-   ``coldstart.py`` wird ein ungesetztes *Rating* von :math:`0` angenommen.
+   ``coldstart.py`` wird ein ungesetztes *Rating* von ,,:math:`0`" angenommen.
    
    Zum Setzen klickt man einfach ins Feld, die Seite links vom Cursor wird dann
    eingefärbt.  Es ist möglich etwas links vom ersten Stern zu klicken, um das
@@ -188,8 +188,8 @@ Aus Gründen der Vollständigkeit werden hier, die unter Abb.
    
    Ein Ändern des Ratings hat ein Neuzeichnen des Graphen in der Graphen--Ansicht
    zufolge. Dies liegt daran, dass das Ändern des Ratings mittels der
-   ``modify``--Operation erfolgt. Diese fügt den Song an (möglicherweise)
-   anderer Stelle im Graphen wieder ein.
+   ``modify``--Operation erfolgt. Diese fügt den Song an einer möglicherweise
+   anderen Stelle im Graphen wieder ein.
 
 10. **Playcount:** Zeigt an wie oft ein Lied bereits gehört wurde. Ein Lied gilt
     als nicht gehört, wenn prozentuell nur ein kleiner Teil als der gesetzte

@@ -15,7 +15,7 @@ All diese Plattformen bieten neben der eigentlichen Musik auch immer
 Empfehlungen zu anderen Liedern, die der Benutzer möglicherweise ebenfalls anhören
 möchte --- natürlich mit dem Hintergedanken, dass der Benutzer sich auch diese
 anhört oder gar kauft. Kunden, die neue Bands entdecken und später weitere Alben
-von diesen bestellen, sind natürlich ein wichtiger wirtschaftlicher Faktor.
+von diesen bestellen, sind ein wichtiger wirtschaftlicher Faktor.
 
 Doch wie entstehen solche Empfehlungen eigentlich? Werden diese manuell
 von den Betreibern gepflegt? Bei der großen Anzahl an *,,Waren"* wohl kaum.
@@ -73,7 +73,7 @@ ein solches System auf Qualität optimiert und weniger auf Wirtschaftlichkeit.
 Sprich anstatt Empfehlungen die mehr Geld einbringen sollen nachvollziehbare
 qualitative Empfehlungen möglich sein. 
 
-Was natürlich auch zur Motivation beiträgt:
+Was ebenfalls zur Motivation beiträgt:
 Der Autor entwickelt einen *MPD--Client* [#f3]_, für den er sich schon
 länger ein *echtes* Feature für *Intelligente Playlisten* wünscht.
 Daher soll auch nach Abschluss der Arbeit das Projekt weiterentwickelt werden.

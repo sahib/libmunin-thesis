@@ -50,7 +50,7 @@ Kurze Erläuterung des Beispiels
 -------------------------------
 
 * **Zeile 1:** Der Einstiegspunkt von *libmunin's* API ist immer eine *Session*.
-  Da die Konfiguration (Auswahl von Provider, Distanzfunktionen und Weighting)
+  Da die Konfiguration (Auswahl von Provider, Distanzfunktionen und Gewichtung)
   einer solchen  recht anstrengend werden kann, greifen wir auf eine
   Session mit vorgefertigter Maske zurück --- die sogenannte ``EasySession``.
   
@@ -68,10 +68,10 @@ Kurze Erläuterung des Beispiels
   **Zeile 19**, nach dem Verlassen des vorherigen *,,Blocks"*).
 
 * **Zeile 13:** Wir iterieren (**Zeile 12**) über alle Songs in unserer
-  Pseudodatenbank und fügen diese der *Session* hinzu (über die ``add``
-  Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben in der 
-  bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben sind.
-  Erstellt man eine eigene Session, kann man diese nach Belieben
+  Pseudodatenbank und fügen diese der *Session* hinzu (über die
+  ``add``--Operation). Zu beachten ist dabei: Es wird eine Hashtabelle übergeben
+  in der bestimmte Schlüssel (wie ``artist``) von der ``EasySession`` vorgegeben
+  sind.  Erstellt man eine eigene Session, kann man diese nach Belieben
   konfigurieren.
   
   Ein Problem, dass man bei der Benutzung der Bibliothek hat ist: *libmunin* und
@@ -88,7 +88,7 @@ Kurze Erläuterung des Beispiels
 
   *Anmerkung:* Zugegeben, dieses Beispiel ist hier etwas konstruiert. Später hat man meist
   keinen Index in einer Pseudodatenbank, sondern beispielsweise einen Dateipfad
-  als Identifier.
+  als *UID*.
   
 * **Zeile 21:** In dieser Zeile geben wir die ersten Empfehlungen aus. Wir lassen
   uns von der ``EasySession`` über die Methode ``recommend_from_seed`` zwei
@@ -116,7 +116,7 @@ haben, ist dieser auch kein Nachbar. Verbindungen zwischen zwei Knoten, werden
 nur dann hergestellt, wenn die Distanz :math:`< 1.0` ist.
 
 Ein komplizierteres Beispiel, das die meisten Aspekte von *libmunin* abdeckt,
-findet sich in :ref:`complex-example`.
+findet sich im Anhang, unter :ref:`complex-example`.
 
 .. _fig-minigraph: 
 
@@ -140,8 +140,8 @@ Hierbei eine vernünftige Herangehensweise zu finden, hat letztlich ca. 1
 :math:`^1/_2` Monate beansprucht.
 
 Die zwischenzeitlich aufgekommene Idee, Audiodaten mittels Audiofingerprints wie
-*Chromaprint* zu vergleichen wurde wieder aufgegeben. Damit ließen sich
-wirklich nur fast gleiche Stücke ermitteln. Selbst *Live-* und
+*Chromaprint* :cite:`CHROMAPRINT` zu vergleichen wurde wieder aufgegeben. Damit
+ließen sich wirklich nur fast gleiche Stücke ermitteln. Selbst *Live-* und
 *Studio--Versionen* der Lieder ließen sich manchmal nicht differenzieren.
 
 Parallel zur Implementierung wurde ein ,,Tagebuch" :cite:`THV` verfasst, das
@@ -172,11 +172,11 @@ Liste verfügbarer Empfehlungs--Strategien
   3. Schlägt beides schief weil keine Regeln vorhanden sind oder noch nichts
      abgespielt wurde, so wird ein zufälliger Seedsong gezogen.
   
-  Optional wird  der entstehende Iterator gemäß :ref:`recom-filter` gefiltert.
+  Optional wird  der entstehende Iterator gemäß Kapitel :ref:`recom-filter` gefiltert.
 
 * **Basierend auf einer Attributsuche:** Es kann nach einen oder mehreren Songs
   gesucht werden die gewisse Attribut--Werte--Paare aufweisen. Als Beispiel kann
-  ein Song gesucht werden der die Merkmale ,,Genre: Rock" und ,,Date: 2012"
+  ein Song gesucht werden der die Merkmale *,,Genre: Rock"* und *,,Date: 2012"*
   aufweist.
   
   Alle passenden Songs, aber maximal 20, werden dann als Seedsongs angenommen.
@@ -211,7 +211,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   lediglich herauslesen, wie ,,energiegeladen" die Stimmung in einem Lied zu
   einem bestimmten Zeitpunkt ist, mit etwas Glück kann man auch Instrumente
   erkennen, so ist die Kombination von E--Gitarre und Drums oft ein helles
-  Türkis.
+  Türkis. Akustikgitarren hingegen erscheinen meist in einem dunklem Orange.
   
   Aus diesem RGB--Vektoren werden die prägnantesten Merkmale abgeleitet: die
   dominanten Farben, der Stilleanteil (*schwarz*) und einige weitere Merkmale.
@@ -245,8 +245,8 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 
 * ``BPM``: Berechnet die ,,Beats--Per--Minute" eines Lieds, also einem Maß für
   die Schnelligkeit. Dies funktioniert nicht nur für stark *beatlastige*
-  Musikrichtungen wie *Techno,* sondern auch für *normale* Musik mit echten
-  Instrumenten. 
+  Musikrichtungen wie *Techno,* sondern auch für *normale* Musik mit
+  herkömmlichen Instrumenten. 
 
   Die Funktionalität wird momentan, eher primitiv, durch den Aufruf eines externen
   Tools, namens ``bpm-tools`` realisiert :cite:`4YZ`. 
@@ -257,8 +257,8 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
 
   * ``Normalize``: Normalisiert einen String mittels *NKFC Unicode
     Normalization*.  Bei Unicode gibt es oft mehrere Arten einen *Glyph* zu
-    schreiben. So kann ein *ä* als einzelner Glyph (*Codepoint U+e4*) oder als
-    *Composite Glyph* geschrieben werden: *\"+a* (*U+30B + U+61*). Dieser
+    schreiben. So kann ein *ä* als einzelner Glyph (*Codepoint* U+e4) oder als
+    *Composite Glyph* geschrieben werden: *\"+a* (U+30B + U+61). Dieser
     Provider macht daraus stets den ersten Fall.
   
   * ``ArtistNormalize``: Entfernt zusätzlich *Unrat* (welcher beim Vergleichen
@@ -280,7 +280,7 @@ Eingabe sie erwarten, sowie welche Ausgabe sie produzieren.
   
   .. digraph:: foo
   
-     size=4;
+     size=5;
   
      node [shape=record];
   
@@ -544,7 +544,7 @@ Modul-- und Paketübersicht
     +-------------------+------------------+----------------+-------+---------------------------------------------+
     |                   |                  |                | *...* |                                             |
     +-------------------+------------------+----------------+-------+---------------------------------------------+
-    |                   |  testing.py      |                |       | Fixtures und Helper für unittests           |
+    |                   |  testing.py      |                |       | Fixtures und Helper für Unit--Tests         |
     +-------------------+------------------+----------------+-------+---------------------------------------------+
 
 
@@ -579,8 +579,9 @@ Quelltexte wird entsprechend das *Distributed Version Control System* ``git``
 genutzt.
 
 Der Vorteil dieser Plattform besteht darin, dass sie von sehr vielen Entwicklern
-besucht wird, die die Software ausprobieren und möglicherweise verbessern oder
-sich zumindest die Seite für spätere Projekte merken. 
+besucht wird, die die Software ausprobieren und möglicherweise verbessern (durch
+sogenannte *Forks* und *Pull Requests*) oder sich zumindest die Seite für
+spätere Projekte merken. 
 
 Die dazugehörige Dokumentation wird bei jedem *Commit* [#f2]_ automatisch aus
 den Quellen, mittels des freien Dokumentations--Generators Sphinx, auf der für
@@ -622,9 +623,9 @@ Zusatzprogrammen *PEP8* und *flake8* statisch überprüft.
 
 Auch dieses Dokument wurde mit dem :latex_sign:`sigh`-Backend einer
 modifizierten Sphinxversion erstellt. Der Vorteil ist dabei, dass die Arbeit in
-*reStructuredText* geschrieben werden kann und einerseits als PDF und als HTML--
-Variante :cite:`8MD` erstellt wird --- letztere ist sogar für mobile Endgeräte
-ausgelegt.  
+*reStructuredText* geschrieben werden kann und einerseits als PDF- und als
+HTML--Variante :cite:`8MD` erstellt wird --- letztere- ist sogar für mobile
+Endgeräte ausgelegt.  
 
 Abhängigkeiten von *libmunin*
 -----------------------------
@@ -638,29 +639,29 @@ Abhängigkeiten von *libmunin*
     :alt: Übersicht über die Abhängigkeiten von libmunin.
     :spec: l l l l l
 
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | *Abhängigkeit*        | *PyPI?*            | *Optional?*        | *Referenz*                 | *Aufgabe*                     |
-    +=======================+====================+====================+============================+===============================+
-    | moodbar               |                    | :math:`\checkmark` | :cite:`wood2005techniques` | Moodbar--Berechnung.          |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | bpm-utils             |                    | :math:`\checkmark` | :cite:`4YZ`                | BPM--Berechnung.              |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | plyr                  | :math:`\checkmark` | :math:`\checkmark` | :cite:`9XU`                | Liedtextbeschaffung.          |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | python--igraph        | :math:`\checkmark` | :math:`\checkmark` | :cite:`IGR`                | Graphenplotting.              |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | pymining              | :math:`\checkmark` |                    |                            | Datamining--Hilfsfunktionen.  |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | bidict                | :math:`\checkmark` |                    |                            | Bidirektionale Hashtabelle.   |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | guess_language        | :math:`\checkmark` |                    |                            | Spracherkennung.              |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | pyenchant             | :math:`\checkmark` | :math:`\checkmark` |                            | Verbesserte Spracherkennung.  |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | magicdate             | :math:`\checkmark` |                    |                            | Datumsformaterkennung.        |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
-    | pyxDamerauLevenshtein | :math:`\checkmark` |                    |                            | Levenshtein--Distanzfunktion. |
-    +-----------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | *Abhängigkeit*            | *PyPI?*            | *Optional?*        | *Referenz*                 | *Aufgabe*                     |
+    +===========================+====================+====================+============================+===============================+
+    | ``moodbar``               |                    | :math:`\checkmark` | :cite:`wood2005techniques` | Moodbar--Berechnung.          |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``bpm-utils``             |                    | :math:`\checkmark` | :cite:`4YZ`                | BPM--Berechnung.              |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``plyr``                  | :math:`\checkmark` | :math:`\checkmark` | :cite:`9XU`                | Liedtextbeschaffung.          |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``python-igraph``         | :math:`\checkmark` | :math:`\checkmark` | :cite:`IGR`                | Graphenplotting.              |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``pymining``              | :math:`\checkmark` |                    |                            | Datamining--Hilfsfunktionen.  |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``bidict``                | :math:`\checkmark` |                    |                            | Bidirektionale Hashtabelle.   |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``guess_language``        | :math:`\checkmark` |                    |                            | Spracherkennung.              |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``pyenchant``             | :math:`\checkmark` | :math:`\checkmark` |                            | Verbesserte Spracherkennung.  |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``magicdate``             | :math:`\checkmark` |                    |                            | Datumsformaterkennung.        |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
+    | ``pyxDamerauLevenshtein`` | :math:`\checkmark` |                    |                            | Levenshtein--Distanzfunktion. |
+    +---------------------------+--------------------+--------------------+----------------------------+-------------------------------+
 
 In Tabelle :num:`table-deps` wird eine Übersicht über die *direkten*
 Abhängigkeiten von *libmunin* gegeben.  Abhängigkeiten von Drittanbietern sind nicht
@@ -675,7 +676,7 @@ Unit--Tests
 -----------
 
 Die meisten Module sind mit ``unittests`` ausgestattet, die sich, für Python
-typisch, am Ende von jeder ``.py``-Datei befinden:
+typisch, am Ende von jeder ``.py``--Datei befinden:
 
 .. code-block:: python
 

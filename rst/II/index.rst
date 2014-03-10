@@ -12,7 +12,7 @@ Allgemein gesprochen ist ein *Empfehlungsdienst* ein Dienst, der zu bestimmten
 Objekten ähnliche Objekte vorschlägt. Zur Ermittelung der ähnlichen Objekte
 nutzt er Metadaten welche die einzelnen Objekte beschreiben. Die Metadaten
 werden durch Methoden des *Information--Retrieval* beschafft und durch Methoden
-des *Data--Minings* analysiert. Der Nutzer wird zudem während der Laufzeit
+des *Dataminings* analysiert. Der Nutzer wird zudem während der Laufzeit
 beobachtet um mit der Zeit *exaktere* Empfehlungen abzugeben.
 
 In unserem konkreten Fall soll also ein Prototyp eines *Empfehlungsdienstes*
@@ -34,25 +34,25 @@ Nutzern zu erwarten.
    
 Ein zusätzlicher Vorteil von *libmunin*: Man entgeht einerseits der Werbung, die
 bei den meisten Diensten  zwischen allen paar Liedern gespielt wird,
-andererseits ist man nicht einer Vorauswahl der Musiklabels unterworfen, denn
+andererseits ist man nicht einer Vorauswahl der Musiklabels unterworfen. Denn
 meist wird nur die momentan *populäre* Musik bei den oben genannten Plattformen
 gespielt. Zudem ist dort die Musik kommerzieller Natur. Freie, *Creative
-Commons* lizenzierte Musik, wie man sie beispielsweise auf Jamendo [#f3]_
+Commons* lizenzierte Musik, wie man sie beispielsweise auf Jamendo [#f1]_
 findet, sucht man anderswo vergebens. Mit *libmunin* kann man hingegen seine
 lokale, selbst zusammengestellte Musiksammlung verwenden.
 
 Vorhandene Alternativen
 =======================
 
-Um Fehler zu vermeiden, die andere bereits gemacht haben, betrachten wir einige
-Alternativen und deren Herangehensweise an das Problem. Es werden einige
-ausgewählte Plattformen aller Couleur gezeigt und deren Funktionsweise und
-Besonderheiten kurz erklärt.
+Um Ideen zu sammeln und Fehler zu vermeiden, die andere bereits gemacht haben,
+werden einige Alternativen und deren Herangehensweise an das Problem betrachtet.
+Es werden einige ausgewählte Plattformen aller Couleur gezeigt und deren
+Funktionsweise und Besonderheiten kurz erklärt.
 
 Bekannte Plattformen
 --------------------
 
-**last.fm:** :cite:`9NT` Der wohl bekannteste Musik Empfehlungs--Service im
+**last.fm:** :cite:`9NT` Der wohl bekannteste Musikempfehlungs--Service im
 Netz.  Benutzer können sich mit ihrem Account ein personalisiertes Webradio
 (auch *Station* genannt, siehe Abb. :num:`fig-lastfm-webradio`) zusammenstellen.
 Dabei wählt man ein Lied auf der Seite aus und lässt sich darauf basierend 
@@ -92,13 +92,13 @@ von den Nutzern, nicht von den eigentlichen Songdaten.
     Screenshots von Last.fm. 
 
 **YouTube:** :cite:`WNN` YouTube ist vorrangig als Video--Plattform bekannt.
-Durch die enorme Beliebtheit laden dort Nutzer allerdings auch Musik,
-verpackt als Video, hoch. Interessant dabei ist, dass in der Sidebar stets
-Empfehlungen für weitere Videos angezeigt (siehe Abb. :num:`fig-youtube`) werden
-In den meisten Fällen dann auch weitere Musikvideos. Dabei haben die
-meisten Videos auch etwas mit dem Aktuellen zu tun.
+Durch die enorme Beliebtheit laden dort Nutzer allerdings auch Musik, verpackt
+als Video, hoch. Interessant dabei ist, dass in der Sidebar stets Empfehlungen
+für weitere Videos angezeigt werden (siehe Abb.  :num:`fig-youtube`).  In den
+meisten Fällen dann auch weitere Musikvideos. Dabei haben die meisten Videos
+auch etwas mit dem Aktuellem zu tun.
 
-Einige der Attribute :cite:`davidson2010youtube`, die in die Empfehlung mit
+Einige der Attribute (vergleiche :cite:`davidson2010youtube`), die in die Empfehlung mit
 eingehen:
 
     * Videometadaten (Qualität, Beschreibung, Titel)
@@ -136,11 +136,11 @@ Musikgeschmack haben.
 die Warenkorbanalyse :cite:`jacobi2006personalized`. Dabei werden die Warenkörbe
 der Benutzer analysiert und es werden *Assoziationsregeln* erstellt.
 Bevorzugtermaßen Regeln, die unerwartete Zusammenhänge aufdecken. Ein Kauf ist
-auch eine klarere *Absichtserklärung*, als ein Klick auf *YouTube*. Das
-typische Beispiel ist dabei: *,,Wer Bier kauft, kauft auch Windeln"*. Diese
-Regeln werden dann genutzt, um neue Artikel für bestimmte Artikel vorzuschlagen
-(siehe Abb. :num:`fig-amazon`).  Natürlich fließt auch die personalisierte
-Shopping--Historie in die Empfehlungen mit ein.
+eher eine klare *Absichtserklärung*, als ein Klick auf *YouTube*. Das typische
+Lehrbeispiel ist dabei: *,,Wer Bier kauft, kauft auch Windeln"* [#f2]_. Diese Regeln
+werden dann genutzt, um neue Artikel für bestimmte Artikel vorzuschlagen (siehe
+Abb. :num:`fig-amazon`).  Auch die personalisierte
+Shopping--Historie fließt in die Empfehlungen mit ein.
 
 .. _fig-amazon: 
 
@@ -153,11 +153,11 @@ Shopping--Historie in die Empfehlungen mit ein.
     könnte. Hier zu *Knorkator -- The Schlechtest of*.
 
 **Musicovery:** :cite:`ZMF` Diese Seite kategorisiert eine große Anzahl von
-Musikstücken nach Stimmung (*dunkel* bis *positiv*) und Tempo (*ruhig* bis
-*energiegeladen*). Diese zwei Attribute werden an den Achsen eines
-Koordinatensystems aufgetragen. So erhält der Benutzer die Möglichkeit einen
-Punkt darin zu selektieren und basierend auf diesen Eigenschaften sich
-Empfehlungen liefern zu lassen (siehe Abb. :num:`fig-musicovery-moodmap`).
+Musikstücken (siehe Abb. :num:`fig-musicovery-moodmap`) nach Stimmung  (*dunkel*
+bis *positiv*) und Tempo (*ruhig* bis *energiegeladen*). Diese zwei Attribute
+werden an den Achsen eines Koordinatensystems aufgetragen. So erhält der
+Benutzer die Möglichkeit einen Punkt darin zu selektieren und basierend auf
+diesen Eigenschaften sich Empfehlungen liefern zu lassen.
     
 .. _fig-musicovery-moodmap:
 
@@ -172,9 +172,9 @@ Software--Bibliotheken
 ----------------------
 
 Während die Anzahl der Plattformen noch ins Unermeßliche ging, so liefert eine
-Suche nach *Music--Recommendation-(Library|System|Engine)* schon deutlich weniger
-Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses Problem
-angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
+Suche nach *,,Music--Recommendation--(Library|System|Engine)"* schon deutlich
+weniger Resultate. Es scheint keine etablierte Bibliothek zu geben, die dieses
+Problem angeht. Nach einiger Suche ließen sich zumindest zwei Projekte finden:
 
 **Mirage:** :cite:`AHX` Eine freie in der Programmiersprache
 :math:`\mathrm{C{\scriptstyle\overset{\#}{\vphantom{\_}}}}` (mithilfe von Mono
@@ -192,31 +192,28 @@ Bedeutung.
 **Mufin Audiogen:** :cite:`UZB` Eine kommerzielle, in
 :math:`\mathrm{C/C{\scriptstyle\overset{\!++}{\vphantom{\_}}}}` entwickelte
 Bibliothek, die im mittlerweile eingestellten *Mufin--Audioplayer* verwendet
-wurde. Sie bietet, laut der Website, enorm viele, teils *fragwürdige*,
-Features und hat nicht das Problem des *Kaltstartes*. Das soll heißen: Die
-Musikdatenbank muss nicht erst aufwändig importiert werden, sondern es können
-gleich Empfehlungen getroffen werden.
-
-Zudem sind Visualisierungen und mobile Anwendungen mit der Bibliothek möglich.
+wurde. Sie bietet, laut der Website, enorm viele, teils *fragwürdige*, Features
+und hat nicht das Problem des *Kaltstartes*. Das soll heißen: Die Musikdatenbank
+muss nicht erst aufwändig importiert werden, sondern es können gleich
+Empfehlungen getroffen werden.  Zudem sind Visualisierungen und mobile
+Anwendungen mit der Bibliothek möglich.
 
 Vorhandene Arbeiten
 ===================
 
-Wie bereits Eingangs erwähnt gibt es eine zwar noch überschaubare aber doch
-schon recht umfangreiche Menge an Arbeiten zum Thema *Music Recommendation*.
-
-Einige ausgesuchte Arbeiten werden  im Folgenden aufgelistet und deren
+Zum Thema *Muisc Recommendation* gibt es bereits einige wissenschaftliche
+Arbeiten.  Drei ausgesuchte Arbeiten werden  im Folgenden aufgelistet und deren
 Kernaussagen im Bezug auf dieses Projekt erläutert:
 
 * *A self-organizing map based knowledge discovery for music recommendation systems* :cite:`vembu2005self`
 
-    Statt den Computern die Ähnlichkeit zwischen zwei Liedern bestimmen zu
-    lassen verwendet diese Arbeit Reviews von *Amazon*, um daraus Beziehungen
+    Statt dem Computer die Ähnlichkeit zwischen zwei Liedern bestimmen zu
+    lassen, verwendet diese Arbeit Reviews von *Amazon*, um daraus Beziehungen
     zwischen Künstlern abzuleiten.
 
-    Dieser Ansatz fällt unter *Social-based Recommendations*. Man nutzt also
+    Dieser Ansatz fällt unter *Social--based--Recommendations*. Man nutzt also
     das Wissen vieler Menschen um Ähnlichkeiten abzubilden. Dies steht im
-    Gegensatz zu *Content-based Recommendations*. Bei diesen wird die
+    Gegensatz zu *Content--based--Recommendations*. Bei dieser Methode wird die
     Ähnlichkeit anhand von Audio- und Metadaten automatisch ermittelt.
 
     *Vorteil:* Elegant und oft sehr akkurat.
@@ -236,14 +233,19 @@ Kernaussagen im Bezug auf dieses Projekt erläutert:
 * *Music for my mood* :cite:`lee2006music`
 
     Die Ähnlichkeit zwischen zwei Stücken wird über die *Stimmung*, welche durch
-    Audioanalyse bestimmt wird, in einem Lied definiert. 
+    Audioanalyse bestimmt wird, in einem Lied definiert. Man wählt dann,
+    ähnlich wie bei *Musicovery*, Lieder nach seiner aktuellen Stimmung.
 
 .. _schlussfolgerungen:
+
+.. raw:: latex
+
+   \newpage
 
 Schlussfolgerungen
 ==================
 
-Folgende Ideen erschienen übernehmenswert (*Quellen in Klammern*):
+Folgende Ideen erscheinen übernehmenswert (*Quellen in Klammern*):
 
 * Ein System welches von seinen Nutzern lernt. *(last.fm)*
 * Umfangreiche Einbeziehung von Metadaten. *(YouTube)*
@@ -355,15 +357,15 @@ ist *libglyr* :cite:`9XU` gut geeignet.  *Libglyr* ist eine, vom Autor seit Ende
 2010 entwickelte C-Bibliothek Musikmetadatensuchmaschine, um schwer zu
 besorgende Daten wie Liedtexte, Coverart und andere Metadaten im Internet zu suchen
 und optional lokal zwischenzuspeichern.  Sie ist GPLv3 lizensiert und wird unter
-anderem im *GnomeMusicPlayerClient (gmpc)*, vielen Shellskripten und
+anderem im *Gnome Music Player Client (gmpc)*, vielen Shellskripten und
 in dem oben genannten *Moosecat* eingesetzt.
 
 
-**Anpassungsfähigkeit an den Benutzer:** Mit der Zeit soll es *bessere*
+**Anpassungsfähigkeit an den Benutzer:** Mit der Zeit soll *libmunin* *bessere*
 Empfehlungen liefern als am Anfang. Es soll dabei auf explizite und auf
-implizite Weise lernen. Beim expliziten Lernen gibt der Benutzer Tipps
+implizite Weise lernen. Beim expliziten Lernen gibt der Benutzer *,,Tipps"*
 (beispielsweise kann er ein Lied oder eine Empfehlung bewerten), beim
-implizierten Lernen wird, ohne das Zutun des Nutzers, das Verhalten des
+impliziten Lernen wird, ohne das Zutun des Nutzers, das Verhalten des
 Benutzers beobachtet und daraus werden Schlussfolgerungen getroffen.
 
 Nichtanforderungen
@@ -371,13 +373,17 @@ Nichtanforderungen
 
 Folgendes sind keine Probleme die von *libmunin* gelöst werden müssen:
 
-**Einpflegen manuell erstellter Empfehlungen:** Dies ist per *,,Wrapper"* um die
-Bibliothek möglich.
+**Einpflegen manuell erstellter Empfehlungen:** Manche Musicplayer bieten eine
+primitive Form eines Musikempfehlungssystems an, bei der Nutzer einfache
+Verhaltensregeln einpflegen können. Eine beispielhafte Verhaltensregel wäre
+*,,genre: rock* :math:`\rightarrow` *genre: country"*, also übersetzt: *,,Nach
+einem Lied mit dem Genre Rock, spiele ein Lied mit dem Genre Country"*.  Dies
+wäre per optionalen Aufsatz auf *libmunin* möglich.
 
-**Social-based music recommendation:** *libmunin* soll eine rein *Content-based
-music recommendation Engine* werden.  Die Ähnlichkeit zweier Datensätze wird
-also algorithmisch ermittelt, anstatt auf das Wissen von Menschen
-zurückzugreifen. 
+**Social-based music recommendation:** *libmunin* soll im Kern eine rein
+*Content-based music recommendation Engine* werden.  Die Ähnlichkeit zweier
+Datensätze wird also algorithmisch ermittelt, anstatt auf das Wissen von
+Menschen zurückzugreifen. 
 
 Zielgruppe
 ==========
@@ -386,7 +392,7 @@ Zielgruppe
 einfach zu nutzende Anwendung oder Website bereit. Es kann aber für
 Entwickler als Backend dafür dienen.
 
-*Vom Autor selbst sind die folgenden zwei Projekte anvisiert:*
+*Vom Autor selbst sind die folgenden Projekte anvisiert:*
 
 
 **Moosecat:** Implementierung als Plugin für *Intelligente Playlisten*.
@@ -395,13 +401,17 @@ Entwickler als Backend dafür dienen.
 einfacher Einsatz in Shellskripten möglich. Das Programm könnte versuchen die
 gängigsten Musiksammlungen einzulesen und auf Kommando Empfehlungen generieren.
 
-**Mopidy:** :cite:`3W5` Mopidy ist eine alternative Implementierung zum *MusicPlayerDaemon
-(MPD)* in Python mit erweiterten Features. Sie bietet eine Anbindung zu
-Music--Streaming--Plattformen wie *Spotify*. Dabei ist es kompatibel mit den
-existierenden MPD-Clients. Da die Entwickler von Mopidy eine Möglichkeit suchen um
-Dynamische Playlists zu implementieren :cite:`XVG`, wäre dies ein guter
-Anlaufpunkt.
+**Mopidy:** :cite:`3W5` Mopidy ist eine alternative Implementierung zum
+*MusicPlayerDaemon (MPD)* in Python mit erweiterten Features. Sie bietet eine
+Anbindung zu Music--Streaming--Plattformen wie *Spotify*. Dabei ist es
+kompatibel mit den existierenden MPD-Clients. Da die Entwickler von Mopidy eine
+Möglichkeit suchen um *Dynamische/Intelligente Playlisten* zu implementieren
+:cite:`XVG`, wäre dies ein guter Anlaufpunkt.
 
 .. rubric:: Footnotes
 
-.. [#f3] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`
+.. [#f1] Eine Streaming Plattform für freie, *Creative Commons* lizensierte Musik. :cite:`30T`
+
+.. [#f2] Grund sind die Väter von Neugeborenen. (Siehe :cite:`WIN` für eine
+   optionale detailliertere Erklärung)
+

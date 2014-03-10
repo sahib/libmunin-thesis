@@ -4,7 +4,7 @@ Begriffsklärungen
 
 Im Folgenden werden häufig gewisse Begriffe gebraucht, die nicht allgemein
 verständlich, oder die im Kontext von *libmunin* anders besetzt sind.
-Diese sollen hier definiert werden, bevor wir fortfahren.
+Diese sollen hier definiert werden, bevor fortgefahren wird.
 
 Allgemeine Fachbegriffe
 -----------------------
@@ -23,11 +23,12 @@ Allgemeine Fachbegriffe
 
       Verfahren um in definierter Weise einen Graphen zu traversieren. Dabei
       wird ausgehend von einem Knoten zuerst jeder Nachbarknoten besucht. Erst
-      dann wird analog mit den Nachbarknoten verfahren.  
+      dann wird analog mit den Nachbarknoten verfahren. Bereits besuchte Knoten
+      werden markiert und nicht weiter verfolgt.
 
     Tags
 
-      In Audiofiles können bei den meisten Formaten, Metadaten abgelegt
+      In Audiofiles können bei den meisten Formaten Metadaten abgelegt
       werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den *Artist*,
       *Album* und *Title*, aber auch komplexere Daten wie das *Coverart*,
       abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
@@ -86,8 +87,8 @@ Kontextspezifische Fachbegriffe
     Maske
 
       Die :term:`Session` benötigt eine Beschreibung der Daten die importiert
-      werden. So muss sich darauf geeinigt werden was beispielsweise unter dem
-      Schlüssel ``genre`` abgespeichert wird.
+      werden. So muss sich beispielsweise darauf geeinigt werden, *was* in einem
+      :term:`Song` unter dem Schlüssel ``genre`` abgespeichert wird.
     
       In der *Maske* werden daher die einzelnen Attribute festgelegt die ein
       einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
@@ -100,7 +101,7 @@ Kontextspezifische Fachbegriffe
 
       Eine Distanz beschreibt die Ähnlichkeit zweier Songs.
       Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
-      minimale *Entfernung* zueinander), eine Distanz von 1.0 maximale
+      minimale *Entfernung* zueinander), eine Distanz von 1 maximale
       Unähnlichkeit (oder maximale *Entfernung*).
 
       Die Distanz wird durch eine :term:`Distanzfunktion` berechnet.
@@ -119,8 +120,8 @@ Kontextspezifische Fachbegriffe
       einem Wert verschmolzen.
 
       Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
-      Distanz von 1.0 angenommen und ebenfalls in die gewichtete Oberdistanz
-      eingerechnet.
+      Distanz von 1 angenommen. Diese wird dann ebenfalls in die gewichtete
+      Oberdistanz eingerechnet.
 
       Die folgenden Bedingungen müssen sowohl für die allgemeine
       Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
@@ -133,7 +134,7 @@ Kontextspezifische Fachbegriffe
 
     Attribut
 
-      Ein Attribut ist ein *Schlüssel* in der Maske. Er repräsentiert
+      Ein Attribut ist ein *Schlüssel* in der :term:`Maske`. Er repräsentiert
       eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
       Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
       andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
@@ -144,7 +145,7 @@ Kontextspezifische Fachbegriffe
       Ein *Provider* normalisiert einen Wert anhand verschiedener
       Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
       die in *libmunin* geladen werden. Jeder *Provider* ist dabei durch die
-      Maske einem Attribut zugeordnet.
+      :term:`Maske` einem Attribut zugeordnet.
 
       Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
       vergleichbare Werte zu liefern - da die Distanzfunktion sehr
@@ -153,11 +154,18 @@ Kontextspezifische Fachbegriffe
     Assoziationsregeln
         
       Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-      miteinander. Wird eine der beiden Mengen miteinander gehört, ist es
-      wahrscheinlich, dass auch die andere Menge daraufhin angehört wird.
+      miteinander. Sie besagen, dass wenn eine der beiden Mengen miteinander
+      gehört wird, dann ist es *wahrscheinlich*, dass auch die andere Menge
+      daraufhin angehört wird.
+
+      Die Güte jeder Regel wird durch ein *Rating* beschrieben, welche grob die
+      generelle Anwendbarkeit beschreibt.
 
       Sie werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied
       zwischengespeichert, das der Nutzer anhört.
 
-      Die Güte jeder Regel wird durch ein *Rating* beschrieben, welche die
-      generelle Anwendbarkeit beschreibt.
+      *Anmerkung:* Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
+      Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
+      Einfachkeit allerdings *bidirektional.*  So gilt nicht nur, dass man
+      wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
+      \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).

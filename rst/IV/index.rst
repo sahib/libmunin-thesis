@@ -22,7 +22,7 @@ die Distanzen von jedem Dokument zu jedem anderen gespeichert werden.
 
 Da *libmunin* auch für eine sehr hohe Anzahl von Songs funktionieren soll,
 schließt sich die Benutzung einer Distanzmatrix allerdings durch den Aufwand von
-:math:`O(n^2)` aus.  Nehmen wir an ein Benutzer möchte seine Musiksammlung mit
+:math:`O(n^2)` aus.  Nimmt man an ein Benutzer möchte seine Musiksammlung mit
 :math:`40.000` Liedern importieren, so bräuchten man die folgende Menge an
 Feldern in der Matrix:
 
@@ -53,8 +53,8 @@ Graphen--Plot (erstellt mit ``igraph`` :cite:`IGR`) gezeigt.
     :align: center
 
     Beispielgraph mit 100 Knoten, aus generierten Testdaten. Die Farbe der
-    Knoten zeigt grob die ,,Zentralität" des Knoten an. Pro Knoten wurde
-    ein Integer zwischen 1-100 willkürlich generiert, diese wurden mit einer
+    Knoten zeigt grob die ,,Zentralität" des Knoten an. Pro Knoten wurde ein
+    Integer zwischen 1--100 willkürlich generiert. Diese wurden dann mit einer
     primitiven Distanzfunktion verglichen. Die Länge der Kanten ist durch das
     Layout bedingt und deutet nicht auf die Distanz hin.
 
@@ -72,7 +72,7 @@ Distanz zusammengeschmolzen.
 Graphenoperationen
 ------------------
 
-Um mit unseren Graphen arbeiten zu können, müssen wir einige Operationen auf ihm
+Um mit unseren Graphen arbeiten zu können, muss man einige Operationen auf ihm
 definieren:
 
 * ``rebuild:`` Bevor der Graph benutzt werden kann, muss er natürlich erstmal
@@ -95,7 +95,7 @@ definieren:
   jeden Song mit jedem anderen vergleicht. Dies ist für kleine Mengen (:math:`\le
   400`) von Songs verträglich und für *sehr* kleine Mengen sogar schneller.
   Tatsächlich fällt die normale ``rebuild``-Operation auf diese
-  zurück, falls die Menge an Songs :math:`\le 200`.
+  zurück, falls die Menge an Songs :math:`\le 200` ist.
   
   Hauptsächlich für Debugging--Zwecke, um Fehler beim herkömmlichen ``rebuild``
   aufzudecken. 
@@ -121,7 +121,8 @@ definieren:
 * ``fixing:`` Durch das Löschen und Hinzufügen von Songs können *Einbahnstraßen*
   im Graphen entstehen. Durch den nachgelagerten *fixing*--Schritt werden diese,
   nach bestimmten Regeln, entweder entfernt oder in bidirektionale Verbindungen
-  umgebaut.
+  umgebaut. Nach jedem ``insert``, ``remove`` und ``rebuild`` sollte dieser
+  Schritt erfolgen.
 
 .. _recom-out:
 
@@ -135,11 +136,11 @@ Anfrage wie ,,10 ähnliche Songs zu *The Beatles -- Yellow Submarine* " eben
 *,,Yellow Submarine"*.
 
 Aus der funktionalen Programmierung wurde dabei das Konzept der *Infinite
-Iterators* übernommen: Anstatt eine bestimmte Anzahl von Empfehlungen als Liste,
+Iterators* übernommen: Anstatt einer bestimmten Anzahl von Empfehlungen als Liste,
 wird ein Versprechen herausgegeben, die Empfehlungen genau dann zu berechnen,
 wenn sie gebraucht werden (*Lazy Evaluation*). Dadurch ist auch die Zahl der zu
 gebenden Empfehlungen variabel. Dies ist sehr nützlich beim Erstellen einer
-intelligenten Playlist. 
+intelligenten, fortlaufenden Playlist. 
 
 Es können auch mehrere Seedsongs verwendet werden, dann werden die einzelnen
 *Iteratoren* im Reißschlußverfahren verwebt.
@@ -203,7 +204,7 @@ beinhaltet vier Schritte:
   durch sogenannte :term:`Provider` normalisiert. Die Normalisierung ist nötig,
   um im nächsten Schritt eine einfache und effiziente Vergleichbarkeit der Daten
   zu gewährleisten. 
-* **Rebuild:** Dies entspricht der ``rebuild``-Operation.
+* **Rebuild:** Dies entspricht der ``rebuild``--Operation.
   In diesem Schritt werden die normalisierten Daten untereinander mittels einer
   passenden Distanzfunktion untersucht. Unter Zuhilfenahme, der dabei
   entstehenden Distanz wird der Graph aufgebaut. 
@@ -233,7 +234,7 @@ Dazu bedarf es einer weiteren Eingabe vom Nutzer: Einer Beschreibung wie die
 Lieder in seiner Musikdatenbank aufgebaut sind. Also welche :term:`Tags` sie
 enthalten und wie mit diesen Daten verfahren werden soll. 
 
-Da diese Daten sehr unterschiedlich aufgebaut sind, muss *libmunin* sehr
+Da diese Daten sehr unterschiedlich geartet sind, muss *libmunin* sehr
 generisch aufgebaut sein. Der Ansatz ist dabei, zusätzlich vom Nutzer eine
 :term:`Maske` zu verlangen, die beschreibt welche möglichen *Tags* (oder
 Attribute) ein einzelner Song besitzt. Für jedes Attribut kann
@@ -242,7 +243,7 @@ und eine Gewichtung ausgewählt werden. Letztere beschreibt, wie *wichtig* diese
 Attribut aus Sicht des Nutzers in Bezug auf die Ähnlichkeit ist. Der
 Provider normalisiert die Werte von einem Attribut auf bestimmte
 Art und Weise, während sich die Distanzfunktion um das Vergleichen der
-normalisierten Werte nach bestimmten, je auf Art des Attributs spezialisierten
+normalisierten Werte nach bestimmten, je nach Art des Attributs spezialisierten
 Weise, kümmert.
 
 Nachdem das Format, in Form der Maske, geklärt ist, kann der Nutzer
@@ -262,10 +263,10 @@ jeden Song mittels der ``add``-Operation hinzufügen und im Anschluss eine
     Mitte die Entwickler von libmunin und oben die externen Ressourcen auf die
     libmunin zugreifen kann.
 
-Wir wissen nun wie unsere interne Datenstruktur auszusehen hat. Wir wissen auch,
-wie die Daten aussehen, die von der Umwelt hereinkommen. Der nächste Schritt
-besteht darin, sich Gedanken über den *Layer* zu machen, welcher zwischen beiden
-vermittelt.
+
+Nun ist klar wie die interne Datenstruktur und die externen Daten aussehen.  Der
+nächste Schritt besteht darin, sich Gedanken über den *Layer* zu machen, welcher
+zwischen beiden vermittelt.
 
 Tatsächlich besteht ein großer Teil von *libmunin* aus diesem *Layer*, der Daten
 aus der Umwelt nimmt und in die interne Graphendarstellung transferiert.
@@ -288,9 +289,9 @@ groben Verarbeitung dazwischen.
 Entwurf der Software
 ====================
 
-Da wir jetzt grob wissen aus welchen Komponenten unsere Software besteht, können
-wir uns Gedanken darüber machen, wie diese einzelnen Teile konkret aussehen.  Im
-folgenden werden die *,,Hauptakteure"* der Software vorgestellt.
+Nachdem nun geklärt ist aus welchen Komponenten unsere Software besteht, kann
+man sich Gedanken darüber machen, wie diese einzelnen Teile konkret aussehen.
+Im Folgenden werden die *,,Hauptakteure"* der Software vorgestellt.
 
 Übersicht
 ---------
@@ -314,30 +315,30 @@ implementiert.
 Grobe Unterteilung
 ------------------
 
-Wir schauen uns zuerst die einzelnen *Regionen* der Software an, danach widmen
-wir uns den einzelnen Komponenten.  Grob ist die Software in fünf
-unterschiedliche *Regionen* aufgeteilt.  Im Folgenden werden diese Regionen
-vorgestellt: 
+Im Folgenden werden die einzelnen *Regionen* der Software betrachtet. Danach
+werden die einzelnen Komponenten dieser Regionen näher beleuchtet.  Grob ist die
+Software in fünf unterschiedliche *Regionen* aufgeteilt.  Im Folgenden werden
+diese Regionen vorgestellt: 
 
 1. **API:** Die API ist die Schnittstelle zum Benutzer hin. Der Nutzer kann
    mittels einer ``Session`` auf alle Funktionen von *libmunin* zugreifen. Dazu
    muss er beim Instantiieren derselben eine ``Maske`` angeben, die die
    Musikdatenbank beschreibt.  Alternativ kann die ``EasySession`` genutzt
-   werden, die eine vordefinierte ``Maske`` bereitstellt, die für viele
+   werden. Diese bietet eine vordefinierte ``Maske``, die für viele
    Anwendungsfälle ausreichend ist.
 
-2. **Provider Pool:** Implementiert eine große Menge vordefinierter Provider, um
+2. **Provider--Pool:** Implementiert eine große Menge vordefinierter Provider, um
    die die gängigsten Eingabedaten (wie Künstler, Album, Liedtexte, Genre, ...)
-   abdecken.  Manche ``Provider`` dienen auch zum *Information Retrieval* und
+   abzudecken.  Manche ``Provider`` dienen auch zum *Information Retrieval* und
    ziehen beispielsweise Liedtexte aus dem Internet.  Eine volle Liste von
    verfügbaren Providern wird unter Kapitel :ref:`provider-list` gegeben. 
 
-3. **DistanceFunction Pool:** Implementiert eine Menge vordefinierter
+3. **DistanceFunction--Pool:** Implementiert eine Menge vordefinierter
    Distanzfunktionen, welche die Werte der obigen ``Provider`` vergleichen.
    Dabei kommen zwar viele Provider und Distanzfunktion als Paare daher (wie
-   beispielsweise der ``GenreTree`` Provider und die ``GenreTree``
-   Distanzfunktion), was aber keine Notwendigkeit darstellt. Verschiedene
-   Provider können beispielsweise dieselbe Distanzfunktion nutzen.
+   beispielsweise der ``GenreTree``--Provider und die
+   ``GenreTree``--Distanzfunktion), was aber keine Notwendigkeit darstellt.
+   Verschiedene Provider können beispielsweise dieselbe Distanzfunktion nutzen.
 
    Eine volle Liste von verfügbaren Distanzfunktionen wird unter Kapitel
    :ref:`distance-function-list` gegeben. 
@@ -361,7 +362,7 @@ vorgestellt:
 Einzelne Komponenten
 --------------------
 
-Da UML-Diagramme sich oft in unwichtige Details und akribische
+Da UML--Diagramme sich oft in unwichtige Details und akribische
 Methodenauflistungen versteigen, wird im Folgenden textuell eine Auflistung
 aller Klassen und ihren Aufgaben gegeben. Nur in Einzelfällen werden
 Methodennamen gekennzeichnet.
@@ -370,9 +371,9 @@ Methodennamen gekennzeichnet.
 Bibliothek.  Es bietet über Proxymethoden Zugriff auf alle Funktionalitäten
 von *libmunin* und kann persistent abgespeichert werden. Dies wird durch
 das Python--Modul ``pickle`` realisiert. Es speichert rekursiv alle Member
-einer ``Session``-Instanz in einem Python-spezifischen Binärformat.
+einer ``Session``--Instanz in einem Python-spezifischen Binärformat.
 Voraussetzung hierfür ist, dass alle Objekte direkt oder indirekt an die
-``Session``-Instanz gebunden sind. 
+``Session``--Instanz gebunden sind. 
 
 Der Speicherort entspricht dem *XDG Standard* :cite:`XDG`, daher wird jede
 Session als ``gzip`` gepackt unter ``$HOME/.cache/libmunin/<name>.gz``
@@ -381,22 +382,22 @@ gespeichert.  Der ``<name>`` lässt sich der Session beim Instanzieren übergebe
 Die weitere Hauptzuständigkeit einer ``Session`` ist die Implementierung der
 Empfehlungsstrategien welche den Graphen traversieren.
 
-**Song:** Speichert für jedes Attribut einen Wert, oder einem leeren
-Wert falls das Attribut nicht gesetzt wurde. Dies ähnelt einer
-Hashtabelle, allerdings werden nur die Werte gespeichert, die ,,Keys" der
-Hashtabelle werden in der ``Maske`` gespeichert und dort nur referenziert. Der
-Grund dieser Optimierung liegt im verminderten Speicherverbrauch. 
+**Song:** Speichert für jedes Attribut einen Wert, oder einen leeren Wert falls
+das Attribut nicht gesetzt wurde. Dies ähnelt einer Hashtabelle, allerdings
+werden nur die Werte gespeichert, die Schlüssel der Hashtabelle werden in der
+``Maske`` gespeichert und im *Song* nur referenziert. Der Grund dieser
+Optimierung liegt im verminderten Speicherverbrauch. 
 
 Eine weitere Kompetenz dieser Klasse ist das Verwalten der Distanzen zu seinen
 Nachbarsongs. Er muss Methoden bieten um eine Distanz zu einem Nachbarn
 hinzuzufügen oder zu entfernen, Methoden um über alle Nachbarn zu iterieren oder
-die Distanz zu einen bestimmten Nachbarn abzufragen 
-und eine ``disconnect()``--Methode um den ``Song`` zu entfernen ohne dabei ein
-,,Loch" zu hinterlassen.
+die Distanz zu einen bestimmten Nachbarn abzufragen.  Hinzukommt eine
+``disconnect()``--Methode um den ``Song`` zu entfernen ohne dabei ein ,,Loch" zu
+hinterlassen.
 
 Wie bereits erwähnt, gibt es keine eigene ``Graph``--Klasse. Der Graph an
 sich wird durch die Verknüpfung der einzelnen Songs in der ``Database``
-gebildet.  Jede ``Song`` Instanz bildet dabei einen Knoten.
+gebildet.  Jede ``Song``--Instanz bildet dabei einen Knoten.
 
 Da eine Veränderung von Attributen im Song auch eine Veränderung im Graphen zur
 Folge haben kann, sind Instanzen der ``Song``--Klasse *Immutable*, sprich nach
@@ -407,9 +408,9 @@ sollte allerdings erwähnt werden, dass die ``modify``--Operation relativ
 aufwendig ist. Schließlich muss der Song entfernt und neu eingefügt werden.
 
 **Mask:** Speichert, ähnlicher einer Hashtabelle, die Namen der einzelnen
-Attribut als Schlüsse. Als Wert wird ein Tripel aus jeweils einem ``Provider``,
+Attribut als Schlüssel. Als Wert wird ein Tripel aus jeweils einem ``Provider``,
 einer ``DistanceFunction`` und einer Gewichtung assoziiert. Da dies bereits in
-:ref:`environement` erklärt wurde, wird hier ein kurzes, praktisches
+Kapitel :ref:`environement` erklärt wurde, wird hier ein kurzes, praktisches
 Python--Beispiel gezeigt:
 
 .. code-block:: python
@@ -421,11 +422,11 @@ Python--Beispiel gezeigt:
             4.0                            # Gewichtung des Attributes (beliebiger Wert)
         ),  # [...] Weitere Attribute  
    })
-   session = Session(m)                    # Instanziere eine Session mit dieser Maske
+   session = Session(m)                    # Instantiiere eine Session mit dieser Maske
 
-Wie man sieht wird als ,,Key" der Name des Attributes festgelegt und als
-Wert ein Tupel aus einer ``Provider``-Instanz, aus einer
-``DistanceFunction``-Instanz und der Gewichtung dieses Attributes als ``float``.
+Wie man sieht wird als Schlüssel der Name des Attributes festgelegt und als
+Wert ein Tupel aus einer ``Provider``--Instanz, aus einer
+``DistanceFunction``--Instanz und der Gewichtung dieses Attributes als ``float``.
 
 Wird statt einem ``Provider``- oder einer ``DistanceFunction``--Instanz, der
 leere Wert ``None`` übergeben, so wird ein ``DefaultProvider`` (reicht die Werte
@@ -434,10 +435,10 @@ unverändert weiter), beziehungsweise eine ``DefaultDistanceFunction``
 
 Ein umfangreicheres Beispiel findet sich im Kapitel :ref:`complex-example`.
 
-**EasySession:** Wie die normale ``Session``, bietet aber eine bereits
-fertig konfigurierte Maske an, die für viele Anwendungsfälle ausreicht.
-In Tabelle :num:`table-easy-session` ist eine Auflistung gegeben, wie diese im
-Detail konfiguriert ist. Die einzelnen Provider werden später noch erklärt.
+**EasySession:** Wie die normale ``Session``, bietet aber eine bereits fertig
+konfigurierte Maske an, die für viele Anwendungsfälle ausreicht.  In Tabelle
+:num:`table-easy-session` ist eine Auflistung gegeben, wie diese im Detail
+konfiguriert ist. Die einzelnen Provider werden später noch im Detail erklärt.
 
 .. figtable::
     :label: table-easy-session
@@ -535,8 +536,8 @@ Die Annahme ist hierbei, dass große zeitliche Lücken zwischen zwei Liedern auf
 wenig zusammenhängende Songs hindeuten. Zudem bilden die einzelnen *Gruppen* eine
 Art ,,Warenkorb", der dann bei der Ableitung von Regeln genutzt werden kann.
 
-**RecommendationHistory:** Implementiert den unter :ref:`recom-filter` erwähnten
-Mechanismus zum Filtern von Empfehlungen.
+**RecommendationHistory:** Implementiert den unter Kapitel :ref:`recom-filter`
+erwähnten Mechanismus zum Filtern von Empfehlungen.
 
 **ListenHistory:** Unterklasse von ``History``.  Speichert die chronologische
 Reihenfolge von gehörten Songs.  Oft werden vom Endnutzer viele Lieder einfach
@@ -564,7 +565,7 @@ Zudem *,,vergisst"* der Index Regeln, die Songs betreffen, die nicht mehr in der
 
 **Provider:** Die Oberklasse von der jeder konkreter ``Provider`` ableitet:
 Jeder Provider bietet eine ``do_process()``--Methode die von den Unterklassen
-überschrieben wird. Zudem bieten viele Provider als *,,Convenience"* eine
+überschrieben wird. Zudem bieten viele Provider als *,,Komfort"* eine
 ``do_reverse()``--Methode um für Debuggingzwecke den Originalwert vor der
 Verarbeitung durch den Provider anzuzeigen.
 
@@ -574,7 +575,7 @@ Kapitel :ref:`provider-list`.
 
 Oft kommt es vor, dass die Eingabe für einen Provider viele Dupletten enthält.
 Beispielsweise wird derselbe Künstler--String für viele Songs eingepflegt.
-Diese redundant zu speichern wäre bei großen Sammlungen unpraktikabel, daher
+Diese redundant zu speichern wäre bei großen Sammlungen unpraktikabel. Daher
 bietet jeder Provider die Möglichkeit einer primitiven Kompression. Statt den
 Wert abzuspeichern wird eine bidirektionale Hashtabelle mit den Werten als
 Schlüssel und einer *Integer--ID* auf der Gegenseite gehalten. Dadurch wird

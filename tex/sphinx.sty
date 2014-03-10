@@ -212,10 +212,20 @@
 }%
 
 % \setlength{\headheight}{24pt} 
-\fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
-\fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
-\fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
-\fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
+
+% Comment out for normal twoside:
+% \newcommand{\ONESIDEFAKE}
+
+\ifdefined\ONESIDEFAKE
+    \fancyhead[L]{{\nouppercase{\slshape{\leftmark}}}}
+    \fancyhead[R]{{\nouppercase{\scshape{\rightmark}}}}
+\else
+    \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
+    \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
+    \fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
+    \fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
+\fi
+
 
 % Dotted line: 
 % \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}

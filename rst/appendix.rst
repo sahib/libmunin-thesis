@@ -8,7 +8,7 @@
 ================
 
 Führt die in Abb. :num:`fig-startup` gezeigten Schritte *Kaltstart* bis *Rebuild*
-aus. Als Eingabe wird die Datenbank des MPD-Servers verwendet, fehlende
+aus. Als Eingabe wird die Datenbank des MPD--Servers verwendet, fehlende
 Liedtexte werden ergänzt und die Audiodaten für die ``moodbar`` und für die
 Beats-per--Minute--Analyse wird lokalisiert. 
 

@@ -53,8 +53,8 @@ definiertes Protokoll auf die Funktionen des Servers zurückgreifen, was
 beispielsweise die Herangehensweise von MPD ist.
 
 Eine konkrete Umsetzung dieser Idee könnte relativ einfach mit *D-Bus* [#f1]_
-erreicht werden. Der Server würde dabei die API von *libmunin* als *D-Bus
-Service* implementieren. Der Client könnte eine der in zahlreichen
+erreicht werden. Der Server würde dabei die API von *libmunin* als
+*D-Bus--Service* implementieren. Der Client könnte eine der in zahlreichen
 Programmiersprachen verfügbaren *DBus--Libraries* nutzen, um im Server Methoden
 aufzurufen. Darüber ließe sich auch ein anderes Randproblem lösen: Momentan ist
 es aus Gründen fehlender Nebenläufigkeit nicht möglich, dass verschiedene
@@ -71,14 +71,14 @@ Einfaches Information Retrieval
 -------------------------------
 
 Die Ergebnisse die *libmunin* liefern kann, können nur so gut sein wie die
-Eingabedaten. Sind diese falsch oder unzureichend (durch schlechtes *Tags*
+Eingabedaten. Sind diese falsch oder unzureichend (durch schlechte *Tags*
 etwa), wird auch eine gute Distanzfunktion nur mittelmäßige Ergebnisse erzielen. 
 
 Momentan bietet *libmunin* bereits dem Nutzer Möglichkeiten an, um fehlende
-Liedtexten und Genre--Tags aus dem Internet zu besorgen. In der Einleitung dieser
-Arbeit wurden aber schon freie Musikmetadatenbanken wie *MusicBrainz* erwähnt,
-die mittels eines Audiofingerprints die Metadaten eines Stückes nachschlagen
-können. 
+Liedtexte und Genre--Tags aus dem Internet zu beschaffen. In der Einleitung
+dieser Arbeit wurden aber schon freie Musikmetadatenbanken wie *MusicBrainz*
+erwähnt, die mittels eines Audiofingerprints die Metadaten eines Stückes
+nachschlagen können. 
 
 Glücklicherweise steht mit *beets* :cite:`XAJ` bereits ein entsprechendes,
 praktischerweise in Python geschriebenes Tool bereit --- gewissermassen das
@@ -124,12 +124,12 @@ Verbessertes Speicherformat
 Wie oben erwähnt erfolgt die Speicherung der *Session* mittels Python's
 ``pickle`` Modul. Dieses serialisiert *rekursiv* die Objekt--Hierarchie,
 ausgehend vom *Session* Objekt. Da in *libmunin* der Graph allerdings als
-rekursive Datenstruktur implementiert ist, ,,verläuft" sich ``pickle`` darin -
+rekursive Datenstruktur implementiert ist, ,,verläuft" sich ``pickle`` darin ---
 zu hohe Rekursionstiefen entstehen bei ausreichend komplexen Graphen. 
 
 Python hat ein eingebautes *Rekursionslimit*, welches ein wenig aussagekräftiges
 *Segmentation Fault* verhindern soll --- Abstürze beim Speichern der *Session*
-sind die Folge. Hier ist Abhilfe nötig.
+sind die Folge. Hier ist dringend Abhilfe nötig.
 
 Korrekte Berechnung des *BPM-Wertes*
 ------------------------------------
@@ -138,12 +138,12 @@ Die Berechnung des *Beats--Per--Minute*-Wertes ist momentan in ein separates Too
 ausgelagert. Dieses Tool hat das Problem, dass es bei fehlerhaften Dateien oder
 Formaten die es nicht versteht, falsche (beispielsweise Werte *über* 300 bpm)
 Werte zurückgibt. Da dies nicht von *libmunin's* Seite aus gelöst werden kann,
-sollte nach Möglichkeit hier eine eigene Lösung implementiert werden.
+sollte hierfür eine eigene Lösung implementiert werden.
 
 Denkbare Weiterentwicklungen
 ============================
 
-Abgesehen von den obigen ,,Defiziten" hier noch einige stichpunktartige
+Abgesehen von den obigen *,,Defiziten"* hier noch einige stichpunktartige
 Richtungen in denen die Implementierung verbessert werden kann:
 
 - Verläufe: Manchmal ist es wünschenswert, dass die dynamisch erstellte Playlist
@@ -155,7 +155,8 @@ Richtungen in denen die Implementierung verbessert werden kann:
 - Justierbarkeit der Gewichtungen während der Laufzeit: Momentan erfordert die
   Justierung der Gewichtung jeweils eine teure ``rebuild``-Operation.
   Technisch möglich ist das allerdings bereits, durch die Speicherung der
-  Unterdistanzen.
+  Unterdistanzen. Spätere Versionen könnten sogar versuchen die Justierung, nach
+  Beobachtung des Nutzers, automatisch vorzunehmen.
 - ,,Echte" Audio/Mood--Analyse mittels *aubio* :cite:`0FN` oder *MARSYAS* :cite:`HJ7`.
 - Optionaler *,,Aufsatz"* auf *libmunin*, der *Social-based music recommendation*
   ermöglicht, beispielsweise um die Ähnlichkeit von zwei Künstlern durch
