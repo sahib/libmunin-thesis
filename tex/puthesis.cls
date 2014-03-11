@@ -30,7 +30,9 @@
   \else
   \fi
 
+  \titlespacing{\chapter}{0pt}{0.0em}{0.5em}
   \tableofcontents
+  \titlespacing{\chapter}{0pt}{0.0em}{2em}
   \clearpage
 }%
 
@@ -105,8 +107,8 @@
   \thispagestyle{empty}
   \vspace*{0in}
   \begin{center}
-    {\Large\reflectbox{$_\copyright$}}\ Copyright by \@author, \@copyrightyear. \\
-    Alle Rechte vorbehalten. \\
+    {\Large\reflectbox{\huge$_\copyright$}}\ Copyleft by \@author, \@copyrightyear. \\
+    Some rights reserved. \\
     \vspace{1in}
     \begin{minipage}[c]{0.2\linewidth}
       \hfill {\Huge \ccLogo~\ccAttribution}
@@ -114,7 +116,7 @@
     \hspace{0.1cm}
     \begin{minipage}[c]{0.7\linewidth}
       Diese Arbeit ist unter den Bedingungen der \\
-      \textit{Creative Commons Attribution-3.0} lizensiert. \\
+      \textit{Creative Commons Attribution--3.0} lizensiert. \\
       \url{http://creativecommons.org/licenses/by/3.0/de/}
     \end{minipage}
   \end{center}

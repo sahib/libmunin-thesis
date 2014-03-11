@@ -12,6 +12,6 @@
     ===================
 
 .. bibliography:: ../urls.bib
-   :labelprefix: Link-
+   :labelprefix: Link--
    :style: unsrt
    :cited:

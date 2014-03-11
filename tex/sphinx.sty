@@ -203,6 +203,7 @@
         }%
     }%
 }%
+\setlength{\footskip}{25pt}
 
 % Remove the header from pages with chapters on them:
 \fancypagestyle{plain}{%
@@ -211,10 +212,20 @@
 }%
 
 % \setlength{\headheight}{24pt} 
-\fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
-\fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
-\fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
-\fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
+
+% Comment out for normal twoside:
+% \newcommand{\ONESIDEFAKE}
+
+\ifdefined\ONESIDEFAKE
+    \fancyhead[L]{{\nouppercase{\slshape{\leftmark}}}}
+    \fancyhead[R]{{\nouppercase{\scshape{\rightmark}}}}
+\else
+    \fancyhead[LO]{{\nouppercase{\slshape{\leftmark}}}}
+    \fancyhead[RO]{{\nouppercase{\scshape{\rightmark}}}}
+    \fancyhead[LE]{{\nouppercase{\scshape{\rightmark}}}}
+    \fancyhead[RE]{{\nouppercase{\slshape{\leftmark}}}}
+\fi
+
 
 % Dotted line: 
 % \renewcommand{\headrule}{\vbox to 0pt{\hbox to \headwidth{\dotfill}\vss}}
@@ -402,15 +413,15 @@
 \renewcommand{\hyperref}[2][\newdef]{%
     % Oh, god. I fucking hate that.
     \ifthenelse{\pageref{#1}>\pageref{rst/appendix:end-of-doc}}{%
-        \SavedHyperref[{#1}]{#2}
+        \SavedHyperref[{#1}]{#2}\!\!
     }{%
         \ifthenelse{\pageref{#1}=\pageref{rst/appendix:end-of-doc}}{%
-            \SavedHyperref[{#1}]{#2}
+            \SavedHyperref[{#1}]{#2}\!\!
         }{%
             \ifthenelse{\pageref{#1}=\thepage}{%
                 \SavedHyperref[{#1}]{#2}
             }{%
-                \SavedHyperref[{#1}]{#2 (S.\pageref{#1})}
+                \SavedHyperref[{#1}]{#2 (S.\pageref{#1})\!\!}
             }%
         }%
     }%
@@ -495,4 +506,5 @@
   \setlength{\itemsep}{0pt plus 0.5ex}
 }
 
+% Hack
 \addto\captionsngerman{\renewcommand{\bibname}{\textcolor{gray75}{D\hsp|\hsp}Literaturverzeichniss}}
