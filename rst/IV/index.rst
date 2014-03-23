@@ -135,11 +135,29 @@ TODO: Verweis auf abbildung im anhang mit bildern.
 ``fixing:`` Umbauen von Einbahnstraßen
 --------------------------------------
 
+Diese Operation dient dem Entfernen von Einbahnstraßen innerhalb des Graphen.
+Einbahnstraßen können wie bereits erwähnt beim Hinzufügen neuer Distanzen
+entstehen. 
 
+Beim Entfernen wird folgendermaßen vorgegangen: Im ersten Schritt werden alle
+unidirektionalen Kanten gefunden und abgespeichert. Für jede dieser Kanten wird
+überprüft ob die Songs an beiden Enden die maximale Anzahl der Nachbarn
+überschreitet. Sollte das nicht der Fall, so wird die Kante in eine
+bidirektionale Kante umgebaut. Andernfalls wird die Kante gelöscht.
 
+Dieses Vorgehen wurde gewählt weil es nach einigen Versuchen schwierig erschien,
+den Graphen ohne Einbahnstraßen aufzubauen, ohne dass dieser zur Inselbildung
+neigt. Durch den nachgelagerten ``fixing``--Schritt werden Songs die nur wenige
+Nachbarn besitzen durch die vorher als zu schlecht bewerteten Kanten verbunden.
+
+Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft ob alle
+Verbindungen im Graphen bidirektional sind. Sollten unidirektionale Kanten
+gefunden werden, so wird eine Warnung ausgegeben.  
 
 ``add:`` Hinzufügen von Songs vor dem ``rebuild``
 -------------------------------------------------
+
+
 
 ``remove:`` Löschen von Songs zur Laufzeit
 ------------------------------------------
