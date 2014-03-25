@@ -72,7 +72,7 @@
   \end{center}
   \vspace{.6in}
   \extravspace{.6in}
-  \sc
+  \normalfont\scshape
   \vspace*{0in}
   \begin{center}
     \LARGE \@worktitle \\

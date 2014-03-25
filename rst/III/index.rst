@@ -104,7 +104,7 @@ Genre-Liste 1876 Einträge lang.
 
 .. figure:: figs/tree_init.*
     :alt: Initialisierungsschritt
-    :width: 130%
+    :width: 100%
     :align: center
     
     Initialisierungsschritt: Vergabe von IDs und Zuordnung zu Wurzelknoten.

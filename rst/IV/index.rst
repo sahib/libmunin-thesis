@@ -68,12 +68,12 @@ beleuchtet:
       sich innerhalb eines Fensters oft Lieder des selben Albums --- diese  sind 
       oft sehr ähnlich.
 
-    * ``centering_window:`` Basiert ebenfalls auf einem Fenster. Anders als beim
-      ``sliding_window`` besteht das Fenster allerdings aus zwei Hälften, wobei
-      die eine vom Anfang an startet und die andere Hälfte von der Mitte aus bis
-      zum Ende geschoben wird. Die Songs in beiden Hälften werden analog zu oben 
-      untereinander verglichen. Auch hier überlappen sich die einzelnen Hälften
-      zu je zwei Drittel. 
+    * ``centering_window:`` Basiert ebenfalls auf einem Fenster. Im Gegensatz
+      zum obigen ``sliding_window`` besteht das Fenster allerdings aus zwei Hälften,
+      wobei die eine vom Anfang an startet und die andere Hälfte von der Mitte
+      aus bis zum Ende geschoben wird. Die Songs in beiden Hälften werden analog
+      zu oben untereinander verglichen. Auch hier überlappen sich die einzelnen
+      Hälften zu je zwei Drittel. 
 
       Die heuristische Annahme ist hier, dass in der bereits vorhandenen
       *,,Kette"* Querverbindungen hergestellt werden. Dies ist den nächsten
@@ -86,7 +86,7 @@ beleuchtet:
       
       Auch hier sollen weitere Querverbindungen hergestellt werden.
 
-  TODO: WIndow-sliding diagramme
+  TODO: WIndow-sliding diagramme: cairo
   TODO: Graphen nach den einzelnen Schritten.
 
 - **Verfeinerung:** Um den momentan sehr grob vernetzten Graphen benutzbar zu
@@ -132,7 +132,8 @@ Komplexität.  Die einzige Ausnahme ist dabei das Vergleichen der Songs
 untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
 stets auf ein verträgliches Limit begrenzt. 
 
-
+TODO: Menge von Vergleichen in beiden Fällen? Tabelle.
+TODO: Tipps zum schreiben einer distanzfunktion für libmunin
 TODO: Verweis auf abbildung im anhang mit bildern.
 
 ``fixing:`` Umbauen von Einbahnstraßen
@@ -210,7 +211,7 @@ Diese *Einpassung* geschieht dabei folgendermaßen:
 
   .. math::
 
-      Schrittweite = round(log_{10}\vert sonnglist \vert)
+      Schrittweite = \lceil\log_{10}songlist\_length\rceil
 
 - **Verfeinerung:** Songs, zu denen im vorigen Schritt eine geringe Distanz
   gefunden wurde, werden nun detaillierter betrachtet. Dazu wird die Distanz zu

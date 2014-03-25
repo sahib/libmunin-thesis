@@ -103,9 +103,6 @@
 % For floating figures in the text.
 \RequirePackage{wrapfig}
 
-% Separate paragraphs by space by default.
-\RequirePackage{parskip}
-
 
 %%%%%%%%%% Extra Packages %%%%%%%%%%%%%%
 
@@ -180,13 +177,12 @@
     }%
 }%
 
-
-\newcommand{\prettypage}{
+\newcommand{\prettypage}{%
     % Ugly, but it works.
     % For koehler's sake
     % \scshape{\dottedunderline{~\thepage~~~}}
     \scshape{~\thepage~~~}
-}
+}%
 
 % Configure footer and header
 \fancyfoot[C]{%
@@ -259,12 +255,12 @@
 
 \renewcommand{\Verbatim}[1][1]{%
   % list starts new par, but we don't want it to be set apart vertically
-  \bgroup\parskip=0pt%
+  \bgroup\KOMAoptions{parskip=no}
   \smallskip%
   % The list environement is needed to control perfectly the vertical
   % space.
   \list{}{%
-  \setlength\parskip{0pt}%
+  %\setlength\parskip{0pt}%
   \setlength\itemsep{0ex}%
   \setlength\topsep{0ex}%
   \setlength\partopsep{0pt}%
@@ -328,7 +324,7 @@
 % This sets up the fancy chapter headings that make the documents look
 % at least a little better than the usual LaTeX output.
 %
-\@ifundefined{ChTitleVar}{}{
+\@ifundefined{ChTitleVar}{}{%
   \ChNameVar{\raggedleft\normalsize\pyHeaderFamily}
   \ChNumVar{\raggedleft \bfseries\Large\pyHeaderFamily}
   \ChTitleVar{\raggedleft \rm\Huge\pyHeaderFamily}
@@ -340,9 +336,9 @@
       \fi
       \interlinepenalty\@M
       \DOTI{#1}
-    }
-  }
-}
+    }%
+  }%
+}%
 
 % % Include hyperref last.
 % \PassOptionsToPackage{hyphens}{url}
@@ -444,7 +440,7 @@
 
 
 \titleformat{\chapter}      % Command 2
-    [hang]                    % Shape
+    [hang]                  % Shape
     {\Huge\bfseries}        % Format
     {\textcolor{gray75}{\thechapter\hsp|\hsp}}{0pt}
     {\Huge\bfseries}
@@ -500,11 +496,12 @@
 
 % Lower the space between bibitems:
 \let\OLDthebibliography\thebibliography
-\renewcommand\thebibliography[1]{
+\renewcommand\thebibliography[1]{%
   \OLDthebibliography{#1}
-  \setlength{\parskip}{5pt}
+  \KOMAoptions{parskip=half}
+  % \setlength{\parskip}{5pt}
   \setlength{\itemsep}{0pt plus 0.5ex}
-}
+}%
 
 % Hack
 \addto\captionsngerman{\renewcommand{\bibname}{\textcolor{gray75}{D\hsp|\hsp}Literaturverzeichniss}}
