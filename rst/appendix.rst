@@ -126,4 +126,9 @@ Beschreibung.
 Anhang C
 ========
 
+
+.. .. raw:: latex
+.. 
+..    \includepdf[fitpaper]{genre_graph_big.pdf}
+
 Bye cruel world.

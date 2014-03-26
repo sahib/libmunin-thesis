@@ -1,40 +1,20 @@
-***************
-Zusammenfassung
-***************
+################################
+Implizites und explizites Lernen
+################################
 
-Verbesserung der Algorithmik
-============================
+Assoziationsregeln...
 
-- Rumspinnen über aubio, was möglich ist und wie.
+.. math::
 
-Erweiterung der Algorithm
-=========================
+    Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)
 
-- Keyword extraction auch von amazon reviews.
-  oft werden vergleiche gezogen.
+*wobei:* |hfill| *Aussagekraft:*
+             
+    * :math:`Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}` |hfill| Güte der Regel
+    * :math:`ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}` |hfill| Gleichmäßigkeit der Regel
+    * :math:`support(X) = H_n(X)` |hfill|  Absolute Häufigkeit von X in allen Transaktionen
 
-Probleme aktueller Algorithmen
-==============================
+Mehr dazu in der Bachelorarbeit.    
 
-- moodbar solle freqbar heißen
-- bpm liefert schlechte werte.
-
-Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists
-==================================================================================
-
-subfigure mit gegenüberstellung von ~15 liedern zu seed song, diskussion.
-
-
-- http://www2.research.att.com/~yifanhu/MusicMap/index.html
-- Suchengine für natürliche Sprache wie in :cite:`knees2007music`
-- Transitions. Beispieslweise immer "härter werdende musik"
-- Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)
-- Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
-- Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
-- Similar Artist/Album/Genre...
-- Einbeziehung der duration als provider/distanz (statistisch untersuchen)
-- (Amazon) artist/album reviews mit einbeziehen, keyword-extraction.
-- Sprache, Intros und Audio intelligent unterscheiden.
-- beschleunigter audioanalyse.
-- date origin abhängig vom genre
-- genre-bridges: grunge->rock
+*Vergleiche zudem:* :cite:`datamining-concepts-and-techniques` Datamining
+Concepts and Techniques.

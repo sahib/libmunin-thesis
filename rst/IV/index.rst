@@ -40,6 +40,43 @@ plus eins.
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
 auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.
 
+
+.. subfigstart::
+
+.. _fig-window-sliding:
+
+.. figure:: figs/sliding_window.*
+    :alt: Schematische Darstellung des Sliding Window.
+    :width: 100%
+    :align: center
+    
+    ``sliding_window``
+
+.. _fig-window-centering:
+
+.. figure:: figs/centering_window.*
+    :alt: Schematische Darstellung des Sliding Window.
+    :width: 100%
+    :align: center
+    
+    ``sliding_window``
+
+.. _fig-window-anti-centering:
+
+.. figure:: figs/anti_centering_window.*
+    :alt: Schematische Darstellung des Sliding Window.
+    :width: 100%
+    :align: center
+    
+    ``sliding_window``
+
+.. subfigend::
+    :width: 0.5
+    :alt: Schematische Darstellungen der einzelnen Basisiterationen.
+    :label: fig-windows
+ 
+    Schematische Darstellungen der einzelnen Basisiterationen.
+
 Im Folgenden werden die drei Schritte der ``rebuild``--Operation genauer
 beleuchtet:
 
@@ -86,8 +123,7 @@ beleuchtet:
       
       Auch hier sollen weitere Querverbindungen hergestellt werden.
 
-  TODO: WIndow-sliding diagramme: cairo
-  TODO: Graphen nach den einzelnen Schritten.
+  TODO: Graphen nach den einzelnen Schritten referenzieren
 
 - **Verfeinerung:** Um den momentan sehr grob vernetzten Graphen benutzbar zu
   machen müssen einige Iterationen zur *,,Verfeinerung"* durchgeführt werden.
@@ -132,8 +168,24 @@ Komplexität.  Die einzige Ausnahme ist dabei das Vergleichen der Songs
 untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
 stets auf ein verträgliches Limit begrenzt. 
 
-TODO: Menge von Vergleichen in beiden Fällen? Tabelle.
-TODO: Tipps zum schreiben einer distanzfunktion für libmunin
+Unter Abb. :num:`fig-speed-cmp` findet sich eine Gegenüberstellung von den
+Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
+``rebuild`` (mit und ohne *Verfeinerungsschritt*) nötig sind.
+
+.. _fig-speed-cmp: 
+
+.. figure:: figs/graph_speed.*
+   :width: 100%
+   :alt: Vergleich der Distanzberechnungen für rebuild_stupid und rebuild.
+   :align: center
+
+   Gegenüberstellung von verschiedenen Arten der rebuild--Operation. Auf der
+   Y--Achse ist logarithmisch die Anzahl der Distanzberechnungen aufgetragen,
+   auf der X--Achse die lineare Anazhl der Eingabesongs. Die blaue Kurve
+   repräsentiert dabei die Vergleiche die für rebuild_stupid notwendig sind.
+   Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
+   anderen zwei Kurven deutlich.
+
 TODO: Verweis auf abbildung im anhang mit bildern.
 
 ``fixing:`` Umbauen von Einbahnstraßen
@@ -237,7 +289,7 @@ Diese Operation dient als Komfortfunktion. Sie ermöglicht das Verändern der
 Attribute, beziehungsweise deren zugeordneten Werte, eines einzelnen Songs. 
 Würde man die Werte eines Songs manuell verändern, so müsste man alle Distanzen
 zu diesem Song neu berechnen. Da dies wiederum Veränderungen im ganzen Graphen
-hervorrufen könnte, wurden die Song--Instanzen unveränderbar (*,,Immutable"*)
+hervorrufen könnte, wurden die Song--Instanzen unveränderbar *(,,Immutable")*
 gemacht. 
 
 Die ``modify``--Operation umgeht dieses Problem indem es den Song erst durch ein
@@ -256,17 +308,17 @@ Ablauf beim Hinzufügen einer Distanz
 Wie in TODO erwähnt, wird beim Hinzufügen einer Distanz die Schlechteste dem
 Song bekannte Distanz abgefragt. Ist diese höher als die Neue wird der
 Verbindung zum schlechtesten Song *gekappt* falls der Song *voll* ist.
-Dieses grobe Vorgehen bringt aber bereits einige algorithmische Probleme mit
+
+Dieses Vorgehen bringt aber bereits einige algorithmische Probleme mit
 sich: Das Finden der schlechtesten Distanz erfordert jeweils linearen Aufwand.
 Zwar kann die schlechteste Distanz und der dazugehörige Song zwischengespeichert
 werden, doch nach einigen Tests stellte sich heraus, dass in den meisten Fällen 
 ein neuer, schlechtester Song gesucht werden muss. Das ist damit zu erklären,
 dass gegen Ende der ``rebuild``--Operation tendenziell immer niedrigere Distanzen 
-gefunden werden.
+gefunden werden --- womit immer wieder der schlechteste Song herausgelöscht
+werden muss.
 
-Daher sollte man versuchen hier möglichst einen sublinearen Aufwand anzupeilen.
-Ein möglicher Ansatz wird hier vorgestellt:
-TODO: ...
+Hier ein performanten Ansatz zu finden war mit 2 Wochen relativ zeitaufwendig.
 
 Als Python--Pseudocode:
 
@@ -327,6 +379,4 @@ Als Python--Pseudocode:
         # Might be something different now:
         self._worst_cache = None
         return True
-
-
 
