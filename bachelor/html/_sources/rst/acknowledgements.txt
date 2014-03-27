@@ -6,6 +6,7 @@
     ==========
 
 Danke an folgende Personen und Dinge: Katzen, Vögel aller Art, Teehersteller
-alle Länder, Herrn Prof. Dr. Jörg Scheidt und meiner Familie sowie Freunden.
+aller Länder, Herrn Prof. Dr. Jörg Scheidt (für die Zelle), Herrn Prof. Dr.
+Günter Köhler (für die Freiheit) und meiner Familie. 
 
-Ihr wisst warum.
+Ihr wisst schon warum.
