@@ -123,8 +123,6 @@ beleuchtet:
       
       Auch hier sollen weitere Querverbindungen hergestellt werden.
 
-  TODO: Graphen nach den einzelnen Schritten referenzieren
-
 - **Verfeinerung:** Um den momentan sehr grob vernetzten Graphen benutzbar zu
   machen müssen einige Iterationen zur *,,Verfeinerung"* durchgeführt werden.
 
@@ -186,7 +184,10 @@ Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
    Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
    anderen zwei Kurven deutlich.
 
-TODO: Verweis auf abbildung im anhang mit bildern.
+
+Die einzelnen Schritte des Graphenaufbaus lassen sich in Abb.
+:num:`fig-graph-linear`, sowie bei den darauf folgenden Abbildungen,
+nachvollziehen. 
 
 ``fixing:`` Umbauen von Einbahnstraßen
 --------------------------------------
@@ -326,24 +327,21 @@ Als Python--Pseudocode:
 
     def distance_add(self, other, distance):
         if other is self:
-            return False
+            return 
 
-        if self._worst_cache is not None and self._worst_cache < distance.distance:
-            return False
+        if self.worst_cache < distance:
+            return
 
         if distance.distance > self._max_distance:
-            return False
+            return
 
-        sdd, odd = self._dist_dict, other._dist_dict
+        sdd, odd = self.dist_dict, other.dist_dict
         if other in sdd:
+            # Sollte nicht passieren:
             if sdd[other] < distance:
-                # This case should actually not happen.
-                # Just here for all cases.
-                return False  # Reject
+                return 
 
-            # Explain why this could damage worst song detection.
-            # and why we do not care. (might change sorting)
-            self._worst_cache = None
+            self.worst_cache = None
             sdd[other] = odd[self] = distance
             return True
 
@@ -351,11 +349,12 @@ Als Python--Pseudocode:
         if len(sdd) >= self._max_neighbors:
             # Find the worst song in the dictionary
             while 1:
-                inversion, worst_song = self._pop_list[0]
+                inversion, worst_song = self.pop_list[0]
                 if worst_song in sdd:
                     worst_dist = 1.0 - inversion
                     break
-                heappop(self._pop_list)
+
+                heappop(self.pop_list)
 
             if worst_dist < distance.distance:
                 # we could prune pop_list here too,
@@ -377,6 +376,6 @@ Als Python--Pseudocode:
         heappush(other._pop_list, (inversion, self))
 
         # Might be something different now:
-        self._worst_cache = None
+        worst_cache = None
         return True
 
