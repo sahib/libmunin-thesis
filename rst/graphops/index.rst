@@ -2,33 +2,32 @@ Graphenoperationen
 ==================
 
 Eine grobe Übersicht über die einzelnen Graphenoperationen und ihrer
-Zuständigkeiteb wurde bereits in der Projektarbeit gegeben. Im Folgenden  
-wird detailliert auf ihre Funktionsweise eingegangen.
+Zuständigkeiten wurde bereits in der Projektarbeit gegeben. Im Folgenden  
+wird detailliert auf ihre Funktionsweise und Internas eingegangen.
 
 ``rebuild:`` Aufbau des Graphen
 -------------------------------
 
 Bevor irgendeine andere Operation ausgeführt werden kann muss mittels der
-``rebuild``--Operation der Graph aufgebaut
-werden. Wie bereits erwähnt in der Projektarbeit erwähnt, kann der Graph
-aufgrund von einer Komplexität von :math:`O(n2)` nicht einfach durch das
-Vergleichen aller Songs untereinander erfolgende. Daher muss eine Lösung mit
-subquadratischen Aufwand gefunden werden. Vorzugsweise eine, bei der
-Rechenaufwand gegen die Qualität der Approximation abgewägt werden kann. 
-So kann der Nutzer entscheiden wie lange er *libmunin* rechnen lassen will.
+``rebuild``--Operation der Graph aufgebaut werden. Wie bereits erwähnt in der
+Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
+:math:`O(n2)` nicht einfach durch das Vergleichen aller Songs untereinander
+erfolgende. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
+Vorzugsweise eine, bei der Rechenaufwand gegen die Qualität der Approximation
+abgewägt werden kann.  So kann der Nutzer entscheiden wie lange er *libmunin*
+rechnen lassen will.
 
 Der Ausgangszustand der ``rebuild``--Operationen ist eine Liste von Songs die
 vom Nutzer bereitgestellt wird. Jeder Song darin soll nun so im Graphen
-platziert werden, dass er im Bestfall die ähnlichsten Songs als Nachbarn
-hat. 
+platziert werden, dass er im Bestfall die ähnlichsten Songs als Nachbarn hat. 
 
-Jeder Song speichert seine Nachbarn mit der dazugehörigen Distanz.
-Soll ein neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu
-diesem neuen Song besser ist als die zum schlechtesten vorhandenen Nachbar.
-Ist dies der Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn *in
-eine Richtung* (die Gründe hierfür werden später betrachtet TODO) gekappt. Als 
-Ersatz wird zu dem neuen Song eine bidirektionale Verbindung aufgebaut. Da die
-Verbindung zum schlechtesten Song nur unidirektional abgebaut wird, ist die
+Jeder Song speichert seine Nachbarn mit der dazugehörigen Distanz.  Soll ein
+neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu diesem neuen
+Song besser ist als die zum schlechtesten vorhandenen Nachbar.  Ist dies der
+Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn *in eine Richtung*
+(die Gründe hierfür werden unter :ref:`ref_distance_add` betrachtet) gekappt.
+Als Ersatz wird zu dem neuen Song eine bidirektionale Verbindung aufgebaut. Da
+die Verbindung zum schlechtesten Song nur unidirektional abgebaut wird, ist die
 Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt, da das
 Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt.
 
@@ -39,7 +38,6 @@ plus eins.
 
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
 auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.
-
 
 .. subfigstart::
 
@@ -97,8 +95,9 @@ beleuchtet:
       Fenstergröße ist dabei konfigurierbar und ist standardmäßig auf 60
       eingestellt, da sich diese Größe nach einigen Tests als guter Kompromiss
       zwischen Qualität und Geschwindigkeit herausgestellt hat.  Bei jeder
-      Iteration wird das Fenster um ein Drittel der Fenstergröße weitergeschoben.
-      Dadurch entsteht eine *,,Kette"* von zusammenhängenden Songs.
+      Iteration wird das Fenster um ein Drittel der Fenstergröße
+      weitergeschoben.  Dadurch entsteht eine *,,Kette"* von zusammenhängenden
+      Songs.
 
       Die heuristische Annahme ist dabei, dass der Nutzer der Bibliothek seine
       Datenbank meist nach Alben sortiert eingibt. Durch diese Sortierung finden
@@ -106,11 +105,11 @@ beleuchtet:
       oft sehr ähnlich.
 
     * ``centering_window:`` Basiert ebenfalls auf einem Fenster. Im Gegensatz
-      zum obigen ``sliding_window`` besteht das Fenster allerdings aus zwei Hälften,
-      wobei die eine vom Anfang an startet und die andere Hälfte von der Mitte
-      aus bis zum Ende geschoben wird. Die Songs in beiden Hälften werden analog
-      zu oben untereinander verglichen. Auch hier überlappen sich die einzelnen
-      Hälften zu je zwei Drittel. 
+      zum obigen ``sliding_window`` besteht das Fenster allerdings aus zwei
+      Hälften, wobei die eine vom Anfang an startet und die andere Hälfte von
+      der Mitte aus bis zum Ende geschoben wird. Die Songs in beiden Hälften
+      werden analog zu oben untereinander verglichen. Auch hier überlappen sich
+      die einzelnen Hälften zu je zwei Drittel. 
 
       Die heuristische Annahme ist hier, dass in der bereits vorhandenen
       *,,Kette"* Querverbindungen hergestellt werden. Dies ist den nächsten
@@ -274,20 +273,19 @@ Diese *Einpassung* geschieht dabei folgendermaßen:
 
 Als zusätzliche Beobachtung lässt sich feststellen, dass Songs die per
 ``insert`` eingefügt werden deutlich *weitläufiger* verbunden sind als regulär
-per ``add`` hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit 
+per ``add`` hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
 gezeigte Demonanwedung zu Nutze: Ändert man das *Rating* eines Songs, so wird
 der Song mitels ``remove`` gelöscht und mittels  ``insert`` anderswo wieder
 eingefügt. Meist verbindet sich dabei der Song dann mit anderen ähnlich
 bewerteten Songs. Diese bilden ein *zusätzliches Netz* über den Graphen, welches
-weitläufrigere Sprünge ermöglicht.
-Dadurch hat der Nutzer eine intuitive Möglichkeit den Graphen
-seinen Vorstellungen nach umzubauen.
+weitläufrigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine intuitive
+Möglichkeit den Graphen seinen Vorstellungen nach umzubauen.
 
 ``modify:`` Verändern der Songattribute zur Laufzeit
 ----------------------------------------------------
 
 Diese Operation dient als Komfortfunktion. Sie ermöglicht das Verändern der
-Attribute, beziehungsweise deren zugeordneten Werte, eines einzelnen Songs. 
+Attribute, beziehungsweise deren zugeordneten Werte, eines einzelnen Songs.
 Würde man die Werte eines Songs manuell verändern, so müsste man alle Distanzen
 zu diesem Song neu berechnen. Da dies wiederum Veränderungen im ganzen Graphen
 hervorrufen könnte, wurden die Song--Instanzen unveränderbar *(,,Immutable")*
@@ -303,79 +301,104 @@ aufwendig. Es wird empfohlen diese Operation nur für einzelne Song jeweils
 einzusetzen. Sollte ein bestimmtes Attribut in allen Songs geändert werden, so
 ist eine ``rebuild``--Operation zu empfehlen.
 
+.. _ref_distance_add:
+
 Ablauf beim Hinzufügen einer Distanz
 ------------------------------------
 
-Wie in TODO erwähnt, wird beim Hinzufügen einer Distanz die Schlechteste dem
-Song bekannte Distanz abgefragt. Ist diese höher als die Neue wird der
-Verbindung zum schlechtesten Song *gekappt* falls der Song *voll* ist.
+Wie bereits erwähnt speichert jeder Song eine Hashtabelle mit den jeweiligen
+Songs, zu denen er eine Verbindung hält, als Schlüssel und der Distanz als Wert.
 
-Dieses Vorgehen bringt aber bereits einige algorithmische Probleme mit
-sich: Das Finden der schlechtesten Distanz erfordert jeweils linearen Aufwand.
-Zwar kann die schlechteste Distanz und der dazugehörige Song zwischengespeichert
-werden, doch nach einigen Tests stellte sich heraus, dass in den meisten Fällen 
-ein neuer, schlechtester Song gesucht werden muss. Das ist damit zu erklären,
-dass gegen Ende der ``rebuild``--Operation tendenziell immer niedrigere Distanzen 
-gefunden werden --- womit immer wieder der schlechteste Song herausgelöscht
-werden muss.
+Um diese Hashtabelle zu füllen ist eine Funktion nötig, die sich nach näherer
+Betrachtung als relativ schwierig zu implementieren gestaltete. Tatsächlich
+wurden an die 2 Wochen mit unterschiedlichen Herangehensweisen verbracht.
 
-Hier ein performanten Ansatz zu finden war mit 2 Wochen relativ zeitaufwendig.
+Die Anzahl von Nachbarn pro Song sollte sich um einen gewissen *Richtwert*
+einpendeln, den man konfigurieren kann. Daraus folgt, dass bei zu vielen
+Nachbarn der *schlechteste Nachbarn* entfernt werden muss. Der anfängliche
+Versuch die Verbindung zwischen den beiden Songs komplett zu löschen hatte aber
+ein gewichtiges Problem: Die Inseln im Graphen, die jeweils ein Album
+repräsentierten, haben sich nur untereinander verbunden. Verbindungen dazwischen
+wurden immer wieder als der *schlechteste Nachbar* erkannt und entfernt. Daher
+neigt der entstehende Graph stark zur Inselbildung und Bildung von starken
+Clustern.
 
-Als Python--Pseudocode:
+Die momentan Lösung ist dabei, dass der schlechteste Nachbar eine
+unidirektionale Verbindung zu seinem ursprünglichen Partner aufrecht erhält. Die
+Verbindung wird als nicht bidirektional gelöscht. Der Trick ist dabei: Bei der
+``rebuild``--Operation werden diese *Einbahnstraßen* immer noch von einer Seite
+als Nachbarn erkannt. So kann insbesondere der *Verfeinerungsschritt* gut
+zueinander passende Songs näher aneinander ziehen. Nach dem ``rebuild`` werden
+übrig gebliebene Einbahnstraßen in normale Verbindungen umgebaut oder, falls
+beide Enden der Verbindung bereits *,,voll"* sind, gelöscht. So bleiben Songs,
+zu denen kein passender Partner gefunden wurde, mit dem Rest des Graphen
+verbunden. 
+
+
+Dieses Vorgehen bringt aber bereits einige algorithmische Probleme mit sich: Das
+Finden des schlechtesten Nachbarn würde jeweils linearen Aufwand zum Iterieren
+über die Hashtabelle erfordern.  Zwar kann dann die schlechteste Distanz und der
+dazugehörige Song zwischengespeichert werden, doch nach einigen Tests stellte
+sich heraus, dass in den meisten Fällen ein neuer, schlechtester Song gesucht
+werden muss. Das ist damit zu erklären, dass gegen Ende der
+``rebuild``--Operation tendenziell immer niedrigere Distanzen gefunden werden
+--- womit immer wieder der schlechteste Song herausgelöscht werden muss.
+
+Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
+Distanzen, auch einen Heap als *,,Lookup--Hilfe"*.
+
+In diesem werden, entgegen der natürlichen Unordnung in einer Hastabelle, die
+zuletzt hinzugefügten Paare aus Distanzen und Songs partiell sortiert abgelegt.
+Gemäß der Natur eines Heaps, ist dabei der Wurzelknoten immer das Element mit
+der größten Distanz.  Ist es dann nötig eine neue, schlechteste Distanz zu
+finden, so kann mit einem Aufwand von :math:`O(\log n)` das oberste Paar
+herausgenommen werden.
+
+Die ``distance_add()`` Funktion nimmt 3 Parameter. Die ersten zwei sind die
+Songs (im Folgenden *A* und *B*), zwischen denen eine Verbindung hergestellt
+werden soll. Der letzte ist die Distanz mit der diese Kante gewichtet wird.  Im
+Folgenden ist der Code in gekürzter, vereinfachter Form als Referenz gegeben:
 
 .. code-block:: python
 
     def distance_add(self, other, distance):
+        """Füge eine Kante zwischen zwei Songs mit einer Distanz hinzu.
+
+        self, other: Die beiden Songs zwischen denen die Kante hergestellt werden soll.
+        distance: Die Distanz dieser Kante.
+        """
         if other is self:
-            return 
+            return  # Selbe Referenz! Kann Endlosschleifen verursachen.
 
-        if self.worst_cache < distance:
-            return
+        if self.worst_cache < distance and song.is_full():
+            return  # worst_cache ist die gespeicherte schlechteste Distanz oder None.
 
-        if distance.distance > self._max_distance:
-            return
-
-        sdd, odd = self.dist_dict, other.dist_dict
-        if other in sdd:
-            # Sollte nicht passieren:
-            if sdd[other] < distance:
-                return 
+        if other in self.dist_dict:
+            if self.dist_dict[other] < distance:
+                return  # Distanz zu diesem Song war bereits vorhanden und besser.
 
             self.worst_cache = None
-            sdd[other] = odd[self] = distance
-            return True
+            self.dist_dict[other] = other.dist_dict[self] = distance
+            return  #  Da other bereits enthalten: Einfach updaten.
 
-        # Check if we still have room left
-        if len(sdd) >= self._max_neighbors:
-            # Find the worst song in the dictionary
-            while 1:
-                inversion, worst_song = self.pop_list[0]
-                if worst_song in sdd:
-                    worst_dist = 1.0 - inversion
+        if self.is_full(): 
+            while True:  # Finde den schlechtesten Nachbarn der noch valide ist.
+                worst_dist, worst_song = self.heap[0]  # Wurzelknoten
+                if worst_song in self.dist_dict:
                     break
-
-                heappop(self.pop_list)
+                heappop(self.heap)  # Probiere nächstes Element.
 
             if worst_dist < distance.distance:
-                # we could prune pop_list here too,
-                # but it showed that one operation only is more effective.
-                self._worst_cache = worst_dist
-                return False
+                self.worst_cache = worst_dist
+                return
 
-            # delete the worst one to make place,
-            # BUT: do not delete the connection from worst to self
-            # we create unidir edges here on purpose.
-            del sdd[worst_song]
-            heappop(self._pop_list)
+            del self.dist_dict[worst_song]
+            heappop(self.heap)
 
-        # Add the new element:
-        sdd[other] = odd[self] = distance
+        # Füge neue Kante in die Hashtabellen ein:
+        self.dist_dict[other] = other.dist_dict[self] = distance
 
-        inversion = ~distance
-        heappush(self._pop_list, (inversion, other))
-        heappush(other._pop_list, (inversion, self))
-
-        # Might be something different now:
-        worst_cache = None
-        return True
-
+        # Speichere die Paare im Heap ab:
+        heappush(self.heap, (distance, other))
+        heappush(other.heap, (distance, self))
+        self.worst_cache = None  # Hat sich möglicherweise geändert.

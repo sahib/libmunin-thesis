@@ -1,0 +1,6 @@
+####################
+Graphentraversierung
+####################
+
+- Sieving
+- Verschiedene Strategien

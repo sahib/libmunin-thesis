@@ -2,10 +2,11 @@
     :numbered:
 
     abbrevs
-    I/index
-    II/index
-    III/index
-    IV/index
-    V/index
-    VI/index
-    VII/index
+    intro/index
+    einleitung/index
+    graphops/index
+    provider/index
+    learning/index
+    graphtraverse/index
+    evaluation/index
+    outro/index

@@ -18,3 +18,20 @@ Mehr dazu in der Bachelorarbeit.
 
 *Vergleiche zudem:* :cite:`datamining-concepts-and-techniques` Datamining
 Concepts and Techniques.
+
+
+
+Generierung von Regeln
+======================
+
+
+Frequent Itemsets
+------------------
+
+
+
+
+RELIM
+-----
+
+

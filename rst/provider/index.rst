@@ -2,6 +2,18 @@
 Algorithmen
 ###########
 
+
+Einleitung
+-----------
+
+Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
+näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
+erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
+meisten Provider eher einfacher Natur --- die Lektüre des jeweiligen Quelltextes
+sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
+erklärungsbedürftigen Paare näher betrachtet.
+
+
 Genre-Normalisierung und Vergleich
 ===================================
 
@@ -289,7 +301,7 @@ Distanzfunktion davon aus wenige Übereinstimmungen zu finden - sollten welche
 vorkommen werden diese gut bewertet.
 
 Setzt man voraus, dass *d* die unter :ref:`single-dist` erwähnte
-:term:`Distanzunktion` ist,  so berechnet sich die finale Distanz durch:
+Distanzunktion ist,  so berechnet sich die finale Distanz durch:
 
 .. math::
 
@@ -312,7 +324,7 @@ Distanzfunktion geht also davon aus zumindest teilweise Überdeckungen in den
 Daten vorzufinden.
 
 Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
-passende :term:`Distanzunktion` auswählen.
+passende Distanzunktion auswählen.
 
 Probleme
 --------
@@ -342,44 +354,23 @@ erstellen.
 
 
 Keword Extraction
------------------
+=================
 
-KeywordExtraction - KeywordSelection - KeywordDistance
-
-Rule Generation
+Problemstellung
 ---------------
 
 
-Graph Generation
-----------------
+RAKE zitieren/erklären.
+Änderungen zum Default-Algorithmus.
 
-add, rebuild, fix_graph
+Probleme
+---------
 
-distance_add
-------------
+Moodbar
+=======
 
-"max_neighbors Dilemma"
+Problemstellung
+---------------
 
-
-Graphenoperationen
-------------------
-
-insert, remove, modify
-
-Graphentraversierung
---------------------
-
-Infinite Iteratos - konzept aus funktionalen Programmiersprachen wie Haskell
-
-Sieving Algorithm
------------------
-
-Erklärung & Configuration.
-
-
-Various Providers
------------------
-
-Erwähnenswerte Algorithmik hinter den anderen Providern.
-
-levenshtein, bpm, moodbar, wordlist distance, normalize provider, stemming
+Probleme
+---------

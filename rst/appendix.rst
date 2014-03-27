@@ -89,6 +89,14 @@ Beschreibung
 
    stuff.
 
+.. figure:: figs/full_graph.png
+   :width: 100%
+   :alt: Basic
+   :align: center
+
+   stuff.
+
+.. _genre-graph-vis:
 
 Bilder des Genregraphen
 =======================
@@ -121,14 +129,3 @@ Beschreibung.
    :align: center
 
    stuff.
-
-
-Anhang C
-========
-
-
-.. .. raw:: latex
-.. 
-..    \includepdf[fitpaper]{genre_graph_big.pdf}
-
-Bye cruel world.
