@@ -1,3 +1,7 @@
+##################
+Graphenoperationen
+##################
+
 Graphenoperationen
 ==================
 
@@ -252,6 +256,10 @@ allerdings den durch ``add`` erzeugten Song auch in den Graphen ein und
 verbindet ihn dort. Dazu muss zuerst ein *Punkt* gefunden werden an dem der Song
 passend zu seinen Attributen *eingepasst* werden kann.
 
+.. raw:: latex
+
+   \newpage
+
 Diese *Einpassung* geschieht dabei folgendermaßen:
 
 - **Basisiteration:** Es wird mit einer gewissen *Schrittweite* über die
@@ -279,7 +287,8 @@ der Song mitels ``remove`` gelöscht und mittels  ``insert`` anderswo wieder
 eingefügt. Meist verbindet sich dabei der Song dann mit anderen ähnlich
 bewerteten Songs. Diese bilden ein *zusätzliches Netz* über den Graphen, welches
 weitläufrigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine intuitive
-Möglichkeit den Graphen seinen Vorstellungen nach umzubauen.
+Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
+*explizites Lernen*).
 
 ``modify:`` Verändern der Songattribute zur Laufzeit
 ----------------------------------------------------
@@ -402,3 +411,88 @@ Folgenden ist der Code in gekürzter, vereinfachter Form als Referenz gegeben:
         heappush(self.heap, (distance, other))
         heappush(other.heap, (distance, self))
         self.worst_cache = None  # Hat sich möglicherweise geändert.
+
+Graphentraversierung
+====================
+
+Um nun tatsächlich Empfehlungen abzuleiten muss der Graph traversiert werden.
+Je nach Art der Anfrage werden ein oder mehrere *Zentren* für eine Breitensuche,
+sogenannte *Seedsongs*, ausgewählt. Bei einfachen Anfragen in der Art *,,Gib
+10 ähnliche zu Song X aus"*, kann einfach der Song *X* als Seedsong angenommen
+werden. Komplexere Anfragen wie *,,Gib 10 Songs die ein Genre ähnlich Y
+haben aus"* oder *,,Empfiehl mir 10 Songs basierend auf dem Nutzerverhalten*"
+erfordern das Auswählen mehrerer Seedsongs.
+
+Empfehlungsiteratoren
+---------------------
+
+In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
+Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein Iterator
+bereitgestellt welcher immer nur eine Empfehlung generiert und erst bei Zuruf
+die nächste Empfehlung dynamisch generiert. Dieses, aus der funktionalen
+Programmierung bekannte Konzept, ist sehr nützlich beim Filtern der generierten
+Empfehlungen, denn man weiß im Vornherein nicht wieviele Empfehlungen
+ausgefiltert werden. So kann der Iterator einfach so lange bemüht werden, bis 
+die gewünschte Anzahl an Empfehlungen generiert worden sind. 
+
+Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jedem ein
+Breitensuche--Iterator erstellt. Diese Liste von Iteratoren wird dann im
+Round--Robin--Verfahren ineinander *verwebt*. Dabei wird je der erste Iterator
+in der Liste angestoßen, dann immer wieder der nächste um wieder am Anfang zu
+beginnen.
+
+Der daraus entstehende Iterator wird dann dem Nutzer der Bibliothek
+bereitgestellt. Wird ein Element aus diesem obersten Iterator genommen, so hat
+das ein *,,Nachrutschen"* von Iteratoren zur Folge. Diese Hierarchie von
+Iteratoren ist in :num:`fig-iterator` gezeigt.
+
+.. _fig-iterator:
+
+.. figure:: figs/iterator.*
+   :alt: Traversierung durch verschachtelte Iteratoren
+   :align: center
+   :width: 100%
+
+   Traversierung durch verschachtelte Iteratoren
+
+
+Anwendung von Regeln
+--------------------
+
+Die Assoziationsregeln die beim impliziten Lernen entstehen werden bei der
+Traversierung als *,,Navigationshilfe"* genutzt. TODO: Regeln erklären.
+
+In :num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine
+Breitensuche und eine Menge von *Regeliteratoren* unterstellt sind.  *Libmunin*
+bietet einen Mechanismus um alle Regeln abzufragen, die einen bestimmten Song
+betreffen. Für jeden Song, der auf der *anderen* Seite der Regel vorkommt (also
+die Seite, in der *nicht* der Seedsong vorhanden ist), wird ein 
+*Breitensucheniterator* erstellt. 
+
+Die einzelnen, den Regeln zugeordneten Iteratoren werden wieder im
+Round--Robin--Verfahren abgewechselt. Der dadurch entstehende wird immer im
+Wechsel mit dem *Breitensucheniterator*, der vom Seedsong ausgeht, abgefragt.
+Daher besteht der Iterator, der aus einem Seedsong gebaut wird, wiederum aus
+mehreren Unteriteratoren. 
+
+
+
+Filtern der Iteratoren
+----------------------
+
+Da Alben im Graphen eng beieinander gepackt sind, werden ohne zusätzliches
+Filtern natürlich auch Songs vom gleichen Album oder vom gleichen Künstler
+geliefert. Dies ist für gewöhnlich nicht erwünscht --- man möchte ja neue Musik
+entdecken, die nicht immer vom selben Künstler kommt. Der optionale
+Filterschritt (oder *Sieving*--Schritt) dient dazu diese unerwünschten Songs
+herauszufiltern. 
+
+Um dieses Ziel zu erfüllen, werden alle Empfehlungen gespeichert, die von
+*libmunin* ausgegeben werden. War der Künstler einer zu überprüfenden Empfehlung
+in den, beispielsweise, 5 letzten Empfehlungen bereits vorhanden, so wird er
+ausgesiebt. Ähnlich wird mit dem Album vorgegangen, nur hier ist die Schwelle
+standardmäßig bei 3. Die einzelnen Schwellen können vom Nutzer konfiguriert
+werden.
+
+Auch das *Sieving* ist als Iterator implementiert welcher Songs von einem
+Empfehlungsiterator nimmt, aber nicht alle an den Nutzer weitergibt.

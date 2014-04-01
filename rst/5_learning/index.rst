@@ -1,6 +1,6 @@
-################################
-Implizites und explizites Lernen
-################################
+#################
+Implizites Lernen
+#################
 
 Assoziationsregeln...
 
@@ -29,9 +29,18 @@ Frequent Itemsets
 ------------------
 
 
+Ableitung von Regeln aus Frequent Itemsets
+------------------------------------------
+
+Apriori kurz anreißen -> langsam.
 
 
 RELIM
 -----
 
 
+Anwenden von Regeln
+====================
+
+
+Graphentraversierung erklaren.... oder schon dort?

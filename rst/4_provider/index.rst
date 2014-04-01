@@ -4,7 +4,7 @@ Algorithmen
 
 
 Einleitung
------------
+===========
 
 Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
 näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
@@ -356,15 +356,23 @@ erstellen.
 Keword Extraction
 =================
 
+a
+
 Problemstellung
 ---------------
 
+a
+
+Der RAKE Algorithmus
+--------------------
 
 RAKE zitieren/erklären.
 Änderungen zum Default-Algorithmus.
 
-Probleme
----------
+Ergebnisse / Probleme
+---------------------
+
+a
 
 Moodbar
 =======
@@ -372,5 +380,96 @@ Moodbar
 Problemstellung
 ---------------
 
+Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (cite)
+wird in *libmunin* neben der Beats--Per--Minute Bestimmung als einfache Form der
+Audioanalyse eingesetzt. 
+
+
+
+Vergleich verschiedener Moodbars
+--------------------------------
+
+Das Vergleichen verschiedener Moodbars gestaltet sich aufgrund der hohen 
+Länge der einzelnen RGB--Vektoren als schwierig. In einem vorgelagerten
+Analyseschritt wird daher versucht, die markanten Merkmale der einzelnen
+Vektoren zu extrahieren.
+ 
+Jeder Farbkanal wird in einzelne Blöcke aufgeteilt, von der
+jeweils das arithmetische Mittel gebildet wird. So wird der ursprüngliche 1000
+Werte lange Vektor in momentan 20 einzelne, *handlichere* Werte aufteilt. Bei
+einer durchschnittlichen Liedlänge von 4 Minuten entspricht das immerhin 12
+Sekunden pro Block, was für gewöhnliche Lieder ausreichend sollte.
+
+Nach einigen subjektiven Tests haben sich folgende Merkmale als *vergleichbar*
+erwiesen:
+
+* **Differenzsumme:** Für jeden Farbkanal wird die Summe der Differenzen zu den
+  jeweiligen vorherigen Blockwert gebildet:
+
+  .. math::
+
+    \sum_{i=1}^{\vert C\vert} \vert C_{i} - C_{i-1}\vert
+
+  Dieser Wert soll die grobe *,,Sprunghaftigkeit"* des Liedes beschreiben.
+  Ändern sich die Werte für diesen Farbkanal kaum, so ist der Wert niedrig. 
+  Liegen hohe Änderungen zwischen jedem Block vor, so steigt dieser Wert bis zu
+  seinem Maximalen Wert von :math:`(20 - 1) \times 255 = 4845`.
+
+* **Histogramm:** Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
+  Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von 5 möglichen
+  Bereichen, die jeweils 51 Werte umfassen, aufgeteilt. 
+  So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
+  der Frequenzen abgespeichert.
+
+* **Dominaten Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
+  Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
+  kann man sich beim Vergleichen zu Nutze machen, denn ähnliche Instrumente
+  (ergo bestimmte, charakteristische Farben) deuten auf ähnliche Musikstile hin.
+  Der Moodbar--Provider teilt daher jeden Farbkanal in 15er--Schritten in
+  einzelne Bereiche auf. Jede Farbkombination wird dann einem dieser Bereich
+  zugeordnet. Die 15 am häufigsten zusammen vorkommenden Tripel werden
+  abgespeichert.
+* **Schwarzanteil:** Gesondert werden sehr dunklen Farben behandelt. Haben
+  alle Farbkanäle eines RGB--Tripels einen Wert kleiner 30, so wird die Farbe
+  nicht gezählt, sondern auf einen *Schwarzanteil*--Zähler aufaddiert. 
+  Geteilt durch 1000 ergibt sich daraus der Anteil des Liedes, das 
+
+* **Durschnittliches Minimun/Maximum:** Für jeden Block wird das Minimum/Maximum
+  aller 3 Farbkanäle bestimmt. Die Summe über jeden so bestimmten Wert, geteilt
+  durch die Anzahl der Blöcke ergibt das durschnittliche Minimun/Maximum. Die
+  Werte, die zwischen 0 und 255 liegen, sagen aus, in welchem Bereich sich die
+  Frequenzen im Lied für gewöhnlich bewegen. 
+
+In :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte gegeben,
+die der Moodbar--Provider generiert. Daneben werden auch die entsprechenden
+Gewichtungen und Distanzfunktionen gegeben, mit dem die
+Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
+
+.. figtable::
+    :spec: l | r | l
+    :label: table-moodbar-list
+    :caption: Auflistung der einzelnen Werte die der Moodbar--Provider
+              ausliest und deren dazugehörige Distanzfunktion, sowie deren
+              Gewichtung in der Gesamtdistanz. `a` und `b` sind Skalare, mit
+              Ausnahme der Histogramm--Eingabewerte. Dort sind `a` und `b` 
+              die einzelnen Farbkanäle als Vektor. Zur Bildung der Gesamtdistanz
+              werden die einzelnen Werte über einen gewichteten Mittelwert
+              verschmolzen.
+    :alt: Auflistung der einzelnen Moodbar--Merkmale.
+
+    ==================================== ====================== ====================
+    Name                                 Gewichtung             *ungewichtete* Distanzfunktion :math:`d(a, b)`
+    ==================================== ====================== ====================
+    *Differenzsumme*                     :math:`13,5\%`         :math:`1 - \sqrt{\frac{\vert a - b\vert}{50}}`                                               
+    *Histogramm*                         :math:`13,5\%`         :math:`1 - \frac{\sum_{x}^{\vv{a} - \vv{b}}\vert x\vert}{5 \times 255}`  
+    *Dominante Farben*                   :math:`63,0\%`         :math:`\frac{\vert a \cup b\vert}{max(\vert a \vert, \vert b \vert)}`                        
+    *Schwarzanteil*                      :math:`5,0\%`          :math:`1 - \sqrt{\frac{\vert a - b\vert}{50}}`                                              
+    *Durchschnittliches Minimum/Maximum* :math:`5,0\%`          :math:`1 - \sqrt{\frac{\vert a - b\vert}{255}}` 
+    |hline| |nbsp|                       :math:`\sum 100\%`                                                                                                   
+    ==================================== ====================== ====================
+
 Probleme
 ---------
+
+- Encoding
+- Live/Studioversionen.

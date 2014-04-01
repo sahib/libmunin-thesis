@@ -1,0 +1,35 @@
+digraph {
+    node [shape=record, style=filled, fontname="monoOne", fillcolor="#ffffff", fillcolor="#00000000"];
+    splines=false;
+
+    Nutzer [fillcolor="#88aaff"]
+    Filter [fillcolor="#88ff88"]
+    Empfehlungsiterator [fillcolor="#aaff88"]
+
+    "Seedsong 1"   [fillcolor="#ffff88"];
+    "Seedsong N-1" [fillcolor="#ffff88"];
+    "Seedsong N"   [fillcolor="#ffff88"];
+
+    "Breitensuche 1 (50%)" [fillcolor="#ff8888"]
+    "Regel 1.1" [fillcolor="#ffaa88"]
+    "Regel 1.2" [fillcolor="#ffaa88"]
+    "..." [fillcolor="#ffaa88"]
+    "...." [fillcolor="#ffaa88"]
+
+    "Breitensuche 1.1 (25%)" [fillcolor="#ff8888"]
+    "Breitensuche 1.2 (25%)" [fillcolor="#ff8888"]
+    
+    Nutzer -> Filter
+    Filter -> Empfehlungsiterator
+    Empfehlungsiterator -> "Seedsong 1"
+    Empfehlungsiterator -> "Seedsong N-1"
+    Empfehlungsiterator -> "Seedsong N"
+    "Seedsong 1" -> "Breitensuche 1 (50%)"
+    "Seedsong 1" -> "Regel 1.1"
+    "Seedsong 1" -> "Regel 1.2"
+    "Regel 1.1" -> "Breitensuche 1.1 (25%)"
+    "Regel 1.2" -> "Breitensuche 1.2 (25%)"
+    
+    "Seedsong N-1" -> "..."
+    "Seedsong N" -> "...."
+}

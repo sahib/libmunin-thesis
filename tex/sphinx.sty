@@ -8,6 +8,7 @@
 
 %%%% Other Preamble like stuff %%%%%%%%%%%%%%%%
 
+
 % Configure the Title Page:
 \input{meta._tex}
 
@@ -28,6 +29,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
 %%%% Use packages
+
+\RequirePackage[draft]{graphicx}
+
+\RequirePackage{esvect}
 
 %%% for comments
 \RequirePackage{verbatim}
@@ -349,8 +354,8 @@
     final,
     pdftex,
     pdfauthor={\theauthor},
-    pdftitle={\@worktitle~\@worksubtitle},
-    pdfsubject={\@worktitle~\@worksubtitle},
+    pdftitle={\@worktitle \@worksubtitle},
+    pdfsubject={\@worktitle \@worksubtitle},
     pdfkeywords={Music Recommendation, Music Information Retrieval, MIR, Data Mining, Graph Theory},
     pdfproducer={LaTeX with hyperref},
     pdfcreator={pdflatex},

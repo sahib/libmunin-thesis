@@ -22,9 +22,6 @@ Probleme aktueller Algorithmen
 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists
 ==================================================================================
 
-subfigure mit gegenüberstellung von ~15 liedern zu seed song, diskussion.
-
-
 - http://www2.research.att.com/~yifanhu/MusicMap/index.html
 - Suchengine für natürliche Sprache wie in :cite:`knees2007music`
 - Transitions. Beispieslweise immer "härter werdende musik"

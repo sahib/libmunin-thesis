@@ -40,3 +40,7 @@
 .. |hfill| raw:: latex
 
    \hfill
+
+.. |hline| raw:: latex
+
+   \hline
