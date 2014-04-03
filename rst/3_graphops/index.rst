@@ -48,36 +48,39 @@ auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.
 .. _fig-window-sliding:
 
 .. figure:: figs/sliding_window.*
-    :alt: Schematische Darstellung des Sliding Window.
+    :alt: Schematische Darstellung des sliding_window. 
     :width: 100%
     :align: center
     
-    ``sliding_window``
+    Darstellung des sliding_window. 
 
 .. _fig-window-centering:
 
 .. figure:: figs/centering_window.*
-    :alt: Schematische Darstellung des Sliding Window.
+    :alt: Schematische Darstellung des centering_window.
     :width: 100%
     :align: center
     
-    ``sliding_window``
+    Darstellung des centering_window.
 
 .. _fig-window-anti-centering:
 
 .. figure:: figs/anti_centering_window.*
-    :alt: Schematische Darstellung des Sliding Window.
+    :alt: Schematische Darstellung des anti_centering_window.
     :width: 100%
     :align: center
     
-    ``sliding_window``
+    Darstellung des anti_centering_window.
 
 .. subfigend::
     :width: 0.5
     :alt: Schematische Darstellungen der einzelnen Basisiterationen.
     :label: fig-windows
  
-    Schematische Darstellungen der einzelnen Basisiterationen.
+    Schematische Darstellungen der einzelnen Basisiterationen. Es werden jeweils
+    drei Iterationen in einem Bild dargestellt. Das Fenster in der ersten
+    Iteration ist dabei jeweils grün, in der zweiten gelb und in der letzten rot
+    dargegestellt. Die Zahlen repräsentieren einzelne Songs.
 
 Im Folgenden werden die drei Schritte der ``rebuild``--Operation genauer
 beleuchtet:
@@ -460,7 +463,7 @@ Anwendung von Regeln
 --------------------
 
 Die Assoziationsregeln die beim impliziten Lernen entstehen werden bei der
-Traversierung als *,,Navigationshilfe"* genutzt. TODO: Regeln erklären.
+Traversierung als *,,Navigationshilfe"* genutzt. TODO: Regeln erklären?
 
 In :num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine
 Breitensuche und eine Menge von *Regeliteratoren* unterstellt sind.  *Libmunin*

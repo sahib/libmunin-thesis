@@ -1,6 +1,6 @@
-###########
-Algorithmen
-###########
+#########################
+Algorithmen bei Providern
+#########################
 
 
 Einleitung
@@ -326,6 +326,8 @@ Daten vorzufinden.
 Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
 passende Distanzunktion auswählen.
 
+TODO(?) Missing: DiscogsGenre.
+
 Probleme
 --------
 
@@ -353,26 +355,190 @@ erstellen.
 .. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.
 
 
-Keword Extraction
-=================
-
-a
+Schlüsselphrasen--Extrahierung
+==============================
 
 Problemstellung
 ---------------
 
-a
+Eine Idee bei *libmunin* ist es auch die Liedtexte eines Liedes einzubeziehen,
+um Lieder, die änhlichen *Themen* behandeln näher beieinander im Graphen zu
+gruppieren. Sollten zwei Lieder nicht die selben Themen behandeln, so soll sich
+zumindest die gleiche Sprache sich positiv auf die Distanz auswirken.
+
+Um die Themen effizient zu vergleichen extrahiert *libmunin* aus den Liedtexten
+die wichtigsten *Schlüsselphrasen* mittels des Keyword--Providers. Diese Phrasen
+sollen den eigentlichen Inhalt möglichst gut approximieren, ohne dabei schwer
+vergleichbar zu sein.
 
 Der RAKE Algorithmus
 --------------------
 
-RAKE zitieren/erklären.
-Änderungen zum Default-Algorithmus.
+Zur Extrahieren von Schlüsselwörtern aus Texten gibt es eine Vielzahl von
+Algorithmen.  Der verwendete Algorithmus zur Schlüsselphrasen--Extrahierung ist
+bei *libmunin* der relativ einfach zu implementierende RAKE--Algorithmus
+(vorgestellt in :cite:`berry2010text`). Zwar könnte man mit anderen Algorithmen
+hier bessere Ergebnisse erreichen, diese sind aber schwerer zu implementieren
+(was die Anpasspartkeit verschlechtert) und sind in den meisten Fällen von
+sprachabhängigen Corpora (Wortdatenbanken) abhängig. 
 
-Ergebnisse / Probleme
----------------------
+*Beschreibung des RAKE--Algorithmus:*
 
-a
+1) Aufteilung des Eingabetextes in Sätze anhand von Interpunktion und
+   Zeilenumbrüchen.
+2) Extrahierung der *Phrasen* aus den Sätzen.  Ein *Phrase* ist hier definiert
+   als eine Sequenz von Nichtstoppwörtern.  Um Stoppwörter zu erkennen muss eine
+   von der Sprache abhängige Stoppwortliste geladen werden. Zu diesem Zweck hat
+   *libmunin* 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
+   Sprache selbst wird durch das Python Modul ``guess-language-spirit`` (TODO:
+   LINK) anhand verschiedener Sprachcharakteristiken automatisch erraten. 
+3) Berechnung eines *Scores* für jedes Wort in einem Phrase aus dem *Degree* und
+   der *Frequenz* eines Wortes:
+
+      :math:`degree(word) = len(phrase) - 1`
+
+      :math:`freq(word) = \sum count(word) \forall word \in corpus`
+
+      :math:`score(word) = \frac{degree(word) + freq(word)^{1.6}}{freq(word)}`
+
+4) Für jeden Phrase wird nun ein *Score* berechnet. Dieser ist definiert als die
+   Summe aller Wörter--*Scores* innerhalb des Phrases. Die derart bewerteten
+   Phrasen werden absteigend sortiert als *Schlüsselphrasen* ausgegeben.
+   *Schlüselphrasen* mit einem *Score* kleiner :math:`2.0` werden ausgesiebt.
+
+Es wurde zudem einige Änderungen zum in :cite:`berry2010text` vorgestellten
+Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
+abzustimmen:
+
+- Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
+  meisten Liedtexte sind bestehen aus einzelnen Versen, die nicht durch Punkte
+  getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.
+- Um die Ergebnisse leichter vergleichen zu können werden die einzelnen Wörter
+  nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
+  sprachsensitive *Snowball--Stemmer* verwendet (link). 
+- Im Original wird der *Wort--Score* als :math:`\frac{degree(word)}{freq(word)}`
+  berechnet. Der von *libmunin* berechnete *Score* gewichtet die Wortfrequenz
+  stärker. Der Exponent von :math:`1.6` wurde willkürlich nach einigen Tests
+  gewählt: Mit diesem Exponent erscheint der Schlüsselphrase *Yellow Submarine*
+  an erster Stelle im Liedtext von *,,Yellow Submarine"* der *Beatles*.
+- Da sich viele Ausdrücke in Liedtexten wiederholen kamen während der
+  Entwicklung viele Schlüsselphrasen in verschiedenen Variationen mehrmals vor.
+  Oft waren diese dann eine Untermenge einer anderen Schlüsselphrase (Beispiel:
+  *Yellow* und *Submarine* sind ein Teil von *Yellow Submarine*). Daher werden
+  in einem nachgelagerten Schritt diese redundante Phrasen entfernt.
+  
+*Vergleich der einzelnen Schlüsselphrasenmengen:*
+
+Die einzelnen Mengen von Schlüsselphrasen werden unter der Prämisse verglichen,
+dass exakte Übereinstimmungen selten sind.
+
+- Zu einem Drittel geht der Vergleich der Sprache in die Distanz ein. Ist die
+  Sprache gleich so wird hier eine Teildistanz von :math:`1.0` angeommen,
+  andernfalls ist die Gesamtdistanz :math:`0.0`, da dann auch ein Vergleich der
+  einzelnen Schlüsselphrasen nicht mehr sinnvoll ist.
+- Die restlichen zwei Drittel errechnen sich aus der Übereinstimmung der
+  Schlüsselphrasen. Für zwei Schlüsselphrasen *A* und *B* errechnet sich die
+  Distanz folgendermaßen:
+
+  .. math::
+
+      1 - \frac{\vert A\cup B\vert}{max(\vert A\vert, \vert B\vert)}
+
+  Alle Schlüsselphrasen werden damit untereinander verglichen. Die minimalste
+  dabei gefundene Distanz ist die finale Teildistanz.
+
+Ergebnisse
+----------
+
+.. figtable::
+   :spec: r l | r l
+   :label: table-keywords
+   :alt: Extrahierte Schlüsselphrasen aus verschiedenen Liedern.
+   :caption: Extrahierte Schlüsselphrasen aus dem Volkslied 
+             ,,Das Wandern ist des Müllers Lust“ (links) und dem
+             Beatles--Song ,,Yellow Submarine“ (rechts).
+              
+
+   ============== ============================ ============== ================
+   Score          Schlüsselphrasen *(Wandern)* Score          Schlüsselphrasen *(Yellow Submarine)*
+   ============== ============================ ============== ================
+   :math:`9.333`  *gerne  stille  stehn*       :math:`22.558` *yellow  submarin*
+   :math:`5.778`  *wandern*                    :math:`20.835` *full  speed  ahead  mr*
+   :math:`5.442`  *müllers  lust*               :math:`8.343` *live  beneath*
+   :math:`5.247`  *müde  drehn*                 :math:`5.247` *band  begin*
+   :math:`5.204`  *niemals  fiel*               :math:`3.297` *sea*
+   :math:`5.204`  *herr  meister*               :math:`3.227` *green*
+   :math:`5.204`  *frau  meisterin*             :math:`2.797` *captain*
+   :math:`5.074`  *muntern  reihn*              :math:`2.551` *sail*
+   :math:`5.031`  *schlechter  müller*          :math:`2.551` *blue*
+   :math:`5.031`  *wanderschaft  bedacht*       :math:`2.551` *cabl*
+   :math:`3.430`  *wasser*                      :math:`2.551` *life*
+   :math:`3.430`  *steine*                      :math:`2.516` *sky*
+   :math:`2.016`  *tanzen*                      :math:`2.516` *aye*
+   :math:`2.016`  *frieden*                     :math:`2.016` *friend*
+   :math:`2.016`  *gelernt*                     :math:`2.016` *aboard*
+   :math:`2.016`  *schwer*                      :math:`2.016` *boatswain*
+   ============== ============================ ============== ================
+    
+.. figtable::
+   :spec: l | l
+   :label: table-lyrics-wandern
+   :alt: Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.
+   :caption: Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.
+
+   ===================================== ==================================
+   Das Wandern ist des Müllers Lust,     Das sehn wir auch den Rädern ab,  
+   Das Wandern!                          Den Rädern!                       
+   Das muß ein schlechter Müller sein,   |br|
+   Dem niemals fiel das Wandern ein,     Die gar nicht gerne stille stehn,
+   Das Wandern.                          Die Steine selbst, so schwer sie sind,
+   |br|                                  Die Steine!
+   Vom Wasser haben wir’s gelernt,       Sie tanzen mit den muntern Reihn
+   Vom Wasser!                           Und wollen gar noch schneller sein,
+   Das hat nicht Rast bei Tag und Nacht, Die Steine.
+   Ist stets auf Wanderschaft bedacht,   |br|                                      
+   Das Wasser.                           O Wandern, Wandern, meine Lust,
+   |br|                                  O Wandern!
+   Die sich mein Tag nicht müde drehn,   Herr Meister und Frau Meisterin,
+   Die Räder.                            Laßt mich in Frieden weiter ziehn
+   *(oben rechts weiter)*                Und wandern.
+   ===================================== ==================================
+    
+In Abb. :num:`table-keywords` sind die extrahierten Schlüsselphrasen aus zwei
+Liedern aufgelistet. 
+
+Zur Referenz ist unter Abb. :num:`table-lyrics-wandern` der Liedtextes des
+Volkliedes ,,Das Wandern ist des Müllers Lust" abgedruckt. Der Text von
+*,,Yellow Subarmine"* wird aus möglichen lizenzrechtlichen Gründen hier nicht
+abgedruckt.
+
+Wie man in Abb. :num:`table-keywords` sieht, werden längere phrasen automatisch
+besser bewertet --- deren *Score* berechnet sich ja aus der Summe ihrer Wörter.
+Auch sieht man, dass viele unwichtige Wörter wie *aboard* trotz Stoppwortlisten
+noch in das Ergebniss aufgenommen werden.
+
+    
+Probleme
+--------
+
+Teilweise liefert diese Provider--Distanzfunktions--Kombination bereits
+interessante Ergebnisse. So werden die beiden staatskritischen, deutschen Texte
+*,,Hey Staat"* von *Hans Söllner* und *,,Lieber Staat"* von *Farin Urlaub* mit
+einer relativ niedrigen Distanz von gerundet :math:`0.4` bewertet.
+
+Doch nicht bei allen Texten funktioniert die Extrahierung so gut. Nimmt man den
+Ausdruck *,,God save the Queen!"*, so wird *RAKE* diesen nicht als gesamten
+Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert: 
+*,,God save"* und *,,Queen"*, da *the* ein einglisches Stoppwort ist. 
+
+Andererseits entstehen auch oft Schlüsselphrasen, die entweder unwichtig *(,,mal
+echt")*, sinnentfremdet () oder stark kontextspezifisch () sind. Da ein Computer
+den Text nicht verstehen kann, lässt sich das kaum vermeiden.
+
+Auch gemischtsprachige Liedtexte lassen sich nur schwer untersuchen, da immer
+nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
+(wie von *Hans Söllner*) greift auch die normale hochdeutsche Stoppowortliste
+nicht.
 
 Moodbar
 =======
@@ -380,25 +546,50 @@ Moodbar
 Problemstellung
 ---------------
 
-Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (cite)
-wird in *libmunin* neben der Beats--Per--Minute Bestimmung als einfache Form der
-Audioanalyse eingesetzt. 
+Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (siehe
+:cite:`wood2005techniques` für genauere Informationen) wird in *libmunin* neben
+der Beats--Per--Minute Bestimmung als einfache Form der
+Audioanalyse eingesetzt. Kurz zusammengefasst wird dabei ein beliebiges
+Audiostück zeitlich in 1000 Blöcke unterteilt. Für jeden dieser Blöcke wird ein
+Farbwert (als RGB--Tripel) bestimmt. Der Rotanteil bestimmt dabei den Anteil
+niedriger Frequenzen, der Grünanteil die mittleren Frequenzen und der Blauanteil
+die hohen Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere
+Frequenzen in einem Block hin --- E--Gitarren haben häufig diese Farbe in der
+Moodbar. Akustikgitarren erscheinen dafür meist in einem dunklem Rot.
 
+Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
+keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
+Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
+Autors sollte man das Verfahren daher eher *,,frequencebar"* oder ähnliches
+nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
+Namensgebung des Erfinders verwendet.
 
+.. figure:: figs/mood_avril.*
+    :alt: Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“
+    :width: 100%
+    :align: center
 
-Vergleich verschiedener Moodbars
---------------------------------
+    Beispiel--Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
+    Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
+    im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
+    durch ein eigens zu diesem Zwekc geschriebenes Script gerendert. Deutlich
+    sichtbar sind die einzelnen Pausen zwischen den Akkorden.
+
+Vergleich von Moodbars
+----------------------
 
 Das Vergleichen verschiedener Moodbars gestaltet sich aufgrund der hohen 
 Länge der einzelnen RGB--Vektoren als schwierig. In einem vorgelagerten
 Analyseschritt wird daher versucht, die markanten Merkmale der einzelnen
-Vektoren zu extrahieren.
+Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
+Moodbar--Provider getätigt.
  
-Jeder Farbkanal wird in einzelne Blöcke aufgeteilt, von der
-jeweils das arithmetische Mittel gebildet wird. So wird der ursprüngliche 1000
-Werte lange Vektor in momentan 20 einzelne, *handlichere* Werte aufteilt. Bei
-einer durchschnittlichen Liedlänge von 4 Minuten entspricht das immerhin 12
-Sekunden pro Block, was für gewöhnliche Lieder ausreichend sollte.
+Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
+aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
+ursprüngliche 1000 Werte lange Vektor in momentan 20 einzelne, *handlichere*
+Werte aufteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
+das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend
+sollte.
 
 Nach einigen subjektiven Tests haben sich folgende Merkmale als *vergleichbar*
 erwiesen:
@@ -408,7 +599,7 @@ erwiesen:
 
   .. math::
 
-    \sum_{i=1}^{\vert C\vert} \vert C_{i} - C_{i-1}\vert
+    \sum_{i=1}^{\vert C\vert} \vert C_{i} - C_{i-1}\vert \text{\,\,\,(C ist der Farbkanal)}
 
   Dieser Wert soll die grobe *,,Sprunghaftigkeit"* des Liedes beschreiben.
   Ändern sich die Werte für diesen Farbkanal kaum, so ist der Wert niedrig. 
@@ -440,18 +631,13 @@ erwiesen:
   Werte, die zwischen 0 und 255 liegen, sagen aus, in welchem Bereich sich die
   Frequenzen im Lied für gewöhnlich bewegen. 
 
-In :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte gegeben,
-die der Moodbar--Provider generiert. Daneben werden auch die entsprechenden
-Gewichtungen und Distanzfunktionen gegeben, mit dem die
-Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
-
 .. figtable::
     :spec: l | r | l
     :label: table-moodbar-list
     :caption: Auflistung der einzelnen Werte die der Moodbar--Provider
               ausliest und deren dazugehörige Distanzfunktion, sowie deren
-              Gewichtung in der Gesamtdistanz. `a` und `b` sind Skalare, mit
-              Ausnahme der Histogramm--Eingabewerte. Dort sind `a` und `b` 
+              Gewichtung in der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit
+              Ausnahme der Histogramm--Eingabewerte. Dort sind ,,a“ und ,,b“ 
               die einzelnen Farbkanäle als Vektor. Zur Bildung der Gesamtdistanz
               werden die einzelnen Werte über einen gewichteten Mittelwert
               verschmolzen.
@@ -468,8 +654,65 @@ Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
     |hline| |nbsp|                       :math:`\sum 100\%`                                                                                                   
     ==================================== ====================== ====================
 
+In :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte gegeben,
+die der Moodbar--Provider generiert. Daneben werden auch die entsprechenden
+Gewichtungen und Distanzfunktionen gegeben, mit dem die
+Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
+
+Am subjektiv *vergleichbarsten* erwiesen sich die dominanten Farben in einem
+Lied. Die zwischenzeitlich aufgekommene Idee bestimmte markante Farbwertbereiche
+bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
+extrem ungenau.
+
 Probleme
 ---------
 
-- Encoding
-- Live/Studioversionen.
+.. _fig-mood-yellow-submarine:
+
+.. figure:: figs/mood_yellow_submarine.*
+    :alt: Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten.
+    :width: 100%
+    :align: center
+
+    Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
+    Beatles--Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
+    mit relativ stark komprimierter MP3--Enkodierung. Die von libmunin
+    berechnete Distanz ist hier etwa 0.01.
+
+.. _fig-mood-rammstein-tier:
+
+.. figure:: figs/mood_rammstein_tier.*
+    :alt: Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“
+    :width: 100%
+    :align: center
+
+    Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“. Oben
+    die Studioversion, unten die Liveversion.  Hier ist die von libmunin
+    errechnete Distanz immerhin bei 0.32. 
+
+Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum Vergleichen von
+Audiodaten ausgelegt war und vom Autor lediglich dafür *,,missbraucht"* wurde.
+Wichtige Informationen wie die eigentliche Stimmung in dem Lied (von dunkel bis
+positiv) bis hin zur Rhythmus des Liedes.. Lediglich die durchschnittliche
+Geschwindigkeit wird vom BeatsPerMinute--Provider erfasst.  Daher ist der
+Moodbar--Provider momentan eher als *Notbehelf* zu sehen.
+
+Zudem ist die Geschwindigkeit der Audioanalyse eher dürftig. Geht das 
+Analysieren des RGB--Vektors an sich vergleichsweise schnell, so ist die
+Generierung desselben zeitlich aufwendig. Bei MP3--enkodierten Dateien dauerst
+dies, je nach Größe, bis zu 4 Sekunden. Die Dauer variiert dabei je nach Format.
+FLAC--enkodierte Dateien brauchen oft lediglich die Hälfte dieser Zeit. In
+beiden Fällen ist die Anwendung bei einer mehreren zehntausend Lieder
+umfassenden Sammlung aufwendig.
+
+Vorteile sind hingegen:
+
+- **Robustheit:** Wie man in :num:`fig-mood-yellow-submarine` sieht, ist das
+  Verfahren relativ umempfdindlich gegen verschieden Enkodierungen. Selbst Live
+  und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
+  :num:`fig-mood-rammstein-tier`).
+- **Geringerer Speicherverbrauch:** Obwohl für die Implementierung die relativ
+  speicherhungrige Sprache Python benutzt wurde, nutzt der Moodbar--Provider
+  lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen -10 bis
+  255 im Speicher hält und der Moodbar--Provider nur Zahlen in diesem Bereich
+  erzeugt reichen hier 8 Byte für eine Referenz auf einen Integer aus. 

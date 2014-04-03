@@ -44,3 +44,6 @@ Anwenden von Regeln
 
 
 Graphentraversierung erklaren.... oder schon dort?
+
+
+operanten Konditionierung -> Belohnung, Gegenlernen, Vergessen.
