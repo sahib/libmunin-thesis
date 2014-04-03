@@ -2,12 +2,27 @@
 Einstieg
 ********
 
-ementierung vs. Evaluierung
-Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -> Prototyp)
+Allgemeine Hinweise
+===================
 
-kein anspruch auf korrektheit, lediglich Hoffnung auf Nützlichkeit.
+- Ouputqualität = Inputqualität
+- Kaffeesatzleserei + Zeitmangel = Prototyp.
 
-Fehlgeleitete Idee mit chromaprint erwähnen - tauglich um gleiche musikstücke 
-zu finden, aber nicht mehr.
+Begriffserklärungen
+====================
 
-TODO: Begriffserklärungen?
+- Assoziationsregel.
+- Distanzfunktion.
+
+Allgemeine Hinweise für Entwickler
+==================================
+
+*Hinweise zum Schreiben von Distanzfunktionen:*
+
+- *Vermeidung von überspezifischen Distanzfunktionen:*
+- Distanzfunktion Terminus einhalten
+
+*Hinweise zum Schreiben von Providern:*
+
+- Provider laufen nur einmal, Distanzfunktionen oft -> komprimieren.
+- Unwichtiges weglassen.

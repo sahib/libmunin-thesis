@@ -17,7 +17,8 @@ beizubringen wird es kompliziert. Dieser kann nur objektiv nach bestimmten
 *Metriken* entscheiden. Diese Metriken zu definieren muss dann wiederum die
 Aufgabe eines Menschen sein --- also sind auch diese wiederum subjektiv, da sie
 die *Vorlieben* des Autors widerspiegeln. Auch können diese Metriken nie für
-alle Fälle funktionieren. 
+alle Fälle funktionieren. Ein gutes Stück *,,Kaffeesatzleserei"* lässt sich
+leider nicht ganz vermeiden.
 
 Das konkrete Problem
 ====================

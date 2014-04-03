@@ -20,7 +20,6 @@ Mehr dazu in der Bachelorarbeit.
 Concepts and Techniques.
 
 
-
 Generierung von Regeln
 ======================
 
@@ -41,9 +40,3 @@ RELIM
 
 Anwenden von Regeln
 ====================
-
-
-Graphentraversierung erklaren.... oder schon dort?
-
-
-operanten Konditionierung -> Belohnung, Gegenlernen, Vergessen.

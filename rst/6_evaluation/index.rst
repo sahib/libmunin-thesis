@@ -2,19 +2,6 @@
 Evaluation
 ##########
 
-Allgemeine Hinweise für Entwickler
-==================================
-
-*Hinweise zum Schreiben von Distanzfunktionen:*
-
-- *Vermeidung von überspezifischen Distanzfunktionen:*
-- Distanzfunktion Terminus einhalten
-
-*Hinweise zum Schreiben von Providern:*
-
-- Provider laufen nur einmal, Distanzfunktionen oft -> komprimieren.
-- Unwichtiges weglassen.
-
 Vergleich verschiedener Playlisten
 ==================================
 
@@ -75,6 +62,14 @@ Vergleich verschiedener Playlisten
 - last.fm playlists machen hier keinen Sinn - die lassen sich nicht auf die
   ausgewählten 666 Songs beschränken. 
 - Auf Dynamik der Playlist eingehen.
+
+
+Lernerfolg
+==========
+
+- Explizites lernen durch remove, modify, insert
+- Grafiken!
+- Erfolge beim impliziten Lernen?
 
 Sonstiges
 =========

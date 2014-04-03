@@ -5,33 +5,40 @@ Zusammenfassung
 Verbesserung der Algorithmik
 ============================
 
-- Rumspinnen über aubio, was möglich ist und wie.
+Audioanalyse
+------------
 
-Erweiterung der Algorithm
-=========================
+- Rumspinnen über libaubio, was möglich ist und wie.
+- Sprache, Intros und Audio intelligent unterscheiden?
+- Performantere Audioanalyse.
 
-- Keyword extraction auch von amazon reviews.
-  oft werden vergleiche gezogen.
+Andere Provider
+---------------
 
-Probleme aktueller Algorithmen
-==============================
+- Genrebridges: Wie zieht man *grunge* und *rock* zusammen?
+- Datumsgrenzjahre abhängig von Genre.
+- Einbeziehung der Länge als Provider/Distanz (statistisch untersuchen)
+  (http://googleresearch.blogspot.ca/2014/01/explore-history-of-pop-and-punk-jazz.html)
 
-- moodbar solle freqbar heißen
-- bpm liefert schlechte werte.
+Empfehlungen
+------------
 
-Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists
-==================================================================================
-
-- http://www2.research.att.com/~yifanhu/MusicMap/index.html
-- Suchengine für natürliche Sprache wie in :cite:`knees2007music`
-- Transitions. Beispieslweise immer "härter werdende musik"
-- Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)
-- Auch "disklikes" berücksichtigen (zB. songs die immer gleich geskippt wurden)?
 - Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
-- Similar Artist/Album/Genre...
-- Einbeziehung der duration als provider/distanz (statistisch untersuchen)
-- (Amazon) artist/album reviews mit einbeziehen, keyword-extraction.
-- Sprache, Intros und Audio intelligent unterscheiden.
-- beschleunigter audioanalyse.
-- date origin abhängig vom genre
-- genre-bridges: grunge->rock
+- *Similar* Artist/Album/Genres erzeugen.
+
+Erweiterungen
+=============
+
+- Keyword extraction auch von Amazon-Reviews.
+  oder ähnliche lokale Speicher für Social-based-recommendations.
+- Suchengine für natürliche Sprache wie in :cite:`knees2007music`
+- Beziehen und Nutzen weiterer Metadaten wie Producer, Band-Member.
+  -> Ähnlichkeiten möglich!
+- Auch *,,Disklikes"* berücksichtigen --- Also Songs die immer gleich geskippt
+  werden. Negatives Rating einführen. Auch negative Assoziationen.
+  Wie bei operanter Konditionierung -> Belohnung, Gegenlernen, Vergessen.
+
+Fazit
+=====
+
+~~ Le Fin ~~
