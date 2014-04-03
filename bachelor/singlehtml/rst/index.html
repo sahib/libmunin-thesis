@@ -18,21 +18,6 @@
 
   
   
-
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:'../',
-        VERSION:'0.1',
-        COLLAPSE_INDEX:false,
-        FILE_SUFFIX:'.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
     
 
   
@@ -40,7 +25,6 @@
   
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-    <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
   
@@ -73,26 +57,29 @@
 </script>
 
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html#document-rst/index" class="icon icon-home"> Projektarbeit</a>
-        <form class="wy-form" action="../search.html" method="get">
-  <input type="text" name="q" placeholder="Search docs" />
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
+        <a href="index.html#document-rst/index" class="fa fa-home"> Projektarbeit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
             <ul>
@@ -101,43 +88,50 @@
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/dedication">Widmung</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/I/index">1 Überleitung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/II/index">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/II/index#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/1_intro/index">1 Überleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/1_intro/index#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/1_intro/index#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/III/index">3 Algorithmen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/III/index#genre-normalisierung-und-vergleich">3.1 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/2_einleitung/index">2 Einstieg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/3_graphops/index">3 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/3_graphops/index#id1">3.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/3_graphops/index#graphentraversierung">3.2 Graphentraversierung</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/IV/index">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#rebuild-aufbau-des-graphen">4.1 <tt class="docutils literal"><span class="pre">rebuild:</span></tt> Aufbau des Graphen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#fixing-umbauen-von-einbahnstraszen">4.2 <tt class="docutils literal"><span class="pre">fixing:</span></tt> Umbauen von Einbahnstraßen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#add-hinzufugen-von-songs-vor-dem-rebuild">4.3 <tt class="docutils literal"><span class="pre">add:</span></tt> Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#remove-loschen-von-songs-zur-laufzeit">4.4 <tt class="docutils literal"><span class="pre">remove:</span></tt> Löschen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#insert-hinzufugen-von-songs-zur-laufzeit">4.5 <tt class="docutils literal"><span class="pre">insert:</span></tt> Hinzufügen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#modify-verandern-der-songattribute-zur-laufzeit">4.6 <tt class="docutils literal"><span class="pre">modify:</span></tt> Verändern der Songattribute zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/IV/index#ablauf-beim-hinzufugen-einer-distanz">4.7 Ablauf beim Hinzufügen einer Distanz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/4_provider/index">4 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/4_provider/index#einleitung">4.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/4_provider/index#genre-normalisierung-und-vergleich">4.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/4_provider/index#schlusselphrasen-extrahierung">4.3 Schlüsselphrasen&ndash;Extrahierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/4_provider/index#moodbar">4.4 Moodbar</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/V/index">5 Implizites und explizites Lernen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/VI/index">6 Evaluation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/VI/index#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/VI/index#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/5_learning/index">5 Implizites Lernen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/5_learning/index#generierung-von-regeln">5.1 Generierung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/5_learning/index#anwenden-von-regeln">5.2 Anwenden von Regeln</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/VII/index">7 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/VII/index#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/VII/index#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/VII/index#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/VII/index#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/6_evaluation/index">6 Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/6_evaluation/index#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/6_evaluation/index#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/6_evaluation/index#sonstiges">6.3 Sonstiges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/7_outro/index">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/7_outro/index#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/7_outro/index#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/7_outro/index#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/7_outro/index#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix">Graphenbilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix">Bilder des Song&ndash;Graphen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/appendix#allgemeine-hinweise">Allgemeine Hinweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/index.html#document-rst/appendix#plotting-der-graphen">Plotting der Graphen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/appendix#anhang-c">Anhang C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/zzz_bibliography">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/index.html#document-rst/zzz_bibliography#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -150,23 +144,28 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top">
-        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
-        <a href="/">Projektarbeit</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html#document-rst/index">Projektarbeit</a>
       </nav>
 
 
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          <ul class="wy-breadcrumbs">
-  <li><a href="index.html#document-rst/index">Docs</a> &raquo;</li>
-  <li><a href="">Projektarbeit</a></li>
-  
-</ul>
-<hr/>
-
-          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html#document-rst/index">Docs</a> &raquo;</li>
+      
+    <li>Projektarbeit</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
   <div class="section" id="libmunin-br-projektarbeit">
 <span id="doc-title"></span><h1>libmunin: <br /> Projektarbeit<a class="headerlink" href="#libmunin-br-projektarbeit" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
@@ -224,28 +223,475 @@ Günter Köhler (für die Freiheit) und meiner Familie.</p>
 </tr>
 </tbody>
 </table>
-</center></div><span id="document-rst/I/index"></span><div class="section" id="uberleitung">
+</center></div><span id="document-rst/1_intro/index"></span><div class="section" id="uberleitung">
 <h2>1 Überleitung<a class="headerlink" href="#uberleitung" title="Permalink to this headline">¶</a></h2>
-<p>Implementierung vs. Evaluierung</p>
-<p>MUUUSIK</p>
-<p><a class="reference external" href="http://www2.research.att.com/~yifanhu/MusicMap/index.html">http://www2.research.att.com/&nbsp;yifanhu/MusicMap/index.html</a></p>
+<div class="section" id="das-allgemeine-problem">
+<h3>1.1 Das allgemeine Problem<a class="headerlink" href="#das-allgemeine-problem" title="Permalink to this headline">¶</a></h3>
+<p>Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen <em>wie ähnlich</em> ein
+Musikstück zu einem anderem ist, so erhält man genauso viele Antworten wie man
+Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr subjektive
+Angelegenheit die selbst für Menschen schwierig ist. Stuft man die <em>Rolling
+Stones</em> als <em>Rock</em> ein? Oder doch eher als <em>Pop?</em> Was zählt eigentlich noch als
+<em>Rock</em>?</p>
+<p>Wenn man jetzt noch versucht einem Computer dem Begriff der <em>Musikähnlichkeit</em>
+beizubringen wird es kompliziert. Dieser kann nur objektiv nach bestimmten
+<em>Metriken</em> entscheiden. Diese Metriken zu definieren muss dann wiederum die
+Aufgabe eines Menschen sein &mdash; also sind auch diese wiederum subjektiv, da sie
+die <em>Vorlieben</em> des Autors widerspiegeln. Auch können diese Metriken nie für
+alle Fälle funktionieren.</p>
 </div>
-<span id="document-rst/II/index"></span><div class="section" id="einstieg">
+<div class="section" id="das-konkrete-problem">
+<h3>1.2 Das konkrete Problem<a class="headerlink" href="#das-konkrete-problem" title="Permalink to this headline">¶</a></h3>
+<p>So gesehen, ist <em>libmunin</em> in der <em>,,Standardeinstellung&quot;</em> ein
+Musikempfehlungssystem, das genau auf einen Nutzer und dessen Vorlieben
+zugeschnitten ist. Entwickler können jedoch die Bibliothek an ihre Präferenzen
+anpassen oder ihren Nutzern eine Möglichkeit geben selbst Einstellungen
+vorzunehmen. So wäre es im praktischen Einsatz möglich die Gewichtung einzelner
+Attribute während der Laufzeit zu ändern.</p>
+<p>Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
+verstehen was intern vor sich geht.  Darum soll es in dieser Arbeit gehen.
+Insbesondere wird auf die wichtigsten Provider und deren Funktionalität
+eingegangen, wie diese sich auf die Distanzfunktionen auswirken und wie aus den
+einzelnen Distanzen der komplette Graph aufgebaut wird. Zudem wird auf die
+Lernfähigkeiten von <em>libmunin</em> eingegangen und die von <em>libmunin</em> generierten
+Empfehlungen werden näher betrachtet.</p>
+</div>
+</div>
+<span id="document-rst/2_einleitung/index"></span><div class="section" id="einstieg">
 <h2>2 Einstieg<a class="headerlink" href="#einstieg" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="warum-uberhaupt">
-<h3>2.1 Warum überhaupt?<a class="headerlink" href="#warum-uberhaupt" title="Permalink to this headline">¶</a></h3>
-<p>Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -&gt; Prototyp)</p>
+<p>ementierung vs. Evaluierung
+Eingehen auf Kaffeesatzlesen vs. Wissenschaft (Zeitmangel -&gt; Prototyp)</p>
 <p>kein anspruch auf korrektheit, lediglich Hoffnung auf Nützlichkeit.</p>
 <p>Fehlgeleitete Idee mit chromaprint erwähnen - tauglich um gleiche musikstücke
 zu finden, aber nicht mehr.</p>
+<p>TODO: Begriffserklärungen?</p>
+</div>
+<span id="document-rst/3_graphops/index"></span><div class="section" id="graphenoperationen">
+<h2>3 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>3.1 Graphenoperationen<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Eine grobe Übersicht über die einzelnen Graphenoperationen und ihrer
+Zuständigkeiten wurde bereits in der Projektarbeit gegeben. Im Folgenden
+wird detailliert auf ihre Funktionsweise und Internas eingegangen.</p>
+<div class="section" id="rebuild-aufbau-des-graphen">
+<h4>3.1.1 rebuild: Aufbau des Graphen<a class="headerlink" href="#rebuild-aufbau-des-graphen" title="Permalink to this headline">¶</a></h4>
+<p>Bevor irgendeine andere Operation ausgeführt werden kann muss mittels der
+<tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation der Graph aufgebaut werden. Wie bereits erwähnt in der
+Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
+<span class="math">\(O(n2)\)</span> nicht einfach durch das Vergleichen aller Songs untereinander
+erfolgende. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
+Vorzugsweise eine, bei der Rechenaufwand gegen die Qualität der Approximation
+abgewägt werden kann.  So kann der Nutzer entscheiden wie lange er <em>libmunin</em>
+rechnen lassen will.</p>
+<p>Der Ausgangszustand der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operationen ist eine Liste von Songs die
+vom Nutzer bereitgestellt wird. Jeder Song darin soll nun so im Graphen
+platziert werden, dass er im Bestfall die ähnlichsten Songs als Nachbarn hat.</p>
+<p>Jeder Song speichert seine Nachbarn mit der dazugehörigen Distanz.  Soll ein
+neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu diesem neuen
+Song besser ist als die zum schlechtesten vorhandenen Nachbar.  Ist dies der
+Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn <em>in eine Richtung</em>
+(die Gründe hierfür werden unter <a class="reference internal" href="rst/index.html#ref-distance-add">3.1.7</a> betrachtet) gekappt.
+Als Ersatz wird zu dem neuen Song eine bidirektionale Verbindung aufgebaut. Da
+die Verbindung zum schlechtesten Song nur unidirektional abgebaut wird, ist die
+Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt, da das
+Hinzufügen neuer Songs <em>,,Einbahnstraßen&quot;</em> hinterlässt.</p>
+<p>Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
+Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
+auf <span class="math">\(15\)</span> gesetzt &mdash; der durchschnittlichen Länge eines heutigen Albums
+plus eins.</p>
+<p>Wenn im folgenden vom <em>,,Berechnen der Distanz&quot;</em> gesprochen wird, so ist damit
+auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.</p>
+<div class="figure compound align-center" id="fig-windows">
+<div style="width: 50%" class="subfigure align-center" id="fig-window-sliding">
+<a class="reference internal image-reference" href="../../_images/sliding_window.svg"><img alt="Schematische Darstellung des sliding_window." src="../../_images/sliding_window.svg" width="100%" /></a>
+<p class="caption">Darstellung des sliding_window.</p>
+</div>
+<div style="width: 50%" class="subfigure align-center" id="fig-window-centering">
+<a class="reference internal image-reference" href="../../_images/centering_window.svg"><img alt="Schematische Darstellung des centering_window." src="../../_images/centering_window.svg" width="100%" /></a>
+<p class="caption">Darstellung des centering_window.</p>
+</div>
+<div style="width: 50%" class="subfigure align-center" id="fig-window-anti-centering">
+<a class="reference internal image-reference" href="../../_images/anti_centering_window.svg"><img alt="Schematische Darstellung des anti_centering_window." src="../../_images/anti_centering_window.svg" width="100%" /></a>
+<p class="caption">Darstellung des anti_centering_window.</p>
+</div>
+<p class="caption">Schematische Darstellungen der einzelnen Basisiterationen. Es werden jeweils
+drei Iterationen in einem Bild dargestellt. Das Fenster in der ersten
+Iteration ist dabei jeweils grün, in der zweiten gelb und in der letzten rot
+dargegestellt. Die Zahlen repräsentieren einzelne Songs.</p>
+</div><p id="fig-windows">Im Folgenden werden die drei Schritte der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation genauer
+beleuchtet:</p>
+<ul>
+<li><p class="first"><strong>Basisiteration:</strong> Für jeden Song wird nach willkürlich festgelegten
+Prinzipien eine kleine Menge von möglicherweise ähnlicher Songs ausgewählt.
+Diese Menge von Songs wird untereinander mit quadratischen Aufwand verglichen.
+Diese Vorgehensweise wird mehrmals mit verschiedener Methoden wiederholt. Das
+Ziel jeder dieser Iterationen ist es für einen Song zumindestens eine kleine
+Anzahl von ähnlichen Songs zu finden. Basierend auf diesen wird in den
+nächsten Schritten versucht die Anzahl ähnlicher Songs zu vergrößern.</p>
+<p>Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
+basiert auf gewissen heuristischen Annahmen die über die Eingabemenge gemacht
+wird:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">sliding_window:</span></tt> Schiebt ein <em>,,Fenster&quot;</em> über die Liste der Songs.
+Alle Songs innerhalb des Fensters werden untereinander verglichen.  Die
+Fenstergröße ist dabei konfigurierbar und ist standardmäßig auf 60
+eingestellt, da sich diese Größe nach einigen Tests als guter Kompromiss
+zwischen Qualität und Geschwindigkeit herausgestellt hat.  Bei jeder
+Iteration wird das Fenster um ein Drittel der Fenstergröße
+weitergeschoben.  Dadurch entsteht eine <em>,,Kette&quot;</em> von zusammenhängenden
+Songs.</p>
+<p>Die heuristische Annahme ist dabei, dass der Nutzer der Bibliothek seine
+Datenbank meist nach Alben sortiert eingibt. Durch diese Sortierung finden
+sich innerhalb eines Fensters oft Lieder des selben Albums &mdash; diese  sind
+oft sehr ähnlich.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">centering_window:</span></tt> Basiert ebenfalls auf einem Fenster. Im Gegensatz
+zum obigen <tt class="docutils literal"><span class="pre">sliding_window</span></tt> besteht das Fenster allerdings aus zwei
+Hälften, wobei die eine vom Anfang an startet und die andere Hälfte von
+der Mitte aus bis zum Ende geschoben wird. Die Songs in beiden Hälften
+werden analog zu oben untereinander verglichen. Auch hier überlappen sich
+die einzelnen Hälften zu je zwei Drittel.</p>
+<p>Die heuristische Annahme ist hier, dass in der bereits vorhandenen
+<em>,,Kette&quot;</em> Querverbindungen hergestellt werden. Dies ist den nächsten
+Schritten vorteilhaft um Iterationen einzusparen.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">anti_centering_window:</span></tt> Sehr ähnlich zum <tt class="docutils literal"><span class="pre">centering_window</span></tt>, statt
+die zwei Hälfte aber von der Mitte aus bis zum Ende weiter zu schieben
+wird diese vom Ende zur Mitte geschoben. So werden die beiden Hälften
+solange weiter geschoben, bis sie sich in er Mitte treffen.</p>
+<p>Auch hier sollen weitere Querverbindungen hergestellt werden.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Verfeinerung:</strong> Um den momentan sehr grob vernetzten Graphen benutzbar zu
+machen müssen einige Iterationen zur <em>,,Verfeinerung&quot;</em> durchgeführt werden.</p>
+<p>Dabei wird über jeden Song im Graphen iteriert und dessen <em>indirekte Nachbarn</em>
+(also die Nachbarn der direkten Nachbarsongs) werden mit dem aktuellen Song
+verglichen. Kommen dabei Distanzen zustande, die niedriger sind als die der
+aktuellen Nachbarn, wird der indirekte Nachbar zum direkten Nachbarn. Auf
+diese Weise rücken ähnliche Songs immer weiter aufeinander zu.
+Diese Vorgehensweise wird solange wiederholt bis nur noch eine geringe Anzahl
+von Songs <em>,,bewegt&quot;</em> oder bis eine maximale Anzahl von Iterationen erreicht
+ist. Die Begrenzung der Iterationen ist nötig, da es Fälle geben kann in denen
+einzelne Songs immer wieder zwischen zwei gleich guten Zuständen hin- und
+herspringen können.</p>
+<p>Als zusätzliche Optimierung werden nicht alle indirekten Nachbarn betrachtet,
+sondern nur diese, zu denen der Weg eine gewisse <em>Mindestdistanz</em> nicht
+unterschreitet. Diese Mindestdistanz wird beim Start dabei auf <span class="math">\(2.0\)</span>
+gesetzt und während der folgenden Iterationen immer weiter abgesenkt.</p>
+<p>Die Gesetzmäßigkeit nach der die Mindesdistanz immer weiter abgesenkt wird ist
+dabei wie folgt beschrieben:</p>
+<div class="math">
+\[\frac{4 \times mean - 2 \times sd)}{2}\]</div>
+</li>
+<li><p class="first"><strong>Aufräumearbeiten:</strong> Nach dem Verfeinerungsschritt wird der Graph von
+Einbahnstraßen durch einen <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt bereinigt und auf Konsistenz
+geprüft.</p>
+</li>
+</ul>
+<p>Wie bereits erwähnt gibt es eine <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt>&ndash;Operation, welche für
+deutlich kleinere Mengen von Songs praktikabel einsetzbar ist. Die Algorithmik
+ist hierbei bedeutend einfacher: Es wird einfach jeder Song mit jedem anderen
+verglichen. Als Nachbarn erhält dabei jeder Song die Nachbarn, die global
+betrachtet die kleinste Distanz zu diesem besitzen. Es handelt sich als um keine
+Approximation wie beim herkömmlichen <tt class="docutils literal"><span class="pre">rebuild</span></tt>.</p>
+<p>Auf die Betrachtung der Komplexität der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation wird an dieser
+Stelle verzichtet. Keine der einzelnen Schritte erreicht dabei quadratische
+Komplexität.  Die einzige Ausnahme ist dabei das Vergleichen der Songs
+untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
+stets auf ein verträgliches Limit begrenzt.</p>
+<p>Unter Abb.  findet sich eine Gegenüberstellung von den
+Aufrufen der Distanzfunktion, die bei <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> und beim normalen
+<tt class="docutils literal"><span class="pre">rebuild</span></tt> (mit und ohne <em>Verfeinerungsschritt</em>) nötig sind.</p>
+<div class="figure align-center" id="fig-speed-cmp">
+<a class="reference internal image-reference" href="../../_images/graph_speed.svg"><img alt="Vergleich der Distanzberechnungen für rebuild_stupid und rebuild." src="../../_images/graph_speed.svg" width="100%" /></a>
+<p class="caption">Gegenüberstellung von verschiedenen Arten der rebuild&ndash;Operation. Auf der
+Y&ndash;Achse ist logarithmisch die Anzahl der Distanzberechnungen aufgetragen,
+auf der X&ndash;Achse die lineare Anazhl der Eingabesongs. Die blaue Kurve
+repräsentiert dabei die Vergleiche die für rebuild_stupid notwendig sind.
+Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
+anderen zwei Kurven deutlich.</p>
+</div>
+<p>Die einzelnen Schritte des Graphenaufbaus lassen sich in Abb.
+, sowie bei den darauf folgenden Abbildungen,
+nachvollziehen.</p>
+</div>
+<div class="section" id="fixing-umbauen-von-einbahnstraszen">
+<h4>3.1.2 fixing: Umbauen von Einbahnstraßen<a class="headerlink" href="#fixing-umbauen-von-einbahnstraszen" title="Permalink to this headline">¶</a></h4>
+<p>Diese Operation dient dem Entfernen von Einbahnstraßen innerhalb des Graphen.
+Einbahnstraßen können wie bereits erwähnt beim Hinzufügen neuer Distanzen
+entstehen.</p>
+<p>Beim Entfernen wird folgendermaßen vorgegangen: Im ersten Schritt werden alle
+unidirektionalen Kanten gefunden und abgespeichert. Für jede dieser Kanten wird
+überprüft ob die Songs an beiden Enden den Richtwert für die Anzahl der Nachbarn
+überschreitet. Sollte das nicht der Fall, so wird die Kante in eine
+bidirektionale Kante umgebaut. Andernfalls wird die Kante gelöscht.</p>
+<p>Dieses Vorgehen wurde gewählt weil es nach einigen Versuchen schwierig erschien,
+den Graphen ohne Einbahnstraßen aufzubauen, ohne dass dieser zur Inselbildung
+neigt. Durch den nachgelagerten <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt werden Songs die nur wenige
+Nachbarn besitzen durch die vorher als zu schlecht bewerteten Kanten verbunden.</p>
+<p>Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft ob alle
+Verbindungen im Graphen bidirektional sind. Sollten unidirektionale Kanten
+gefunden werden, so wird eine Warnung ausgegeben.</p>
+</div>
+<div class="section" id="add-hinzufugen-von-songs-vor-dem-rebuild">
+<h4>3.1.3 add: Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt><a class="headerlink" href="#add-hinzufugen-von-songs-vor-dem-rebuild" title="Permalink to this headline">¶</a></h4>
+<p>Diese Operation benötigt als Argument eine Hashtabelle mit einer Abbildung von
+Attributen auf Werte. Diese Werte werden dann wie in der Projekarbeit besprochen
+durch verschiedene Provider normalisiert. Mit diesen normalisierten
+Informationen wird dann eine neue Song&ndash;Instanz erzeugt, welcher beim Erzeugen
+ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
+Index in er internen Songliste.</p>
+<p>Statt wie <tt class="docutils literal"><span class="pre">insert</span></tt> bereits Verbindungen zu anderen Songs herzustellen, fügt
+diese Operation lediglich einen Song der internen Songliste hinzu.</p>
+</div>
+<div class="section" id="remove-loschen-von-songs-zur-laufzeit">
+<h4>3.1.4 remove: Löschen von Songs zur Laufzeit<a class="headerlink" href="#remove-loschen-von-songs-zur-laufzeit" title="Permalink to this headline">¶</a></h4>
+<p>Um nach einer <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation einen Song auf dem Graphen zu löschen
+müssen alle Verbindungen zu diesem entfernt werden.  Um dabei eine Bildung von
+Inseln (durch das Entfernen von Verbindungen) zu vermeiden, werden alle
+ursprünglichen Nachbarn des zu entfernenden Songs untereinander verbunden. Dabei
+wird folgendermaßen vorgegangen: Zuerst wird temporär für jeden Nachbarn den
+Richtwert für die Anzahl der Nachbarn um eins erhöht. Im Anschluss wird die
+Menge aller Nachbarn untereinander mit quadratischem Aufwand verglichen. Dadurch
+bekommt jeder Nachbar im besten Fall eine neue Verbindung.  Abschließend werden
+alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird wieder
+um eins dekrementiert.</p>
+<p>Da <em>libmunin</em> alle Songs in einer linearen List hält muss auch dort der Song
+gelöscht werden. Da der Index des Songs in der Liste gleich der <em>UID</em> des Songs
+ist, wird an der Stelle <em>UID</em> ein leerer Wert geschrieben. Damit dieser
+möglichst bald wieder besetzt wird, wird die gelöschte <em>UID</em> in einer
+<em>Revocation</em>&ndash;List gespeichert. Beim nächsten <tt class="docutils literal"><span class="pre">add</span></tt> oder <tt class="docutils literal"><span class="pre">insert</span></tt> wird diese
+<em>UID</em> dann wiederverwendet.</p>
+</div>
+<div class="section" id="insert-hinzufugen-von-songs-zur-laufzeit">
+<h4>3.1.5 insert: Hinzufügen von Songs zur Laufzeit<a class="headerlink" href="#insert-hinzufugen-von-songs-zur-laufzeit" title="Permalink to this headline">¶</a></h4>
+<p>Diese Operation ist äquivalent <tt class="docutils literal"><span class="pre">add</span></tt>. Als Erweiterung fügt <tt class="docutils literal"><span class="pre">insert</span></tt>
+allerdings den durch <tt class="docutils literal"><span class="pre">add</span></tt> erzeugten Song auch in den Graphen ein und
+verbindet ihn dort. Dazu muss zuerst ein <em>Punkt</em> gefunden werden an dem der Song
+passend zu seinen Attributen <em>eingepasst</em> werden kann.</p>
+<p>Diese <em>Einpassung</em> geschieht dabei folgendermaßen:</p>
+<ul>
+<li><p class="first"><strong>Basisiteration:</strong> Es wird mit einer gewissen <em>Schrittweite</em> über die
+Songliste iteriert. Dabei werden die Distanzen vom momentan aktuellen Song zum
+einzufügenden Song berechnet. Dadurch wird der Song bereits mit einigen
+anderen Songs verknüpft.  Die Größe der Schrittweite ist dabei abhängig von
+der Länge der Songliste.  Je länger die Liste ist, desto größer ist die
+Schrittweite.  Exakt ist sie dabei folgendermaßen definiert:</p>
+<div class="math">
+\[Schrittweite = \lceil\log_{10}songlist\_length\rceil\]</div>
+</li>
+<li><p class="first"><strong>Verfeinerung:</strong> Songs, zu denen im vorigen Schritt eine geringe Distanz
+gefunden wurde, werden nun detaillierter betrachtet. Dazu wird die Distanz zu
+den Nachbarn dieser <em>guten</em> Songs berechnet, unter der bekannten Annahme, dass
+die indirekten Nachbar des einzufügenden Songs auch als potenzielle direkte
+Nachbarn taugen.</p>
+</li>
+</ul>
+<p>Als zusätzliche Beobachtung lässt sich feststellen, dass Songs die per
+<tt class="docutils literal"><span class="pre">insert</span></tt> eingefügt werden deutlich <em>weitläufiger</em> verbunden sind als regulär
+per <tt class="docutils literal"><span class="pre">add</span></tt> hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
+gezeigte Demonanwedung zu Nutze: Ändert man das <em>Rating</em> eines Songs, so wird
+der Song mitels <tt class="docutils literal"><span class="pre">remove</span></tt> gelöscht und mittels  <tt class="docutils literal"><span class="pre">insert</span></tt> anderswo wieder
+eingefügt. Meist verbindet sich dabei der Song dann mit anderen ähnlich
+bewerteten Songs. Diese bilden ein <em>zusätzliches Netz</em> über den Graphen, welches
+weitläufrigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine intuitive
+Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
+<em>explizites Lernen</em>).</p>
+</div>
+<div class="section" id="modify-verandern-der-songattribute-zur-laufzeit">
+<h4>3.1.6 modify: Verändern der Songattribute zur Laufzeit<a class="headerlink" href="#modify-verandern-der-songattribute-zur-laufzeit" title="Permalink to this headline">¶</a></h4>
+<p>Diese Operation dient als Komfortfunktion. Sie ermöglicht das Verändern der
+Attribute, beziehungsweise deren zugeordneten Werte, eines einzelnen Songs.
+Würde man die Werte eines Songs manuell verändern, so müsste man alle Distanzen
+zu diesem Song neu berechnen. Da dies wiederum Veränderungen im ganzen Graphen
+hervorrufen könnte, wurden die Song&ndash;Instanzen unveränderbar <em>(,,Immutable&quot;)</em>
+gemacht.</p>
+<p>Die <tt class="docutils literal"><span class="pre">modify</span></tt>&ndash;Operation umgeht dieses Problem indem es den Song erst durch ein
+<tt class="docutils literal"><span class="pre">remove</span></tt> entfernt und eine Kopie des ursprünglichen Songs macht, in der die
+neuen Werte gesetzt werden. Dieser neue, noch unverbundene Song wird dann
+mittels einer <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation in den Graphen eingepasst.</p>
+<p>Aufgrund dieser Abfolge unterschiedlicher Operation ist <tt class="docutils literal"><span class="pre">modify</span></tt> relativ
+aufwendig. Es wird empfohlen diese Operation nur für einzelne Song jeweils
+einzusetzen. Sollte ein bestimmtes Attribut in allen Songs geändert werden, so
+ist eine <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation zu empfehlen.</p>
+</div>
+<div class="section" id="ablauf-beim-hinzufugen-einer-distanz">
+<span id="ref-distance-add"></span><h4>3.1.7 Ablauf beim Hinzufügen einer Distanz<a class="headerlink" href="#ablauf-beim-hinzufugen-einer-distanz" title="Permalink to this headline">¶</a></h4>
+<p>Wie bereits erwähnt speichert jeder Song eine Hashtabelle mit den jeweiligen
+Songs, zu denen er eine Verbindung hält, als Schlüssel und der Distanz als Wert.</p>
+<p>Um diese Hashtabelle zu füllen ist eine Funktion nötig, die sich nach näherer
+Betrachtung als relativ schwierig zu implementieren gestaltete. Tatsächlich
+wurden an die 2 Wochen mit unterschiedlichen Herangehensweisen verbracht.</p>
+<p>Die Anzahl von Nachbarn pro Song sollte sich um einen gewissen <em>Richtwert</em>
+einpendeln, den man konfigurieren kann. Daraus folgt, dass bei zu vielen
+Nachbarn der <em>schlechteste Nachbarn</em> entfernt werden muss. Der anfängliche
+Versuch die Verbindung zwischen den beiden Songs komplett zu löschen hatte aber
+ein gewichtiges Problem: Die Inseln im Graphen, die jeweils ein Album
+repräsentierten, haben sich nur untereinander verbunden. Verbindungen dazwischen
+wurden immer wieder als der <em>schlechteste Nachbar</em> erkannt und entfernt. Daher
+neigt der entstehende Graph stark zur Inselbildung und Bildung von starken
+Clustern.</p>
+<p>Die momentan Lösung ist dabei, dass der schlechteste Nachbar eine
+unidirektionale Verbindung zu seinem ursprünglichen Partner aufrecht erhält. Die
+Verbindung wird als nicht bidirektional gelöscht. Der Trick ist dabei: Bei der
+<tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation werden diese <em>Einbahnstraßen</em> immer noch von einer Seite
+als Nachbarn erkannt. So kann insbesondere der <em>Verfeinerungsschritt</em> gut
+zueinander passende Songs näher aneinander ziehen. Nach dem <tt class="docutils literal"><span class="pre">rebuild</span></tt> werden
+übrig gebliebene Einbahnstraßen in normale Verbindungen umgebaut oder, falls
+beide Enden der Verbindung bereits <em>,,voll&quot;</em> sind, gelöscht. So bleiben Songs,
+zu denen kein passender Partner gefunden wurde, mit dem Rest des Graphen
+verbunden.</p>
+<p>Dieses Vorgehen bringt aber bereits einige algorithmische Probleme mit sich: Das
+Finden des schlechtesten Nachbarn würde jeweils linearen Aufwand zum Iterieren
+über die Hashtabelle erfordern.  Zwar kann dann die schlechteste Distanz und der
+dazugehörige Song zwischengespeichert werden, doch nach einigen Tests stellte
+sich heraus, dass in den meisten Fällen ein neuer, schlechtester Song gesucht
+werden muss. Das ist damit zu erklären, dass gegen Ende der
+<tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation tendenziell immer niedrigere Distanzen gefunden werden
+&mdash; womit immer wieder der schlechteste Song herausgelöscht werden muss.</p>
+<p>Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
+Distanzen, auch einen Heap als <em>,,Lookup&ndash;Hilfe&quot;</em>.</p>
+<p>In diesem werden, entgegen der natürlichen Unordnung in einer Hastabelle, die
+zuletzt hinzugefügten Paare aus Distanzen und Songs partiell sortiert abgelegt.
+Gemäß der Natur eines Heaps, ist dabei der Wurzelknoten immer das Element mit
+der größten Distanz.  Ist es dann nötig eine neue, schlechteste Distanz zu
+finden, so kann mit einem Aufwand von <span class="math">\(O(\log n)\)</span> das oberste Paar
+herausgenommen werden.</p>
+<p>Die <tt class="docutils literal"><span class="pre">distance_add()</span></tt> Funktion nimmt 3 Parameter. Die ersten zwei sind die
+Songs (im Folgenden <em>A</em> und <em>B</em>), zwischen denen eine Verbindung hergestellt
+werden soll. Der letzte ist die Distanz mit der diese Kante gewichtet wird.  Im
+Folgenden ist der Code in gekürzter, vereinfachter Form als Referenz gegeben:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">distance_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Füge eine Kante zwischen zwei Songs mit einer Distanz hinzu.</span>
+
+<span class="sd">    self, other: Die beiden Songs zwischen denen die Kante hergestellt werden soll.</span>
+<span class="sd">    distance: Die Distanz dieser Kante.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">other</span> <span class="ow">is</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="k">return</span>  <span class="c"># Selbe Referenz! Kann Endlosschleifen verursachen.</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worst_cache</span> <span class="o">&lt;</span> <span class="n">distance</span> <span class="ow">and</span> <span class="n">song</span><span class="o">.</span><span class="n">is_full</span><span class="p">():</span>
+        <span class="k">return</span>  <span class="c"># worst_cache ist die gespeicherte schlechteste Distanz oder None.</span>
+
+    <span class="k">if</span> <span class="n">other</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">distance</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c"># Distanz zu diesem Song war bereits vorhanden und besser.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">worst_cache</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance</span>
+        <span class="k">return</span>  <span class="c">#  Da other bereits enthalten: Einfach updaten.</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_full</span><span class="p">():</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>  <span class="c"># Finde den schlechtesten Nachbarn der noch valide ist.</span>
+            <span class="n">worst_dist</span><span class="p">,</span> <span class="n">worst_song</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Wurzelknoten</span>
+            <span class="k">if</span> <span class="n">worst_song</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="p">)</span>  <span class="c"># Probiere nächstes Element.</span>
+
+        <span class="k">if</span> <span class="n">worst_dist</span> <span class="o">&lt;</span> <span class="n">distance</span><span class="o">.</span><span class="n">distance</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">worst_cache</span> <span class="o">=</span> <span class="n">worst_dist</span>
+            <span class="k">return</span>
+
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">[</span><span class="n">worst_song</span><span class="p">]</span>
+        <span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="p">)</span>
+
+    <span class="c"># Füge neue Kante in die Hashtabellen ein:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance</span>
+
+    <span class="c"># Speichere die Paare im Heap ab:</span>
+    <span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">other</span><span class="p">))</span>
+    <span class="n">heappush</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">worst_cache</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c"># Hat sich möglicherweise geändert.</span>
+</pre></div>
 </div>
 </div>
-<span id="document-rst/III/index"></span><div class="section" id="algorithmen">
-<h2>3 Algorithmen<a class="headerlink" href="#algorithmen" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="graphentraversierung">
+<h3>3.2 Graphentraversierung<a class="headerlink" href="#graphentraversierung" title="Permalink to this headline">¶</a></h3>
+<p>Um nun tatsächlich Empfehlungen abzuleiten muss der Graph traversiert werden.
+Je nach Art der Anfrage werden ein oder mehrere <em>Zentren</em> für eine Breitensuche,
+sogenannte <em>Seedsongs</em>, ausgewählt. Bei einfachen Anfragen in der Art <em>,,Gib
+10 ähnliche zu Song X aus&quot;</em>, kann einfach der Song <em>X</em> als Seedsong angenommen
+werden. Komplexere Anfragen wie <em>,,Gib 10 Songs die ein Genre ähnlich Y
+haben aus&quot;</em> oder <em>,,Empfiehl mir 10 Songs basierend auf dem Nutzerverhalten</em>&quot;
+erfordern das Auswählen mehrerer Seedsongs.</p>
+<div class="section" id="empfehlungsiteratoren">
+<h4>3.2.1 Empfehlungsiteratoren<a class="headerlink" href="#empfehlungsiteratoren" title="Permalink to this headline">¶</a></h4>
+<p>In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
+Statt diese Breitensuche <em>sofort</em> auszuführen, wird jeweils nur ein Iterator
+bereitgestellt welcher immer nur eine Empfehlung generiert und erst bei Zuruf
+die nächste Empfehlung dynamisch generiert. Dieses, aus der funktionalen
+Programmierung bekannte Konzept, ist sehr nützlich beim Filtern der generierten
+Empfehlungen, denn man weiß im Vornherein nicht wieviele Empfehlungen
+ausgefiltert werden. So kann der Iterator einfach so lange bemüht werden, bis
+die gewünschte Anzahl an Empfehlungen generiert worden sind.</p>
+<p>Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jedem ein
+Breitensuche&ndash;Iterator erstellt. Diese Liste von Iteratoren wird dann im
+Round&ndash;Robin&ndash;Verfahren ineinander <em>verwebt</em>. Dabei wird je der erste Iterator
+in der Liste angestoßen, dann immer wieder der nächste um wieder am Anfang zu
+beginnen.</p>
+<p>Der daraus entstehende Iterator wird dann dem Nutzer der Bibliothek
+bereitgestellt. Wird ein Element aus diesem obersten Iterator genommen, so hat
+das ein <em>,,Nachrutschen&quot;</em> von Iteratoren zur Folge. Diese Hierarchie von
+Iteratoren ist in  gezeigt.</p>
+<div class="figure align-center" id="fig-iterator">
+<a class="reference internal image-reference" href="../../_images/iterator.svg"><img alt="Traversierung durch verschachtelte Iteratoren" src="../../_images/iterator.svg" width="100%" /></a>
+<p class="caption">Traversierung durch verschachtelte Iteratoren</p>
+</div>
+</div>
+<div class="section" id="anwendung-von-regeln">
+<h4>3.2.2 Anwendung von Regeln<a class="headerlink" href="#anwendung-von-regeln" title="Permalink to this headline">¶</a></h4>
+<p>Die Assoziationsregeln die beim impliziten Lernen entstehen werden bei der
+Traversierung als <em>,,Navigationshilfe&quot;</em> genutzt. TODO: Regeln erklären?</p>
+<p>In  wird gezeigt, dass jedem Seedsong jeweils eine
+Breitensuche und eine Menge von <em>Regeliteratoren</em> unterstellt sind.  <em>Libmunin</em>
+bietet einen Mechanismus um alle Regeln abzufragen, die einen bestimmten Song
+betreffen. Für jeden Song, der auf der <em>anderen</em> Seite der Regel vorkommt (also
+die Seite, in der <em>nicht</em> der Seedsong vorhanden ist), wird ein
+<em>Breitensucheniterator</em> erstellt.</p>
+<p>Die einzelnen, den Regeln zugeordneten Iteratoren werden wieder im
+Round&ndash;Robin&ndash;Verfahren abgewechselt. Der dadurch entstehende wird immer im
+Wechsel mit dem <em>Breitensucheniterator</em>, der vom Seedsong ausgeht, abgefragt.
+Daher besteht der Iterator, der aus einem Seedsong gebaut wird, wiederum aus
+mehreren Unteriteratoren.</p>
+</div>
+<div class="section" id="filtern-der-iteratoren">
+<h4>3.2.3 Filtern der Iteratoren<a class="headerlink" href="#filtern-der-iteratoren" title="Permalink to this headline">¶</a></h4>
+<p>Da Alben im Graphen eng beieinander gepackt sind, werden ohne zusätzliches
+Filtern natürlich auch Songs vom gleichen Album oder vom gleichen Künstler
+geliefert. Dies ist für gewöhnlich nicht erwünscht &mdash; man möchte ja neue Musik
+entdecken, die nicht immer vom selben Künstler kommt. Der optionale
+Filterschritt (oder <em>Sieving</em>&ndash;Schritt) dient dazu diese unerwünschten Songs
+herauszufiltern.</p>
+<p>Um dieses Ziel zu erfüllen, werden alle Empfehlungen gespeichert, die von
+<em>libmunin</em> ausgegeben werden. War der Künstler einer zu überprüfenden Empfehlung
+in den, beispielsweise, 5 letzten Empfehlungen bereits vorhanden, so wird er
+ausgesiebt. Ähnlich wird mit dem Album vorgegangen, nur hier ist die Schwelle
+standardmäßig bei 3. Die einzelnen Schwellen können vom Nutzer konfiguriert
+werden.</p>
+<p>Auch das <em>Sieving</em> ist als Iterator implementiert welcher Songs von einem
+Empfehlungsiterator nimmt, aber nicht alle an den Nutzer weitergibt.</p>
+</div>
+</div>
+</div>
+<span id="document-rst/4_provider/index"></span><div class="section" id="algorithmen-bei-providern">
+<h2>4 Algorithmen bei Providern<a class="headerlink" href="#algorithmen-bei-providern" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="einleitung">
+<h3>4.1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h3>
+<p>Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
+näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
+erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
+meisten Provider eher einfacher Natur &mdash; die Lektüre des jeweiligen Quelltextes
+sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
+erklärungsbedürftigen Paare näher betrachtet.</p>
+</div>
 <div class="section" id="genre-normalisierung-und-vergleich">
-<h3>3.1 Genre-Normalisierung und Vergleich<a class="headerlink" href="#genre-normalisierung-und-vergleich" title="Permalink to this headline">¶</a></h3>
+<h3>4.2 Genre-Normalisierung und Vergleich<a class="headerlink" href="#genre-normalisierung-und-vergleich" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="problemstellung">
-<h4>3.1.1 Problemstellung<a class="headerlink" href="#problemstellung" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.1 Problemstellung<a class="headerlink" href="#problemstellung" title="Permalink to this headline">¶</a></h4>
 <p>Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
 gibt. Ein Computer könnte höchstens erkennen wie ähnlich zwei
@@ -254,7 +700,7 @@ einzelnen Genre-Eingaben anhand einer Sammlung von zusammengestellten Genre Date
 normalisiert werden.</p>
 </div>
 <div class="section" id="zusammenstellung-der-gernedatenbank">
-<h4>3.1.2 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.2 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h4>
 <p>Genres können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Unter-Genres
 (<em>country</em> rock, <em>japanese</em> pop), Unter-Unter-Genres (<em>western</em> country rock) -
 und so weiter - aufgeteilt werden. So lassen sich alle Genres und ihre
@@ -313,7 +759,7 @@ Echonest''</em> verschmolzen. Nach einer Entfernung von Dubletten ist die finale
 Genre-Liste 1876 Einträge lang.</p>
 </div>
 <div class="section" id="uberfuhrung-der-genreliste-in-einem-genrebaum">
-<h4>3.1.3 Überführung der Genreliste in einem Genrebaum<a class="headerlink" href="#uberfuhrung-der-genreliste-in-einem-genrebaum" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.3 Überführung der Genreliste in einem Genrebaum<a class="headerlink" href="#uberfuhrung-der-genreliste-in-einem-genrebaum" title="Permalink to this headline">¶</a></h4>
 <div class="figure compound align-center" id="fig-tree">
 <div style="width: 60%" class="subfigure align-center" id="fig-tree-input">
 <a class="reference internal image-reference" href="../../_images/tree_input.svg"><img alt="Genreliste als Eingabe vor dem Prozessieren" src="../../_images/tree_input.svg" width="70%" /></a>
@@ -387,13 +833,13 @@ auf der ersten Ebene. Diese werden bereinigt.</li>
 </ol>
 </li>
 </ul>
-<p>Der resultierende Baum ist im Anhang <em class="xref std std-ref">genre-graph-vis</em> in verschiedenen
+<p>Der resultierende Baum ist im Anhang <a class="reference internal" href="rst/index.html#genre-graph-vis"><em>Bilder des Genregraphen</em></a> in verschiedenen
 Detailstufen visualisiert.  Er besitzt auf der ersten Ebene 1044 Unter-Genre. Die
 tiefste Verschachtelung erreicht das Genre <em>,,New Wave of new Wave''</em> mit einer
 Tiefe von 5.</p>
 </div>
 <div class="section" id="matching-von-genres">
-<h4>3.1.4 Matching von Genres<a class="headerlink" href="#matching-von-genres" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.4 Matching von Genres<a class="headerlink" href="#matching-von-genres" title="Permalink to this headline">¶</a></h4>
 <p>Die Normalisierung des Genres ist nun mit dem aufgebauten Baum recht einfach.
 Zuerst muss das Eingabegenre in Subgenres aufgeteilt werden - oft sind mehrere
 Genres in einem einzelnen String zusammengefasst, die durch bestimmte Zeichen
@@ -450,7 +896,7 @@ Es ist zu bemerken dass <em>rock</em> zwar ebenfalls ein valider Pfad ist, aber
 als eine Untermenge von <em>alternative rock</em> nicht in der Ergebnismenge ist.</p>
 </div>
 <div class="section" id="vergleichen-der-unterschiedlichen-genre-pfade-mengen">
-<span id="single-dist"></span><h4>3.1.5 Vergleichen der unterschiedlichen Genre-Pfade-Mengen<a class="headerlink" href="#vergleichen-der-unterschiedlichen-genre-pfade-mengen" title="Permalink to this headline">¶</a></h4>
+<span id="single-dist"></span><h4>4.2.5 Vergleichen der unterschiedlichen Genre-Pfade-Mengen<a class="headerlink" href="#vergleichen-der-unterschiedlichen-genre-pfade-mengen" title="Permalink to this headline">¶</a></h4>
 <p>Um zwei einzelne Pfade miteinander zu Vergleich wird wie im Folgenden
 vorgegangen:</p>
 <ul class="simple">
@@ -470,8 +916,8 @@ vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als <em>rock</em> oder
 <em>metal</em> eingetragen, ohne Unterscheidung von Subgenres. Deshalb geht diese
 Distanzfunktion davon aus wenige Übereinstimmungen zu finden - sollten welche
 vorkommen werden diese gut bewertet.</p>
-<p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="rst/index.html#single-dist">3.1.5</a> erwähnte
-<em class="xref std std-term">Distanzunktion</em> ist,  so berechnet sich die finale Distanz durch:</p>
+<p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="rst/index.html#single-dist">4.2.5</a> erwähnte
+Distanzunktion ist,  so berechnet sich die finale Distanz durch:</p>
 <div class="math">
 \[D(A, B) = \argmin\!\bigg(\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\bigg)\]</div>
 <p><tt class="docutils literal"><span class="pre">GenreTreeAvg</span></tt>: Seien <em>A</em> und <em>B</em> zwei Mengen mit Genrepfaden. <em>A</em> ist dabei
@@ -485,10 +931,11 @@ Ein Beispiel dafür wäre: <tt class="docutils literal"><span class="pre">countr
 Distanzfunktion geht also davon aus zumindest teilweise Überdeckungen in den
 Daten vorzufinden.</p>
 <p>Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
-passende <em class="xref std std-term">Distanzunktion</em> auswählen.</p>
+passende Distanzunktion auswählen.</p>
+<p>TODO(?) Missing: DiscogsGenre.</p>
 </div>
 <div class="section" id="probleme">
-<h4>3.1.6 Probleme<a class="headerlink" href="#probleme" title="Permalink to this headline">¶</a></h4>
+<h4>4.2.6 Probleme<a class="headerlink" href="#probleme" title="Permalink to this headline">¶</a></h4>
 <p>Insgesamt funktioniert dieser Ansatz relativ gut, die meisten Genre werden
 zufriedenstellend in Pfade normalisiert die performant verglichen werden können.</p>
 <p>Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
@@ -516,388 +963,754 @@ nicht zu veröffentlichen.</td></tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="keword-extraction">
-<h4>3.1.7 Keword Extraction<a class="headerlink" href="#keword-extraction" title="Permalink to this headline">¶</a></h4>
-<p>KeywordExtraction - KeywordSelection - KeywordDistance</p>
 </div>
-<div class="section" id="rule-generation">
-<h4>3.1.8 Rule Generation<a class="headerlink" href="#rule-generation" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="schlusselphrasen-extrahierung">
+<h3>4.3 Schlüsselphrasen&ndash;Extrahierung<a class="headerlink" href="#schlusselphrasen-extrahierung" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>4.3.1 Problemstellung<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Eine Idee bei <em>libmunin</em> ist es auch die Liedtexte eines Liedes einzubeziehen,
+um Lieder, die änhlichen <em>Themen</em> behandeln näher beieinander im Graphen zu
+gruppieren. Sollten zwei Lieder nicht die selben Themen behandeln, so soll sich
+zumindest die gleiche Sprache sich positiv auf die Distanz auswirken.</p>
+<p>Um die Themen effizient zu vergleichen extrahiert <em>libmunin</em> aus den Liedtexten
+die wichtigsten <em>Schlüsselphrasen</em> mittels des Keyword&ndash;Providers. Diese Phrasen
+sollen den eigentlichen Inhalt möglichst gut approximieren, ohne dabei schwer
+vergleichbar zu sein.</p>
 </div>
-<div class="section" id="graph-generation">
-<h4>3.1.9 Graph Generation<a class="headerlink" href="#graph-generation" title="Permalink to this headline">¶</a></h4>
-<p>add, rebuild, fix_graph</p>
-</div>
-<div class="section" id="distance-add">
-<h4>3.1.10 distance_add<a class="headerlink" href="#distance-add" title="Permalink to this headline">¶</a></h4>
-<p>&quot;max_neighbors Dilemma&quot;</p>
-</div>
-<div class="section" id="graphenoperationen">
-<h4>3.1.11 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h4>
-<p>insert, remove, modify</p>
-</div>
-<div class="section" id="graphentraversierung">
-<h4>3.1.12 Graphentraversierung<a class="headerlink" href="#graphentraversierung" title="Permalink to this headline">¶</a></h4>
-<p>Infinite Iteratos - konzept aus funktionalen Programmiersprachen wie Haskell</p>
-</div>
-<div class="section" id="sieving-algorithm">
-<h4>3.1.13 Sieving Algorithm<a class="headerlink" href="#sieving-algorithm" title="Permalink to this headline">¶</a></h4>
-<p>Erklärung &amp; Configuration.</p>
-</div>
-<div class="section" id="various-providers">
-<h4>3.1.14 Various Providers<a class="headerlink" href="#various-providers" title="Permalink to this headline">¶</a></h4>
-<p>Erwähnenswerte Algorithmik hinter den anderen Providern.</p>
-<p>levenshtein, bpm, moodbar, wordlist distance, normalize provider, stemming</p>
-</div>
-</div>
-</div>
-<span id="document-rst/IV/index"></span><div class="section" id="graphenoperationen">
-<h2>4 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h2>
-<p>Eine grobe Übersicht über die einzelnen Graphenoperationen und ihrer
-Zuständigkeiteb wurde bereits in der Projektarbeit gegeben. Im Folgenden
-wird detailliert auf ihre Funktionsweise eingegangen.</p>
-<div class="section" id="rebuild-aufbau-des-graphen">
-<h3>4.1 rebuild: Aufbau des Graphen<a class="headerlink" href="#rebuild-aufbau-des-graphen" title="Permalink to this headline">¶</a></h3>
-<p>Bevor irgendeine andere Operation ausgeführt werden kann muss mittels der
-<tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation der Graph aufgebaut
-werden. Wie bereits erwähnt in der Projektarbeit erwähnt, kann der Graph
-aufgrund von einer Komplexität von <span class="math">\(O(n2)\)</span> nicht einfach durch das
-Vergleichen aller Songs untereinander erfolgende. Daher muss eine Lösung mit
-subquadratischen Aufwand gefunden werden. Vorzugsweise eine, bei der
-Rechenaufwand gegen die Qualität der Approximation abgewägt werden kann.
-So kann der Nutzer entscheiden wie lange er <em>libmunin</em> rechnen lassen will.</p>
-<p>Der Ausgangszustand der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operationen ist eine Liste von Songs die
-vom Nutzer bereitgestellt wird. Jeder Song darin soll nun so im Graphen
-platziert werden, dass er im Bestfall die ähnlichsten Songs als Nachbarn
-hat.</p>
-<p>Jeder Song speichert seine Nachbarn mit der dazugehörigen Distanz.
-Soll ein neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu
-diesem neuen Song besser ist als die zum schlechtesten vorhandenen Nachbar.
-Ist dies der Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn <em>in
-eine Richtung</em> (die Gründe hierfür werden später betrachtet TODO) gekappt. Als
-Ersatz wird zu dem neuen Song eine bidirektionale Verbindung aufgebaut. Da die
-Verbindung zum schlechtesten Song nur unidirektional abgebaut wird, ist die
-Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt, da das
-Hinzufügen neuer Songs <em>,,Einbahnstraßen&quot;</em> hinterlässt.</p>
-<p>Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
-Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
-auf <span class="math">\(15\)</span> gesetzt &mdash; der durchschnittlichen Länge eines heutigen Albums
-plus eins.</p>
-<p>Wenn im folgenden vom <em>,,Berechnen der Distanz&quot;</em> gesprochen wird, so ist damit
-auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.</p>
-<div class="figure compound align-center" id="fig-windows">
-<div style="width: 50%" class="subfigure align-center" id="fig-window-sliding">
-<a class="reference internal image-reference" href="../../_images/sliding_window.svg"><img alt="Schematische Darstellung des Sliding Window." src="../../_images/sliding_window.svg" width="100%" /></a>
-<p class="caption"><tt class="docutils literal"><span class="pre">sliding_window</span></tt></p>
-</div>
-<div style="width: 50%" class="subfigure align-center" id="fig-window-centering">
-<a class="reference internal image-reference" href="../../_images/centering_window.svg"><img alt="Schematische Darstellung des Sliding Window." src="../../_images/centering_window.svg" width="100%" /></a>
-<p class="caption"><tt class="docutils literal"><span class="pre">sliding_window</span></tt></p>
-</div>
-<div style="width: 50%" class="subfigure align-center" id="fig-window-anti-centering">
-<a class="reference internal image-reference" href="../../_images/anti_centering_window.svg"><img alt="Schematische Darstellung des Sliding Window." src="../../_images/anti_centering_window.svg" width="100%" /></a>
-<p class="caption"><tt class="docutils literal"><span class="pre">sliding_window</span></tt></p>
-</div>
-<p class="caption">Schematische Darstellungen der einzelnen Basisiterationen.</p>
-</div><p id="fig-windows">Im Folgenden werden die drei Schritte der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation genauer
-beleuchtet:</p>
-<ul>
-<li><p class="first"><strong>Basisiteration:</strong> Für jeden Song wird nach willkürlich festgelegten
-Prinzipien eine kleine Menge von möglicherweise ähnlicher Songs ausgewählt.
-Diese Menge von Songs wird untereinander mit quadratischen Aufwand verglichen.
-Diese Vorgehensweise wird mehrmals mit verschiedener Methoden wiederholt. Das
-Ziel jeder dieser Iterationen ist es für einen Song zumindestens eine kleine
-Anzahl von ähnlichen Songs zu finden. Basierend auf diesen wird in den
-nächsten Schritten versucht die Anzahl ähnlicher Songs zu vergrößern.</p>
-<p>Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
-basiert auf gewissen heuristischen Annahmen die über die Eingabemenge gemacht
-wird:</p>
+<div class="section" id="der-rake-algorithmus">
+<h4>4.3.2 Der RAKE Algorithmus<a class="headerlink" href="#der-rake-algorithmus" title="Permalink to this headline">¶</a></h4>
+<p>Zur Extrahieren von Schlüsselwörtern aus Texten gibt es eine Vielzahl von
+Algorithmen.  Der verwendete Algorithmus zur Schlüsselphrasen&ndash;Extrahierung ist
+bei <em>libmunin</em> der relativ einfach zu implementierende RAKE&ndash;Algorithmus
+(vorgestellt in <a class="reference internal" href="rst/index.html#berry2010text" id="id4">[1]</a>). Zwar könnte man mit anderen Algorithmen
+hier bessere Ergebnisse erreichen, diese sind aber schwerer zu implementieren
+(was die Anpasspartkeit verschlechtert) und sind in den meisten Fällen von
+sprachabhängigen Corpora (Wortdatenbanken) abhängig.</p>
+<p><em>Beschreibung des RAKE&ndash;Algorithmus:</em></p>
+<ol class="arabic">
+<li><p class="first">Aufteilung des Eingabetextes in Sätze anhand von Interpunktion und
+Zeilenumbrüchen.</p>
+</li>
+<li><p class="first">Extrahierung der <em>Phrasen</em> aus den Sätzen.  Ein <em>Phrase</em> ist hier definiert
+als eine Sequenz von Nichtstoppwörtern.  Um Stoppwörter zu erkennen muss eine
+von der Sprache abhängige Stoppwortliste geladen werden. Zu diesem Zweck hat
+<em>libmunin</em> 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
+Sprache selbst wird durch das Python Modul <tt class="docutils literal"><span class="pre">guess-language-spirit</span></tt> (TODO:
+LINK) anhand verschiedener Sprachcharakteristiken automatisch erraten.</p>
+</li>
+<li><p class="first">Berechnung eines <em>Scores</em> für jedes Wort in einem Phrase aus dem <em>Degree</em> und
+der <em>Frequenz</em> eines Wortes:</p>
 <blockquote>
-<div><ul>
-<li><p class="first"><tt class="docutils literal"><span class="pre">sliding_window:</span></tt> Schiebt ein <em>,,Fenster&quot;</em> über die Liste der Songs.
-Alle Songs innerhalb des Fensters werden untereinander verglichen.  Die
-Fenstergröße ist dabei konfigurierbar und ist standardmäßig auf 60
-eingestellt, da sich diese Größe nach einigen Tests als guter Kompromiss
-zwischen Qualität und Geschwindigkeit herausgestellt hat.  Bei jeder
-Iteration wird das Fenster um ein Drittel der Fenstergröße weitergeschoben.
-Dadurch entsteht eine <em>,,Kette&quot;</em> von zusammenhängenden Songs.</p>
-<p>Die heuristische Annahme ist dabei, dass der Nutzer der Bibliothek seine
-Datenbank meist nach Alben sortiert eingibt. Durch diese Sortierung finden
-sich innerhalb eines Fensters oft Lieder des selben Albums &mdash; diese  sind
-oft sehr ähnlich.</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">centering_window:</span></tt> Basiert ebenfalls auf einem Fenster. Im Gegensatz
-zum obigen <tt class="docutils literal"><span class="pre">sliding_window</span></tt> besteht das Fenster allerdings aus zwei Hälften,
-wobei die eine vom Anfang an startet und die andere Hälfte von der Mitte
-aus bis zum Ende geschoben wird. Die Songs in beiden Hälften werden analog
-zu oben untereinander verglichen. Auch hier überlappen sich die einzelnen
-Hälften zu je zwei Drittel.</p>
-<p>Die heuristische Annahme ist hier, dass in der bereits vorhandenen
-<em>,,Kette&quot;</em> Querverbindungen hergestellt werden. Dies ist den nächsten
-Schritten vorteilhaft um Iterationen einzusparen.</p>
-</li>
-<li><p class="first"><tt class="docutils literal"><span class="pre">anti_centering_window:</span></tt> Sehr ähnlich zum <tt class="docutils literal"><span class="pre">centering_window</span></tt>, statt
-die zwei Hälfte aber von der Mitte aus bis zum Ende weiter zu schieben
-wird diese vom Ende zur Mitte geschoben. So werden die beiden Hälften
-solange weiter geschoben, bis sie sich in er Mitte treffen.</p>
-<p>Auch hier sollen weitere Querverbindungen hergestellt werden.</p>
-</li>
-</ul>
+<div><p><span class="math">\(degree(word) = len(phrase) - 1\)</span></p>
+<p><span class="math">\(freq(word) = \sum count(word) \forall word \in corpus\)</span></p>
+<p><span class="math">\(score(word) = \frac{degree(word) + freq(word)^{1.6}}{freq(word)}\)</span></p>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>Verfeinerung:</strong> Um den momentan sehr grob vernetzten Graphen benutzbar zu
-machen müssen einige Iterationen zur <em>,,Verfeinerung&quot;</em> durchgeführt werden.</p>
-<p>Dabei wird über jeden Song im Graphen iteriert und dessen <em>indirekte Nachbarn</em>
-(also die Nachbarn der direkten Nachbarsongs) werden mit dem aktuellen Song
-verglichen. Kommen dabei Distanzen zustande, die niedriger sind als die der
-aktuellen Nachbarn, wird der indirekte Nachbar zum direkten Nachbarn. Auf
-diese Weise rücken ähnliche Songs immer weiter aufeinander zu.
-Diese Vorgehensweise wird solange wiederholt bis nur noch eine geringe Anzahl
-von Songs <em>,,bewegt&quot;</em> oder bis eine maximale Anzahl von Iterationen erreicht
-ist. Die Begrenzung der Iterationen ist nötig, da es Fälle geben kann in denen
-einzelne Songs immer wieder zwischen zwei gleich guten Zuständen hin- und
-herspringen können.</p>
-<p>Als zusätzliche Optimierung werden nicht alle indirekten Nachbarn betrachtet,
-sondern nur diese, zu denen der Weg eine gewisse <em>Mindestdistanz</em> nicht
-unterschreitet. Diese Mindestdistanz wird beim Start dabei auf <span class="math">\(2.0\)</span>
-gesetzt und während der folgenden Iterationen immer weiter abgesenkt.</p>
-<p>Die Gesetzmäßigkeit nach der die Mindesdistanz immer weiter abgesenkt wird ist
-dabei wie folgt beschrieben:</p>
-<div class="math">
-\[\frac{4 \times mean - 2 \times sd)}{2}\]</div>
+<li><p class="first">Für jeden Phrase wird nun ein <em>Score</em> berechnet. Dieser ist definiert als die
+Summe aller Wörter&ndash;<em>Scores</em> innerhalb des Phrases. Die derart bewerteten
+Phrasen werden absteigend sortiert als <em>Schlüsselphrasen</em> ausgegeben.
+<em>Schlüselphrasen</em> mit einem <em>Score</em> kleiner <span class="math">\(2.0\)</span> werden ausgesiebt.</p>
 </li>
-<li><p class="first"><strong>Aufräumearbeiten:</strong> Nach dem Verfeinerungsschritt wird der Graph von
-Einbahnstraßen durch einen <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt bereinigt und auf Konsistenz
-geprüft.</p>
-</li>
+</ol>
+<p>Es wurde zudem einige Änderungen zum in <a class="reference internal" href="rst/index.html#berry2010text" id="id5">[1]</a> vorgestellten
+Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
+abzustimmen:</p>
+<ul class="simple">
+<li>Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
+meisten Liedtexte sind bestehen aus einzelnen Versen, die nicht durch Punkte
+getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.</li>
+<li>Um die Ergebnisse leichter vergleichen zu können werden die einzelnen Wörter
+nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
+sprachsensitive <em>Snowball&ndash;Stemmer</em> verwendet (link).</li>
+<li>Im Original wird der <em>Wort&ndash;Score</em> als <span class="math">\(\frac{degree(word)}{freq(word)}\)</span>
+berechnet. Der von <em>libmunin</em> berechnete <em>Score</em> gewichtet die Wortfrequenz
+stärker. Der Exponent von <span class="math">\(1.6\)</span> wurde willkürlich nach einigen Tests
+gewählt: Mit diesem Exponent erscheint der Schlüsselphrase <em>Yellow Submarine</em>
+an erster Stelle im Liedtext von <em>,,Yellow Submarine&quot;</em> der <em>Beatles</em>.</li>
+<li>Da sich viele Ausdrücke in Liedtexten wiederholen kamen während der
+Entwicklung viele Schlüsselphrasen in verschiedenen Variationen mehrmals vor.
+Oft waren diese dann eine Untermenge einer anderen Schlüsselphrase (Beispiel:
+<em>Yellow</em> und <em>Submarine</em> sind ein Teil von <em>Yellow Submarine</em>). Daher werden
+in einem nachgelagerten Schritt diese redundante Phrasen entfernt.</li>
 </ul>
-<p>Wie bereits erwähnt gibt es eine <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt>&ndash;Operation, welche für
-deutlich kleinere Mengen von Songs praktikabel einsetzbar ist. Die Algorithmik
-ist hierbei bedeutend einfacher: Es wird einfach jeder Song mit jedem anderen
-verglichen. Als Nachbarn erhält dabei jeder Song die Nachbarn, die global
-betrachtet die kleinste Distanz zu diesem besitzen. Es handelt sich als um keine
-Approximation wie beim herkömmlichen <tt class="docutils literal"><span class="pre">rebuild</span></tt>.</p>
-<p>Auf die Betrachtung der Komplexität der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation wird an dieser
-Stelle verzichtet. Keine der einzelnen Schritte erreicht dabei quadratische
-Komplexität.  Die einzige Ausnahme ist dabei das Vergleichen der Songs
-untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
-stets auf ein verträgliches Limit begrenzt.</p>
-<p>Unter Abb.  findet sich eine Gegenüberstellung von den
-Aufrufen der Distanzfunktion, die bei <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> und beim normalen
-<tt class="docutils literal"><span class="pre">rebuild</span></tt> (mit und ohne <em>Verfeinerungsschritt</em>) nötig sind.</p>
-<div class="figure align-center" id="fig-speed-cmp">
-<a class="reference internal image-reference" href="../../_images/graph_speed.svg"><img alt="Vergleich der Distanzberechnungen für rebuild_stupid und rebuild." src="../../_images/graph_speed.svg" width="100%" /></a>
-<p class="caption">Gegenüberstellung von verschiedenen Arten der rebuild&ndash;Operation. Auf der
-Y&ndash;Achse ist logarithmisch die Anzahl der Distanzberechnungen aufgetragen,
-auf der X&ndash;Achse die lineare Anazhl der Eingabesongs. Die blaue Kurve
-repräsentiert dabei die Vergleiche die für rebuild_stupid notwendig sind.
-Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
-anderen zwei Kurven deutlich.</p>
-</div>
-<p>Die einzelnen Schritte des Graphenaufbaus lassen sich in Abb.
-, sowie bei den darauf folgenden Abbildungen,
-nachvollziehen.</p>
-</div>
-<div class="section" id="fixing-umbauen-von-einbahnstraszen">
-<h3>4.2 fixing: Umbauen von Einbahnstraßen<a class="headerlink" href="#fixing-umbauen-von-einbahnstraszen" title="Permalink to this headline">¶</a></h3>
-<p>Diese Operation dient dem Entfernen von Einbahnstraßen innerhalb des Graphen.
-Einbahnstraßen können wie bereits erwähnt beim Hinzufügen neuer Distanzen
-entstehen.</p>
-<p>Beim Entfernen wird folgendermaßen vorgegangen: Im ersten Schritt werden alle
-unidirektionalen Kanten gefunden und abgespeichert. Für jede dieser Kanten wird
-überprüft ob die Songs an beiden Enden den Richtwert für die Anzahl der Nachbarn
-überschreitet. Sollte das nicht der Fall, so wird die Kante in eine
-bidirektionale Kante umgebaut. Andernfalls wird die Kante gelöscht.</p>
-<p>Dieses Vorgehen wurde gewählt weil es nach einigen Versuchen schwierig erschien,
-den Graphen ohne Einbahnstraßen aufzubauen, ohne dass dieser zur Inselbildung
-neigt. Durch den nachgelagerten <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt werden Songs die nur wenige
-Nachbarn besitzen durch die vorher als zu schlecht bewerteten Kanten verbunden.</p>
-<p>Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft ob alle
-Verbindungen im Graphen bidirektional sind. Sollten unidirektionale Kanten
-gefunden werden, so wird eine Warnung ausgegeben.</p>
-</div>
-<div class="section" id="add-hinzufugen-von-songs-vor-dem-rebuild">
-<h3>4.3 add: Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt><a class="headerlink" href="#add-hinzufugen-von-songs-vor-dem-rebuild" title="Permalink to this headline">¶</a></h3>
-<p>Diese Operation benötigt als Argument eine Hashtabelle mit einer Abbildung von
-Attributen auf Werte. Diese Werte werden dann wie in der Projekarbeit besprochen
-durch verschiedene Provider normalisiert. Mit diesen normalisierten
-Informationen wird dann eine neue Song&ndash;Instanz erzeugt, welcher beim Erzeugen
-ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
-Index in er internen Songliste.</p>
-<p>Statt wie <tt class="docutils literal"><span class="pre">insert</span></tt> bereits Verbindungen zu anderen Songs herzustellen, fügt
-diese Operation lediglich einen Song der internen Songliste hinzu.</p>
-</div>
-<div class="section" id="remove-loschen-von-songs-zur-laufzeit">
-<h3>4.4 remove: Löschen von Songs zur Laufzeit<a class="headerlink" href="#remove-loschen-von-songs-zur-laufzeit" title="Permalink to this headline">¶</a></h3>
-<p>Um nach einer <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation einen Song auf dem Graphen zu löschen
-müssen alle Verbindungen zu diesem entfernt werden.  Um dabei eine Bildung von
-Inseln (durch das Entfernen von Verbindungen) zu vermeiden, werden alle
-ursprünglichen Nachbarn des zu entfernenden Songs untereinander verbunden. Dabei
-wird folgendermaßen vorgegangen: Zuerst wird temporär für jeden Nachbarn den
-Richtwert für die Anzahl der Nachbarn um eins erhöht. Im Anschluss wird die
-Menge aller Nachbarn untereinander mit quadratischem Aufwand verglichen. Dadurch
-bekommt jeder Nachbar im besten Fall eine neue Verbindung.  Abschließend werden
-alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird wieder
-um eins dekrementiert.</p>
-<p>Da <em>libmunin</em> alle Songs in einer linearen List hält muss auch dort der Song
-gelöscht werden. Da der Index des Songs in der Liste gleich der <em>UID</em> des Songs
-ist, wird an der Stelle <em>UID</em> ein leerer Wert geschrieben. Damit dieser
-möglichst bald wieder besetzt wird, wird die gelöschte <em>UID</em> in einer
-<em>Revocation</em>&ndash;List gespeichert. Beim nächsten <tt class="docutils literal"><span class="pre">add</span></tt> oder <tt class="docutils literal"><span class="pre">insert</span></tt> wird diese
-<em>UID</em> dann wiederverwendet.</p>
-</div>
-<div class="section" id="insert-hinzufugen-von-songs-zur-laufzeit">
-<h3>4.5 insert: Hinzufügen von Songs zur Laufzeit<a class="headerlink" href="#insert-hinzufugen-von-songs-zur-laufzeit" title="Permalink to this headline">¶</a></h3>
-<p>Diese Operation ist äquivalent <tt class="docutils literal"><span class="pre">add</span></tt>. Als Erweiterung fügt <tt class="docutils literal"><span class="pre">insert</span></tt>
-allerdings den durch <tt class="docutils literal"><span class="pre">add</span></tt> erzeugten Song auch in den Graphen ein und
-verbindet ihn dort. Dazu muss zuerst ein <em>Punkt</em> gefunden werden an dem der Song
-passend zu seinen Attributen <em>eingepasst</em> werden kann.</p>
-<p>Diese <em>Einpassung</em> geschieht dabei folgendermaßen:</p>
+<p><em>Vergleich der einzelnen Schlüsselphrasenmengen:</em></p>
+<p>Die einzelnen Mengen von Schlüsselphrasen werden unter der Prämisse verglichen,
+dass exakte Übereinstimmungen selten sind.</p>
 <ul>
-<li><p class="first"><strong>Basisiteration:</strong> Es wird mit einer gewissen <em>Schrittweite</em> über die
-Songliste iteriert. Dabei werden die Distanzen vom momentan aktuellen Song zum
-einzufügenden Song berechnet. Dadurch wird der Song bereits mit einigen
-anderen Songs verknüpft.  Die Größe der Schrittweite ist dabei abhängig von
-der Länge der Songliste.  Je länger die Liste ist, desto größer ist die
-Schrittweite.  Exakt ist sie dabei folgendermaßen definiert:</p>
-<div class="math">
-\[Schrittweite = \lceil\log_{10}songlist\_length\rceil\]</div>
+<li><p class="first">Zu einem Drittel geht der Vergleich der Sprache in die Distanz ein. Ist die
+Sprache gleich so wird hier eine Teildistanz von <span class="math">\(1.0\)</span> angeommen,
+andernfalls ist die Gesamtdistanz <span class="math">\(0.0\)</span>, da dann auch ein Vergleich der
+einzelnen Schlüsselphrasen nicht mehr sinnvoll ist.</p>
 </li>
-<li><p class="first"><strong>Verfeinerung:</strong> Songs, zu denen im vorigen Schritt eine geringe Distanz
-gefunden wurde, werden nun detaillierter betrachtet. Dazu wird die Distanz zu
-den Nachbarn dieser <em>guten</em> Songs berechnet, unter der bekannten Annahme, dass
-die indirekten Nachbar des einzufügenden Songs auch als potenzielle direkte
-Nachbarn taugen.</p>
+<li><p class="first">Die restlichen zwei Drittel errechnen sich aus der Übereinstimmung der
+Schlüsselphrasen. Für zwei Schlüsselphrasen <em>A</em> und <em>B</em> errechnet sich die
+Distanz folgendermaßen:</p>
+<div class="math">
+\[1 - \frac{\vert A\cup B\vert}{max(\vert A\vert, \vert B\vert)}\]</div>
+<p>Alle Schlüsselphrasen werden damit untereinander verglichen. Die minimalste
+dabei gefundene Distanz ist die finale Teildistanz.</p>
 </li>
 </ul>
-<p>Als zusätzliche Beobachtung lässt sich feststellen, dass Songs die per
-<tt class="docutils literal"><span class="pre">insert</span></tt> eingefügt werden deutlich <em>weitläufiger</em> verbunden sind als regulär
-per <tt class="docutils literal"><span class="pre">add</span></tt> hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
-gezeigte Demonanwedung zu Nutze: Ändert man das <em>Rating</em> eines Songs, so wird
-der Song mitels <tt class="docutils literal"><span class="pre">remove</span></tt> gelöscht und mittels  <tt class="docutils literal"><span class="pre">insert</span></tt> anderswo wieder
-eingefügt. Meist verbindet sich dabei der Song dann mit anderen ähnlich
-bewerteten Songs. Diese bilden ein <em>zusätzliches Netz</em> über den Graphen, welches
-weitläufrigere Sprünge ermöglicht.
-Dadurch hat der Nutzer eine intuitive Möglichkeit den Graphen
-seinen Vorstellungen nach umzubauen.</p>
 </div>
-<div class="section" id="modify-verandern-der-songattribute-zur-laufzeit">
-<h3>4.6 modify: Verändern der Songattribute zur Laufzeit<a class="headerlink" href="#modify-verandern-der-songattribute-zur-laufzeit" title="Permalink to this headline">¶</a></h3>
-<p>Diese Operation dient als Komfortfunktion. Sie ermöglicht das Verändern der
-Attribute, beziehungsweise deren zugeordneten Werte, eines einzelnen Songs.
-Würde man die Werte eines Songs manuell verändern, so müsste man alle Distanzen
-zu diesem Song neu berechnen. Da dies wiederum Veränderungen im ganzen Graphen
-hervorrufen könnte, wurden die Song&ndash;Instanzen unveränderbar <em>(,,Immutable&quot;)</em>
-gemacht.</p>
-<p>Die <tt class="docutils literal"><span class="pre">modify</span></tt>&ndash;Operation umgeht dieses Problem indem es den Song erst durch ein
-<tt class="docutils literal"><span class="pre">remove</span></tt> entfernt und eine Kopie des ursprünglichen Songs macht, in der die
-neuen Werte gesetzt werden. Dieser neue, noch unverbundene Song wird dann
-mittels einer <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation in den Graphen eingepasst.</p>
-<p>Aufgrund dieser Abfolge unterschiedlicher Operation ist <tt class="docutils literal"><span class="pre">modify</span></tt> relativ
-aufwendig. Es wird empfohlen diese Operation nur für einzelne Song jeweils
-einzusetzen. Sollte ein bestimmtes Attribut in allen Songs geändert werden, so
-ist eine <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation zu empfehlen.</p>
+<div class="section" id="ergebnisse">
+<h4>4.3.3 Ergebnisse<a class="headerlink" href="#ergebnisse" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-center" id="table-keywords">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="30%" />
+<col width="15%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center">Score</th>
+<th class="headalign-center">Schlüsselphrasen <em>(Wandern)</em></th>
+<th class="headalign-center">Score</th>
+<th class="headalign-center">Schlüsselphrasen <em>(Yellow Submarine)</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><span class="math">\(9.333\)</span></td>
+<td class="align-center"><em>gerne  stille  stehn</em></td>
+<td class="align-center"><span class="math">\(22.558\)</span></td>
+<td class="align-center"><em>yellow  submarin</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.778\)</span></td>
+<td class="align-center"><em>wandern</em></td>
+<td class="align-center"><span class="math">\(20.835\)</span></td>
+<td class="align-center"><em>full  speed  ahead  mr</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.442\)</span></td>
+<td class="align-center"><em>müllers  lust</em></td>
+<td class="align-center"><span class="math">\(8.343\)</span></td>
+<td class="align-center"><em>live  beneath</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.247\)</span></td>
+<td class="align-center"><em>müde  drehn</em></td>
+<td class="align-center"><span class="math">\(5.247\)</span></td>
+<td class="align-center"><em>band  begin</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.204\)</span></td>
+<td class="align-center"><em>niemals  fiel</em></td>
+<td class="align-center"><span class="math">\(3.297\)</span></td>
+<td class="align-center"><em>sea</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.204\)</span></td>
+<td class="align-center"><em>herr  meister</em></td>
+<td class="align-center"><span class="math">\(3.227\)</span></td>
+<td class="align-center"><em>green</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.204\)</span></td>
+<td class="align-center"><em>frau  meisterin</em></td>
+<td class="align-center"><span class="math">\(2.797\)</span></td>
+<td class="align-center"><em>captain</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.074\)</span></td>
+<td class="align-center"><em>muntern  reihn</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>sail</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.031\)</span></td>
+<td class="align-center"><em>schlechter  müller</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>blue</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.031\)</span></td>
+<td class="align-center"><em>wanderschaft  bedacht</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>cabl</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(3.430\)</span></td>
+<td class="align-center"><em>wasser</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>life</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(3.430\)</span></td>
+<td class="align-center"><em>steine</em></td>
+<td class="align-center"><span class="math">\(2.516\)</span></td>
+<td class="align-center"><em>sky</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>tanzen</em></td>
+<td class="align-center"><span class="math">\(2.516\)</span></td>
+<td class="align-center"><em>aye</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>frieden</em></td>
+<td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>friend</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>gelernt</em></td>
+<td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>aboard</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>schwer</em></td>
+<td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>boatswain</em></td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Extrahierte Schlüsselphrasen aus dem Volkslied
+,,Das Wandern ist des Müllers Lust“ (links) und dem
+Beatles&ndash;Song ,,Yellow Submarine“ (rechts).</p>
+</center></div><div class="figure align-center" id="table-lyrics-wandern">
+<span id="table-keywords"></span><center><table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td class="align-center">Das Wandern ist des Müllers Lust,</td>
+<td class="align-center">Das sehn wir auch den Rädern ab,</td>
+</tr>
+<tr class="row-even"><td class="align-center">Das Wandern!</td>
+<td class="align-center">Den Rädern!</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das muß ein schlechter Müller sein,</td>
+<td class="align-center"><br /></td>
+</tr>
+<tr class="row-even"><td class="align-center">Dem niemals fiel das Wandern ein,</td>
+<td class="align-center">Die gar nicht gerne stille stehn,</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das Wandern.</td>
+<td class="align-center">Die Steine selbst, so schwer sie sind,</td>
+</tr>
+<tr class="row-even"><td class="align-center"><br /></td>
+<td class="align-center">Die Steine!</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Vom Wasser haben wir’s gelernt,</td>
+<td class="align-center">Sie tanzen mit den muntern Reihn</td>
+</tr>
+<tr class="row-even"><td class="align-center">Vom Wasser!</td>
+<td class="align-center">Und wollen gar noch schneller sein,</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das hat nicht Rast bei Tag und Nacht,</td>
+<td class="align-center">Die Steine.</td>
+</tr>
+<tr class="row-even"><td class="align-center">Ist stets auf Wanderschaft bedacht,</td>
+<td class="align-center"><br /></td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das Wasser.</td>
+<td class="align-center">O Wandern, Wandern, meine Lust,</td>
+</tr>
+<tr class="row-even"><td class="align-center"><br /></td>
+<td class="align-center">O Wandern!</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Die sich mein Tag nicht müde drehn,</td>
+<td class="align-center">Herr Meister und Frau Meisterin,</td>
+</tr>
+<tr class="row-even"><td class="align-center">Die Räder.</td>
+<td class="align-center">Laßt mich in Frieden weiter ziehn</td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>(oben rechts weiter)</em></td>
+<td class="align-center">Und wandern.</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.</p>
+</center></div><p id="table-lyrics-wandern">In Abb.  sind die extrahierten Schlüsselphrasen aus zwei
+Liedern aufgelistet.</p>
+<p>Zur Referenz ist unter Abb.  der Liedtextes des
+Volkliedes ,,Das Wandern ist des Müllers Lust&quot; abgedruckt. Der Text von
+<em>,,Yellow Subarmine&quot;</em> wird aus möglichen lizenzrechtlichen Gründen hier nicht
+abgedruckt.</p>
+<p>Wie man in Abb.  sieht, werden längere phrasen automatisch
+besser bewertet &mdash; deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
+Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
+noch in das Ergebniss aufgenommen werden.</p>
 </div>
-<div class="section" id="ablauf-beim-hinzufugen-einer-distanz">
-<h3>4.7 Ablauf beim Hinzufügen einer Distanz<a class="headerlink" href="#ablauf-beim-hinzufugen-einer-distanz" title="Permalink to this headline">¶</a></h3>
-<p>Wie in TODO erwähnt, wird beim Hinzufügen einer Distanz die Schlechteste dem
-Song bekannte Distanz abgefragt. Ist diese höher als die Neue wird der
-Verbindung zum schlechtesten Song <em>gekappt</em> falls der Song <em>voll</em> ist.</p>
-<p>Dieses Vorgehen bringt aber bereits einige algorithmische Probleme mit
-sich: Das Finden der schlechtesten Distanz erfordert jeweils linearen Aufwand.
-Zwar kann die schlechteste Distanz und der dazugehörige Song zwischengespeichert
-werden, doch nach einigen Tests stellte sich heraus, dass in den meisten Fällen
-ein neuer, schlechtester Song gesucht werden muss. Das ist damit zu erklären,
-dass gegen Ende der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation tendenziell immer niedrigere Distanzen
-gefunden werden &mdash; womit immer wieder der schlechteste Song herausgelöscht
-werden muss.</p>
-<p>Hier ein performanten Ansatz zu finden war mit 2 Wochen relativ zeitaufwendig.</p>
-<p>Als Python&ndash;Pseudocode:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">distance_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">other</span> <span class="ow">is</span> <span class="bp">self</span><span class="p">:</span>
-        <span class="k">return</span>
-
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worst_cache</span> <span class="o">&lt;</span> <span class="n">distance</span><span class="p">:</span>
-        <span class="k">return</span>
-
-    <span class="k">if</span> <span class="n">distance</span><span class="o">.</span><span class="n">distance</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_distance</span><span class="p">:</span>
-        <span class="k">return</span>
-
-    <span class="n">sdd</span><span class="p">,</span> <span class="n">odd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_dict</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dist_dict</span>
-    <span class="k">if</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">sdd</span><span class="p">:</span>
-        <span class="c"># Sollte nicht passieren:</span>
-        <span class="k">if</span> <span class="n">sdd</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">distance</span><span class="p">:</span>
-            <span class="k">return</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">worst_cache</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">sdd</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">=</span> <span class="n">odd</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance</span>
-        <span class="k">return</span> <span class="bp">True</span>
-
-    <span class="c"># Check if we still have room left</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sdd</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_neighbors</span><span class="p">:</span>
-        <span class="c"># Find the worst song in the dictionary</span>
-        <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">inversion</span><span class="p">,</span> <span class="n">worst_song</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">worst_song</span> <span class="ow">in</span> <span class="n">sdd</span><span class="p">:</span>
-                <span class="n">worst_dist</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">inversion</span>
-                <span class="k">break</span>
-
-            <span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pop_list</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">worst_dist</span> <span class="o">&lt;</span> <span class="n">distance</span><span class="o">.</span><span class="n">distance</span><span class="p">:</span>
-            <span class="c"># we could prune pop_list here too,</span>
-            <span class="c"># but it showed that one operation only is more effective.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_worst_cache</span> <span class="o">=</span> <span class="n">worst_dist</span>
-            <span class="k">return</span> <span class="bp">False</span>
-
-        <span class="c"># delete the worst one to make place,</span>
-        <span class="c"># BUT: do not delete the connection from worst to self</span>
-        <span class="c"># we create unidir edges here on purpose.</span>
-        <span class="k">del</span> <span class="n">sdd</span><span class="p">[</span><span class="n">worst_song</span><span class="p">]</span>
-        <span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pop_list</span><span class="p">)</span>
-
-    <span class="c"># Add the new element:</span>
-    <span class="n">sdd</span><span class="p">[</span><span class="n">other</span><span class="p">]</span> <span class="o">=</span> <span class="n">odd</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance</span>
-
-    <span class="n">inversion</span> <span class="o">=</span> <span class="o">~</span><span class="n">distance</span>
-    <span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pop_list</span><span class="p">,</span> <span class="p">(</span><span class="n">inversion</span><span class="p">,</span> <span class="n">other</span><span class="p">))</span>
-    <span class="n">heappush</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">_pop_list</span><span class="p">,</span> <span class="p">(</span><span class="n">inversion</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span>
-
-    <span class="c"># Might be something different now:</span>
-    <span class="n">worst_cache</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="k">return</span> <span class="bp">True</span>
-</pre></div>
+<div class="section" id="id6">
+<h4>4.3.4 Probleme<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Teilweise liefert diese Provider&ndash;Distanzfunktions&ndash;Kombination bereits
+interessante Ergebnisse. So werden die beiden staatskritischen, deutschen Texte
+<em>,,Hey Staat&quot;</em> von <em>Hans Söllner</em> und <em>,,Lieber Staat&quot;</em> von <em>Farin Urlaub</em> mit
+einer relativ niedrigen Distanz von gerundet <span class="math">\(0.4\)</span> bewertet.</p>
+<p>Doch nicht bei allen Texten funktioniert die Extrahierung so gut. Nimmt man den
+Ausdruck <em>,,God save the Queen!&quot;</em>, so wird <em>RAKE</em> diesen nicht als gesamten
+Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert:
+<em>,,God save&quot;</em> und <em>,,Queen&quot;</em>, da <em>the</em> ein einglisches Stoppwort ist.</p>
+<p>Andererseits entstehen auch oft Schlüsselphrasen, die entweder unwichtig <em>(,,mal
+echt&quot;)</em>, sinnentfremdet () oder stark kontextspezifisch () sind. Da ein Computer
+den Text nicht verstehen kann, lässt sich das kaum vermeiden.</p>
+<p>Auch gemischtsprachige Liedtexte lassen sich nur schwer untersuchen, da immer
+nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
+(wie von <em>Hans Söllner</em>) greift auch die normale hochdeutsche Stoppowortliste
+nicht.</p>
+</div>
+</div>
+<div class="section" id="moodbar">
+<h3>4.4 Moodbar<a class="headerlink" href="#moodbar" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>4.4.1 Problemstellung<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (siehe
+<a class="reference internal" href="rst/index.html#wood2005techniques" id="id8">[4]</a> für genauere Informationen) wird in <em>libmunin</em> neben
+der Beats&ndash;Per&ndash;Minute Bestimmung als einfache Form der
+Audioanalyse eingesetzt. Kurz zusammengefasst wird dabei ein beliebiges
+Audiostück zeitlich in 1000 Blöcke unterteilt. Für jeden dieser Blöcke wird ein
+Farbwert (als RGB&ndash;Tripel) bestimmt. Der Rotanteil bestimmt dabei den Anteil
+niedriger Frequenzen, der Grünanteil die mittleren Frequenzen und der Blauanteil
+die hohen Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere
+Frequenzen in einem Block hin &mdash; E&ndash;Gitarren haben häufig diese Farbe in der
+Moodbar. Akustikgitarren erscheinen dafür meist in einem dunklem Rot.</p>
+<p>Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
+keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
+Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
+Autors sollte man das Verfahren daher eher <em>,,frequencebar&quot;</em> oder ähnliches
+nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
+Namensgebung des Erfinders verwendet.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/mood_avril.svg"><img alt="Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“" src="../../_images/mood_avril.svg" width="100%" /></a>
+<p class="caption">Beispiel&ndash;Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
+Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
+im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
+durch ein eigens zu diesem Zwekc geschriebenes Script gerendert. Deutlich
+sichtbar sind die einzelnen Pausen zwischen den Akkorden.</p>
+</div>
+</div>
+<div class="section" id="vergleich-von-moodbars">
+<h4>4.4.2 Vergleich von Moodbars<a class="headerlink" href="#vergleich-von-moodbars" title="Permalink to this headline">¶</a></h4>
+<p>Das Vergleichen verschiedener Moodbars gestaltet sich aufgrund der hohen
+Länge der einzelnen RGB&ndash;Vektoren als schwierig. In einem vorgelagerten
+Analyseschritt wird daher versucht, die markanten Merkmale der einzelnen
+Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
+Moodbar&ndash;Provider getätigt.</p>
+<p>Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
+aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
+ursprüngliche 1000 Werte lange Vektor in momentan 20 einzelne, <em>handlichere</em>
+Werte aufteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
+das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend
+sollte.</p>
+<p>Nach einigen subjektiven Tests haben sich folgende Merkmale als <em>vergleichbar</em>
+erwiesen:</p>
+<ul>
+<li><p class="first"><strong>Differenzsumme:</strong> Für jeden Farbkanal wird die Summe der Differenzen zu den
+jeweiligen vorherigen Blockwert gebildet:</p>
+<div class="math">
+\[\sum_{i=1}^{\vert C\vert} \vert C_{i} - C_{i-1}\vert \text{\,\,\,(C ist der Farbkanal)}\]</div>
+<p>Dieser Wert soll die grobe <em>,,Sprunghaftigkeit&quot;</em> des Liedes beschreiben.
+Ändern sich die Werte für diesen Farbkanal kaum, so ist der Wert niedrig.
+Liegen hohe Änderungen zwischen jedem Block vor, so steigt dieser Wert bis zu
+seinem Maximalen Wert von <span class="math">\((20 - 1) \times 255 = 4845\)</span>.</p>
+</li>
+<li><p class="first"><strong>Histogramm:</strong> Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
+Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von 5 möglichen
+Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.
+So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
+der Frequenzen abgespeichert.</p>
+</li>
+<li><p class="first"><strong>Dominaten Farben:</strong> Wie bereits erwähnt, ist es manchmal möglich bestimmte
+Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
+kann man sich beim Vergleichen zu Nutze machen, denn ähnliche Instrumente
+(ergo bestimmte, charakteristische Farben) deuten auf ähnliche Musikstile hin.
+Der Moodbar&ndash;Provider teilt daher jeden Farbkanal in 15er&ndash;Schritten in
+einzelne Bereiche auf. Jede Farbkombination wird dann einem dieser Bereich
+zugeordnet. Die 15 am häufigsten zusammen vorkommenden Tripel werden
+abgespeichert.</p>
+</li>
+<li><p class="first"><strong>Schwarzanteil:</strong> Gesondert werden sehr dunklen Farben behandelt. Haben
+alle Farbkanäle eines RGB&ndash;Tripels einen Wert kleiner 30, so wird die Farbe
+nicht gezählt, sondern auf einen <em>Schwarzanteil</em>&ndash;Zähler aufaddiert.
+Geteilt durch 1000 ergibt sich daraus der Anteil des Liedes, das</p>
+</li>
+<li><p class="first"><strong>Durschnittliches Minimun/Maximum:</strong> Für jeden Block wird das Minimum/Maximum
+aller 3 Farbkanäle bestimmt. Die Summe über jeden so bestimmten Wert, geteilt
+durch die Anzahl der Blöcke ergibt das durschnittliche Minimun/Maximum. Die
+Werte, die zwischen 0 und 255 liegen, sagen aus, in welchem Bereich sich die
+Frequenzen im Lied für gewöhnlich bewegen.</p>
+</li>
+</ul>
+<div class="figure align-center" id="table-moodbar-list">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="17%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center">Name</th>
+<th class="headalign-center">Gewichtung</th>
+<th class="headalign-center"><em>ungewichtete</em> Distanzfunktion <span class="math">\(d(a, b)\)</span></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><em>Differenzsumme</em></td>
+<td class="align-center"><span class="math">\(13,5\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>Histogramm</em></td>
+<td class="align-center"><span class="math">\(13,5\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \frac{\sum_{x}^{\vv{a} - \vv{b}}\vert x\vert}{5 \times 255}\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>Dominante Farben</em></td>
+<td class="align-center"><span class="math">\(63,0\%\)</span></td>
+<td class="align-center"><span class="math">\(\frac{\vert a \cup b\vert}{max(\vert a \vert, \vert b \vert)}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>Schwarzanteil</em></td>
+<td class="align-center"><span class="math">\(5,0\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>Durchschnittliches Minimum/Maximum</em></td>
+<td class="align-center"><span class="math">\(5,0\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{255}}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><span class="math">\(\sum 100\%\)</span></td>
+<td class="align-center">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Auflistung der einzelnen Werte die der Moodbar&ndash;Provider
+ausliest und deren dazugehörige Distanzfunktion, sowie deren
+Gewichtung in der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit
+Ausnahme der Histogramm&ndash;Eingabewerte. Dort sind ,,a“ und ,,b“
+die einzelnen Farbkanäle als Vektor. Zur Bildung der Gesamtdistanz
+werden die einzelnen Werte über einen gewichteten Mittelwert
+verschmolzen.</p>
+</center></div><p id="table-moodbar-list">In  wird eine Auflistung der einzelnen Werte gegeben,
+die der Moodbar&ndash;Provider generiert. Daneben werden auch die entsprechenden
+Gewichtungen und Distanzfunktionen gegeben, mit dem die
+Moodbar&ndash;Distanzfunktion, die einzelnen Werte verrechnet.</p>
+<p>Am subjektiv <em>vergleichbarsten</em> erwiesen sich die dominanten Farben in einem
+Lied. Die zwischenzeitlich aufgekommene Idee bestimmte markante Farbwertbereiche
+bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
+extrem ungenau.</p>
+</div>
+<div class="section" id="id9">
+<h4>4.4.3 Probleme<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-center" id="fig-mood-yellow-submarine">
+<a class="reference internal image-reference" href="../../_images/mood_yellow_submarine.svg"><img alt="Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten." src="../../_images/mood_yellow_submarine.svg" width="100%" /></a>
+<p class="caption">Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
+Beatles&ndash;Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
+mit relativ stark komprimierter MP3&ndash;Enkodierung. Die von libmunin
+berechnete Distanz ist hier etwa 0.01.</p>
+</div>
+<div class="figure align-center" id="fig-mood-rammstein-tier">
+<a class="reference internal image-reference" href="../../_images/mood_rammstein_tier.svg"><img alt="Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“" src="../../_images/mood_rammstein_tier.svg" width="100%" /></a>
+<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &mdash; Tier“. Oben
+die Studioversion, unten die Liveversion.  Hier ist die von libmunin
+errechnete Distanz immerhin bei 0.32.</p>
+</div>
+<p>Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum Vergleichen von
+Audiodaten ausgelegt war und vom Autor lediglich dafür <em>,,missbraucht&quot;</em> wurde.
+Wichtige Informationen wie die eigentliche Stimmung in dem Lied (von dunkel bis
+positiv) bis hin zur Rhythmus des Liedes.. Lediglich die durchschnittliche
+Geschwindigkeit wird vom BeatsPerMinute&ndash;Provider erfasst.  Daher ist der
+Moodbar&ndash;Provider momentan eher als <em>Notbehelf</em> zu sehen.</p>
+<p>Zudem ist die Geschwindigkeit der Audioanalyse eher dürftig. Geht das
+Analysieren des RGB&ndash;Vektors an sich vergleichsweise schnell, so ist die
+Generierung desselben zeitlich aufwendig. Bei MP3&ndash;enkodierten Dateien dauerst
+dies, je nach Größe, bis zu 4 Sekunden. Die Dauer variiert dabei je nach Format.
+FLAC&ndash;enkodierte Dateien brauchen oft lediglich die Hälfte dieser Zeit. In
+beiden Fällen ist die Anwendung bei einer mehreren zehntausend Lieder
+umfassenden Sammlung aufwendig.</p>
+<p>Vorteile sind hingegen:</p>
+<ul class="simple">
+<li><strong>Robustheit:</strong> Wie man in  sieht, ist das
+Verfahren relativ umempfdindlich gegen verschieden Enkodierungen. Selbst Live
+und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
+).</li>
+<li><strong>Geringerer Speicherverbrauch:</strong> Obwohl für die Implementierung die relativ
+speicherhungrige Sprache Python benutzt wurde, nutzt der Moodbar&ndash;Provider
+lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen -10 bis
+255 im Speicher hält und der Moodbar&ndash;Provider nur Zahlen in diesem Bereich
+erzeugt reichen hier 8 Byte für eine Referenz auf einen Integer aus.</li>
+</ul>
 </div>
 </div>
 </div>
-<span id="document-rst/V/index"></span><div class="section" id="implizites-und-explizites-lernen">
-<h2>5 Implizites und explizites Lernen<a class="headerlink" href="#implizites-und-explizites-lernen" title="Permalink to this headline">¶</a></h2>
+<span id="document-rst/5_learning/index"></span><div class="section" id="implizites-lernen">
+<h2>5 Implizites Lernen<a class="headerlink" href="#implizites-lernen" title="Permalink to this headline">¶</a></h2>
 <p>Assoziationsregeln...</p>
 <div class="math">
 \[Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)\]</div>
-<p><em>wobei:</em> <a href="#id2"><span class="problematic" id="id3">|hfill|</span></a> <em>Aussagekraft:</em></p>
+<p><em>wobei:</em>  <em>Aussagekraft:</em></p>
 <blockquote>
 <div><ul class="simple">
-<li><span class="math">\(Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}\)</span> <a href="#id4"><span class="problematic" id="id5">|hfill|</span></a> Güte der Regel</li>
-<li><span class="math">\(ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\)</span> <a href="#id6"><span class="problematic" id="id7">|hfill|</span></a> Gleichmäßigkeit der Regel</li>
-<li><span class="math">\(support(X) = H_n(X)\)</span> <a href="#id8"><span class="problematic" id="id9">|hfill|</span></a>  Absolute Häufigkeit von X in allen Transaktionen</li>
+<li><span class="math">\(Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}\)</span>  Güte der Regel</li>
+<li><span class="math">\(ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}\)</span>  Gleichmäßigkeit der Regel</li>
+<li><span class="math">\(support(X) = H_n(X)\)</span>   Absolute Häufigkeit von X in allen Transaktionen</li>
 </ul>
 </div></blockquote>
 <p>Mehr dazu in der Bachelorarbeit.</p>
-<p><em>Vergleiche zudem:</em> <a class="reference internal" href="rst/index.html#datamining-concepts-and-techniques" id="id1">[1]</a> Datamining
+<p><em>Vergleiche zudem:</em> <a class="reference internal" href="rst/index.html#datamining-concepts-and-techniques" id="id1">[2]</a> Datamining
 Concepts and Techniques.</p>
+<div class="section" id="generierung-von-regeln">
+<h3>5.1 Generierung von Regeln<a class="headerlink" href="#generierung-von-regeln" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="frequent-itemsets">
+<h4>5.1.1 Frequent Itemsets<a class="headerlink" href="#frequent-itemsets" title="Permalink to this headline">¶</a></h4>
 </div>
-<span id="document-rst/VI/index"></span><div class="section" id="evaluation">
+<div class="section" id="ableitung-von-regeln-aus-frequent-itemsets">
+<h4>5.1.2 Ableitung von Regeln aus Frequent Itemsets<a class="headerlink" href="#ableitung-von-regeln-aus-frequent-itemsets" title="Permalink to this headline">¶</a></h4>
+<p>Apriori kurz anreißen -&gt; langsam.</p>
+</div>
+<div class="section" id="relim">
+<h4>5.1.3 RELIM<a class="headerlink" href="#relim" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="anwenden-von-regeln">
+<h3>5.2 Anwenden von Regeln<a class="headerlink" href="#anwenden-von-regeln" title="Permalink to this headline">¶</a></h3>
+<p>Graphentraversierung erklaren.... oder schon dort?</p>
+<p>operanten Konditionierung -&gt; Belohnung, Gegenlernen, Vergessen.</p>
+</div>
+</div>
+<span id="document-rst/6_evaluation/index"></span><div class="section" id="evaluation">
 <h2>6 Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="allgemeine-hinweise-fur-entwickler">
 <h3>6.1 Allgemeine Hinweise für Entwickler<a class="headerlink" href="#allgemeine-hinweise-fur-entwickler" title="Permalink to this headline">¶</a></h3>
-<p>TODO: Tipps zum schreiben einer distanzfunktion für libmunin -&gt; Evalulation</p>
+<p><em>Hinweise zum Schreiben von Distanzfunktionen:</em></p>
+<ul class="simple">
+<li><em>Vermeidung von überspezifischen Distanzfunktionen:</em></li>
+<li>Distanzfunktion Terminus einhalten</li>
+</ul>
+<p><em>Hinweise zum Schreiben von Providern:</em></p>
+<ul class="simple">
+<li>Provider laufen nur einmal, Distanzfunktionen oft -&gt; komprimieren.</li>
+<li>Unwichtiges weglassen.</li>
+</ul>
 </div>
 <div class="section" id="vergleich-verschiedener-playlisten">
 <h3>6.2 Vergleich verschiedener Playlisten<a class="headerlink" href="#vergleich-verschiedener-playlisten" title="Permalink to this headline">¶</a></h3>
-<p>...</p>
+<div class="figure align-center" id="table-playlist-libmunin">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="32%" />
+<col width="43%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center"><em>ID</em></th>
+<th class="headalign-center"><em>Künstler</em></th>
+<th class="headalign-center"><em>Title</em></th>
+<th class="headalign-center"><em>Genre</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center">#01</td>
+<td class="align-center">Marc-Uwe Kling</td>
+<td class="align-center">Scheißverein</td>
+<td class="align-center">Folk / Pardody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#02</td>
+<td class="align-center">Knorkator</td>
+<td class="align-center">Das Lied</td>
+<td class="align-center">Rock / Parody</td>
+</tr>
+<tr class="row-even"><td class="align-center">#03</td>
+<td class="align-center">Biermösl Blosn</td>
+<td class="align-center">Der Patient</td>
+<td class="align-center">Brass / Parody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#04</td>
+<td class="align-center">In Extremo</td>
+<td class="align-center">Rasend Herz</td>
+<td class="align-center">Hard Rock</td>
+</tr>
+<tr class="row-even"><td class="align-center">#05</td>
+<td class="align-center">Johnny Cash</td>
+<td class="align-center">I'm Bound for the Promised Land</td>
+<td class="align-center">Folk</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#06</td>
+<td class="align-center">Letzte Instanz</td>
+<td class="align-center">Kartenhaus</td>
+<td class="align-center">Folk / Rock</td>
+</tr>
+<tr class="row-even"><td class="align-center">#07</td>
+<td class="align-center">Knorkator</td>
+<td class="align-center">Konflikt</td>
+<td class="align-center">Rock / Parody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#08</td>
+<td class="align-center">Heaven Shall Burn</td>
+<td class="align-center">Equinox</td>
+<td class="align-center">Metal</td>
+</tr>
+<tr class="row-even"><td class="align-center">#09</td>
+<td class="align-center">Biermösl Blosn</td>
+<td class="align-center">Psalm</td>
+<td class="align-center">Brass / Parody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#10</td>
+<td class="align-center">In Extremo</td>
+<td class="align-center">Liam</td>
+<td class="align-center">Hard Rock</td>
+</tr>
+<tr class="row-even"><td class="align-center">#11</td>
+<td class="align-center">Knorkator</td>
+<td class="align-center">Hardcore</td>
+<td class="align-center">Rock / Parody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#12</td>
+<td class="align-center">Johnny Cash</td>
+<td class="align-center">Solitary Man</td>
+<td class="align-center">Folk</td>
+</tr>
+<tr class="row-even"><td class="align-center">#13</td>
+<td class="align-center">Letzte Instanz</td>
+<td class="align-center">Rosengarten</td>
+<td class="align-center">Folk / Rock</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#14</td>
+<td class="align-center">The Rolling Stones</td>
+<td class="align-center">Stealing My Heart</td>
+<td class="align-center">Rock</td>
+</tr>
+<tr class="row-even"><td class="align-center">#15</td>
+<td class="align-center">Biermösl Blosn</td>
+<td class="align-center">Off Road</td>
+<td class="align-center">Brass / Parody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#16</td>
+<td class="align-center">Knorkator</td>
+<td class="align-center">Weihnachtsschimpfe</td>
+<td class="align-center">Rock / Parody</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Playlist libmunin</p>
+</center></div><div class="figure align-center" id="table-playlist-random">
+<span id="table-playlist-libmunin"></span><center><table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="37%" />
+<col width="39%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center"><em>ID</em></th>
+<th class="headalign-center"><em>Künstler</em></th>
+<th class="headalign-center"><em>Title</em></th>
+<th class="headalign-center"><em>Genre</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center">#01</td>
+<td class="align-center">Marc-Uwe Kling</td>
+<td class="align-center">Scheißverein</td>
+<td class="align-center">Folk / Parody</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#02</td>
+<td class="align-center">Farin Urlaub Racing Team</td>
+<td class="align-center">Niemals</td>
+<td class="align-center">Rock / Reggae</td>
+</tr>
+<tr class="row-even"><td class="align-center">#03</td>
+<td class="align-center">The Rolling Stones</td>
+<td class="align-center">Happy</td>
+<td class="align-center">Rock</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#04</td>
+<td class="align-center">Die Ärzte</td>
+<td class="align-center">Herrliche Jahre</td>
+<td class="align-center">Punk / Rock</td>
+</tr>
+<tr class="row-even"><td class="align-center">#05</td>
+<td class="align-center">The Beatles</td>
+<td class="align-center">Eight Days a Week</td>
+<td class="align-center">Pop</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#06</td>
+<td class="align-center">Die Apokalyptischen Reiter</td>
+<td class="align-center">Die Boten</td>
+<td class="align-center">Metal</td>
+</tr>
+<tr class="row-even"><td class="align-center">#07</td>
+<td class="align-center">The Beatles</td>
+<td class="align-center">Can't Buy Me Love</td>
+<td class="align-center">Pop</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#08</td>
+<td class="align-center">Die Ärzte</td>
+<td class="align-center">Lovepower</td>
+<td class="align-center">Punk / Rock</td>
+</tr>
+<tr class="row-even"><td class="align-center">#09</td>
+<td class="align-center">In Extremo</td>
+<td class="align-center">Erdbeermund</td>
+<td class="align-center">Medieval</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#10</td>
+<td class="align-center">Die Apokalyptischen Reiter</td>
+<td class="align-center">Wir reiten</td>
+<td class="align-center">Metal</td>
+</tr>
+<tr class="row-even"><td class="align-center">#11</td>
+<td class="align-center">Billy Talent</td>
+<td class="align-center">The Dead Can’t Testify</td>
+<td class="align-center">Hard Rock</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#12</td>
+<td class="align-center">Heaven Shall Burn</td>
+<td class="align-center">Atonement</td>
+<td class="align-center">Metalcore</td>
+</tr>
+<tr class="row-even"><td class="align-center">#13</td>
+<td class="align-center">The Beatles</td>
+<td class="align-center">Something</td>
+<td class="align-center">Pop</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#14</td>
+<td class="align-center">The Beatles</td>
+<td class="align-center">Hello, Goodbye</td>
+<td class="align-center">Pop</td>
+</tr>
+<tr class="row-even"><td class="align-center">#15</td>
+<td class="align-center">Tenacious D</td>
+<td class="align-center">39</td>
+<td class="align-center">Fun Rock</td>
+</tr>
+<tr class="row-odd"><td class="align-center">#16</td>
+<td class="align-center">Coppelius</td>
+<td class="align-center">Risiko</td>
+<td class="align-center">Hard Rock</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Playlist random</p>
+</center></div><ul class="simple" id="table-playlist-random">
+<li>last.fm playlists machen hier keinen Sinn - die lassen sich nicht auf die
+ausgewählten 666 Songs beschränken.</li>
+<li>Auf Dynamik der Playlist eingehen.</li>
+</ul>
 </div>
+<div class="section" id="sonstiges">
+<h3>6.3 Sonstiges<a class="headerlink" href="#sonstiges" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="table-specs">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="62%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center"><strong>Operation</strong></th>
+<th class="headalign-center"><strong>Ressourcenverbrauch</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><em>Speicherverbrauch</em></td>
+<td class="align-center">77.5 MB</td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>Speicherplatz der Session (gepackt)</em></td>
+<td class="align-center">0.9 MB</td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>Speicherplatz der Session (ungepackt)</em></td>
+<td class="align-center">2.5 MB</td>
+</tr>
+<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;<em>Operation:</em></td>
+<td class="align-center">44 Sekunden</td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>Kaltstart:</em></td>
+<td class="align-center">53 Minuten</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">stuff</p>
+<span class="target" id="table-specs"></span></center></div></div>
 </div>
-<span id="document-rst/VII/index"></span><div class="section" id="zusammenfassung">
+<span id="document-rst/7_outro/index"></span><div class="section" id="zusammenfassung">
 <h2>7 Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="verbesserung-der-algorithmik">
 <h3>7.1 Verbesserung der Algorithmik<a class="headerlink" href="#verbesserung-der-algorithmik" title="Permalink to this headline">¶</a></h3>
@@ -921,10 +1734,9 @@ oft werden vergleiche gezogen.</li>
 </div>
 <div class="section" id="vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">
 <h3>7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists<a class="headerlink" href="#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists" title="Permalink to this headline">¶</a></h3>
-<p>subfigure mit gegenüberstellung von &nbsp;15 liedern zu seed song, diskussion.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www2.research.att.com/~yifanhu/MusicMap/index.html">http://www2.research.att.com/&nbsp;yifanhu/MusicMap/index.html</a></li>
-<li>Suchengine für natürliche Sprache wie in <a class="reference internal" href="rst/index.html#knees2007music" id="id1">[2]</a></li>
+<li>Suchengine für natürliche Sprache wie in <a class="reference internal" href="rst/index.html#knees2007music" id="id1">[3]</a></li>
 <li>Transitions. Beispieslweise immer &quot;härter werdende musik&quot;</li>
 <li>Beziehen und Nutzen weiterer Metadaten (wie Producer, Band-Member)</li>
 <li>Auch &quot;disklikes&quot; berücksichtigen (zB. songs die immer gleich geskippt wurden)?</li>
@@ -979,80 +1791,169 @@ oft werden vergleiche gezogen.</li>
 </tbody>
 </table>
 </center></div><div class="toctree-wrapper compound">
-<span id="document-rst/appendix"></span><div class="section" id="graphenbilder">
-<h2>Graphenbilder<a class="headerlink" href="#graphenbilder" title="Permalink to this headline">¶</a></h2>
-<p>Beschreibung</p>
+<span id="document-rst/appendix"></span><div class="section" id="bilder-des-song-graphen">
+<h2>Bilder des Song&ndash;Graphen<a class="headerlink" href="#bilder-des-song-graphen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="allgemeine-hinweise">
+<h3>Allgemeine Hinweise<a class="headerlink" href="#allgemeine-hinweise" title="Permalink to this headline">¶</a></h3>
+<p>Folgende visuelle Aspekte sind mit Informationen besetzt:</p>
+<ul class="simple">
+<li><em>Kantenfarbe:</em> Rote Farbe indiziert eine hohe Distanz. Grün eine
+mittelgute Distanz (etwa 0.5). Blau bis violett eine gute bis sehr gute (0.1
+bis 0.0). Rote Kanten sieht man selten, da in den meisten Fällen immer ein
+guter Nachbar gefunden werden kann.</li>
+<li><em>Kantendicke:</em> Zur optischen Untermalung variiert die Dicke der Kanten je nach
+Distanz. Hohe Distanzen bekommen eine dünnere Kante.</li>
+<li><em>Knotenfarbe:</em> Zeigt grob die Zentralität des Knoten an. Bietet lediglich eine
+optische Navigationshilfe um auf Cluster hinzuweisen.</li>
+<li>Der visuelle Abstand zwischen zwei Knoten hat <em>keine</em> Aussagekraft, auch wenn
+ähnliche Knoten oft nah beieinander sind.</li>
+</ul>
+<p>Die Abbildungen  bis 
+und  bis  zeigen den
+Aufbau des Graphen anhand von linearen und pseudo&ndash;zufälligen generierten
+Testdaten mit jeweils 100, beziehungsweise 200 Knoten.
+Abbildung  zeigt einen realen, praktischen Graphen
+mittlerer Größe mit 666 Knoten. Die Liedtitel wurden jeweils an die Knoten
+geschrieben.</p>
+<p>Bei den linearen Testdaten werden die Zahlen von 1 bis 100 aufsteigend jedem
+neuen Knoten gegeben. Das Resultat sollte im optimalen Fall daher eine Kette von
+Knoten zeigen deren Knotennummer von einem Ende zum anderen immer weiter steigt.
+Die pseudo&ndash;zufälligen Testdaten mischen die erwähnten linearen Daten mit
+zusätzlichen zufällig erscheineden Daten gleicher Anzahl. Diese sind zum größten
+Teil auf den Bereich 25&ndash;75 aufgeteilt. Es sollte ein Graph entstehen der
+ähnliche linear ist, aber in der Mitte eine <em>,,Verdichtung&quot;</em> aufweist.
+Beides sind Testdaten, die häufig zum Testen von <em>libmunin</em> genutzt worden, da
+sie spezielle Extremfälle gut testen.</p>
+</div>
+<div class="section" id="plotting-der-graphen">
+<h3>Plotting der Graphen<a class="headerlink" href="#plotting-der-graphen" title="Permalink to this headline">¶</a></h3>
+<p>Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien
+Python Graphenframeworks <tt class="docutils literal"><span class="pre">igraph</span></tt> (TODO: link) entstanden. Als
+Zeichenbibliothek nutzt <tt class="docutils literal"><span class="pre">igraph</span></tt> die freie 2D Zeichenbibliothek <tt class="docutils literal"><span class="pre">cairo</span></tt>.
+Der verwendete Layouting&ndash;Algorithmus ist <em>,,Fruchtermann&ndash;Reingold&quot;</em>.</p>
 <div class="figure compound align-center" id="fig-graph-linear">
 <div style="width: 47.5%" class="subfigure align-center" id="fig-graph-linear-basic">
-<a class="reference internal image-reference" href="../../_images/graph_linear_basic.png"><img alt="basic" src="../../_images/graph_linear_basic.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/graph_linear_basic.png"><img alt="Nur mit ``sliding_window`` behandelte Eingabe." src="../../_images/graph_linear_basic.png" style="width: 100%;" /></a>
 <p class="caption">Nur mit <tt class="docutils literal"><span class="pre">sliding_window</span></tt> behandelte Eingabe.</p>
 </div>
 <div style="width: 47.5%" class="subfigure align-center" id="fig-graph-linear-all">
-<a class="reference internal image-reference" href="../../_images/graph_linear_all.png"><img alt="all" src="../../_images/graph_linear_all.png" style="width: 100%;" /></a>
-<p class="caption">Zusätzlich mit <tt class="docutils literal"><span class="pre">centering_window</span></tt> und <tt class="docutils literal"><span class="pre">anti_centering_window</span></tt> behandelt.</p>
+<a class="reference internal image-reference" href="../../_images/graph_linear_all.png"><img alt="Zusätzlich mit dem ``centering_window`` und ``anti_centering_window`` behandelt." src="../../_images/graph_linear_all.png" style="width: 100%;" /></a>
+<p class="caption">Zusätzlich mit dem <tt class="docutils literal"><span class="pre">centering_window</span></tt> und <tt class="docutils literal"><span class="pre">anti_centering_window</span></tt> behandelt.</p>
 </div>
 <div style="width: 47.5%" class="subfigure align-center" id="fig-graph-linear-refine">
-<a class="reference internal image-reference" href="../../_images/graph_linear_refine.png"><img alt="refine" src="../../_images/graph_linear_refine.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/graph_linear_refine.png"><img alt="Zusätzliche Verfeinerungsphase." src="../../_images/graph_linear_refine.png" style="width: 100%;" /></a>
 <p class="caption">Zusätzliche Verfeinerungsphase.</p>
 </div>
 <div style="width: 47.5%" class="subfigure align-center" id="fig-graph-linear-stupid">
-<a class="reference internal image-reference" href="../../_images/graph_linear_stupid.png"><img alt="stupid" src="../../_images/graph_linear_stupid.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/graph_linear_stupid.png"><img alt="Mittels ``rebuild_stupid`` generierter Vergleichsgraph." src="../../_images/graph_linear_stupid.png" style="width: 100%;" /></a>
 <p class="caption">Mittels <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> generierter Vergleichsgraph.</p>
 </div>
 <p class="caption">Verschiedene Stufen beim Aufbau eines Graphen aus linearen Testdaten. Die
 Testdaten bestehen aus den Integern 1 bis 100.  Erwartet wird dabei als
 Ausgabe eine lineare Kette von Knoten, wobei jeder Knoten ca. 7 Nachbarn
 haben sollte.</p>
-</div><div class="figure align-center" id="fig-graph-linear">
-<a class="reference internal image-reference" href="../../_images/graph_euler_basic.png"><img alt="Basic" src="../../_images/graph_euler_basic.png" style="width: 100%;" /></a>
-<p class="caption">stuff.</p>
+<span class="target" id="fig-graph-linear"></span></div><div class="figure align-center" id="fig-graph-euler-basic">
+<a class="reference internal image-reference" href="../../_images/graph_euler_basic.png"><img alt="Graph aus Zufallsdaten nach erster Basisiteration." src="../../_images/graph_euler_basic.png" style="width: 100%;" /></a>
+<p class="caption">Graph aus Zufallsdaten nach erster Basisiteration.</p>
 </div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/graph_euler_all.png"><img alt="Basic" src="../../_images/graph_euler_all.png" style="width: 100%;" /></a>
-<p class="caption">stuff.</p>
+<div class="figure align-center" id="fig-graph-euler-all">
+<a class="reference internal image-reference" href="../../_images/graph_euler_all.png"><img alt="Graph aus Zufallsdaten nach allen Basisiterationen." src="../../_images/graph_euler_all.png" style="width: 100%;" /></a>
+<p class="caption">Graph aus Zufallsdaten nach allen Basisiterationen.</p>
 </div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/graph_euler_refine.png"><img alt="Basic" src="../../_images/graph_euler_refine.png" style="width: 100%;" /></a>
-<p class="caption">stuff.</p>
+<div class="figure align-center" id="fig-graph-euler-refine">
+<a class="reference internal image-reference" href="../../_images/graph_euler_refine.png"><img alt="Graph aus Zufallsdaten nach einem Verfeinerungsschritt." src="../../_images/graph_euler_refine.png" style="width: 100%;" /></a>
+<p class="caption">Graph aus Zufallsdaten nach einem Verfeinerungsschritt.</p>
 </div>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/graph_euler_stupid.png"><img alt="Basic" src="../../_images/graph_euler_stupid.png" style="width: 100%;" /></a>
-<p class="caption">stuff.</p>
+<div class="figure align-center" id="fig-graph-euler-stupid">
+<a class="reference internal image-reference" href="../../_images/graph_euler_stupid.png"><img alt="Der ,,korrekte“, mittels rebuild_stupid erstellte Graph." src="../../_images/graph_euler_stupid.png" style="width: 100%;" /></a>
+<p class="caption">Der ,,korrekte“, mittels rebuild_stupid erstellte Graph.</p>
+</div>
+<div class="figure align-center" id="fig-graph-full">
+<a class="reference internal image-reference" href="../../_images/full_graph.png"><img alt="Vollständiger Graph aus 666 Knoten (aus der Demonanwendung)." src="../../_images/full_graph.png" style="width: 100%;" /></a>
+<p class="caption">Der vollständige Graph der hinter den Empfehlungen der Demonanwendungen
+steckt.</p>
+</div>
 </div>
 </div>
 <div class="section" id="bilder-des-genregraphen">
-<h2>Bilder des Genregraphen<a class="headerlink" href="#bilder-des-genregraphen" title="Permalink to this headline">¶</a></h2>
-<p>Beschreibung.</p>
+<span id="genre-graph-vis"></span><h2>Bilder des Genregraphen<a class="headerlink" href="#bilder-des-genregraphen" title="Permalink to this headline">¶</a></h2>
+<p>Der Vollständigkeit halber wird hier auch eine Visualisierung des Genre&ndash;Graphen
+gezeigt. Daraus kann man zwar keine <em>,,Neuen Erkenntnisse&quot;</em> ziehen, doch kann er
+in der weniger detaillierten Version zumindest als Überblick über die einzelnen
+Genres dienen. Die detailliertere Version führt einen vor Auge wieviel einzelne
+Musikgenres mit der Zeit entstanden sind.  Die Graphen wurden mit dem freien
+Graphenvisualisierungspaket <tt class="docutils literal"><span class="pre">Graphviz</span></tt> generiert. Das Vorgehen soll hier
+dokumentiert werden.</p>
+<p>Folgendes erstellt die <tt class="docutils literal"><span class="pre">Graphviz</span></tt>&ndash;Eingabedatei.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">pwd</span>
+~/dev/libmunin
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:.
+<span class="nv">$ </span>python <span class="s2">&quot;munin/provider/genre.py&quot;</span> --cli --plot 0.0  <span class="c"># Detailstufe: 0.0 = max.</span>
+<span class="nv">$ </span>head -n8 <span class="s2">&quot;/tmp/genre.graph&quot;</span>
+  graph <span class="o">{</span>
+      <span class="nv">overlap</span><span class="o">=</span>prism3000; <span class="nv">overlap_scale</span><span class="o">=</span>-7; <span class="nv">splines</span><span class="o">=</span>curved
+      edge <span class="o">[</span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;#666666&quot;</span><span class="o">]</span>
+      node <span class="o">[</span><span class="nv">shape</span><span class="o">=</span><span class="s2">&quot;none&quot;</span>, <span class="nv">style</span><span class="o">=</span><span class="s2">&quot;rounded, filled&quot;</span>, <span class="nv">fillcolor</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="o">]</span>
+      <span class="s2">&quot;music&quot;</span> -- <span class="s2">&quot;rock&quot;</span>
+      <span class="s2">&quot;music&quot;</span> -- <span class="s2">&quot;pop&quot;</span>
+      // ...
+  <span class="o">}</span>
+</pre></div>
+</div>
+<p>Daraus kann dann mittels <tt class="docutils literal"><span class="pre">Graphviz</span></tt>&ndash;Bordmitteln den Graphen in verschiedenen
+Formaten rendern. Hier die Prozedur für ein <em>PDF</em>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sfdp /tmp/genre.graph           | <span class="se">\ </span> <span class="c"># Layoutting der einzelnen Nodes.</span>
+  gvmap -e                        | <span class="se">\ </span> <span class="c"># Einzeichnen der &quot;Länderflächen&quot;.</span>
+  neato                             <span class="se">\ </span> <span class="c"># Eigentliches Zeichnen.</span>
+     -Ecolor<span class="o">=</span><span class="s2">&quot;#55555555&quot;</span>            <span class="se">\ </span> <span class="c"># Farbe der Kanten.</span>
+     -Nfontname<span class="o">=</span><span class="s2">&quot;TeX Gyre Adventor&quot;</span> <span class="se">\ </span> <span class="c"># Font für die Nodelabels.</span>
+     -Tpdf                          <span class="se">\ </span> <span class="c"># Ausgabeformat.</span>
+  &gt; graph.pdf                          <span class="c"># Ausgabedatei.</span>
+<span class="nv">$ </span>pdf-viewer graph.pdf                 <span class="c"># Fertiges Bild.</span>
+</pre></div>
+</div>
+<p><em>Anmerkung:</em> Die einzelnen <em>,,Länder&quot;</em> im Graphen dienen lediglich der optischen
+Trennung. Die Farbsättigung der Knoten und die verwendete Größe der Schrift
+weist auf die Menge der Kinder hin, die der Knoten hat. Je weiter weg der Knoten
+vom Wurzelknoten entfernt ist, desto oranger wird er (von rot beginnend).</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/genre_graph_big.svg"><img alt="Basic" src="../../_images/genre_graph_big.svg" width="100%" /></a>
-<p class="caption">stuff.</p>
+<a class="reference internal image-reference" href="../../_images/genre_graph_big.svg"><img alt="Übersicht über alle 1876 Musikgenres. (Detailstufe: 0.0)" src="../../_images/genre_graph_big.svg" width="100%" /></a>
+<p class="caption">Übersicht über alle 1876 Musikgenres. (Detailstufe: 0.0)</p>
 </div>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/genre_graph_mid.svg"><img alt="Basic" src="../../_images/genre_graph_mid.svg" width="100%" /></a>
-<p class="caption">stuff.</p>
+<a class="reference internal image-reference" href="../../_images/genre_graph_mid.svg"><img alt="Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0.1)" src="../../_images/genre_graph_mid.svg" width="100%" /></a>
+<p class="caption">Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0.1)</p>
 </div>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../../_images/genre_graph_min.svg"><img alt="Basic" src="../../_images/genre_graph_min.svg" width="100%" /></a>
-<p class="caption">stuff.</p>
+<a class="reference internal image-reference" href="../../_images/genre_graph_min.svg"><img alt="Übersicht über die wichtisten Musikgenres. (Detailstufe: 0.5)" src="../../_images/genre_graph_min.svg" width="100%" /></a>
+<p class="caption">Übersicht über die wichtisten Musikgenres. (Detailstufe: 0.5)</p>
 </div>
-</div>
-<div class="section" id="anhang-c">
-<h2>Anhang C<a class="headerlink" href="#anhang-c" title="Permalink to this headline">¶</a></h2>
-<p>Bye cruel world.</p>
 </div>
 <span id="document-rst/zzz_bibliography"></span><div class="section" id="bibliographie">
 <h2>Bibliographie<a class="headerlink" href="#bibliographie" title="Permalink to this headline">¶</a></h2>
 </div>
-<p id="bibtex-bibliography-rst/zzz_bibliography-0"><table class="docutils citation" frame="void" id="datamining-concepts-and-techniques" rules="none">
+<p id="bibtex-bibliography-rst/zzz_bibliography-0"><table class="docutils citation" frame="void" id="berry2010text" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[1]</td><td>Jian&nbsp;Pei Jiawei&nbsp;Han, Micheline&nbsp;Kamber. Datamining - concepts and techniques, (3rd edition). In <em>Datamining - Concepts and Techniques</em>, 268–271. 2012.</td></tr>
+<tr><td class="label">[1]</td><td>Michael&nbsp;W Berry and Jacob Kogan. <em>Text mining: applications and theory</em>. John Wiley &amp; Sons, 2010. <a class="reference external" href="http://media.wiley.com/product_data/excerpt/22/04707498/0470749822.pdf">URL: http://media.wiley.com/product_data/excerpt/22/04707498/0470749822.pdf</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="datamining-concepts-and-techniques" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Jian&nbsp;Pei Jiawei&nbsp;Han, Micheline&nbsp;Kamber. Datamining - concepts and techniques, (3rd edition). In <em>Datamining - Concepts and Techniques</em>, 268–271. 2012.</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="knees2007music" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[2]</td><td>Peter Knees, Tim Pohle, Markus Schedl, and Gerhard Widmer. A music search engine built upon audio-based and web-based similarity measures. In <em>Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval</em>, 447–454. ACM, 2007.</td></tr>
+<tr><td class="label">[3]</td><td>Peter Knees, Tim Pohle, Markus Schedl, and Gerhard Widmer. A music search engine built upon audio-based and web-based similarity measures. In <em>Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval</em>, 447–454. ACM, 2007.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wood2005techniques" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Gavin Wood and Simon O'Keefe. On techniques for content-based visual annotation to aid intra-track music navigation. In <em>ISMIR</em>, 58–65. 2005.</td></tr>
 </tbody>
 </table>
 </p>
@@ -1073,16 +1974,19 @@ lizensiert:</p>
 </div>
 
 
+          </div>
           <footer>
   
 
   <hr/>
 
-  <p>
-      &copy; Copyright by Christopher Pahl, 2013-2014..
-  </p>
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+    </p>
+  </div>
 
-  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
         </div>
       </div>
@@ -1091,6 +1995,39 @@ lizensiert:</p>
 
   </div>
   
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
 
 </body>
 </html>

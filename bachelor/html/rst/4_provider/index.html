@@ -1,0 +1,983 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4 Algorithmen bei Providern &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+        <link rel="next" title="5 Implizites Lernen" href="../5_learning/index.html"/>
+        <link rel="prev" title="3 Graphenoperationen" href="../3_graphops/index.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Projektarbeit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dedication.html">Widmung</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_intro/index.html">1 Überleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_einleitung/index.html">2 Einstieg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_graphops/index.html">3 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../3_graphops/index.html#id1">3.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_graphops/index.html#graphentraversierung">3.2 Graphentraversierung</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#einleitung">4.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genre-normalisierung-und-vergleich">4.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schlusselphrasen-extrahierung">4.3 Schlüsselphrasen&ndash;Extrahierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moodbar">4.4 Moodbar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5_learning/index.html">5 Implizites Lernen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../5_learning/index.html#generierung-von-regeln">5.1 Generierung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_learning/index.html#anwenden-von-regeln">5.2 Anwenden von Regeln</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_evaluation/index.html">6 Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../6_evaluation/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_evaluation/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_evaluation/index.html#sonstiges">6.3 Sonstiges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7_outro/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>4 Algorithmen bei Providern</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/rst/4_provider/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="algorithmen-bei-providern">
+<h1>4 Algorithmen bei Providern<a class="headerlink" href="#algorithmen-bei-providern" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="einleitung">
+<h2>4.1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
+<p>Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
+näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
+erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
+meisten Provider eher einfacher Natur &mdash; die Lektüre des jeweiligen Quelltextes
+sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
+erklärungsbedürftigen Paare näher betrachtet.</p>
+</div>
+<div class="section" id="genre-normalisierung-und-vergleich">
+<h2>4.2 Genre-Normalisierung und Vergleich<a class="headerlink" href="#genre-normalisierung-und-vergleich" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="problemstellung">
+<h3>4.2.1 Problemstellung<a class="headerlink" href="#problemstellung" title="Permalink to this headline">¶</a></h3>
+<p>Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
+zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
+gibt. Ein Computer könnte höchstens erkennen wie ähnlich zwei
+Genre Beschreibungen als Zeichenketten sind. Daher ist es nötig, dass die
+einzelnen Genre-Eingaben anhand einer Sammlung von zusammengestellten Genre Daten
+normalisiert werden.</p>
+</div>
+<div class="section" id="zusammenstellung-der-gernedatenbank">
+<h3>4.2.2 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h3>
+<p>Genres können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Unter-Genres
+(<em>country</em> rock, <em>japanese</em> pop), Unter-Unter-Genres (<em>western</em> country rock) -
+und so weiter - aufgeteilt werden. So lassen sich alle Genres und ihre
+jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
+man das allumfassende Genre <em>Music</em> an - einfach weil <em>Music</em> sich hinter fast
+jedes Genre schreiben lässt ohne den Sinn zu verändern.</p>
+<p>Dieser Baum kann dann genutzt werden um beliebige Genres anhand dieses Baums zu
+normalisieren.</p>
+<p>Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
+Genres in diesen Baum einzupflegen - bei der hohen Zahl der existierenden Genres
+kann man diese nur schwerlich manuell einpflegen.</p>
+<p>Existierende Datenbanken wie, das sonst sehr vollständige, <em>MusicBrainz</em> liefern
+laut ihren FAQ keine Genre-Daten:</p>
+<blockquote class="epigraph">
+<div><p>WHY DOES MUSICBRAINZ NOT SUPPORT GENRE INFORMATION?</p>
+<p><em>Because doing genres right is very hard.
+We have thought about how to implement genres,
+but we haven't completely settled on the right approach yet.</em></p>
+<p class="attribution">&mdash;<a class="reference external" href="https://musicbrainz.org/doc/General_FAQ">https://musicbrainz.org/doc/General_FAQ</a></p>
+</div></blockquote>
+<p>Also musste man sich nach anderen Quellen umschauen. Das vom
+<em>DiscogsGenre</em>-Provider verwendete <em>Discogs</em> bietet zwar relative detaillierte
+Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
+<em>Genre</em> (<em>rock</em>) und dem Subgenre (<em>blackened death metal</em>) - eine zu grobe
+Einteilung.</p>
+<p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> - fast jede Band
+ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
+<em>The Echonest</em> - einem Unternehmen welches verschiedene Dienste rund um
+Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
+Genres.</p>
+<p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
+Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
+<em>The Echonest</em> ist dies, nachdem man sich einen <em>API Key</em> registriert hat
+relativ einfach <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>:</p>
+<blockquote>
+<div><a class="reference external" href="http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json">http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json</a></div></blockquote>
+<p>Die Liste enthält, zum Zeitpunkt des Schreibens, 898 konkrete Genres und wird
+kontinuierlich von den Betreiber erweitert.</p>
+<p>Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
+diese Quelle erst nachträglich nach einer Analyse des Quelltextes von <em>beets</em>
+(<a class="reference external" href="https://gist.github.com/sampsyo/1241307">https://gist.github.com/sampsyo/1241307</a>) eingebaut. <em>beets</em> hat ebenfalls das
+Problem das Genre zu normalisieren - also muss dort ein entsprechender
+Mechanismus eingebaut sein. Dieser beruht, ähnlich wie hier, ebenfalls auf einem
+Baum <a class="footnote-reference" href="#f2" id="id2"><sup>2</sup></a>. Um diese Quelle in <em>libmunin</em> zu nutzen wurde lediglich der Code
+nach <em>Python3</em> portiert. Von der englischen Wikipedia werden folgende Seiten
+<em>gescraped,</em> und die darin befindlichen Genres in eine Datei geschrieben:</p>
+<ul class="simple">
+<li>List of popular music genres</li>
+<li>List of styles of music: A-F</li>
+<li>List of styles of music: G-M</li>
+<li>List of styles of music: N-R</li>
+<li>List of styles of music: S-Z</li>
+</ul>
+<p>Von Wikipedia kommen 1527 Einträge. Diese werden mit den Einträgen von <em>,,The
+Echonest''</em> verschmolzen. Nach einer Entfernung von Dubletten ist die finale
+Genre-Liste 1876 Einträge lang.</p>
+</div>
+<div class="section" id="uberfuhrung-der-genreliste-in-einem-genrebaum">
+<h3>4.2.3 Überführung der Genreliste in einem Genrebaum<a class="headerlink" href="#uberfuhrung-der-genreliste-in-einem-genrebaum" title="Permalink to this headline">¶</a></h3>
+<div class="figure compound align-center" id="fig-tree">
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-input">
+<a class="reference internal image-reference" href="../../_images/tree_input.svg"><img alt="Genreliste als Eingabe vor dem Prozessieren" src="../../_images/tree_input.svg" width="70%" /></a>
+<p class="caption"><strong>(a)</strong> Genreliste als Eingabe vor dem Prozessieren.</p>
+</div>
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-init">
+<a class="reference internal image-reference" href="../../_images/tree_init.svg"><img alt="Initialisierungsschritt" src="../../_images/tree_init.svg" width="100%" /></a>
+<p class="caption"><strong>(b)</strong> Initialisierungsschritt: Vergabe von IDs und Zuordnung zu Wurzelknoten.</p>
+</div>
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-first">
+<a class="reference internal image-reference" href="../../_images/tree_first.svg"><img alt="Der Genrebaum nach der ersten Iteration" src="../../_images/tree_first.svg" width="100%" /></a>
+<p class="caption"><strong>(c)</strong> Der Genrebaum nach der ersten Iteration, ,,swedish alternative'' noch nicht
+aufgebrochen.</p>
+</div>
+<div style="width: 60%" class="subfigure align-center" id="fig-tree-final">
+<a class="reference internal image-reference" href="../../_images/tree_final.svg"><img alt="Der fertige Genrebaum als Ausgabe." src="../../_images/tree_final.svg" width="100%" /></a>
+<p class="caption"><strong>(d)</strong> Der nach zwei Iterationen fertige Genrebaum.</p>
+</div>
+<p class="caption"><strong>Figure 4.1:</strong> Der Baum wird aus der Eingabe unter  erzeugt indem erst
+alle Genres dem Wurzelknoten ,,music'' unterstellt werden
+(). Danach wird der Baum rekursiv (hier in zwei
+Schritten,  und )
+immer weiter vertieft.</p>
+</div><p id="fig-tree">Nachdem eine Liste von Genres nun vorhanden ist muss diese noch in einem Baum
+wie in  gezeigt überführt werden.
+Begleitend werden dazu die unter  gezeigte Genre-Liste als
+Beispieleingabe. verwendet.</p>
+<p>Der Baum sollte dabei folgende Kriterien erfüllen:</p>
+<ul class="simple">
+<li>Der Pfad von einem Blattknoten (<em>,,Swedish''</em>) zum Wurzelknoten (<em>,,music''</em>)
+sollte dabei das ursprüngliche Genre, mit dem optionalen Suffix <em>music</em>
+ergeben <em>(,,swedish-pop-music'')</em>.</li>
+<li>Jeder Knoten erhält eine Integer-ID die für jeden Tiefenstufe von 0 wieder
+anfängt. So hat der Knoten <em>music</em> immer die ID 0, bei der nächsten Ebene wird
+die ID nach alphabetischer Sortierung vergeben, <em>pop</em> bekommt daher die 0,
+<em>reggae</em> die 1, <em>rock</em> die 2.</li>
+</ul>
+<p>Das Umwandeln selbst geschieht folgendermaßen:</p>
+<ul class="simple">
+<li>Es wird manuell der Wurzelknoten <em>music</em> angelegt.</li>
+<li>Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
+(siehe Abbildung )</li>
+<li>Dann wird rekursiv folgende Prozedur erledigt:<ol class="arabic">
+<li>Gehe über alle Kinder des Wurzelknoten und breche dabei das <em>letzte Element</em>
+Wort des <em>Genres</em> ab (<em>western country rock</em> wird zu <em>western country</em> und
+<em>rock</em>).</li>
+<li>Der letzte Teil wird als Schlüssel in einer Hashmap gespeichert, mit dem
+Rest als dazugehöriger Wert. Dies entledigt sich, aufgrund der Natur von
+Hashmaps, eventueller Dupletten.</li>
+<li>Die Liste der Kinder des Wurzelknotens wird zu einer leeren Liste
+zurückgesetzt.</li>
+<li>Die Schlüssel der Hashmap werden als neue Kinder gesetzt, die dazugehörigen
+Werte als deren Kinder.</li>
+<li>Iteriere über die neuen Kinder, jedes Kind wird als neuer Wurzelknoten
+angenommen und es wird von 1) an begonnen. Der Rekursionsstopp ist erreicht
+wenn keine Aufteilung des Genres in letztes Element und Rest mehr möglich
+ist.</li>
+</ol>
+</li>
+<li>In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig
+(). In  ist der Baum nach der ersten
+Iteration zu sehen.</li>
+<li>Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
+erledigt:<ol class="arabic">
+<li>die fehlenden ,,Musik''-Genres <em>,,vocal''</em> und <em>,,speech''</em> werden
+manuell eingefügt.</li>
+<li>Bei dem momentanen Vorgehen landen unter Umständen weitere ,,*music*''
+auf der ersten Ebene. Diese werden bereinigt.</li>
+<li>Alle Genres die auf <em>,,core''</em> enden werden aufgebrochen und dem Knoten
+<em>,,core''</em> auf erster Ebene hinzugefügt.</li>
+</ol>
+</li>
+</ul>
+<p>Der resultierende Baum ist im Anhang <a class="reference internal" href="../appendix.html#genre-graph-vis"><em>Bilder des Genregraphen</em></a> in verschiedenen
+Detailstufen visualisiert.  Er besitzt auf der ersten Ebene 1044 Unter-Genre. Die
+tiefste Verschachtelung erreicht das Genre <em>,,New Wave of new Wave''</em> mit einer
+Tiefe von 5.</p>
+</div>
+<div class="section" id="matching-von-genres">
+<h3>4.2.4 Matching von Genres<a class="headerlink" href="#matching-von-genres" title="Permalink to this headline">¶</a></h3>
+<p>Die Normalisierung des Genres ist nun mit dem aufgebauten Baum recht einfach.
+Zuerst muss das Eingabegenre in Subgenres aufgeteilt werden - oft sind mehrere
+Genres in einem einzelnen String zusammengefasst, die durch bestimmte Zeichen
+getrennt sind. Ein Beispiel:</p>
+<blockquote>
+<div><em>,,Rock, Reggae / Alternative Rock, Ska, Punk''</em></div></blockquote>
+<p>Jedes dieser Subgenres wird dann mittels eines regulären Ausdruckes in einzelne
+Wörter aufgeteilt. Die Wörter werden noch in die kleingeschriebene Form
+gebracht. In der Python-Listen Syntax sähe das obige Beispiel dann so aus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span><span class="s">&#39;rock&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;reggae&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;alternative&#39;</span><span class="p">,</span> <span class="s">&#39;rock&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;ska&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s">&#39;punk&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Die einzelnen Wortlisten können jetzt in <em>Pfade</em> umgewandelt werden.
+Dazu wird folgendermaßen vorgegangen:</p>
+<ul class="simple">
+<li>Es wird eine leere Liste von Pfaden angelegt.</li>
+<li>Es wird eine Liste mit Wahrheitswerten angelegt, die genauso lang ist wie die
+Wortliste. Die Wahrheitswerte werden auf <em>False</em> initialisiert.
+Diese <em>Maske</em> wird genutzt um bereits gefundene Wörter ,,ab zu haken''.</li>
+<li>Es wird eine leere <em>,,results''</em> Liste angelegt.</li>
+<li>Dann wird eine rekursive Suche nach passenden <em>Pfaden</em> mit dem Wurzelknoten
+<em>music</em> gestartet:<ol class="arabic">
+<li>Schaue ob der momentane Wurzelknoten Kinder enthält die auch in der
+Wortliste vorkommen. Wenn das entsprechende Wort noch nicht in der <em>Maske</em>
+abgehakt wurde, wird es in eine temporäre Liste <em>,,children''</em> aufgenommen.</li>
+<li>Wenn <em>,,children''</em> leer ist und die <em>,,results''</em> Liste nicht leer, so
+wird die letzere zur Pfadliste hinzugefügt.</li>
+<li>Es wird über jedes Kind in der <em>,,children''</em> Liste iteriert. Bei jeder
+Iteration wird:<ol class="upperalpha">
+<li>Eine Kopie der <em>,,results''</em> Liste wird erstellt, bei der die ID des
+Kindes am Ende hinzugefügt wurde.</li>
+<li>Eine Kopie der <em>Maske</em> wird erstellt, in der das vom Kind repräsentierte
+Wort <em>,,abgehakt''</em> (der entsprechende Index wird auf <em>True</em> gesetzt)
+wird.</li>
+<li>Das Kind wird als neuer Wurzelknoten angenommen und es wird wie bei 1)
+weitergemacht.  Der Rekursionsstopp ist dann erreicht wenn die
+<em>,,children''</em> Liste leer ist.</li>
+</ol>
+</li>
+<li>Nach dem Rekursionsstopp stehen alle validen Pfade in der Pfadliste.</li>
+</ol>
+</li>
+</ul>
+<p>Das Bedarf vermutlich eines Beispiels. Nehmen wir das Subgenre <em>,,alternative
+rock''</em> zur Demonstration her.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/tree_match_example.svg"><img alt="Beispielablauf des Matching Algorithmusses" src="../../_images/tree_match_example.svg" width="100%" /></a>
+<p class="caption">Beispiel-Ablauf des ,,Matching'' an der Eingabe ,,alternative rock''. In den
+Knoten ist die jeweils die momentante Maske eingetragen, an den Kanten das
+aktuelle Ergebniss.</p>
+</div>
+<p>Die passenden Pfade sind in diesem Fall also <em>alternative</em> und <em>alternative rock</em>.
+Es ist zu bemerken dass <em>rock</em> zwar ebenfalls ein valider Pfad ist, aber
+als eine Untermenge von <em>alternative rock</em> nicht in der Ergebnismenge ist.</p>
+</div>
+<div class="section" id="vergleichen-der-unterschiedlichen-genre-pfade-mengen">
+<span id="single-dist"></span><h3>4.2.5 Vergleichen der unterschiedlichen Genre-Pfade-Mengen<a class="headerlink" href="#vergleichen-der-unterschiedlichen-genre-pfade-mengen" title="Permalink to this headline">¶</a></h3>
+<p>Um zwei einzelne Pfade miteinander zu Vergleich wird wie im Folgenden
+vorgegangen:</p>
+<ul class="simple">
+<li>Zähle die Anzahl an Punkten in denen sich der Pfad überdeckt.</li>
+<li>Teile die Anzahl durch die Länge des längeren beider Pfade.</li>
+<li>Die daraus gewonnene Ähnlichkeit wird von <span class="math">\(1.0\)</span> abgezogen um die Distanz
+zu erhalten.</li>
+</ul>
+<p>In <em>libmunin</em> sind zwei Distanzfunktionen erhalten welche diese Methode nutzt um
+zwei Mengen mit Genrepfaden zu vergleichen.</p>
+<p><tt class="docutils literal"><span class="pre">GenreTree</span></tt>: Vergleicht jeden Genrepfad in den Mengen <em>A</em> und <em>B</em> mittels oben
+genannter Methode miteinander. Die minimalste Distanz wird zurückgegeben.  Als
+Optimierung wird frühzeitig abgebrochen wenn eine Distanz von <span class="math">\(0.0\)</span>
+erreicht wird.</p>
+<p>Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
+vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als <em>rock</em> oder
+<em>metal</em> eingetragen, ohne Unterscheidung von Subgenres. Deshalb geht diese
+Distanzfunktion davon aus wenige Übereinstimmungen zu finden - sollten welche
+vorkommen werden diese gut bewertet.</p>
+<p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="#single-dist">4.2.5</a> erwähnte
+Distanzunktion ist,  so berechnet sich die finale Distanz durch:</p>
+<div class="math">
+\[D(A, B) = \argmin\!\bigg(\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\bigg)\]</div>
+<p><tt class="docutils literal"><span class="pre">GenreTreeAvg</span></tt>: Seien <em>A</em> und <em>B</em> zwei Mengen mit Genrepfaden. <em>A</em> ist dabei
+die größere Menge und <em>B</em> die kleinere, falls die Mengen eine unterschiedliche
+Mächtigkeit besitzen.</p>
+<div class="math">
+\[D(A, B) = \frac{\displaystyle\sum\limits_{a \in A} \argmin\!{\Bigg(\displaystyle\sum\limits_{b \in B} d(a, b)\Bigg)}}{\vert A\vert}\]</div>
+<p>Diese Distanzfunktion eignet sich für <em>,,reichhaltig''</em> befüllte
+Genrebeschreibungen bei denen auch ein oder mehrere Unter-Genres vorhanden sind.
+Ein Beispiel dafür wäre: <tt class="docutils literal"><span class="pre">country</span> <span class="pre">rock</span> <span class="pre">/</span> <span class="pre">folk</span> <span class="pre">/</span> <span class="pre">rockabilly</span></tt>. Die
+Distanzfunktion geht also davon aus zumindest teilweise Überdeckungen in den
+Daten vorzufinden.</p>
+<p>Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
+passende Distanzunktion auswählen.</p>
+<p>TODO(?) Missing: DiscogsGenre.</p>
+</div>
+<div class="section" id="probleme">
+<h3>4.2.6 Probleme<a class="headerlink" href="#probleme" title="Permalink to this headline">¶</a></h3>
+<p>Insgesamt funktioniert dieser Ansatz relativ gut, die meisten Genre werden
+zufriedenstellend in Pfade normalisiert die performant verglichen werden können.</p>
+<p>Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
+Es wird davon ausgegangen, dass Genres die ähnlich sind auch ähnlich heißen -
+eine Annahme die zwar oft, aber nicht immer wahr ist. So sind die Genres
+<em>Alternative Rock</em> und <em>Grunge</em> sehr ähnlich - der obige Ansatz würde hier
+allerdings eine Distanz von <span class="math">\(0.0\)</span> liefern. Auch Genres wie <em>,,rock'n'roll</em>
+würde ähnlich schlechte Resultate liefern.</p>
+<p>Eine mögliche Lösung wäre eine Liste von ,,Synonymen'' Genres die
+Querverbindungen im Baum erlauben würden.</p>
+<p>Allerdings wäre eine solche Liste von Synonymen relative schwer automatisch zu
+erstellen.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Der <em>API Key</em> wurde in der URL gekürzt da man angehalten ist diesen
+nicht zu veröffentlichen.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Anmerkung: Die Idee entstand allerdings ohne Kenntnis von <em>beets</em>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="schlusselphrasen-extrahierung">
+<h2>4.3 Schlüsselphrasen&ndash;Extrahierung<a class="headerlink" href="#schlusselphrasen-extrahierung" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>4.3.1 Problemstellung<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Eine Idee bei <em>libmunin</em> ist es auch die Liedtexte eines Liedes einzubeziehen,
+um Lieder, die änhlichen <em>Themen</em> behandeln näher beieinander im Graphen zu
+gruppieren. Sollten zwei Lieder nicht die selben Themen behandeln, so soll sich
+zumindest die gleiche Sprache sich positiv auf die Distanz auswirken.</p>
+<p>Um die Themen effizient zu vergleichen extrahiert <em>libmunin</em> aus den Liedtexten
+die wichtigsten <em>Schlüsselphrasen</em> mittels des Keyword&ndash;Providers. Diese Phrasen
+sollen den eigentlichen Inhalt möglichst gut approximieren, ohne dabei schwer
+vergleichbar zu sein.</p>
+</div>
+<div class="section" id="der-rake-algorithmus">
+<h3>4.3.2 Der RAKE Algorithmus<a class="headerlink" href="#der-rake-algorithmus" title="Permalink to this headline">¶</a></h3>
+<p>Zur Extrahieren von Schlüsselwörtern aus Texten gibt es eine Vielzahl von
+Algorithmen.  Der verwendete Algorithmus zur Schlüsselphrasen&ndash;Extrahierung ist
+bei <em>libmunin</em> der relativ einfach zu implementierende RAKE&ndash;Algorithmus
+(vorgestellt in <a class="reference internal" href="../zzz_bibliography.html#berry2010text" id="id4">[1]</a>). Zwar könnte man mit anderen Algorithmen
+hier bessere Ergebnisse erreichen, diese sind aber schwerer zu implementieren
+(was die Anpasspartkeit verschlechtert) und sind in den meisten Fällen von
+sprachabhängigen Corpora (Wortdatenbanken) abhängig.</p>
+<p><em>Beschreibung des RAKE&ndash;Algorithmus:</em></p>
+<ol class="arabic">
+<li><p class="first">Aufteilung des Eingabetextes in Sätze anhand von Interpunktion und
+Zeilenumbrüchen.</p>
+</li>
+<li><p class="first">Extrahierung der <em>Phrasen</em> aus den Sätzen.  Ein <em>Phrase</em> ist hier definiert
+als eine Sequenz von Nichtstoppwörtern.  Um Stoppwörter zu erkennen muss eine
+von der Sprache abhängige Stoppwortliste geladen werden. Zu diesem Zweck hat
+<em>libmunin</em> 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
+Sprache selbst wird durch das Python Modul <tt class="docutils literal"><span class="pre">guess-language-spirit</span></tt> (TODO:
+LINK) anhand verschiedener Sprachcharakteristiken automatisch erraten.</p>
+</li>
+<li><p class="first">Berechnung eines <em>Scores</em> für jedes Wort in einem Phrase aus dem <em>Degree</em> und
+der <em>Frequenz</em> eines Wortes:</p>
+<blockquote>
+<div><p><span class="math">\(degree(word) = len(phrase) - 1\)</span></p>
+<p><span class="math">\(freq(word) = \sum count(word) \forall word \in corpus\)</span></p>
+<p><span class="math">\(score(word) = \frac{degree(word) + freq(word)^{1.6}}{freq(word)}\)</span></p>
+</div></blockquote>
+</li>
+<li><p class="first">Für jeden Phrase wird nun ein <em>Score</em> berechnet. Dieser ist definiert als die
+Summe aller Wörter&ndash;<em>Scores</em> innerhalb des Phrases. Die derart bewerteten
+Phrasen werden absteigend sortiert als <em>Schlüsselphrasen</em> ausgegeben.
+<em>Schlüselphrasen</em> mit einem <em>Score</em> kleiner <span class="math">\(2.0\)</span> werden ausgesiebt.</p>
+</li>
+</ol>
+<p>Es wurde zudem einige Änderungen zum in <a class="reference internal" href="../zzz_bibliography.html#berry2010text" id="id5">[1]</a> vorgestellten
+Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
+abzustimmen:</p>
+<ul class="simple">
+<li>Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
+meisten Liedtexte sind bestehen aus einzelnen Versen, die nicht durch Punkte
+getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.</li>
+<li>Um die Ergebnisse leichter vergleichen zu können werden die einzelnen Wörter
+nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
+sprachsensitive <em>Snowball&ndash;Stemmer</em> verwendet (link).</li>
+<li>Im Original wird der <em>Wort&ndash;Score</em> als <span class="math">\(\frac{degree(word)}{freq(word)}\)</span>
+berechnet. Der von <em>libmunin</em> berechnete <em>Score</em> gewichtet die Wortfrequenz
+stärker. Der Exponent von <span class="math">\(1.6\)</span> wurde willkürlich nach einigen Tests
+gewählt: Mit diesem Exponent erscheint der Schlüsselphrase <em>Yellow Submarine</em>
+an erster Stelle im Liedtext von <em>,,Yellow Submarine&quot;</em> der <em>Beatles</em>.</li>
+<li>Da sich viele Ausdrücke in Liedtexten wiederholen kamen während der
+Entwicklung viele Schlüsselphrasen in verschiedenen Variationen mehrmals vor.
+Oft waren diese dann eine Untermenge einer anderen Schlüsselphrase (Beispiel:
+<em>Yellow</em> und <em>Submarine</em> sind ein Teil von <em>Yellow Submarine</em>). Daher werden
+in einem nachgelagerten Schritt diese redundante Phrasen entfernt.</li>
+</ul>
+<p><em>Vergleich der einzelnen Schlüsselphrasenmengen:</em></p>
+<p>Die einzelnen Mengen von Schlüsselphrasen werden unter der Prämisse verglichen,
+dass exakte Übereinstimmungen selten sind.</p>
+<ul>
+<li><p class="first">Zu einem Drittel geht der Vergleich der Sprache in die Distanz ein. Ist die
+Sprache gleich so wird hier eine Teildistanz von <span class="math">\(1.0\)</span> angeommen,
+andernfalls ist die Gesamtdistanz <span class="math">\(0.0\)</span>, da dann auch ein Vergleich der
+einzelnen Schlüsselphrasen nicht mehr sinnvoll ist.</p>
+</li>
+<li><p class="first">Die restlichen zwei Drittel errechnen sich aus der Übereinstimmung der
+Schlüsselphrasen. Für zwei Schlüsselphrasen <em>A</em> und <em>B</em> errechnet sich die
+Distanz folgendermaßen:</p>
+<div class="math">
+\[1 - \frac{\vert A\cup B\vert}{max(\vert A\vert, \vert B\vert)}\]</div>
+<p>Alle Schlüsselphrasen werden damit untereinander verglichen. Die minimalste
+dabei gefundene Distanz ist die finale Teildistanz.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="ergebnisse">
+<h3>4.3.3 Ergebnisse<a class="headerlink" href="#ergebnisse" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="table-keywords">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="30%" />
+<col width="15%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center">Score</th>
+<th class="headalign-center">Schlüsselphrasen <em>(Wandern)</em></th>
+<th class="headalign-center">Score</th>
+<th class="headalign-center">Schlüsselphrasen <em>(Yellow Submarine)</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><span class="math">\(9.333\)</span></td>
+<td class="align-center"><em>gerne  stille  stehn</em></td>
+<td class="align-center"><span class="math">\(22.558\)</span></td>
+<td class="align-center"><em>yellow  submarin</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.778\)</span></td>
+<td class="align-center"><em>wandern</em></td>
+<td class="align-center"><span class="math">\(20.835\)</span></td>
+<td class="align-center"><em>full  speed  ahead  mr</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.442\)</span></td>
+<td class="align-center"><em>müllers  lust</em></td>
+<td class="align-center"><span class="math">\(8.343\)</span></td>
+<td class="align-center"><em>live  beneath</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.247\)</span></td>
+<td class="align-center"><em>müde  drehn</em></td>
+<td class="align-center"><span class="math">\(5.247\)</span></td>
+<td class="align-center"><em>band  begin</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.204\)</span></td>
+<td class="align-center"><em>niemals  fiel</em></td>
+<td class="align-center"><span class="math">\(3.297\)</span></td>
+<td class="align-center"><em>sea</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.204\)</span></td>
+<td class="align-center"><em>herr  meister</em></td>
+<td class="align-center"><span class="math">\(3.227\)</span></td>
+<td class="align-center"><em>green</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.204\)</span></td>
+<td class="align-center"><em>frau  meisterin</em></td>
+<td class="align-center"><span class="math">\(2.797\)</span></td>
+<td class="align-center"><em>captain</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.074\)</span></td>
+<td class="align-center"><em>muntern  reihn</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>sail</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(5.031\)</span></td>
+<td class="align-center"><em>schlechter  müller</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>blue</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(5.031\)</span></td>
+<td class="align-center"><em>wanderschaft  bedacht</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>cabl</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(3.430\)</span></td>
+<td class="align-center"><em>wasser</em></td>
+<td class="align-center"><span class="math">\(2.551\)</span></td>
+<td class="align-center"><em>life</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(3.430\)</span></td>
+<td class="align-center"><em>steine</em></td>
+<td class="align-center"><span class="math">\(2.516\)</span></td>
+<td class="align-center"><em>sky</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>tanzen</em></td>
+<td class="align-center"><span class="math">\(2.516\)</span></td>
+<td class="align-center"><em>aye</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>frieden</em></td>
+<td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>friend</em></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>gelernt</em></td>
+<td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>aboard</em></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>schwer</em></td>
+<td class="align-center"><span class="math">\(2.016\)</span></td>
+<td class="align-center"><em>boatswain</em></td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Extrahierte Schlüsselphrasen aus dem Volkslied
+,,Das Wandern ist des Müllers Lust“ (links) und dem
+Beatles&ndash;Song ,,Yellow Submarine“ (rechts).</p>
+</center></div><div class="figure align-center" id="table-lyrics-wandern">
+<span id="table-keywords"></span><center><table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td class="align-center">Das Wandern ist des Müllers Lust,</td>
+<td class="align-center">Das sehn wir auch den Rädern ab,</td>
+</tr>
+<tr class="row-even"><td class="align-center">Das Wandern!</td>
+<td class="align-center">Den Rädern!</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das muß ein schlechter Müller sein,</td>
+<td class="align-center"><br /></td>
+</tr>
+<tr class="row-even"><td class="align-center">Dem niemals fiel das Wandern ein,</td>
+<td class="align-center">Die gar nicht gerne stille stehn,</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das Wandern.</td>
+<td class="align-center">Die Steine selbst, so schwer sie sind,</td>
+</tr>
+<tr class="row-even"><td class="align-center"><br /></td>
+<td class="align-center">Die Steine!</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Vom Wasser haben wir’s gelernt,</td>
+<td class="align-center">Sie tanzen mit den muntern Reihn</td>
+</tr>
+<tr class="row-even"><td class="align-center">Vom Wasser!</td>
+<td class="align-center">Und wollen gar noch schneller sein,</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das hat nicht Rast bei Tag und Nacht,</td>
+<td class="align-center">Die Steine.</td>
+</tr>
+<tr class="row-even"><td class="align-center">Ist stets auf Wanderschaft bedacht,</td>
+<td class="align-center"><br /></td>
+</tr>
+<tr class="row-odd"><td class="align-center">Das Wasser.</td>
+<td class="align-center">O Wandern, Wandern, meine Lust,</td>
+</tr>
+<tr class="row-even"><td class="align-center"><br /></td>
+<td class="align-center">O Wandern!</td>
+</tr>
+<tr class="row-odd"><td class="align-center">Die sich mein Tag nicht müde drehn,</td>
+<td class="align-center">Herr Meister und Frau Meisterin,</td>
+</tr>
+<tr class="row-even"><td class="align-center">Die Räder.</td>
+<td class="align-center">Laßt mich in Frieden weiter ziehn</td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>(oben rechts weiter)</em></td>
+<td class="align-center">Und wandern.</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.</p>
+</center></div><p id="table-lyrics-wandern">In Abb.  sind die extrahierten Schlüsselphrasen aus zwei
+Liedern aufgelistet.</p>
+<p>Zur Referenz ist unter Abb.  der Liedtextes des
+Volkliedes ,,Das Wandern ist des Müllers Lust&quot; abgedruckt. Der Text von
+<em>,,Yellow Subarmine&quot;</em> wird aus möglichen lizenzrechtlichen Gründen hier nicht
+abgedruckt.</p>
+<p>Wie man in Abb.  sieht, werden längere phrasen automatisch
+besser bewertet &mdash; deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
+Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
+noch in das Ergebniss aufgenommen werden.</p>
+</div>
+<div class="section" id="id6">
+<h3>4.3.4 Probleme<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Teilweise liefert diese Provider&ndash;Distanzfunktions&ndash;Kombination bereits
+interessante Ergebnisse. So werden die beiden staatskritischen, deutschen Texte
+<em>,,Hey Staat&quot;</em> von <em>Hans Söllner</em> und <em>,,Lieber Staat&quot;</em> von <em>Farin Urlaub</em> mit
+einer relativ niedrigen Distanz von gerundet <span class="math">\(0.4\)</span> bewertet.</p>
+<p>Doch nicht bei allen Texten funktioniert die Extrahierung so gut. Nimmt man den
+Ausdruck <em>,,God save the Queen!&quot;</em>, so wird <em>RAKE</em> diesen nicht als gesamten
+Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert:
+<em>,,God save&quot;</em> und <em>,,Queen&quot;</em>, da <em>the</em> ein einglisches Stoppwort ist.</p>
+<p>Andererseits entstehen auch oft Schlüsselphrasen, die entweder unwichtig <em>(,,mal
+echt&quot;)</em>, sinnentfremdet () oder stark kontextspezifisch () sind. Da ein Computer
+den Text nicht verstehen kann, lässt sich das kaum vermeiden.</p>
+<p>Auch gemischtsprachige Liedtexte lassen sich nur schwer untersuchen, da immer
+nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
+(wie von <em>Hans Söllner</em>) greift auch die normale hochdeutsche Stoppowortliste
+nicht.</p>
+</div>
+</div>
+<div class="section" id="moodbar">
+<h2>4.4 Moodbar<a class="headerlink" href="#moodbar" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>4.4.1 Problemstellung<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (siehe
+<a class="reference internal" href="../zzz_bibliography.html#wood2005techniques" id="id8">[4]</a> für genauere Informationen) wird in <em>libmunin</em> neben
+der Beats&ndash;Per&ndash;Minute Bestimmung als einfache Form der
+Audioanalyse eingesetzt. Kurz zusammengefasst wird dabei ein beliebiges
+Audiostück zeitlich in 1000 Blöcke unterteilt. Für jeden dieser Blöcke wird ein
+Farbwert (als RGB&ndash;Tripel) bestimmt. Der Rotanteil bestimmt dabei den Anteil
+niedriger Frequenzen, der Grünanteil die mittleren Frequenzen und der Blauanteil
+die hohen Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere
+Frequenzen in einem Block hin &mdash; E&ndash;Gitarren haben häufig diese Farbe in der
+Moodbar. Akustikgitarren erscheinen dafür meist in einem dunklem Rot.</p>
+<p>Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
+keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
+Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
+Autors sollte man das Verfahren daher eher <em>,,frequencebar&quot;</em> oder ähnliches
+nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
+Namensgebung des Erfinders verwendet.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/mood_avril.svg"><img alt="Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“" src="../../_images/mood_avril.svg" width="100%" /></a>
+<p class="caption">Beispiel&ndash;Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
+Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
+im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
+durch ein eigens zu diesem Zwekc geschriebenes Script gerendert. Deutlich
+sichtbar sind die einzelnen Pausen zwischen den Akkorden.</p>
+</div>
+</div>
+<div class="section" id="vergleich-von-moodbars">
+<h3>4.4.2 Vergleich von Moodbars<a class="headerlink" href="#vergleich-von-moodbars" title="Permalink to this headline">¶</a></h3>
+<p>Das Vergleichen verschiedener Moodbars gestaltet sich aufgrund der hohen
+Länge der einzelnen RGB&ndash;Vektoren als schwierig. In einem vorgelagerten
+Analyseschritt wird daher versucht, die markanten Merkmale der einzelnen
+Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
+Moodbar&ndash;Provider getätigt.</p>
+<p>Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
+aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
+ursprüngliche 1000 Werte lange Vektor in momentan 20 einzelne, <em>handlichere</em>
+Werte aufteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
+das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend
+sollte.</p>
+<p>Nach einigen subjektiven Tests haben sich folgende Merkmale als <em>vergleichbar</em>
+erwiesen:</p>
+<ul>
+<li><p class="first"><strong>Differenzsumme:</strong> Für jeden Farbkanal wird die Summe der Differenzen zu den
+jeweiligen vorherigen Blockwert gebildet:</p>
+<div class="math">
+\[\sum_{i=1}^{\vert C\vert} \vert C_{i} - C_{i-1}\vert \text{\,\,\,(C ist der Farbkanal)}\]</div>
+<p>Dieser Wert soll die grobe <em>,,Sprunghaftigkeit&quot;</em> des Liedes beschreiben.
+Ändern sich die Werte für diesen Farbkanal kaum, so ist der Wert niedrig.
+Liegen hohe Änderungen zwischen jedem Block vor, so steigt dieser Wert bis zu
+seinem Maximalen Wert von <span class="math">\((20 - 1) \times 255 = 4845\)</span>.</p>
+</li>
+<li><p class="first"><strong>Histogramm:</strong> Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
+Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von 5 möglichen
+Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.
+So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
+der Frequenzen abgespeichert.</p>
+</li>
+<li><p class="first"><strong>Dominaten Farben:</strong> Wie bereits erwähnt, ist es manchmal möglich bestimmte
+Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
+kann man sich beim Vergleichen zu Nutze machen, denn ähnliche Instrumente
+(ergo bestimmte, charakteristische Farben) deuten auf ähnliche Musikstile hin.
+Der Moodbar&ndash;Provider teilt daher jeden Farbkanal in 15er&ndash;Schritten in
+einzelne Bereiche auf. Jede Farbkombination wird dann einem dieser Bereich
+zugeordnet. Die 15 am häufigsten zusammen vorkommenden Tripel werden
+abgespeichert.</p>
+</li>
+<li><p class="first"><strong>Schwarzanteil:</strong> Gesondert werden sehr dunklen Farben behandelt. Haben
+alle Farbkanäle eines RGB&ndash;Tripels einen Wert kleiner 30, so wird die Farbe
+nicht gezählt, sondern auf einen <em>Schwarzanteil</em>&ndash;Zähler aufaddiert.
+Geteilt durch 1000 ergibt sich daraus der Anteil des Liedes, das</p>
+</li>
+<li><p class="first"><strong>Durschnittliches Minimun/Maximum:</strong> Für jeden Block wird das Minimum/Maximum
+aller 3 Farbkanäle bestimmt. Die Summe über jeden so bestimmten Wert, geteilt
+durch die Anzahl der Blöcke ergibt das durschnittliche Minimun/Maximum. Die
+Werte, die zwischen 0 und 255 liegen, sagen aus, in welchem Bereich sich die
+Frequenzen im Lied für gewöhnlich bewegen.</p>
+</li>
+</ul>
+<div class="figure align-center" id="table-moodbar-list">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="17%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center">Name</th>
+<th class="headalign-center">Gewichtung</th>
+<th class="headalign-center"><em>ungewichtete</em> Distanzfunktion <span class="math">\(d(a, b)\)</span></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><em>Differenzsumme</em></td>
+<td class="align-center"><span class="math">\(13,5\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>Histogramm</em></td>
+<td class="align-center"><span class="math">\(13,5\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \frac{\sum_{x}^{\vv{a} - \vv{b}}\vert x\vert}{5 \times 255}\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>Dominante Farben</em></td>
+<td class="align-center"><span class="math">\(63,0\%\)</span></td>
+<td class="align-center"><span class="math">\(\frac{\vert a \cup b\vert}{max(\vert a \vert, \vert b \vert)}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>Schwarzanteil</em></td>
+<td class="align-center"><span class="math">\(5,0\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>Durchschnittliches Minimum/Maximum</em></td>
+<td class="align-center"><span class="math">\(5,0\%\)</span></td>
+<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{255}}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center">&nbsp;</td>
+<td class="align-center"><span class="math">\(\sum 100\%\)</span></td>
+<td class="align-center">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p class="caption">Auflistung der einzelnen Werte die der Moodbar&ndash;Provider
+ausliest und deren dazugehörige Distanzfunktion, sowie deren
+Gewichtung in der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit
+Ausnahme der Histogramm&ndash;Eingabewerte. Dort sind ,,a“ und ,,b“
+die einzelnen Farbkanäle als Vektor. Zur Bildung der Gesamtdistanz
+werden die einzelnen Werte über einen gewichteten Mittelwert
+verschmolzen.</p>
+</center></div><p id="table-moodbar-list">In  wird eine Auflistung der einzelnen Werte gegeben,
+die der Moodbar&ndash;Provider generiert. Daneben werden auch die entsprechenden
+Gewichtungen und Distanzfunktionen gegeben, mit dem die
+Moodbar&ndash;Distanzfunktion, die einzelnen Werte verrechnet.</p>
+<p>Am subjektiv <em>vergleichbarsten</em> erwiesen sich die dominanten Farben in einem
+Lied. Die zwischenzeitlich aufgekommene Idee bestimmte markante Farbwertbereiche
+bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
+extrem ungenau.</p>
+</div>
+<div class="section" id="id9">
+<h3>4.4.3 Probleme<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="fig-mood-yellow-submarine">
+<a class="reference internal image-reference" href="../../_images/mood_yellow_submarine.svg"><img alt="Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten." src="../../_images/mood_yellow_submarine.svg" width="100%" /></a>
+<p class="caption">Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
+Beatles&ndash;Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
+mit relativ stark komprimierter MP3&ndash;Enkodierung. Die von libmunin
+berechnete Distanz ist hier etwa 0.01.</p>
+</div>
+<div class="figure align-center" id="fig-mood-rammstein-tier">
+<a class="reference internal image-reference" href="../../_images/mood_rammstein_tier.svg"><img alt="Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“" src="../../_images/mood_rammstein_tier.svg" width="100%" /></a>
+<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &mdash; Tier“. Oben
+die Studioversion, unten die Liveversion.  Hier ist die von libmunin
+errechnete Distanz immerhin bei 0.32.</p>
+</div>
+<p>Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum Vergleichen von
+Audiodaten ausgelegt war und vom Autor lediglich dafür <em>,,missbraucht&quot;</em> wurde.
+Wichtige Informationen wie die eigentliche Stimmung in dem Lied (von dunkel bis
+positiv) bis hin zur Rhythmus des Liedes.. Lediglich die durchschnittliche
+Geschwindigkeit wird vom BeatsPerMinute&ndash;Provider erfasst.  Daher ist der
+Moodbar&ndash;Provider momentan eher als <em>Notbehelf</em> zu sehen.</p>
+<p>Zudem ist die Geschwindigkeit der Audioanalyse eher dürftig. Geht das
+Analysieren des RGB&ndash;Vektors an sich vergleichsweise schnell, so ist die
+Generierung desselben zeitlich aufwendig. Bei MP3&ndash;enkodierten Dateien dauerst
+dies, je nach Größe, bis zu 4 Sekunden. Die Dauer variiert dabei je nach Format.
+FLAC&ndash;enkodierte Dateien brauchen oft lediglich die Hälfte dieser Zeit. In
+beiden Fällen ist die Anwendung bei einer mehreren zehntausend Lieder
+umfassenden Sammlung aufwendig.</p>
+<p>Vorteile sind hingegen:</p>
+<ul class="simple">
+<li><strong>Robustheit:</strong> Wie man in  sieht, ist das
+Verfahren relativ umempfdindlich gegen verschieden Enkodierungen. Selbst Live
+und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
+).</li>
+<li><strong>Geringerer Speicherverbrauch:</strong> Obwohl für die Implementierung die relativ
+speicherhungrige Sprache Python benutzt wurde, nutzt der Moodbar&ndash;Provider
+lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen -10 bis
+255 im Speicher hält und der Moodbar&ndash;Provider nur Zahlen in diesem Bereich
+erzeugt reichen hier 8 Byte für eine Referenz auf einen Integer aus.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../5_learning/index.html" class="btn btn-neutral float-right" title="5 Implizites Lernen"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../3_graphops/index.html" class="btn btn-neutral" title="3 Graphenoperationen"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

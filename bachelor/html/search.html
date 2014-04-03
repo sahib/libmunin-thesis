@@ -18,22 +18,6 @@
 
   
   
-
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:'./',
-        VERSION:'0.1',
-        COLLAPSE_INDEX:false,
-        FILE_SUFFIX:'.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
-
     
 
   
@@ -41,17 +25,10 @@
   
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
   
     <link rel="top" title="Projektarbeit" href="index.html"/>
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-  
 
 <!-- Include all CSS and JS files, let's you use your own theme. -->
 
@@ -80,27 +57,29 @@
 </script>
 
 
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="rst/index.html" class="icon icon-home"> Projektarbeit</a>
-        <form class="wy-form" action="#" method="get">
-  <input type="text" name="q" placeholder="Search docs" />
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
+        <a href="rst/index.html" class="fa fa-home"> Projektarbeit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
             <ul>
@@ -109,43 +88,50 @@
 <li class="toctree-l1"><a class="reference internal" href="rst/dedication.html">Widmung</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rst/I/index.html">1 Überleitung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst/II/index.html">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/II/index.html#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/1_intro/index.html">1 Überleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/III/index.html">3 Algorithmen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/III/index.html#genre-normalisierung-und-vergleich">3.1 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/2_einleitung/index.html">2 Einstieg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/3_graphops/index.html">3 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/3_graphops/index.html#id1">3.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/3_graphops/index.html#graphentraversierung">3.2 Graphentraversierung</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/IV/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#rebuild-aufbau-des-graphen">4.1 <tt class="docutils literal"><span class="pre">rebuild:</span></tt> Aufbau des Graphen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#fixing-umbauen-von-einbahnstraszen">4.2 <tt class="docutils literal"><span class="pre">fixing:</span></tt> Umbauen von Einbahnstraßen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#add-hinzufugen-von-songs-vor-dem-rebuild">4.3 <tt class="docutils literal"><span class="pre">add:</span></tt> Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#remove-loschen-von-songs-zur-laufzeit">4.4 <tt class="docutils literal"><span class="pre">remove:</span></tt> Löschen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#insert-hinzufugen-von-songs-zur-laufzeit">4.5 <tt class="docutils literal"><span class="pre">insert:</span></tt> Hinzufügen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#modify-verandern-der-songattribute-zur-laufzeit">4.6 <tt class="docutils literal"><span class="pre">modify:</span></tt> Verändern der Songattribute zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/IV/index.html#ablauf-beim-hinzufugen-einer-distanz">4.7 Ablauf beim Hinzufügen einer Distanz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/4_provider/index.html">4 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/4_provider/index.html#einleitung">4.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/4_provider/index.html#genre-normalisierung-und-vergleich">4.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/4_provider/index.html#schlusselphrasen-extrahierung">4.3 Schlüsselphrasen&ndash;Extrahierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/4_provider/index.html#moodbar">4.4 Moodbar</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/V/index.html">5 Implizites und explizites Lernen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst/VI/index.html">6 Evaluation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/VI/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/VI/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/5_learning/index.html">5 Implizites Lernen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/5_learning/index.html#generierung-von-regeln">5.1 Generierung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/5_learning/index.html#anwenden-von-regeln">5.2 Anwenden von Regeln</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rst/VII/index.html">7 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/VII/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/VII/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/VII/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/VII/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/6_evaluation/index.html">6 Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/6_evaluation/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/6_evaluation/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/6_evaluation/index.html#sonstiges">6.3 Sonstiges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rst/7_outro/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/7_outro/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/7_outro/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/7_outro/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/7_outro/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rst/appendix.html">Graphenbilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/appendix.html">Bilder des Song&ndash;Graphen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rst/appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst/appendix.html#anhang-c">Anhang C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -158,23 +144,28 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top">
-        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
-        <a href="/">Projektarbeit</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="rst/index.html">Projektarbeit</a>
       </nav>
 
 
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          <ul class="wy-breadcrumbs">
-  <li><a href="rst/index.html">Docs</a> &raquo;</li>
-  <li><a href=""></a></li>
-  
-</ul>
-<hr/>
-
-          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="rst/index.html">Docs</a> &raquo;</li>
+      
+    <li></li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
   <noscript>
   <div id="fallback" class="admonition warning">
     <p class="last">
@@ -189,16 +180,19 @@
   
   </div>
 
+          </div>
           <footer>
   
 
   <hr/>
 
-  <p>
-      &copy; Copyright by Christopher Pahl, 2013-2014..
-  </p>
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+    </p>
+  </div>
 
-  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
         </div>
       </div>
@@ -207,6 +201,47 @@
 
   </div>
   
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="_static/searchtools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
+   
+
 
 </body>
 </html>

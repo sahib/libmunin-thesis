@@ -18,21 +18,6 @@
 
   
   
-
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:'../',
-        VERSION:'0.1',
-        COLLAPSE_INDEX:false,
-        FILE_SUFFIX:'.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
     
 
   
@@ -40,7 +25,6 @@
   
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-    <script type="text/javascript" src="_static/js/theme.js"></script>
   
 
   
@@ -74,26 +58,29 @@
 </script>
 
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="icon icon-home"> Projektarbeit</a>
-        <form class="wy-form" action="../search.html" method="get">
-  <input type="text" name="q" placeholder="Search docs" />
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
+        <a href="#" class="fa fa-home"> Projektarbeit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
             <ul>
@@ -102,43 +89,50 @@
 <li class="toctree-l1"><a class="reference internal" href="dedication.html">Widmung</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="I/index.html">1 Überleitung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="II/index.html">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="II/index.html#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_intro/index.html">1 Überleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Algorithmen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#genre-normalisierung-und-vergleich">3.1 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_einleitung/index.html">2 Einstieg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_graphops/index.html">3 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_graphops/index.html#id1">3.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_graphops/index.html#graphentraversierung">3.2 Graphentraversierung</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#rebuild-aufbau-des-graphen">4.1 <tt class="docutils literal"><span class="pre">rebuild:</span></tt> Aufbau des Graphen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#fixing-umbauen-von-einbahnstraszen">4.2 <tt class="docutils literal"><span class="pre">fixing:</span></tt> Umbauen von Einbahnstraßen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#add-hinzufugen-von-songs-vor-dem-rebuild">4.3 <tt class="docutils literal"><span class="pre">add:</span></tt> Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#remove-loschen-von-songs-zur-laufzeit">4.4 <tt class="docutils literal"><span class="pre">remove:</span></tt> Löschen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#insert-hinzufugen-von-songs-zur-laufzeit">4.5 <tt class="docutils literal"><span class="pre">insert:</span></tt> Hinzufügen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#modify-verandern-der-songattribute-zur-laufzeit">4.6 <tt class="docutils literal"><span class="pre">modify:</span></tt> Verändern der Songattribute zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#ablauf-beim-hinzufugen-einer-distanz">4.7 Ablauf beim Hinzufügen einer Distanz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_provider/index.html">4 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#einleitung">4.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#genre-normalisierung-und-vergleich">4.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#schlusselphrasen-extrahierung">4.3 Schlüsselphrasen&ndash;Extrahierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#moodbar">4.4 Moodbar</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Implizites und explizites Lernen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Evaluation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_learning/index.html">5 Implizites Lernen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#generierung-von-regeln">5.1 Generierung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#anwenden-von-regeln">5.2 Anwenden von Regeln</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="VII/index.html">7 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_evaluation/index.html">6 Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_evaluation/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_evaluation/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_evaluation/index.html#sonstiges">6.3 Sonstiges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_outro/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">Graphenbilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Bilder des Song&ndash;Graphen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html#anhang-c">Anhang C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -151,23 +145,30 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top">
-        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
-        <a href="/">Projektarbeit</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Projektarbeit</a>
       </nav>
 
 
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          <ul class="wy-breadcrumbs">
-  <li><a href="#">Docs</a> &raquo;</li>
-  <li><a href="">libmunin: <br /> Projektarbeit</a></li>
-  
-</ul>
-<hr/>
-
-          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>libmunin: <br /> Projektarbeit</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/rst/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
   <div class="section" id="libmunin-br-projektarbeit">
 <span id="doc-title"></span><h1>libmunin: <br /> Projektarbeit<a class="headerlink" href="#libmunin-br-projektarbeit" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="praambel">
@@ -185,52 +186,78 @@
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="I/index.html">1 Überleitung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="II/index.html">2 Einstieg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="II/index.html#warum-uberhaupt">2.1 Warum überhaupt?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_intro/index.html">1 Überleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="III/index.html">3 Algorithmen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="III/index.html#genre-normalisierung-und-vergleich">3.1 Genre-Normalisierung und Vergleich</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#problemstellung">3.1.1 Problemstellung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#zusammenstellung-der-gernedatenbank">3.1.2 Zusammenstellung der Gernedatenbank</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#uberfuhrung-der-genreliste-in-einem-genrebaum">3.1.3 Überführung der Genreliste in einem Genrebaum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#matching-von-genres">3.1.4 Matching von Genres</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#vergleichen-der-unterschiedlichen-genre-pfade-mengen">3.1.5 Vergleichen der unterschiedlichen Genre-Pfade-Mengen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#probleme">3.1.6 Probleme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#keword-extraction">3.1.7 Keword Extraction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#rule-generation">3.1.8 Rule Generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#graph-generation">3.1.9 Graph Generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#distance-add">3.1.10 distance_add</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#graphenoperationen">3.1.11 Graphenoperationen</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#graphentraversierung">3.1.12 Graphentraversierung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#sieving-algorithm">3.1.13 Sieving Algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="III/index.html#various-providers">3.1.14 Various Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_einleitung/index.html">2 Einstieg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_graphops/index.html">3 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_graphops/index.html#id1">3.1 Graphenoperationen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#rebuild-aufbau-des-graphen">3.1.1 <tt class="docutils literal"><span class="pre">rebuild:</span></tt> Aufbau des Graphen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#fixing-umbauen-von-einbahnstraszen">3.1.2 <tt class="docutils literal"><span class="pre">fixing:</span></tt> Umbauen von Einbahnstraßen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#add-hinzufugen-von-songs-vor-dem-rebuild">3.1.3 <tt class="docutils literal"><span class="pre">add:</span></tt> Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#remove-loschen-von-songs-zur-laufzeit">3.1.4 <tt class="docutils literal"><span class="pre">remove:</span></tt> Löschen von Songs zur Laufzeit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#insert-hinzufugen-von-songs-zur-laufzeit">3.1.5 <tt class="docutils literal"><span class="pre">insert:</span></tt> Hinzufügen von Songs zur Laufzeit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#modify-verandern-der-songattribute-zur-laufzeit">3.1.6 <tt class="docutils literal"><span class="pre">modify:</span></tt> Verändern der Songattribute zur Laufzeit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#ablauf-beim-hinzufugen-einer-distanz">3.1.7 Ablauf beim Hinzufügen einer Distanz</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_graphops/index.html#graphentraversierung">3.2 Graphentraversierung</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#empfehlungsiteratoren">3.2.1 Empfehlungsiteratoren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#anwendung-von-regeln">3.2.2 Anwendung von Regeln</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_graphops/index.html#filtern-der-iteratoren">3.2.3 Filtern der Iteratoren</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="IV/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#rebuild-aufbau-des-graphen">4.1 <tt class="docutils literal"><span class="pre">rebuild:</span></tt> Aufbau des Graphen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#fixing-umbauen-von-einbahnstraszen">4.2 <tt class="docutils literal"><span class="pre">fixing:</span></tt> Umbauen von Einbahnstraßen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#add-hinzufugen-von-songs-vor-dem-rebuild">4.3 <tt class="docutils literal"><span class="pre">add:</span></tt> Hinzufügen von Songs vor dem <tt class="docutils literal"><span class="pre">rebuild</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#remove-loschen-von-songs-zur-laufzeit">4.4 <tt class="docutils literal"><span class="pre">remove:</span></tt> Löschen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#insert-hinzufugen-von-songs-zur-laufzeit">4.5 <tt class="docutils literal"><span class="pre">insert:</span></tt> Hinzufügen von Songs zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#modify-verandern-der-songattribute-zur-laufzeit">4.6 <tt class="docutils literal"><span class="pre">modify:</span></tt> Verändern der Songattribute zur Laufzeit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IV/index.html#ablauf-beim-hinzufugen-einer-distanz">4.7 Ablauf beim Hinzufügen einer Distanz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_provider/index.html">4 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#einleitung">4.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#genre-normalisierung-und-vergleich">4.2 Genre-Normalisierung und Vergleich</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#problemstellung">4.2.1 Problemstellung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#zusammenstellung-der-gernedatenbank">4.2.2 Zusammenstellung der Gernedatenbank</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#uberfuhrung-der-genreliste-in-einem-genrebaum">4.2.3 Überführung der Genreliste in einem Genrebaum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#matching-von-genres">4.2.4 Matching von Genres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#vergleichen-der-unterschiedlichen-genre-pfade-mengen">4.2.5 Vergleichen der unterschiedlichen Genre-Pfade-Mengen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#probleme">4.2.6 Probleme</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="V/index.html">5 Implizites und explizites Lernen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VI/index.html">6 Evaluation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VI/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#schlusselphrasen-extrahierung">4.3 Schlüsselphrasen&ndash;Extrahierung</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#id3">4.3.1 Problemstellung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#der-rake-algorithmus">4.3.2 Der RAKE Algorithmus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#ergebnisse">4.3.3 Ergebnisse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#id6">4.3.4 Probleme</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="VII/index.html">7 Zusammenfassung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VII/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#moodbar">4.4 Moodbar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#id7">4.4.1 Problemstellung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#vergleich-von-moodbars">4.4.2 Vergleich von Moodbars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_provider/index.html#id9">4.4.3 Probleme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_learning/index.html">5 Implizites Lernen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#generierung-von-regeln">5.1 Generierung von Regeln</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_learning/index.html#frequent-itemsets">5.1.1 Frequent Itemsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_learning/index.html#ableitung-von-regeln-aus-frequent-itemsets">5.1.2 Ableitung von Regeln aus Frequent Itemsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_learning/index.html#relim">5.1.3 RELIM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#anwenden-von-regeln">5.2 Anwenden von Regeln</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_evaluation/index.html">6 Evaluation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_evaluation/index.html#allgemeine-hinweise-fur-entwickler">6.1 Allgemeine Hinweise für Entwickler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_evaluation/index.html#vergleich-verschiedener-playlisten">6.2 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_evaluation/index.html#sonstiges">6.3 Sonstiges</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_outro/index.html">7 Zusammenfassung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#erweiterung-der-algorithm">7.2 Erweiterung der Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#probleme-aktueller-algorithmen">7.3 Probleme aktueller Algorithmen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_outro/index.html#vergleich-von-zufalligen-playlisten-mit-libmunins-playlisten-mit-last-fm-playlists">7.4 Vergleich von zufälligen Playlisten mit libmunins Playlisten mit last.fm playlists</a></li>
 </ul>
 </li>
 </ul>
@@ -275,9 +302,12 @@
 </table>
 </center></div><div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">Graphenbilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Bilder des Song&ndash;Graphen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html#anhang-c">Anhang C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
 </ul>
@@ -294,11 +324,12 @@ lizensiert:</p>
 </div>
 
 
+          </div>
           <footer>
   
-    <div class="rst-footer-buttons">
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="abstract.html" class="btn btn-neutral float-right" title="Abstract"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="abstract.html" class="btn btn-neutral float-right" title="Abstract"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -306,11 +337,13 @@ lizensiert:</p>
 
   <hr/>
 
-  <p>
-      &copy; Copyright by Christopher Pahl, 2013-2014..
-  </p>
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+    </p>
+  </div>
 
-  <a href="https://www.github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="http://readthedocs.org">Read the Docs</a>
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
         </div>
       </div>
@@ -319,6 +352,39 @@ lizensiert:</p>
 
   </div>
   
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
 
 </body>
 </html>

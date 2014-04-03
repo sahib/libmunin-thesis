@@ -24,16 +24,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="550.81014"
-     inkscape:cy="199.6274"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="327.49946"
+     inkscape:cy="-127.09228"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1888"
-     inkscape:window-height="1028"
-     inkscape:window-x="12"
-     inkscape:window-y="32"
+     inkscape:window-width="1916"
+     inkscape:window-height="1037"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
      inkscape:window-maximized="0" />
   <defs
      id="defs4">
@@ -111,7 +111,7 @@
      inkscape:groupmode="layer"
      inkscape:label="Ebene 1">
     <rect
-       style="opacity:1;fill:none;stroke:#c8c8c8;stroke-width:3.37358713000000021;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:1;fill:#ff2a2a;stroke:#c8c8c8;stroke-width:3.37358713000000021;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:0.19607843000000000"
        id="rect12561"
        width="380.46408"
        height="130.95641"
@@ -231,7 +231,7 @@
        height="148.01721"
        width="380.25208"
        id="rect12559"
-       style="opacity:1;fill:none;stroke:#646464;stroke-width:3.58561491999999982;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="opacity:1;fill:#ffd42a;stroke:#646464;stroke-width:3.58561491999999982;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:0.19607843000000000" />
     <path
        style="fill:none;stroke:#000000;stroke-width:3.78500009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 12.131695,927.36214 141.532105,98.74936 140.23078,0"
@@ -239,7 +239,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:3.78527427;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#aad400;stroke:#000000;stroke-width:3.78527426999999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:0.19607843"
        id="rect3769"
        width="380.0524"
        height="165.04707"
