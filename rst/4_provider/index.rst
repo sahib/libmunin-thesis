@@ -101,6 +101,8 @@ Genre-Liste 1876 Einträge lang.
 Überführung der Genreliste in einem Genrebaum
 ---------------------------------------------
 
+TODO: Colors!
+
 .. subfigstart::
 
 .. _fig-tree-input:

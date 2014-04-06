@@ -228,3 +228,40 @@ vom Wurzelknoten entfernt ist, desto oranger wird er (von rot beginnend).
    :align: center
 
    Übersicht über die wichtisten Musikgenres. (Detailstufe: 0.5)
+
+
+Media
+=====
+
+Der Vollständigkeit halber werden hier noch die für *libmunin* erstellten Logos
+abgedruckt. Abbildung :num:`fig-logo` dient dabei eher als Logo für eigene
+Zwecke, während das *Emblem* unter :num:`fig-logo-emblem` von
+Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von *libmunin* in
+ihren Anwendungen hinzuweisen.
+
+.. subfigstart::
+
+.. _fig-logo:
+
+.. figure:: figs/logo.*
+   :width: 40%
+   :alt: Das 
+   :align: center
+
+   Logo im quadratischen Format.
+
+.. _fig-logo-emblem:
+
+.. figure:: figs/logo_emblem.*
+   :width: 80%
+   :alt: Das
+   :align: center
+
+   Logo im breiten Format. 
+ 
+.. subfigend::
+    :width: 1.0
+    :alt: Mögliche logos für libmunin
+    :label: fig-logos
+ 
+    Logos für libmunin. Der dargestellte Vogel stellt Odin's Rabe ,,Munin“ dar.

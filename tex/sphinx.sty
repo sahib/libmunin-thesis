@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
 %%%% Use packages
 
-\RequirePackage[draft]{graphicx}
+% \RequirePackage[draft]{graphicx}
 
 \RequirePackage{esvect}
 
@@ -415,10 +415,10 @@
 \renewcommand{\hyperref}[2][\newdef]{%
     % Oh, god. I fucking hate that.
     \ifthenelse{\pageref{#1}>\pageref{rst/appendix:end-of-doc}}{%
-        \SavedHyperref[{#1}]{#2}\!\!
+        \SavedHyperref[{#1}]{#2\!\!}
     }{%
         \ifthenelse{\pageref{#1}=\pageref{rst/appendix:end-of-doc}}{%
-            \SavedHyperref[{#1}]{#2}\!\!
+            \SavedHyperref[{#1}]{#2\!\!}
         }{%
             \ifthenelse{\pageref{#1}=\thepage}{%
                 \SavedHyperref[{#1}]{#2}

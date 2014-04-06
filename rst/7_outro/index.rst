@@ -37,6 +37,8 @@ Erweiterungen
 - Auch *,,Disklikes"* berücksichtigen --- Also Songs die immer gleich geskippt
   werden. Negatives Rating einführen. Auch negative Assoziationen.
   Wie bei operanter Konditionierung -> Belohnung, Gegenlernen, Vergessen.
+- Einbauen der libmunin Funktionalität in mpd-server oder seperater service.
+  Bisher wird nur die History aufgezeichnet wenn ein Client läuft.
 
 Fazit
 =====
