@@ -7,5 +7,4 @@
     3_graphops/index
     4_provider/index
     5_learning/index
-    6_evaluation/index
-    7_outro/index
+    6_outro/index

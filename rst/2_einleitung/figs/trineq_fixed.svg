@@ -38,12 +38,12 @@
 <!-- A\na=&#39;y&#39;\nb=None&#45;&#45;C\na=&#39;y&#39;\nb=&#39;x&#39; -->
 <g id="edge2" class="edge"><title>A\na=&#39;y&#39;\nb=None&#45;&#45;C\na=&#39;y&#39;\nb=&#39;x&#39;</title>
 <path fill="none" stroke="black" d="M61.7676,-55.1754C78.6923,-49.021 99.687,-41.3866 115.954,-35.4711"/>
-<text text-anchor="middle" x="89" y="-51.8" font-family="Times,serif" font-size="14.00">0.0</text>
+<text text-anchor="middle" x="89" y="-51.8" font-family="Times,serif" font-size="14.00">0.5</text>
 </g>
 <!-- C\na=&#39;y&#39;\nb=&#39;x&#39;&#45;&#45;B\na=None\nb=&#39;x&#39; -->
 <g id="edge3" class="edge"><title>C\na=&#39;y&#39;\nb=&#39;x&#39;&#45;&#45;B\na=None\nb=&#39;x&#39;</title>
 <path fill="none" stroke="black" d="M170.108,-35.581C186.232,-41.4978 206.955,-49.1026 223.647,-55.2281"/>
-<text text-anchor="middle" x="197" y="-51.8" font-family="Times,serif" font-size="14.00">0.0</text>
+<text text-anchor="middle" x="197" y="-51.8" font-family="Times,serif" font-size="14.00">0.5</text>
 </g>
 </g>
 </svg>

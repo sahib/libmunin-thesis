@@ -265,3 +265,5 @@ ihren Anwendungen hinzuweisen.
     :label: fig-logos
  
     Logos für libmunin. Der dargestellte Vogel stellt Odin's Rabe ,,Munin“ dar.
+    Die Grafiken wurde mit Inkscape erstellt und können auf der
+    API--Dokumentation runtergeladen werden (TODO: link).

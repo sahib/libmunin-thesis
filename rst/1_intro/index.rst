@@ -36,4 +36,6 @@ Insbesondere wird auf die wichtigsten Provider und deren Funktionalität
 eingegangen, wie diese sich auf die Distanzfunktionen auswirken und wie aus den
 einzelnen Distanzen der komplette Graph aufgebaut wird. Zudem wird auf die
 Lernfähigkeiten von *libmunin* eingegangen und die von *libmunin* generierten
-Empfehlungen werden näher betrachtet.
+Empfehlungen werden näher betrachtet. Zu jedem vorgestellten Thema werden 
+auch Überlegungen angestellt, welche Verbesserungen in zukünftigen Versionen
+gemacht werden können.
