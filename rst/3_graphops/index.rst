@@ -230,6 +230,95 @@ Index in er internen Songliste.
 Statt wie ``insert`` bereits Verbindungen zu anderen Songs herzustellen, fügt
 diese Operation lediglich einen Song der internen Songliste hinzu. 
 
+.. ///////////////////////////////////
+
+.. subfigstart::
+
+.. _fig-mini-graph-remove-before:
+
+.. figure:: figs/mini_graph_remove_before.png
+    :width: 70%
+    :align: center
+    
+    Vor der remove--Operation.
+
+.. figure:: figs/mini_graph_remove_after.png
+    :width: 70%
+    :align: center
+    
+    Nach der remove--Operation.
+
+.. _fig-mini-graph-remove-after:
+
+.. subfigend::
+    :width: 0.49
+    :alt: Vor und nach der remove--Operation.
+    :label: fig-mini-graph-remove
+
+    Vor (:num:`fig-mini-graph-remove-before`) und nach
+    (:num:`fig-mini-graph-remove-before`) der remove--Operation.
+
+.. -----------------------------------
+
+.. subfigstart::
+
+.. _fig-mini-graph-insert-before:
+
+.. figure:: figs/mini_graph_insert_before.png
+    :width: 70%
+    :align: center
+    
+    Vor der insert--Operation.
+
+.. figure:: figs/mini_graph_insert_after.png
+    :width: 70%
+    :align: center
+    
+    Nach der insert--Operation.
+
+.. _fig-mini-graph-insert-after:
+
+.. subfigend::
+    :width: 0.49
+    :alt: Vor und nach der insert--Operation.
+    :label: fig-mini-graph-insert
+
+    Vor (:num:`fig-mini-graph-insert-before`) und nach
+    (:num:`fig-mini-graph-insert-before`) der insert--Operation.
+
+.. -----------------------------------
+
+.. subfigstart::
+
+.. _fig-mini-graph-modify-before:
+
+.. figure:: figs/mini_graph_modify_before.png
+    :width: 70%
+    :align: center
+    
+    Vor der modify--Operation.
+
+.. figure:: figs/mini_graph_modify_after.png
+    :width: 70%
+    :align: center
+    
+    Nach der modify--Operation.
+
+.. _fig-mini-graph-modify-after:
+
+.. subfigend::
+    :width: 0.49
+    :alt: Vor und nach der modify--Operation.
+    :label: fig-mini-graph-modify
+
+    Vor (:num:`fig-mini-graph-modify-before`) und nach
+    (:num:`fig-mini-graph-modify-before`) der modify--Operation.
+    Es wurden jeweils die Mittelknoten der beiden Inseln mit einem höhren Rating
+    ausgestattet. Dadurch verbinden sich beide und verlieren dafür eine andere
+    Verbindung jeweils.
+
+.. ///////////////////////////////////
+
 ``remove:`` Löschen von Songs zur Laufzeit
 ------------------------------------------
 
@@ -258,10 +347,6 @@ Diese Operation ist äquivalent ``add``. Als Erweiterung fügt ``insert``
 allerdings den durch ``add`` erzeugten Song auch in den Graphen ein und
 verbindet ihn dort. Dazu muss zuerst ein *Punkt* gefunden werden an dem der Song
 passend zu seinen Attributen *eingepasst* werden kann.
-
-.. raw:: latex
-
-   \newpage
 
 Diese *Einpassung* geschieht dabei folgendermaßen:
 

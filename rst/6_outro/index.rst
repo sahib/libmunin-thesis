@@ -11,12 +11,14 @@ Audioanalyse
 - Rumspinnen über libaubio, was möglich ist und wie.
 - Sprache, Intros und Audio intelligent unterscheiden?
 - Performantere Audioanalyse.
+- Mirage Paper erwähnen.
 
 Andere Provider
 ---------------
 
 - Genrebridges: Wie zieht man *grunge* und *rock* zusammen?
 - Datumsgrenzjahre abhängig von Genre.
+- Erkennen von Synonymen in Titeln mittels Wordnets.
 - Einbeziehung der Länge als Provider/Distanz (statistisch untersuchen)
   (http://googleresearch.blogspot.ca/2014/01/explore-history-of-pop-and-punk-jazz.html)
 

@@ -34,23 +34,7 @@ Begriffserklärungen
       wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
       \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
 
-      Assoziationsregeln...
-
-      .. math::
-
-          Rating(A, B) = (1.0 - Kulczynski(A, B)) \cdot ImbalanceRatio(A, B)
-
-      *wobei:* |hfill| *Aussagekraft:*
-             
-          - :math:`Kulczynski(A, B) =  \frac{p(A \vert B) + p(B \vert A)}{2}` |hfill| Güte der Regel
-          - :math:`ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B) \vert}{support(A) + support(B) - support(A \cup B)}` |hfill| Gleichmäßigkeit der Regel
-          - :math:`support(X) = H_n(X)` |hfill|  Absolute Häufigkeit von X in allen Transaktionen
-
-      Mehr dazu in der Bachelorarbeit.    
-
-
-    Distanzfunktion.
-
+    Distanzfunktion
     
       Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
       zwei Songs als Eingabe nimmt und die Distanz zwischen
@@ -140,16 +124,69 @@ Konkrete Hinweise für Entwickler
 *Hinweise zum Schreiben von Distanzfunktionen:*
 
 - Distanzfunktionen sollten versuchen die genannten Eigenschaften einzuhalten.
+- Distanzfunktionen bestehen oft aus einer einzelnen Metrik und einem
+  Fusionierungsverfahren.
 - *Vermeidung von überspezifischen Distanzfunktionen:* 
   Distanzfunktionen sollten nicht versuchen auch sehr schlechte Ähnlichkeiten
   noch zu *belohnen*. -> "Stretching"
 
+Don't
+
+.. code-block:: python
+
+   from munin.distance import DistanceFunction
+
+   class MyDistanceFuntion(DistanceFunction):
+       def do_compute(self, A, B):
+           a, b = A[0], B[0]
+           return abs(a - b) / max(a, b)
+
+Dos
+
+.. code-block:: python
+
+   from munin.distance import DistanceFunction
+
+   class MyDistanceFuntion(DistanceFunction):
+       def do_compute(self, A, B):
+           a, b = A[0], B[0]
+           diff = abs(a - b)
+           if diff < 3:
+              return 1.0  # Zu unterschiedlich.
+
+           return diff / 3
+
+Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
+wenn komplexere Daten 
+
+
 - Defintion der :term:`Distanzfunktion` einhalten.
 
-*Hinweise zum Schreiben von Providern:*
+*Hinweise zum Schreiben von neuen Providern:*
 
-- Provider laufen nur einmal, Distanzfunktionen oft -> komprimieren.
+- Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
+  Präprozessor verstehen der die vom Nutzer eingegebenen Daten auf möglichst
+  einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit die er dafür
+  braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.
 - Unwichtiges weglassen
+- Ist zu erwarten, dass stark redundante Daten eingepflegt werden, dann sollte
+  die Provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür
+  ist der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre
+  eine separate Speicherung desselben nicht sinnvoll. 
+
+.. code-block:: python
+
+ from munin.provider import Provider
+
+ class MyProvider(Provider):
+     def __init__(self):
+         # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
+         Provider.__init__(self, compress=True)
+
+     # Funktion, die bei jeder einzelnen Eingabe aufgerufen wird.
+     def do_compute(self, input_value): 
+         return input_value * 2  # Tue irgendwas mit dem Input.
+
 
 Im Folgenden wird der Aufbau des Graphen näher betrachtet. Danach werden einige
 ausgewählte Provider mit den dazugehörigen Distanzfunktionen erläutert.
@@ -161,68 +198,125 @@ Vergleich verschiedener Playlisten
 ==================================
 
 .. figtable::
-   :alt: Playlist libmunin 
-   :spec: r | l l l 
-   :label: table-playlist-libmunin
-   :caption: Playlist libmunin
+   :alt: Vergleich verschiedener Playlisten  
+   :spec: r | l l r 
+   :label: table-playlists
+   :caption: Vergleich verschiedener, je 15 Lieder langen Playlisten.
+             Die Playlist im oberen Drittel wurde mittels des Seed--Songs (01)
+             erstellt. Die im zweitem Drittel wurde mittels Mirage/Banshee
+             erstellt, die letzte komplett zufällig.
 
-   ==== ======================== ================================ ============
-   *ID* *Künstler*               *Title*                          *Genre*
-   ==== ======================== ================================ ============
-    #01 Marc-Uwe Kling           Scheißverein                     Folk / Pardody     
-    #02 Knorkator                Das Lied                         Rock / Parody
-    #03 Biermösl Blosn           Der Patient                      Brass / Parody
-    #04 In Extremo               Rasend Herz                      Hard Rock
-    #05 Johnny Cash              I'm Bound for the Promised Land  Folk
-    #06 Letzte Instanz           Kartenhaus                       Folk / Rock
-    #07 Knorkator                Konflikt                         Rock / Parody
-    #08 Heaven Shall Burn        Equinox                          Metal
-    #09 Biermösl Blosn           Psalm                            Brass / Parody
-    #10 In Extremo               Liam                             Hard Rock
-    #11 Knorkator                Hardcore                         Rock / Parody
-    #12 Johnny Cash              Solitary Man                     Folk 
-    #13 Letzte Instanz           Rosengarten                      Folk / Rock 
-    #14 The Rolling Stones       Stealing My Heart                Rock 
-    #15 Biermösl Blosn           Off Road                         Brass / Parody
-    #16 Knorkator                Weihnachtsschimpfe               Rock / Parody
-   ==== ======================== ================================ ============
- 
-.. figtable::
-   :alt: Playlist random 
-   :spec: r | l l l l
-   :label: table-playlist-random
-   :caption: Playlist random 
-
-   ==== ========================== =========================== ============
-   *ID* *Künstler*                 *Title*                     *Genre*
-   ==== ========================== =========================== ============
-    #01 Marc-Uwe Kling             Scheißverein                Folk / Parody      
-    #02 Farin Urlaub Racing Team   Niemals                     Rock / Reggae            
-    #03 The Rolling Stones         Happy                       Rock            
-    #04 Die Ärzte                  Herrliche Jahre             Punk / Rock            
-    #05 The Beatles                Eight Days a Week           Pop            
-    #06 Die Apokalyptischen Reiter Die Boten                   Metal            
-    #07 The Beatles                Can't Buy Me Love           Pop            
-    #08 Die Ärzte                  Lovepower                   Punk / Rock            
-    #09 In Extremo                 Erdbeermund                 Medieval            
-    #10 Die Apokalyptischen Reiter Wir reiten                  Metal            
-    #11 Billy Talent               The Dead Can’t Testify      Hard Rock            
-    #12 Heaven Shall Burn          Atonement                   Metalcore            
-    #13 The Beatles                Something                   Pop            
-    #14 The Beatles                Hello, Goodbye              Pop            
-    #15 Tenacious D                39                          Fun Rock            
-    #16 Coppelius                  Risiko                      Hard Rock            
-   ==== ========================== =========================== ============
-
-- last.fm playlists machen hier keinen Sinn - die lassen sich nicht auf die
-  ausgewählten 666 Songs beschränken. 
-- Auf Dynamik der Playlist eingehen.
-
-Mirage: :cite:`schnitzer2007high`
+   =================== ==================== ===================== ====================
+   **Nummer**          **Künstler**         **Titel**             **Genre**
+   =================== ==================== ===================== ====================
+   **libmunin:**       
+   |hline| *01*        *Knorkator*          *Böse*                *Rock/Parody, Heavy Metal*
+   |hline| *02*        Letzte Instanz       Egotrip               *Rock/Folk Rock, Goth Rock*
+   *03*                Nachtgeschrei        Lass mich raus        *Rock/Folk Rock*
+   *04*                Knorkator            Ick wer zun Schwein   *Rock/Parody, Heavy Metal*
+   *05*                Finntroll            Svart djup            *Rock/Folk Metal, Black Metal*
+   *06*                Heaven Shall Burn    Endzeit               *Rock/Hardcore, Death Metal*
+   *07*                In Extremo           Liam                  *Rock/Medieval, Hard Rock*
+   *08*                Knorkator            Konflikt              *Rock/Parody, Heavy Metal*
+   *09*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
+   *10*                Marc-Uwe Kling       Scheißverein          *Folk/Pardoy*
+   *11*                Johnny Cash          Heart of Gold         *Folk/Country, Rockabilly*
+   *12*                Knorkator            Geh zu ihr            *Rock/Parody, Heavy Metal*
+   *13*                In Extremo           Erdbeermund           *Rock/Medieval, Hard Rock*
+   *14*                The Rolling Stones   Stealing My Heart     *Rock/Pop Rock, Rock & Roll*
+   *15*                Knorkator            Klartext              *Rock/Parody, Heavy Metal*
+   |hline| **Mirage:** 
+   |hline| *02*        Knorkator            Ganz besond'rer Mann  *Rock/Parody, Heavy Metal*
+   *03*                Coppelius            Operation             *Rock/Classic, Medieval Metal*
+   *04*                Letzte Instanz       Salve Te              *Rock/Folk Rock, Goth Rock*
+   *05*                Apocalyptica         Fisheye               *Rock/Symphonic Rock*
+   *06*                Coppelius            I Told You So!        *Rock/Classic, Medieval Metal*
+   *07*                Apocalyptica         Pray!                 *Rock/Symphonic Rock*
+   *08*                Knorkator            Klartext              *Rock/Parody, Heavy Metal*
+   *09*                Devildriver          Black Soul Choir      *Rock/Death Metal*
+   *10*                Finntroll            Fiskarens Fiende      *Rock/Folk Metal, Black Metal*
+   *11*                Devildriver          Swinging the Dead     *Rock/Death Metal*
+   *12*                Knorkator            Es kotzt mich an      *Rock/Parody, Heavy Metal*
+   *13*                Heaven Shall Burn    Forlorn Skies         *Rock/Hardcore, Death Metal*
+   *14*                Knorkator            Hardcore              *Rock/Parody, Heavy Metal*
+   *15*                Rammstein            Roter Sand            *Rock/Industrial, Hard Rock*
+   |hline| **Zufall:**
+   |hline| *02*        Schandmaul           Drei Lieder           *Rock/Folk Rock*
+   *03*                Tanzwut              Götterfunken          *Electronic, Industrial*
+   *04*                Finntroll            Suohengen sija        *Ambient*
+   *05*                Biermösl Blosn       Anno Domini           *Brass Band, Parody*
+   *06*                Finntroll            Mordminnen            *Rock/Folk Metal, Black Metal*
+   *07*                The Rolling Stones   Stealing My Heart     *Rock/Pop Rock, Rock & Roll*
+   *08*                Die Ärzte            Ein Mann              *Rock/Punk, Pop Rock*
+   *09*                Letzte Instanz       Regenbogen            *Rock/Folk Rock, Goth Rock*
+   *10*                Billy Talent         White Sparrows        *Rock/Punk, Alternative Rock*
+   *11*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
+   *12*                Christopher Rhyne    Shadows of the Forest *Classical, Ambient*
+   *13*                The Beatles          Eight Days a Week     *Pop/Rock & Roll*
+   *14*                Of Monsters and Men  From Finner           *Pop/Folk, Indie Rock*
+   *15*                The Cranberries      Dreaming My Dreams    *Rock/Alternative Rock*
+   =================== ==================== ===================== ====================
 
 
-Sonstiges
-=========
+In Abbildung :num:`table-playlists` wird eine Auflistung verschiedener, mit
+verschiedenen Methoden erstellten Playlists gegeben. Dies ist insofern
+interessant, da die Struktur der von *libmunin* gegebenen Empfehlungen gewissen
+Regeln unterliegt die man als Anwendungsentwickler kennen sollte. Zudem ist ein
+*subjektiver* Vergleich mit anderen Systemen interessant.
+
+Der ursprüngliche Plan hier auch eine von ``last.fm`` (TODO: link) erstellte
+Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht auf
+die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte. 
+Stattdessen wurde die *Konkurrenz* von *libmunin* getestet: *Mirage*
+:cite:`schnitzer2007high`. Da *Mirage* momentan nur als Plugin für Banshee
+vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die 
+Testmusikdatenbank auch in Banshee importiert.
+
+Die einzelnen Playlists wurden auf jeweils 15 Songs begrenzt. Darin enthalten
+ist an erster Stelle der willkürlich ausgewählte Seed--Song, der zum Generieren
+der Playlist genutzt wurde (*Knorkator --- Böse*). Die zufällig erstellte
+Playlist wurde als Referenz abgedruckt, damit man die dort fehlende Struktur
+sehen kann.
+
+**Auffälligkeiten:**
+
+- Bei *libmunin* wiederholt sich der Künstler *Knorkator* alle 3--4 Stücke,
+  da der *Filter* entsprechend eingestellt ist. Daher ist eine Wiederholung des
+  Künstlers nur alle 3, und eine Wiederholung des Albums nur alle 5 Stücke
+  erlaubt. Bei Mirage scheint lediglich eine direkte Wiederholung des Künstlers
+  scheint ausgeschlossen zu sein. Ansonsten wiederholen sich die Künstler
+  relativ beliebig. Die zufällige Playlist hat zwar auch keinerlei
+  Wiederholungen, aber entbehrt dafür auch jeder Struktur.
+- *Mirage* leistet gute Arbeit dabei ähnlich klingende Stücke auszuwählen. Der
+  relativ langsame Seed--Song (*Mirage* besitzt hier tatsächlich ein änhliches
+  Konzept) besitzt eine dunke Stimmung und harte E--Gitarren. Die von *Mirage*
+  vorgeschlagenen Songs schlagen hier tatsächlich sehr passend von der Stimmung
+  her. Die von *libmunin* vorgeschlagenen Songs sind in Punkt Audiodaten bei
+  weitem nicht so übereinstimmend. Was aber auffällig ist, ist dass größtenteils
+  deutsche Titel (wie der Seed--Song) vorgeschlagen werden. Auch führt das
+  *Parody* in der Genre--Beschreibung dazu, dass ebenfalls lustig oder ironisch 
+  gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im Seed--Song
+  düster, doch wird textlich ein lustiges Thema behandelt --- was *Mirage* an
+  den Audiodaten natürlich nicht erkennen kann.
+  Hier zeigt sich *libmunin's* (momentaner) Fokus auf Metadaten.
+  Bei der zufälligen Playlists passen zwar die Genres einigermaßen übereinander,
+  doch liegt das eher an dem sehr dehnbaren Begriff *Rock* der bei
+  Discogs (TODO: link) für sehr viele Lieder eingepflegt ist.
+- Der Kaltstart bei *Mirage* verlief in wenigen Minuten, während der Kaltstart
+  bei *libmunin* beim ersten mal für die 666 Songs sehr hohe 53 Minuten
+  benötigte, da für jedes Lied ein Liedtext sequentiell automatisch besorgt
+  worden ist. Siehe dazu auch Tabelle :num:`table-specs`. Bei der Ausgabe der
+  Empfehlungen selber war bei allen Methoden keinerlei Verzögerung zu
+  beobachten.
+
+Ressourcenverbrauch
+===================
+
+Damit Anwendungsentwickler die Aufwändigkeit einzelner Operation einschätzen
+können, wird in Tabelle :num:`table-spec` eine kurze Übersicht über den
+Ressourcenverbrauch einzelner Aspekte gegeben.
+
+Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs. 
 
 .. figtable::
    :alt: stuff
@@ -230,16 +324,20 @@ Sonstiges
    :label: table-specs
    :caption: stuff
 
-   +-----------------------------------------+-------------------------+
-   | **Operation**                           | **Ressourcenverbrauch** |
-   +=========================================+=========================+
-   | *Speicherverbrauch*                     | 77.5 MB                 |
-   +-----------------------------------------+-------------------------+
-   | *Speicherplatz der Session (gepackt)*   | 0.9 MB                  |
-   +-----------------------------------------+-------------------------+
-   | *Speicherplatz der Session (ungepackt)* | 2.5 MB                  |
-   +-----------------------------------------+-------------------------+
-   | ``rebuild``--*Operation:*               | 44 Sekunden             |
-   +-----------------------------------------+-------------------------+
-   | *Kaltstart:*                            | 53 Minuten              |
-   +-----------------------------------------+-------------------------+
+   ========================================== ==========================
+   **Operation**                              **Ressourcenverbrauch**  
+   ========================================== ==========================
+   *Speicherverbrauch*                        77.5 MB    
+   *Speicherplatz der Session (gepackt)*      0.9 MB     
+   *Speicherplatz der Session (ungepackt)*    2.5 MB     
+   *Zeit für den Kaltstart:*                  53 Minuten (lyrics + audio)
+   |hline| ``rebuild``                        44 Sekunden
+   ``add``                                    ~1ms
+   ``insert``                                 164ms
+   ``remove``                                 54ms
+   ``modify``                                 219ms
+   ========================================== ==========================
+
+Wie man sieht, sollte noch unbedingt Zeit investiert werden um den *Kaltstart*
+zu beschleunigen. Auch die ``modify``--Operation könnte durchaus noch optimiert
+werden.

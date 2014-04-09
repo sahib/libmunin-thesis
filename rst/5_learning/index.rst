@@ -9,8 +9,6 @@ In vorangegangen Kapiteln wurde schon oft davon gesprochen, dass *libmunin* den
 Nutzer ,,beobachtet". Dies geschieht indem der Anwendungsentwickler die vom
 Nutzer gehörten Titel an *libmunin* zurückmeldet.
 
-
-
 Frequent Itemsets
 ------------------
 
@@ -90,9 +88,10 @@ diese ist.
 .. figtable::
    :label: table-rules
    :spec: l | l l l l
-   :alt: Die Itemsets für einige sehr einfache Warenkörbe.
-   :caption: Die Itemsets, welche aus den drei Warenkörben 
-             {{A, B, C} {B, B, C}, {C, C, B}} generiert worden sind.
+   :alt: Mögliche Regeln die aus den 3 Warenkörben erstellt werden können.
+   :caption: Mögliche Regeln die aus den 3 Warenkörben erstellt werden können.
+             Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie die
+             beiden Metriken Imbalance--Ratio und Kulczynski abgebildet.
 
    ==================================================================== ====================== ======================= ============
    *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*
@@ -112,12 +111,12 @@ Teilmengen aufzuteilen. Für die 3er--Kombinationen können mehrere möglichen
 Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
 :num:`table-rules` aufgelistet.
 
-
-Nicht jede Regel ist automatisch eine gute Regel, denn Das gängige Lehrbeispiel
-hierbei ist eine Regel die besagt, dass 60% *Basketballspieler Cornflakes*
-essen.  Der Anteil der Menschen die aber insgesamt Cornflakes essen liegt bei
-70% --- daher ist die Eigenschaft *,,Basketballspieler"* sogar ein Gegenindiz
-für die Eigenschaft *,,Cornflake essend"*.  
+Nicht jede Regel ist automatisch eine gute Regel. Das gängige Lehrbeispiel
+hierbei ist eine Regel die besagt, dass 60% aller *Basketballspieler* zum
+Frühstück *Cornflakes* essen.  Der Anteil der Menschen die aber insgesamt
+Cornflakes essen liegt bei 70% --- daher ist die Eigenschaft
+*,,Basketballspieler"* sogar ein Gegenindiz für die Eigenschaft
+*,,Cornflake--Esser"*.
 
 Um solche *falschen* Assoziationsregeln zu vermeiden, wird für jede Regel zwei
 Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem Buch 
@@ -171,13 +170,48 @@ einzelnes, leicht zu handhabendes *Rating--Metrik* verschmolzen:
 
     Rating(A, B) = \left(1 - ImbalanceRatio(A, B)\right) \times Kulczynski(A, B)
 
-Dieses *Rating* wird
+Dieses *Rating* wird genutzt um die einzelnen Assoziationsregeln zu sortieren.
 
+Anwendung von Regeln
+====================
+
+Wie bereits erwähnt...
 
 Lernerfolg
 ==========
 
+Verbesserungen möglich?
+Noch keine Aussage möglich, da *libmunin* noch nie wirklich "lang" benutzt
+wurde. Alles basiert momentan auf Theorien.
+
 - Explizites lernen durch remove, modify, insert
-- Grafiken!
+  Ausschnitt--Bild im echten Graphen vorher nachher.
 - Erfolge beim impliziten Lernen?
 
+
+.. subfigstart::
+
+.. _fig-move-before:
+
+.. figure:: figs/big_move_before_edit.png
+    :alt: x
+    :width: 100%
+    :align: center
+    
+    x
+
+.. _fig-move-after:
+
+.. figure:: figs/big_move_after_edit.png
+    :alt: x
+    :width: 100%
+    :align: center
+    
+    x
+
+.. subfigend::
+    :width: 0.75
+    :alt: x
+    :label: fig-modify-moves
+ 
+    x
