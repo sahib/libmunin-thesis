@@ -5,22 +5,23 @@ Ausblick
 Verbesserung der Algorithmik
 ============================
 
-Im Folgenden werden einige Ideen für mögliche Weiterenwicklungen gegeben. Einige
-davon sind einfach umzusetzen, manche davon bieten genug Potenzial für eine
-Nachfolgerarbeit.
+Im Folgenden werden einige Ideen für mögliche Weiterenwicklungen an den
+vorgestellten Algorithmen gegeben.  Einige davon sind vergleichsweise einfach
+umsetzbar. Andere könnten die Grundlage für fortführende Arbeiten sein.
 
 Audioanalyse
 ------------
 
-Wie bereits erwähnt ist die momentane ,,Audioanalyse" eher simpler Natur.  Als
-konkrete Vorlage für eine verbesserte Audioanalyse könnte *Mirage* dienen. In
-seiner Arbeit stellt der Mirage--Autors :cite:`schnitzer2007high` einige
-Herangehensweise an den performanten Vergleich von Audiodaten vor. Vor allem
-werden einige *Tricks* um die Audioanalyse zu beschleunigen. Da das Paper von
-2007 ist, ist es möglich, dass diese nicht mehr zwangsweise valide sind oder
-neue Methoden bereits bekannt sind. Eine Neuerung wäre beispielsweise die
-relativ neue Bibliothek *libaubio*, die von *Paul Brossier* :cite:`AUBIO`
-entwickelt wird.
+Wie bereits erwähnt ist *libmunin's* momentane *,,Audioanalyse"* eher simpler
+Natur.  Als konkrete Vorlage für eine verbesserte *Audioanalyse* könnte *Mirage*
+dienen. In seiner Arbeit stellt der Mirage--Autors :cite:`schnitzer2007high`
+einige Herangehensweise zum performanten Vergleich von Audiodaten vor. 
+
+Angesichts der hohen Entwicklungsgeschwindigkeit in der Informatik und dem
+*,,hohem"* Alter des Papers (2007) sollte allerdings beachtet werden, dass es
+bereits neuere Methoden geben könnte. Beispielsweise arbeitet Schnitzer *nur*
+mit MP3--Audiodaten [#f1]_. Eine Abhilfe wäre die relativ neue Bibliothek *libaubio*,
+die von *Paul Brossier* :cite:`AUBIO` entwickelt wird.
 
 *Aubio* könnte folgendes leisten:
 
@@ -37,11 +38,17 @@ Die Bibliothek selber ist in `C` geschrieben, bietet aber eine komfortable
 Python--Schnitstelle.
 
 Eine weiter Idee wäre der Versuch semi--intelligent reine Sprachdateien (wie
-Hörbücher), Instrumental--Lieder ohne Stimme (wie Intros) und normale Musik zu
-unterscheiden. Oft werden zu bestimmten Titeln unpassenderweise Intros
+*Hörbücher),* Instrumental--Lieder ohne Stimme (wie *Intros)* und normale Musik zu
+unterscheiden. Oft werden zu bestimmten Titeln unpassenderweise *Intros*
 vorgeschlagen, die man für gewöhnlich nur hören möchte, wenn man das gesamte
 Album von vorn bis hinten anhört. Auch hier wäre ein Einsatz von *Aubio*
 denkbar.
+
+.. rubric:: footnotes
+
+.. [#f1] Mirage verlässt sich dabei auf bestimmte Eigenschaften des Formattes,
+         um die Daten schneller in die interne Datenrepräsentation zu
+         konvertieren.
 
 Andere Provider
 ---------------
@@ -67,13 +74,25 @@ sollte, ließe sich eine einfache ``DurationDistanceFunction`` schreiben welche
 Empfehlungen
 ------------
 
+.. _fig-traverse-areas:
+
+.. figure:: figs/traverse_areas.*
+   :alt: Schematische Darstellung der idealen Traversierungsreihenfolge.
+   :align: center
+   :width: 85%
+   
+   Schematische Darstellung der idealen Traversierungsreihenfolge.
+   Die roten Knoten stelln die Seedsongs dar, die gelben und orangen Knoten sind
+   direkte Nachbarn. Die grünen Knoten sind ,,irgendwo” dazwischen. Die
+   Traversierungsreihenfolge sollte hier sein: Orange, Gelb, Grün.
+
 Oft kommt es vor, dass es mehr als einen Seed--Song gibt. Die momentane, simple
 Herangehensweise ist für jeden einen Iterator zu erstellen und die einzelnen
 Iteratoren im Reißverchlussverfahren zu verweben. Das ist duchaus valide, wenn
-man annimmt, dass die direkten Nachbarn dieser einzelnen Seed--Songs jeweils
-eine disjunkte zueinander darstellen. Ist dies nicht der Fall, so sollte man
-zuerst die gemeinsamen Nachbarn ,,ausschöpfen", da man dort eine
-"Ballungszentrum" ... srsly.
+man annimmt, dass die Seed--Songs im Graphen verteilt sind und alle gleich
+wichtig sind. Oft ballen sich Seed--Songs aber auf einem bestimmten Gebiet. 
+Schematisch ist das in :num:`fig-traverse-areas` dargestellt. Besitzen zwei
+Seed--Songs gemeinsame Nachbarn, dann sollten diese zuerst besucht werden.
 
 Auch ist das Ausgabeformat von *libmunin* noch auf einzelne Songs als
 *Empfehlung* beschränkt. Nicht selten möchte man jedoch eine allgemeinere
