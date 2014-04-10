@@ -175,46 +175,73 @@ Dieses *Rating* wird genutzt um die einzelnen Assoziationsregeln zu sortieren.
 Anwendung von Regeln
 ====================
 
-Wie bereits erwähnt...
+Wie bereits unter :ref:`ref-graphops-rules` erklärt... TODO.
 
 Lernerfolg
 ==========
 
-Verbesserungen möglich?
-Noch keine Aussage möglich, da *libmunin* noch nie wirklich "lang" benutzt
-wurde. Alles basiert momentan auf Theorien.
+Noch sind keine Aussagen darüber möglich wie *gut* die momentane Lernstrategie
+funktioniert. Einerseits ist es schwer festzustellen was *gut* bedeutet,
+andererseits wurde eine *libmunin--Session* noch nie lange genug benutzt,
+Aussagen über die Langzeitfunktionalität zu geben. 
 
-- Explizites lernen durch remove, modify, insert
-  Ausschnitt--Bild im echten Graphen vorher nachher.
-- Erfolge beim impliziten Lernen?
+Daher ist die oben genannte Vorgehensweise als *,,Theorie"* zu sehen die sich
+erst noch in der Praxis bewähren muss. Änderungen sind wahrscheinlich.
 
-- Einbauen der libmunin Funktionalität in mpd-server oder seperater service.
-  Bisher wird nur die History aufgezeichnet wenn ein Client läuft.
+Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
+Momentan wird nur die Historie aufgezeichnet wenn die Demonanwendung läuft. Da
+die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
+die ganze Zeit über. Eine Abhilfe würde ein gepatchter MPD--Server schaffen, der
+sich seine Historie merkt oder eine separater MPD--Client der nur dafür dient im
+Hintergrund die Historie--Daten mitzuloggen.
 
+
+Explizites Lernen
+=================
 
 .. subfigstart::
 
 .. _fig-move-before:
 
 .. figure:: figs/big_move_before_edit.png
-    :alt: x
+    :alt: Graph vor dem Vergeben eines hohen Ratings.
     :width: 100%
     :align: center
     
-    x
+    Vor dem Vergeben der Ratings.
 
 .. _fig-move-after:
 
 .. figure:: figs/big_move_after_edit.png
-    :alt: x
+    :alt: Graph nach dem Vergeben eines hohen Ratings.
     :width: 100%
     :align: center
     
-    x
+    Nach dem Vergeben der Ratings.
 
 .. subfigend::
     :width: 0.75
-    :alt: x
+    :alt: Graph vor und nach Vergeben eines hohen Ratings.
     :label: fig-modify-moves
  
-    x
+    Vor und nach dem Vergeben von einem hohen Ratings an drei Lieder 
+    (,,Rachsucht”, ,,Nagelfar”, ,,Meine Brille”, jeweils rot eingekreist). 
+    Die dazugehörigen Alben sind in rötlich, grünlich und bläulich
+    hervorgehoben. Nach dem Vergeben sieht man, dass die entsprechenden Songs
+    sich von den einzelnen Albums--Cluster entfernt haben und Verbindungen zu
+    anderen Album bekommen haben. Zudem haben sich die beiden erstgenannten
+    Songs miteinander verbunden.
+
+Neben dem *impliziten Lernen* gibt es auch den *,,nachträglich entdeckten"*
+Mechanismus des *expliziten Lernens*. Dieser wurde bereits in Kapitel
+:ref:`ref-graphop-insert` beleuchtet. Unter :num:`fig-moves` soll dies lediglich
+nochmal visualisiert werden. Diese Verschiebung ist dadurch zu erklären, dass
+die ``insert``--Operation meist einen anderen zum Wiedereinfügen findet. 
+
+Durch Ändern des *Ratings* in der Demonanwendung können einzelne Knoten gezielt
+im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher zusammen und
+stellen *,,Brücken"* zu anderen Album--Clustern her. Man kann dieses *Feature*
+einerseits dazu zu nutzen, um seine Favoriten nahe im Graphen zusammenzupacken,
+andererseits, um unpassende Empfehlungen mit einem schlechten Rating
+abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge hat.
+

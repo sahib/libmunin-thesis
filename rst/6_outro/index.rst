@@ -44,10 +44,10 @@ vorgeschlagen, die man für gewöhnlich nur hören möchte, wenn man das gesamte
 Album von vorn bis hinten anhört. Auch hier wäre ein Einsatz von *Aubio*
 denkbar.
 
-.. rubric:: footnotes
+.. rubric:: Footnotes
 
-.. [#f1] Mirage verlässt sich dabei auf bestimmte Eigenschaften des Formattes,
-         um die Daten schneller in die interne Datenrepräsentation zu
+.. [#f1] Mirage verlässt sich dabei auf bestimmte Eigenschaften von MP3
+         um die Daten schneller in seine interne Datenrepräsentation zu
          konvertieren.
 
 Andere Provider
@@ -56,20 +56,24 @@ Andere Provider
 Wie man im Playlistenvergleich unter :ref:`ref-playlist-compare` gesehen hat,
 ist momentan der Vergleich der Metadaten die Stärke von *libmunin*. Diese
 Fähigkeit könnte noch weiter ausgebaut werden, indem die Sprache der Titel (denn
-nicht immer sind Liedtexte vorhanden) erkannt wird und mittels eines Wordnets
-(TODO: zitieren) Synonyme Titel finden. Kommt beispielsweise in einem Liedtitel
-das Wort ,,Becher" vor, so könnte ein Titel mit dem Wort synonymen,,Tasse""
-darin vorgeschlagen werden. (TODO: besseres synonym). In de momnetanen
-Implementierung wird jedes Wort im Titel auf seinen Wortstamm gebracht und
-mittels der Levenshteins--Distanzfunktions verglichen. Diese Lösung ist relativ
-teuer und  ungenau. Allerdings war sie leicht zu implementieren.
+nicht immer sind Liedtexte vorhanden) erkannt wird. Dann könnte man mittels
+eines Thesaurus synonyme Titel finden. Für Python existiert mit *TextBlob*
+:cite:`TEXTBLOB` hierfür eine passende Bibliothek. |br|
+Kommt beispielsweise in einem Liedtitel das Wort *,,Sofa"* vor, so könnte ein
+Titel mit dem Wort synonymen ,,Couch"" darin vorgeschlagen werden. (TODO:
+besseres synonym). Auch Taxonomien, also ähnliche *Klassifikationen* sind
+denkbar. Man denke hier an einem Lied welches das Wort *,,Katze"* enthält und
+ein anderes das *,,Tier"* beeinhaltet. |br|
+In de momnetanen Implementierung wird jedes Wort im Titel auf
+seinen Wortstamm gebracht und mittels der Levenshteins--Distanzfunktions
+verglichen. Diese Lösung ist relativ teuer und  ungenau. Allerdings war sie
+leicht zu implementieren.
 
-
-Auch interessant wäre es, ob die Länge der einzelnen Stücke in irgendeiner Form
-mit der Ähnlichkeit korrelieren. Hier müssten statistische Auswertungen gemacht
-werden um diesen Zusammenhang zu überprüfen. Falls sich ein Zusammenhang zeigen
-sollte, ließe sich eine einfache ``DurationDistanceFunction`` schreiben welche
-ähnlich lange Stücke gut bewertet.
+Auch interessant zu sehen wäre es, ob die Länge der einzelnen Stücke in
+irgendeiner Form mit der Ähnlichkeit korrelieren. Hier müssten statistische
+Auswertungen gemacht werden, um diesen Zusammenhang zu überprüfen. Falls sich
+ein Zusammenhang zeigen sollte, ließe sich eine einfache
+``DurationDistanceFunction`` schreiben welche ähnlich lange Stücke gut bewertet.
 
 Empfehlungen
 ------------
@@ -86,13 +90,13 @@ Empfehlungen
    direkte Nachbarn. Die grünen Knoten sind ,,irgendwo” dazwischen. Die
    Traversierungsreihenfolge sollte hier sein: Orange, Gelb, Grün.
 
-Oft kommt es vor, dass es mehr als einen Seed--Song gibt. Die momentane, simple
+Oft kommt es vor, dass es mehr als einen *Seed--Song* gibt. Die momentane, simple
 Herangehensweise ist für jeden einen Iterator zu erstellen und die einzelnen
 Iteratoren im Reißverchlussverfahren zu verweben. Das ist duchaus valide, wenn
-man annimmt, dass die Seed--Songs im Graphen verteilt sind und alle gleich
+man annimmt, dass die *Seed--Songs* im Graphen verteilt sind und alle gleich
 wichtig sind. Oft ballen sich Seed--Songs aber auf einem bestimmten Gebiet. 
 Schematisch ist das in :num:`fig-traverse-areas` dargestellt. Besitzen zwei
-Seed--Songs gemeinsame Nachbarn, dann sollten diese zuerst besucht werden.
+*Seed--Songs* gemeinsame Nachbarn, dann sollten diese zuerst besucht werden.
 
 Auch ist das Ausgabeformat von *libmunin* noch auf einzelne Songs als
 *Empfehlung* beschränkt. Nicht selten möchte man jedoch eine allgemeinere
@@ -137,14 +141,13 @@ Independet--Künstler. Letztere Information könnte man aus der Künstlerbiograf
 extrahieren. Die Biografie kann automatisch von Tools wie *libglyr* 
 besorgt werden oder man greift alternativ auf Amazon--Reviews zurück. So
 gesehen bietet sich hier ein Erweiterungspotenzial in Richtung
-*,,Social--based--recommendations"*, also man nutzt das Wissen von vielen
+*,,Social--based--Recommendations"*, also man nutzt das Wissen von vielen
 Menschen um bestimmte Attribute zu bestimmen anstatt diese mithilfe von Metriken
 zu bestimmen.
 Die eigentliche Schwierigkeite bestünde aber darin, die einzelnen Wörter
 bestimmten Attributen zuzuordnen.  Dies wäre jedenfalls ein spannendes Thema für
-eine Folgearbeit.  Diese Idee basiert auf der Musiksuchmaschine XY von Y
-:cite:`knees2007music`.
-TODO
+eine Folgearbeit.  Diese Idee basiert auf der Musiksuchmaschine von *Peter
+Knees* :cite:`knees2007music`.
 
 Fazit
 =====

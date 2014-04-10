@@ -153,7 +153,7 @@ beleuchtet:
 
   .. math:: 
 
-    \frac{4 \times mean - 2 \times sd)}{2}
+    \frac{4 \times mean - 2 \times sd}{2}
 
 - **Aufräumearbeiten:** Nach dem Verfeinerungsschritt wird der Graph von
   Einbahnstraßen durch einen ``fixing``--Schritt bereinigt und auf Konsistenz
@@ -339,6 +339,8 @@ ist, wird an der Stelle *UID* ein leerer Wert geschrieben. Damit dieser
 möglichst bald wieder besetzt wird, wird die gelöschte *UID* in einer
 *Revocation*--List gespeichert. Beim nächsten ``add`` oder ``insert`` wird diese
 *UID* dann wiederverwendet.
+
+.. _ref-graphop-insert:
 
 ``insert:`` Hinzufügen von Songs zur Laufzeit
 ----------------------------------------------
@@ -543,6 +545,8 @@ Iteratoren ist in :num:`fig-iterator` gezeigt.
 
    Traversierung durch verschachtelte Iteratoren
 
+
+.. _ref-graphops-rules:
 
 Anwendung von Regeln
 --------------------
