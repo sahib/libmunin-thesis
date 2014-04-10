@@ -2,10 +2,25 @@
 Begriffsklärungen
 #################
 
+Genau wie in der Projektarbeit werden in den folgenden Kapiteln einige Begriffe
+verwendet, die nicht allgemein verständlich sind oder in diesem Kontext anders
+besetzt sind. 
+
+Die Begriffe :term:`Distanzfunktion` und :term:`Assoziationsregel` wurden im
+Vergleich zur Projektarbeit um einige Details erweitert. 
+
 Allgemeine Fachbegriffe
 =======================
 
 .. glossary::
+
+    Playlist
+
+      Eine *Playlist,* zu deutsch *Wiedergabeliste*, ist eine Liste einzelner
+      Lieder die nacheinander abgespielt werden. Die Zusammstellung einer
+      Playlist erfüllt oft einen gewissen Zweck. So stellt man für gewöhnlich
+      Lieder in einer *Playlist* zusammen, die eine gemeinsame Stimmung oder
+      eine andere Gemeinsamkeit *(,,Favorit")* haben.
 
     Hashtabelle
 
@@ -37,14 +52,6 @@ Allgemeine Fachbegriffe
       Datenstrukturen zu traversieren. Jeder Aufruf des Iterator liefert dabei
       den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
       sind.
-
-    Playlist
-
-      Eine *Playlist,* zu deutsch *Wiedergabeliste*, ist eine Liste einzelner
-      Lieder die nacheinander abgespielt werden. Die Zusammstellung einer
-      Playlist erfüllt oft einen gewissen Zweck. So stellt man für gewöhnlich
-      Lieder in einer Playlist zusammen, die eine gemeinsame Stimmung oder eine
-      andere Gemeinsamkeit haben.
 
     Tags
 
@@ -97,7 +104,7 @@ Kontextspezifische Fachbegriffe
 
     Attribut
 
-      Ein Attribut ist ein *Schlüssel* in der :term:`Maske`. Er repräsentiert
+      Ein Attribut ist ein *Schlüssel* in der Maske. Er repräsentiert
       eine Vereinbarung mit dem Nutzer unter welchem Namen das Attribut in
       Zukunft angesprochen wird. Zu jedem gesetzten Attribut gehört ein Wert,
       andernfalls ein spezieller leerer Wert. Ein Song besteht aus einer 
@@ -108,7 +115,7 @@ Kontextspezifische Fachbegriffe
       Ein *Provider* normalisiert einen Wert anhand verschiedener
       Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
       die in *libmunin* geladen werden. Jeder *Provider* ist dabei durch die
-      :term:`Maske` einem Attribut zugeordnet.
+      Maske einem Attribut zugeordnet.
 
       Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
       vergleichbare Werte zu liefern - da die Distanzfunktion sehr

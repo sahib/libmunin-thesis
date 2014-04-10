@@ -177,9 +177,22 @@ Anwendung von Regeln
 
 Wie bereits unter :ref:`ref-graphops-rules` erklärt, werden Assoziationsregel
 als Navigationshilfe im beim Traversieren genutzt. 
+Zu diesem Zwecke müssen die entstandenen Regeln irgendwo sortiert und mit einem
+Zeitem versehen abgelegt werden. 
+Diese Ablage ist der *RuleIndex*. Beim Einfügen wird jeweils überprüft, ob die
+Maximalanzahl an Regeln (momentan maximal 1000) übertroffen wird. Sollte dem so
+sein, wird die älteste (ergo, zu erst eingefügte) Regel gelöscht um Platz zu
+machen. 
 
-- RuleIndex
-- Vergessensfunktion
+Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
+von Regeln abfragen, die diesen Song in irgend einer Weise betreffen. Um diese
+Operation zu beschleunigen wird intern eine Hashtabelle gehalten, mit dem Song
+als Schlüssel und der entsprechende Regelliste als zugehöriger Wert.
+
+Bei jeder Operation auf dem *RuleIndex* wird er automatisch bereinigt. 
+Dabei werden Regeln entfernt, die Songs erwähnen, welche nicht mehr in der
+Historie vertreten sind. 
+
 
 Lernerfolg
 ==========

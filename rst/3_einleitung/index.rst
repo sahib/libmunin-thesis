@@ -47,6 +47,8 @@ Hinweise zum Schreiben von Distanzfunktionen
 
      class MyDistanceFuntion(DistanceFunction):
          def do_compute(self, A, B):
+             # A und B sind, der Konsistenz halber, immer Tupel..
+             # Daher müssen wir diese erst ,,entpacken".
              a, b = A[0], B[0]
              return abs(a - b) / max(a, b)
 
@@ -56,9 +58,8 @@ Hinweise zum Schreiben von Distanzfunktionen
 
      class MyDistanceFuntion(DistanceFunction):
          def do_compute(self, A, B):
-             a, b = A[0], B[0]
-             diff = abs(a - b)
-             if diff < 3:
+             diff = abs(A[0] - B[0])
+             if diff > 3:
                 return 1.0  # Zu unterschiedlich.
 
              return diff / 3
@@ -120,7 +121,7 @@ Vergleich verschiedener Playlisten
    :spec: r | l l r 
    :label: table-playlists
    :caption: Vergleich verschiedener, je 15 Lieder langen Playlisten.
-             Die Playlist im oberen Drittel wurde mittels des Seed--Songs (01)
+             Die Playlist im oberen Drittel wurde mittels des Seedsongs (01)
              erstellt. Die im zweitem Drittel wurde mittels Mirage/Banshee
              erstellt, die letzte komplett zufällig.
 
@@ -191,7 +192,7 @@ vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die
 Testmusikdatenbank auch in Banshee importiert.
 
 Die einzelnen Playlists wurden auf jeweils 15 Songs begrenzt. Darin enthalten
-ist an erster Stelle der willkürlich ausgewählte Seed--Song, der zum Generieren
+ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum Generieren
 der Playlist genutzt wurde (*Knorkator --- Böse*). Die zufällig erstellte
 Playlist wurde als Referenz abgedruckt, damit man die dort fehlende Struktur
 sehen kann.
@@ -206,14 +207,14 @@ sehen kann.
   relativ beliebig. Die zufällige Playlist hat zwar auch keinerlei
   Wiederholungen, aber entbehrt dafür auch jeder Struktur.
 - *Mirage* leistet gute Arbeit dabei ähnlich klingende Stücke auszuwählen. Der
-  relativ langsame Seed--Song (*Mirage* besitzt hier tatsächlich ein änhliches
+  relativ langsame Seedsong (*Mirage* besitzt hier tatsächlich ein änhliches
   Konzept) besitzt eine dunke Stimmung und harte E--Gitarren. Die von *Mirage*
   vorgeschlagenen Songs schlagen hier tatsächlich sehr passend von der Stimmung
   her. Die von *libmunin* vorgeschlagenen Songs sind in Punkt Audiodaten bei
   weitem nicht so übereinstimmend. Was aber auffällig ist, ist dass größtenteils
-  deutsche Titel (wie der Seed--Song) vorgeschlagen werden. Auch führt das
+  deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch führt das
   *Parody* in der Genre--Beschreibung dazu, dass ebenfalls lustig oder ironisch 
-  gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im Seed--Song
+  gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im Seedsong
   düster, doch wird textlich ein lustiges Thema behandelt --- was *Mirage* an
   den Audiodaten natürlich nicht erkennen kann.
   Hier zeigt sich *libmunin's* (momentaner) Fokus auf Metadaten.
@@ -248,7 +249,7 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    *Speicherverbrauch*                        77.5 MB    
    *Speicherplatz der Session (gepackt)*      0.9 MB     
    *Speicherplatz der Session (ungepackt)*    2.5 MB     
-   *Zeit für den Kaltstart:*                  53 Minuten (lyrics + audio)
+   *Zeit für den Kaltstart:*                  53 Minuten (33 Minuten Liedtexte + 20 Minuten Audioanalyse)
    |hline| ``rebuild``                        44 Sekunden
    ``add``                                    ~1ms
    ``insert``                                 164ms
