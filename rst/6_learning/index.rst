@@ -175,7 +175,11 @@ Dieses *Rating* wird genutzt um die einzelnen Assoziationsregeln zu sortieren.
 Anwendung von Regeln
 ====================
 
-Wie bereits unter :ref:`ref-graphops-rules` erklärt... TODO.
+Wie bereits unter :ref:`ref-graphops-rules` erklärt, werden Assoziationsregel
+als Navigationshilfe im beim Traversieren genutzt. 
+
+- RuleIndex
+- Vergessensfunktion
 
 Lernerfolg
 ==========
@@ -194,7 +198,6 @@ die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
 die ganze Zeit über. Eine Abhilfe würde ein gepatchter MPD--Server schaffen, der
 sich seine Historie merkt oder eine separater MPD--Client der nur dafür dient im
 Hintergrund die Historie--Daten mitzuloggen.
-
 
 Explizites Lernen
 =================

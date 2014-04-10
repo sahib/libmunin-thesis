@@ -30,9 +30,7 @@
   \else
   \fi
 
-  \titlespacing{\chapter}{0pt}{0.0em}{0.5em}
   \tableofcontents
-  \titlespacing{\chapter}{0pt}{0.0em}{2em}
   \clearpage
 }%
 
@@ -56,11 +54,13 @@
 %%   However, that is not compatible with package 'hyperref'. \tableofcontents needs
 %%   to be declared from within the document itself. 
 \newcommand*{\makefrontmatter}{%
+    \titlespacing{\chapter}{0pt}{0.0em}{0.5em}
     \bodyspacing
     \frontmatter\maketitlepage\makecopyrightpage\makeabstract
     \makeacknowledgements\maketoc
     \makelot\clearpage\makelof\clearpage\makelos
     \clearpage\mainmatter
+    \titlespacing{\chapter}{0pt}{0.0em}{2em}
 }%
 
 \long\def\acknowledgements#1{\gdef\@acknowledgements{#1}}

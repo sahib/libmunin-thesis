@@ -25,9 +25,6 @@
     Abkürzung                Bedeutung
     =======================  ==================================
     API                      *Application Programming Interface*
-    GUI                      *Graphical User Interface*
-    LoC                      *Lines of Code*
-    ID                       *Identifier*
     UID                      *Unique Identifier*
     BPM                      *Beats per Minute*
     =======================  ==================================

@@ -1,109 +1,17 @@
-********
-Einstieg
-********
+*****************************
+Allgemeine Entwicklerhinweise
+*****************************
 
-Begriffserklärungen
-====================
+In diesem Kapitel werden einleitend einige allgemeine Hinweise gegeben, die man
+bei der Entwicklung mit und von *libmunin* beachten sollte.
 
-.. glossary::
+In den darauf folgenden Kapiteln wird detailliert der Aufbau des Graphen, sowie 
+einige ausgewählte Distanzfunktionen und Provider detailliert beleuchtet.
+Zum Ende hin wird auch auf den Mechanismus eingegangen den *libmunin* zum Lernen
+nutzt.
 
-    Playlist
-
-      Dynamische
-
-    Tags
-
-      In Audiofiles können bei den meisten Formaten Metadaten abgelegt
-      werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den *Artist*,
-      *Album* und *Title*, aber auch komplexere Daten wie das *Coverart*,
-      abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
-      ausgelesen werden.
-
-    Assoziationsregel
-
-      Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-      miteinander. Sie besagen, dass wenn eine der beiden Mengen miteinander
-      gehört wird, dann ist es *wahrscheinlich*, dass auch die andere Menge
-      daraufhin angehört wird.
-
-      Die Güte jeder Regel wird durch ein *Rating* beschrieben, welche grob die
-      generelle Anwendbarkeit beschreibt.
-
-      Sie werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied
-      zwischengespeichert, das der Nutzer anhört.
-
-      *Anmerkung:* Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
-      Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
-      Einfachkeit allerdings *bidirektional.*  So gilt nicht nur, dass man
-      wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
-      \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
-
-    Distanzfunktion
-    
-      Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
-      zwei Songs als Eingabe nimmt und die Distanz zwischen
-      diesen berechnet.
-
-      Dabei wird jedes Attribut betracht, welches in beiden Songs
-      vorkommt. Für diese wird von der Maske eine
-      spezialisierte Distanzfunktion festgelegt, die weiß wie diese
-      zwei bestimmten Werte sinnvoll verglichen werden können. Die so
-      errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
-      einem Wert verschmolzen.
-
-      Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
-      Distanz von 1 angenommen. Diese wird dann ebenfalls in die gewichtete
-      Oberdistanz eingerechnet.
-
-      Die folgenden Bedingungen müssen sowohl für die allgemeine
-      Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
-      :math:`D` ist dabei die Menge aller Songs, :math:`d` eine Distanzfunktion:
- 
-      * *Uniformität* |hfill| :math:`0 \leq d(i, j) \leq 1\forall i,j \in D \;\;\;\text{(1)}`
-      * *Symmetrie* |hfill| :math:`d(i, j) = d(j, i) \forall i,j \in D \;\;\;\text{(2)}`
-      * *Identität* |hfill| :math:`d(i, i) = 0.0 \forall i \in D \;\;\;\text{(3)}`
-      * *Dreiecksungleichung* |hfill| :math:`d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D \;\;\;\text{(4)}`
-
-      .. subfigstart::
-
-      .. _fig-trineq:
-
-      .. figure:: figs/trineq.*
-          :alt: Stuff
-          :width: 100%
-          :align: center
-    
-          Ohne Einhaltung von Gleichung (4)
-
-      .. _fig-trineq_fixed:
-
-      .. figure:: figs/trineq_fixed.*
-          :alt: Stuff
-          :width: 100%
-          :align: center
-    
-          Mit Einhaltung von Gleichung (4)
-
-      .. subfigend::
-          :width: 0.49
-          :alt: Schematische Darstellungen der einzelnen Basisiterationen.
-          :label: fig-trineqs
- 
-          Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
-          besagt, dass der direkte Weg von A nach B kürzer sein sollte als der
-          Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“ sind gleich stark
-          gewichtet.  Wenn keine Straftwertung für leere Werte gegeben wird, so
-          sind die Umwege manchmal kürzer.
-
-      Im Kontext von *libmunin* sind nicht alle Eigenschaften wichtig, doch
-      werden diese Eigenschaften trotzdem aus Gründen der Konsistenz
-      eingehalten. Beispielsweise werden Werte die nicht gesetzt worden sind,
-      mit einer (Teil-)Distanz von :math:`1.0` *,,bestraft"* um die Eigenschaft
-      der *Dreiecksungleichung* einzuhalten. Wie das konkret aussieht, sieht man
-      in Abbildung :num:`fig-trineqs`.
-
-Allgemeine Hinweise für Entwickler
-==================================
+Zur Nuztung von *libmunin*
+==========================
 
 Zu Beginn sollen einige allgemeine Hinweise stichpunktartig gegeben werden, was
 bei der Arbeit mit *libmunin* zu beachten ist.
@@ -121,52 +29,62 @@ bei der Arbeit mit *libmunin* zu beachten ist.
   abgewogen werden. Fügt man auch Lieder ein welche vom Nutzer einfach
   übersprungen worden sind. 
 
+Zur Erweiterung von *libmunin*
+==============================
 
-Konkrete Hinweise für Entwickler
-================================
-
-*Hinweise zum Schreiben von Distanzfunktionen:*
+Hinweise zum Schreiben von Distanzfunktionen
+--------------------------------------------
 
 - Distanzfunktionen sollten versuchen die genannten Eigenschaften einzuhalten.
 - Distanzfunktionen bestehen oft aus einer einzelnen Metrik und einem
   Fusionierungsverfahren.
-- *Vermeidung von überspezifischen Distanzfunktionen:* 
-  Distanzfunktionen sollten nicht versuchen auch sehr schlechte Ähnlichkeiten
-  noch zu *belohnen*. -> "Stretching"
+- *Überspezifische* Distanzfunktionen sollten vermieden werden.
+  In anderen Worten: Unähnliche Objekte sollten auch bestraft werden. 
 
-Don't
+  .. code-block:: python
 
-.. code-block:: python
+     from munin.distance import DistanceFunction
 
-   from munin.distance import DistanceFunction
+     class MyDistanceFuntion(DistanceFunction):
+         def do_compute(self, A, B):
+             a, b = A[0], B[0]
+             return abs(a - b) / max(a, b)
 
-   class MyDistanceFuntion(DistanceFunction):
-       def do_compute(self, A, B):
-           a, b = A[0], B[0]
-           return abs(a - b) / max(a, b)
+  .. code-block:: python
 
-Dos
+     from munin.distance import DistanceFunction
 
-.. code-block:: python
+     class MyDistanceFuntion(DistanceFunction):
+         def do_compute(self, A, B):
+             a, b = A[0], B[0]
+             diff = abs(a - b)
+             if diff < 3:
+                return 1.0  # Zu unterschiedlich.
 
-   from munin.distance import DistanceFunction
+             return diff / 3
 
-   class MyDistanceFuntion(DistanceFunction):
-       def do_compute(self, A, B):
-           a, b = A[0], B[0]
-           diff = abs(a - b)
-           if diff < 3:
-              return 1.0  # Zu unterschiedlich.
+- Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
+  wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich zu Untersuchen in
+  welchem Bereich sich die berechnete Distanz bewegt.  Sollte sie sich
+  beispielsweise immer im Bereich zwischen :math:`0.3` und :math:`0.7` bewegen,
+  so ist es empfehlenswert diesen Bereich zu *dehnen*.  In :num:`fig-stretch`
+  werden mit der Funktion :math:`f(x) = -2\frac{2}{3}x^{3} + 4x^{2} -
+  \frac{1}{3}x` Distanzen unter :math:`0.5` verbessert und darüber
+  verschlechtert.
 
-           return diff / 3
+  .. _fig-stretch:
 
-Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
-wenn komplexere Daten 
+  .. figure:: figs/scale.*
+     :alt: Skalierungsfunktion der Distanzfunktion
+     :align: center
+     :width: 100%
 
-
+     Skalierungsfunktion der Distanzfunktion
+    
 - Defintion der :term:`Distanzfunktion` einhalten.
 
-*Hinweise zum Schreiben von neuen Providern:*
+Hinweise zum Schreiben von neuen Providern
+------------------------------------------
 
 - Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
   Präprozessor verstehen der die vom Nutzer eingegebenen Daten auf möglichst
@@ -178,26 +96,20 @@ wenn komplexere Daten
   ist der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre
   eine separate Speicherung desselben nicht sinnvoll. 
 
-.. code-block:: python
-
- from munin.provider import Provider
-
- class MyProvider(Provider):
-     def __init__(self):
-         # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
-         Provider.__init__(self, compress=True)
-
-     # Funktion, die bei jeder einzelnen Eingabe aufgerufen wird.
-     def do_compute(self, input_value): 
-         return input_value * 2  # Tue irgendwas mit dem Input.
-
-
-Im Folgenden wird der Aufbau des Graphen näher betrachtet. Danach werden einige
-ausgewählte Provider mit den dazugehörigen Distanzfunktionen erläutert.
-Anschließend wird noch die Fähigkeit von *libmunin* vom Nutzer automatisch
-mittels Assoziationsregeln zu lernen.  Abschließend wird noch auf die Struktur
-der gegebenen Empfehlungen eingegangen.
-
+  .. code-block:: python
+  
+   from munin.provider import Provider
+  
+   class MyProvider(Provider):
+       def __init__(self):
+           # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
+           Provider.__init__(self, compress=True)
+  
+       # Funktion, die bei jeder einzelnen Eingabe aufgerufen wird.
+       def do_compute(self, input_value): 
+           return input_value * 2  # Tue irgendwas mit dem Input.
+  
+  
 .. _ref-playlist-compare:
 
 Vergleich verschiedener Playlisten
@@ -325,10 +237,10 @@ Ressourcenverbrauch einzelner Aspekte gegeben.
 Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs. 
 
 .. figtable::
-   :alt: stuff
+   :alt: Auflistung des Ressourcenverbrauchs verschiedener Operationen
    :spec: l | r 
    :label: table-specs
-   :caption: stuff
+   :caption: Auflistung des Ressourcenverbrauchs verschiedener Operationen.
 
    ========================================== ==========================
    **Operation**                              **Ressourcenverbrauch**  
@@ -346,4 +258,4 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
 
 Wie man sieht, sollte noch unbedingt Zeit investiert werden um den *Kaltstart*
 zu beschleunigen. Auch die ``modify``--Operation könnte durchaus noch optimiert
-werden.
+werden. 
