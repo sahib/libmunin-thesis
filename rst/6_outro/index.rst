@@ -1,48 +1,143 @@
-***************
-Zusammenfassung
-***************
+********
+Ausblick
+********
 
 Verbesserung der Algorithmik
 ============================
 
+Im Folgenden werden einige Ideen für mögliche Weiterenwicklungen gegeben. Einige
+davon sind einfach umzusetzen, manche davon bieten genug Potenzial für eine
+Nachfolgerarbeit.
+
 Audioanalyse
 ------------
 
-- Rumspinnen über libaubio, was möglich ist und wie.
-- Sprache, Intros und Audio intelligent unterscheiden?
-- Performantere Audioanalyse.
-- Mirage Paper erwähnen.
+Wie bereits erwähnt ist die momentane ,,Audioanalyse" eher simpler Natur.  Als
+konkrete Vorlage für eine verbesserte Audioanalyse könnte *Mirage* dienen. In
+seiner Arbeit stellt der Mirage--Autors :cite:`schnitzer2007high` einige
+Herangehensweise an den performanten Vergleich von Audiodaten vor. Vor allem
+werden einige *Tricks* um die Audioanalyse zu beschleunigen. Da das Paper von
+2007 ist, ist es möglich, dass diese nicht mehr zwangsweise valide sind oder
+neue Methoden bereits bekannt sind. Eine Neuerung wäre beispielsweise die
+relativ neue Bibliothek *libaubio*, die von *Paul Brossier* :cite:`AUBIO`
+entwickelt wird.
+
+*Aubio* könnte folgendes leisten:
+
+- Exaktere Bestimmung des *BPM--Wertes*. Beziehungsweise könnte man auch einen
+  Verlauf des *BPM--Wertes* über das Musikstück aufzeichnen.
+- *Onset--Detection*, also das Erkennen einzelner Noten beziehungsweise
+  *Sounds*. 
+- Eine direkte Möglichkeit die Stimmung in einem Lied zu analysieren wird
+  momentan zwar noch nicht geboten, aber die dazu benötigten Informationen, wie
+  die Erkennung der Tonlage zu einem bestimmten Zeitpunkt werden angeboten. 
+  Die technischen Details dazu werden in :cite:`schnitzer2007high` diskutiert.
+
+Die Bibliothek selber ist in `C` geschrieben, bietet aber eine komfortable 
+Python--Schnitstelle.
+
+Eine weiter Idee wäre der Versuch semi--intelligent reine Sprachdateien (wie
+Hörbücher), Instrumental--Lieder ohne Stimme (wie Intros) und normale Musik zu
+unterscheiden. Oft werden zu bestimmten Titeln unpassenderweise Intros
+vorgeschlagen, die man für gewöhnlich nur hören möchte, wenn man das gesamte
+Album von vorn bis hinten anhört. Auch hier wäre ein Einsatz von *Aubio*
+denkbar.
 
 Andere Provider
 ---------------
 
-- Genrebridges: Wie zieht man *grunge* und *rock* zusammen?
-- Datumsgrenzjahre abhängig von Genre.
-- Erkennen von Synonymen in Titeln mittels Wordnets.
-- Einbeziehung der Länge als Provider/Distanz (statistisch untersuchen)
-  (http://googleresearch.blogspot.ca/2014/01/explore-history-of-pop-and-punk-jazz.html)
+Wie man im Playlistenvergleich unter :ref:`ref-playlist-compare` gesehen hat,
+ist momentan der Vergleich der Metadaten die Stärke von *libmunin*. Diese
+Fähigkeit könnte noch weiter ausgebaut werden, indem die Sprache der Titel (denn
+nicht immer sind Liedtexte vorhanden) erkannt wird und mittels eines Wordnets
+(TODO: zitieren) Synonyme Titel finden. Kommt beispielsweise in einem Liedtitel
+das Wort ,,Becher" vor, so könnte ein Titel mit dem Wort synonymen,,Tasse""
+darin vorgeschlagen werden. (TODO: besseres synonym). In de momnetanen
+Implementierung wird jedes Wort im Titel auf seinen Wortstamm gebracht und
+mittels der Levenshteins--Distanzfunktions verglichen. Diese Lösung ist relativ
+teuer und  ungenau. Allerdings war sie leicht zu implementieren.
+
+
+Auch interessant wäre es, ob die Länge der einzelnen Stücke in irgendeiner Form
+mit der Ähnlichkeit korrelieren. Hier müssten statistische Auswertungen gemacht
+werden um diesen Zusammenhang zu überprüfen. Falls sich ein Zusammenhang zeigen
+sollte, ließe sich eine einfache ``DurationDistanceFunction`` schreiben welche
+ähnlich lange Stücke gut bewertet.
 
 Empfehlungen
 ------------
 
-- Gemeinsame Nachbarn betrachten bei mehreren Seedsongs.
-- *Similar* Artist/Album/Genres erzeugen.
+Oft kommt es vor, dass es mehr als einen Seed--Song gibt. Die momentane, simple
+Herangehensweise ist für jeden einen Iterator zu erstellen und die einzelnen
+Iteratoren im Reißverchlussverfahren zu verweben. Das ist duchaus valide, wenn
+man annimmt, dass die direkten Nachbarn dieser einzelnen Seed--Songs jeweils
+eine disjunkte zueinander darstellen. Ist dies nicht der Fall, so sollte man
+zuerst die gemeinsamen Nachbarn ,,ausschöpfen", da man dort eine
+"Ballungszentrum" ... srsly.
+
+Auch ist das Ausgabeformat von *libmunin* noch auf einzelne Songs als
+*Empfehlung* beschränkt. Nicht selten möchte man jedoch eine allgemeinere
+Auskunft wie *,,Gib mir einen ähnlichen Künstler/Album/Genre"*. Momentan wäre
+dies nur durch Auslesen der jeweiligen Attribute aus den einzelnen Empfehlungen
+möglich. Allerdings könnten hier von *libmunin* optimierte
+Traversierungsstrategien implementiert werden.
 
 Erweiterungen
 =============
 
-- Keyword extraction auch von Amazon-Reviews.
-  oder ähnliche lokale Speicher für Social-based-recommendations.
-- Suchengine für natürliche Sprache wie in :cite:`knees2007music`
-- Beziehen und Nutzen weiterer Metadaten wie Producer, Band-Member.
-  -> Ähnlichkeiten möglich!
-- Auch *,,Disklikes"* berücksichtigen --- Also Songs die immer gleich geskippt
-  werden. Negatives Rating einführen. Auch negative Assoziationen.
-  Wie bei operanter Konditionierung -> Belohnung, Gegenlernen, Vergessen.
-- Einbauen der libmunin Funktionalität in mpd-server oder seperater service.
-  Bisher wird nur die History aufgezeichnet wenn ein Client läuft.
+Die verwendeten Metadaten könnten ebenfalls erweitert werden. Für die
+Ähnlichkeit sind unter Umständen auch Attribute wie der *Producer* und die
+*Band--Member* relevant. Einfache Beispiele hier wären ,,Wer Songs von den
+Ärzten hört, der hört vermutlich auch gern Farin Urlaub Racing Team" ---
+natürlich unter der Annahme, dass derselbe Künstler auch immer ähnliche Musik
+produziert. 
+
+Was das Lernen von *libmunin* angeht, so sollten auch ,,negative Impulse"
+behandelt werden. Wird beispielsweise ein bestimmtes Lied oder gar Künstler sehr
+oft geskippt könnte *libmunin* dies berücksichtigen indem es bei der
+Traversierung diesn Knoten ,,umgeht". Alternativ wäre auch ein
+nachträgliches Filtern der entsprechenden Lieder möglich.
+
+Allgemein wäre auch eine Erweiterung von Assoziationsregeln denkbar. Momentan
+verbindet eine Regel immer zwei Mengen von Songs miteinander. Alternativ könnten
+aber auch beispielsweise verschiedene Genres, Künstler oder auch Alben in einer
+Regel miteinander verbunden werden. Das Erstellen solcher  Regeln wäre relativ
+einfach mit der existierenden Technik. Was problematisch ist, ist diese neuen
+Regeln als *Traversierungshilfe* zu nutzen. 
+
+Ein weiterer Punkt der beim Lernen verbessert könnte sind die Gewichtungen, die
+für jedes Attribut festgelegt werden. Man könnte den Nutzer beobachten und sehen
+nach welchen Attribut er bevorzugt seine Lieder auswählt (beispielsweise nach
+Genre). Das entsprechende Attribut könnte dann höher gewertet werden.
+
+Auch wäre eine zusätzliches Modul möglich, das *libmunin* nutzt, um Suchanfragen
+basierend auf natürlicher Sprache zu ermöglichen. So könnten Anfragen wie
+,,Happy Indie Pop" aufgelöst werden. Im Beispiel würde sich *Happy* auf die
+Stimmunng beziehen, *Pop* auf das Genre und *Indie* auf einen
+Independet--Künstler. Letztere Information könnte man aus der Künstlerbiografie
+extrahieren. Die Biografie kann automatisch von Tools wie *libglyr* 
+besorgt werden oder man greift alternativ auf Amazon--Reviews zurück. So
+gesehen bietet sich hier ein Erweiterungspotenzial in Richtung
+*,,Social--based--recommendations"*, also man nutzt das Wissen von vielen
+Menschen um bestimmte Attribute zu bestimmen anstatt diese mithilfe von Metriken
+zu bestimmen.
+Die eigentliche Schwierigkeite bestünde aber darin, die einzelnen Wörter
+bestimmten Attributen zuzuordnen.  Dies wäre jedenfalls ein spannendes Thema für
+eine Folgearbeit.  Diese Idee basiert auf der Musiksuchmaschine XY von Y
+:cite:`knees2007music`.
+TODO
 
 Fazit
 =====
 
-~~ Le Fin ~~
+Momentan ist *libmunin* vor allem eine Spielwiese für verschiedene Ideen rund um
+die Frage, wie man einem Computer die Ähnlichkeit von zwei Musikstücken
+feststellen lässt. Trotzdem erstellt *libmunin* selbst als Prototyp in seiner
+Standardeinstellung bereits nutzbare Playlisten. Aufgrund der relativ kurzen
+Implementierungszeit für ein solches System, von etwas mehr als 3 Monaten, ist
+dies als Erfolg zu werten.
+
+Die Neuerung dieser Arbeit ist weniger die vorgestellte Algorithmik --- der
+allergrößte Teil existiert natürlich bereits in ähnlicher Form --- sondern, das
+diese Funktionalität erstmals in einer allgemein nutzbaren, freien Bibliothek
+vorhanden ist.

@@ -29,6 +29,7 @@
     LoC                      *Lines of Code*
     ID                       *Identifier*
     UID                      *Unique Identifier*
+    BPM                      *Beats per Minute*
     =======================  ==================================
 
 .. raw:: latex

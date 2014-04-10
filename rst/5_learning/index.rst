@@ -188,6 +188,9 @@ wurde. Alles basiert momentan auf Theorien.
   Ausschnitt--Bild im echten Graphen vorher nachher.
 - Erfolge beim impliziten Lernen?
 
+- Einbauen der libmunin Funktionalität in mpd-server oder seperater service.
+  Bisher wird nur die History aufgezeichnet wenn ein Client läuft.
+
 
 .. subfigstart::
 

@@ -7,6 +7,10 @@ Begriffserklärungen
 
 .. glossary::
 
+    Playlist
+
+      Dynamische
+
     Tags
 
       In Audiofiles können bei den meisten Formaten Metadaten abgelegt
@@ -193,6 +197,8 @@ ausgewählte Provider mit den dazugehörigen Distanzfunktionen erläutert.
 Anschließend wird noch die Fähigkeit von *libmunin* vom Nutzer automatisch
 mittels Assoziationsregeln zu lernen.  Abschließend wird noch auf die Struktur
 der gegebenen Empfehlungen eingegangen.
+
+.. _ref-playlist-compare:
 
 Vergleich verschiedener Playlisten
 ==================================
