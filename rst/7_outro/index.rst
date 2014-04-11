@@ -37,7 +37,7 @@ die von *Paul Brossier* :cite:`AUBIO` entwickelt wird.
 Die Bibliothek selber ist in `C` geschrieben, bietet aber eine komfortable 
 Python--Schnitstelle.
 
-Eine weiter Idee wäre der Versuch semi--intelligent reine Sprachdateien (wie
+Eine weiter Idee wäre der Versuch möglichst intelligent reine Sprachdateien (wie
 *Hörbücher),* Instrumental--Lieder ohne Stimme (wie *Intros)* und normale Musik zu
 unterscheiden. Oft werden zu bestimmten Titeln unpassenderweise *Intros*
 vorgeschlagen, die man für gewöhnlich nur hören möchte, wenn man das gesamte

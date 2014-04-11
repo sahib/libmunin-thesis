@@ -4,7 +4,7 @@ Begriffsklärungen
 
 Genau wie in der Projektarbeit werden in den folgenden Kapiteln einige Begriffe
 verwendet, die nicht allgemein verständlich sind oder in diesem Kontext anders
-besetzt sind. 
+besetzt sind. Diese werden hier definiert.
 
 Die Begriffe :term:`Distanzfunktion` und :term:`Assoziationsregel` wurden im
 Vergleich zur Projektarbeit um einige Details erweitert. 
@@ -82,6 +82,29 @@ Kontextspezifische Fachbegriffe
     Seedsong
 
       Ein :term:`Song` der als Basis für Empfehlungen ausgewählt wurde. 
+
+    Session
+
+      Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
+      Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
+      analysiert und ein Graph wird daraus aufgebaut.
+    
+      Wer die Bibliothek benutzt, wird die *Session* zudem als Eintrittspunkt
+      für die API benutzen.
+
+    Maske
+
+      Die :term:`Session` benötigt eine Beschreibung der Daten die importiert
+      werden. So muss sich beispielsweise darauf geeinigt werden, *was* in einem
+      :term:`Song` unter dem Schlüssel ``genre`` abgespeichert wird.
+    
+      In der *Maske* werden daher die einzelnen Attribute festgelegt die ein
+      einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
+      pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
+      festgelegt, die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
+      wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
+      für die Ähnlichkeit zweier Songs entscheidender als andere.
+
 
     Assoziationsregel
 

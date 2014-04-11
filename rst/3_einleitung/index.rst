@@ -35,16 +35,36 @@ Zur Erweiterung von *libmunin*
 Hinweise zum Schreiben von Distanzfunktionen
 --------------------------------------------
 
-- Distanzfunktionen sollten versuchen die genannten Eigenschaften einzuhalten.
-- Distanzfunktionen bestehen oft aus einer einzelnen Metrik und einem
-  Fusionierungsverfahren.
-- *Überspezifische* Distanzfunktionen sollten vermieden werden.
-  In anderen Worten: Unähnliche Objekte sollten auch bestraft werden. 
+- Wenn eine Distanzfunktion eine Menge von Elementen vergleichen muss, so
+  besteht dieselbe oft aus einem *Fusionierungsverfahren* und einer weiteren
+  *Metrik*, die die einzelnen Elemente untereinander vergleicht. 
+  Als Beispiel kann man hier den Vergleich von zwei Mengen von Wörtern nennen. 
+  Einzelne Wörter kann man relativ einfach auf Ähnlichkeit untersuchen [#f1]_.
+  Ein simples Fusionierungsverfahren wäre hier jedes Wort aus der einen Menge
+  mit jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
+  Einzeldistanzen zurüzkzugeben. Ein anderes Fusionierungsverfahren nimmt statt
+  dem Durschschnitt die kleine gefundene Distanz. Hier gibt es kein richtig oder
+  falsch. Je nach Einsatzzweck muss ein passendes Verfahren gewählt werden.
+
+  TODO: Link auf vergleich von verfahren?
+    
+- Die zuvor genannten mathematischen Eigenschaften einer :term:`Distanzfunktion`
+  sollten eingehalten werden.
+ 
+- Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
+  der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen die auch für
+  eigentlich gar nicht mehr ähnliche eine Distanz errechnen die :math:`\neq 1.0` 
+  ist zu *unnützen* Verbindungen im Graphen führen. Man sollte daher den Bereich
+  in denen man eine Distanz :math:`< 1.0` vergibt einschränken. 
+
+  Im Folgendem Beispiel wird dies nicht getan und in der korrigierten Version
+  verbessert:  
 
   .. code-block:: python
 
      from munin.distance import DistanceFunction
 
+     # Eine Distanzfunktion, die beispielsweise ein Rating vergleicht.
      class MyDistanceFuntion(DistanceFunction):
          def do_compute(self, A, B):
              # A und B sind, der Konsistenz halber, immer Tupel..
@@ -81,8 +101,6 @@ Hinweise zum Schreiben von Distanzfunktionen
      :width: 100%
 
      Skalierungsfunktion der Distanzfunktion
-    
-- Defintion der :term:`Distanzfunktion` einhalten.
 
 Hinweise zum Schreiben von neuen Providern
 ------------------------------------------
@@ -115,66 +133,6 @@ Hinweise zum Schreiben von neuen Providern
 
 Vergleich verschiedener Playlisten
 ==================================
-
-.. figtable::
-   :alt: Vergleich verschiedener Playlisten  
-   :spec: r | l l r 
-   :label: table-playlists
-   :caption: Vergleich verschiedener, je 15 Lieder langen Playlisten.
-             Die Playlist im oberen Drittel wurde mittels des Seedsongs (01)
-             erstellt. Die im zweitem Drittel wurde mittels Mirage/Banshee
-             erstellt, die letzte komplett zufällig.
-
-   =================== ==================== ===================== ====================
-   **Nummer**          **Künstler**         **Titel**             **Genre**
-   =================== ==================== ===================== ====================
-   **libmunin:**       
-   |hline| *01*        *Knorkator*          *Böse*                *Rock/Parody, Heavy Metal*
-   |hline| *02*        Letzte Instanz       Egotrip               *Rock/Folk Rock, Goth Rock*
-   *03*                Nachtgeschrei        Lass mich raus        *Rock/Folk Rock*
-   *04*                Knorkator            Ick wer zun Schwein   *Rock/Parody, Heavy Metal*
-   *05*                Finntroll            Svart djup            *Rock/Folk Metal, Black Metal*
-   *06*                Heaven Shall Burn    Endzeit               *Rock/Hardcore, Death Metal*
-   *07*                In Extremo           Liam                  *Rock/Medieval, Hard Rock*
-   *08*                Knorkator            Konflikt              *Rock/Parody, Heavy Metal*
-   *09*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
-   *10*                Marc-Uwe Kling       Scheißverein          *Folk/Pardoy*
-   *11*                Johnny Cash          Heart of Gold         *Folk/Country, Rockabilly*
-   *12*                Knorkator            Geh zu ihr            *Rock/Parody, Heavy Metal*
-   *13*                In Extremo           Erdbeermund           *Rock/Medieval, Hard Rock*
-   *14*                The Rolling Stones   Stealing My Heart     *Rock/Pop Rock, Rock & Roll*
-   *15*                Knorkator            Klartext              *Rock/Parody, Heavy Metal*
-   |hline| **Mirage:** 
-   |hline| *02*        Knorkator            Ganz besond'rer Mann  *Rock/Parody, Heavy Metal*
-   *03*                Coppelius            Operation             *Rock/Classic, Medieval Metal*
-   *04*                Letzte Instanz       Salve Te              *Rock/Folk Rock, Goth Rock*
-   *05*                Apocalyptica         Fisheye               *Rock/Symphonic Rock*
-   *06*                Coppelius            I Told You So!        *Rock/Classic, Medieval Metal*
-   *07*                Apocalyptica         Pray!                 *Rock/Symphonic Rock*
-   *08*                Knorkator            Klartext              *Rock/Parody, Heavy Metal*
-   *09*                Devildriver          Black Soul Choir      *Rock/Death Metal*
-   *10*                Finntroll            Fiskarens Fiende      *Rock/Folk Metal, Black Metal*
-   *11*                Devildriver          Swinging the Dead     *Rock/Death Metal*
-   *12*                Knorkator            Es kotzt mich an      *Rock/Parody, Heavy Metal*
-   *13*                Heaven Shall Burn    Forlorn Skies         *Rock/Hardcore, Death Metal*
-   *14*                Knorkator            Hardcore              *Rock/Parody, Heavy Metal*
-   *15*                Rammstein            Roter Sand            *Rock/Industrial, Hard Rock*
-   |hline| **Zufall:**
-   |hline| *02*        Schandmaul           Drei Lieder           *Rock/Folk Rock*
-   *03*                Tanzwut              Götterfunken          *Electronic, Industrial*
-   *04*                Finntroll            Suohengen sija        *Ambient*
-   *05*                Biermösl Blosn       Anno Domini           *Brass Band, Parody*
-   *06*                Finntroll            Mordminnen            *Rock/Folk Metal, Black Metal*
-   *07*                The Rolling Stones   Stealing My Heart     *Rock/Pop Rock, Rock & Roll*
-   *08*                Die Ärzte            Ein Mann              *Rock/Punk, Pop Rock*
-   *09*                Letzte Instanz       Regenbogen            *Rock/Folk Rock, Goth Rock*
-   *10*                Billy Talent         White Sparrows        *Rock/Punk, Alternative Rock*
-   *11*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
-   *12*                Christopher Rhyne    Shadows of the Forest *Classical, Ambient*
-   *13*                The Beatles          Eight Days a Week     *Pop/Rock & Roll*
-   *14*                Of Monsters and Men  From Finner           *Pop/Folk, Indie Rock*
-   *15*                The Cranberries      Dreaming My Dreams    *Rock/Alternative Rock*
-   =================== ==================== ===================== ====================
 
 
 In Abbildung :num:`table-playlists` wird eine Auflistung verschiedener, mit
@@ -249,7 +207,7 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    *Speicherverbrauch*                        77.5 MB    
    *Speicherplatz der Session (gepackt)*      0.9 MB     
    *Speicherplatz der Session (ungepackt)*    2.5 MB     
-   *Zeit für den Kaltstart:*                  53 Minuten (33 Minuten Liedtexte + 20 Minuten Audioanalyse)
+   *Zeit für den Kaltstart:*                  53 Minuten = 33m Liedtexte + 20m Audioanalyse
    |hline| ``rebuild``                        44 Sekunden
    ``add``                                    ~1ms
    ``insert``                                 164ms
@@ -260,3 +218,67 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
 Wie man sieht, sollte noch unbedingt Zeit investiert werden um den *Kaltstart*
 zu beschleunigen. Auch die ``modify``--Operation könnte durchaus noch optimiert
 werden. 
+
+.. rubric:: Footnotes
+
+.. [#f1] Etwa mit der Levenshtein--Distanzfunktion. TODO: cite.
+
+.. figtable::
+   :alt: Vergleich verschiedener Playlisten  
+   :spec: r | l l r 
+   :label: table-playlists
+   :caption: Vergleich verschiedener, je 15 Lieder langen Playlisten.
+             Die Playlist im oberen Drittel wurde mittels des Seedsongs (01)
+             erstellt. Die im zweitem Drittel wurde mittels Mirage/Banshee
+             erstellt, die letzte komplett zufällig.
+
+   =================== ==================== ===================== ====================
+   **Nummer**          **Künstler**         **Titel**             **Genre**
+   =================== ==================== ===================== ====================
+   **libmunin:**       
+   |hline| *01*        *Knorkator*          *Böse*                *Rock/Parody, Heavy Metal*
+   |hline| *02*        Letzte Instanz       Egotrip               *Rock/Folk Rock, Goth Rock*
+   *03*                Nachtgeschrei        Lass mich raus        *Rock/Folk Rock*
+   *04*                Knorkator            Ick wer zun Schwein   *Rock/Parody, Heavy Metal*
+   *05*                Finntroll            Svart djup            *Rock/Folk Metal, Black Metal*
+   *06*                Heaven Shall Burn    Endzeit               *Rock/Hardcore, Death Metal*
+   *07*                In Extremo           Liam                  *Rock/Medieval, Hard Rock*
+   *08*                Knorkator            Konflikt              *Rock/Parody, Heavy Metal*
+   *09*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
+   *10*                Marc-Uwe Kling       Scheißverein          *Folk/Pardoy*
+   *11*                Johnny Cash          Heart of Gold         *Folk/Country, Rockabilly*
+   *12*                Knorkator            Geh zu ihr            *Rock/Parody, Heavy Metal*
+   *13*                In Extremo           Erdbeermund           *Rock/Medieval, Hard Rock*
+   *14*                The Rolling Stones   Stealing My Heart     *Rock/Pop Rock, Rock & Roll*
+   *15*                Knorkator            Klartext              *Rock/Parody, Heavy Metal*
+   |hline| **Mirage:** 
+   |hline| *02*        Knorkator            Ganz besond'rer Mann  *Rock/Parody, Heavy Metal*
+   *03*                Coppelius            Operation             *Rock/Classic, Medieval Metal*
+   *04*                Letzte Instanz       Salve Te              *Rock/Folk Rock, Goth Rock*
+   *05*                Apocalyptica         Fisheye               *Rock/Symphonic Rock*
+   *06*                Coppelius            I Told You So!        *Rock/Classic, Medieval Metal*
+   *07*                Apocalyptica         Pray!                 *Rock/Symphonic Rock*
+   *08*                Knorkator            Klartext              *Rock/Parody, Heavy Metal*
+   *09*                Devildriver          Black Soul Choir      *Rock/Death Metal*
+   *10*                Finntroll            Fiskarens Fiende      *Rock/Folk Metal, Black Metal*
+   *11*                Devildriver          Swinging the Dead     *Rock/Death Metal*
+   *12*                Knorkator            Es kotzt mich an      *Rock/Parody, Heavy Metal*
+   *13*                Heaven Shall Burn    Forlorn Skies         *Rock/Hardcore, Death Metal*
+   *14*                Knorkator            Hardcore              *Rock/Parody, Heavy Metal*
+   *15*                Rammstein            Roter Sand            *Rock/Industrial, Hard Rock*
+   |hline| **Zufall:**
+   |hline| *02*        Schandmaul           Drei Lieder           *Rock/Folk Rock*
+   *03*                Tanzwut              Götterfunken          *Electronic, Industrial*
+   *04*                Finntroll            Suohengen sija        *Ambient*
+   *05*                Biermösl Blosn       Anno Domini           *Brass Band, Parody*
+   *06*                Finntroll            Mordminnen            *Rock/Folk Metal, Black Metal*
+   *07*                The Rolling Stones   Stealing My Heart     *Rock/Pop Rock, Rock & Roll*
+   *08*                Die Ärzte            Ein Mann              *Rock/Punk, Pop Rock*
+   *09*                Letzte Instanz       Regenbogen            *Rock/Folk Rock, Goth Rock*
+   *10*                Billy Talent         White Sparrows        *Rock/Punk, Alternative Rock*
+   *11*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
+   *12*                Christopher Rhyne    Shadows of the Forest *Classical, Ambient*
+   *13*                The Beatles          Eight Days a Week     *Pop/Rock & Roll*
+   *14*                Of Monsters and Men  From Finner           *Pop/Folk, Indie Rock*
+   *15*                The Cranberries      Dreaming My Dreams    *Rock/Alternative Rock*
+   =================== ==================== ===================== ====================
