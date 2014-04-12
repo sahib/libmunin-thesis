@@ -13,7 +13,7 @@ wird detailliert auf ihre Funktionsweise und Internas eingegangen.
 -------------------------------
 
 Bevor irgendeine andere Operation ausgeführt werden kann muss mittels der
-``rebuild``--Operation der Graph aufgebaut werden. Wie bereits erwähnt in der
+``rebuild``--Operation der Graph aufgebaut werden. Wie bereits in der
 Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
 :math:`O(n2)` nicht einfach durch das Vergleichen aller Songs untereinander
 erfolgende. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
@@ -38,7 +38,9 @@ Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt.
 Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
 Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
 auf :math:`15` gesetzt --- der durchschnittlichen Länge eines heutigen Albums
-plus eins.
+plus eins. Dieser Wert hat sich nach einigen Tests als passable erwiesen. Bei zu
+niedrigen Werten verbinden sich die einzelnen Alben nur untereinander, bei zu
+hohen entstehen zu viele qualitativ schlechte Verbindungen.
 
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
 auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.

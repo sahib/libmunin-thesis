@@ -5,32 +5,31 @@ Allgemeine Entwicklerhinweise
 In diesem Kapitel werden einleitend einige allgemeine Hinweise gegeben, die man
 bei der Entwicklung mit und von *libmunin* beachten sollte.
 
-In den darauf folgenden Kapiteln wird detailliert der Aufbau des Graphen, sowie 
-einige ausgewählte Distanzfunktionen und Provider detailliert beleuchtet.
-Zum Ende hin wird auch auf den Mechanismus eingegangen den *libmunin* zum Lernen
-nutzt.
-
 Zur Nuztung von *libmunin*
 ==========================
-
-Zu Beginn sollen einige allgemeine Hinweise stichpunktartig gegeben werden, was
-bei der Arbeit mit *libmunin* zu beachten ist.
 
 - Die Qualität der Empfehlungen kann nur so gut sein wie die Qualität der
   Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
   aus den *Tags* der Audiodateien kommen, empfiehlt es sich diese vorher mit 
   Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür Picard,
-  welches im Hintergrund auf Musicbrainz zugreift. (TODO Links.)
+  welches im Hintergrund auf Musicbrainz :cite:`3A3` zugreift. 
   Für schwerer zu besorgende Daten kann unter anderem auf libglyr, beets oder
   dem eingebauten PlyrLyrics--Provider und DiscogsGenre--Provider.
-- Sollten Anwendungsentwickler je nach Einsatzzweck eine spezialisierte
-  Session--Maske verwenden. 
-- Welche Lieder man zu *libmunin's History* hinzufügt, sollte ebenfalls
+- Welche Lieder man zu *libmunin's History* hinzufügt, sollte 
   abgewogen werden. Fügt man auch Lieder ein welche vom Nutzer einfach
-  übersprungen worden sind. 
+  übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
+- Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre eigenen
+  Zwecke konfigurierte Session--Maske verwenden. Zwar ist der Einsatz der
+  ``EasySession`` deutlich einfacher, doch ist diese mehr für den *schnellen*
+  Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht werden, 
+  die Gewichtungen der einzelnen Attribute zu ändern.
 
 Zur Erweiterung von *libmunin*
 ==============================
+
+Oft es ist von Interesse neue Distanzfunktionen und Provider für eigene Zwecke 
+zu schreiben. Im Folgenden werden einige Beispiele gegeben und Stolperfallen
+aufgelistet.
 
 Hinweise zum Schreiben von Distanzfunktionen
 --------------------------------------------
@@ -42,23 +41,24 @@ Hinweise zum Schreiben von Distanzfunktionen
   Einzelne Wörter kann man relativ einfach auf Ähnlichkeit untersuchen [#f1]_.
   Ein simples Fusionierungsverfahren wäre hier jedes Wort aus der einen Menge
   mit jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
-  Einzeldistanzen zurüzkzugeben. Ein anderes Fusionierungsverfahren nimmt statt
+  Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren nimmt statt
   dem Durschschnitt die kleine gefundene Distanz. Hier gibt es kein richtig oder
-  falsch. Je nach Einsatzzweck muss ein passendes Verfahren gewählt werden.
+  falsch, je nach Einsatzzweck muss ein passendes Verfahren gewählt werden.
 
   TODO: Link auf vergleich von verfahren?
+
     
 - Die zuvor genannten mathematischen Eigenschaften einer :term:`Distanzfunktion`
   sollten eingehalten werden.
  
 - Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
   der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen die auch für
-  eigentlich gar nicht mehr ähnliche eine Distanz errechnen die :math:`\neq 1.0` 
-  ist zu *unnützen* Verbindungen im Graphen führen. Man sollte daher den Bereich
-  in denen man eine Distanz :math:`< 1.0` vergibt einschränken. 
+  eigentlich gar nicht mehr ähnliche eine Distanz errechnen die :math:`\neq 1.0`
+  ist, zu qualitativ schlechten Verbindungen im Graphen führen. Man sollte daher
+  den Bereich, in denen man eine Distanz :math:`< 1.0` vergibt, einschränken. 
 
-  Im Folgendem Beispiel wird dies nicht getan und in der korrigierten Version
-  verbessert:  
+  Im Folgendem Beispiel wird dies nicht getan und in der nachfolgenden
+  korrigierten Version verbessert:  
 
   .. code-block:: python
 
@@ -67,7 +67,8 @@ Hinweise zum Schreiben von Distanzfunktionen
      # Eine Distanzfunktion, die beispielsweise ein Rating vergleicht.
      class MyDistanceFuntion(DistanceFunction):
          def do_compute(self, A, B):
-             # A und B sind, der Konsistenz halber, immer Tupel..
+             # A und B sind, der Konsistenz halber, immer Tupel. 
+             # Auch bei einzelnen Werten.
              # Daher müssen wir diese erst ,,entpacken".
              a, b = A[0], B[0]
              return abs(a - b) / max(a, b)
@@ -85,12 +86,13 @@ Hinweise zum Schreiben von Distanzfunktionen
              return diff / 3
 
 - Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
-  wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich zu Untersuchen in
-  welchem Bereich sich die berechnete Distanz bewegt.  Sollte sie sich
-  beispielsweise immer im Bereich zwischen :math:`0.3` und :math:`0.7` bewegen,
-  so ist es empfehlenswert diesen Bereich zu *dehnen*.  In :num:`fig-stretch`
-  werden mit der Funktion :math:`f(x) = -2\frac{2}{3}x^{3} + 4x^{2} -
-  \frac{1}{3}x` Distanzen unter :math:`0.5` verbessert und darüber
+  wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich die Verteilung der
+  Distanz auf Bereich zwischen :math:`0.0` und :math:`1.0` zu untersuchen.
+
+  Sollte sie sich beispielsweise gehäuft im Bereich zwischen :math:`0.3` und
+  :math:`0.7` bewegen, so ist es empfehlenswert diesen Bereich zu *dehnen*.  In
+  :num:`fig-stretch` werden mit der Funktion :math:`f(x) = -2\frac{2}{3}x^{3} +
+  4x^{2} - \frac{1}{3}x` Distanzen unter :math:`0.5` verbessert und darüber
   verschlechtert.
 
   .. _fig-stretch:
@@ -100,16 +102,19 @@ Hinweise zum Schreiben von Distanzfunktionen
      :align: center
      :width: 100%
 
-     Skalierungsfunktion der Distanzfunktion
+     Skalierungsfunktion der Distanzfunktion in Blau. Werte unter 0.5 werden
+     etwas weiter herabgesetzt, schlechtere Werte über 0.5 werden weiter erhöht.
+     Zur Referenz ist die Einheitsgerade in Grün gegeben.
 
 Hinweise zum Schreiben von neuen Providern
 ------------------------------------------
 
 - Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
-  Präprozessor verstehen der die vom Nutzer eingegebenen Daten auf möglichst
+  Präprozessor verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
   einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit die er dafür
   braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.
-- Unwichtiges weglassen
+  Daher sollte gut abgewogen werden wieviele Daten man dem Provider produzieren
+  lässt. Im Zweifelsfall empfiehlt es sich unnötiges wegzulassen. 
 - Ist zu erwarten, dass stark redundante Daten eingepflegt werden, dann sollte
   die Provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür
   ist der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre
@@ -134,20 +139,23 @@ Hinweise zum Schreiben von neuen Providern
 Vergleich verschiedener Playlisten
 ==================================
 
-
 In Abbildung :num:`table-playlists` wird eine Auflistung verschiedener, mit
-verschiedenen Methoden erstellten Playlists gegeben. Dies ist insofern
+unterschiedlichen Methoden erstellten Playlists gegeben. Dies ist insofern
 interessant, da die Struktur der von *libmunin* gegebenen Empfehlungen gewissen
-Regeln unterliegt die man als Anwendungsentwickler kennen sollte. Zudem ist ein
-*subjektiver* Vergleich mit anderen Systemen interessant.
+Regeln unterliegt die man als Anwendungsentwickler kennen sollte. Zudem ist der
+*subjektive* Vergleich mit anderen Systemen interessant.
 
-Der ursprüngliche Plan hier auch eine von ``last.fm`` (TODO: link) erstellte
+Der ursprüngliche Plan hier auch eine von ``last.fm`` :cite:`9NT` erstellte
 Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht auf
 die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte. 
 Stattdessen wurde die *Konkurrenz* von *libmunin* getestet: *Mirage*
 :cite:`schnitzer2007high`. Da *Mirage* momentan nur als Plugin für Banshee
 vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die 
 Testmusikdatenbank auch in Banshee importiert.
+
+Die Testmusikdatenbank selbst besteht aus einigen ausgewählten Alben des Autors.
+Viele allgemein gebräuchliche Gneres werden dabei abgedeckt, obwohl der
+Schwerpunkt beim Genre *Rock* und *Metal* liegt.
 
 Die einzelnen Playlists wurden auf jeweils 15 Songs begrenzt. Darin enthalten
 ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum Generieren
@@ -161,24 +169,24 @@ sehen kann.
   da der *Filter* entsprechend eingestellt ist. Daher ist eine Wiederholung des
   Künstlers nur alle 3, und eine Wiederholung des Albums nur alle 5 Stücke
   erlaubt. Bei Mirage scheint lediglich eine direkte Wiederholung des Künstlers
-  scheint ausgeschlossen zu sein. Ansonsten wiederholen sich die Künstler
+  ausgeschlossen zu sein. Ansonsten wiederholen sich die Künstler
   relativ beliebig. Die zufällige Playlist hat zwar auch keinerlei
   Wiederholungen, aber entbehrt dafür auch jeder Struktur.
 - *Mirage* leistet gute Arbeit dabei ähnlich klingende Stücke auszuwählen. Der
-  relativ langsame Seedsong (*Mirage* besitzt hier tatsächlich ein änhliches
-  Konzept) besitzt eine dunke Stimmung und harte E--Gitarren. Die von *Mirage*
-  vorgeschlagenen Songs schlagen hier tatsächlich sehr passend von der Stimmung
-  her. Die von *libmunin* vorgeschlagenen Songs sind in Punkt Audiodaten bei
-  weitem nicht so übereinstimmend. Was aber auffällig ist, ist dass größtenteils
-  deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch führt das
-  *Parody* in der Genre--Beschreibung dazu, dass ebenfalls lustig oder ironisch 
-  gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im Seedsong
-  düster, doch wird textlich ein lustiges Thema behandelt --- was *Mirage* an
-  den Audiodaten natürlich nicht erkennen kann.
-  Hier zeigt sich *libmunin's* (momentaner) Fokus auf Metadaten.
-  Bei der zufälligen Playlists passen zwar die Genres einigermaßen übereinander,
-  doch liegt das eher an dem sehr dehnbaren Begriff *Rock* der bei
-  Discogs (TODO: link) für sehr viele Lieder eingepflegt ist.
+  tempomäßig relativ langsame Seedsong (*Mirage* besitzt hier tatsächlich ein
+  änhliches Konzept) besitzt eine dunke Stimmung und harte E--Gitarren. Die von
+  *Mirage* vorgeschlagenen Songs schlagen hier tatsächlich sehr passend von der
+  Stimmung her. Die von *libmunin* vorgeschlagenen Songs sind in Punkt
+  Audiodaten bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
+  dass größtenteils deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch
+  führt das *Parody* in der Genre--Beschreibung dazu, dass ebenfalls lustig oder
+  ironisch gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im
+  Seedsong düster, doch wird textlich ein lustiges Thema behandelt --- was
+  *Mirage* an den Audiodaten natürlich nicht erkennen kann.  Hier zeigt sich
+  *libmunin's* (momentaner) Fokus auf Metadaten.  Bei der zufälligen Playlists
+  passen zwar die Genres einigermaßen übereinander, doch liegt das eher an dem
+  sehr dehnbaren Begriff *Rock*, der bei
+  Discogs :cite:`DISCOGS` für sehr viele Lieder eingepflegt ist.
 - Der Kaltstart bei *Mirage* verlief in wenigen Minuten, während der Kaltstart
   bei *libmunin* beim ersten mal für die 666 Songs sehr hohe 53 Minuten
   benötigte, da für jedes Lied ein Liedtext sequentiell automatisch besorgt
@@ -230,7 +238,7 @@ werden.
    :caption: Vergleich verschiedener, je 15 Lieder langen Playlisten.
              Die Playlist im oberen Drittel wurde mittels des Seedsongs (01)
              erstellt. Die im zweitem Drittel wurde mittels Mirage/Banshee
-             erstellt, die letzte komplett zufällig.
+             erstellt, die letzte wurde komplett zufällig generiert.
 
    =================== ==================== ===================== ====================
    **Nummer**          **Künstler**         **Titel**             **Genre**
