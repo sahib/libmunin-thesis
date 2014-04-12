@@ -534,8 +534,9 @@ Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert:
 *,,God save"* und *,,Queen"*, da *the* ein einglisches Stoppwort ist. 
 
 Andererseits entstehen auch oft Schlüsselphrasen, die entweder unwichtig *(,,mal
-echt")*, sinnentfremdet () oder stark kontextspezifisch () sind. Da ein Computer
-den Text nicht verstehen kann, lässt sich das kaum vermeiden.
+echt")*, sinnentfremdet (*,,gerne still stehen"* obwohl im Text oben *,,nicht"*
+davor steht) oder stark kontextspezifisch *(,,schlechter Müller")* sind. Da ein
+Computer den Text nicht verstehen kann, lässt sich das kaum vermeiden.
 
 Auch gemischtsprachige Liedtexte lassen sich nur schwer untersuchen, da immer
 nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt

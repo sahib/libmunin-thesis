@@ -237,13 +237,13 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
 .. _fig-mini-graph-remove-before:
 
 .. figure:: figs/mini_graph_remove_before.png
-    :width: 70%
+    :width: 50%
     :align: center
     
     Vor der remove--Operation.
 
 .. figure:: figs/mini_graph_remove_after.png
-    :width: 70%
+    :width: 50%
     :align: center
     
     Nach der remove--Operation.
@@ -265,13 +265,13 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
 .. _fig-mini-graph-insert-before:
 
 .. figure:: figs/mini_graph_insert_before.png
-    :width: 70%
+    :width: 50%
     :align: center
     
     Vor der insert--Operation.
 
 .. figure:: figs/mini_graph_insert_after.png
-    :width: 70%
+    :width: 50%
     :align: center
     
     Nach der insert--Operation.
@@ -293,13 +293,13 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
 .. _fig-mini-graph-modify-before:
 
 .. figure:: figs/mini_graph_modify_before.png
-    :width: 70%
+    :width: 60%
     :align: center
     
     Vor der modify--Operation.
 
 .. figure:: figs/mini_graph_modify_after.png
-    :width: 70%
+    :width: 60%
     :align: center
     
     Nach der modify--Operation.

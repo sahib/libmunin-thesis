@@ -4,8 +4,7 @@ Begriffsklärungen
 
 Genau wie in der Projektarbeit werden in den folgenden Kapiteln einige Begriffe
 verwendet, die nicht allgemein verständlich sind oder in diesem Kontext anders
-besetzt sind. Diese werden hier definiert.
-
+besetzt sind. Diese werden hier definiert. |br|
 Die Begriffe :term:`Distanzfunktion` und :term:`Assoziationsregel` wurden im
 Vergleich zur Projektarbeit um einige Details erweitert. 
 
@@ -17,10 +16,10 @@ Allgemeine Fachbegriffe
     Playlist
 
       Eine *Playlist,* zu deutsch *Wiedergabeliste*, ist eine Liste einzelner
-      Lieder die nacheinander abgespielt werden. Die Zusammstellung einer
+      Lieder, die nacheinander abgespielt werden. Die Zusammstellung einer
       Playlist erfüllt oft einen gewissen Zweck. So stellt man für gewöhnlich
       Lieder in einer *Playlist* zusammen, die eine gemeinsame Stimmung oder
-      eine andere Gemeinsamkeit *(,,Favorit")* haben.
+      eine andere Gemeinsamkeit *(,,Favorit")* besitzen. 
 
     Hashtabelle
 
@@ -72,10 +71,8 @@ Kontextspezifische Fachbegriffe
 
       Im Kontext von *libmunin* ist ein Song eine Menge von Attributen.  Jedem
       :term:`Attribut` ist, wie in einer Hashtabelle, genau ein Wert zugeordnet. 
-
       Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
       einzelner Song kennt dafür einen bestimmten Wert.
-
       Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
       Songs gespeichert, sowie einen Integer der als Identifier dient.
 
@@ -88,7 +85,6 @@ Kontextspezifische Fachbegriffe
       Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
       Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
       analysiert und ein Graph wird daraus aufgebaut.
-    
       Wer die Bibliothek benutzt, wird die *Session* zudem als Eintrittspunkt
       für die API benutzen.
 
@@ -112,18 +108,24 @@ Kontextspezifische Fachbegriffe
       miteinander. Sie besagen, dass wenn eine der beiden Mengen miteinander
       gehört wird, dann ist es *wahrscheinlich*, dass auch die andere Menge
       daraufhin angehört wird.
+      Regeln werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes 
+      Lied, das der Nutzer anhört in einer *Historie* zwischengespeichert.
 
-      Die Güte jeder Regel wird durch ein *Rating* beschrieben, welche grob die
-      generelle Anwendbarkeit beschreibt.
-
-      Sie werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied
-      zwischengespeichert, das der Nutzer anhört.
+      Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
+      Regel ein *Rating* berechnet.
 
       *Anmerkung:* Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
       Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
       Einfachkeit allerdings *bidirektional.*  So gilt nicht nur, dass man
       wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
       \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
+      Ein praktisches, natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler 
+      essen Cornflakes. Diese Regel besagt dass der größte Teil der
+      Basketballspieler Cornflakes essen, aber nicht, dass die meisten
+      Cornflakes--Esser Basketballspieler sind. Da bei libmunin auf beiden
+      Seiten der Regel immer der gleiche Typ (ein oder mehrere Songs) steht und
+      die Beziehung immer *,,werden* miteinander *gehört"* ist, ist hier eine 
+      bidirektionale Assoziation möglich.
 
     Attribut
 
@@ -150,7 +152,6 @@ Kontextspezifische Fachbegriffe
       Eine Distanz von 0 bedeutet dabei eine maximale Ähnlichkeit (oder
       minimale *Entfernung* zueinander), eine Distanz von 1 maximale
       Unähnlichkeit (oder maximale *Entfernung*).
-
       Die Distanz wird durch eine :term:`Distanzfunktion` berechnet.
    
     Distanzfunktion
@@ -164,55 +165,84 @@ Kontextspezifische Fachbegriffe
       spezialisierte Distanzfunktion festgelegt, die weiß wie diese
       zwei bestimmten Werte sinnvoll verglichen werden können. Die so
       errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
-      einem Wert verschmolzen.
-
+      einem Wert verschmolzen. |br|
       Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
-      Distanz von 1 angenommen. Diese wird dann ebenfalls in die gewichtete
-      Oberdistanz eingerechnet.
+      *,,Straf"*--Distanz von 1 angenommen. Diese wird dann ebenfalls in die
+      gewichtete Oberdistanz eingerechnet.
 
       Die folgenden Bedingungen müssen sowohl für die allgemeine
       Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
-      :math:`D` ist dabei die Menge aller Songs, :math:`d` eine Distanzfunktion:
+      :math:`D` ist dabei die Menge aller Songs, :math:`d` eine Distanzfunktion.
  
-      * *Uniformität* |hfill| :math:`0 \leq d(i, j) \leq 1\forall i,j \in D \;\;\;\text{(1)}`
-      * *Symmetrie* |hfill| :math:`d(i, j) = d(j, i) \forall i,j \in D \;\;\;\text{(2)}`
-      * *Identität* |hfill| :math:`d(i, i) = 0.0 \forall i \in D \;\;\;\text{(3)}`
-      * *Dreiecksungleichung* |hfill| :math:`d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D \;\;\;\text{(4)}`
+      1) *Uniformität:*
+        
+         .. math::
+
+            0 \leq d(i, j) \leq 1\forall i,j \in D 
+
+         *Aussage:* Die errechneten Werte müssen sich immer zwischen und
+         einschließlich 0 und 1 befinden. *libmunin* schneidet unpassende
+         auf diesen Bereich zu. 
+
+      2) *Symmetrie:* 
+
+         .. math::
+         
+            d(i, j) = d(j, i) \forall i,j \in D 
+
+        *Aussage:* Die Reihenfolge in der die Songs der Distanzfunktion
+        übergeben werden darf keine Auswirkung auf das Ergebnis haben. 
+        Diese Eigenschaft wird von *libmunin* nicht überprüft --- eine
+        Nichteinhaltung würde zu falschen Kanten im Graphen führen.
+
+      3) *Identität:* 
+         
+         .. math::
+         
+            d(i, i) = 0.0 \forall i \in D 
+
+         *Aussage:* Wird zweimal der selbe Song übergeben, so muss die Distanz
+         immer 0.0 betragen. Autoren von Distanzfunktionen sollten dies testen. 
+         Werte :math:`\neq 0` deuten erfahrungsgemäß auf schlechte
+         Distanzfunktionen hin. 
+
+      4) *Dreiecksungleichung:* 
+         
+         .. math::
+
+            d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D 
+
+         In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
+         zwischen zwei Songs immer kürzer oder gleich lang wie der Umweg über
+         den dritten Song sein. Dies ist in :num:`fig-trineq` gezeigt. 
+         Damit die Gewichtung der einzelnen Distanzen in die Oberdistanzen diese
+         Eigenschaft erfüllt wurde das Strafmaß eingeführt.
 
       .. subfigstart::
 
       .. _fig-trineq:
 
       .. figure:: figs/trineq.*
-          :alt: Stuff
-          :width: 100%
+          :width: 80%
           :align: center
     
-          Ohne Einhaltung von Gleichung (4)
+          Ohne Einhaltung der Dreiecksungleichung.
 
       .. _fig-trineq_fixed:
 
       .. figure:: figs/trineq_fixed.*
-          :alt: Stuff
-          :width: 100%
+          :width: 80%
           :align: center
     
-          Mit Einhaltung von Gleichung (4)
+          Mit Einhaltung der Dreickecsungleichung.
 
       .. subfigend::
           :width: 0.49
           :alt: Schematische Darstellungen der einzelnen Basisiterationen.
           :label: fig-trineqs
  
-          Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
+          *Aussage:* Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
           besagt, dass der direkte Weg von A nach B kürzer sein sollte als der
           Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“ sind gleich stark
           gewichtet.  Wenn keine Straftwertung für leere Werte gegeben wird, so
           sind die Umwege manchmal kürzer.
-
-      Im Kontext von *libmunin* sind nicht alle Eigenschaften wichtig, doch
-      werden diese Eigenschaften trotzdem aus Gründen der Konsistenz
-      eingehalten. Beispielsweise werden Werte die nicht gesetzt worden sind,
-      mit einer (Teil-)Distanz von :math:`1.0` *,,bestraft"* um die Eigenschaft
-      der *Dreiecksungleichung* einzuhalten. Wie das konkret aussieht, sieht man
-      in Abbildung :num:`fig-trineqs`.

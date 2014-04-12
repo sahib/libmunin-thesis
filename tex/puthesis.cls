@@ -61,7 +61,7 @@
     \makelot\clearpage\makelof\clearpage\makelos
     \clearpage\mainmatter
     \titlespacing{\chapter}{0pt}{0.0em}{2em}
-}%
+}% 
 
 \long\def\acknowledgements#1{\gdef\@acknowledgements{#1}}
 

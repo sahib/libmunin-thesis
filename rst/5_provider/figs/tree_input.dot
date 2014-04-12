@@ -4,7 +4,6 @@ digraph {
     splines=false;
 
     subgraph {
-        core [label="{Reggae | Swedish alternative Rock | j-Pop}"];
-        other [label="{Alternative Pop | Alternative Rock | Swedish Pop}"];
+        core [label="{Reggae | Swedish alternative Rock | j-Pop} | {Alternative Pop | Alternative Rock | Swedish Pop}"];
     }
 }

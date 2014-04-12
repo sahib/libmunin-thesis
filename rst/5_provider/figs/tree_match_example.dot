@@ -1,18 +1,26 @@
 digraph {
-    size=4; 
+    // size=4; 
     splines=false;
-    node [shape=record];
+    node [shape=box, style=filled];
     rankdir="LR";
     
-    "Result 1" [shape=point]
-    "Result 2" [shape=point]
-    "S" [shape=doublecircle]
+    subgraph {
+        rank=same;
+        " †" [fillcolor="#ffbbbb"]
+        "† " [fillcolor="#ffbbbb"]
+    }
 
-    "S" -> "[False, False]" [label=" [ ]"]
-    "[False, False]" -> "[True, False]" [label="[alternative]"]
-    "[False, False]" -> "[True, False]" [label=""]
-    "[False, False]" -> "[False, True]" [label=" [rock]"]
-    "[False, True]" -> "[True, True]" [label=" [rock, alternative]"]
-     "[True, False]" -> "Result 1"
-    "[True, True]" -> "Result 2"
+    subgraph {
+        rank=same;
+        "{☑, ☒}"
+        "{☒, ☑}"
+    }
+    "Start ➜" [fillcolor="#bbffbb"]
+
+    "Start ➜" -> "{☒, ☒}" [label=" {☒, ☒}"]
+    "{☒, ☒}" -> "{☑, ☒}" [label="{alternative, ☒}"]
+    "{☒, ☒}" -> "{☒, ☑}" [label=" {☒, rock}"]
+    "{☒, ☑}" -> "{☑, ☑}" [label=" {rock, alternative}"]
+    "{☑, ☒}" -> "† " [label="{alternative, ☒}"]
+    "{☑, ☑}" -> " †"
 }

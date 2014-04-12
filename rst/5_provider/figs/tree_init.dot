@@ -1,16 +1,38 @@
 digraph {
     size=4; 
-    node [shape=record];
+    node [shape=record, style=filled, fillcolor="#ffffff"];
     splines=false;
+    outputorder="edgesfirst";
 
     subgraph {
-        a [label="<0> Alternative Pop (#0) |<1> alternative Rock (#1) |<2> j-Pop (#2) | <3> Reggae (#3) |<4> Swedish Alternative Rock (#4) |<5> Swedish Pop (#5)"];
+        rank=same;
+        a [label="<0> Alternative Pop (#0)"];
+        b [label="<1> Alternative Rock (#1)"];
+        c [label="<2> j-Pop (#2)"];
+    }
+    subgraph {
+        rank=same;
+        X1 [style=invisible];
+        X2 [style=invisible];
+        X3 [style=invisible];
+        d [label="<3> Reggae (#3)"];
+        e [label="<4> Swedish Alternative Rock (#4)"];
+        f [label="<5> Swedish Pop (#5)"];
     }
 
-    "Music (#0)" -> a:0;
-    "Music (#0)" -> a:1
-    "Music (#0)" -> a:2
-    "Music (#0)" -> a:3
-    "Music (#0)" -> a:4
-    "Music (#0)" -> a:5
+    d -> X1 [style=invis, dirType="none"];
+    e -> X2 [style=invis, dirType="none"];
+    f -> X3 [style=invis, dirType="none"];
+
+    a -> X1 [style=invis, dirType="none"];
+    b -> X2 [style=invis, dirType="none"];
+    c -> X3 [style=invis, dirType="none"];
+
+    "Music (#0)" -> d;
+    "Music (#0)" -> e;
+    "Music (#0)" -> f;
+
+    "Music (#0)" -> a;
+    "Music (#0)" -> b;
+    "Music (#0)" -> c;
 }

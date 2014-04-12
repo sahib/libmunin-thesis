@@ -5,10 +5,10 @@
 Das allgemeine Problem
 ======================
 
-Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen *wie ähnlich* ein
+Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen wie *ähnlich* ein
 Musikstück zu einem anderem ist, so erhält man genauso viele Antworten wie man
 Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr subjektive
-Angelegenheit, die selbst für einem Menschen schwierig ist. Stuft man die
+Angelegenheit, die häufig zwischen Menschen Diskussionen auslöst. Stuft man die
 *Rolling Stones* als *Rock* ein? Oder doch eher als *Pop?* Was zählt überhaupt
 noch als *Rock*? Gibt es eine Definition dafür?
 
@@ -18,7 +18,7 @@ beizubringen wird es kompliziert. Dieser kann nur objektiv nach bestimmten
 Aufgabe eines Menschen sein --- also sind auch diese wiederum subjektiv, da sie
 die *Vorlieben* des Autors widerspiegeln. Auch können diese Metriken nie für
 alle Fälle funktionieren. Ein gutes Stück *,,Kaffeesatzleserei"* lässt sich
-leider nie ganz vermeiden.
+also leider nie ganz vermeiden.
 
 Das konkrete Problem
 ====================
@@ -28,10 +28,10 @@ Musikempfehlungssystem, das genau auf einen Nutzer und dessen Vorlieben
 zugeschnitten ist: Seinem Entwickler. Bibliotheksanwender können jedoch die
 Bibliothek an ihre Präferenzen anpassen oder ihren Nutzern eine Möglichkeit
 geben, selbst Einstellungen vorzunehmen. So wäre es im praktischen Einsatz
-möglich die Gewichtung einzelner Attribute während der Laufzeit zu ändern.
+möglich, die Gewichtung einzelner Attribute während der Laufzeit zu ändern.
 
 Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
-verstehen was intern vor sich geht.  Darum soll es in dieser Arbeit gehen.
+verstehen was intern vor sich geht. Genau darum soll es in dieser Arbeit gehen.
 Insbesondere wird auf die wichtigsten Provider und deren Funktionalität
 eingegangen, wie diese sich auf die Distanzfunktionen auswirken und wie aus den
 einzelnen Distanzen der komplette Graph aufgebaut wird. Zudem wird auf die
