@@ -16,7 +16,7 @@ Bevor irgendeine andere Operation ausgeführt werden kann muss mittels der
 ``rebuild``--Operation der Graph aufgebaut werden. Wie bereits in der
 Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
 :math:`O(n2)` nicht einfach durch das Vergleichen aller Songs untereinander
-erfolgende. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
+erfolgend. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
 Vorzugsweise eine, bei der Rechenaufwand gegen die Qualität der Approximation
 abgewägt werden kann.  So kann der Nutzer entscheiden wie lange er *libmunin*
 rechnen lassen will.
@@ -30,20 +30,26 @@ neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu diesem neu
 Song besser ist als die zum schlechtesten vorhandenen Nachbar.  Ist dies der
 Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn *in eine Richtung*
 (die Gründe hierfür werden unter :ref:`ref_distance_add` betrachtet) gekappt.
-Als Ersatz wird zu dem neuen Song eine bidirektionale Verbindung aufgebaut. Da
-die Verbindung zum schlechtesten Song nur unidirektional abgebaut wird, ist die
-Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt, da das
-Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt.
+Als Ersatz wird zu dem neuen, besseren Song eine bidirektionale Verbindung
+aufgebaut. Da die Verbindung zum schlechtesten Song nur unidirektional abgebaut
+wird, ist die Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt,
+da das Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt.
 
 Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
 Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
 auf :math:`15` gesetzt --- der durchschnittlichen Länge eines heutigen Albums
-plus eins. Dieser Wert hat sich nach einigen Tests als passable erwiesen. Bei zu
-niedrigen Werten verbinden sich die einzelnen Alben nur untereinander, bei zu
-hohen entstehen zu viele qualitativ schlechte Verbindungen.
+plus eins [#f1]_. Dieser Wert hat sich nach einigen Tests als passable erwiesen.
+Bei zu niedrigen Werten verbinden sich die einzelnen Alben nur untereinander,
+bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen quer über den
+ganzen Graphen.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
+         Alben ist dieser Wert exakt :math:`14.1427`.
 
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
-auch das Hinzufügen der Distanz zu den jeweiligen Song gemeint.
 
 .. subfigstart::
 
@@ -133,7 +139,6 @@ beleuchtet:
 
 - **Verfeinerung:** Um den momentan sehr grob vernetzten Graphen benutzbar zu
   machen müssen einige Iterationen zur *,,Verfeinerung"* durchgeführt werden.
-
   Dabei wird über jeden Song im Graphen iteriert und dessen *indirekte Nachbarn*
   (also die Nachbarn der direkten Nachbarsongs) werden mit dem aktuellen Song
   verglichen. Kommen dabei Distanzen zustande, die niedriger sind als die der
@@ -147,15 +152,13 @@ beleuchtet:
 
   Als zusätzliche Optimierung werden nicht alle indirekten Nachbarn betrachtet,
   sondern nur diese, zu denen der Weg eine gewisse *Mindestdistanz* nicht
-  unterschreitet. Diese Mindestdistanz wird beim Start dabei auf :math:`2.0`
-  gesetzt und während der folgenden Iterationen immer weiter abgesenkt.
+  unterschreitet. Diese Mindestdistanz wird beim Start auf :math:`2.0` (da ja
+  die Distanz über zwei Kanten gemessen wird) gesetzt und während der folgenden
+  Iterationen immer weiter abgesenkt.
 
-  Die Gesetzmäßigkeit nach der die Mindesdistanz immer weiter abgesenkt wird ist
-  dabei wie folgt beschrieben:
-
-  .. math:: 
-
-    \frac{4 \times mean - 2 \times sd}{2}
+  Die Gesetzmäßigkeit, nach der die Mindesdistanz immer weiter abgesenkt wird,
+  berechnet sich dabei aus dem arithmetischen Mittelwert, der bis dahin
+  berechneten Distanzen. Ist der Mittelwert hoch, so ist die Absenkung klein.
 
 - **Aufräumearbeiten:** Nach dem Verfeinerungsschritt wird der Graph von
   Einbahnstraßen durch einen ``fixing``--Schritt bereinigt und auf Konsistenz
@@ -215,20 +218,21 @@ den Graphen ohne Einbahnstraßen aufzubauen, ohne dass dieser zur Inselbildung
 neigt. Durch den nachgelagerten ``fixing``--Schritt werden Songs die nur wenige
 Nachbarn besitzen durch die vorher als zu schlecht bewerteten Kanten verbunden.
 
-Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft ob alle
+Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft, ob alle
 Verbindungen im Graphen bidirektional sind. Sollten unidirektionale Kanten
-gefunden werden, so wird eine Warnung ausgegeben.   
+gefunden werden, so wird eine Warnung ausgegeben. Eine weiterführende
+Fehlerbehandlung ist momentan noch nicht implementiert. Unidirektionale Kanten
+können bei der Traversierung zu Ausnahmefehlern führen.
 
 ``add:`` Hinzufügen von Songs vor dem ``rebuild``
 -------------------------------------------------
 
 Diese Operation benötigt als Argument eine Hashtabelle mit einer Abbildung von
-Attributen auf Werte. Diese Werte werden dann wie in der Projekarbeit besprochen
-durch verschiedene Provider normalisiert. Mit diesen normalisierten
+Attributen auf Werte. Diese Werte werden dann, wie in der Projekarbeit
+besprochen, durch verschiedene Provider normalisiert. Mit diesen normalisierten
 Informationen wird dann eine neue Song--Instanz erzeugt, welcher beim Erzeugen
 ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
-Index in er internen Songliste. 
-
+Index in der internen Songliste. 
 Statt wie ``insert`` bereits Verbindungen zu anderen Songs herzustellen, fügt
 diese Operation lediglich einen Song der internen Songliste hinzu. 
 
@@ -324,31 +328,33 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
 ``remove:`` Löschen von Songs zur Laufzeit
 ------------------------------------------
 
-Um nach einer ``rebuild``--Operation einen Song auf dem Graphen zu löschen
+Um nach einer ``rebuild``--Operation einen Song auf dem Graphen zu löschen,
 müssen alle Verbindungen zu diesem entfernt werden.  Um dabei eine Bildung von
 Inseln (durch das Entfernen von Verbindungen) zu vermeiden, werden alle
 ursprünglichen Nachbarn des zu entfernenden Songs untereinander verbunden. Dabei
 wird folgendermaßen vorgegangen: Zuerst wird temporär für jeden Nachbarn den
 Richtwert für die Anzahl der Nachbarn um eins erhöht. Im Anschluss wird die
 Menge aller Nachbarn untereinander mit quadratischem Aufwand verglichen. Dadurch
-bekommt jeder Nachbar im besten Fall eine neue Verbindung.  Abschließend werden
+bekommt jeder Nachbar, im besten Fall, eine neue Verbindung.  Abschließend werden
 alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird wieder
 um eins dekrementiert.
 
 Da *libmunin* alle Songs in einer linearen List hält muss auch dort der Song
-gelöscht werden. Da der Index des Songs in der Liste gleich der *UID* des Songs
-ist, wird an der Stelle *UID* ein leerer Wert geschrieben. Damit dieser
-möglichst bald wieder besetzt wird, wird die gelöschte *UID* in einer
-*Revocation*--List gespeichert. Beim nächsten ``add`` oder ``insert`` wird diese
-*UID* dann wiederverwendet.
+gelöscht werden. Da der Index des Songs in der Liste gleich des *Identifiers*
+des Songs ist, wird an dessen Stelle ein leerer Wert geschrieben. Damit dieser
+möglichst bald wieder besetzt wird, wird der gelöschte *Identifier--Index* in
+einer sogenannten *Revocation*--List gespeichert. Beim nächsten ``add`` oder
+``insert`` wird dieser *Identifier* dann wiederverwendet. Dieses Verfahren soll
+eine Fragementierung der Song--Liste nach vielen ``remove``--Operation
+vermeiden.
 
 .. _ref-graphop-insert:
 
 ``insert:`` Hinzufügen von Songs zur Laufzeit
 ----------------------------------------------
 
-Diese Operation ist äquivalent ``add``. Als Erweiterung fügt ``insert``
-allerdings den durch ``add`` erzeugten Song auch in den Graphen ein und
+Diese Operation ist äquivalent zu ``add``. Als Erweiterung fügt ``insert``
+allerdings den, durch ``add`` erzeugten Song auch in den Graphen ein und
 verbindet ihn dort. Dazu muss zuerst ein *Punkt* gefunden werden an dem der Song
 passend zu seinen Attributen *eingepasst* werden kann.
 
@@ -528,7 +534,9 @@ ausgefiltert werden. So kann der Iterator einfach so lange bemüht werden, bis
 die gewünschte Anzahl an Empfehlungen generiert worden sind. 
 
 Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jedem ein
-Breitensuche--Iterator erstellt. Diese Liste von Iteratoren wird dann im
+Breitensuche--Iterator erstellt. Dieser liefert erst den Seedsong, dann den
+besten Nachbarn, dann nächst schlechteren Nachbarn und später geht es mit den
+indirekten Nachbarn weiter.  Diese Liste von Iteratoren wird dann im
 Round--Robin--Verfahren ineinander *verwebt*. Dabei wird je der erste Iterator
 in der Liste angestoßen, dann immer wieder der nächste um wieder am Anfang zu
 beginnen.
@@ -545,8 +553,10 @@ Iteratoren ist in :num:`fig-iterator` gezeigt.
    :align: center
    :width: 100%
 
-   Traversierung durch verschachtelte Iteratoren
-
+   Traversierung durch verschachtelte Iteratoren. Zieht der Nutzer einen Song
+   aus dem obersten Iterator, so löst das eine ,,Lawine” von Iterationsschritten
+   aus. Dabei werden die einzelnen Schritte ,,fair” via einem
+   Round--Robin--Verfahren auf die einzelnen Seed--Songs aufgeteilt.
 
 .. _ref-graphops-rules:
 
@@ -554,7 +564,7 @@ Anwendung von Regeln
 --------------------
 
 Die Assoziationsregeln die beim impliziten Lernen entstehen werden bei der
-Traversierung als *,,Navigationshilfe"* genutzt. TODO: Regeln erklären?
+Traversierung als *,,Navigationshilfe"* genutzt. 
 
 In :num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine
 Breitensuche und eine Menge von *Regeliteratoren* unterstellt sind.  *Libmunin*
@@ -583,9 +593,9 @@ herauszufiltern.
 
 Um dieses Ziel zu erfüllen, werden alle Empfehlungen gespeichert, die von
 *libmunin* ausgegeben werden. War der Künstler einer zu überprüfenden Empfehlung
-in den, beispielsweise, 5 letzten Empfehlungen bereits vorhanden, so wird er
+in den, beispielsweise, fünf letzten Empfehlungen bereits vorhanden, so wird er
 ausgesiebt. Ähnlich wird mit dem Album vorgegangen, nur hier ist die Schwelle
-standardmäßig bei 3. Die einzelnen Schwellen können vom Nutzer konfiguriert
+standardmäßig bei drei. Die einzelnen Schwellen können vom Nutzer konfiguriert
 werden.
 
 Auch das *Sieving* ist als Iterator implementiert welcher Songs von einem

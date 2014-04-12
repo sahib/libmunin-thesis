@@ -16,7 +16,7 @@ to read this paper in order to maximize their understanding of *libmunin*. For
 this purpose, some helpful tips for developing with and on *libmunin* are given
 in the first chapters. At the end of the paper, some graphs and other
 visualizations are shown, which were developed during the project.  In order to
-understand the context, It is advisable to read the project report before
+understand the context, it is advisable to read the project report before
 reading this paper. To be useful for interested developers, we reflect on the
 shown topics in every chapter and list potential improvements.
 

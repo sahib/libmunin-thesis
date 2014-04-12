@@ -44,8 +44,8 @@ Hinweise zum Schreiben von Distanzfunktionen
   Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren nimmt statt
   dem Durschschnitt die kleine gefundene Distanz. Hier gibt es kein richtig oder
   falsch, je nach Einsatzzweck muss ein passendes Verfahren gewählt werden.
-
-  TODO: Link auf vergleich von verfahren?
+  Der dazugehörige Wikipedia--Artikel bietet einen guten Überblick über
+  weitere Verfahren: :cite:`wiki:fusion`.
 
     
 - Die zuvor genannten mathematischen Eigenschaften einer :term:`Distanzfunktion`
@@ -60,30 +60,30 @@ Hinweise zum Schreiben von Distanzfunktionen
   Im Folgendem Beispiel wird dies nicht getan und in der nachfolgenden
   korrigierten Version verbessert:  
 
-  .. code-block:: python
+.. code-block:: python
 
-     from munin.distance import DistanceFunction
+   from munin.distance import DistanceFunction
 
-     # Eine Distanzfunktion, die beispielsweise ein Rating vergleicht.
-     class MyDistanceFuntion(DistanceFunction):
-         def do_compute(self, A, B):
-             # A und B sind, der Konsistenz halber, immer Tupel. 
-             # Auch bei einzelnen Werten.
-             # Daher müssen wir diese erst ,,entpacken".
-             a, b = A[0], B[0]
-             return abs(a - b) / max(a, b)
+   # Eine Distanzfunktion, die beispielsweise ein Rating vergleicht.
+   class MyDistanceFuntion(DistanceFunction):
+       def do_compute(self, A, B):
+           # A und B sind, der Konsistenz halber, immer Tupel. 
+           # Auch bei einzelnen Werten.
+           # Daher müssen wir diese erst ,,entpacken".
+           a, b = A[0], B[0]
+           return abs(a - b) / max(a, b)
 
-  .. code-block:: python
+.. code-block:: python
 
-     from munin.distance import DistanceFunction
+   from munin.distance import DistanceFunction
 
-     class MyDistanceFuntion(DistanceFunction):
-         def do_compute(self, A, B):
-             diff = abs(A[0] - B[0])
-             if diff > 3:
-                return 1.0  # Zu unterschiedlich.
+   class MyDistanceFuntion(DistanceFunction):
+       def do_compute(self, A, B):
+           diff = abs(A[0] - B[0])
+           if diff > 3:
+              return 1.0  # Zu unterschiedlich.
 
-             return diff / 3
+           return diff / 3
 
 - Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
   wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich die Verteilung der
@@ -100,7 +100,7 @@ Hinweise zum Schreiben von Distanzfunktionen
   .. figure:: figs/scale.*
      :alt: Skalierungsfunktion der Distanzfunktion
      :align: center
-     :width: 100%
+     :width: 70%
 
      Skalierungsfunktion der Distanzfunktion in Blau. Werte unter 0.5 werden
      etwas weiter herabgesetzt, schlechtere Werte über 0.5 werden weiter erhöht.
@@ -120,20 +120,20 @@ Hinweise zum Schreiben von neuen Providern
   ist der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre
   eine separate Speicherung desselben nicht sinnvoll. 
 
-  .. code-block:: python
-  
-   from munin.provider import Provider
-  
-   class MyProvider(Provider):
-       def __init__(self):
-           # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
-           Provider.__init__(self, compress=True)
-  
-       # Funktion, die bei jeder einzelnen Eingabe aufgerufen wird.
-       def do_compute(self, input_value): 
-           return input_value * 2  # Tue irgendwas mit dem Input.
-  
-  
+.. code-block:: python
+
+ from munin.provider import Provider
+
+ class MyProvider(Provider):
+     def __init__(self):
+         # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
+         Provider.__init__(self, compress=True)
+
+     # Funktion, die bei jeder einzelnen Eingabe aufgerufen wird.
+     def do_compute(self, input_value): 
+         return input_value * 2  # Tue irgendwas mit dem Input.
+
+
 .. _ref-playlist-compare:
 
 Vergleich verschiedener Playlisten
@@ -215,7 +215,7 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    *Speicherverbrauch*                        77.5 MB    
    *Speicherplatz der Session (gepackt)*      0.9 MB     
    *Speicherplatz der Session (ungepackt)*    2.5 MB     
-   *Zeit für den Kaltstart:*                  53 Minuten = 33m Liedtexte + 20m Audioanalyse
+   *Zeit für den Kaltstart*                   53 Minuten *(63% Liedtextsuche + 37% Audioanalyse)*
    |hline| ``rebuild``                        44 Sekunden
    ``add``                                    ~1ms
    ``insert``                                 164ms
