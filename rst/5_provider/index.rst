@@ -316,7 +316,7 @@ ist,  so berechnet sich die finale Distanz durch:
 
 .. math::
 
-   D_{min}(A, B) = \argmin\!\left\{\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\right\}
+   D_{min}(A, B) = min\!\left\{\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\right\}
 
 
 ``GenreTreeAvg``: Seien *A* und *B* zwei Mengen mit Genrepfaden. *A* ist dabei
@@ -325,7 +325,7 @@ Mächtigkeit besitzen.
 
 .. math:: 
 
-   D_{avg}(A, B) = \frac{1}{\vert A\vert}  \times \displaystyle\sum\limits_{a \in A} \argmin\!{\left\{\displaystyle\sum\limits_{b \in B} d(a, b)\right\}} 
+   D_{avg}(A, B) = \frac{1}{\vert A\vert}  \times \displaystyle\sum\limits_{a \in A} min\!{\left\{\displaystyle\sum\limits_{b \in B} d(a, b)\right\}} 
 
 
 Diese Distanzfunktion eignet sich für *,,reichhaltig''* befüllte
@@ -404,7 +404,7 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
 
    .. math::
 
-      freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} \argmin \left\{2, \frac{\vert word\vert}{3}\right\}, & \mbox{falls } word \in p\\ 0, & \mbox{sonst} \end{array}\right. 
+      freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} min \left\{2, \frac{\vert word\vert}{3}\right\}, & \mbox{falls } word \in p\\ 0, & \mbox{sonst} \end{array}\right. 
 
    .. math::
 

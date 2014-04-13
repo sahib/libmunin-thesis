@@ -42,7 +42,7 @@ class CustomHTMLTranslator(BaseTranslator):
             if len(table_spec) > node.parent.column:
                 colspec = table_spec[node.parent.column]
                 # align-left/right does not work right now.
-                horiz_align, vert_align = 'align-center', ''
+                horiz_align, vert_align = '', ''
 
                 if 'p{' in colspec:
                     vert_align = ' align-top'
