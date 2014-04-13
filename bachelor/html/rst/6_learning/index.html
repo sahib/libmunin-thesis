@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6 Implizites Lernen vom Nutzer &mdash; Projektarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+        <link rel="next" title="7 Ausblick" href="../7_outro/index.html"/>
+        <link rel="prev" title="5 Algorithmen bei Providern" href="../5_provider/index.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Projektarbeit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dedication.html">Widmung</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_intro/index.html">1 Überleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2_begriffe/index.html">2 Begriffsklärungen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2_begriffe/index.html#allgemeine-fachbegriffe">2.1 Allgemeine Fachbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_begriffe/index.html#kontextspezifische-fachbegriffe">2.2 Kontextspezifische Fachbegriffe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../3_einleitung/index.html">3 Allgemeine Entwicklerhinweise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../3_einleitung/index.html#zur-nuztung-von-libmunin">3.1 Zur Nuztung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_einleitung/index.html#zur-erweiterung-von-libmunin">3.2 Zur Erweiterung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_einleitung/index.html#vergleich-verschiedener-playlisten">3.3 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_einleitung/index.html#ressourcenverbrauch">3.4 Ressourcenverbrauch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_graphops/index.html">4 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#graphentraversierung">4.2 Graphentraversierung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5_provider/index.html">5 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genre-normalisierung-und-vergleich">5.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">6 Implizites Lernen vom Nutzer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generierung-von-regeln">6.1 Generierung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anwendung-von-regeln">6.2 Anwendung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lernerfolg">6.3 Lernerfolg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explizites-lernen">6.4 Explizites Lernen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7_outro/index.html">7 Ausblick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#verbesserung-der-algorithmik">7.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#erweiterungen">7.2 Erweiterungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_outro/index.html#fazit">7.3 Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html#medien">Medien</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Projektarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>6 Implizites Lernen vom Nutzer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/rst/6_learning/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="implizites-lernen-vom-nutzer">
+<h1>6 Implizites Lernen vom Nutzer<a class="headerlink" href="#implizites-lernen-vom-nutzer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="generierung-von-regeln">
+<h2>6.1 Generierung von Regeln<a class="headerlink" href="#generierung-von-regeln" title="Permalink to this headline">¶</a></h2>
+<p>In vorangegangen Kapiteln wurde schon oft davon gesprochen, dass
+<em>libmunin</em> den Nutzer ,,beobachtet&quot;. Dies geschieht indem der
+Anwendungsentwickler die vom Nutzer gehörten Titel an <em>libmunin</em> zurückmeldet.</p>
+<div class="section" id="finden-von-wiederkehrenden-mustern">
+<h3>6.1.1 Finden von wiederkehrenden Mustern<a class="headerlink" href="#finden-von-wiederkehrenden-mustern" title="Permalink to this headline">¶</a></h3>
+<p>Um eine <em>,,Warenkorbanalyse&quot;</em> durchzuführen braucht man erstmal <em>Warenkörbe</em>.
+Die Entstehung dieser wurde bereits in der Projektarbeit betrachtet: Die
+einzelnen Songs in der Historie werden zeitlich gruppiert und bei einer maximalen
+Gruppengröße abgeschnitten.</p>
+<p>Diese einzelnen Gruppen von Songs fungieren dann als <em>Warenkörbe.</em> Aus diesen
+gilt es zuerst eine Menge an Songs (im Folgenden <em>Muster</em> <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a> genannt) zu
+finden die jeweils oft zusammen in den einzelnen Warenkörben vorkommen. Der
+<em>naive</em> Ansatz wäre für jede Kombination der Eingabesongs das Vorkommen jeder
+Kombination im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
+hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
+<span class="math">\(1000\)</span> unterschiedlichen Songs in der Historie müssten bereits
+<span class="math">\(1000!\)</span> Kombinationen gebildet werden.</p>
+<p>Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
+bekanntestes ist vermutlich der <em>Apriori&ndash;Algorithmus</em>
+<a class="reference internal" href="../zzz_bibliography.html#agrawal1993mining" id="id2">[1]</a>.  Statt alle Kombinationen zu betrachten, werden erst
+alle <em>,,1er&ndash;Kombinationen&quot;</em> gebildet und die ausgefiltert, welche einen zu
+niedrigen <em>Support&ndash;Count</em> besitzen. Die Grenze legt man vorher fest. Der
+<em>Support&ndash;Count</em> ist einfach die Anzahl der <em>Warenkörbe</em> in dem ein Song
+vorkommt, geteilt durch die absolute Anzahl der Warenkörbe. Danach werden mit
+den verbliebenen 2er&ndash;Kombination gebildet, dann die noch relevanten
+3er&ndash;Kombinationen und so weiter. Dadurch wird eine große Menge von
+Kombinationen vermieden.</p>
+<p>Seit einiger Zeit haben sich jedoch eine Gruppe effizienter (und schwerer zu
+erklärender) Algorithmen etabliert. Dazu gehören der FP&ndash;Growth
+<a class="reference internal" href="../zzz_bibliography.html#han2000miningfpgrowth" id="id3">[6]</a>, der ECLAT <a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[12]</a>, sowie der hier
+verwendete RELIM&ndash;Algorithmus <a class="reference internal" href="../zzz_bibliography.html#relim" id="id5">[3]</a>.</p>
+<div class="figure align-center" id="table-itemsets">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="12%" />
+<col width="22%" />
+<col width="12%" />
+<col width="22%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center">Kombination</th>
+<th class="headalign-center">Anzahl</th>
+<th class="headalign-center">Kombination</th>
+<th class="headalign-center">Anzahl</th>
+<th class="headalign-center">Kombination</th>
+<th class="headalign-center">Anzahl</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><em>A</em></td>
+<td class="align-center">1 <span class="math">\(\times\)</span></td>
+<td class="align-center"><em>A, B</em></td>
+<td class="align-center">1 <span class="math">\(\times\)</span></td>
+<td class="align-center"><em>A, B, C</em></td>
+<td class="align-center">1 <span class="math">\(\times\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><em>B</em></td>
+<td class="align-center">3 <span class="math">\(\times\)</span></td>
+<td class="align-center"><em>B, C</em></td>
+<td class="align-center">3 <span class="math">\(\times\)</span></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><span class="math">\(\times\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><em>C</em></td>
+<td class="align-center">3 <span class="math">\(\times\)</span></td>
+<td class="align-center"><em>C, A</em></td>
+<td class="align-center">1 <span class="math">\(\times\)</span></td>
+<td class="align-center">&nbsp;</td>
+<td class="align-center"><span class="math">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
+<p class="caption"><strong>Figure 6.1:</strong> Die Muster, welche aus den drei Warenkörben
+{{A, B, C} {B, B, C}, {C, C, B}} generiert worden sind.</p>
+</center></div><p id="table-itemsets">In Tabelle sehen wir ein Beispiel aus 3 Warenkörben, aus denen per Hand mit
+der naiven Herangehensweise alle möglichen Kombinationen samt deren Support&ndash;Count
+aufgelistet worden sind.</p>
+</div>
+<div class="section" id="der-relim-algorithmus">
+<h3>6.1.2 Der RELIM&ndash;Algorithmus<a class="headerlink" href="#der-relim-algorithmus" title="Permalink to this headline">¶</a></h3>
+<p>Generell gilt FP&ndash;Growth als der <em>neue</em> Standard&ndash;Algorithmus der laut mehrerer
+Quellen andere Algorithmen wie ECLAT und RELIM (<em>RE-cursive ELIM-ination</em>)
+aussticht <a class="reference internal" href="../zzz_bibliography.html#gyhorodi2004comparative" id="id6">[5]</a> <a class="reference internal" href="../zzz_bibliography.html#santhosh2010implementation" id="id7">[9]</a>.</p>
+<p>In diesem Fall wird trotzdem auf <em>RELIM</em> zurückgegriffen, da dieser für die
+Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
+tausend Songs übersteigen wird. Zudem gibt es mit dem Python&ndash;Paket <em>pymining</em>
+(siehe <a class="reference internal" href="../zzz_bibliography.html#pymining" id="id8">[Link&ndash;8]</a>) bereits eine freie, qualitativ relativ hochwertige
+Implementierung, während es für FP&ndash;Growth nur qualitativ schlechte
+Implementierungen zu geben scheint, oder welche, die nur für Python&ndash;Versionen
+<span class="math">\(\leq 2.7\)</span> funktionieren.</p>
+</div>
+<div class="section" id="ableitung-von-regeln-aus-mustern">
+<h3>6.1.3 Ableitung von Regeln aus Mustern<a class="headerlink" href="#ableitung-von-regeln-aus-mustern" title="Permalink to this headline">¶</a></h3>
+<p>Hat man erstmal eine Gruppe von häufig zusammen auftretender
+Song&ndash;Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
+Dazu teilt man das Muster in alle möglichen verschiedene, disjunkten Hälften
+auf.  Diese beiden Hälften nimmt man als die beiden <em>Mengen</em> einer
+Assoziationsregel an und probt, mittels verschiedener <em>Metriken</em>, wie zutreffend
+diese ist.</p>
+<div class="figure align-center" id="table-rules">
+<center><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="16%" />
+<col width="17%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="headalign-center"><em>Assoziationsregel</em></th>
+<th class="headalign-center"><em>Support</em></th>
+<th class="headalign-center"><em>Imbalance Ratio</em></th>
+<th class="headalign-center"><em>Kulczynski</em></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="align-center"><span class="math">\(\left\{A\right\} \leftrightarrow \left\{B\right\}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{3}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(\left\{B\right\} \leftrightarrow \left\{C\right\}\)</span></td>
+<td class="align-center"><span class="math">\(1.0\)</span></td>
+<td class="align-center"><span class="math">\(0\)</span></td>
+<td class="align-center"><span class="math">\(1\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(\left\{C\right\} \leftrightarrow \left\{A\right\}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{3}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"> <span class="math">\(\left\{A\right\} \leftrightarrow \left\{B, C\right\}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{3}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+</tr>
+<tr class="row-even"><td class="align-center"><span class="math">\(\left\{B\right\} \leftrightarrow \left\{A, C\right\}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{3}\)</span></td>
+<td class="align-center"><span class="math">\(0\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{3}\)</span></td>
+</tr>
+<tr class="row-odd"><td class="align-center"><span class="math">\(\left\{C\right\} \leftrightarrow \left\{A, B\right\}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{3}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+<td class="align-center"><span class="math">\(0.\overline{6}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p class="caption"><strong>Figure 6.2:</strong> Mögliche Regeln die aus den 3 Warenkörben erstellt werden können.
+Zusätzlich wird der dazugehörige Gesamt&ndash;Support&ndash;Count, sowie die
+beiden Metriken Imbalance&ndash;Ratio und Kulczynski abgebildet.</p>
+</center></div><p id="table-rules">Als Beispiel können wir wieder die Warenkörbe aus <a href="#table-itemsets">6.1</a> nehmen.
+Muster mit nur einem Song können nicht weiter aufgeteilt werden, daher müssen
+diese nicht weiter betrachtet werden. Die 2er&ndash;Kombination sind leicht in zwei
+Teilmengen aufzuteilen. Für die 3er&ndash;Kombinationen können mehrere möglichen
+Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
+<a href="#table-rules">6.2</a> aufgelistet.</p>
+<p>Nicht jede Regel ist automatisch eine gute Regel. Das gängige Lehrbeispiel
+hierbei ist eine Regel die besagt, dass <span class="math">\(60\%\)</span> aller <em>Basketballspieler</em>
+zum Frühstück <em>Cornflakes</em> essen.  Der Anteil der Menschen die aber insgesamt
+Cornflakes essen liegt bei <span class="math">\(70\%\)</span> &mdash; daher ist die Eigenschaft
+<em>,,Basketballspieler&quot;</em> sogar ein Gegenindiz für die Eigenschaft
+<em>,,Cornflake&ndash;Esser&quot;</em>.</p>
+<p>Um solche <em>falschen</em> Assoziationsregeln zu vermeiden, werden für jede Regel zwei
+Metriken errechnet. Die von <em>libmunin</em> genutzten Metriken wurde dem Buch
+<em>Datamining Concepts and Techniques</em> <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id9">[7]</a>
+entnommen: Die <em>Kulczynski&ndash;Metrik</em> und der <em>Imbalance&ndash;Ratio</em>.</p>
+<p>Die <em>Kulczynski&ndash;Metrik</em> drückt die <em>Güte</em> der Regel als eine reele Zahl im
+Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span> aus, wobei <span class="math">\(1\)</span> die beste Wertung ist.
+Grob ausgedrückt besagt die Metrik, wie zutreffend die Regel im Durchschnitt
+ist:</p>
+<div class="math">
+\[Kulczynski(A, B) =  \frac{P(A \mid B) + P(B \mid A)}{2}\]</div>
+<p><span class="math">\(P(A \vert B)\)</span> ist die bedingte Wahrscheinlichkeit und ist meist definiert
+als:</p>
+<div class="math">
+\[P(A\mid B) = \frac{P(A\cap B)}{P(B)}\]</div>
+<p>Da <span class="math">\(P(B)\)</span> gleichbedeutend mit dem <em>Support&ndash;Count</em> der rechten Seite der
+Regel ist und <span class="math">\(P(A\cap B)\)</span> der <em>Support&ndash;Count</em> der gesamten Regel ist,
+kann man schlussfolgern:</p>
+<div class="math">
+\[P(A\mid B) = \frac{support(A \cap B)}{support(B)}\]</div>
+<p>Letzteres lässt sich relativ einfach berechnen. Setzt man das in die
+ursprüngliche Gleichung ein, so wird klar wie sich die <em>Kulczynski&ndash;Metrik</em>
+berechnen lässt:</p>
+<div class="math">
+\[Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)\]</div>
+<p>Der <em>Imbalance Ratio</em> gibt im Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span> an wie
+gleichmäßig sich die Regeln anwenden lässt.  Hier ist der beste Wert die
+<span class="math">\(0\)</span>.  Er ist gegeben durch:</p>
+<div class="math">
+\[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cap B)}\]</div>
+<p>Sollte die <em>Kulczynski&ndash;Metrik</em> kleiner als <span class="math">\(0.\overline{6}\)</span> sein oder der
+<em>Imbalance&ndash;Ratio</em> größer als <span class="math">\(0.35\)</span>. Diese Grenzwerte worden, mehr oder
+minder willkürlich, nach einigen Tests festgelegt.</p>
+<p>Sollte die Regel <em>akzeptabel</em> sein, dann werden beide Metriken in eine
+einzelne, leichter zu handhabendes <em>Rating&ndash;Metrik</em> verschmolzen:</p>
+<div class="math">
+\[Rating(A, B) = \left(1 - ImbalanceRatio(A, B)\right) \times Kulczynski(A, B)\]</div>
+<p>Dieses <em>Rating</em> wird genutzt um die einzelnen Assoziationsregeln zu sortieren.</p>
+</div>
+</div>
+<div class="section" id="anwendung-von-regeln">
+<h2>6.2 Anwendung von Regeln<a class="headerlink" href="#anwendung-von-regeln" title="Permalink to this headline">¶</a></h2>
+<p>Wie bereits unter <a class="reference internal" href="../4_graphops/index.html#ref-graphops-rules">4.2.2</a> erklärt, werden Assoziationsregel
+als Navigationshilfe im beim Traversieren genutzt.  Zu diesem Zwecke müssen die
+entstandenen Regeln irgendwo sortiert und mit einem Zeitem versehen abgelegt
+werden.  Diese Ablage ist der <tt class="docutils literal"><span class="pre">RuleIndex</span></tt>. Beim Einfügen wird jeweils
+überprüft, ob die Maximalanzahl an Regeln (momentan maximal <span class="math">\(1000\)</span>)
+übertroffen wird. Sollte dem so sein, wird die älteste (ergo, zu erst
+eingefügte) Regel gelöscht um Platz zu machen.</p>
+<p>Der Anwendungsentwickler kann mittels der <tt class="docutils literal"><span class="pre">lookup(song)</span></tt>&ndash;Methode eine Liste
+von Regeln abfragen, die diesen Song in irgend einer Weise betreffen. Um diese
+Operation zu beschleunigen wird intern eine Hashtabelle gehalten, mit dem Song
+als Schlüssel und der entsprechende Regelliste als zugehöriger Wert.</p>
+<p>Bei jeder Operation auf dem <tt class="docutils literal"><span class="pre">RuleIndex</span></tt> wird er automatisch bereinigt.
+Dabei werden Regeln entfernt, die Songs erwähnen, welche nicht mehr in der
+Historie vertreten sind.</p>
+</div>
+<div class="section" id="lernerfolg">
+<h2>6.3 Lernerfolg<a class="headerlink" href="#lernerfolg" title="Permalink to this headline">¶</a></h2>
+<p>Noch sind keine Aussagen darüber möglich wie <em>gut</em> die momentane Lernstrategie
+funktioniert. Einerseits ist es schwer festzustellen was <em>gut</em> bedeutet,
+andererseits wurde eine <em>libmunin&ndash;Session</em> noch nie lange genug benutzt,
+Aussagen über die Langzeitfunktionalität zu geben.</p>
+<p>Daher ist die oben genannte Vorgehensweise als <em>,,Theorie&quot;</em> zu sehen die sich
+erst noch in der Praxis bewähren muss. Änderungen sind wahrscheinlich.</p>
+<p>Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
+Momentan wird nur die Historie aufgezeichnet wenn die Demonanwendung läuft. Da
+die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
+die ganze Zeit über. Eine Abhilfe würde ein gepatchter MPD&ndash;Server schaffen, der
+sich seine Historie merkt oder eine separater MPD&ndash;Client der nur dafür dient im
+Hintergrund die Historie&ndash;Daten mitzuloggen.</p>
+</div>
+<div class="section" id="explizites-lernen">
+<h2>6.4 Explizites Lernen<a class="headerlink" href="#explizites-lernen" title="Permalink to this headline">¶</a></h2>
+<div class="figure compound align-center" id="fig-modify-moves">
+<div style="width: 75%" class="subfigure align-center" id="fig-move-before">
+<a class="reference internal image-reference" href="../../_images/big_move_before_edit.png"><img alt="Graph vor dem Vergeben eines hohen Ratings." src="../../_images/big_move_before_edit.png" style="width: 100%;" /></a>
+<p class="caption"><strong>(a)</strong> Vor dem Vergeben der Ratings.</p>
+</div>
+<div style="width: 75%" class="subfigure align-center" id="fig-move-after">
+<a class="reference internal image-reference" href="../../_images/big_move_after_edit.png"><img alt="Graph nach dem Vergeben eines hohen Ratings." src="../../_images/big_move_after_edit.png" style="width: 100%;" /></a>
+<p class="caption"><strong>(b)</strong> Nach dem Vergeben der Ratings.</p>
+</div>
+<p class="caption"><strong>Figure 6.3:</strong> Vor und nach dem Vergeben von einem hohen Ratings an drei Lieder
+(,,Rachsucht”, ,,Nagelfar”, ,,Meine Brille”, jeweils rot eingekreist).
+Die dazugehörigen Alben sind in rötlich, grünlich und bläulich
+hervorgehoben. Nach dem Vergeben sieht man, dass die entsprechenden Songs
+sich von den einzelnen Albums&ndash;Cluster entfernt haben und Verbindungen zu
+anderen Album bekommen haben. Zudem haben sich die beiden erstgenannten
+Songs miteinander verbunden.</p>
+</div><p id="fig-modify-moves">Neben dem <em>impliziten Lernen</em> gibt es auch den <em>,,nachträglich entdeckten&quot;</em>
+Mechanismus des <em>expliziten Lernens</em>. Dieser wurde bereits in Kapitel
+<a class="reference internal" href="../4_graphops/index.html#ref-graphop-insert">4.1.5</a> beleuchtet. Unter Abb. <a href="#fig-moves">fig-moves</a> soll dies
+lediglich nochmal visualisiert werden. Die dort abgebildete <em>Verschiebung</em> ist
+dadurch zu erklären, dass die <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation meist einen anderen zum
+Wiedereinfügen findet.</p>
+<p>Durch Ändern des <em>Ratings</em> in der Demonanwendung können einzelne Knoten gezielt
+im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher zusammen und
+stellen <em>,,Brücken&quot;</em> zu anderen Album&ndash;Clustern her. Man kann dieses <em>Feature</em>
+einerseits dazu zu nutzen, um seine Favoriten nahe im Graphen zusammenzupacken,
+andererseits, um unpassende Empfehlungen mit einem schlechten Rating
+abzustrafen, was eine <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation auf diesen Song zur Folge hat.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Im englischer Lektüre werden die <em>Wiederkehrenden Muster</em> als <em>Frequent
+Itemsets</em> bezeichnet.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../7_outro/index.html" class="btn btn-neutral float-right" title="7 Ausblick"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../5_provider/index.html" class="btn btn-neutral" title="5 Algorithmen bei Providern"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
