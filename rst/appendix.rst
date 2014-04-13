@@ -146,13 +146,14 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. _fig-graph-full:
 
-.. figure:: figs/full_graph.png
+.. figure:: figs/full_graph_small.png
    :width: 100%
    :alt: Vollständiger Graph aus 666 Knoten (aus der Demonanwendung).
    :align: center
 
    Der vollständige Graph der hinter den Empfehlungen der Demonanwendungen
-   steckt.
+   steckt. Auf der beiliegenden CD ist der vollständige Graph in A0 Größe
+   enthalten.
 
 .. _genre-graph-vis:
 
