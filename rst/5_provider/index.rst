@@ -14,8 +14,8 @@ sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
 erklärungsbedürftigen Paare näher betrachtet.
 
 
-Genre-Normalisierung und Vergleich
-===================================
+Genrenormalisierung und Vergleich
+=================================
 
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
@@ -391,7 +391,10 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
    *libmunin* 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
    Sprache selbst wird durch das Python Modul ``guess-language-spirit``
    :cite:`guess_language` anhand verschiedener Sprachcharakteristiken
-   automatisch erraten. 
+   automatisch erraten. Zudem werden lange Wörter mittels ``PyEnchant``
+   :cite:`pyenchant` mittels eines Wörterbuchs nachgeschlagen um die Sprache
+   rauszufinden falls die ``Enchant``--Bibliothek :cite:`enchant` installiert
+   ist .
 3) Berechnung eines *Scores* für jedes Wort in einem Phrase aus dem *Degree* und
    der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen):
 
@@ -727,8 +730,8 @@ umfassenden Sammlung aufwendig.
 
 .. rubric:: Footnotes
 
-.. [#f1] Der in der URL gezeigte *API Key* ist vom Benutzer abhängig. Er sollte
-   nicht für andere Zwecke verwendet werden.
+.. [#f1] Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er
+   sollte nicht für andere Zwecke verwendet werden.
 
 .. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.
 
