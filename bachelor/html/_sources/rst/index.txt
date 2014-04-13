@@ -2,9 +2,9 @@
 
 .. _doc-title:
 
-############################
-libmunin: |br| Projektarbeit
-############################
+#############################
+libmunin: |br| Bachelorarbeit
+#############################
 
 .. only:: not singlehtml
 

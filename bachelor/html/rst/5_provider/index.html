@@ -184,7 +184,7 @@
 <p>Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
 näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
 erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
-meisten Provider eher einfacher Natur &ndash;- die Lektüre des jeweiligen Quelltextes
+meisten Provider eher einfacher Natur &mdash; die Lektüre des jeweiligen Quelltextes
 sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
 erklärungsbedürftigen Paare näher betrachtet.</p>
 </div>
@@ -201,14 +201,14 @@ geläufigen Genres normalisiert werden.</p>
 <h3>5.2.1 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h3>
 <p>Genres können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Untergenres
 (<em>country</em> rock, <em>japanese</em> pop), Unteruntergenres (<em>western</em> country rock)
-&ndash;- und so weiter &ndash;- aufgeteilt werden. So lassen sich alle Genres und ihre
+&mdash; und so weiter &mdash; aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
-man das allumfassende Genre <em>Music</em> an &ndash;- einfach weil sich <em>Music</em> hinter fast
+man das allumfassende Genre <em>Music</em> an &mdash; einfach weil sich <em>Music</em> hinter fast
 jedes Genre schreiben lässt ohne den Sinn zu verändern.
 Dieser Baum kann dann genutzt werden um beliebige Genres als <em>Pfad</em> durch den
 Baum normalisiert abzubilden.</p>
 <p>Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen &ndash;- bei der hohen Zahl der existierenden Genres
+Genres in diesen Baum einzupflegen &mdash; bei der hohen Zahl der existierenden Genres
 kann man diese nur schwerlich manuell einpflegen.</p>
 <p>Existierende Datenbanken wie, das sonst sehr vollständige, <em>MusicBrainz</em> liefern
 laut ihren <em>FAQ</em> keine Genredaten:</p>
@@ -222,11 +222,11 @@ but we haven't completely settled on the right approach yet.</em></p>
 <p>Also musste man sich nach anderen Quellen umschauen. Das vom
 <em>DiscogsGenre</em>&ndash;Provider verwendete <em>Discogs</em> bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &ndash;- eine zu
+<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &mdash; eine zu
 grobe Einteilung.</p>
 <p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> - fast jede Band
 ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
-<em>The Echonest</em> &ndash;- einem Unternehmen welches verschiedene Dienste rund um
+<em>The Echonest</em> &mdash; einem Unternehmen welches verschiedene Dienste rund um
 Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
 Genres.</p>
 <p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
@@ -450,7 +450,7 @@ erreicht wird.</p>
 <p>Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
 vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als <em>rock</em> oder
 <em>metal</em> eingetragen, ohne Unterscheidung von Untergenres. Deshalb geht diese
-Distanzfunktion davon aus wenige Übereinstimmungen zu finden &ndash;- sollten welche
+Distanzfunktion davon aus wenige Übereinstimmungen zu finden &mdash; sollten welche
 vorkommen werden diese gut bewertet.</p>
 <p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="#single-dist">5.2.4</a> erwähnte Distanzunktion
 ist,  so berechnet sich die finale Distanz durch:</p>
@@ -744,7 +744,7 @@ Volkliedes ,,Das Wandern ist des Müllers Lust&quot; abgedruckt. Der Text von
 <em>,,Yellow Subarmine&quot;</em> wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.</p>
 <p>Wie man in Abb.  sieht, werden längere Phrasen automatisch
-besser bewertet &ndash;- deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
+besser bewertet &mdash; deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
 noch in das Ergebniss aufgenommen werden.</p>
 </div>
@@ -778,7 +778,7 @@ Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB&ndash;T
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil hohen
 Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere Frequenzen in
-einem Block hin &ndash;- E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
+einem Block hin &mdash; E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
 Akustikgitarren erscheinen dafür meist in einem dunklem Rot.</p>
 <p>Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
 keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
@@ -913,7 +913,7 @@ berechnete Distanz ist hier etwa 0.01.</p>
 </div>
 <div class="figure align-center" id="fig-mood-rammstein-tier">
 <a class="reference internal image-reference" href="../../_images/mood_rammstein_tier.svg"><img alt="Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“" src="../../_images/mood_rammstein_tier.svg" width="100%" /></a>
-<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &ndash;- Tier“. Oben
+<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &mdash; Tier“. Oben
 die Studioversion, unten die Liveversion.  Hier ist die von libmunin
 errechnete Distanz immerhin bei 0.32.</p>
 </div>
