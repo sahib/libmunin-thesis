@@ -39,7 +39,7 @@ Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienter (und schwerer zu
 erklärender) Algorithmen etabliert. Dazu gehören der FP--Growth
-:cite:`han2000miningFPGROWTH`, der ECLAT :cite:`ECLAT`, sowie der hier
+:cite:`han2000miningFPGROWTH`, der Eclat :cite:`ECLAT`, sowie der hier
 verwendete RELIM--Algorithmus :cite:`RELIM`.
 
 .. |x| replace:: :math:`\times`
@@ -67,7 +67,7 @@ Der RELIM--Algorithmus
 ----------------------
 
 Generell gilt FP--Growth als der *neue* Standard--Algorithmus der laut mehrerer
-Quellen andere Algorithmen wie ECLAT und RELIM (*RE-cursive ELIM-ination*)
+Quellen andere Algorithmen wie Eclat und RELIM (*RE-cursive ELIM-ination*)
 aussticht :cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
 
 In diesem Fall wird trotzdem auf *RELIM* zurückgegriffen, da dieser für die

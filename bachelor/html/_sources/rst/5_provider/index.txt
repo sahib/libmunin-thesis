@@ -14,8 +14,8 @@ sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
 erklärungsbedürftigen Paare näher betrachtet.
 
 
-Genre-Normalisierung und Vergleich
-===================================
+Genrenormalisierung und Vergleich
+=================================
 
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
@@ -69,9 +69,11 @@ Genres.
 Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
 Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
 *The Echonest* ist dies, nachdem man sich einen *API--Key* registriert hat
-relativ einfach [#f1]_::
+relativ einfach [#f1]_: 
 
-http://developer.echonest.com/api/v4/artist/list_genres?api_key=ZSIUEIVVZGJVJVWIS
+.. code-block:: bash
+
+    http://developer.echonest.com/api/v4/artist/list_genres?api_key=ZSIUEIVVZGJVJVWIS
 
 Die Liste enthält, zum Zeitpunkt des Schreibens, :math:`898` konkrete Genres und
 wird kontinuierlich vom Betreiber erweitert. 
@@ -389,7 +391,10 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
    *libmunin* 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
    Sprache selbst wird durch das Python Modul ``guess-language-spirit``
    :cite:`guess_language` anhand verschiedener Sprachcharakteristiken
-   automatisch erraten. 
+   automatisch erraten. Zudem werden lange Wörter mittels ``PyEnchant``
+   :cite:`pyenchant` mittels eines Wörterbuchs nachgeschlagen um die Sprache
+   rauszufinden falls die ``Enchant``--Bibliothek :cite:`enchant` installiert
+   ist .
 3) Berechnung eines *Scores* für jedes Wort in einem Phrase aus dem *Degree* und
    der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen):
 
@@ -725,8 +730,8 @@ umfassenden Sammlung aufwendig.
 
 .. rubric:: Footnotes
 
-.. [#f1] Der in der URL gezeigte *API Key* ist vom Benutzer abhängig. Er sollte
-   nicht für andere Zwecke verwendet werden.
+.. [#f1] Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er
+   sollte nicht für andere Zwecke verwendet werden.
 
 .. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.
 

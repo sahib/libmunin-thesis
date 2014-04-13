@@ -118,7 +118,9 @@ Hinweise zum Schreiben von neuen Providern
 - Ist zu erwarten, dass stark redundante Daten eingepflegt werden, dann sollte
   die Provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür
   ist der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre
-  eine separate Speicherung desselben nicht sinnvoll. 
+  eine separate Speicherung desselben nicht sinnvoll. Intern bildet eine
+  bidirektionale Hashtabelle (mittels ``bidict`` :cite:`bidict`) gleiche Werte
+  auf einen Integer--Identifier ab.
 
 .. code-block:: python
 
@@ -227,10 +229,6 @@ Wie man sieht, sollte noch unbedingt Zeit investiert werden um den *Kaltstart*
 zu beschleunigen. Auch die ``modify``--Operation könnte durchaus noch optimiert
 werden. 
 
-.. rubric:: Footnotes
-
-.. [#f1] Etwa mit der Levenshtein--Distanzfunktion :cite:`brill2000improved`.
-
 .. figtable::
    :alt: Vergleich verschiedener Playlisten  
    :spec: r | l l r 
@@ -290,3 +288,9 @@ werden.
    *14*                Of Monsters and Men  From Finner           *Pop/Folk, Indie Rock*
    *15*                The Cranberries      Dreaming My Dreams    *Rock/Alternative Rock*
    =================== ==================== ===================== ====================
+
+.. rubric:: Footnotes
+
+.. [#f1] Etwa mit der Levenshtein--Distanzfunktion :cite:`brill2000improved` und
+   der Python--Bibliothek ``pyxDamerauLevenshtein``
+   :cite:`pyxdameraulevenshtein`.

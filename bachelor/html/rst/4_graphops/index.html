@@ -114,7 +114,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../5_provider/index.html">5 Algorithmen bei Providern</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genre-normalisierung-und-vergleich">5.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich">5.2 Genrenormalisierung und Vergleich</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
 </ul>
@@ -208,7 +208,7 @@ wird, ist die Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt,
 da das Hinzufügen neuer Songs <em>,,Einbahnstraßen&quot;</em> hinterlässt.</p>
 <p>Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
 Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
-auf <span class="math">\(15\)</span> gesetzt &mdash; der durchschnittlichen Länge eines heutigen Albums
+auf <span class="math">\(15\)</span> gesetzt &ndash;- der durchschnittlichen Länge eines heutigen Albums
 plus eins <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a>. Dieser Wert hat sich nach einigen Tests als passable erwiesen.
 Bei zu niedrigen Werten verbinden sich die einzelnen Alben nur untereinander,
 bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen quer über den
@@ -264,7 +264,7 @@ weitergeschoben.  Dadurch entsteht eine <em>,,Kette&quot;</em> von zusammenhäng
 Songs.</p>
 <p>Die heuristische Annahme ist dabei, dass der Nutzer der Bibliothek seine
 Datenbank meist nach Alben sortiert eingibt. Durch diese Sortierung finden
-sich innerhalb eines Fensters oft Lieder des selben Albums &mdash; diese  sind
+sich innerhalb eines Fensters oft Lieder des selben Albums &ndash;- diese  sind
 oft sehr ähnlich.</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">centering_window:</span></tt> Basiert ebenfalls auf einem Fenster. Im Gegensatz
@@ -512,7 +512,7 @@ dazugehörige Song zwischengespeichert werden, doch nach einigen Tests stellte
 sich heraus, dass in den meisten Fällen ein neuer, schlechtester Song gesucht
 werden muss. Das ist damit zu erklären, dass gegen Ende der
 <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation tendenziell immer niedrigere Distanzen gefunden werden
-&mdash; womit immer wieder der schlechteste Song herausgelöscht werden muss.</p>
+&ndash;- womit immer wieder der schlechteste Song herausgelöscht werden muss.</p>
 <p>Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
 Distanzen, auch einen Heap als <em>,,Lookup&ndash;Hilfe&quot;</em>.</p>
 <p>In diesem werden, entgegen der natürlichen Unordnung in einer Hastabelle, die
@@ -628,7 +628,7 @@ mehreren Unteriteratoren.</p>
 <h3>4.2.3 Filtern der Iteratoren<a class="headerlink" href="#filtern-der-iteratoren" title="Permalink to this headline">¶</a></h3>
 <p>Da Alben im Graphen eng beieinander gepackt sind, werden ohne zusätzliches
 Filtern natürlich auch Songs vom gleichen Album oder vom gleichen Künstler
-geliefert. Dies ist für gewöhnlich nicht erwünscht &mdash; man möchte ja neue Musik
+geliefert. Dies ist für gewöhnlich nicht erwünscht &ndash;- man möchte ja neue Musik
 entdecken, die nicht immer vom selben Künstler kommt. Der optionale
 Filterschritt (oder <em>Sieving</em>&ndash;Schritt) dient dazu diese unerwünschten Songs
 herauszufiltern.</p>

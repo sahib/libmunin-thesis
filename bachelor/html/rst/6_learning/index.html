@@ -114,7 +114,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../5_provider/index.html">5 Algorithmen bei Providern</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genre-normalisierung-und-vergleich">5.2 Genre-Normalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich">5.2 Genrenormalisierung und Vergleich</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
 </ul>
@@ -210,7 +210,7 @@ den verbliebenen 2er&ndash;Kombination gebildet, dann die noch relevanten
 Kombinationen vermieden.</p>
 <p>Seit einiger Zeit haben sich jedoch eine Gruppe effizienter (und schwerer zu
 erklärender) Algorithmen etabliert. Dazu gehören der FP&ndash;Growth
-<a class="reference internal" href="../zzz_bibliography.html#han2000miningfpgrowth" id="id3">[6]</a>, der ECLAT <a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[12]</a>, sowie der hier
+<a class="reference internal" href="../zzz_bibliography.html#han2000miningfpgrowth" id="id3">[6]</a>, der Eclat <a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[12]</a>, sowie der hier
 verwendete RELIM&ndash;Algorithmus <a class="reference internal" href="../zzz_bibliography.html#relim" id="id5">[3]</a>.</p>
 <div class="figure align-center" id="table-itemsets">
 <center><table border="1" class="docutils">
@@ -264,12 +264,12 @@ aufgelistet worden sind.</p>
 <div class="section" id="der-relim-algorithmus">
 <h3>6.1.2 Der RELIM&ndash;Algorithmus<a class="headerlink" href="#der-relim-algorithmus" title="Permalink to this headline">¶</a></h3>
 <p>Generell gilt FP&ndash;Growth als der <em>neue</em> Standard&ndash;Algorithmus der laut mehrerer
-Quellen andere Algorithmen wie ECLAT und RELIM (<em>RE-cursive ELIM-ination</em>)
+Quellen andere Algorithmen wie Eclat und RELIM (<em>RE-cursive ELIM-ination</em>)
 aussticht <a class="reference internal" href="../zzz_bibliography.html#gyhorodi2004comparative" id="id6">[5]</a> <a class="reference internal" href="../zzz_bibliography.html#santhosh2010implementation" id="id7">[9]</a>.</p>
 <p>In diesem Fall wird trotzdem auf <em>RELIM</em> zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
 tausend Songs übersteigen wird. Zudem gibt es mit dem Python&ndash;Paket <em>pymining</em>
-(siehe <a class="reference internal" href="../zzz_bibliography.html#pymining" id="id8">[Link&ndash;8]</a>) bereits eine freie, qualitativ relativ hochwertige
+(siehe <a class="reference internal" href="../zzz_bibliography.html#pymining" id="id8">[Link&ndash;12]</a>) bereits eine freie, qualitativ relativ hochwertige
 Implementierung, während es für FP&ndash;Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python&ndash;Versionen
 <span class="math">\(\leq 2.7\)</span> funktionieren.</p>
@@ -342,7 +342,7 @@ Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
 <p>Nicht jede Regel ist automatisch eine gute Regel. Das gängige Lehrbeispiel
 hierbei ist eine Regel die besagt, dass <span class="math">\(60\%\)</span> aller <em>Basketballspieler</em>
 zum Frühstück <em>Cornflakes</em> essen.  Der Anteil der Menschen die aber insgesamt
-Cornflakes essen liegt bei <span class="math">\(70\%\)</span> &mdash; daher ist die Eigenschaft
+Cornflakes essen liegt bei <span class="math">\(70\%\)</span> &ndash;- daher ist die Eigenschaft
 <em>,,Basketballspieler&quot;</em> sogar ein Gegenindiz für die Eigenschaft
 <em>,,Cornflake&ndash;Esser&quot;</em>.</p>
 <p>Um solche <em>falschen</em> Assoziationsregeln zu vermeiden, werden für jede Regel zwei

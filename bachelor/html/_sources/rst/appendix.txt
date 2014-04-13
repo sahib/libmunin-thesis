@@ -146,13 +146,14 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. _fig-graph-full:
 
-.. figure:: figs/full_graph.png
-   :width: 100%
+.. figure:: figs/full_graph_small.png
+   :width: 70%
    :alt: Vollständiger Graph aus 666 Knoten (aus der Demonanwendung).
    :align: center
 
-   Der vollständige Graph der hinter den Empfehlungen der Demonanwendungen
-   steckt.
+   Auschnitt aus dem vollständigen Graph, der hinter den Empfehlungen der
+   Demonanwendungen steckt. Auf der beiliegenden CD ist der vollständige Graph
+   in A0 Größe enthalten.
 
 .. _genre-graph-vis:
 
@@ -240,7 +241,10 @@ Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von *libmunin* in
 ihren Anwendungen hinzuweisen.
 
 Die Grafiken wurde mit Inkscape erstellt und können auf der
-API--Dokumentation runtergeladen werden :cite:`logos`. 
+API--Dokumentation runtergeladen werden: :cite:`logos`. 
+
+Wie schon zuvor bei der Projektarbeit, existiert auch dieses Dokument in einer
+HTML--Variante: :cite:`html_variant`.
 
 .. subfigstart::
 
