@@ -17,55 +17,52 @@ erklärungsbedürftigen Paare näher betrachtet.
 Genre-Normalisierung und Vergleich
 ===================================
 
-Problemstellung
----------------
-
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
-gibt. Ein Computer könnte höchstens erkennen wie ähnlich zwei
-Genre Beschreibungen als Zeichenketten sind. Daher ist es nötig, dass die
-einzelnen Genre-Eingaben anhand einer Sammlung von zusammengestellten Genre Daten
-normalisiert werden.
+gibt. Oft sind sich nicht mal Menschen untereinander einig zu welchem Genre das
+Album eines Künstlers zuzuteilen ist. Ein Computer könnte höchstens erkennen wie
+ähnlich zwei Genre Beschreibungen als Zeichenketten sind. Daher ist es nötig,
+dass die einzelnen Genre--Eingaben anhand einer Sammlung von zusammengestellten
+geläufigen Genres normalisiert werden.
 
 Zusammenstellung der Gernedatenbank
 -----------------------------------
 
-Genres können, wie in einem Baum, in Genres (*rock*, *pop*), Unter-Genres
-(*country* rock, *japanese* pop), Unter-Unter-Genres (*western* country rock) -
-und so weiter - aufgeteilt werden. So lassen sich alle Genres und ihre
+Genres können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
+(*country* rock, *japanese* pop), Unteruntergenres (*western* country rock)
+--- und so weiter --- aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
-man das allumfassende Genre *Music* an - einfach weil *Music* sich hinter fast
+man das allumfassende Genre *Music* an --- einfach weil sich *Music* hinter fast
 jedes Genre schreiben lässt ohne den Sinn zu verändern.
-
-Dieser Baum kann dann genutzt werden um beliebige Genres anhand dieses Baums zu
-normalisieren.
+Dieser Baum kann dann genutzt werden um beliebige Genres als *Pfad* durch den
+Baum normalisiert abzubilden. 
 
 Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen - bei der hohen Zahl der existierenden Genres
+Genres in diesen Baum einzupflegen --- bei der hohen Zahl der existierenden Genres
 kann man diese nur schwerlich manuell einpflegen.
 
 Existierende Datenbanken wie, das sonst sehr vollständige, *MusicBrainz* liefern
-laut ihren FAQ keine Genre-Daten:
+laut ihren *FAQ* keine Genre-Daten:
 
 .. epigraph::
 
-   WHY DOES MUSICBRAINZ NOT SUPPORT GENRE INFORMATION?
+   **Why Does Musicbrainz not support genre information?**
 
    *Because doing genres right is very hard.
    We have thought about how to implement genres,
    but we haven't completely settled on the right approach yet.*
 
-   -- https://musicbrainz.org/doc/General_FAQ
+   -- https://musicbrainz.org/doc/General_FAQ :cite:`BRAINZ_FAQ`
 
 Also musste man sich nach anderen Quellen umschauen. Das vom
-*DiscogsGenre*-Provider verwendete *Discogs* bietet zwar relative detaillierte
+*DiscogsGenre*--Provider verwendete *Discogs* bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-*Genre* (*rock*) und dem Subgenre (*blackened death metal*) - eine zu grobe
+*Genre* (*rock*) und dem Untergenre (*blackened death metal*) --- eine zu grobe
 Einteilung.
 
 Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* - fast jede Band 
 ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
-*The Echonest* - einem Unternehmen welches verschiedene Dienste rund um
+*The Echonest* --- einem Unternehmen welches verschiedene Dienste rund um
 Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
 Genres. 
 
@@ -77,26 +74,24 @@ relativ einfach [#f1]_:
     http://developer.echonest.com/api/v4/artist/list_genres?api_key=XXXformat=json
 
 Die Liste enthält, zum Zeitpunkt des Schreibens, 898 konkrete Genres und wird
-kontinuierlich von den Betreiber erweitert. 
+kontinuierlich vom Betreiber erweitert. 
 
 Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
 diese Quelle erst nachträglich nach einer Analyse des Quelltextes von *beets*
-(https://gist.github.com/sampsyo/1241307) eingebaut. *beets* hat ebenfalls das
-Problem das Genre zu normalisieren - also muss dort ein entsprechender
-Mechanismus eingebaut sein. Dieser beruht, ähnlich wie hier, ebenfalls auf einem
-Baum [#f2]_. Um diese Quelle in *libmunin* zu nutzen wurde lediglich der Code
-nach *Python3* portiert. Von der englischen Wikipedia werden folgende Seiten
-*gescraped,* und die darin befindlichen Genres in eine Datei geschrieben: 
+(siehe :cite:`beets_source`) eingebaut. *beets* hat ebenfalls das Problem das
+Genre zu normalisieren. Daher muss dort ein entsprechender Mechanismus eingebaut
+sein. Dieser beruht, ähnlich wie hier, ebenfalls auf einem Baum [#f2]_. Um diese
+Quelle in *libmunin* zu nutzen wurde lediglich der Code nach *Python3* portiert.
+Von der englischen Wikipedia werden folgende Seiten *gescraped,* also der
+HTML--Seiteninhalt wird geparst, und die darin befindlichen Genres in eine Datei
+geschrieben: 
 
 - List of popular music genres
-- List of styles of music: A-F
-- List of styles of music: G-M
-- List of styles of music: N-R
-- List of styles of music: S-Z
+- List of styles of music: A--F, G--M, N--R, S--Z
 
-Von Wikipedia kommen 1527 Einträge. Diese werden mit den Einträgen von *,,The
-Echonest''* verschmolzen. Nach einer Entfernung von Dubletten ist die finale
-Genre-Liste 1876 Einträge lang.
+Von Wikipedia kommen 1527 Einträge. Diese werden mit den Einträgen von *The
+Echonest* verschmolzen. Nach einer Entfernung von Dubletten ist die finale
+Genreliste 1876 Einträge lang.
 
 Überführung der Genreliste in einem Genrebaum
 ---------------------------------------------
@@ -351,7 +346,7 @@ erstellen.
 
 .. rubric:: Footnotes
 
-.. [#f1] Der *API Key* wurde in der URL gekürzt da man angehalten ist diesen
+.. [#f1] Der *API Key* wurde in der URL gekürzt da man angehalten ist, diesen
    nicht zu veröffentlichen. 
 
 .. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.

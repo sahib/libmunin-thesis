@@ -27,6 +27,7 @@
     API                      *Application Programming Interface*
     UID                      *Unique Identifier*
     BPM                      *Beats per Minute*
+    FAQ                      *Frequently Asked Questions*
     =======================  ==================================
 
 .. raw:: latex
