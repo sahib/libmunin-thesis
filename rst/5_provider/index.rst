@@ -69,9 +69,11 @@ Genres.
 Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
 Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
 *The Echonest* ist dies, nachdem man sich einen *API--Key* registriert hat
-relativ einfach [#f1]_::
+relativ einfach [#f1]_: 
 
-http://developer.echonest.com/api/v4/artist/list_genres?api_key=ZSIUEIVVZGJVJVWIS
+.. code-block:: bash
+
+    http://developer.echonest.com/api/v4/artist/list_genres?api_key=ZSIUEIVVZGJVJVWIS
 
 Die Liste enthält, zum Zeitpunkt des Schreibens, :math:`898` konkrete Genres und
 wird kontinuierlich vom Betreiber erweitert. 

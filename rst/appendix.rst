@@ -240,7 +240,10 @@ Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von *libmunin* in
 ihren Anwendungen hinzuweisen.
 
 Die Grafiken wurde mit Inkscape erstellt und können auf der
-API--Dokumentation runtergeladen werden :cite:`logos`. 
+API--Dokumentation runtergeladen werden: :cite:`logos`. 
+
+Wie schon zuvor bei der Projektarbeit, existiert auch dieses Dokument in einer
+HTML--Variante: :cite:`html_variant`.
 
 .. subfigstart::
 
