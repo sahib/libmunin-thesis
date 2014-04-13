@@ -2,11 +2,11 @@
 Begriffsklärungen
 #################
 
-Genau wie in der Projektarbeit werden in den folgenden Kapiteln einige Begriffe
-verwendet, die nicht allgemein verständlich sind oder in diesem Kontext anders
-besetzt sind. Diese werden hier definiert. |br|
-Die Begriffe :term:`Distanzfunktion` und :term:`Assoziationsregel` wurden im
-Vergleich zur Projektarbeit um einige Details erweitert. 
+:dropcaps:`Wie` in der Projektarbeit werden in den folgenden Kapiteln
+einige Begriffe verwendet, die nicht allgemein verständlich sind oder in diesem
+Kontext anders besetzt sind. Diese werden hier definiert. |br| Die Begriffe
+:term:`Distanzfunktion` und :term:`Assoziationsregel` wurden im Vergleich zur
+Projektarbeit um einige Details erweitert. 
 
 Allgemeine Fachbegriffe
 =======================
@@ -35,14 +35,6 @@ Allgemeine Fachbegriffe
       wird ausgehend von einem Knoten zuerst jeder Nachbarknoten besucht. Erst
       dann wird analog mit den Nachbarknoten verfahren. Bereits besuchte Knoten
       werden markiert und nicht weiter verfolgt.
-
-    Tags
-
-      In Audiofiles können bei den meisten Formaten Metadaten abgelegt
-      werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den *Artist*,
-      *Album* und *Title*, aber auch komplexere Daten wie das *Coverart*,
-      abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
-      ausgelesen werden.
 
     Iterator
 
@@ -223,7 +215,7 @@ Kontextspezifische Fachbegriffe
       .. _fig-trineq:
 
       .. figure:: figs/trineq.*
-          :width: 80%
+          :width: 95%
           :align: center
     
           Ohne Einhaltung der Dreiecksungleichung.
@@ -231,10 +223,10 @@ Kontextspezifische Fachbegriffe
       .. _fig-trineq_fixed:
 
       .. figure:: figs/trineq_fixed.*
-          :width: 80%
+          :width: 95%
           :align: center
     
-          Mit Einhaltung der Dreickecsungleichung.
+          Mit Einhaltung der Dreiecksungleichung.
 
       .. subfigend::
           :width: 0.49

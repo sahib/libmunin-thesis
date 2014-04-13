@@ -5,7 +5,7 @@ Graphenoperationen
 Graphenoperationen
 ==================
 
-Eine grobe Übersicht über die einzelnen Graphenoperationen und ihrer
+:dropcaps:`Eine` grobe Übersicht über die einzelnen Graphenoperationen und ihrer
 Zuständigkeiten wurde bereits in der Projektarbeit gegeben. Im Folgenden  
 wird detailliert auf ihre Funktionsweise und Internas eingegangen.
 
@@ -551,7 +551,7 @@ Iteratoren ist in :num:`fig-iterator` gezeigt.
 .. figure:: figs/iterator.*
    :alt: Traversierung durch verschachtelte Iteratoren
    :align: center
-   :width: 100%
+   :width: 85%
 
    Traversierung durch verschachtelte Iteratoren. Zieht der Nutzer einen Song
    aus dem obersten Iterator, so löst das eine ,,Lawine” von Iterationsschritten
@@ -596,7 +596,6 @@ Um dieses Ziel zu erfüllen, werden alle Empfehlungen gespeichert, die von
 in den, beispielsweise, fünf letzten Empfehlungen bereits vorhanden, so wird er
 ausgesiebt. Ähnlich wird mit dem Album vorgegangen, nur hier ist die Schwelle
 standardmäßig bei drei. Die einzelnen Schwellen können vom Nutzer konfiguriert
-werden.
-
+werden. |br|
 Auch das *Sieving* ist als Iterator implementiert welcher Songs von einem
 Empfehlungsiterator nimmt, aber nicht alle an den Nutzer weitergibt.

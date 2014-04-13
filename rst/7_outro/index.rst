@@ -5,17 +5,18 @@ Ausblick
 Verbesserung der Algorithmik
 ============================
 
-Im Folgenden werden einige Ideen für mögliche Weiterenwicklungen an den
-vorgestellten Algorithmen gegeben.  Einige davon sind vergleichsweise einfach
-umsetzbar. Andere könnten die Grundlage für fortführende Arbeiten sein.
+:dropcaps:`Im` Folgenden werden einige Ideen für mögliche Weiterenwicklungen an
+den vorgestellten Algorithmen gegeben.  Einige davon sind vergleichsweise
+einfach umsetzbar. Andere könnten die Grundlage für fortführende Arbeiten sein.
 
 Audioanalyse
 ------------
 
 Wie bereits erwähnt ist *libmunin's* momentane *,,Audioanalyse"* eher simpler
 Natur.  Als konkrete Vorlage für eine verbesserte *Audioanalyse* könnte *Mirage*
-dienen. In seiner Arbeit stellt der Mirage--Autors :cite:`schnitzer2007high`
-einige Herangehensweise zum performanten Vergleich von Audiodaten vor. 
+dienen. In seiner Arbeit stellt der Mirage--Autor :cite:`schnitzer2007high`
+Dominik Schnitzer einige Herangehensweise zum performanten Vergleich von
+Audiodaten vor. 
 
 Angesichts der hohen Entwicklungsgeschwindigkeit in der Informatik und dem
 *,,hohem"* Alter des Papers (2007) sollte allerdings beachtet werden, dass es
@@ -55,19 +56,18 @@ Andere Provider
 
 Wie man im Playlistenvergleich unter :ref:`ref-playlist-compare` gesehen hat,
 ist momentan der Vergleich der Metadaten die Stärke von *libmunin*. Diese
-Fähigkeit könnte noch weiter ausgebaut werden, indem die Sprache der Titel (denn
-nicht immer sind Liedtexte vorhanden) erkannt wird. Dann könnte man mittels
-eines Thesaurus synonyme Titel finden. Für Python existiert mit *TextBlob*
-:cite:`TEXTBLOB` hierfür eine passende Bibliothek. |br|
-Kommt beispielsweise in einem Liedtitel das Wort *,,Sofa"* vor, so könnte ein
-Titel mit dem Wort synonymen ,,Couch"" darin vorgeschlagen werden. 
-Auch Taxonomien, also ähnliche *Klassifikationen* sind
-denkbar. Man denke hier an einem Lied welches das Wort *,,Katze"* enthält und
-ein anderes das *,,Tier"* beinhaltet. |br|
-In de momentanen Implementierung wird jedes Wort im Titel auf
-seinen Wortstamm gebracht und mittels der Levenshteins--Distanzfunktions
-verglichen. Diese Lösung ist relativ teuer und  ungenau. Allerdings war sie
-leicht zu implementieren.
+Fähigkeit könnte noch weiter ausgebaut werden, indem die Sprache der einzelnen
+Titel (denn nicht immer sind Liedtexte vorhanden) erkannt wird. Dann könnte man
+mittels eines Thesaurus synonyme Titel finden. Für Python existiert mit
+*TextBlob* :cite:`TEXTBLOB` hierfür eine passende Bibliothek. |br| Kommt
+beispielsweise in einem Liedtitel das Wort *,,Sofa"* vor, so könnte ein Titel
+mit dem Wort synonymen ,,Couch" darin vorgeschlagen werden.  Auch Taxonomien,
+also ähnliche *Klassifikationen* sind denkbar. Man denke hier an einem Lied
+welches das Wort *,,Katze"* enthält und ein anderes das *,,Tier"* beinhaltet.
+|br| In der momentanen Implementierung wird jedes Wort im Titel auf seinen
+Wortstamm gebracht und mittels der Levenshteins--Distanzfunktion verglichen.
+Diese Lösung ist relativ teuer und  ungenau. Allerdings war sie leicht zu
+implementieren.
 
 Auch interessant zu sehen wäre es, ob die Länge der einzelnen Stücke in
 irgendeiner Form mit der Ähnlichkeit korrelieren. Hier müssten statistische
@@ -109,16 +109,16 @@ Erweiterungen
 =============
 
 Die verwendeten Metadaten könnten ebenfalls erweitert werden. Für die
-Ähnlichkeit sind unter Umständen auch Attribute wie der *Producer* und die
-*Band--Member* relevant. Einfache Beispiele hier wären ,,Wer Songs von den
-Ärzten hört, der hört vermutlich auch gern Farin Urlaub Racing Team" ---
-natürlich unter der Annahme, dass derselbe Künstler auch immer ähnliche Musik
-produziert. 
+Ähnlichkeit sind unter Umständen auch Attribute wie der *Producer*, die
+*Band--Mitglieder* oder die *Herkunft der Band* relevant. Einfache Beispiele
+hier wären ,,Wer Songs von den Ärzten hört, der hört vermutlich auch gern Farin
+Urlaub Racing Team" --- natürlich unter der Annahme, dass derselbe Künstler auch
+immer ähnliche Musik produziert. 
 
 Was das Lernen von *libmunin* angeht, so sollten auch ,,negative Impulse"
 behandelt werden. Wird beispielsweise ein bestimmtes Lied oder gar Künstler sehr
-oft geskippt könnte *libmunin* dies berücksichtigen indem es bei der
-Traversierung diesn Knoten ,,umgeht". Alternativ wäre auch ein
+oft geskippt (also übersprungen), könnte *libmunin* dies berücksichtigen indem
+es bei der Traversierung diesn Knoten ,,umgeht". Alternativ wäre auch ein
 nachträgliches Filtern der entsprechenden Lieder möglich.
 
 Allgemein wäre auch eine Erweiterung von Assoziationsregeln denkbar. Momentan
@@ -157,7 +157,7 @@ die Frage, wie man einem Computer die Ähnlichkeit von zwei Musikstücken
 feststellen lässt. Trotzdem erstellt *libmunin* selbst als Prototyp in seiner
 Standardeinstellung bereits nutzbare Playlisten. Aufgrund der relativ kurzen
 Implementierungszeit für ein solches System, von etwas mehr als 3 Monaten, ist
-dies als Erfolg zu werten.
+dies nach Meinung des Autors durchaus als Erfolg zu werten.
 
 Die Neuerung dieser Arbeit ist weniger die vorgestellte Algorithmik --- der
 allergrößte Teil existiert natürlich bereits in ähnlicher Form --- sondern, das

@@ -5,12 +5,12 @@
 Das allgemeine Problem
 ======================
 
-Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen wie *ähnlich* ein
-Musikstück zu einem anderem ist, so erhält man genauso viele Antworten wie man
-Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr subjektive
-Angelegenheit, die häufig zwischen Menschen Diskussionen auslöst. Stuft man die
-*Rolling Stones* als *Rock* ein? Oder doch eher als *Pop?* Was zählt überhaupt
-noch als *Rock*? Gibt es eine Definition dafür?
+:dropcaps:`Musik` ist nur schwer vergleichbar. Fragt man mehrere Menschen wie
+*ähnlich* ein Musikstück zu einem anderem ist, so erhält man genauso viele
+Antworten wie man Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr
+subjektive Angelegenheit, die häufig zwischen Menschen Diskussionen auslöst.
+Stuft man die *Rolling Stones* als *Rock* ein? Oder doch eher als *Pop?* Was
+zählt überhaupt noch als *Rock*? Gibt es eine Definition dafür?
 
 Wenn man jetzt noch versucht einem Computer dem Begriff der *Musikähnlichkeit*
 beizubringen wird es kompliziert. Dieser kann nur objektiv nach bestimmten

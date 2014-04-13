@@ -2,8 +2,8 @@
 Allgemeine Entwicklerhinweise
 *****************************
 
-In diesem Kapitel werden einleitend einige allgemeine Hinweise gegeben, die man
-bei der Entwicklung mit und von *libmunin* beachten sollte.
+:dropcaps:`In` diesem Kapitel werden einleitend einige allgemeine Hinweise
+gegeben, die man bei der Entwicklung mit und von *libmunin* beachten sollte.
 
 Zur Nuztung von *libmunin*
 ==========================
@@ -14,7 +14,7 @@ Zur Nuztung von *libmunin*
   Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür Picard,
   welches im Hintergrund auf Musicbrainz :cite:`3A3` zugreift. 
   Für schwerer zu besorgende Daten kann unter anderem auf libglyr, beets oder
-  dem eingebauten PlyrLyrics--Provider und DiscogsGenre--Provider.
+  dem eingebauten ``PlyrLyricsProvider`` und ``DiscogsGenreProvider``.
 - Welche Lieder man zu *libmunin's History* hinzufügt, sollte 
   abgewogen werden. Fügt man auch Lieder ein welche vom Nutzer einfach
   übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
@@ -217,7 +217,7 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    *Speicherplatz der Session (ungepackt)*    2.5 MB     
    *Zeit für den Kaltstart*                   53 Minuten *(63% Liedtextsuche + 37% Audioanalyse)*
    |hline| ``rebuild``                        44 Sekunden
-   ``add``                                    ~1ms
+   ``add``                                    87ms
    ``insert``                                 164ms
    ``remove``                                 54ms
    ``modify``                                 219ms
@@ -229,7 +229,7 @@ werden.
 
 .. rubric:: Footnotes
 
-.. [#f1] Etwa mit der Levenshtein--Distanzfunktion. TODO: cite.
+.. [#f1] Etwa mit der Levenshtein--Distanzfunktion :cite:`brill2000improved`.
 
 .. figtable::
    :alt: Vergleich verschiedener Playlisten  

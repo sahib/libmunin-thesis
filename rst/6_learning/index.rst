@@ -1,39 +1,41 @@
-#################
-Implizites Lernen
-#################
+############################
+Implizites Lernen vom Nutzer
+############################
 
 Generierung von Regeln
 ======================
 
-In vorangegangen Kapiteln wurde schon oft davon gesprochen, dass *libmunin* den
-Nutzer ,,beobachtet". Dies geschieht indem der Anwendungsentwickler die vom
-Nutzer gehörten Titel an *libmunin* zurückmeldet.
+:dropcaps:`In` vorangegangen Kapiteln wurde schon oft davon gesprochen, dass
+*libmunin* den Nutzer ,,beobachtet". Dies geschieht indem der
+Anwendungsentwickler die vom Nutzer gehörten Titel an *libmunin* zurückmeldet.
 
-Frequent Itemsets
-------------------
+Finden von wiederkehrenden Mustern
+----------------------------------
 
 Um eine *,,Warenkorbanalyse"* durchzuführen braucht man erstmal *Warenkörbe*.
 Die Entstehung dieser wurde bereits in der Projektarbeit betrachtet: Die
 einzelnen Songs in der Historie werden zeitlich gruppiert und bei einer maximalen
 Gruppengröße abgeschnitten. 
 
-Diese einzelnen Gruppen von Songs fungieren dann als *Warenkörbe.*
-Aus diesen gilt es zuerst eine Menge an Songs zu finden die jeweils oft zusammen
-in den einzelnen Warenkörben vorkommen. Der *naive* Ansatz wäre für jede
-Kombination der Eingabesongs das Vorkommen jeder Kombination im Warenkorb zu
-zählen. Wie man sich bereits denken kann, ist hierfür der algorithmische Aufwand
-enorm, denn bei einer Menge von 1000 unterschiedlichen Songs in der Historie
-müssten bereits :math:`1000!` Kombinationen gebildet werden. 
+Diese einzelnen Gruppen von Songs fungieren dann als *Warenkörbe.* Aus diesen
+gilt es zuerst eine Menge an Songs (im Folgenden *Muster* [#f1]_ genannt) zu
+finden die jeweils oft zusammen in den einzelnen Warenkörben vorkommen. Der
+*naive* Ansatz wäre für jede Kombination der Eingabesongs das Vorkommen jeder
+Kombination im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
+hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
+:math:`1000` unterschiedlichen Songs in der Historie müssten bereits
+:math:`1000!` Kombinationen gebildet werden. 
 
-Für die Lösung dieses Problems gibt es einige Algorithmen.  Der bekanntestes ist
-vermutlich der *Apriori--Algorithmus* (cite TODO).  Statt alle Kombinationen zu
-betrachten, werden erst alle ,,1er--Kombinationen" gebildet" und die
-ausgefiltert, welche einen zu niedrigen *Support--Count* besitzen. Die Grenze
-legt man vorher fest. Der *Support--Count* ist einfach die Anzahl der
-*Warenkörbe* in dem ein Song vorkommt, geteilt durch die absolute Anzahl der
-Warenkörbe. Danach werden mit den verbliebenen 2er--Kombination gebildet, dann
-die noch relevanten 3er--Kombinationen und so weiter. Dadurch wird eine große
-Menge von Kombinationen vermieden.
+Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
+bekanntestes ist vermutlich der *Apriori--Algorithmus*
+:cite:`agrawal1993mining`.  Statt alle Kombinationen zu betrachten, werden erst
+alle *,,1er--Kombinationen"* gebildet und die ausgefiltert, welche einen zu
+niedrigen *Support--Count* besitzen. Die Grenze legt man vorher fest. Der
+*Support--Count* ist einfach die Anzahl der *Warenkörbe* in dem ein Song
+vorkommt, geteilt durch die absolute Anzahl der Warenkörbe. Danach werden mit
+den verbliebenen 2er--Kombination gebildet, dann die noch relevanten
+3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
+Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienter (und schwerer zu
 erklärender) Algorithmen etabliert. Dazu gehören der FP--Growth
@@ -45,8 +47,8 @@ verwendete RELIM--Algorithmus :cite:`RELIM`.
 .. figtable::
    :label: table-itemsets
    :spec: l r | l r | l r
-   :alt: Die Itemsets für einige sehr einfache Warenkörbe.
-   :caption: Die Itemsets, welche aus den drei Warenkörben 
+   :alt: Die Muster für einige sehr einfache Warenkörbe.
+   :caption: Die Muster, welche aus den drei Warenkörben 
              {{A, B, C} {B, B, C}, {C, C, B}} generiert worden sind.
 
    =========== ====== =========== ====== =========== ======
@@ -61,27 +63,28 @@ In Tabelle sehen wir ein Beispiel aus 3 Warenkörben, aus denen per Hand mit
 der naiven Herangehensweise alle möglichen Kombinationen samt deren Support--Count
 aufgelistet worden sind.
 
-RELIM
------
+Der RELIM--Algorithmus
+----------------------
 
 Generell gilt FP--Growth als der *neue* Standard--Algorithmus der laut mehrerer
-Quellen andere Algorithmen wie ECLAT und RELIM aussticht
-:cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
+Quellen andere Algorithmen wie ECLAT und RELIM (*RE-cursive ELIM-ination*)
+aussticht :cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
 
-Im Fall wird trotzdem auf *RELIM* zurückgegriffen, da dieser für die Zwecke des
-Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige tausend
-Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining* (LINK)
-bereits eine freie, qualitativ relativ hochwertige Implementierung, während es
-für FP--Growth nur qualitativ schlechte Implementierungen zu geben scheint, oder
-welche, die nur für Python--2.7 funktionieren.
+In diesem Fall wird trotzdem auf *RELIM* zurückgegriffen, da dieser für die
+Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
+tausend Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining*
+(siehe :cite:`pymining`) bereits eine freie, qualitativ relativ hochwertige
+Implementierung, während es für FP--Growth nur qualitativ schlechte
+Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
+:math:`\leq 2.7` funktionieren.
 
-Ableitung von Regeln aus Frequent Itemsets
-------------------------------------------
+Ableitung von Regeln aus Mustern
+--------------------------------
 
 Hat man erstmal eine Gruppe von häufig zusammen auftretender
 Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
-Dazu teilt man die Menge in zwei verschiedene, disjunkte Teilmengen auf. 
-Diese beiden Teilmengen nimmt man als die beiden *Mengen* einer
+Dazu teilt man das Muster in alle möglichen verschiedene, disjunkten Hälften
+auf.  Diese beiden Hälften nimmt man als die beiden *Mengen* einer
 Assoziationsregel an und probt, mittels verschiedener *Metriken*, wie zutreffend
 diese ist. 
 
@@ -105,29 +108,32 @@ diese ist.
    ==================================================================== ====================== ======================= ============
 
 Als Beispiel können wir wieder die Warenkörbe aus :num:`table-itemsets` nehmen.
-Itemsets mit nur einem Song können nicht weiter aufgeteilt werden, daher müssen
+Muster mit nur einem Song können nicht weiter aufgeteilt werden, daher müssen
 diese nicht weiter betrachtet werden. Die 2er--Kombination sind leicht in zwei
 Teilmengen aufzuteilen. Für die 3er--Kombinationen können mehrere möglichen
 Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
 :num:`table-rules` aufgelistet.
 
 Nicht jede Regel ist automatisch eine gute Regel. Das gängige Lehrbeispiel
-hierbei ist eine Regel die besagt, dass 60% aller *Basketballspieler* zum
-Frühstück *Cornflakes* essen.  Der Anteil der Menschen die aber insgesamt
-Cornflakes essen liegt bei 70% --- daher ist die Eigenschaft
+hierbei ist eine Regel die besagt, dass :math:`60\%` aller *Basketballspieler*
+zum Frühstück *Cornflakes* essen.  Der Anteil der Menschen die aber insgesamt
+Cornflakes essen liegt bei :math:`70\%` --- daher ist die Eigenschaft
 *,,Basketballspieler"* sogar ein Gegenindiz für die Eigenschaft
 *,,Cornflake--Esser"*.
 
-Um solche *falschen* Assoziationsregeln zu vermeiden, wird für jede Regel zwei
+Um solche *falschen* Assoziationsregeln zu vermeiden, werden für jede Regel zwei
 Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem Buch 
 *Datamining Concepts and Techniques* :cite:`datamining-concepts-and-techniques` 
 entnommen: Die *Kulczynski--Metrik* und der *Imbalance--Ratio*.
 
-Die *Kulczynski--Metrik* drückt die *Güte* der Regel als eine
+Die *Kulczynski--Metrik* drückt die *Güte* der Regel als eine reele Zahl im
+Bereich :math:`\lbrack 0, 1\rbrack` aus, wobei :math:`1` die beste Wertung ist.
+Grob ausgedrückt besagt die Metrik, wie zutreffend die Regel im Durchschnitt
+ist:
 
 .. math::
 
-    Kulczynski(A, B) =  \frac{P(A \vert B) + P(B \vert A)}{2}
+    Kulczynski(A, B) =  \frac{P(A \mid B) + P(B \mid A)}{2}
 
 :math:`P(A \vert B)` ist die bedingte Wahrscheinlichkeit und ist meist definiert
 als: 
@@ -153,7 +159,9 @@ berechnen lässt:
    Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)
 
 
-Der *Imbalance Ratio* gibt an wie gleichmäßig sich die Regeln anwenden lässt.
+Der *Imbalance Ratio* gibt im Bereich :math:`\lbrack 0, 1\rbrack` an wie
+gleichmäßig sich die Regeln anwenden lässt.  Hier ist der beste Wert die
+:math:`0`.  Er ist gegeben durch:
 
 .. math::
 
@@ -161,10 +169,10 @@ Der *Imbalance Ratio* gibt an wie gleichmäßig sich die Regeln anwenden lässt.
 
 Sollte die *Kulczynski--Metrik* kleiner als :math:`0.\overline{6}` sein oder der
 *Imbalance--Ratio* größer als :math:`0.35`. Diese Grenzwerte worden, mehr oder
-minder willkürlich, nach einigen Rumspielen festgelegt.
+minder willkürlich, nach einigen Tests festgelegt.
 
-Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in ein
-einzelnes, leicht zu handhabendes *Rating--Metrik* verschmolzen:
+Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in eine
+einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
 
 .. math::
 
@@ -176,20 +184,19 @@ Anwendung von Regeln
 ====================
 
 Wie bereits unter :ref:`ref-graphops-rules` erklärt, werden Assoziationsregel
-als Navigationshilfe im beim Traversieren genutzt. 
-Zu diesem Zwecke müssen die entstandenen Regeln irgendwo sortiert und mit einem
-Zeitem versehen abgelegt werden. 
-Diese Ablage ist der *RuleIndex*. Beim Einfügen wird jeweils überprüft, ob die
-Maximalanzahl an Regeln (momentan maximal 1000) übertroffen wird. Sollte dem so
-sein, wird die älteste (ergo, zu erst eingefügte) Regel gelöscht um Platz zu
-machen. 
+als Navigationshilfe im beim Traversieren genutzt.  Zu diesem Zwecke müssen die
+entstandenen Regeln irgendwo sortiert und mit einem Zeitem versehen abgelegt
+werden.  Diese Ablage ist der ``RuleIndex``. Beim Einfügen wird jeweils
+überprüft, ob die Maximalanzahl an Regeln (momentan maximal :math:`1000`)
+übertroffen wird. Sollte dem so sein, wird die älteste (ergo, zu erst
+eingefügte) Regel gelöscht um Platz zu machen. 
 
 Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
 von Regeln abfragen, die diesen Song in irgend einer Weise betreffen. Um diese
 Operation zu beschleunigen wird intern eine Hashtabelle gehalten, mit dem Song
 als Schlüssel und der entsprechende Regelliste als zugehöriger Wert.
 
-Bei jeder Operation auf dem *RuleIndex* wird er automatisch bereinigt. 
+Bei jeder Operation auf dem ``RuleIndex`` wird er automatisch bereinigt. 
 Dabei werden Regeln entfernt, die Songs erwähnen, welche nicht mehr in der
 Historie vertreten sind. 
 
@@ -250,9 +257,10 @@ Explizites Lernen
 
 Neben dem *impliziten Lernen* gibt es auch den *,,nachträglich entdeckten"*
 Mechanismus des *expliziten Lernens*. Dieser wurde bereits in Kapitel
-:ref:`ref-graphop-insert` beleuchtet. Unter :num:`fig-moves` soll dies lediglich
-nochmal visualisiert werden. Diese Verschiebung ist dadurch zu erklären, dass
-die ``insert``--Operation meist einen anderen zum Wiedereinfügen findet. 
+:ref:`ref-graphop-insert` beleuchtet. Unter Abb. :num:`fig-moves` soll dies
+lediglich nochmal visualisiert werden. Die dort abgebildete *Verschiebung* ist
+dadurch zu erklären, dass die ``insert``--Operation meist einen anderen zum
+Wiedereinfügen findet. 
 
 Durch Ändern des *Ratings* in der Demonanwendung können einzelne Knoten gezielt
 im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher zusammen und
@@ -261,3 +269,7 @@ einerseits dazu zu nutzen, um seine Favoriten nahe im Graphen zusammenzupacken,
 andererseits, um unpassende Empfehlungen mit einem schlechten Rating
 abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge hat.
 
+.. rubric:: Footnotes
+
+.. [#f1] Im englischer Lektüre werden die *Wiederkehrenden Muster* als *Frequent
+   Itemsets* bezeichnet.
