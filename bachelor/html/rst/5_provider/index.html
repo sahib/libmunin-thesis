@@ -184,7 +184,7 @@
 <p>Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
 näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
 erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
-meisten Provider eher einfacher Natur &mdash; die Lektüre des jeweiligen Quelltextes
+meisten Provider eher einfacher Natur &ndash;- die Lektüre des jeweiligen Quelltextes
 sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
 erklärungsbedürftigen Paare näher betrachtet.</p>
 </div>
@@ -201,14 +201,14 @@ geläufigen Genres normalisiert werden.</p>
 <h3>5.2.1 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h3>
 <p>Genres können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Untergenres
 (<em>country</em> rock, <em>japanese</em> pop), Unteruntergenres (<em>western</em> country rock)
-&mdash; und so weiter &mdash; aufgeteilt werden. So lassen sich alle Genres und ihre
+&ndash;- und so weiter &ndash;- aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
-man das allumfassende Genre <em>Music</em> an &mdash; einfach weil sich <em>Music</em> hinter fast
+man das allumfassende Genre <em>Music</em> an &ndash;- einfach weil sich <em>Music</em> hinter fast
 jedes Genre schreiben lässt ohne den Sinn zu verändern.
 Dieser Baum kann dann genutzt werden um beliebige Genres als <em>Pfad</em> durch den
 Baum normalisiert abzubilden.</p>
 <p>Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen &mdash; bei der hohen Zahl der existierenden Genres
+Genres in diesen Baum einzupflegen &ndash;- bei der hohen Zahl der existierenden Genres
 kann man diese nur schwerlich manuell einpflegen.</p>
 <p>Existierende Datenbanken wie, das sonst sehr vollständige, <em>MusicBrainz</em> liefern
 laut ihren <em>FAQ</em> keine Genredaten:</p>
@@ -222,11 +222,11 @@ but we haven't completely settled on the right approach yet.</em></p>
 <p>Also musste man sich nach anderen Quellen umschauen. Das vom
 <em>DiscogsGenre</em>&ndash;Provider verwendete <em>Discogs</em> bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &mdash; eine zu
+<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &ndash;- eine zu
 grobe Einteilung.</p>
 <p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> - fast jede Band
 ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
-<em>The Echonest</em> &mdash; einem Unternehmen welches verschiedene Dienste rund um
+<em>The Echonest</em> &ndash;- einem Unternehmen welches verschiedene Dienste rund um
 Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
 Genres.</p>
 <p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
@@ -362,37 +362,37 @@ Dazu werden zuerst folgende Variablen initialisiert:</p>
 <col width="83%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="headalign-center"><em>Variable</em></th>
-<th class="headalign-center"><em>Beschreibung</em></th>
+<tr class="row-odd"><th class="head"><em>Variable</em></th>
+<th class="head"><em>Beschreibung</em></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">root</span></tt></td>
-<td class="align-center">Der momentane Wurzelknoten. Anfangs initialisiert auf <em>,,Music&quot;</em>.</td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">root</span></tt></td>
+<td>Der momentane Wurzelknoten. Anfangs initialisiert auf <em>,,Music&quot;</em>.</td>
 </tr>
-<tr class="row-odd"><td class="align-center"><tt class="docutils literal"><span class="pre">paths</span></tt></td>
-<td class="align-center">Eine leere lineare Liste mit Pfaden. Dient als Speicher für Resultate.</td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">paths</span></tt></td>
+<td>Eine leere lineare Liste mit Pfaden. Dient als Speicher für Resultate.</td>
 </tr>
-<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">mask</span></tt></td>
-<td class="align-center">Eine Liste mit Wahrheitswerten. Genauso lang wie die Wortliste. <br /></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">mask</span></tt></td>
+<td>Eine Liste mit Wahrheitswerten. Genauso lang wie die Wortliste. <br /></td>
 </tr>
-<tr class="row-odd"><td class="align-center">&nbsp;</td>
-<td class="align-center">Die Wahrheitswerte werden mit <em>False</em> initialisiert. <br /></td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Die Wahrheitswerte werden mit <em>False</em> initialisiert. <br /></td>
 </tr>
-<tr class="row-even"><td class="align-center">&nbsp;</td>
-<td class="align-center">Die Liste wird genutzt um gefunden Wörter an  <br /></td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Die Liste wird genutzt um gefunden Wörter an  <br /></td>
 </tr>
-<tr class="row-odd"><td class="align-center">&nbsp;</td>
-<td class="align-center">dem entsprechenden Index <em>,,abzuhaken&quot;</em>.</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>dem entsprechenden Index <em>,,abzuhaken&quot;</em>.</td>
 </tr>
-<tr class="row-even"><td class="align-center"><tt class="docutils literal"><span class="pre">path_result</span></tt></td>
-<td class="align-center">Eine Liste die an die nächste Rekursionsstufe weitergegeben wird. <br /></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">path_result</span></tt></td>
+<td>Eine Liste die an die nächste Rekursionsstufe weitergegeben wird. <br /></td>
 </tr>
-<tr class="row-odd"><td class="align-center">&nbsp;</td>
-<td class="align-center">Sie speichert die Indizes des momentan aufgebauten Pfades. <br /></td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>Sie speichert die Indizes des momentan aufgebauten Pfades. <br /></td>
 </tr>
-<tr class="row-even"><td class="align-center">&nbsp;</td>
-<td class="align-center">Anfangs initialisiert auf ein leere Liste.</td>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Anfangs initialisiert auf ein leere Liste.</td>
 </tr>
 </tbody>
 </table>
@@ -450,17 +450,17 @@ erreicht wird.</p>
 <p>Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
 vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als <em>rock</em> oder
 <em>metal</em> eingetragen, ohne Unterscheidung von Untergenres. Deshalb geht diese
-Distanzfunktion davon aus wenige Übereinstimmungen zu finden &mdash; sollten welche
+Distanzfunktion davon aus wenige Übereinstimmungen zu finden &ndash;- sollten welche
 vorkommen werden diese gut bewertet.</p>
 <p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="#single-dist">5.2.4</a> erwähnte Distanzunktion
 ist,  so berechnet sich die finale Distanz durch:</p>
 <div class="math">
-\[D_{min}(A, B) = \argmin\!\left\{\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\right\}\]</div>
+\[D_{min}(A, B) = min\!\left\{\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\right\}\]</div>
 <p><tt class="docutils literal"><span class="pre">GenreTreeAvg</span></tt>: Seien <em>A</em> und <em>B</em> zwei Mengen mit Genrepfaden. <em>A</em> ist dabei
 die größere Menge und <em>B</em> die kleinere, falls die Mengen eine unterschiedliche
 Mächtigkeit besitzen.</p>
 <div class="math">
-\[D_{avg}(A, B) = \frac{1}{\vert A\vert}  \times \displaystyle\sum\limits_{a \in A} \argmin\!{\left\{\displaystyle\sum\limits_{b \in B} d(a, b)\right\}}\]</div>
+\[D_{avg}(A, B) = \frac{1}{\vert A\vert}  \times \displaystyle\sum\limits_{a \in A} min\!{\left\{\displaystyle\sum\limits_{b \in B} d(a, b)\right\}}\]</div>
 <p>Diese Distanzfunktion eignet sich für <em>,,reichhaltig''</em> befüllte
 Genrebeschreibungen, bei denen auch ein oder mehrere Untergenres vorhanden sind.
 Ein Beispiel dafür wäre: <tt class="docutils literal"><span class="pre">country</span> <span class="pre">rock</span> <span class="pre">/</span> <span class="pre">folk</span> <span class="pre">/</span> <span class="pre">rockabilly</span></tt>. Die
@@ -526,7 +526,7 @@ der <em>Frequenz</em> eines Wortes (<span class="math">\(P\)</span> ist dabei di
 <div class="math">
 \[\begin{split}degree(word) = \sum_{p \in P} \left\{\begin{array}{cl} \vert p\vert, &amp; \mbox{falls } word \in p\\ 0, &amp; \mbox{sonst} \end{array}\right.\end{split}\]</div>
 <div class="math">
-\[\begin{split}freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} \argmin \left\{2, \frac{\vert word\vert}{3}\right\}, &amp; \mbox{falls } word \in p\\ 0, &amp; \mbox{sonst} \end{array}\right.\end{split}\]</div>
+\[\begin{split}freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} min \left\{2, \frac{\vert word\vert}{3}\right\}, &amp; \mbox{falls } word \in p\\ 0, &amp; \mbox{sonst} \end{array}\right.\end{split}\]</div>
 <div class="math">
 \[score(word) = \frac{degree(word) + freq(word)^{1.6}}{freq(word)}\]</div>
 </li>
@@ -590,92 +590,92 @@ dabei gefundene Distanz ist die finale Teildistanz.</p>
 <col width="39%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="headalign-center">Score</th>
-<th class="headalign-center">Schlüsselwörter <em>(Wandern)</em></th>
-<th class="headalign-center">Score</th>
-<th class="headalign-center">Schlüsselwörter <em>(Yellow Submarine)</em></th>
+<tr class="row-odd"><th class="head">Score</th>
+<th class="head">Schlüsselwörter <em>(Wandern)</em></th>
+<th class="head">Score</th>
+<th class="head">Schlüsselwörter <em>(Yellow Submarine)</em></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td class="align-center"><span class="math">\(9.333\)</span></td>
-<td class="align-center"><em>gerne  stille  stehn</em></td>
-<td class="align-center"><span class="math">\(22.558\)</span></td>
-<td class="align-center"><em>yellow  submarin</em></td>
+<tr class="row-even"><td><span class="math">\(9.333\)</span></td>
+<td><em>gerne  stille  stehn</em></td>
+<td><span class="math">\(22.558\)</span></td>
+<td><em>yellow  submarin</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(5.778\)</span></td>
-<td class="align-center"><em>wandern</em></td>
-<td class="align-center"><span class="math">\(20.835\)</span></td>
-<td class="align-center"><em>full  speed  ahead  mr</em></td>
+<tr class="row-odd"><td><span class="math">\(5.778\)</span></td>
+<td><em>wandern</em></td>
+<td><span class="math">\(20.835\)</span></td>
+<td><em>full  speed  ahead  mr</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(5.442\)</span></td>
-<td class="align-center"><em>müllers  lust</em></td>
-<td class="align-center"><span class="math">\(8.343\)</span></td>
-<td class="align-center"><em>live  beneath</em></td>
+<tr class="row-even"><td><span class="math">\(5.442\)</span></td>
+<td><em>müllers  lust</em></td>
+<td><span class="math">\(8.343\)</span></td>
+<td><em>live  beneath</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(5.247\)</span></td>
-<td class="align-center"><em>müde  drehn</em></td>
-<td class="align-center"><span class="math">\(5.247\)</span></td>
-<td class="align-center"><em>band  begin</em></td>
+<tr class="row-odd"><td><span class="math">\(5.247\)</span></td>
+<td><em>müde  drehn</em></td>
+<td><span class="math">\(5.247\)</span></td>
+<td><em>band  begin</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(5.204\)</span></td>
-<td class="align-center"><em>niemals  fiel</em></td>
-<td class="align-center"><span class="math">\(3.297\)</span></td>
-<td class="align-center"><em>sea</em></td>
+<tr class="row-even"><td><span class="math">\(5.204\)</span></td>
+<td><em>niemals  fiel</em></td>
+<td><span class="math">\(3.297\)</span></td>
+<td><em>sea</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(5.204\)</span></td>
-<td class="align-center"><em>herr  meister</em></td>
-<td class="align-center"><span class="math">\(3.227\)</span></td>
-<td class="align-center"><em>green</em></td>
+<tr class="row-odd"><td><span class="math">\(5.204\)</span></td>
+<td><em>herr  meister</em></td>
+<td><span class="math">\(3.227\)</span></td>
+<td><em>green</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(5.204\)</span></td>
-<td class="align-center"><em>frau  meisterin</em></td>
-<td class="align-center"><span class="math">\(2.797\)</span></td>
-<td class="align-center"><em>captain</em></td>
+<tr class="row-even"><td><span class="math">\(5.204\)</span></td>
+<td><em>frau  meisterin</em></td>
+<td><span class="math">\(2.797\)</span></td>
+<td><em>captain</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(5.074\)</span></td>
-<td class="align-center"><em>muntern  reihn</em></td>
-<td class="align-center"><span class="math">\(2.551\)</span></td>
-<td class="align-center"><em>sail</em></td>
+<tr class="row-odd"><td><span class="math">\(5.074\)</span></td>
+<td><em>muntern  reihn</em></td>
+<td><span class="math">\(2.551\)</span></td>
+<td><em>sail</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(5.031\)</span></td>
-<td class="align-center"><em>schlechter  müller</em></td>
-<td class="align-center"><span class="math">\(2.551\)</span></td>
-<td class="align-center"><em>blue</em></td>
+<tr class="row-even"><td><span class="math">\(5.031\)</span></td>
+<td><em>schlechter  müller</em></td>
+<td><span class="math">\(2.551\)</span></td>
+<td><em>blue</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(5.031\)</span></td>
-<td class="align-center"><em>wanderschaft  bedacht</em></td>
-<td class="align-center"><span class="math">\(2.551\)</span></td>
-<td class="align-center"><em>cabl</em></td>
+<tr class="row-odd"><td><span class="math">\(5.031\)</span></td>
+<td><em>wanderschaft  bedacht</em></td>
+<td><span class="math">\(2.551\)</span></td>
+<td><em>cabl</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(3.430\)</span></td>
-<td class="align-center"><em>wasser</em></td>
-<td class="align-center"><span class="math">\(2.551\)</span></td>
-<td class="align-center"><em>life</em></td>
+<tr class="row-even"><td><span class="math">\(3.430\)</span></td>
+<td><em>wasser</em></td>
+<td><span class="math">\(2.551\)</span></td>
+<td><em>life</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(3.430\)</span></td>
-<td class="align-center"><em>steine</em></td>
-<td class="align-center"><span class="math">\(2.516\)</span></td>
-<td class="align-center"><em>sky</em></td>
+<tr class="row-odd"><td><span class="math">\(3.430\)</span></td>
+<td><em>steine</em></td>
+<td><span class="math">\(2.516\)</span></td>
+<td><em>sky</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>tanzen</em></td>
-<td class="align-center"><span class="math">\(2.516\)</span></td>
-<td class="align-center"><em>aye</em></td>
+<tr class="row-even"><td><span class="math">\(2.016\)</span></td>
+<td><em>tanzen</em></td>
+<td><span class="math">\(2.516\)</span></td>
+<td><em>aye</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>frieden</em></td>
-<td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>friend</em></td>
+<tr class="row-odd"><td><span class="math">\(2.016\)</span></td>
+<td><em>frieden</em></td>
+<td><span class="math">\(2.016\)</span></td>
+<td><em>friend</em></td>
 </tr>
-<tr class="row-even"><td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>gelernt</em></td>
-<td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>aboard</em></td>
+<tr class="row-even"><td><span class="math">\(2.016\)</span></td>
+<td><em>gelernt</em></td>
+<td><span class="math">\(2.016\)</span></td>
+<td><em>aboard</em></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>schwer</em></td>
-<td class="align-center"><span class="math">\(2.016\)</span></td>
-<td class="align-center"><em>boatswain</em></td>
+<tr class="row-odd"><td><span class="math">\(2.016\)</span></td>
+<td><em>schwer</em></td>
+<td><span class="math">\(2.016\)</span></td>
+<td><em>boatswain</em></td>
 </tr>
 </tbody>
 </table>
@@ -689,50 +689,50 @@ Beatles&ndash;Song ,,Yellow Submarine“ (rechts).</p>
 <col width="51%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td class="align-center">Das Wandern ist des Müllers Lust,</td>
-<td class="align-center">Das sehn wir auch den Rädern ab,</td>
+<tr class="row-odd"><td>Das Wandern ist des Müllers Lust,</td>
+<td>Das sehn wir auch den Rädern ab,</td>
 </tr>
-<tr class="row-even"><td class="align-center">Das Wandern!</td>
-<td class="align-center">Den Rädern!</td>
+<tr class="row-even"><td>Das Wandern!</td>
+<td>Den Rädern!</td>
 </tr>
-<tr class="row-odd"><td class="align-center">Das muß ein schlechter Müller sein,</td>
-<td class="align-center"><br /></td>
+<tr class="row-odd"><td>Das muß ein schlechter Müller sein,</td>
+<td><br /></td>
 </tr>
-<tr class="row-even"><td class="align-center">Dem niemals fiel das Wandern ein,</td>
-<td class="align-center">Die gar nicht gerne stille stehn,</td>
+<tr class="row-even"><td>Dem niemals fiel das Wandern ein,</td>
+<td>Die gar nicht gerne stille stehn,</td>
 </tr>
-<tr class="row-odd"><td class="align-center">Das Wandern.</td>
-<td class="align-center">Die Steine selbst, so schwer sie sind,</td>
+<tr class="row-odd"><td>Das Wandern.</td>
+<td>Die Steine selbst, so schwer sie sind,</td>
 </tr>
-<tr class="row-even"><td class="align-center"><br /></td>
-<td class="align-center">Die Steine!</td>
+<tr class="row-even"><td><br /></td>
+<td>Die Steine!</td>
 </tr>
-<tr class="row-odd"><td class="align-center">Vom Wasser haben wir’s gelernt,</td>
-<td class="align-center">Sie tanzen mit den muntern Reihn</td>
+<tr class="row-odd"><td>Vom Wasser haben wir’s gelernt,</td>
+<td>Sie tanzen mit den muntern Reihn</td>
 </tr>
-<tr class="row-even"><td class="align-center">Vom Wasser!</td>
-<td class="align-center">Und wollen gar noch schneller sein,</td>
+<tr class="row-even"><td>Vom Wasser!</td>
+<td>Und wollen gar noch schneller sein,</td>
 </tr>
-<tr class="row-odd"><td class="align-center">Das hat nicht Rast bei Tag und Nacht,</td>
-<td class="align-center">Die Steine.</td>
+<tr class="row-odd"><td>Das hat nicht Rast bei Tag und Nacht,</td>
+<td>Die Steine.</td>
 </tr>
-<tr class="row-even"><td class="align-center">Ist stets auf Wanderschaft bedacht,</td>
-<td class="align-center"><br /></td>
+<tr class="row-even"><td>Ist stets auf Wanderschaft bedacht,</td>
+<td><br /></td>
 </tr>
-<tr class="row-odd"><td class="align-center">Das Wasser.</td>
-<td class="align-center">O Wandern, Wandern, meine Lust,</td>
+<tr class="row-odd"><td>Das Wasser.</td>
+<td>O Wandern, Wandern, meine Lust,</td>
 </tr>
-<tr class="row-even"><td class="align-center"><br /></td>
-<td class="align-center">O Wandern!</td>
+<tr class="row-even"><td><br /></td>
+<td>O Wandern!</td>
 </tr>
-<tr class="row-odd"><td class="align-center">Die sich mein Tag nicht müde drehn,</td>
-<td class="align-center">Herr Meister und Frau Meisterin,</td>
+<tr class="row-odd"><td>Die sich mein Tag nicht müde drehn,</td>
+<td>Herr Meister und Frau Meisterin,</td>
 </tr>
-<tr class="row-even"><td class="align-center">Die Räder.</td>
-<td class="align-center">Laßt mich in Frieden weiter ziehn</td>
+<tr class="row-even"><td>Die Räder.</td>
+<td>Laßt mich in Frieden weiter ziehn</td>
 </tr>
-<tr class="row-odd"><td class="align-center"><em>(oben rechts weiter)</em></td>
-<td class="align-center">Und wandern.</td>
+<tr class="row-odd"><td><em>(oben rechts weiter)</em></td>
+<td>Und wandern.</td>
 </tr>
 </tbody>
 </table>
@@ -744,7 +744,7 @@ Volkliedes ,,Das Wandern ist des Müllers Lust&quot; abgedruckt. Der Text von
 <em>,,Yellow Subarmine&quot;</em> wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.</p>
 <p>Wie man in Abb.  sieht, werden längere Phrasen automatisch
-besser bewertet &mdash; deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
+besser bewertet &ndash;- deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
 noch in das Ergebniss aufgenommen werden.</p>
 </div>
@@ -778,7 +778,7 @@ Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB&ndash;T
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil hohen
 Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere Frequenzen in
-einem Block hin &mdash; E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
+einem Block hin &ndash;- E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
 Akustikgitarren erscheinen dafür meist in einem dunklem Rot.</p>
 <p>Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
 keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
@@ -854,35 +854,35 @@ bewegen.</p>
 <col width="59%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="headalign-center">Name</th>
-<th class="headalign-center">Gewichtung</th>
-<th class="headalign-center"><em>ungewichtete</em> Distanzfunktion <span class="math">\(d(a, b)\)</span></th>
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Gewichtung</th>
+<th class="head"><em>ungewichtete</em> Distanzfunktion <span class="math">\(d(a, b)\)</span></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td class="align-center"><em>Differenzsumme</em></td>
-<td class="align-center"><span class="math">\(13,5\%\)</span></td>
-<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
+<tr class="row-even"><td><em>Differenzsumme</em></td>
+<td><span class="math">\(13,5\%\)</span></td>
+<td><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><em>Histogramm</em></td>
-<td class="align-center"><span class="math">\(13,5\%\)</span></td>
-<td class="align-center"><span class="math">\(1 - \frac{\sum_{x \in \vv{a} - \vv{b}}\vert x\vert}{5 \times 255}\)</span></td>
+<tr class="row-odd"><td><em>Histogramm</em></td>
+<td><span class="math">\(13,5\%\)</span></td>
+<td><span class="math">\(1 - \frac{\sum_{x \in \vv{a} - \vv{b}}\vert x\vert}{5 \times 255}\)</span></td>
 </tr>
-<tr class="row-even"><td class="align-center"><em>Dominante Farben</em></td>
-<td class="align-center"><span class="math">\(63,0\%\)</span></td>
-<td class="align-center"><span class="math">\(\frac{\vert a \cup b\vert}{max\left\{\vert a \vert, \vert b \vert\right\}}\)</span></td>
+<tr class="row-even"><td><em>Dominante Farben</em></td>
+<td><span class="math">\(63,0\%\)</span></td>
+<td><span class="math">\(\frac{\vert a \cup b\vert}{max\left\{\vert a \vert, \vert b \vert\right\}}\)</span></td>
 </tr>
-<tr class="row-odd"><td class="align-center"><em>Schwarzanteil</em></td>
-<td class="align-center"><span class="math">\(5,0\%\)</span></td>
-<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
+<tr class="row-odd"><td><em>Schwarzanteil</em></td>
+<td><span class="math">\(5,0\%\)</span></td>
+<td><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{50}}\)</span></td>
 </tr>
-<tr class="row-even"><td class="align-center"><em>Durchschnittliches Minimum/Maximum</em></td>
-<td class="align-center"><span class="math">\(5,0\%\)</span></td>
-<td class="align-center"><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{255}}\)</span></td>
+<tr class="row-even"><td><em>Durchschnittliches Minimum/Maximum</em></td>
+<td><span class="math">\(5,0\%\)</span></td>
+<td><span class="math">\(1 - \sqrt{\frac{\vert a - b\vert}{255}}\)</span></td>
 </tr>
-<tr class="row-odd"><td class="align-center">&nbsp;</td>
-<td class="align-center"><span class="math">\(\sum 100\%\)</span></td>
-<td class="align-center">&nbsp;</td>
+<tr class="row-odd"><td>&nbsp;</td>
+<td><span class="math">\(\sum 100\%\)</span></td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -913,7 +913,7 @@ berechnete Distanz ist hier etwa 0.01.</p>
 </div>
 <div class="figure align-center" id="fig-mood-rammstein-tier">
 <a class="reference internal image-reference" href="../../_images/mood_rammstein_tier.svg"><img alt="Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“" src="../../_images/mood_rammstein_tier.svg" width="100%" /></a>
-<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &mdash; Tier“. Oben
+<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &ndash;- Tier“. Oben
 die Studioversion, unten die Liveversion.  Hier ist die von libmunin
 errechnete Distanz immerhin bei 0.32.</p>
 </div>
