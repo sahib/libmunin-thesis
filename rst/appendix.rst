@@ -240,11 +240,14 @@ Zwecke, während das *Emblem* unter :num:`fig-logo-emblem` von
 Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von *libmunin* in
 ihren Anwendungen hinzuweisen.
 
-Die Grafiken wurde mit Inkscape erstellt und können auf der
-API--Dokumentation runtergeladen werden: :cite:`logos`. 
+Die Grafiken wurde mit dem freien Vektorzeichenprogramm ``Inkscape``
+:cite:`inkscape` erstellt und können auf der API--Dokumentation runtergeladen
+werden: :cite:`logos`. 
 
-Wie schon zuvor bei der Projektarbeit, existiert auch dieses Dokument in einer
-HTML--Variante: :cite:`html_variant`.
+.. only:: latex or text
+
+    Dieses Dokument existiert neben dem vorliegenden *PDF* auch, wie schon bei der
+    Projektarbeit, als HTML--Version: :cite:`html_variant`.
 
 .. subfigstart::
 

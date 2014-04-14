@@ -1,6 +1,20 @@
 digraph {
     size=4; 
-    node [shape=record];
+    node [shape=record, style=filled, fontname="monoOne"];
+
+    "Music (#0)" [fillcolor="#ff8888"];
+
+    "Pop (#0)" [fillcolor="#ffaa88"];
+    "Reggae (#1)" [fillcolor="#ffaa88"];
+    "Rock (#2)" [fillcolor="#ffaa88"];
+
+    "Alternative (#0) " [fillcolor="#ffff88"];
+    "j (#1)" [fillcolor="#ffff88"];
+    "Swedish (#2)" [fillcolor="#ffff88"];
+    "Swedish (#0)" [fillcolor="#aaff88"];
+    "Alternative (#0)" [fillcolor="#ffff88"];
+
+    // ------------------
 
     "Music (#0)" -> "Pop (#0)";
     "Music (#0)" -> "Reggae (#1)";

@@ -1,6 +1,6 @@
 digraph {
     size=4; 
-    node [shape=record];
+    node [shape=record, style=filled, fillcolor="#88aaff", fontname="monoOne"];
     splines=false;
 
     subgraph {

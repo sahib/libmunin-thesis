@@ -116,7 +116,7 @@ ist die finale Genreliste 1876 Einträge lang.
     :width: 100%
     :align: center
     
-    Initialisierungsschritt: Vergabe von IDs und Zuordnung zu Wurzelknoten.
+    Initialisierungsschritt: Vergabe von Indizes und Zuordnung zum Wurzelknoten.
 
 .. _fig-tree-first:
 
@@ -125,25 +125,25 @@ ist die finale Genreliste 1876 Einträge lang.
     :width: 100%
     :align: center
     
-    Der Genrebaum nach der ersten Iteration, ,,swedish alternative'' noch nicht
-    aufgebrochen.
+    Der Genrebaum nach der ersten Iteration, ,,Swedish Alternative” wurde noch
+    nicht aufgebrochen.
 
 .. _fig-tree-final:
 
 .. figure:: figs/tree_final.*
     :alt: Der fertige Genrebaum als Ausgabe.
-    :width: 100%
+    :width: 90%
     :align: center
     
     Der nach zwei Iterationen fertige Genrebaum.
 
 .. subfigend::
-    :width: 0.6
+    :width: 0.72
     :alt: Aufbau des Genrebaums in 4 Schritten.
     :label: fig-tree
  
     Der Baum wird aus der Eingabe unter :num:`fig-tree-input` erzeugt indem erst
-    alle Genres dem Wurzelknoten ,,music'' unterstellt werden
+    alle Genres dem Wurzelknoten ,,Music” unterstellt werden
     (:num:`fig-tree-init`). Danach wird der Baum rekursiv (hier in zwei
     Schritten, :num:`fig-tree-first` und :num:`fig-tree-final`)
     immer weiter vertieft. 
@@ -644,13 +644,13 @@ erwiesen:
 .. figtable::
     :spec: l | r | l
     :label: table-moodbar-list
-    :caption: Auflistung der einzelnen Werte die der Moodbar--Provider
-              ausliest und deren dazugehörige Distanzfunktion, sowie deren
-              Gewichtung in der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit
-              Ausnahme der Histogramm--Eingabewerte. Dort sind ,,a“ und ,,b“ 
-              die einzelnen Farbkanäle als Vektor. Zur Bildung der Gesamtdistanz
-              werden die einzelnen Werte über einen gewichteten Mittelwert
-              verschmolzen.
+    :caption: Auflistung der einzelnen Werte die der Moodbar--Provider ausliest
+              und deren dazugehörige Distanzfunktion, sowie deren Gewichtung in
+              der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit Ausnahme der
+              Histogramm--Eingabewerte und der dominanten Farben. Dort sind ,,a“
+              und ,,b“ die einzelnen Farbkanäle als Vektor, bzw. eine Menge von
+              Farben. Zur Bildung der Gesamtdistanz werden die einzelnen Werte
+              über einen gewichteten Mittelwert verschmolzen.
     :alt: Auflistung der einzelnen Moodbar--Merkmale.
 
     ==================================== ====================== ====================

@@ -1,13 +1,13 @@
 digraph {
     // size=4; 
     splines=false;
-    node [shape=box, style=filled];
+    node [shape=box, style=filled, fillcolor="#88aaff"];
     rankdir="LR";
     
     subgraph {
         rank=same;
-        " †" [fillcolor="#ffbbbb"]
-        "† " [fillcolor="#ffbbbb"]
+        " †" [fillcolor="#ffaa88"]
+        "† " [fillcolor="#ffaa88"]
     }
 
     subgraph {
@@ -15,7 +15,7 @@ digraph {
         "{☑, ☒}"
         "{☒, ☑}"
     }
-    "Start ➜" [fillcolor="#bbffbb"]
+    "Start ➜" [fillcolor="#aaff88"]
 
     "Start ➜" -> "{☒, ☒}" [label=" {☒, ☒}"]
     "{☒, ☒}" -> "{☑, ☒}" [label="{alternative, ☒}"]

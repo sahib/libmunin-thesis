@@ -2,11 +2,10 @@ graph {
    node [shape=record, style=filled, nodesep=4];
    splines=polyline;
    rankdir="LR";
-  
 
-   "A\na='y'\nb=None" [fillcolor="#ffaaaa"]
-   "B\na=None\nb='x'" [fillcolor="#aaffaa"]
-   "C\na='y'\nb='x'" [fillcolor="#aaaaff"]
+   "A\na='y'\nb=None" [fillcolor="#ff88aa"]
+   "B\na=None\nb='x'" [fillcolor="#aaff88"]
+   "C\na='y'\nb='x'" [fillcolor="#88aaff"]
  
    "A\na='y'\nb=None" -- "B\na=None\nb='x'" [label="1.0"]
    "A\na='y'\nb=None" -- "C\na='y'\nb='x'"[label="0.0"]

@@ -65,12 +65,15 @@ Hinweise zum Schreiben von Distanzfunktionen
    from munin.distance import DistanceFunction
 
    # Eine Distanzfunktion, die beispielsweise ein Rating vergleicht.
+   # Leite von der Distanzfunktions-Oberklasse ab:
    class MyDistanceFuntion(DistanceFunction):
        def do_compute(self, A, B):
            # A und B sind, der Konsistenz halber, immer Tupel. 
            # Auch bei einzelnen Werten.
            # Daher müssen wir diese erst ,,entpacken".
            a, b = A[0], B[0]
+
+           # Teile Differenz durch Maximum aus beiden:
            return abs(a - b) / max(a, b)
 
 .. code-block:: python
@@ -81,9 +84,8 @@ Hinweise zum Schreiben von Distanzfunktionen
        def do_compute(self, A, B):
            diff = abs(A[0] - B[0])
            if diff > 3:
-              return 1.0  # Zu unterschiedlich.
-
-           return diff / 3
+              return 1.0    # Zu unterschiedlich.
+           return diff / 4  # Verteile auf [0, 0.25, 0.5, 0.75]
 
 - Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
   wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich die Verteilung der
@@ -126,6 +128,7 @@ Hinweise zum Schreiben von neuen Providern
 
  from munin.provider import Provider
 
+ # Leite von der Provider-Oberklasse ab:
  class MyProvider(Provider):
      def __init__(self):
          # Kompression anschalten, ansonsten muss auf nichts geachtet werden.

@@ -46,7 +46,7 @@ source_suffix = '.rst'
 source_encoding = 'utf-8'
 
 # General information about the project.
-project = u'Projektarbeit'
+project = u'Bachelorarbeit'
 author = u'Christopher Pahl'
 copyright = u'by %s, 2013-2014.' % author
 version = '0.1'
@@ -108,7 +108,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_title = "%s" % project
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = "Projektarbeit - libmunin: a music recommendation system"
+html_short_title = "Bachelorarbeit- libmunin: a music recommendation system"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.

@@ -262,7 +262,9 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
     :label: fig-mini-graph-remove
 
     Vor (:num:`fig-mini-graph-remove-before`) und nach
-    (:num:`fig-mini-graph-remove-before`) der remove--Operation.
+    (:num:`fig-mini-graph-remove-before`) der remove--Operation. 
+    Es wurde der mittlere Punkt in :num:`fig-mini-graph-remove-before` gelöscht. 
+    Daher haben sicht alle anderen Knoten einen anderen Nachbarn gesucht.
 
 .. -----------------------------------
 
@@ -290,7 +292,9 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
     :label: fig-mini-graph-insert
 
     Vor (:num:`fig-mini-graph-insert-before`) und nach
-    (:num:`fig-mini-graph-insert-before`) der insert--Operation.
+    (:num:`fig-mini-graph-insert-before`) der insert--Operation. Es wurde
+    einfach ein weiterer Punkt in den Graphen eingefügt. Dieser hat sich mit
+    allen anderen verbunden.
 
 .. -----------------------------------
 
@@ -563,7 +567,7 @@ Iteratoren ist in :num:`fig-iterator` gezeigt.
 Anwendung von Regeln
 --------------------
 
-Die Assoziationsregeln die beim impliziten Lernen entstehen werden bei der
+Die Assoziationsregeln, die beim impliziten Lernen entstehen werden bei der
 Traversierung als *,,Navigationshilfe"* genutzt. 
 
 In :num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine
