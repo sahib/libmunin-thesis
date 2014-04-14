@@ -11,7 +11,7 @@ Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
 vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
 übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
 Lektüre des jeweiligen Quelltextes sagt oft mehr als der separate Text. Daher
-werden im Folgenden nur die erklärungsbedürftigen Paare näher betrachtet.
+werden im Folgenden nur die stark erklärungsbedürftigen Paare näher betrachtet.
 
 
 Genrenormalisierung und Vergleich
@@ -302,7 +302,7 @@ zwei Mengen mit Genrepfaden zu vergleichen.
 
 ``GenreTree``: Vergleicht jeden Genrepfad in den Mengen *A* und *B* mittels oben
 genannter Methode miteinander. Die minimalste Distanz wird zurückgegeben.  Als
-Optimierung wird frühzeitig abgebrochen wenn eine Distanz von :math:`0.0`
+Optimierung wird frühzeitig abgebrochen wenn eine Distanz von :math:`0`
 erreicht wird.
 
 Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
@@ -316,19 +316,19 @@ ist,  so berechnet sich die finale Distanz durch:
 
 .. math::
 
-   D_{min}(A, B) = min\!\left\{\displaystyle\sum\limits_{a \in A}{\displaystyle\sum\limits_{b \in B} d(a, b)}\right\}
+   D_{min}(A, B) = min\!\left\{d(a, b) \colon a, b \in A \times B, a \neq b\right\}
 
 
 ``GenreTreeAvg``: Seien *A* und *B* zwei Mengen mit Genrepfaden. *A* ist dabei
 die größere Menge und *B* die kleinere, falls die Mengen eine unterschiedliche
-Mächtigkeit besitzen.
+Mächtigkeit besitzen, dann gilt hier:
 
 .. math:: 
 
-   D_{avg}(A, B) = \frac{1}{\vert A\vert}  \times \displaystyle\sum\limits_{a \in A} min\!{\left\{\displaystyle\sum\limits_{b \in B} d(a, b)\right\}} 
+   D_{avg}(A, B) = \frac{1}{\vert A\vert} \times \displaystyle\sum\limits_{a \in A} min\!\left\{ d(a, b) \colon b \in B, a \neq b\right\}
 
 
-Diese Distanzfunktion eignet sich für *,,reichhaltig''* befüllte
+Diese Distanzfunktion eignet sich für *,,reichhaltig"* befüllte
 Genrebeschreibungen, bei denen auch ein oder mehrere Untergenres vorhanden sind.
 Ein Beispiel dafür wäre: ``country rock / folk / rockabilly``. Die
 Distanzfunktion geht also davon aus zumindest teilweise Überdeckungen in den

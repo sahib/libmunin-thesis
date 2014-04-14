@@ -157,7 +157,11 @@ die Frage, wie man einem Computer die Ähnlichkeit von zwei Musikstücken
 feststellen lässt. Trotzdem erstellt *libmunin* selbst als Prototyp in seiner
 Standardeinstellung bereits nutzbare Playlisten. Aufgrund der relativ kurzen
 Implementierungszeit für ein solches System, von etwas mehr als 3 Monaten, ist
-dies nach Meinung des Autors durchaus als Erfolg zu werten.
+dies nach Meinung des Autors durchaus als Erfolg zu werten. 
+
+Die größte Schwäche ist aus Sicht des Autors der langsame Kaltstart, der einen
+produktiven Einsatz der Bibliothek verhindert. In punkt Weiterentwicklung sollte
+dies die höchstpriosierte Aufgabe sein.
 
 Die Neuerung dieser Arbeit ist weniger die vorgestellte Algorithmik --- der
 allergrößte Teil existiert natürlich bereits in ähnlicher Form --- sondern, das

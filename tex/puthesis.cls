@@ -57,7 +57,7 @@
     \titlespacing{\chapter}{0pt}{0.0em}{0.2em}
     \bodyspacing
     \frontmatter\maketitlepage\makecopyrightpage\makeabstract
-    \makeacknowledgements\maketoc
+    \maketoc
     \makelot\clearpage\makelof\clearpage\makelos
     \clearpage\mainmatter
     \titlespacing{\chapter}{0pt}{0.0em}{2em}
@@ -132,27 +132,16 @@
   \end{center}
   \thispagestyle{empty}
   \@abstract
-  \clearpage
+
+  \addcontentsline{toc}{section}{Danksagung}
+  \begin{center}
+    \Large \textbf{Danksagung}
+  \end{center}
+  \thispagestyle{empty}
+  \@acknowledgements
 }%
 
-\def\makeacknowledgements{
-  \ifx\@acknowledgements\undefined
-  \else
-    \ifdefined\phantomsection
-     % makes hyperref recognize this section properly for pdf links
-     \phantomsection
-    \else
-    \fi
 
-    \addcontentsline{toc}{section}{Danksagung}
-    \begin{center}
-      \Large \textbf{Danksagung}
-    \end{center}
-    \thispagestyle{empty}
-    \@acknowledgements
-    \clearpage
-  \fi
-  }
 \def\makededication{
   \ifx\@dedication\undefined
   \else

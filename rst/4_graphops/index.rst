@@ -12,7 +12,7 @@ wird detailliert auf ihre Funktionsweise und Internas eingegangen.
 ``rebuild:`` Aufbau des Graphen
 -------------------------------
 
-Bevor irgendeine andere Operation ausgeführt werden kann muss mittels der
+Bevor irgendeine andere Operation ausgeführt werden kann, muss mittels der
 ``rebuild``--Operation der Graph aufgebaut werden. Wie bereits in der
 Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
 :math:`O(n2)` nicht einfach durch das Vergleichen aller Songs untereinander
@@ -27,7 +27,7 @@ platziert werden, dass er im Bestfall die ähnlichsten Songs als Nachbarn hat.
 
 Jeder Song speichert seine Nachbarn mit der dazugehörigen Distanz.  Soll ein
 neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu diesem neuen
-Song besser ist als die zum schlechtesten vorhandenen Nachbar.  Ist dies der
+Song besser ist, als die zum schlechtesten vorhandenen Nachbar.  Ist dies der
 Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn *in eine Richtung*
 (die Gründe hierfür werden unter :ref:`ref_distance_add` betrachtet) gekappt.
 Als Ersatz wird zu dem neuen, besseren Song eine bidirektionale Verbindung
@@ -38,7 +38,7 @@ da das Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt.
 Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
 Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
 auf :math:`15` gesetzt --- der durchschnittlichen Länge eines heutigen Albums
-plus eins [#f1]_. Dieser Wert hat sich nach einigen Tests als passable erwiesen.
+plus eins [#f1]_. Dieser Wert hat sich nach einigen Tests als passabel erwiesen.
 Bei zu niedrigen Werten verbinden sich die einzelnen Alben nur untereinander,
 bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen quer über den
 ganzen Graphen.
@@ -47,9 +47,10 @@ ganzen Graphen.
 .. rubric:: Footnotes
 
 .. [#f1] Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
-         Alben ist dieser Wert exakt :math:`14.1427`.
+         Alben ist dieser Wert etwa :math:`14.142`.
 
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
+auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
 
 .. subfigstart::
 
@@ -99,7 +100,7 @@ beleuchtet:
   Diese Vorgehensweise wird mehrmals mit verschiedener Methoden wiederholt. Das
   Ziel jeder dieser Iterationen ist es für einen Song zumindestens eine kleine 
   Anzahl von ähnlichen Songs zu finden. Basierend auf diesen wird in den
-  nächsten Schritten versucht die Anzahl ähnlicher Songs zu vergrößern.
+  nächsten Schritten versucht, die Anzahl ähnlicher Songs zu vergrößern.
 
   Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
   basiert auf gewissen heuristischen Annahmen die über die Eingabemenge gemacht
@@ -138,7 +139,7 @@ beleuchtet:
       Auch hier sollen weitere Querverbindungen hergestellt werden.
 
 - **Verfeinerung:** Um den momentan sehr grob vernetzten Graphen benutzbar zu
-  machen müssen einige Iterationen zur *,,Verfeinerung"* durchgeführt werden.
+  machen, müssen einige Iterationen zur *,,Verfeinerung"* durchgeführt werden.
   Dabei wird über jeden Song im Graphen iteriert und dessen *indirekte Nachbarn*
   (also die Nachbarn der direkten Nachbarsongs) werden mit dem aktuellen Song
   verglichen. Kommen dabei Distanzen zustande, die niedriger sind als die der
@@ -217,7 +218,6 @@ Dieses Vorgehen wurde gewählt weil es nach einigen Versuchen schwierig erschien
 den Graphen ohne Einbahnstraßen aufzubauen, ohne dass dieser zur Inselbildung
 neigt. Durch den nachgelagerten ``fixing``--Schritt werden Songs die nur wenige
 Nachbarn besitzen durch die vorher als zu schlecht bewerteten Kanten verbunden.
-
 Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft, ob alle
 Verbindungen im Graphen bidirektional sind. Sollten unidirektionale Kanten
 gefunden werden, so wird eine Warnung ausgegeben. Eine weiterführende
@@ -234,7 +234,8 @@ Informationen wird dann eine neue Song--Instanz erzeugt, welcher beim Erzeugen
 ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
 Index in der internen Songliste. 
 Statt wie ``insert`` bereits Verbindungen zu anderen Songs herzustellen, fügt
-diese Operation lediglich einen Song der internen Songliste hinzu. 
+diese Operation lediglich einen Song der internen Songliste hinzu. Die
+eigentlichen Verbindungen werde in einem Rutsch von ``rebuild`` aufgebaut.
 
 .. ///////////////////////////////////
 
@@ -324,7 +325,7 @@ diese Operation lediglich einen Song der internen Songliste hinzu.
     Vor (:num:`fig-mini-graph-modify-before`) und nach
     (:num:`fig-mini-graph-modify-before`) der modify--Operation.
     Es wurden jeweils die Mittelknoten der beiden Inseln mit einem höhren Rating
-    ausgestattet. Dadurch verbinden sich beide und verlieren dafür eine andere
+    ,,modifiziert”. Dadurch verbinden sich beide und verlieren dafür eine andere
     Verbindung jeweils.
 
 .. ///////////////////////////////////
@@ -343,7 +344,7 @@ bekommt jeder Nachbar, im besten Fall, eine neue Verbindung.  Abschließend werd
 alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird wieder
 um eins dekrementiert.
 
-Da *libmunin* alle Songs in einer linearen List hält muss auch dort der Song
+Da *libmunin* alle Songs in einer linearen List hält, muss auch dort der Song
 gelöscht werden. Da der Index des Songs in der Liste gleich des *Identifiers*
 des Songs ist, wird an dessen Stelle ein leerer Wert geschrieben. Damit dieser
 möglichst bald wieder besetzt wird, wird der gelöschte *Identifier--Index* in
@@ -419,7 +420,6 @@ Ablauf beim Hinzufügen einer Distanz
 
 Wie bereits erwähnt speichert jeder Song eine Hashtabelle mit den jeweiligen
 Songs, zu denen er eine Verbindung hält, als Schlüssel und der Distanz als Wert.
-
 Um diese Hashtabelle zu füllen ist eine Funktion nötig, die sich nach näherer
 Betrachtung als relativ schwierig zu implementieren gestaltete. Tatsächlich
 wurden an die 2 Wochen mit unterschiedlichen Herangehensweisen verbracht.
@@ -446,7 +446,7 @@ zu denen kein passender Partner gefunden wurde, mit dem Rest des Graphen
 verbunden. 
 
 
-Dieses Vorgehen bringt aber bereits einige algorithmische Probleme mit sich: Das
+Dieses Vorgehen bringt aber einige algorithmische Probleme mit sich: Das
 Finden des schlechtesten Nachbarn würde jeweils linearen Aufwand zum Iterieren
 über die Hashtabelle erfordern.  Zwar kann dann die schlechteste Distanz und der
 dazugehörige Song zwischengespeichert werden, doch nach einigen Tests stellte
@@ -457,7 +457,6 @@ werden muss. Das ist damit zu erklären, dass gegen Ende der
 
 Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
 Distanzen, auch einen Heap als *,,Lookup--Hilfe"*.
-
 In diesem werden, entgegen der natürlichen Unordnung in einer Hastabelle, die
 zuletzt hinzugefügten Paare aus Distanzen und Songs partiell sortiert abgelegt.
 Gemäß der Natur eines Heaps, ist dabei der Wurzelknoten immer das Element mit
@@ -468,7 +467,8 @@ herausgenommen werden.
 Die ``distance_add()`` Funktion nimmt 3 Parameter. Die ersten zwei sind die
 Songs (im Folgenden *A* und *B*), zwischen denen eine Verbindung hergestellt
 werden soll. Der letzte ist die Distanz mit der diese Kante gewichtet wird.  Im
-Folgenden ist der Code in gekürzter, vereinfachter Form als Referenz gegeben:
+Folgenden ist der dazugehörige Python--Code in gekürzter, vereinfachter Form als
+Referenz gegeben:
 
 .. code-block:: python
 
@@ -555,7 +555,7 @@ Iteratoren ist in :num:`fig-iterator` gezeigt.
 .. figure:: figs/iterator.*
    :alt: Traversierung durch verschachtelte Iteratoren
    :align: center
-   :width: 85%
+   :width: 80%
 
    Traversierung durch verschachtelte Iteratoren. Zieht der Nutzer einen Song
    aus dem obersten Iterator, so löst das eine ,,Lawine” von Iterationsschritten
@@ -569,14 +569,12 @@ Anwendung von Regeln
 
 Die Assoziationsregeln, die beim impliziten Lernen entstehen werden bei der
 Traversierung als *,,Navigationshilfe"* genutzt. 
-
 In :num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine
 Breitensuche und eine Menge von *Regeliteratoren* unterstellt sind.  *Libmunin*
 bietet einen Mechanismus um alle Regeln abzufragen, die einen bestimmten Song
 betreffen. Für jeden Song, der auf der *anderen* Seite der Regel vorkommt (also
 die Seite, in der *nicht* der Seedsong vorhanden ist), wird ein 
-*Breitensucheniterator* erstellt. 
-
+*Breitensucheniterator* erstellt.  |br|
 Die einzelnen, den Regeln zugeordneten Iteratoren werden wieder im
 Round--Robin--Verfahren abgewechselt. Der dadurch entstehende wird immer im
 Wechsel mit dem *Breitensucheniterator*, der vom Seedsong ausgeht, abgefragt.
@@ -595,11 +593,12 @@ entdecken, die nicht immer vom selben Künstler kommt. Der optionale
 Filterschritt (oder *Sieving*--Schritt) dient dazu diese unerwünschten Songs
 herauszufiltern. 
 
-Um dieses Ziel zu erfüllen, werden alle Empfehlungen gespeichert, die von
-*libmunin* ausgegeben werden. War der Künstler einer zu überprüfenden Empfehlung
-in den, beispielsweise, fünf letzten Empfehlungen bereits vorhanden, so wird er
-ausgesiebt. Ähnlich wird mit dem Album vorgegangen, nur hier ist die Schwelle
-standardmäßig bei drei. Die einzelnen Schwellen können vom Nutzer konfiguriert
-werden. |br|
-Auch das *Sieving* ist als Iterator implementiert welcher Songs von einem
-Empfehlungsiterator nimmt, aber nicht alle an den Nutzer weitergibt.
+Um dieses Ziel zu erfüllen, werden die :math:`20` letzten Empfehlungen
+gespeichert, die von *libmunin* ausgegeben werden. War der Künstler einer zu
+überprüfenden Empfehlung in den, beispielsweise, fünf letzten Empfehlungen
+bereits vorhanden, so wird er ausgesiebt. Ähnlich wird mit dem Album
+vorgegangen, nur hier ist die Schwelle standardmäßig bei drei. Die einzelnen
+Schwellen können vom Nutzer konfiguriert werden. |br| Auch das *Sieving* ist als
+Iterator implementiert welcher Songs von einem Empfehlungsiterator nimmt, aber
+nicht alle an den Nutzer weitergibt. Die vom Iterator übergangenen Songs werden
+für den nächsten Iterationsschritt zwischengespeichert.

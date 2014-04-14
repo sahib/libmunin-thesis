@@ -229,6 +229,8 @@ vom Wurzelknoten entfernt ist, desto oranger wird er (von rot beginnend).
    :align: center
 
    Übersicht über die wichtisten Musikgenres. (Detailstufe: 0.5)
+   Als ,,wichtig” gelten dabei Genres, die viele Untergenres hervorgebracht
+   haben.
 
 
 Medien

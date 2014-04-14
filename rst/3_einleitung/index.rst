@@ -256,7 +256,7 @@ werden.
    *07*                In Extremo           Liam                  *Rock/Medieval, Hard Rock*
    *08*                Knorkator            Konflikt              *Rock/Parody, Heavy Metal*
    *09*                Letzte Instanz       Schlangentanz         *Rock/Folk Rock, Goth Rock*
-   *10*                Marc-Uwe Kling       Scheißverein          *Folk/Pardoy*
+   *10*                Marc-Uwe Kling       Scheißverein          *Folk/Parody*
    *11*                Johnny Cash          Heart of Gold         *Folk/Country, Rockabilly*
    *12*                Knorkator            Geh zu ihr            *Rock/Parody, Heavy Metal*
    *13*                In Extremo           Erdbeermund           *Rock/Medieval, Hard Rock*

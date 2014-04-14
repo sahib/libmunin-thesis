@@ -269,6 +269,20 @@ einerseits dazu zu nutzen, um seine Favoriten nahe im Graphen zusammenzupacken,
 andererseits, um unpassende Empfehlungen mit einem schlechten Rating
 abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge hat.
 
+Der Mechanismus des *expliziten Lernens* ist relativ debattierbar und war mehr
+ein Nebeneffekt der Entwicklung. Zukünftige Versionen könnten leichter
+steuerbarer und intuitiv verständlichere Mechanismen anbieten. 
+Ein Ansatz wäre der Weg den *Intelligente Playlisten* bei vielen Music--Playern
+gehen: Der Nutzer stellt Beziehungen zwischen Attributen und Werten her. Ein
+Attribut wäre beispielsweise ``date``, ein Wert ``2010`` und eine Beziehung
+:math:`\ge`. Weitere Beziehungen wären :math:`=`, :math:`\neq`, :math:`<`
+oder :math:`\le`. 
+
+Mit all den unterschiedlichen Attributen wären dann automatisch erstellte
+Playlisten wie  *,,Favouriten"* ( ``rating > 3`` ), *,,Ungehörte"* ( ``Playcount
+< 1`` ) und *,,Neu Hinzugefügte"* ( ``date > (today - 7 days)`` ) möglich. 
+Für letzere könnten hilfreiche Konstanten wie ``today`` eingeführt werden.
+
 .. rubric:: Footnotes
 
 .. [#f1] Im englischer Lektüre werden die *Wiederkehrenden Muster* als *Frequent
