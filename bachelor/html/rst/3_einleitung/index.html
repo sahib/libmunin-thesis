@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3 Allgemeine Entwicklerhinweise &mdash; Projektarbeit</title>
+  <title>3 Allgemeine Entwicklerhinweise &mdash; Bachelorarbeit</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+    <link rel="top" title="Bachelorarbeit" href="../../index.html"/>
         <link rel="next" title="4 Graphenoperationen" href="../4_graphops/index.html"/>
         <link rel="prev" title="2 Begriffsklärungen" href="../2_begriffe/index.html"/>
 
@@ -71,7 +71,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Projektarbeit</a>
+        <a href="../index.html" class="fa fa-home"> Bachelorarbeit</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -155,7 +155,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Projektarbeit</a>
+        <a href="../index.html">Bachelorarbeit</a>
       </nav>
 
 
@@ -237,12 +237,15 @@ korrigierten Version verbessert:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">munin.distance</span> <span class="kn">import</span> <span class="n">DistanceFunction</span>
 
 <span class="c"># Eine Distanzfunktion, die beispielsweise ein Rating vergleicht.</span>
+<span class="c"># Leite von der Distanzfunktions-Oberklasse ab:</span>
 <span class="k">class</span> <span class="nc">MyDistanceFuntion</span><span class="p">(</span><span class="n">DistanceFunction</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">do_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
         <span class="c"># A und B sind, der Konsistenz halber, immer Tupel.</span>
         <span class="c"># Auch bei einzelnen Werten.</span>
         <span class="c"># Daher müssen wir diese erst ,,entpacken&quot;.</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c"># Teile Differenz durch Maximum aus beiden:</span>
         <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -252,9 +255,8 @@ korrigierten Version verbessert:</p>
     <span class="k">def</span> <span class="nf">do_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-           <span class="k">return</span> <span class="mf">1.0</span>  <span class="c"># Zu unterschiedlich.</span>
-
-        <span class="k">return</span> <span class="n">diff</span> <span class="o">/</span> <span class="mi">3</span>
+           <span class="k">return</span> <span class="mf">1.0</span>    <span class="c"># Zu unterschiedlich.</span>
+        <span class="k">return</span> <span class="n">diff</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c"># Verteile auf [0, 0.25, 0.5, 0.75]</span>
 </pre></div>
 </div>
 <ul>
@@ -293,6 +295,7 @@ auf einen Integer&ndash;Identifier ab.</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">munin.provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
+<span class="c"># Leite von der Provider-Oberklasse ab:</span>
 <span class="k">class</span> <span class="nc">MyProvider</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c"># Kompression anschalten, ansonsten muss auf nichts geachtet werden.</span>
@@ -324,7 +327,7 @@ Viele allgemein gebräuchliche Gneres werden dabei abgedeckt, obwohl der
 Schwerpunkt beim Genre <em>Rock</em> und <em>Metal</em> liegt.</p>
 <p>Die einzelnen Playlists wurden auf jeweils 15 Songs begrenzt. Darin enthalten
 ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum Generieren
-der Playlist genutzt wurde (<em>Knorkator &ndash;- Böse</em>). Die zufällig erstellte
+der Playlist genutzt wurde (<em>Knorkator &mdash; Böse</em>). Die zufällig erstellte
 Playlist wurde als Referenz abgedruckt, damit man die dort fehlende Struktur
 sehen kann.</p>
 <p><strong>Auffälligkeiten:</strong></p>
@@ -345,7 +348,7 @@ Audiodaten bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
 dass größtenteils deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch
 führt das <em>Parody</em> in der Genre&ndash;Beschreibung dazu, dass ebenfalls lustig oder
 ironisch gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im
-Seedsong düster, doch wird textlich ein lustiges Thema behandelt &ndash;- was
+Seedsong düster, doch wird textlich ein lustiges Thema behandelt &mdash; was
 <em>Mirage</em> an den Audiodaten natürlich nicht erkennen kann.  Hier zeigt sich
 <em>libmunin's</em> (momentaner) Fokus auf Metadaten.  Bei der zufälligen Playlists
 passen zwar die Genres einigermaßen übereinander, doch liegt das eher an dem

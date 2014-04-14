@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5 Algorithmen bei Providern &mdash; Projektarbeit</title>
+  <title>5 Algorithmen bei Providern &mdash; Bachelorarbeit</title>
   
 
   
@@ -28,7 +28,7 @@
   
 
   
-    <link rel="top" title="Projektarbeit" href="../../index.html"/>
+    <link rel="top" title="Bachelorarbeit" href="../../index.html"/>
         <link rel="next" title="6 Implizites Lernen vom Nutzer" href="../6_learning/index.html"/>
         <link rel="prev" title="4 Graphenoperationen" href="../4_graphops/index.html"/>
 
@@ -71,7 +71,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Projektarbeit</a>
+        <a href="../index.html" class="fa fa-home"> Bachelorarbeit</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -155,7 +155,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Projektarbeit</a>
+        <a href="../index.html">Bachelorarbeit</a>
       </nav>
 
 
@@ -184,7 +184,7 @@
 <p>Im Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
 näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
 erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
-meisten Provider eher einfacher Natur &ndash;- die Lektüre des jeweiligen Quelltextes
+meisten Provider eher einfacher Natur &mdash; die Lektüre des jeweiligen Quelltextes
 sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
 erklärungsbedürftigen Paare näher betrachtet.</p>
 </div>
@@ -201,14 +201,14 @@ geläufigen Genres normalisiert werden.</p>
 <h3>5.2.1 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h3>
 <p>Genres können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Untergenres
 (<em>country</em> rock, <em>japanese</em> pop), Unteruntergenres (<em>western</em> country rock)
-&ndash;- und so weiter &ndash;- aufgeteilt werden. So lassen sich alle Genres und ihre
+&mdash; und so weiter &mdash; aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
-man das allumfassende Genre <em>Music</em> an &ndash;- einfach weil sich <em>Music</em> hinter fast
+man das allumfassende Genre <em>Music</em> an &mdash; einfach weil sich <em>Music</em> hinter fast
 jedes Genre schreiben lässt ohne den Sinn zu verändern.
 Dieser Baum kann dann genutzt werden um beliebige Genres als <em>Pfad</em> durch den
 Baum normalisiert abzubilden.</p>
 <p>Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen &ndash;- bei der hohen Zahl der existierenden Genres
+Genres in diesen Baum einzupflegen &mdash; bei der hohen Zahl der existierenden Genres
 kann man diese nur schwerlich manuell einpflegen.</p>
 <p>Existierende Datenbanken wie, das sonst sehr vollständige, <em>MusicBrainz</em> liefern
 laut ihren <em>FAQ</em> keine Genredaten:</p>
@@ -222,11 +222,11 @@ but we haven't completely settled on the right approach yet.</em></p>
 <p>Also musste man sich nach anderen Quellen umschauen. Das vom
 <em>DiscogsGenre</em>&ndash;Provider verwendete <em>Discogs</em> bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &ndash;- eine zu
+<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &mdash; eine zu
 grobe Einteilung.</p>
 <p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> - fast jede Band
 ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
-<em>The Echonest</em> &ndash;- einem Unternehmen welches verschiedene Dienste rund um
+<em>The Echonest</em> &mdash; einem Unternehmen welches verschiedene Dienste rund um
 Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
 Genres.</p>
 <p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
@@ -258,25 +258,25 @@ ist die finale Genreliste 1876 Einträge lang.</p>
 <div class="section" id="uberfuhrung-der-genreliste-in-einem-genrebaum">
 <h3>5.2.2 Überführung der Genreliste in einem Genrebaum<a class="headerlink" href="#uberfuhrung-der-genreliste-in-einem-genrebaum" title="Permalink to this headline">¶</a></h3>
 <div class="figure compound align-center" id="fig-tree">
-<div style="width: 60%" class="subfigure align-center" id="fig-tree-input">
+<div style="width: 72%" class="subfigure align-center" id="fig-tree-input">
 <a class="reference internal image-reference" href="../../_images/tree_input.svg"><img alt="Genreliste als Eingabe vor dem Prozessieren" src="../../_images/tree_input.svg" width="70%" /></a>
 <p class="caption"><strong>(a)</strong> Genreliste als Eingabe vor dem Prozessieren.</p>
 </div>
-<div style="width: 60%" class="subfigure align-center" id="fig-tree-init">
+<div style="width: 72%" class="subfigure align-center" id="fig-tree-init">
 <a class="reference internal image-reference" href="../../_images/tree_init.svg"><img alt="Initialisierungsschritt" src="../../_images/tree_init.svg" width="100%" /></a>
-<p class="caption"><strong>(b)</strong> Initialisierungsschritt: Vergabe von IDs und Zuordnung zu Wurzelknoten.</p>
+<p class="caption"><strong>(b)</strong> Initialisierungsschritt: Vergabe von Indizes und Zuordnung zum Wurzelknoten.</p>
 </div>
-<div style="width: 60%" class="subfigure align-center" id="fig-tree-first">
+<div style="width: 72%" class="subfigure align-center" id="fig-tree-first">
 <a class="reference internal image-reference" href="../../_images/tree_first.svg"><img alt="Der Genrebaum nach der ersten Iteration" src="../../_images/tree_first.svg" width="100%" /></a>
-<p class="caption"><strong>(c)</strong> Der Genrebaum nach der ersten Iteration, ,,swedish alternative'' noch nicht
-aufgebrochen.</p>
+<p class="caption"><strong>(c)</strong> Der Genrebaum nach der ersten Iteration, ,,Swedish Alternative” wurde noch
+nicht aufgebrochen.</p>
 </div>
-<div style="width: 60%" class="subfigure align-center" id="fig-tree-final">
-<a class="reference internal image-reference" href="../../_images/tree_final.svg"><img alt="Der fertige Genrebaum als Ausgabe." src="../../_images/tree_final.svg" width="100%" /></a>
+<div style="width: 72%" class="subfigure align-center" id="fig-tree-final">
+<a class="reference internal image-reference" href="../../_images/tree_final.svg"><img alt="Der fertige Genrebaum als Ausgabe." src="../../_images/tree_final.svg" width="90%" /></a>
 <p class="caption"><strong>(d)</strong> Der nach zwei Iterationen fertige Genrebaum.</p>
 </div>
 <p class="caption"><strong>Figure 5.1:</strong> Der Baum wird aus der Eingabe unter  erzeugt indem erst
-alle Genres dem Wurzelknoten ,,music'' unterstellt werden
+alle Genres dem Wurzelknoten ,,Music” unterstellt werden
 (). Danach wird der Baum rekursiv (hier in zwei
 Schritten,  und )
 immer weiter vertieft.</p>
@@ -450,7 +450,7 @@ erreicht wird.</p>
 <p>Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
 vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als <em>rock</em> oder
 <em>metal</em> eingetragen, ohne Unterscheidung von Untergenres. Deshalb geht diese
-Distanzfunktion davon aus wenige Übereinstimmungen zu finden &ndash;- sollten welche
+Distanzfunktion davon aus wenige Übereinstimmungen zu finden &mdash; sollten welche
 vorkommen werden diese gut bewertet.</p>
 <p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="#single-dist">5.2.4</a> erwähnte Distanzunktion
 ist,  so berechnet sich die finale Distanz durch:</p>
@@ -744,7 +744,7 @@ Volkliedes ,,Das Wandern ist des Müllers Lust&quot; abgedruckt. Der Text von
 <em>,,Yellow Subarmine&quot;</em> wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.</p>
 <p>Wie man in Abb.  sieht, werden längere Phrasen automatisch
-besser bewertet &ndash;- deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
+besser bewertet &mdash; deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
 noch in das Ergebniss aufgenommen werden.</p>
 </div>
@@ -778,7 +778,7 @@ Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB&ndash;T
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil hohen
 Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere Frequenzen in
-einem Block hin &ndash;- E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
+einem Block hin &mdash; E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
 Akustikgitarren erscheinen dafür meist in einem dunklem Rot.</p>
 <p>Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
 keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
@@ -886,13 +886,13 @@ bewegen.</p>
 </tr>
 </tbody>
 </table>
-<p class="caption">Auflistung der einzelnen Werte die der Moodbar&ndash;Provider
-ausliest und deren dazugehörige Distanzfunktion, sowie deren
-Gewichtung in der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit
-Ausnahme der Histogramm&ndash;Eingabewerte. Dort sind ,,a“ und ,,b“
-die einzelnen Farbkanäle als Vektor. Zur Bildung der Gesamtdistanz
-werden die einzelnen Werte über einen gewichteten Mittelwert
-verschmolzen.</p>
+<p class="caption">Auflistung der einzelnen Werte die der Moodbar&ndash;Provider ausliest
+und deren dazugehörige Distanzfunktion, sowie deren Gewichtung in
+der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit Ausnahme der
+Histogramm&ndash;Eingabewerte und der dominanten Farben. Dort sind ,,a“
+und ,,b“ die einzelnen Farbkanäle als Vektor, bzw. eine Menge von
+Farben. Zur Bildung der Gesamtdistanz werden die einzelnen Werte
+über einen gewichteten Mittelwert verschmolzen.</p>
 </center></div><p id="table-moodbar-list">In  wird eine Auflistung der einzelnen Werte gegeben,
 die der Moodbar&ndash;Provider generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
@@ -913,7 +913,7 @@ berechnete Distanz ist hier etwa 0.01.</p>
 </div>
 <div class="figure align-center" id="fig-mood-rammstein-tier">
 <a class="reference internal image-reference" href="../../_images/mood_rammstein_tier.svg"><img alt="Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“" src="../../_images/mood_rammstein_tier.svg" width="100%" /></a>
-<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &ndash;- Tier“. Oben
+<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &mdash; Tier“. Oben
 die Studioversion, unten die Liveversion.  Hier ist die von libmunin
 errechnete Distanz immerhin bei 0.32.</p>
 </div>

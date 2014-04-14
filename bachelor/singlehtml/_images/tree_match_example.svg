@@ -11,17 +11,17 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-94 744,-94 744,4 -4,4"/>
 <!--  † -->
 <g id="node1" class="node"><title> †</title>
-<polygon fill="#ffbbbb" stroke="black" points="740,-36 686,-36 686,-0 740,-0 740,-36"/>
+<polygon fill="#ffaa88" stroke="black" points="740,-36 686,-36 686,-0 740,-0 740,-36"/>
 <text text-anchor="middle" x="713" y="-14.3" font-family="Times,serif" font-size="14.00"> †</text>
 </g>
 <!-- †  -->
 <g id="node2" class="node"><title>† </title>
-<polygon fill="#ffbbbb" stroke="black" points="740,-90 686,-90 686,-54 740,-54 740,-90"/>
+<polygon fill="#ffaa88" stroke="black" points="740,-90 686,-90 686,-54 740,-54 740,-90"/>
 <text text-anchor="middle" x="713" y="-68.3" font-family="Times,serif" font-size="14.00">† </text>
 </g>
 <!-- {☑, ☒} -->
 <g id="node3" class="node"><title>{☑, ☒}</title>
-<polygon fill="lightgrey" stroke="black" points="412,-90 346,-90 346,-54 412,-54 412,-90"/>
+<polygon fill="#88aaff" stroke="black" points="412,-90 346,-90 346,-54 412,-54 412,-90"/>
 <text text-anchor="middle" x="379" y="-68.3" font-family="Times,serif" font-size="14.00">{☑, ☒}</text>
 </g>
 <!-- {☑, ☒}&#45;&gt;†  -->
@@ -32,12 +32,12 @@
 </g>
 <!-- {☒, ☑} -->
 <g id="node4" class="node"><title>{☒, ☑}</title>
-<polygon fill="lightgrey" stroke="black" points="412,-36 346,-36 346,-0 412,-0 412,-36"/>
+<polygon fill="#88aaff" stroke="black" points="412,-36 346,-36 346,-0 412,-0 412,-36"/>
 <text text-anchor="middle" x="379" y="-14.3" font-family="Times,serif" font-size="14.00">{☒, ☑}</text>
 </g>
 <!-- {☑, ☑} -->
 <g id="node7" class="node"><title>{☑, ☑}</title>
-<polygon fill="lightgrey" stroke="black" points="634,-36 568,-36 568,-0 634,-0 634,-36"/>
+<polygon fill="#88aaff" stroke="black" points="634,-36 568,-36 568,-0 634,-0 634,-36"/>
 <text text-anchor="middle" x="601" y="-14.3" font-family="Times,serif" font-size="14.00">{☑, ☑}</text>
 </g>
 <!-- {☒, ☑}&#45;&gt;{☑, ☑} -->
@@ -48,12 +48,12 @@
 </g>
 <!-- Start ➜ -->
 <g id="node5" class="node"><title>Start ➜</title>
-<polygon fill="#bbffbb" stroke="black" points="60,-59 3.55271e-15,-59 3.55271e-15,-23 60,-23 60,-59"/>
+<polygon fill="#aaff88" stroke="black" points="60,-59 3.55271e-15,-59 3.55271e-15,-23 60,-23 60,-59"/>
 <text text-anchor="middle" x="30" y="-37.3" font-family="Times,serif" font-size="14.00">Start ➜</text>
 </g>
 <!-- {☒, ☒} -->
 <g id="node6" class="node"><title>{☒, ☒}</title>
-<polygon fill="lightgrey" stroke="black" points="216,-59 150,-59 150,-23 216,-23 216,-59"/>
+<polygon fill="#88aaff" stroke="black" points="216,-59 150,-59 150,-23 216,-23 216,-59"/>
 <text text-anchor="middle" x="183" y="-37.3" font-family="Times,serif" font-size="14.00">{☒, ☒}</text>
 </g>
 <!-- Start ➜&#45;&gt;{☒, ☒} -->
