@@ -8,17 +8,20 @@ gegeben, die man bei der Entwicklung mit und von *libmunin* beachten sollte.
 Zur Nuztung von *libmunin*
 ==========================
 
-- Die Qualität der Empfehlungen kann nur so gut sein wie die Qualität der
+- Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
   Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
-  aus den *Tags* der Audiodateien kommen, empfiehlt es sich diese vorher mit 
-  Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür Picard,
-  welches im Hintergrund auf Musicbrainz :cite:`3A3` zugreift. 
+  aus den *Tags* der Audiodateien kommen, empfiehlt es sich diese vorher mit
+  Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
+  :cite:`picard`, welches im Hintergrund auf *Musicbrainz* :cite:`3A3` zugreift.
   Für schwerer zu besorgende Daten kann unter anderem auf libglyr, beets oder
-  dem eingebauten ``PlyrLyricsProvider`` und ``DiscogsGenreProvider``.
+  dem eingebauten ``PlyrLyricsProvider`` und ``DiscogsGenreProvider``
+  zurückgegriffen werden.
 - Welche Lieder man zu *libmunin's History* hinzufügt, sollte 
   abgewogen werden. Fügt man auch Lieder ein welche vom Nutzer einfach
   übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
-- Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre eigenen
+  Es sollten nur Lieder hinzugefügt werden, welche auch mehr als :math:`50\%` 
+  angehört worden sind. 
+- Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre 
   Zwecke konfigurierte Session--Maske verwenden. Zwar ist der Einsatz der
   ``EasySession`` deutlich einfacher, doch ist diese mehr für den *schnellen*
   Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht werden, 
@@ -48,11 +51,11 @@ Hinweise zum Schreiben von Distanzfunktionen
   weitere Verfahren: :cite:`wiki:fusion`.
 
     
-- Die zuvor genannten mathematischen Eigenschaften einer :term:`Distanzfunktion`
-  sollten eingehalten werden.
+- Um konsistent zu bleiben sollten alle der zuvor genannten mathematischen
+  Eigenschaften einer :term:`Distanzfunktion` eingehalten werden.
  
 - Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
-  der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen die auch für
+  der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen, die auch für
   eigentlich gar nicht mehr ähnliche eine Distanz errechnen die :math:`\neq 1.0`
   ist, zu qualitativ schlechten Verbindungen im Graphen führen. Man sollte daher
   den Bereich, in denen man eine Distanz :math:`< 1.0` vergibt, einschränken. 
@@ -112,8 +115,8 @@ Hinweise zum Schreiben von neuen Providern
 ------------------------------------------
 
 - Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
-  Präprozessor verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
-  einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit die er dafür
+  Präprozessor zu verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
+  einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit, die er dafür
   braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.
   Daher sollte gut abgewogen werden wieviele Daten man dem Provider produzieren
   lässt. Im Zweifelsfall empfiehlt es sich unnötiges wegzulassen. 
@@ -170,7 +173,7 @@ sehen kann.
 
 **Auffälligkeiten:**
 
-- Bei *libmunin* wiederholt sich der Künstler *Knorkator* alle 3--4 Stücke,
+- Bei *libmunin* wiederholt sich der Künstler *Knorkator* alle 3--3 Stücke,
   da der *Filter* entsprechend eingestellt ist. Daher ist eine Wiederholung des
   Künstlers nur alle 3, und eine Wiederholung des Albums nur alle 5 Stücke
   erlaubt. Bei Mirage scheint lediglich eine direkte Wiederholung des Künstlers
@@ -180,13 +183,13 @@ sehen kann.
 - *Mirage* leistet gute Arbeit dabei ähnlich klingende Stücke auszuwählen. Der
   tempomäßig relativ langsame Seedsong (*Mirage* besitzt hier tatsächlich ein
   änhliches Konzept) besitzt eine dunke Stimmung und harte E--Gitarren. Die von
-  *Mirage* vorgeschlagenen Songs schlagen hier tatsächlich sehr passend von der
-  Stimmung her. Die von *libmunin* vorgeschlagenen Songs sind in Punkt
+  *Mirage* vorgeschlagenen Songs sind hier tatsächlich sehr passend von der
+  Stimmung. Die von *libmunin* vorgeschlagenen Songs sind in Punkt
   Audiodaten bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
   dass größtenteils deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch
   führt das *Parody* in der Genre--Beschreibung dazu, dass ebenfalls lustig oder
   ironisch gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im
-  Seedsong düster, doch wird textlich ein lustiges Thema behandelt --- was
+  Seedsong düster, doch wird textlich ein Thema ironisch behandelt --- was
   *Mirage* an den Audiodaten natürlich nicht erkennen kann.  Hier zeigt sich
   *libmunin's* (momentaner) Fokus auf Metadaten.  Bei der zufälligen Playlists
   passen zwar die Genres einigermaßen übereinander, doch liegt das eher an dem
@@ -205,7 +208,6 @@ Ressourcenverbrauch
 Damit Anwendungsentwickler die Aufwändigkeit einzelner Operation einschätzen
 können, wird in Tabelle :num:`table-spec` eine kurze Übersicht über den
 Ressourcenverbrauch einzelner Aspekte gegeben.
-
 Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs. 
 
 .. figtable::

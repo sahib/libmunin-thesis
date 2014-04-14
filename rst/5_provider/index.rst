@@ -6,12 +6,12 @@ Algorithmen bei Providern
 Einleitung
 ===========
 
-:dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Provider und Distanzfunktionen
-näher betrachtet. Nicht alle in der Projektarbeit vorgestellten Provider werden
-erläutert, das würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die
-meisten Provider eher einfacher Natur --- die Lektüre des jeweiligen Quelltextes
-sagt oft mehr als der separate Text. Daher werden im Folgenden nur die
-erklärungsbedürftigen Paare näher betrachtet.
+:dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Provider und
+Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
+vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
+übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
+Lektüre des jeweiligen Quelltextes sagt oft mehr als der separate Text. Daher
+werden im Folgenden nur die erklärungsbedürftigen Paare näher betrachtet.
 
 
 Genrenormalisierung und Vergleich
