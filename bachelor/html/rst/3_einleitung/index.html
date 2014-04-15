@@ -114,7 +114,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../5_provider/index.html">5 Algorithmen bei Providern</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich">5.2 Genrenormalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
 </ul>
@@ -184,49 +184,53 @@ gegeben, die man bei der Entwicklung mit und von <em>libmunin</em> beachten soll
 <div class="section" id="zur-nuztung-von-libmunin">
 <h2>3.1 Zur Nuztung von <em>libmunin</em><a class="headerlink" href="#zur-nuztung-von-libmunin" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Die Qualität der Empfehlungen kann nur so gut sein wie die Qualität der
+<li>Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
 Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
-aus den <em>Tags</em> der Audiodateien kommen, empfiehlt es sich diese vorher mit
-Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür Picard,
-welches im Hintergrund auf Musicbrainz <a class="reference internal" href="../zzz_bibliography.html#a3" id="id1">[Link&ndash;1]</a> zugreift.
+aus den <a class="reference internal" href="../2_begriffe/index.html#term-tags"><em class="xref std std-term">Tags</em></a> der Audiodateien kommen, empfiehlt es sich diese vorher
+mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür <em>Picard</em>
+<a class="reference internal" href="../zzz_bibliography.html#picard" id="id1">[Link&ndash;1]</a>, welches im Hintergrund auf <em>Musicbrainz</em> <a class="reference internal" href="../zzz_bibliography.html#a3" id="id2">[Link&ndash;2]</a> zugreift.
 Für schwerer zu besorgende Daten kann unter anderem auf libglyr, beets oder
-dem eingebauten <tt class="docutils literal"><span class="pre">PlyrLyricsProvider</span></tt> und <tt class="docutils literal"><span class="pre">DiscogsGenreProvider</span></tt>.</li>
+dem eingebauten <tt class="docutils literal"><span class="pre">PlyrLyricsProvider</span></tt> und <tt class="docutils literal"><span class="pre">DiscogsGenreProvider</span></tt>
+zurückgegriffen werden.</li>
 <li>Welche Lieder man zu <em>libmunin's History</em> hinzufügt, sollte
 abgewogen werden. Fügt man auch Lieder ein welche vom Nutzer einfach
-übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.</li>
-<li>Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre eigenen
-Zwecke konfigurierte Session&ndash;Maske verwenden. Zwar ist der Einsatz der
-<tt class="docutils literal"><span class="pre">EasySession</span></tt> deutlich einfacher, doch ist diese mehr für den <em>schnellen</em>
-Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht werden,
-die Gewichtungen der einzelnen Attribute zu ändern.</li>
+übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
+Es sollten nur Lieder hinzugefügt werden, welche auch mehr als <span class="math">\(50\%\)</span>
+angehört worden sind.</li>
+<li>Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre Zwecke
+konfigurierte <a class="reference internal" href="../2_begriffe/index.html#term-session"><em class="xref std std-term">Session</em></a> <a class="reference internal" href="../2_begriffe/index.html#term-maske"><em class="xref std std-term">Maske</em></a> verwenden. Zwar ist der Einsatz
+der <tt class="docutils literal"><span class="pre">EasySession</span></tt> deutlich einfacher, doch ist diese mehr für den
+<em>schnellen</em> Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht
+werden, die Gewichtungen der einzelnen Attribute zu ändern.</li>
 </ul>
 </div>
 <div class="section" id="zur-erweiterung-von-libmunin">
 <h2>3.2 Zur Erweiterung von <em>libmunin</em><a class="headerlink" href="#zur-erweiterung-von-libmunin" title="Permalink to this headline">¶</a></h2>
-<p>Oft es ist von Interesse neue Distanzfunktionen und Provider für eigene Zwecke
-zu schreiben. Im Folgenden werden einige Beispiele gegeben und Stolperfallen
-aufgelistet.</p>
+<p>Oft es ist von Interesse neue Distanzfunktionen und <a class="reference internal" href="../2_begriffe/index.html#term-provider"><em class="xref std std-term">Provider</em></a> für eigene
+Zwecke zu schreiben. Im Folgenden werden einige Beispiele gegeben und
+Stolperfallen aufgelistet.</p>
 <div class="section" id="hinweise-zum-schreiben-von-distanzfunktionen">
 <h3>3.2.1 Hinweise zum Schreiben von Distanzfunktionen<a class="headerlink" href="#hinweise-zum-schreiben-von-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first">Wenn eine Distanzfunktion eine Menge von Elementen vergleichen muss, so
-besteht dieselbe oft aus einem <em>Fusionierungsverfahren</em> und einer weiteren
-<em>Metrik</em>, die die einzelnen Elemente untereinander vergleicht.
-Als Beispiel kann man hier den Vergleich von zwei Mengen von Wörtern nennen.
-Einzelne Wörter kann man relativ einfach auf Ähnlichkeit untersuchen <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a>.
-Ein simples Fusionierungsverfahren wäre hier jedes Wort aus der einen Menge
-mit jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
-Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren nimmt statt
-dem Durschschnitt die kleine gefundene Distanz. Hier gibt es kein richtig oder
-falsch, je nach Einsatzzweck muss ein passendes Verfahren gewählt werden.
-Der dazugehörige Wikipedia&ndash;Artikel bietet einen guten Überblick über
-weitere Verfahren: <a class="reference internal" href="../zzz_bibliography.html#wiki-fusion" id="id3">[Link&ndash;2]</a>.</p>
+<li><p class="first">Wenn eine <a class="reference internal" href="../2_begriffe/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> eine Menge von Elementen vergleichen muss,
+so besteht dieselbe oft aus einem <em>Fusionierungsverfahren</em> und einer weiteren
+<em>Metrik</em>, die die einzelnen Elemente untereinander vergleicht.  Als Beispiel
+kann man hier den Vergleich von zwei Mengen von Wörtern nennen.  Einzelne
+Wörter kann man relativ einfach auf Ähnlichkeit untersuchen <a class="footnote-reference" href="#f1" id="id3"><sup>1</sup></a>.  Ein
+simples Fusionierungsverfahren wäre hier jedes Wort aus der einen Menge mit
+jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
+Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren
+nimmt statt dem Durschschnitt die kleine gefundene <a class="reference internal" href="../2_begriffe/index.html#term-distanz"><em class="xref std std-term">Distanz</em></a>. Hier gibt
+es kein richtig oder falsch, je nach Einsatzzweck muss ein passendes Verfahren
+gewählt werden.  Der dazugehörige Wikipedia&ndash;Artikel bietet, unter dem Punkt
+Fusionierungsalgorithmen, einen guten Überblick über weitere Verfahren:
+<a class="reference internal" href="../zzz_bibliography.html#wiki-fusion" id="id4">[Link&ndash;3]</a>.</p>
 </li>
-<li><p class="first">Die zuvor genannten mathematischen Eigenschaften einer <a class="reference internal" href="../2_begriffe/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a>
-sollten eingehalten werden.</p>
+<li><p class="first">Um konsistent zu bleiben sollten alle der zuvor genannten mathematischen
+Eigenschaften einer <a class="reference internal" href="../2_begriffe/index.html#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> eingehalten werden.</p>
 </li>
 <li><p class="first">Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
-der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen die auch für
+der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen, die auch für
 eigentlich gar nicht mehr ähnliche eine Distanz errechnen die <span class="math">\(\neq 1.0\)</span>
 ist, zu qualitativ schlechten Verbindungen im Graphen führen. Man sollte daher
 den Bereich, in denen man eine Distanz <span class="math">\(&lt; 1.0\)</span> vergibt, einschränken.</p>
@@ -281,17 +285,17 @@ Zur Referenz ist die Einheitsgerade in Grün gegeben.</p>
 <h3>3.2.2 Hinweise zum Schreiben von neuen Providern<a class="headerlink" href="#hinweise-zum-schreiben-von-neuen-providern" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
-Präprozessor verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
-einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit die er dafür
-braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.
-Daher sollte gut abgewogen werden wieviele Daten man dem Provider produzieren
-lässt. Im Zweifelsfall empfiehlt es sich unnötiges wegzulassen.</li>
-<li>Ist zu erwarten, dass stark redundante Daten eingepflegt werden, dann sollte
-die Provider&ndash;interne Kompression genutzt werden. Ein typisches Beispiel dafür
-ist der Künstler&ndash;Name. Dieser ist für sehr viele Songs gleich. Daher wäre
-eine separate Speicherung desselben nicht sinnvoll. Intern bildet eine
-bidirektionale Hashtabelle (mittels <tt class="docutils literal"><span class="pre">bidict</span></tt> <a class="reference internal" href="../zzz_bibliography.html#bidict" id="id4">[Link&ndash;3]</a>) gleiche Werte
-auf einen Integer&ndash;Identifier ab.</li>
+Präprozessor zu verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
+einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit, die er dafür
+braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.  Daher
+sollte gut abgewogen werden wieviele Daten man dem Provider produzieren lässt.
+Im Zweifelsfall empfiehlt es sich unnötiges wegzulassen.  - Ist zu erwarten,
+dass stark redundante Daten eingepflegt werden, dann sollte die
+Provider&ndash;interne Kompression genutzt werden. Ein typisches Beispiel dafür ist
+der Künstler&ndash;Name. Dieser ist für sehr viele Songs gleich. Daher wäre eine
+separate Speicherung desselben nicht sinnvoll. Intern bildet eine
+bidirektionale <a class="reference internal" href="../2_begriffe/index.html#term-hashtabelle"><em class="xref std std-term">Hashtabelle</em></a> (mittels <tt class="docutils literal"><span class="pre">bidict</span></tt> <a class="reference internal" href="../zzz_bibliography.html#bidict" id="id5">[Link&ndash;4]</a>) gleiche
+Werte auf einen Integer&ndash;Identifier ab.</li>
 </ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">munin.provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
@@ -311,28 +315,28 @@ auf einen Integer&ndash;Identifier ab.</li>
 <div class="section" id="vergleich-verschiedener-playlisten">
 <span id="ref-playlist-compare"></span><h2>3.3 Vergleich verschiedener Playlisten<a class="headerlink" href="#vergleich-verschiedener-playlisten" title="Permalink to this headline">¶</a></h2>
 <p>In Abbildung <a href="#table-playlists">3.3</a> wird eine Auflistung verschiedener, mit
-unterschiedlichen Methoden erstellten Playlists gegeben. Dies ist insofern
+unterschiedlichen Methoden erstellten  Playlists gegeben. Dies ist insofern
 interessant, da die Struktur der von <em>libmunin</em> gegebenen Empfehlungen gewissen
 Regeln unterliegt die man als Anwendungsentwickler kennen sollte. Zudem ist der
 <em>subjektive</em> Vergleich mit anderen Systemen interessant.</p>
-<p>Der ursprüngliche Plan hier auch eine von <tt class="docutils literal"><span class="pre">last.fm</span></tt> <a class="reference internal" href="../zzz_bibliography.html#nt" id="id5">[Link&ndash;4]</a> erstellte
-Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht auf
-die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
+<p>Der ursprüngliche Plan hier auch eine von <tt class="docutils literal"><span class="pre">last.fm</span></tt> <a class="reference internal" href="../zzz_bibliography.html#nt" id="id6">[Link&ndash;5]</a> erstellte
+<a class="reference internal" href="../2_begriffe/index.html#term-playlist"><em class="xref std std-term">Playlist</em></a> zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
+auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
 Stattdessen wurde die <em>Konkurrenz</em> von <em>libmunin</em> getestet: <em>Mirage</em>
-<a class="reference internal" href="../zzz_bibliography.html#schnitzer2007high" id="id6">[10]</a>. Da <em>Mirage</em> momentan nur als Plugin für Banshee
+<a class="reference internal" href="../zzz_bibliography.html#schnitzer2007high" id="id7">[11]</a>. Da <em>Mirage</em> momentan nur als Plugin für Banshee
 vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die
 Testmusikdatenbank auch in Banshee importiert.</p>
 <p>Die Testmusikdatenbank selbst besteht aus einigen ausgewählten Alben des Autors.
 Viele allgemein gebräuchliche Gneres werden dabei abgedeckt, obwohl der
 Schwerpunkt beim Genre <em>Rock</em> und <em>Metal</em> liegt.</p>
 <p>Die einzelnen Playlists wurden auf jeweils 15 Songs begrenzt. Darin enthalten
-ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum Generieren
-der Playlist genutzt wurde (<em>Knorkator &mdash; Böse</em>). Die zufällig erstellte
-Playlist wurde als Referenz abgedruckt, damit man die dort fehlende Struktur
-sehen kann.</p>
+ist an erster Stelle der willkürlich ausgewählte <a class="reference internal" href="../2_begriffe/index.html#term-seedsong"><em class="xref std std-term">Seedsong</em></a>, der zum
+Generieren der Playlist genutzt wurde (<em>Knorkator &ndash;- Böse</em>). Die zufällig
+erstellte Playlist wurde als Referenz abgedruckt, damit man die dort fehlende
+Struktur sehen kann.</p>
 <p><strong>Auffälligkeiten:</strong></p>
 <ul class="simple">
-<li>Bei <em>libmunin</em> wiederholt sich der Künstler <em>Knorkator</em> alle 3&ndash;4 Stücke,
+<li>Bei <em>libmunin</em> wiederholt sich der Künstler <em>Knorkator</em> alle 3&ndash;3 Stücke,
 da der <em>Filter</em> entsprechend eingestellt ist. Daher ist eine Wiederholung des
 Künstlers nur alle 3, und eine Wiederholung des Albums nur alle 5 Stücke
 erlaubt. Bei Mirage scheint lediglich eine direkte Wiederholung des Künstlers
@@ -342,18 +346,18 @@ Wiederholungen, aber entbehrt dafür auch jeder Struktur.</li>
 <li><em>Mirage</em> leistet gute Arbeit dabei ähnlich klingende Stücke auszuwählen. Der
 tempomäßig relativ langsame Seedsong (<em>Mirage</em> besitzt hier tatsächlich ein
 änhliches Konzept) besitzt eine dunke Stimmung und harte E&ndash;Gitarren. Die von
-<em>Mirage</em> vorgeschlagenen Songs schlagen hier tatsächlich sehr passend von der
-Stimmung her. Die von <em>libmunin</em> vorgeschlagenen Songs sind in Punkt
+<em>Mirage</em> vorgeschlagenen Songs sind hier tatsächlich sehr passend von der
+Stimmung. Die von <em>libmunin</em> vorgeschlagenen Songs sind in Punkt
 Audiodaten bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
 dass größtenteils deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch
 führt das <em>Parody</em> in der Genre&ndash;Beschreibung dazu, dass ebenfalls lustig oder
 ironisch gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im
-Seedsong düster, doch wird textlich ein lustiges Thema behandelt &mdash; was
+Seedsong düster, doch wird textlich ein Thema ironisch behandelt &ndash;- was
 <em>Mirage</em> an den Audiodaten natürlich nicht erkennen kann.  Hier zeigt sich
 <em>libmunin's</em> (momentaner) Fokus auf Metadaten.  Bei der zufälligen Playlists
 passen zwar die Genres einigermaßen übereinander, doch liegt das eher an dem
 sehr dehnbaren Begriff <em>Rock</em>, der bei
-Discogs <a class="reference internal" href="../zzz_bibliography.html#discogs" id="id7">[Link&ndash;5]</a> für sehr viele Lieder eingepflegt ist.</li>
+Discogs <a class="reference internal" href="../zzz_bibliography.html#discogs" id="id8">[Link&ndash;6]</a> für sehr viele Lieder eingepflegt ist.</li>
 <li>Der Kaltstart bei <em>Mirage</em> verlief in wenigen Minuten, während der Kaltstart
 bei <em>libmunin</em> beim ersten mal für die 666 Songs sehr hohe 53 Minuten
 benötigte, da für jedes Lied ein Liedtext sequentiell automatisch besorgt
@@ -366,8 +370,8 @@ beobachten.</li>
 <h2>3.4 Ressourcenverbrauch<a class="headerlink" href="#ressourcenverbrauch" title="Permalink to this headline">¶</a></h2>
 <p>Damit Anwendungsentwickler die Aufwändigkeit einzelner Operation einschätzen
 können, wird in Tabelle <a href="#table-spec">table-spec</a> eine kurze Übersicht über den
-Ressourcenverbrauch einzelner Aspekte gegeben.</p>
-<p>Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.</p>
+Ressourcenverbrauch einzelner Aspekte gegeben.
+Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.</p>
 <div class="figure align-center" id="table-specs">
 <center><table border="1" class="docutils">
 <colgroup>
@@ -482,7 +486,7 @@ werden.</p>
 <tr class="row-even"><td><em>10</em></td>
 <td>Marc-Uwe Kling</td>
 <td>Scheißverein</td>
-<td><em>Folk/Pardoy</em></td>
+<td><em>Folk/Parody</em></td>
 </tr>
 <tr class="row-odd"><td><em>11</em></td>
 <td>Johnny Cash</td>
@@ -669,9 +673,9 @@ erstellt, die letzte wurde komplett zufällig generiert.</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Etwa mit der Levenshtein&ndash;Distanzfunktion <a class="reference internal" href="../zzz_bibliography.html#brill2000improved" id="id8">[4]</a> und
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Etwa mit der Levenshtein&ndash;Distanzfunktion <a class="reference internal" href="../zzz_bibliography.html#brill2000improved" id="id9">[4]</a> und
 der Python&ndash;Bibliothek <tt class="docutils literal"><span class="pre">pyxDamerauLevenshtein</span></tt>
-<a class="reference internal" href="../zzz_bibliography.html#pyxdameraulevenshtein" id="id9">[Link&ndash;6]</a>.</td></tr>
+<a class="reference internal" href="../zzz_bibliography.html#pyxdameraulevenshtein" id="id10">[Link&ndash;7]</a>.</td></tr>
 </tbody>
 </table>
 </div>

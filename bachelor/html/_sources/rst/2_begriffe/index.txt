@@ -38,17 +38,17 @@ Allgemeine Fachbegriffe
 
     Iterator
 
-      Ein Iterator ist ein *Versprechen* einen Wert genau dann zu berechnen wenn
-      er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
-      Datenstrukturen zu traversieren. Jeder Aufruf des Iterator liefert dabei
+      Ein Iterator ist ein *Versprechen* einen Wert genau dann zu berechnenl
+      wenn er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
+      Datenstrukturen zu traversieren. Jeder Aufruf des Iterators liefert dabei
       den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
       sind.
 
     Tags
 
-      In Audiofiles können bei den meisten Formaten Metadaten abgelegt
-      werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den *Artist*,
-      *Album* und *Title*, aber auch komplexere Daten wie das *Coverart*,
+      In Audiofiles können bei den meisten Formaten Metadaten abgelegt werden.
+      Dies wird oft genutzt um häufig gebrauchte Daten wie den *Künstler*,
+      *Album* und *Title*, aber auch komplexere Daten, wie das *Coverart*,
       abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
       ausgelesen werden.
 
@@ -62,47 +62,46 @@ Kontextspezifische Fachbegriffe
     Song
 
       Im Kontext von *libmunin* ist ein Song eine Menge von Attributen.  Jedem
-      :term:`Attribut` ist, wie in einer Hashtabelle, genau ein Wert zugeordnet. 
+      :term:`Attribut` ist, wie in einer Hashtabelle, genau ein Wert zugeordnet.
       Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
-      einzelner Song kennt dafür einen bestimmten Wert.
-      Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
-      Songs gespeichert, sowie einen Integer der als Identifier dient.
+      einzelner Song kennt dafür einen bestimmten Wert.  Desweiteren wird für
+      jeden Song die Distanz zu einer Menge ähnlicher Songs gespeichert, sowie
+      einen Integer der als Identifier für diesen Song dient.
 
     Seedsong
 
-      Ein :term:`Song` der als Basis für Empfehlungen ausgewählt wurde. 
+      Ein :term:`Song`, der als Basis für Empfehlungen ausgewählt wurde. 
 
     Session
 
-      Eine *Session* ist eine Nutzung von *libmunin* über einem bestimmten
+      Eine *Session* ist eine Nutzung von *libmunin*, über einem bestimmten
       Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
       analysiert und ein Graph wird daraus aufgebaut.
       Wer die Bibliothek benutzt, wird die *Session* zudem als Eintrittspunkt
-      für die API benutzen.
+      für die *API* benutzen.
 
     Maske
 
-      Die :term:`Session` benötigt eine Beschreibung der Daten die importiert
+      Die :term:`Session` benötigt eine Beschreibung der Daten, die importiert
       werden. So muss sich beispielsweise darauf geeinigt werden, *was* in einem
       :term:`Song` unter dem Schlüssel ``genre`` abgespeichert wird.
     
-      In der *Maske* werden daher die einzelnen Attribute festgelegt die ein
+      In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
       einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
       pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
-      festgelegt, die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
+      festgelegt, die bei der Verarbeitung dieses Wertes genutzt werden. Zudem
       wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
       für die Ähnlichkeit zweier Songs entscheidender als andere.
 
 
     Assoziationsregel
 
-      Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs
-      miteinander. Sie besagen, dass wenn eine der beiden Mengen miteinander
-      gehört wird, dann ist es *wahrscheinlich*, dass auch die andere Menge
-      daraufhin angehört wird.
-      Regeln werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes 
-      Lied, das der Nutzer anhört in einer *Historie* zwischengespeichert.
-
+      Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs mit
+      einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
+      der beiden Mengen miteinander gehört wird, dann ist es *wahrscheinlich*,
+      dass auch die andere Menge daraufhin angehört wird.  Regeln werden aus dem
+      Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied, das der Nutzer
+      anhört in einer *Historie* zwischengespeichert.
       Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
       Regel ein *Rating* berechnet.
 
@@ -112,9 +111,9 @@ Kontextspezifische Fachbegriffe
       wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
       \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
       Ein praktisches, natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler 
-      essen Cornflakes. Diese Regel besagt dass der größte Teil der
-      Basketballspieler Cornflakes essen, aber nicht, dass die meisten
-      Cornflakes--Esser Basketballspieler sind. Da bei libmunin auf beiden
+      essen Cornflakes. Diese Regel besagt, dass der größte Teil der
+      Basketballspieler Cornflakes isst, aber nicht, dass die meisten
+      Cornflakes--Esser Basketballspieler sind. Da bei *libmunin* auf beiden
       Seiten der Regel immer der gleiche Typ (ein oder mehrere Songs) steht und
       die Beziehung immer *,,werden* miteinander *gehört"* ist, ist hier eine 
       bidirektionale Assoziation möglich.
@@ -135,7 +134,7 @@ Kontextspezifische Fachbegriffe
       Maske einem Attribut zugeordnet.
 
       Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
-      vergleichbare Werte zu liefern - da die Distanzfunktion sehr
+      vergleichbare Werte zu liefern --- da die Distanzfunktion sehr
       viel öfters aufgerufen wird als der *Provider*.
 
     Distanz
@@ -148,19 +147,16 @@ Kontextspezifische Fachbegriffe
    
     Distanzfunktion
     
-      Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die 
-      zwei Songs als Eingabe nimmt und die Distanz zwischen
-      diesen berechnet.
-
-      Dabei wird jedes Attribut betracht, welches in beiden Songs
-      vorkommt. Für diese wird von der Maske eine
-      spezialisierte Distanzfunktion festgelegt, die weiß wie diese
-      zwei bestimmten Werte sinnvoll verglichen werden können. Die so
-      errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
-      einem Wert verschmolzen. |br|
-      Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
-      *,,Straf"*--Distanz von 1 angenommen. Diese wird dann ebenfalls in die
-      gewichtete Oberdistanz eingerechnet.
+      Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die zwei
+      Songs als Eingabe nimmt und die Distanz zwischen diesen berechnet. |br|
+      Dabei wird jedes Attribut betracht, welches in beiden Songs vorkommt. Für
+      diese wird von der Maske eine spezialisierte Distanzfunktion festgelegt,
+      die weiß wie diese zwei bestimmten Werte sinnvoll verglichen werden
+      können. Die so errechneten Werte werden, gemäß der Gewichtung in der
+      Maske, zu einem Wert verschmolzen. |br| Fehlen Attribute in einen der
+      beiden Songs, wird für diese jeweils eine *,,Straf"*--Distanz von
+      :math:`1` angenommen. Diese wird dann ebenfalls in die gewichtete
+      Oberdistanz eingerechnet.
 
       Die folgenden Bedingungen müssen sowohl für die allgemeine
       Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
@@ -173,8 +169,8 @@ Kontextspezifische Fachbegriffe
             0 \leq d(i, j) \leq 1\forall i,j \in D 
 
          *Aussage:* Die errechneten Werte müssen sich immer zwischen und
-         einschließlich 0 und 1 befinden. *libmunin* schneidet unpassende
-         auf diesen Bereich zu. 
+         einschließlich :math:`0` und :math:`1` befinden. *libmunin* schneidet
+         unpassende Werte auf diesen Bereich zu. 
 
       2) *Symmetrie:* 
 
@@ -182,8 +178,8 @@ Kontextspezifische Fachbegriffe
          
             d(i, j) = d(j, i) \forall i,j \in D 
 
-        *Aussage:* Die Reihenfolge in der die Songs der Distanzfunktion
-        übergeben werden darf keine Auswirkung auf das Ergebnis haben. 
+        *Aussage:* Die Reihenfolge, in der die Songs der Distanzfunktion
+        übergeben werden, darf keine Auswirkung auf das Ergebnis haben. 
         Diese Eigenschaft wird von *libmunin* nicht überprüft --- eine
         Nichteinhaltung würde zu falschen Kanten im Graphen führen.
 
@@ -191,11 +187,11 @@ Kontextspezifische Fachbegriffe
          
          .. math::
          
-            d(i, i) = 0.0 \forall i \in D 
+            d(i, i) = 0 \forall i \in D 
 
          *Aussage:* Wird zweimal der selbe Song übergeben, so muss die Distanz
-         immer 0.0 betragen. Autoren von Distanzfunktionen sollten dies testen. 
-         Werte :math:`\neq 0` deuten erfahrungsgemäß auf schlechte
+         immer :math:`0` betragen. Autoren von Distanzfunktionen sollten dies
+         testen.  Werte :math:`\neq 0` deuten erfahrungsgemäß auf schlechte
          Distanzfunktionen hin. 
 
       4) *Dreiecksungleichung:* 
@@ -230,10 +226,10 @@ Kontextspezifische Fachbegriffe
 
       .. subfigend::
           :width: 0.49
-          :alt: Schematische Darstellungen der einzelnen Basisiterationen.
+          :alt: Darstellung der Dreiecksungleichung
           :label: fig-trineqs
  
-          *Aussage:* Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
+          Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
           besagt, dass der direkte Weg von A nach B kürzer sein sollte als der
           Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“ sind gleich stark
           gewichtet.  Wenn keine Straftwertung für leere Werte gegeben wird, so

@@ -114,7 +114,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../5_provider/index.html">5 Algorithmen bei Providern</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich">5.2 Genrenormalisierung und Vergleich</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
 </ul>
@@ -205,15 +205,15 @@ wird ausgehend von einem Knoten zuerst jeder Nachbarknoten besucht. Erst
 dann wird analog mit den Nachbarknoten verfahren. Bereits besuchte Knoten
 werden markiert und nicht weiter verfolgt.</dd>
 <dt id="term-iterator">Iterator</dt>
-<dd>Ein Iterator ist ein <em>Versprechen</em> einen Wert genau dann zu berechnen wenn
-er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
-Datenstrukturen zu traversieren. Jeder Aufruf des Iterator liefert dabei
+<dd>Ein Iterator ist ein <em>Versprechen</em> einen Wert genau dann zu berechnenl
+wenn er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
+Datenstrukturen zu traversieren. Jeder Aufruf des Iterators liefert dabei
 den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
 sind.</dd>
 <dt id="term-tags">Tags</dt>
-<dd>In Audiofiles können bei den meisten Formaten Metadaten abgelegt
-werden. Dies wird oft genutzt um häufig gebrauchte Daten wie den <em>Artist</em>,
-<em>Album</em> und <em>Title</em>, aber auch komplexere Daten wie das <em>Coverart</em>,
+<dd>In Audiofiles können bei den meisten Formaten Metadaten abgelegt werden.
+Dies wird oft genutzt um häufig gebrauchte Daten wie den <em>Künstler</em>,
+<em>Album</em> und <em>Title</em>, aber auch komplexere Daten, wie das <em>Coverart</em>,
 abzuspeichern. Tags können von geeigneten Tools wie Musicplayern
 ausgelesen werden.</dd>
 </dl>
@@ -225,36 +225,36 @@ ausgelesen werden.</dd>
 <dd>Im Kontext von <em>libmunin</em> ist ein Song eine Menge von Attributen.  Jedem
 <a class="reference internal" href="#term-attribut"><em class="xref std std-term">Attribut</em></a> ist, wie in einer Hashtabelle, genau ein Wert zugeordnet.
 Beispielsweise haben alle Songs ein Attribut <tt class="docutils literal"><span class="pre">artist</span></tt>, aber jeder
-einzelner Song kennt dafür einen bestimmten Wert.
-Desweiteren wird für jeden Song die Distanz zu einer Menge ähnlicher
-Songs gespeichert, sowie einen Integer der als Identifier dient.</dd>
+einzelner Song kennt dafür einen bestimmten Wert.  Desweiteren wird für
+jeden Song die Distanz zu einer Menge ähnlicher Songs gespeichert, sowie
+einen Integer der als Identifier für diesen Song dient.</dd>
 <dt id="term-seedsong">Seedsong</dt>
-<dd>Ein <a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a> der als Basis für Empfehlungen ausgewählt wurde.</dd>
+<dd>Ein <a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a>, der als Basis für Empfehlungen ausgewählt wurde.</dd>
 <dt id="term-session">Session</dt>
-<dd>Eine <em>Session</em> ist eine Nutzung von <em>libmunin</em> über einem bestimmten
+<dd>Eine <em>Session</em> ist eine Nutzung von <em>libmunin</em>, über einem bestimmten
 Zeitraum. Zum Erstellen einer Session werden die Daten importiert,
 analysiert und ein Graph wird daraus aufgebaut.
 Wer die Bibliothek benutzt, wird die <em>Session</em> zudem als Eintrittspunkt
-für die API benutzen.</dd>
+für die <em>API</em> benutzen.</dd>
 <dt id="term-maske">Maske</dt>
-<dd><p class="first">Die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten die importiert
+<dd><p class="first">Die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten, die importiert
 werden. So muss sich beispielsweise darauf geeinigt werden, <em>was</em> in einem
 <a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a> unter dem Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
-<p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt die ein
+<p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt, die ein
 einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
 pro Attribut ein <a class="reference internal" href="#term-provider"><em class="xref std std-term">Provider</em></a> und eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a>
-festgelegt, die bei der Verarbeitung dieses Wertes genutzt wird. Zudem
+festgelegt, die bei der Verarbeitung dieses Wertes genutzt werden. Zudem
 wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
 für die Ähnlichkeit zweier Songs entscheidender als andere.</p>
 </dd>
 <dt id="term-assoziationsregel">Assoziationsregel</dt>
-<dd><p class="first">Eine Assoziationsregel verbindet zwei Mengen <em>A</em> und <em>B</em> von Songs
-miteinander. Sie besagen, dass wenn eine der beiden Mengen miteinander
-gehört wird, dann ist es <em>wahrscheinlich</em>, dass auch die andere Menge
-daraufhin angehört wird.
-Regeln werden aus dem Verhalten des Nutzers abgeleitet. Dazu wird jedes
-Lied, das der Nutzer anhört in einer <em>Historie</em> zwischengespeichert.</p>
-<p>Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
+<dd><p class="first">Eine Assoziationsregel verbindet zwei Mengen <em>A</em> und <em>B</em> von Songs mit
+einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
+der beiden Mengen miteinander gehört wird, dann ist es <em>wahrscheinlich</em>,
+dass auch die andere Menge daraufhin angehört wird.  Regeln werden aus dem
+Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied, das der Nutzer
+anhört in einer <em>Historie</em> zwischengespeichert.
+Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
 Regel ein <em>Rating</em> berechnet.</p>
 <p class="last"><em>Anmerkung:</em> Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
 Richtung definiert.  In <em>libmunin</em> sind die Regeln aus Gründen der
@@ -262,9 +262,9 @@ Einfachkeit allerdings <em>bidirektional.</em>  So gilt nicht nur, dass man
 wahrscheinlich die Menge <em>B</em> hört, wenn man <em>A</em> gehört hat (<span class="math">\(A
 \rightarrow B\)</span>), sondern auch umgekehrt (<span class="math">\(A \leftrightarrow B\)</span>).
 Ein praktisches, natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler
-essen Cornflakes. Diese Regel besagt dass der größte Teil der
-Basketballspieler Cornflakes essen, aber nicht, dass die meisten
-Cornflakes&ndash;Esser Basketballspieler sind. Da bei libmunin auf beiden
+essen Cornflakes. Diese Regel besagt, dass der größte Teil der
+Basketballspieler Cornflakes isst, aber nicht, dass die meisten
+Cornflakes&ndash;Esser Basketballspieler sind. Da bei <em>libmunin</em> auf beiden
 Seiten der Regel immer der gleiche Typ (ein oder mehrere Songs) steht und
 die Beziehung immer <em>,,werden</em> miteinander <em>gehört&quot;</em> ist, ist hier eine
 bidirektionale Assoziation möglich.</p>
@@ -281,7 +281,7 @@ Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
 die in <em>libmunin</em> geladen werden. Jeder <em>Provider</em> ist dabei durch die
 Maske einem Attribut zugeordnet.</p>
 <p class="last">Ihr Ziel ist für die <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> einfache und effizient
-vergleichbare Werte zu liefern - da die Distanzfunktion sehr
+vergleichbare Werte zu liefern &ndash;- da die Distanzfunktion sehr
 viel öfters aufgerufen wird als der <em>Provider</em>.</p>
 </dd>
 <dt id="term-distanz">Distanz</dt>
@@ -291,18 +291,16 @@ minimale <em>Entfernung</em> zueinander), eine Distanz von 1 maximale
 Unähnlichkeit (oder maximale <em>Entfernung</em>).
 Die Distanz wird durch eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> berechnet.</dd>
 <dt id="term-distanzfunktion">Distanzfunktion</dt>
-<dd><p class="first">Eine Distanzfunktion ist im Kontext von <em>libmunin</em> eine Funktion, die
-zwei Songs als Eingabe nimmt und die Distanz zwischen
-diesen berechnet.</p>
-<p>Dabei wird jedes Attribut betracht, welches in beiden Songs
-vorkommt. Für diese wird von der Maske eine
-spezialisierte Distanzfunktion festgelegt, die weiß wie diese
-zwei bestimmten Werte sinnvoll verglichen werden können. Die so
-errechneten Werte werden, gemäß der Gewichtung in der Maske, zu
-einem Wert verschmolzen. <br />
-Fehlen Attribute in einen der beiden Songs, wird für diese jeweils eine
-<em>,,Straf&quot;</em>&ndash;Distanz von 1 angenommen. Diese wird dann ebenfalls in die
-gewichtete Oberdistanz eingerechnet.</p>
+<dd><p class="first">Eine Distanzfunktion ist im Kontext von <em>libmunin</em> eine Funktion, die zwei
+Songs als Eingabe nimmt und die Distanz zwischen diesen berechnet. <br />
+Dabei wird jedes Attribut betracht, welches in beiden Songs vorkommt. Für
+diese wird von der Maske eine spezialisierte Distanzfunktion festgelegt,
+die weiß wie diese zwei bestimmten Werte sinnvoll verglichen werden
+können. Die so errechneten Werte werden, gemäß der Gewichtung in der
+Maske, zu einem Wert verschmolzen. <br /> Fehlen Attribute in einen der
+beiden Songs, wird für diese jeweils eine <em>,,Straf&quot;</em>&ndash;Distanz von
+<span class="math">\(1\)</span> angenommen. Diese wird dann ebenfalls in die gewichtete
+Oberdistanz eingerechnet.</p>
 <p>Die folgenden Bedingungen müssen sowohl für die allgemeine
 Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
 <span class="math">\(D\)</span> ist dabei die Menge aller Songs, <span class="math">\(d\)</span> eine Distanzfunktion.</p>
@@ -311,8 +309,8 @@ Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
 <div class="math">
 \[0 \leq d(i, j) \leq 1\forall i,j \in D\]</div>
 <p><em>Aussage:</em> Die errechneten Werte müssen sich immer zwischen und
-einschließlich 0 und 1 befinden. <em>libmunin</em> schneidet unpassende
-auf diesen Bereich zu.</p>
+einschließlich <span class="math">\(0\)</span> und <span class="math">\(1\)</span> befinden. <em>libmunin</em> schneidet
+unpassende Werte auf diesen Bereich zu.</p>
 </li>
 <li><p class="first"><em>Symmetrie:</em></p>
 <div class="math">
@@ -320,17 +318,17 @@ auf diesen Bereich zu.</p>
 </li>
 </ol>
 <blockquote>
-<div><em>Aussage:</em> Die Reihenfolge in der die Songs der Distanzfunktion
-übergeben werden darf keine Auswirkung auf das Ergebnis haben.
-Diese Eigenschaft wird von <em>libmunin</em> nicht überprüft &mdash; eine
+<div><em>Aussage:</em> Die Reihenfolge, in der die Songs der Distanzfunktion
+übergeben werden, darf keine Auswirkung auf das Ergebnis haben.
+Diese Eigenschaft wird von <em>libmunin</em> nicht überprüft &ndash;- eine
 Nichteinhaltung würde zu falschen Kanten im Graphen führen.</div></blockquote>
 <ol class="arabic" start="3">
 <li><p class="first"><em>Identität:</em></p>
 <div class="math">
-\[d(i, i) = 0.0 \forall i \in D\]</div>
+\[d(i, i) = 0 \forall i \in D\]</div>
 <p><em>Aussage:</em> Wird zweimal der selbe Song übergeben, so muss die Distanz
-immer 0.0 betragen. Autoren von Distanzfunktionen sollten dies testen.
-Werte <span class="math">\(\neq 0\)</span> deuten erfahrungsgemäß auf schlechte
+immer <span class="math">\(0\)</span> betragen. Autoren von Distanzfunktionen sollten dies
+testen.  Werte <span class="math">\(\neq 0\)</span> deuten erfahrungsgemäß auf schlechte
 Distanzfunktionen hin.</p>
 </li>
 <li><p class="first"><em>Dreiecksungleichung:</em></p>
@@ -352,7 +350,7 @@ Eigenschaft erfüllt wurde das Strafmaß eingeführt.</p>
 <a class="reference internal image-reference" href="../../_images/trineq_fixed.svg"><img src="../../_images/trineq_fixed.svg" width="95%" /></a>
 <p class="caption"><strong>(b)</strong> Mit Einhaltung der Dreiecksungleichung.</p>
 </div>
-<p class="caption"><strong>Figure 2.1:</strong> &lt;emphasis&gt;Aussage:&lt;/emphasis&gt; Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
+<p class="caption"><strong>Figure 2.1:</strong> Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
 besagt, dass der direkte Weg von A nach B kürzer sein sollte als der
 Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“ sind gleich stark
 gewichtet.  Wenn keine Straftwertung für leere Werte gegeben wird, so
