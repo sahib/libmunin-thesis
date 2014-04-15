@@ -2,12 +2,6 @@
 Algorithmen bei Providern
 #########################
 
-TODO: Documents Seite.
-TODO: Warnungen fixen
-TODO: Terms refen.
-TODO: TODOs rausmachen.
-TODO: Punkte bei :alt: entfernen.
-
 Einleitung
 ===========
 
@@ -95,8 +89,8 @@ lediglich der relevante Code von *beets* (MIT--Lizenz) nach *Python3* portiert
 der HTML--Seiteninhalt wird geparst, und die darin befindlichen Genres in eine
 Datei geschrieben: 
 
-- *List of popular music genres* TODO: LInk
-- *List of styles of music: A--F, G--M, N--R, S--Z*
+- *List of popular music genres:* :cite:`wiki:list_pop_music`
+- *List of styles of music: A--F, G--M, N--R, S--Z:* :cite:`wiki:list_az_music`
 
 Von Wikipedia kommen daher zusätzliche 1527 Einträge. Diese werden mit den
 Einträgen von *The Echonest* verschmolzen. Nach einer Entfernung von Dubletten
@@ -138,7 +132,7 @@ ist die finale Genreliste 1876 Einträge lang.
 .. _fig-tree-final:
 
 .. figure:: figs/tree_final.*
-    :alt: Der fertige Genrebaum als Ausgabe.
+    :alt: Der fertige Genrebaum als Ausgabe
     :width: 90%
     :align: center
     
@@ -146,7 +140,7 @@ ist die finale Genreliste 1876 Einträge lang.
 
 .. subfigend::
     :width: 0.72
-    :alt: Aufbau des Genrebaums in 4 Schritten.
+    :alt: Aufbau des Genrebaums in 4 Schritten
     :label: fig-tree
  
     Der Baum wird aus der Eingabe unter :num:`fig-tree-input` erzeugt indem erst
@@ -274,9 +268,6 @@ Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
 4) Nachdem alle Zweige der Rekursion zum Rekursionsstopp gefunden haben, 
    stehen alle validen Pfade, als Tupel von Indizes, in ``paths``.
 
-TODO: Hannes Barthold fb
-TODO: Aufbau der path_liste zeigen?
-
 .. _fig-match-example:
 
 .. figure:: figs/tree_match_example.*
@@ -285,14 +276,18 @@ TODO: Aufbau der path_liste zeigen?
     :align: center
 
     Beispiel-Ablauf des Zuordnungs--Algorithmus an der Eingabe ,,Alternative
-    Rock”. In den Knoten ist die jeweils die momentante Maske eingetragen, an
-    den Kanten das aktuelle Ergebnis.
+    Rock / Reggae”. In den Knoten ist die jeweils die momentante Maske eingetragen, an
+    den Kanten jeweils die aktuelle mask und der bisher gebildete Pfad. 
 
 In :num:`fig-match-example` wird ein Beispiel dieses Verfahrens mit dem Genre
-*,,Alternative Rock"* gegeben.  |br|
-Die passenden Pfade sind in diesem Fall also *Alternative* und *Alternative Rock*.
-Es ist zu bemerken, dass *Rock* allein zwar ebenfalls ein valider Pfad ist, aber 
-als eine Untermenge von *Alternative Rock* nicht in der Ergebnismenge ist.
+*,,Alternative Rock / Reggae"* gegeben.  |br| Die passenden Pfade sind in diesem
+Fall also ``Reggae {0}`` und ``Alternative Rock {2, 0}``.  Es ist zu bemerken,
+dass ``Rock {2}`` allein zwar ebenfalls ein valider Pfad ist, aber als eine
+Untermenge von ``Alternative Rock {2, 0}`` nicht in der Ergebnismenge ist.
+
+.. raw:: latex
+
+   \newpage
 
 .. _single-dist:
 
@@ -436,7 +431,7 @@ abzustimmen:
   getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.
 - Um die Ergebnisse leichter vergleichen zu können, werden die einzelnen Wörter
   nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
-  sprachsensitive *Snowball--Stemmer* verwendet (TODO link). 
+  sprachsensitive *Snowball--Stemmer* :cite:`porter2001snowball` verwendet.
 - Im Original wird der *Wort--Score* als :math:`\frac{degree(word)}{freq(word)}`
   berechnet. Der von *libmunin* berechnete *Score* gewichtet die Wortfrequenz
   stärker. Der Exponent von :math:`1.6` wurde willkürlich nach einigen Tests
@@ -477,7 +472,7 @@ Ergebnisse
 .. figtable::
    :spec: r l | r l
    :label: table-keywords
-   :alt: Extrahierte Schlüsselwörter aus verschiedenen Liedern.
+   :alt: Extrahierte Schlüsselwörter aus verschiedenen Liedern
    :caption: Extrahierte Schlüsselwörter aus dem Volkslied 
              ,,Das Wandern ist des Müllers Lust“ (links) und dem
              Beatles--Song ,,Yellow Submarine“ (rechts).
@@ -507,7 +502,7 @@ Ergebnisse
 .. figtable::
    :spec: l | l
    :label: table-lyrics-wandern
-   :alt: Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.
+   :alt: Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“
    :caption: Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.
 
    ===================================== ==================================
@@ -663,7 +658,7 @@ erwiesen:
               und ,,b“ die einzelnen Farbkanäle als Vektor, bzw. eine Menge von
               Farben. Zur Bildung der Gesamtdistanz werden die einzelnen Werte
               über einen gewichteten Mittelwert verschmolzen.
-    :alt: Auflistung der einzelnen Moodbar--Merkmale.
+    :alt: Auflistung der einzelnen Moodbar--Merkmale
 
     ==================================== ====================== ====================
     Name                                 Gewichtung             *ungewichtete* Distanzfunktion :math:`d(a, b)`
@@ -692,7 +687,7 @@ Probleme
 .. _fig-mood-yellow-submarine:
 
 .. figure:: figs/mood_yellow_submarine.*
-    :alt: Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten.
+    :alt: Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten
     :width: 100%
     :align: center
 

@@ -83,11 +83,10 @@ Ableitung von Regeln aus Mustern
 
 Hat man erstmal eine Gruppe von häufig zusammen auftretender
 Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
-Dazu teilt man das Muster in alle möglichen verschiedenen, disjunkten
-Teilmengen auf. Allerdings in maximal zwei Teilmengen.
-Diese beiden Teilmengen nimmt man als die beiden *Mengen* einer
-Assoziationsregel an und probt, mittels verschiedener *Metriken*, wie zutreffend
-diese ist. 
+Dazu teilt man das Muster in alle möglichen verschiedenen, disjunkten Teilmengen
+auf. Allerdings in maximal zwei Teilmengen.  Diese beiden Teilmengen nimmt man
+als die beiden *Mengen* einer :term:`Assoziationsregel` an und probt, mittels
+verschiedener *Metriken*, wie zutreffend diese ist. 
 
 .. figtable::
    :label: table-rules
@@ -229,7 +228,7 @@ Explizites Lernen
 
 .. figure:: figs/big_move_before_edit.png
     :alt: Graph vor dem Vergeben eines hohen Ratings.
-    :width: 100%
+    :width: 97%
     :align: center
     
     Vor dem Vergeben der Ratings.
@@ -237,15 +236,15 @@ Explizites Lernen
 .. _fig-move-after:
 
 .. figure:: figs/big_move_after_edit.png
-    :alt: Graph nach dem Vergeben eines hohen Ratings.
-    :width: 100%
+    :alt: Graph nach dem Vergeben eines hohen Ratings
+    :width: 97%
     :align: center
     
     Nach dem Vergeben der Ratings.
 
 .. subfigend::
     :width: 0.75
-    :alt: Graph vor und nach Vergeben eines hohen Ratings.
+    :alt: Graph vor und nach Vergeben eines hohen Ratings
     :label: fig-modify-moves
  
     Vor und nach dem Vergeben von einem hohen Ratings an drei Lieder 

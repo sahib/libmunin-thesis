@@ -10,8 +10,8 @@ Zur Nuztung von *libmunin*
 
 - Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
   Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
-  aus den *Tags* der Audiodateien kommen, empfiehlt es sich diese vorher mit
-  Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
+  aus den :term:`Tags` der Audiodateien kommen, empfiehlt es sich diese vorher
+  mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
   :cite:`picard`, welches im Hintergrund auf *Musicbrainz* :cite:`3A3` zugreift.
   Für schwerer zu besorgende Daten kann unter anderem auf libglyr, beets oder
   dem eingebauten ``PlyrLyricsProvider`` und ``DiscogsGenreProvider``
@@ -21,35 +21,35 @@ Zur Nuztung von *libmunin*
   übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
   Es sollten nur Lieder hinzugefügt werden, welche auch mehr als :math:`50\%` 
   angehört worden sind. 
-- Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre 
-  Zwecke konfigurierte Session--Maske verwenden. Zwar ist der Einsatz der
-  ``EasySession`` deutlich einfacher, doch ist diese mehr für den *schnellen*
-  Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht werden, 
-  die Gewichtungen der einzelnen Attribute zu ändern.
+- Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre Zwecke
+  konfigurierte :term:`Session` :term:`Maske` verwenden. Zwar ist der Einsatz
+  der ``EasySession`` deutlich einfacher, doch ist diese mehr für den
+  *schnellen* Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht
+  werden, die Gewichtungen der einzelnen Attribute zu ändern.
 
 Zur Erweiterung von *libmunin*
 ==============================
 
-Oft es ist von Interesse neue Distanzfunktionen und Provider für eigene Zwecke 
-zu schreiben. Im Folgenden werden einige Beispiele gegeben und Stolperfallen
-aufgelistet.
+Oft es ist von Interesse neue Distanzfunktionen und :term:`Provider` für eigene
+Zwecke zu schreiben. Im Folgenden werden einige Beispiele gegeben und
+Stolperfallen aufgelistet.
 
 Hinweise zum Schreiben von Distanzfunktionen
 --------------------------------------------
 
-- Wenn eine Distanzfunktion eine Menge von Elementen vergleichen muss, so
-  besteht dieselbe oft aus einem *Fusionierungsverfahren* und einer weiteren
-  *Metrik*, die die einzelnen Elemente untereinander vergleicht. 
-  Als Beispiel kann man hier den Vergleich von zwei Mengen von Wörtern nennen. 
-  Einzelne Wörter kann man relativ einfach auf Ähnlichkeit untersuchen [#f1]_.
-  Ein simples Fusionierungsverfahren wäre hier jedes Wort aus der einen Menge
-  mit jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
-  Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren nimmt statt
-  dem Durschschnitt die kleine gefundene Distanz. Hier gibt es kein richtig oder
-  falsch, je nach Einsatzzweck muss ein passendes Verfahren gewählt werden.
-  Der dazugehörige Wikipedia--Artikel bietet einen guten Überblick über
-  weitere Verfahren: :cite:`wiki:fusion`.
-
+- Wenn eine :term:`Distanzfunktion` eine Menge von Elementen vergleichen muss,
+  so besteht dieselbe oft aus einem *Fusionierungsverfahren* und einer weiteren
+  *Metrik*, die die einzelnen Elemente untereinander vergleicht.  Als Beispiel
+  kann man hier den Vergleich von zwei Mengen von Wörtern nennen.  Einzelne
+  Wörter kann man relativ einfach auf Ähnlichkeit untersuchen [#f1]_.  Ein
+  simples Fusionierungsverfahren wäre hier jedes Wort aus der einen Menge mit
+  jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
+  Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren
+  nimmt statt dem Durschschnitt die kleine gefundene :term:`Distanz`. Hier gibt
+  es kein richtig oder falsch, je nach Einsatzzweck muss ein passendes Verfahren
+  gewählt werden.  Der dazugehörige Wikipedia--Artikel bietet, unter dem Punkt
+  Fusionierungsalgorithmen, einen guten Überblick über weitere Verfahren:
+  :cite:`wiki:fusion`.
     
 - Um konsistent zu bleiben sollten alle der zuvor genannten mathematischen
   Eigenschaften einer :term:`Distanzfunktion` eingehalten werden.
@@ -117,15 +117,15 @@ Hinweise zum Schreiben von neuen Providern
 - Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
   Präprozessor zu verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
   einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit, die er dafür
-  braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.
-  Daher sollte gut abgewogen werden wieviele Daten man dem Provider produzieren
-  lässt. Im Zweifelsfall empfiehlt es sich unnötiges wegzulassen. 
-- Ist zu erwarten, dass stark redundante Daten eingepflegt werden, dann sollte
-  die Provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür
-  ist der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre
-  eine separate Speicherung desselben nicht sinnvoll. Intern bildet eine
-  bidirektionale Hashtabelle (mittels ``bidict`` :cite:`bidict`) gleiche Werte
-  auf einen Integer--Identifier ab.
+  braucht ist daher im Vergleich zur Distanzfunktion vernachlässigbar.  Daher
+  sollte gut abgewogen werden wieviele Daten man dem Provider produzieren lässt.
+  Im Zweifelsfall empfiehlt es sich unnötiges wegzulassen.  - Ist zu erwarten,
+  dass stark redundante Daten eingepflegt werden, dann sollte die
+  Provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür ist
+  der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre eine
+  separate Speicherung desselben nicht sinnvoll. Intern bildet eine
+  bidirektionale :term:`Hashtabelle` (mittels ``bidict`` :cite:`bidict`) gleiche
+  Werte auf einen Integer--Identifier ab.
 
 .. code-block:: python
 
@@ -148,17 +148,17 @@ Vergleich verschiedener Playlisten
 ==================================
 
 In Abbildung :num:`table-playlists` wird eine Auflistung verschiedener, mit
-unterschiedlichen Methoden erstellten Playlists gegeben. Dies ist insofern
+unterschiedlichen Methoden erstellten  Playlists gegeben. Dies ist insofern
 interessant, da die Struktur der von *libmunin* gegebenen Empfehlungen gewissen
 Regeln unterliegt die man als Anwendungsentwickler kennen sollte. Zudem ist der
 *subjektive* Vergleich mit anderen Systemen interessant.
 
 Der ursprüngliche Plan hier auch eine von ``last.fm`` :cite:`9NT` erstellte
-Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht auf
-die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte. 
+:term:`Playlist` zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
+auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
 Stattdessen wurde die *Konkurrenz* von *libmunin* getestet: *Mirage*
 :cite:`schnitzer2007high`. Da *Mirage* momentan nur als Plugin für Banshee
-vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die 
+vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die
 Testmusikdatenbank auch in Banshee importiert.
 
 Die Testmusikdatenbank selbst besteht aus einigen ausgewählten Alben des Autors.
@@ -166,10 +166,10 @@ Viele allgemein gebräuchliche Gneres werden dabei abgedeckt, obwohl der
 Schwerpunkt beim Genre *Rock* und *Metal* liegt.
 
 Die einzelnen Playlists wurden auf jeweils 15 Songs begrenzt. Darin enthalten
-ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum Generieren
-der Playlist genutzt wurde (*Knorkator --- Böse*). Die zufällig erstellte
-Playlist wurde als Referenz abgedruckt, damit man die dort fehlende Struktur
-sehen kann.
+ist an erster Stelle der willkürlich ausgewählte :term:`Seedsong`, der zum
+Generieren der Playlist genutzt wurde (*Knorkator --- Böse*). Die zufällig
+erstellte Playlist wurde als Referenz abgedruckt, damit man die dort fehlende
+Struktur sehen kann.
 
 **Auffälligkeiten:**
 

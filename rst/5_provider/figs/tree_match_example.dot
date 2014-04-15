@@ -6,21 +6,21 @@ digraph {
     
     subgraph {
         rank=same;
-        " †" [fillcolor="#ffaa88"]
+        "†" [fillcolor="#ffaa88"]
         "† " [fillcolor="#ffaa88"]
     }
 
     subgraph {
         rank=same;
-        "{☑, ☒}"
-        "{☒, ☑}"
+        "{☒, ☑, ☒}"
+        "{☒, ☒, ☑}"
     }
     "Start ➜" [fillcolor="#aaff88"]
 
-    "Start ➜" -> "{☒, ☒}" [label=" {☒, ☒}"]
-    "{☒, ☒}" -> "{☑, ☒}" [label="{alternative, ☒}"]
-    "{☒, ☒}" -> "{☒, ☑}" [label=" {☒, rock}"]
-    "{☒, ☑}" -> "{☑, ☑}" [label=" {rock, alternative}"]
-    "{☑, ☒}" -> "† " [label="{alternative, ☒}"]
-    "{☑, ☑}" -> " †"
+    "Start ➜" -> "{☒, ☒, ☒}" [label=" mask={☒, ☒, ☒}\npath={}"]
+    "{☒, ☒, ☒}" -> "{☒, ☑, ☒}" [label="mask={☒, Reggae, ☒}\npath={1}"]
+        "{☒, ☒, ☒}" -> "{☒, ☒, ☑}" [label="\n\n\n\n\n\nmask={☒, ☒, Rock}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\npath={2}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+    "{☒, ☒, ☑}" -> "{☑, ☒, ☑}" [label=" mask={Alternative, ☒, Rock}\npath={2, 0}"]
+    "{☒, ☑, ☒}" -> "† " [label="mask={☒, Reggae, ☒}\npath={0}"]
+    "{☑, ☒, ☑}" -> "†"
 }

@@ -57,7 +57,7 @@ auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
 .. _fig-window-sliding:
 
 .. figure:: figs/sliding_window.*
-    :alt: Schematische Darstellung des sliding_window. 
+    :alt: Schematische Darstellung des sliding_window
     :width: 100%
     :align: center
     
@@ -66,7 +66,7 @@ auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
 .. _fig-window-centering:
 
 .. figure:: figs/centering_window.*
-    :alt: Schematische Darstellung des centering_window.
+    :alt: Schematische Darstellung des centering_window
     :width: 100%
     :align: center
     
@@ -75,7 +75,7 @@ auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
 .. _fig-window-anti-centering:
 
 .. figure:: figs/anti_centering_window.*
-    :alt: Schematische Darstellung des anti_centering_window.
+    :alt: Schematische Darstellung des anti_centering_window
     :width: 100%
     :align: center
     
@@ -83,7 +83,7 @@ auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
 
 .. subfigend::
     :width: 0.5
-    :alt: Schematische Darstellungen der einzelnen Basisiterationen.
+    :alt: Schematische Darstellungen der einzelnen Basisiterationen
     :label: fig-windows
  
     Schematische Darstellungen der einzelnen Basisiterationen. Es werden jeweils
@@ -186,7 +186,7 @@ Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
 
 .. figure:: figs/graph_speed.*
    :width: 100%
-   :alt: Vergleich der Distanzberechnungen für rebuild_stupid und rebuild.
+   :alt: Vergleich der Distanzberechnungen für rebuild_stupid und rebuild
    :align: center
 
    Gegenüberstellung von verschiedenen Arten der rebuild--Operation. Auf der
@@ -259,7 +259,7 @@ eigentlichen Verbindungen werde in einem Rutsch von ``rebuild`` aufgebaut.
 
 .. subfigend::
     :width: 0.49
-    :alt: Vor und nach der remove--Operation.
+    :alt: Vor und nach der remove--Operation
     :label: fig-mini-graph-remove
 
     Vor (:num:`fig-mini-graph-remove-before`) und nach
@@ -289,7 +289,7 @@ eigentlichen Verbindungen werde in einem Rutsch von ``rebuild`` aufgebaut.
 
 .. subfigend::
     :width: 0.49
-    :alt: Vor und nach der insert--Operation.
+    :alt: Vor und nach der insert--Operation
     :label: fig-mini-graph-insert
 
     Vor (:num:`fig-mini-graph-insert-before`) und nach
@@ -319,7 +319,7 @@ eigentlichen Verbindungen werde in einem Rutsch von ``rebuild`` aufgebaut.
 
 .. subfigend::
     :width: 0.49
-    :alt: Vor und nach der modify--Operation.
+    :alt: Vor und nach der modify--Operation
     :label: fig-mini-graph-modify
 
     Vor (:num:`fig-mini-graph-modify-before`) und nach
@@ -518,24 +518,24 @@ Graphentraversierung
 ====================
 
 Um nun tatsächlich Empfehlungen abzuleiten muss der Graph traversiert werden.
-Je nach Art der Anfrage werden ein oder mehrere *Zentren* für eine Breitensuche,
-sogenannte *Seedsongs*, ausgewählt. Bei einfachen Anfragen in der Art *,,Gib
-10 ähnliche zu Song X aus"*, kann einfach der Song *X* als Seedsong angenommen
-werden. Komplexere Anfragen wie *,,Gib 10 Songs die ein Genre ähnlich Y
-haben aus"* oder *,,Empfiehl mir 10 Songs basierend auf dem Nutzerverhalten*"
-erfordern das Auswählen mehrerer Seedsongs.
+Je nach Art der Anfrage werden ein oder mehrere *Zentren* für eine
+:term:`Breitensuche`, sogenannte *Seedsongs*, ausgewählt. Bei einfachen Anfragen
+in der Art *,,Gib 10 ähnliche zu Song X aus"*, kann einfach der Song *X* als
+Seedsong angenommen werden. Komplexere Anfragen wie *,,Gib 10 Songs die ein
+Genre ähnlich Y haben aus"* oder *,,Empfiehl mir 10 Songs basierend auf dem
+Nutzerverhalten*" erfordern das Auswählen mehrerer Seedsongs.
 
 Empfehlungsiteratoren
 ---------------------
 
 In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
-Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein Iterator
-bereitgestellt welcher immer nur eine Empfehlung generiert und erst bei Zuruf
-die nächste Empfehlung dynamisch generiert. Dieses, aus der funktionalen
-Programmierung bekannte Konzept, ist sehr nützlich beim Filtern der generierten
-Empfehlungen, denn man weiß im Vornherein nicht wieviele Empfehlungen
-ausgefiltert werden. So kann der Iterator einfach so lange bemüht werden, bis 
-die gewünschte Anzahl an Empfehlungen generiert worden sind. 
+Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein
+:term:`Iterator` bereitgestellt welcher immer nur eine Empfehlung generiert und
+erst bei Zuruf die nächste Empfehlung dynamisch generiert. Dieses, aus der
+funktionalen Programmierung bekannte Konzept, ist sehr nützlich beim Filtern der
+generierten Empfehlungen, denn man weiß im Vornherein nicht wieviele
+Empfehlungen ausgefiltert werden. So kann der Iterator einfach so lange bemüht
+werden, bis die gewünschte Anzahl an Empfehlungen generiert worden sind. 
 
 Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jedem ein
 Breitensuche--Iterator erstellt. Dieser liefert erst den Seedsong, dann den

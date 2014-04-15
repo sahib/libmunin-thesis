@@ -82,7 +82,7 @@ Empfehlungen
 .. _fig-traverse-areas:
 
 .. figure:: figs/traverse_areas.*
-   :alt: Schematische Darstellung der idealen Traversierungsreihenfolge.
+   :alt: Schematische Darstellung der idealen Traversierungsreihenfolge
    :align: center
    :width: 75%
    

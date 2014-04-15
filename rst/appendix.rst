@@ -59,7 +59,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 .. _fig-graph-linear-basic:
 
 .. figure:: figs/graph_linear_basic.png
-    :alt: Nur mit ``sliding_window`` behandelte Eingabe.
+    :alt: Nur mit ``sliding_window`` behandelte Eingabe
     :width: 100%
     :align: center
     
@@ -68,7 +68,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 .. _fig-graph-linear-all:
 
 .. figure:: figs/graph_linear_all.png
-    :alt: Zusätzlich mit dem ``centering_window`` und ``anti_centering_window`` behandelt.
+    :alt: Zusätzlich mit dem ``centering_window`` und ``anti_centering_window`` behandelt
     :width: 100%
     :align: center
     
@@ -77,7 +77,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 .. _fig-graph-linear-refine:
 
 .. figure:: figs/graph_linear_refine.png
-    :alt: Zusätzliche Verfeinerungsphase.
+    :alt: Zusätzliche Verfeinerungsphase
     :width: 100%
     :align: center
     
@@ -86,7 +86,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 .. _fig-graph-linear-stupid:
 
 .. figure:: figs/graph_linear_stupid.png
-    :alt: Mittels ``rebuild_stupid`` generierter Vergleichsgraph.
+    :alt: Mittels ``rebuild_stupid`` generierter Vergleichsgraph
     :width: 100%
     :align: center
     
@@ -109,7 +109,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. figure:: figs/graph_euler_basic.png
    :width: 100%
-   :alt: Graph aus Zufallsdaten nach erster Basisiteration.
+   :alt: Graph aus Zufallsdaten nach erster Basisiteration
    :align: center
 
    Graph aus Zufallsdaten nach erster Basisiteration.
@@ -118,7 +118,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. figure:: figs/graph_euler_all.png
    :width: 100%
-   :alt: Graph aus Zufallsdaten nach allen Basisiterationen.
+   :alt: Graph aus Zufallsdaten nach allen Basisiterationen
    :align: center
 
    Graph aus Zufallsdaten nach allen Basisiterationen.
@@ -127,7 +127,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. figure:: figs/graph_euler_refine.png
    :width: 100%
-   :alt: Graph aus Zufallsdaten nach einem Verfeinerungsschritt.
+   :alt: Graph aus Zufallsdaten nach einem Verfeinerungsschritt
    :align: center
 
    Graph aus Zufallsdaten nach einem Verfeinerungsschritt.
@@ -136,7 +136,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. figure:: figs/graph_euler_stupid.png
    :width: 100%
-   :alt: Der ,,korrekte“, mittels rebuild_stupid erstellte Graph.
+   :alt: Der ,,korrekte“, mittels rebuild_stupid erstellte Graph
    :align: center
 
    Der ,,korrekte“, mittels rebuild_stupid erstellte Graph.
@@ -147,7 +147,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 
 .. figure:: figs/full_graph_small.png
    :width: 70%
-   :alt: Vollständiger Graph aus 666 Knoten (aus der Demonanwendung).
+   :alt: Vollständiger Graph aus 666 Knoten (aus der Demonanwendung)
    :align: center
 
    Auschnitt aus dem vollständigen Graph, der hinter den Empfehlungen der
@@ -209,14 +209,14 @@ vom Wurzelknoten entfernt ist, desto oranger wird er (von rot beginnend).
    \newpage
 
 .. figure:: figs/genre_graph_big.*
-   :width: 100%
+   :width: 89%
    :alt: Übersicht über alle 1876 Musikgenres. (Detailstufe: 0.0)
    :align: center
 
    Übersicht über alle 1876 Musikgenres. (Detailstufe: 0.0)
 
 .. figure:: figs/genre_graph_mid.*
-   :width: 100%
+   :width: 95%
    :alt: Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0.1)
    :align: center
 
@@ -256,7 +256,7 @@ werden: :cite:`logos`.
 
 .. figure:: figs/logo.*
    :width: 40%
-   :alt: Das 
+   :alt: Logo im quadratischen Format
    :align: center
 
    Logo im quadratischen Format.
@@ -265,7 +265,7 @@ werden: :cite:`logos`.
 
 .. figure:: figs/logo_emblem.*
    :width: 80%
-   :alt: Das
+   :alt: Logo im breiten Format. 
    :align: center
 
    Logo im breiten Format. 
