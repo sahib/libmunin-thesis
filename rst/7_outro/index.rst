@@ -96,7 +96,7 @@ Herangehensweise, ist für jeden einen Iterator zu erstellen und die einzelnen
 Iteratoren im Reißverchlussverfahren zu verweben. Das ist duchaus valide, wenn
 man annimmt, dass die *Seedsongs* im Graphen verteilt und alle gleich
 wichtig sind. Oft ballen sich Seedsongs aber auf einem bestimmten Gebiet. 
-Schematisch ist das in Abb. :num:`fig-traverse-areas` dargestellt. Besitzen zwei
+Schematisch ist das in Abbildung :num:`fig-traverse-areas` dargestellt. Besitzen zwei
 *Seedsongs* gemeinsame Nachbarn, dann sollten diese zuerst besucht werden.
 
 Auch ist das Ausgabeformat von *libmunin* noch auf einzelne Songs als

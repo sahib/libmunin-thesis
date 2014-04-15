@@ -62,7 +62,7 @@ Kontextspezifische Fachbegriffe
     Song
 
       Im Kontext von *libmunin* ist ein Song eine Menge von Attributen.  Jedem
-      :term:`Attribut` ist, wie in einer Hashtabelle, genau ein Wert zugeordnet.
+      Attribut ist, wie in einer Hashtabelle, genau ein Wert zugeordnet.
       Beispielsweise haben alle Songs ein Attribut ``artist``, aber jeder
       einzelner Song kennt dafür einen bestimmten Wert.  Desweiteren wird für
       jeden Song die Distanz zu einer Menge ähnlicher Songs gespeichert, sowie
@@ -82,13 +82,13 @@ Kontextspezifische Fachbegriffe
 
     Maske
 
-      Die :term:`Session` benötigt eine Beschreibung der Daten, die importiert
+      Die Session benötigt eine Beschreibung der Daten, die importiert
       werden. So muss sich beispielsweise darauf geeinigt werden, *was* in einem
-      :term:`Song` unter dem Schlüssel ``genre`` abgespeichert wird.
+      Song unter dem Schlüssel ``genre`` abgespeichert wird.
     
       In der *Maske* werden daher die einzelnen Attribute festgelegt, die ein
       einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
-      pro Attribut ein :term:`Provider` und eine :term:`Distanzfunktion`
+      pro Attribut ein Provider und eine Distanzfunktion
       festgelegt, die bei der Verarbeitung dieses Wertes genutzt werden. Zudem
       wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
       für die Ähnlichkeit zweier Songs entscheidender als andere.
@@ -133,7 +133,7 @@ Kontextspezifische Fachbegriffe
       die in *libmunin* geladen werden. Jeder *Provider* ist dabei durch die
       Maske einem Attribut zugeordnet.
 
-      Ihr Ziel ist für die :term:`Distanzfunktion` einfache und effizient 
+      Ihr Ziel ist für die Distanzfunktion einfache und effizient 
       vergleichbare Werte zu liefern --- da die Distanzfunktion sehr
       viel öfters aufgerufen wird als der *Provider*.
 

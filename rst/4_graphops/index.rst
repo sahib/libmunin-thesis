@@ -178,7 +178,7 @@ Komplexität.  Die einzige Ausnahme ist dabei das Vergleichen der Songs
 untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
 stets auf ein verträgliches Limit begrenzt. 
 
-Unter Abb. :num:`fig-speed-cmp` findet sich eine Gegenüberstellung von den
+Unter Abbildung :num:`fig-speed-cmp` findet sich eine Gegenüberstellung von den
 Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
 ``rebuild`` (mit und ohne *Verfeinerungsschritt*) nötig sind.
 
@@ -197,7 +197,7 @@ Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
    anderen zwei Kurven deutlich.
 
 
-Die einzelnen Schritte des Graphenaufbaus lassen sich in Abb.
+Die einzelnen Schritte des Graphenaufbaus lassen sich in Abbildung
 :num:`fig-graph-linear`, sowie bei den darauf folgenden Abbildungen,
 nachvollziehen. 
 

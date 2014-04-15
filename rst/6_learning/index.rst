@@ -257,7 +257,7 @@ Explizites Lernen
 
 Neben dem *impliziten Lernen* gibt es auch den *,,nachträglich entdeckten"*
 Mechanismus des *expliziten Lernens*. Dieser wurde bereits in Kapitel
-:ref:`ref-graphop-insert` beleuchtet. Unter Abb. :num:`fig-modify-moves` soll
+:ref:`ref-graphop-insert` beleuchtet. Unter Abbildung :num:`fig-modify-moves` soll
 dies lediglich nochmal visualisiert werden. Die dort abgebildete *Verschiebung*
 ist dadurch zu erklären, dass die ``insert``--Operation meist einen anderen zum
 Wiedereinfügen findet. 

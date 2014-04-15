@@ -168,7 +168,7 @@ Das Umwandeln selbst geschieht folgendermaßen:
 
 - Es wird manuell der Wurzelknoten *Music* angelegt.
 - Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
-  (siehe Abb. :num:`fig-tree-init`)
+  (siehe Abbildung :num:`fig-tree-init`)
 
 Nach dieser Vorarbeit wird rekusiv folgende Prozedur erledigt:
 
@@ -297,7 +297,7 @@ Vergleichen der unterschiedlichen Genrepfad--Mengen
 Um zwei einzelne Pfade miteinander zu Vergleich wird folgendermaßen vorgegangen:
 
 - Zähle die Anzahl an Punkten, in denen sich der Pfad überdeckt.
-  Für ``(192, 1, 8)`` und ``(192, 1, 2, 8)`` wäre dies :math:`2`.
+  Für `\left\{192, 1, 8\right\}` und :math:`\left\{192, 1, 2, 8\right\}` wäre dies :math:`2`.
 - Teile die Anzahl durch die Länge, des längeren beider Pfade.
 - Die daraus gewonnene Ähnlichkeit wird von :math:`1.0` abgezogen um die Distanz
   zu erhalten.
@@ -523,15 +523,15 @@ Ergebnisse
    *(oben rechts weiter)*                Und wandern.
    ===================================== ==================================
     
-In Abb. :num:`table-keywords` sind die extrahierten Schlüsselwörter aus zwei
+In Abbildung :num:`table-keywords` sind die extrahierten Schlüsselwörter aus zwei
 Liedern aufgelistet. 
 
-Zur Referenz ist unter Abb. :num:`table-lyrics-wandern` der Liedtextes des
+Zur Referenz ist unter Abbildung :num:`table-lyrics-wandern` der Liedtextes des
 Volkliedes ,,Das Wandern ist des Müllers Lust" abgedruckt. Der Text von
 *,,Yellow Subarmine"* wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.
 
-Wie man in Abb. :num:`table-keywords` sieht, werden längere Phrasen automatisch
+Wie man in Abbildung :num:`table-keywords` sieht, werden längere Phrasen automatisch
 besser bewertet --- deren *Score* berechnet sich ja aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie *aboard* trotz Stoppwortlisten
 noch in das Ergebniss aufgenommen werden.
@@ -589,7 +589,7 @@ Namensgebung des Erfinders verwendet.
     Beispiel--Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
     Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
     im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
-    durch ein eigens zu diesem Zwekc geschriebenes Script gerendert. Deutlich
+    durch ein eigens zu diesem Zweck geschriebenes Script gerendert. Deutlich
     sichtbar sind die einzelnen Pausen zwischen den Akkorden.
 
 Vergleich von Moodbars
@@ -728,7 +728,7 @@ Posten beim *Kaltstart*.
 
 - **Robustheit:** Wie man in :num:`fig-mood-yellow-submarine` sieht, ist das
   Verfahren relativ umempfdindlich gegen verschieden Enkodierungen. Selbst Live
-  und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
+  und Studioversionen zeigen gut vergleichbare Resultate (siehe Abbildung
   :num:`fig-mood-rammstein-tier`).
 - **Geringer Speicherverbrauch:** Obwohl für die Implementierung die relativ
   speicherhungrige Sprache Python benutzt wurde, nutzt der ``MoodbarProvider``

@@ -124,8 +124,8 @@ Hinweise zum Schreiben von neuen Providern
   Provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür ist
   der Künstler--Name. Dieser ist für sehr viele Songs gleich. Daher wäre eine
   separate Speicherung desselben nicht sinnvoll. Intern bildet eine
-  bidirektionale :term:`Hashtabelle` (mittels ``bidict`` :cite:`bidict`) gleiche
-  Werte auf einen Integer--Identifier ab.
+  bidirektionale :term:`Hashtabelle` (mittels des Python--Pakets ``bidict``
+  :cite:`bidict`) gleiche Werte auf einen Integer--Identifier ab.
 
 .. code-block:: python
 
@@ -173,7 +173,7 @@ Struktur sehen kann.
 
 **Auffälligkeiten:**
 
-- Bei *libmunin* wiederholt sich der Künstler *Knorkator* alle 3--3 Stücke,
+- Bei *libmunin* wiederholt sich der Künstler *Knorkator* alle 3--5 Stücke,
   da der *Filter* entsprechend eingestellt ist. Daher ist eine Wiederholung des
   Künstlers nur alle 3, und eine Wiederholung des Albums nur alle 5 Stücke
   erlaubt. Bei Mirage scheint lediglich eine direkte Wiederholung des Künstlers
