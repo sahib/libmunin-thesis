@@ -2,36 +2,42 @@
 Algorithmen bei Providern
 #########################
 
+TODO: Documents Seite.
+TODO: Warnungen fixen
+TODO: Terms refen.
+TODO: TODOs rausmachen.
+TODO: Punkte bei :alt: entfernen.
 
 Einleitung
 ===========
 
-:dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Provider und
+:dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Providern und
 Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
 vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
 übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
-Lektüre des jeweiligen Quelltextes sagt oft mehr als der separate Text. Daher
+Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separater Text. Daher
 werden im Folgenden nur die stark erklärungsbedürftigen Paare näher betrachtet.
 
 
-Genrenormalisierung und Vergleich
-=================================
+Genrenormalisierung und Vergleich von Genres
+============================================
 
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
 gibt. Oft sind sich nicht mal Menschen untereinander einig zu welchem Genre das
-Album eines Künstlers zuzuteilen ist. Ein Computer könnte höchstens erkennen wie
-ähnlich zwei Genre Beschreibungen als Zeichenketten sind. Daher ist es nötig,
+Album eines Künstlers zuzuteilen ist. Manchmal ist man sich nichtmal innerhalb
+einer einzelnen Band einig. Ein Computer könnte höchstens erkennen wie
+ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist es nötig,
 dass die einzelnen Genre--Eingaben anhand einer Sammlung von zusammengestellten
 geläufigen Genres normalisiert werden.
 
 Zusammenstellung der Gernedatenbank
 -----------------------------------
 
-Genres können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
+Musikrichtungen können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
 (*country* rock, *japanese* pop), Unteruntergenres (*western* country rock)
 --- und so weiter --- aufgeteilt werden. So lassen sich alle Genres und ihre
-jeweiligen Unter-Genres als Baum darstellen. Als imaginären Wurzelknoten nimmt
+jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
 man das allumfassende Genre *Music* an --- einfach weil sich *Music* hinter fast
 jedes Genre schreiben lässt ohne den Sinn zu verändern.
 Dieser Baum kann dann genutzt werden um beliebige Genres als *Pfad* durch den
@@ -55,13 +61,13 @@ laut ihren *FAQ* keine Genredaten:
    -- https://musicbrainz.org/doc/General_FAQ :cite:`BRAINZ_FAQ`
 
 Also musste man sich nach anderen Quellen umschauen. Das vom
-*DiscogsGenre*--Provider verwendete *Discogs* bietet zwar relativ detaillierte
+``DiscogsGenreProvider`` verwendete *Discogs* bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
 *Genre* (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
 grobe Einteilung.
 
-Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* - fast jede Band 
-ist dort vertreten und eben auch mit detaillierter Genre Information - sowie
+Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- fast jede Band 
+ist dort vertreten und eben auch mit detaillierter Genre Information --- sowie
 *The Echonest* --- einem Unternehmen welches verschiedene Dienste rund um
 Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
 Genres. 
@@ -80,15 +86,16 @@ wird kontinuierlich vom Betreiber erweitert.
 
 Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
 diese Quelle erst nachträglich nach einer Analyse des Quelltextes von *beets*
-(siehe :cite:`beets_source`) eingebaut. *Beets* hat ebenfalls das Problem, das
-Genre zu normalisieren. Daher muss dort ein entsprechender Mechanismus eingebaut
-sein. Dieser beruht, ähnlich wie hier, ebenfalls auf einem Baum [#f2]_. Um diese
-Quelle in *libmunin* zu nutzen wurde lediglich der relevante Code von *beets*
-(MIT--Lizenz) nach *Python3* portiert [#f3]_.  Von der englischen Wikipedia werden
-folgende Seiten *gescraped,* also der HTML--Seiteninhalt wird geparst, und die
-darin befindlichen Genres in eine Datei geschrieben: 
+(ein Musikmetadatenmanager, siehe :cite:`beets_source`) eingebaut. *Beets* hat
+ebenfalls das Problem, das Genre zu normalisieren. Daher muss dort ein
+entsprechender Mechanismus eingebaut sein. Dieser beruht, ähnlich wie hier,
+ebenfalls auf einem Baum [#f2]_. Um diese Quelle in *libmunin* zu nutzen wurde
+lediglich der relevante Code von *beets* (MIT--Lizenz) nach *Python3* portiert
+[#f3]_.  Von der englischen Wikipedia werden folgende Seiten *gescraped,* also
+der HTML--Seiteninhalt wird geparst, und die darin befindlichen Genres in eine
+Datei geschrieben: 
 
-- *List of popular music genres*
+- *List of popular music genres* TODO: LInk
 - *List of styles of music: A--F, G--M, N--R, S--Z*
 
 Von Wikipedia kommen daher zusätzliche 1527 Einträge. Diese werden mit den
@@ -149,8 +156,8 @@ ist die finale Genreliste 1876 Einträge lang.
     immer weiter vertieft. 
 
 Nachdem eine Liste von Genres nun vorhanden, ist muss diese noch in einem Baum
-wie in :num:`fig-tree-final` gezeigt überführt werden. 
-Begleitend werden dazu, die unter :num:`fig-tree-input` gezeigte Genre-Liste als
+wie in :num:`fig-tree-final` gezeigt, überführt werden. 
+Begleitend werden dazu, die unter :num:`fig-tree-input` gezeigte Genreliste als
 Beispieleingabe. verwendet.
 
 Der Baum sollte dabei folgende Kriterien erfüllen:
@@ -158,9 +165,9 @@ Der Baum sollte dabei folgende Kriterien erfüllen:
 - Der Pfad von einem Blattknoten (*,,Swedish"*) zum Wurzelknoten (*,,Music"*)
   sollte dabei das ursprüngliche Genre, mit dem optionalen Suffix *Music*
   ergeben *(,,Swedish--Pop--Music")*.
-- Jeder Knoten erhält eine Index, der für jede Tiefenstufe von 0 wieder
-  anfängt. So hat der Knoten *music* immer die ID 0, bei der nächsten Ebene wird
-  die ID nach alphabetischer Sortierung vergeben, *Pop* bekommt daher die 0,
+- Jeder Knoten erhält eine Index, der für jede Tiefenstufe von 0 wieder anfängt.
+  So hat der Knoten *music* immer den Index 0, bei der nächsten Ebene wird der
+  Index  nach alphabetischer Sortierung vergeben, *Pop* bekommt daher die 0,
   *Reggae* die 1, *Rock* die 2 und so weiter. 
 
 Das Umwandeln selbst geschieht folgendermaßen:
@@ -197,13 +204,13 @@ erledigt:
   2.  Bei dem momentanen Vorgehen landen unter Umständen weitere
       *,,Music"*--Knoten auf der ersten Ebene. Diese werden entfernt. 
   3.  Alle Genres die auf *,,core"* enden werden aufgebrochen und dem Knoten
-      *,,core"* auf erster Ebene hinzugefügt. Damit werden Genres wie
-      *,,Metalcore"* dem respektiven Genre (hier *,,Metal"*) unterstellt.
+      *,,core"* auf erster Ebene hinzugefügt. Damit werden meist ähnliche Genres
+      wie *,,Metalcore"* und *,,Grindcore"*  zusammengefasst.
 
 Der resultierende Baum ist im Anhang :ref:`genre-graph-vis` in verschiedenen
-Detailstufen visualisiert.  Er besitzt auf der ersten Ebene 1044 Unter-Genre. Die
-tiefste Verschachtelung erreicht das Genre *,,New Wave of new Wave"* mit einer
-Tiefe von fünf.
+Detailstufen visualisiert.  Er besitzt auf der ersten Ebene 1044 Untergenres.
+Die tiefste Verschachtelung erreicht das Genre *,,New Wave of new Wave"* mit
+einer Tiefe von fünf.
 
 Zuordnung von Genres
 --------------------
@@ -217,7 +224,7 @@ bestimmte Zeichen getrennt sind. Ein Beispiel:
     
 Jedes dieser Untergenres wird dann mittels eines regulären Ausdruckes in einzelne
 Wörter aufgeteilt. Die Wörter werden noch in die kleingeschriebene Form
-gebracht. In der Python-Listen Syntax sähe das obige Beispiel dann so aus:
+gebracht. In der Python--Listen Syntax sähe das obige Beispiel dann so aus:
 
 .. code-block:: python
 
@@ -236,22 +243,22 @@ Dazu werden zuerst folgende Variablen initialisiert:
     ``paths``          Eine leere lineare Liste mit Pfaden. Dient als Speicher für Resultate.         
     ``mask``           Eine Liste mit Wahrheitswerten. Genauso lang wie die Wortliste. |br|
     |nbsp|             Die Wahrheitswerte werden mit *False* initialisiert. |br|          
-    |nbsp|             Die Liste wird genutzt um gefunden Wörter an  |br|
+    |nbsp|             Die Liste wird genutzt um gefundene Wörter an  |br|
     |nbsp|             dem entsprechenden Index *,,abzuhaken"*.  
-    ``path_result``    Eine Liste die an die nächste Rekursionsstufe weitergegeben wird. |br|          
+    ``path_result``    Eine Liste, die an die nächste Rekursionsstufe weitergegeben wird. |br|          
     |nbsp|             Sie speichert die Indizes des momentan aufgebauten Pfades. |br|
     |nbsp|             Anfangs initialisiert auf ein leere Liste.                                                                   
     ================== ======================================================================================= 
 
 Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
 
-1) Finde alle Kinder von ``root``, deren Untergenre in der Wortliste vorkommen. 
+1) Finde alle Kinder von ``root``, deren Untergenres in der Wortliste vorkommen. 
    Wenn das entsprechende Untergenre noch nicht in ``mask`` abgehakt wurde, wird
    es in einer temporären Liste vermerkt.
 
-2) Ist diese temporäre Liste dann  leer und die ``path_result`` Liste nicht
-   leer, so wird die ``path_result`` Liste zur ``paths`` Liste hinzugefügt.
-   Trifft dieser Fall ein ist dieser Zweig der Rekursion beendet.
+2) Ist diese temporäre Liste dann  leer und die ``path_result``--Liste nicht
+   leer, so wird die ``path_result``--Liste zur ``paths``--Liste hinzugefügt.
+   Trifft dieser Fall ein, so ist dieser Zweig der Rekursion beendet.
 
 3) Es wird über jedes Kindelement in der temporären Liste iteriert. Bei jeder
    Iteration wird:
@@ -264,8 +271,11 @@ Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
    C) Das Kind wird als neuer Wurzelknoten angenommen und es wird wie bei 1)
       weitergemacht.  
 
-4) Nach dem alle Zweige der Rekursion zum Rekursionsstopp gefunden haben, 
-   stehen alle validen Pfade als Tupel von Indizes in ``paths``.
+4) Nachdem alle Zweige der Rekursion zum Rekursionsstopp gefunden haben, 
+   stehen alle validen Pfade, als Tupel von Indizes, in ``paths``.
+
+TODO: Hannes Barthold fb
+TODO: Aufbau der path_liste zeigen?
 
 .. _fig-match-example:
 
@@ -281,23 +291,23 @@ Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
 In :num:`fig-match-example` wird ein Beispiel dieses Verfahrens mit dem Genre
 *,,Alternative Rock"* gegeben.  |br|
 Die passenden Pfade sind in diesem Fall also *Alternative* und *Alternative Rock*.
-Es ist zu bemerken dass *Rock* allein zwar ebenfalls ein valider Pfad ist, aber 
+Es ist zu bemerken, dass *Rock* allein zwar ebenfalls ein valider Pfad ist, aber 
 als eine Untermenge von *Alternative Rock* nicht in der Ergebnismenge ist.
 
 .. _single-dist:
 
-Vergleichen der unterschiedlichen Genre-Pfade-Mengen
-----------------------------------------------------
+Vergleichen der unterschiedlichen Genrepfad--Mengen
+---------------------------------------------------
 
 Um zwei einzelne Pfade miteinander zu Vergleich wird folgendermaßen vorgegangen:
 
-- Zähle die Anzahl an Punkten in denen sich der Pfad überdeckt.
+- Zähle die Anzahl an Punkten, in denen sich der Pfad überdeckt.
   Für ``(192, 1, 8)`` und ``(192, 1, 2, 8)`` wäre dies :math:`2`.
-- Teile die Anzahl durch die Länge des längeren beider Pfade.
+- Teile die Anzahl durch die Länge, des längeren beider Pfade.
 - Die daraus gewonnene Ähnlichkeit wird von :math:`1.0` abgezogen um die Distanz
   zu erhalten.
 
-In *libmunin* sind zwei Distanzfunktionen erhalten welche diese Methode nutzt um
+In *libmunin* sind zwei Distanzfunktionen erhalten, welche diese Methode nutzt um
 zwei Mengen mit Genrepfaden zu vergleichen.
 
 ``GenreTree``: Vergleicht jeden Genrepfad in den Mengen *A* und *B* mittels oben
@@ -305,11 +315,11 @@ genannter Methode miteinander. Die minimalste Distanz wird zurückgegeben.  Als
 Optimierung wird frühzeitig abgebrochen wenn eine Distanz von :math:`0`
 erreicht wird.
 
-Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen wie sie in
-vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als *rock* oder
+Diese Distanzfunktion eignet sich für eher kurze Genre-Beschreibungen, wie sie
+in vielen Musiksammlungen vorkommen. Meist ist dort ein Lied als *rock* oder
 *metal* eingetragen, ohne Unterscheidung von Untergenres. Deshalb geht diese
 Distanzfunktion davon aus wenige Übereinstimmungen zu finden --- sollten welche
-vorkommen werden diese gut bewertet.
+vorkommen, so werden diese gut bewertet.
 
 Setzt man voraus, dass *d* die unter :ref:`single-dist` erwähnte Distanzunktion
 ist,  so berechnet sich die finale Distanz durch:
@@ -330,7 +340,7 @@ Mächtigkeit besitzen, dann gilt hier:
 
 Diese Distanzfunktion eignet sich für *,,reichhaltig"* befüllte
 Genrebeschreibungen, bei denen auch ein oder mehrere Untergenres vorhanden sind.
-Ein Beispiel dafür wäre: ``country rock / folk / rockabilly``. Die
+Ein Beispiel dafür wäre: *,,Country Rock/Folk/Rockabilly"*. Die
 Distanzfunktion geht also davon aus zumindest teilweise Überdeckungen in den
 Daten vorzufinden. |br|
 Je nach Daten die es zu verarbeiten gilt, kann der Nutzer der Bibliothek eine
@@ -339,17 +349,18 @@ passende Distanzunktion auswählen.
 Probleme
 --------
 
-Insgesamt funktioniert dieser Ansatz relativ gut, die meisten Genre werden
-zufriedenstellend in Pfade normalisiert die performant verglichen werden können.
+Insgesamt funktioniert dieser Ansatz relativ gut. Die meisten Genre werden
+zufriedenstellend in Pfade normalisiert, die performant verglichen werden können.
 
 Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
-Es wird davon ausgegangen, dass Genres die ähnlich sind auch ähnlich heißen -
-eine Annahme die zwar oft, aber nicht immer wahr ist. So sind die Genres
-*Alternative Rock* und *Grunge* sehr ähnlich - der obige Ansatz würde hier
+Es wird davon ausgegangen, dass Genres die ähnlich sind auch ähnlich heißen.
+Eine Annahme, die zwar oft, aber nicht immer wahr ist. So sind die Genres
+*Alternative Rock* und *Grunge* sehr ähnlich --- der obige Ansatz würde hier
 allerdings eine Distanz von :math:`0` liefern. Auch Genres wie *,,Rock'n'Roll*
-würde ähnlich schlechte Resultate liefern.
+würde ähnlich schlechte Resultate liefern, da sie kaum sinnvoll aufgebrochen
+werden können.
 
-Eine mögliche Lösung wäre eine Liste von ,,Synonymen" Genres die
+Eine mögliche Lösung wäre eine Liste von *,,synonymen"* Genres die
 Querverbindungen im Baum erlauben würden.  Allerdings wäre eine solche Liste von
 Synonymen relative schwer automatisch zu erstellen. 
 
@@ -362,13 +373,14 @@ um Lieder, die änhlichen *Themen* behandeln näher beieinander im Graphen zu
 gruppieren. Sollten zwei Lieder nicht die selben Themen behandeln, so soll sich
 zumindest die gleiche Sprache sich positiv auf die Distanz auswirken.
 
-Um die Themen effizient zu vergleichen extrahiert *libmunin* aus den Liedtexten
+Um die Themen effizient zu vergleichen, extrahiert *libmunin* aus den Liedtexten
 die wichtigsten *Schlüsselwörter* mittels des ``KeywordProviders``. Diese
 Phrasen sollen den eigentlichen Inhalt möglichst gut approximieren, ohne dabei
 schwer vergleichbar zu sein.
 
 *Anmerkung:* Im Folgenden ist von *Schlüsselwörtern* die Rede. Ein einzelnes
-*Schlüsselwort* kann aber aus mehreren Wörtern bestehen.
+*Schlüsselwort*, wie *,,dunkle Schwingen"*, kann aber aus mehreren Wörtern
+bestehen.
 
 Der RAKE--Algorithmus
 ---------------------
@@ -383,18 +395,18 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
 
 *Beschreibung des RAKE--Algorithmus:*
 
-1) Aufteilung des Eingabetextes in Sätze anhand von Interpunktion und
+1) Aufteilung des Eingabetextes in Sätze, anhand von Interpunktion und
    Zeilenumbrüchen.
-2) Extrahierung der *Phrasen* aus den Sätzen.  Ein *Phrase* ist hier definiert
-   als eine Sequenz von Nichtstoppwörtern.  Um Stoppwörter zu erkennen muss eine
-   von der Sprache abhängige Stoppwortliste geladen werden. Zu diesem Zweck hat
-   *libmunin* 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
+2) Extrahierung der *Phrasen* aus den Sätzen.  Eine *Phrase* ist hier definiert
+   als eine Sequenz von Nichtstoppwörtern.  Um Stoppwörter zu erkennen, muss
+   eine von der Sprache abhängige Stoppwortliste geladen werden. Zu diesem Zweck
+   hat *libmunin* 17 Stoppwortlisten in verschiedenen Sprachen eingebaut. Die
    Sprache selbst wird durch das Python Modul ``guess-language-spirit``
    :cite:`guess_language` anhand verschiedener Sprachcharakteristiken
    automatisch erraten. Zudem werden lange Wörter mittels ``PyEnchant``
-   :cite:`pyenchant` mittels eines Wörterbuchs nachgeschlagen um die Sprache
-   rauszufinden falls die ``Enchant``--Bibliothek :cite:`enchant` installiert
-   ist .
+   :cite:`pyenchant` in einem Wörterbuchs nachgeschlagen um die Sprache
+   rauszufinden sofern die ``Enchant``--Bibliothek samt Wörterbuch für die
+   entsprechende Sprache :cite:`enchant` installiert ist .
 3) Berechnung eines *Scores* für jedes Wort in einem Phrase aus dem *Degree* und
    der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen):
 
@@ -415,46 +427,46 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
    Phrasen werden absteigend sortiert als *Schlüsselwörter* ausgegeben.
    *Schlüsselwörter* mit einem *Score* kleiner :math:`2.0` werden ausgesiebt.
 
-Es wurde zudem einige Änderungen zum in :cite:`berry2010text` vorgestellten
+Es wurden zudem einige Änderungen zum in :cite:`berry2010text` vorgestellten
 Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
 abzustimmen:
 
 - Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
-  meisten Liedtexte sind bestehen aus einzelnen Versen, die nicht durch Punkte
+  meisten Liedtexte bestehen aus einzelnen Versen, die nicht durch Punkte
   getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.
-- Um die Ergebnisse leichter vergleichen zu können werden die einzelnen Wörter
+- Um die Ergebnisse leichter vergleichen zu können, werden die einzelnen Wörter
   nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
-  sprachsensitive *Snowball--Stemmer* verwendet (link). 
+  sprachsensitive *Snowball--Stemmer* verwendet (TODO link). 
 - Im Original wird der *Wort--Score* als :math:`\frac{degree(word)}{freq(word)}`
   berechnet. Der von *libmunin* berechnete *Score* gewichtet die Wortfrequenz
   stärker. Der Exponent von :math:`1.6` wurde willkürlich nach einigen Tests
-  gewählt: Mit diesem Exponent erscheint der Schlüsselphrase *Yellow Submarine*
+  gewählt: Mit diesem Exponent erscheint das Schlüsselwort *Yellow Submarine*
   an erster Stelle im Liedtext von *,,Yellow Submarine"* der *Beatles*.
-- Da sich viele Ausdrücke in Liedtexten wiederholen kamen während der
+- Da sich viele Ausdrücke in Liedtexten wiederholen, kamen während der
   Entwicklung viele Schlüsselwörter in verschiedenen Variationen mehrmals vor.
-  Oft waren diese dann eine Untermenge einer anderen Schlüsselphrase (Beispiel:
+  Oft waren diese dann eine Untermenge eines anderen Schlüsselwortes (Beispiel:
   *Yellow* und *Submarine* sind ein Teil von *Yellow Submarine*). Daher werden
-  in einem nachgelagerten Schritt diese redundante Phrasen entfernt.
+  in einem nachgelagerten Schritt diese redundanten Phrasen entfernt.
 - Die Wortfrequenz ist im Original unabhängig von der Länge des Wortes. Diese
   Änderung gewichtet längere Wörter stärker, unter der gewagten Annahme, dass
   längere Wörter auch wichtiger sind.
   
-*Vergleich der einzelnen Schlüsselphrasenmengen:*
+**Vergleich der einzelnen Schlüsselphrasenmengen:**
 
 Die einzelnen Mengen von Schlüsselwörter werden unter der Prämisse verglichen,
-dass exakte Übereinstimmungen selten sind.
+dass exakte Übereinstimmungen, durch den riesigen Wortschatz, selten sind.
 
 - Zu einem Drittel geht der Vergleich der Sprache in die Distanz ein. Ist die
-  Sprache gleich so wird hier eine Teildistanz von :math:`1` angeommen,
+  Sprache gleich, so wird hier eine Teildistanz von :math:`1` angenommen,
   andernfalls ist die Gesamtdistanz :math:`0`, da dann auch ein Vergleich der
   einzelnen Schlüsselwörter nicht mehr sinnvoll ist.
 - Die restlichen zwei Drittel errechnen sich aus der Übereinstimmung der
-  Schlüsselphrasen. Für zwei Schlüsselwörter *A* und *B* errechnet sich die
-  Distanz folgendermaßen:
+  Schlüsselwörter. Für zwei Schlüsselwörter (eine Menge von Wörtern) *A* und *B*
+  errechnet sich die Distanz folgendermaßen:
 
   .. math::
 
-      1 - \frac{\vert A\cup B\vert}{max\left\{\vert A\vert, \vert B\vert\right\}}
+      d_{kwd}(A, B) = 1 - \frac{\vert A\cup B\vert}{max\left\{\vert A\vert, \vert B\vert\right\}}
 
   Alle Schlüsselwörter werden damit untereinander verglichen. Die minimalste
   dabei gefundene Distanz ist die finale Teildistanz.
@@ -562,15 +574,15 @@ der Beats--Per--Minute Bestimmung als einfache Form der Audioanalyse eingesetzt.
 Kurz zusammengefasst wird dabei ein beliebiges Audiostück zeitlich in 1000
 Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB--Tripel)
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
-Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil hohen
-Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere Frequenzen in
-einem Block hin --- E--Gitarren haben häufig diese Farbe in der Moodbar.
+Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil von
+hohen Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere Frequenzen
+in einem Block hin --- E--Gitarren haben häufig diese Farbe in der Moodbar.
 Akustikgitarren erscheinen dafür meist in einem dunklem Rot.
 
 Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
-keineswegs die subjektive Stimmung in einem Lied herauslese. Lediglich die
+keineswegs die subjektive Stimmung in einem Lied herauslesen. Lediglich die
 Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
-Autors sollte man das Verfahren daher eher *,,frequencebar"* oder ähnliches
+Autors sollte man das Verfahren daher eher *,,frequencebar"* oder Ähnliches
 nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
 Namensgebung des Erfinders verwendet.
 
@@ -592,19 +604,19 @@ Das Vergleichen verschiedener Moodbars gestaltet sich aufgrund der hohen
 Länge der einzelnen RGB--Vektoren als schwierig. In einem vorgelagerten
 Analyseschritt wird daher versucht, die markanten Merkmale der einzelnen
 Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
-Moodbar--Provider getätigt.
+``MoodbarProvider`` getätigt.
  
 Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
 aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
 ursprüngliche 1000 Werte lange Vektor in (momentan) 20 einzelne, *handlichere*
-Werte aufteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
+Werte aufgeteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
 das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend ist.
 
 Nach einigen subjektiven Tests haben sich folgende Merkmale als *vergleichbar*
 erwiesen:
 
 * **Differenzsumme:** Für jeden Farbkanal wird die Summe der Differenzen zu den
-  jeweiligen vorherigen Blockwert gebildet (C ist der heweilige Farbkanal):
+  jeweiligen vorherigen Blockwert gebildet (C ist der jeweilige Farbkanal):
 
   .. math::
 
@@ -613,19 +625,19 @@ erwiesen:
   Dieser Wert soll die grobe *,,Sprunghaftigkeit"* des Liedes beschreiben.
   Ändern sich die Werte für diesen Farbkanal kaum, so ist der Wert niedrig. 
   Liegen hohe Änderungen zwischen jedem Block vor, so steigt dieser Wert bis zu
-  seinem Maximalen Wert von :math:`(20 - 1) \times 255 = 4845`.
+  seinem maximalen Wert von :math:`(20 - 1) \times 255 = 4845`.
 
 * **Histogramm:** Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
-  Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von 5 möglichen
-  Bereichen, die jeweils 51 Werte umfassen, aufgeteilt. 
+  Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von fünf
+  möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt. 
   So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
   der Frequenzen abgespeichert.
 
-* **Dominaten Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
+* **Dominanten Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
   Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
   kann man sich beim Vergleichen zu Nutze machen, denn ähnliche Instrumente
   (ergo bestimmte, charakteristische Farben) deuten auf ähnliche Musikstile hin.
-  Der Moodbar--Provider teilt daher jeden Farbkanal in 15er--Schritten in
+  Der ``MoodbarProvider`` teilt daher jeden Farbkanal in 15er--Schritten in
   einzelne Bereiche auf. Jede Farbkombination wird dann einem dieser Bereich
   zugeordnet. Die 15 am häufigsten zusammen vorkommenden Tripel werden
   abgespeichert.
@@ -634,11 +646,11 @@ erwiesen:
   gezählt, sondern auf einen *Schwarzanteil*--Zähler aufaddiert.  Geteilt durch
   1000 ergibt sich daraus der Anteil des Liedes, der (beinahe) *still* ist.
 
-* **Durschnittliches Minimun/Maximum:** Von jedem Block wird das Minimum/Maximum
+* **Durchschnittliches Minimun/Maximum:** Von jedem Block wird das Minimum/Maximum
   bestimmt.  Die Summe über jeden so bestimmten Wert, geteilt durch die Anzahl
   der Blöcke ergibt das durschnittliche Minimun/Maximum. Für jeden Farbkanal
-  ergibt sich so ein Wert, der zwischen :math:`0` und :math:`255` lieget, der
-  aussagt, in welchem Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal
+  ergibt sich so ein Wert, der zwischen :math:`0` und :math:`255` liegt. Dieser
+  sagt aus, in welchem Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal
   bewegen. 
 
 .. figtable::
@@ -665,7 +677,7 @@ erwiesen:
     ==================================== ====================== ====================
 
 In :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte gegeben,
-die der Moodbar--Provider generiert. Daneben werden auch die entsprechenden
+die der ``Moodbar-Provider`` generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
 Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
 
@@ -702,11 +714,11 @@ Probleme
 
 Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum Vergleichen von
 Audiodaten ausgelegt war und vom Autor lediglich dafür *,,missbraucht"* wurde.
-Wichtige Informationen wie die eigentliche Stimmung in dem Lied (von dunkel bis
-positiv) bis hin zur Rhythmus des Liedes lassen sich nicht davon ablesen.
+Wichtige Informationen wie die eigentliche Stimmung in dem Lied (von *dunkel*
+bis *positiv)* bis hin zur Rhythmus des Liedes lassen sich nicht davon ablesen.
 Lediglich die durchschnittliche Geschwindigkeit wird vom ``BPMProvider``
-erfasst.  Daher ist der ``MoodbarProvider`` momentan eher als *Notbehelf* zu
-sehen.
+erfasst. Dieser muss aber die ganze Datei noch einmal zusätzlich dekodieren.
+Daher ist der ``MoodbarProvider`` momentan eher als *Notbehelf* zu sehen.
 
 Zudem ist die Geschwindigkeit der Audioanalyse eher dürftig. Geht das 
 Analysieren des RGB--Vektors an sich vergleichsweise schnell, so ist die
@@ -714,7 +726,8 @@ Generierung desselben zeitlich aufwendig. Bei MP3--enkodierten Dateien dauerst
 dies, je nach Größe, bis zu 4 Sekunden. Die Dauer variiert dabei je nach Format.
 FLAC--enkodierte Dateien brauchen oft lediglich die Hälfte dieser Zeit. In
 beiden Fällen ist die Anwendung bei einer mehreren zehntausend Lieder
-umfassenden Sammlung aufwendig.
+umfassenden Sammlung sehr aufwendig. Neben der Liedtextsuche ist dies der größte
+Posten beim *Kaltstart*.
 
 *Vorteile sind hingegen:*
 
@@ -723,17 +736,17 @@ umfassenden Sammlung aufwendig.
   und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
   :num:`fig-mood-rammstein-tier`).
 - **Geringer Speicherverbrauch:** Obwohl für die Implementierung die relativ
-  speicherhungrige Sprache Python benutzt wurde, nutzt der Moodbar--Provider
-  lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen -10 bis
-  255 im Speicher hält und der Moodbar--Provider nur Zahlen in diesem Bereich
-  erzeugt reichen hier 8 Byte für eine Referenz auf einen Integer aus. 
+  speicherhungrige Sprache Python benutzt wurde, nutzt der ``MoodbarProvider``
+  lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen --10 bis
+  255 im Speicher hält und der ``MoodbarProvider`` nur Zahlen in diesem Bereich
+  erzeugt, reichen hier 8 Byte für eine Referenz auf einen Integer aus. 
 
 .. rubric:: Footnotes
 
 .. [#f1] Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er
    sollte nicht für andere Zwecke verwendet werden.
 
-.. [#f2] Anmerkung: Die Idee entstand allerdings ohne Kenntnis von *beets*.
+.. [#f2] *Anmerkung:* Die Idee entstand allerdings ohne Kenntnis von *beets*.
 
-.. [#f3] Sollte *beets* je nach Python :math:\gt 3.0` portiert werden, so wird
-         der Autor den *beets* Autoren gern einen Patch zusenden.
+.. [#f3] Sollte *beets* je nach Python :math:`\ge 3.0` portiert werden, so wird
+         der Autor den *beets*--Autoren gern einen Patch zusenden.

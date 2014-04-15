@@ -19,25 +19,24 @@ Folgende visuelle Aspekte sind mit Informationen besetzt:
 - *Knotenfarbe:* Zeigt grob die Zentralität des Knoten an. Bietet lediglich eine
   optische Navigationshilfe um auf Cluster hinzuweisen.
 - Der visuelle Abstand zwischen zwei Knoten hat *keine* Aussagekraft, auch wenn
-  ähnliche Knoten oft nah beieinander sind.
+  ähnliche Knoten oft nah beieinander liegen.
 
 Die Abbildungen :num:`fig-graph-linear-basic` bis :num:`fig-graph-linear-stupid`
 und :num:`fig-graph-euler-basic` bis :num:`fig-graph-euler-stupid` zeigen den
 Aufbau des Graphen anhand von linearen und pseudozufälligen generierten
-Testdaten mit jeweils 100, beziehungsweise 200 Knoten.
-Abbildung :num:`fig-graph-full` zeigt einen realen, praktischen Graphen
-mittlerer Größe mit 666 Knoten. Die Liedtitel wurden jeweils an die Knoten
-geschrieben.
+Testdaten mit jeweils 100, beziehungsweise :math:`200` Knoten.  Abbildung
+:num:`fig-graph-full` zeigt einen realen, praktischen Graphen mittlerer Größe
+mit :math:`666` Knoten. Die Liedtitel wurden jeweils an die Knoten geschrieben.
 
-Bei den linearen Testdaten werden die Zahlen von 1 bis 100 aufsteigend jedem
-neuen Knoten gegeben. Das Resultat sollte im optimalen Fall daher eine Kette von
-Knoten zeigen deren Knotennummer von einem Ende zum anderen immer weiter steigt.
-Die pseudozufälligen Testdaten mischen die erwähnten linearen Daten mit
-zusätzlichen zufällig erscheineden Daten gleicher Anzahl. Diese sind zum größten
-Teil auf den Bereich 25--75 aufgeteilt. Es sollte ein Graph entstehen der
-ähnliche linear ist, aber in der Mitte eine *,,Verdichtung"* aufweist.
-Beides sind Testdaten, die häufig zum Testen von *libmunin* genutzt worden, da
-sie spezielle Extremfälle gut testen.
+Bei den linearen Testdaten werden die Zahlen von :math:`1` bis :math:`100`
+aufsteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
+daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
+Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
+erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
+Anzahl.  Diese sind zum größten Teil auf den Bereich 25--75 aufgeteilt. Es
+sollte ein Graph entstehen der ähnlich linear ist, aber in der Mitte eine
+*,,Verdichtung"* aufweist.  Beides sind Testdaten, die häufig zum Testen von
+*libmunin* genutzt worden, da sie spezielle Extremfälle gut testen.
 
 Plotting der Graphen
 --------------------
@@ -161,9 +160,9 @@ Bilder des Genregraphen
 =======================
 
 Der Vollständigkeit halber wird hier auch eine Visualisierung des Genre--Graphen
-gezeigt. Daraus kann man zwar keine *,,Neuen Erkenntnisse"* ziehen, doch kann er
+gezeigt. Daraus kann man zwar keine *,,neuen Erkenntnisse"* ziehen, doch kann er
 in der weniger detaillierten Version zumindest als Überblick über die einzelnen
-Genres dienen. Die detailliertere Version führt einen vor Auge wieviel einzelne
+Genres dienen. Die detailliertere Version führt einem vor Auge wieviel einzelne
 Musikgenres mit der Zeit entstanden sind.  Die Graphen wurden mit dem freien
 Graphenvisualisierungspaket ``Graphviz`` :cite:`graphviz` generiert. Das
 Vorgehen soll hier dokumentiert werden.
