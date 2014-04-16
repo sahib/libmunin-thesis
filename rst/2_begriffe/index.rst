@@ -98,19 +98,19 @@ Kontextspezifische Fachbegriffe
 
       Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs mit
       einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
-      der beiden Mengen miteinander gehört wird, dann ist es *wahrscheinlich*,
+      der beiden Mengen miteinander gehört wird, dann ist es wahrscheinlich,
       dass auch die andere Menge daraufhin angehört wird.  Regeln werden aus dem
       Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied, das der Nutzer
-      anhört in einer *Historie* zwischengespeichert.
+      anhört, in einer *Historie* zwischengespeichert.
       Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
       Regel ein *Rating* berechnet.
 
-      *Anmerkung:* Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
+      *Anmerkung:* Im allgemeinen Gebrauch sind Assoziationsregeln nur in eine
       Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
-      Einfachkeit allerdings *bidirektional.*  So gilt nicht nur, dass man
+      Einfachkeit allerdings bidirektional. So gilt nicht nur, dass man
       wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
       \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
-      Ein praktisches, natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler 
+      Ein natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler 
       essen Cornflakes. Diese Regel besagt, dass der größte Teil der
       Basketballspieler Cornflakes isst, aber nicht, dass die meisten
       Cornflakes--Esser Basketballspieler sind. Da bei *libmunin* auf beiden
@@ -191,20 +191,18 @@ Kontextspezifische Fachbegriffe
 
          *Aussage:* Wird zweimal der selbe Song übergeben, so muss die Distanz
          immer :math:`0` betragen. Autoren von Distanzfunktionen sollten dies
-         testen.  Werte :math:`\neq 0` deuten erfahrungsgemäß auf schlechte
-         Distanzfunktionen hin. 
+         testen.  Werte :math:`\neq 0` deuten auf fehlerhafte Distanzfunktionen
+         hin. 
 
       4) *Dreiecksungleichung:* 
          
          .. math::
 
-            d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D 
+            d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D, i \neq j \neq x
 
          In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
          zwischen zwei Songs immer kürzer oder gleich lang wie der Umweg über
-         den dritten Song sein. Dies ist in :num:`fig-trineq` gezeigt. 
-         Damit die Gewichtung der einzelnen Distanzen in die Oberdistanzen diese
-         Eigenschaft erfüllt wurde das Strafmaß eingeführt.
+         den dritten Song sein. Dies ist in Abbildung :num:`fig-trineq` gezeigt. 
 
       .. subfigstart::
 
@@ -230,7 +228,7 @@ Kontextspezifische Fachbegriffe
           :label: fig-trineqs
  
           Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
-          besagt, dass der direkte Weg von A nach B kürzer sein sollte als der
-          Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“ sind gleich stark
-          gewichtet.  Wenn keine Straftwertung für leere Werte gegeben wird, so
-          sind die Umwege manchmal kürzer.
+          besagt, dass der direkte Weg von A nach B kürzer oder gleich lang sein
+          sollte als der Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“
+          sind gleich stark gewichtet.  Wenn keine Straftwertung für leere Werte
+          gegeben wird, so sind die Umwege manchmal kürzer.
