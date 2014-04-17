@@ -33,9 +33,8 @@ Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn *in eine Richtung*
 Als Ersatz wird zu dem neuen, besseren Song, eine bidirektionale Verbindung
 aufgebaut. Da die Verbindung zum schlechtesten Song nur unidirektional abgebaut
 wird, ist die Anzahl der Nachbarn eines Songs nicht auf ein Maximum begrenzt,
-da das Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt.
-
-TODO: letzten satz klären.
+da das Hinzufügen neuer Songs *,,Einbahnstraßen"* hinterlässt. Jedes neue
+Einfügen kann schließlich Einbahnstraßen hinterlassen.
 
 Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
 Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
@@ -183,6 +182,10 @@ Unter Abbildung :num:`fig-speed-cmp` findet sich eine Gegenüberstellung von den
 Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
 ``rebuild`` (mit und ohne *Verfeinerungsschritt*) nötig sind.
 
+Die einzelnen Schritte des Graphenaufbaus lassen sich in Abbildung
+:num:`fig-graph-linear`, sowie bei den darauf folgenden Abbildungen,
+nachvollziehen. 
+
 .. _fig-speed-cmp: 
 
 .. figure:: figs/graph_speed.*
@@ -197,9 +200,6 @@ Aufrufen der Distanzfunktion, die bei ``rebuild_stupid`` und beim normalen
    Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
    anderen zwei Kurven deutlich.
 
-Die einzelnen Schritte des Graphenaufbaus lassen sich in Abbildung
-:num:`fig-graph-linear`, sowie bei den darauf folgenden Abbildungen,
-nachvollziehen. 
 
 ``fixing:`` Umbauen von Einbahnstraßen
 --------------------------------------
@@ -519,29 +519,32 @@ Um nun tatsächlich Empfehlungen abzuleiten, muss der Graph traversiert werden.
 Je nach Art der Anfrage werden ein oder mehrere *Zentren* für eine
 :term:`Breitensuche`, sogenannte *Seedsongs*, ausgewählt. Bei einfachen Anfragen
 in der Art *,,Gib 10 ähnliche zu Song X aus"*, kann einfach der Song *X* als
-Seedsong angenommen werden. Komplexere Anfragen wie *,,Gib 10 Songs aus, die ein
-Genre ähnlich Y haben * oder *,,Empfiehl mir 10 Songs basierend auf dem
-Nutzerverhalten*" erfordern das Auswählen mehrerer Seedsongs.
+Seedsong angenommen werden.  Komplexere Anfragen benötigen allerdings mehr als
+einen Seedsong:
+
+- *,,Gib 10 Songs aus, die ein Genre ähnlich Y haben"*
+- *,,Empfiehl mir 10 Songs basierend auf dem Nutzerverhalten*"
 
 Empfehlungsiteratoren
 ---------------------
 
 In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
 Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein
-:term:`Iterator` bereitgestellt, welcher immer nur eine Empfehlung generiert und
-erst beim nächsten Aufruf die nächste Empfehlung dynamisch generiert. Dieses,
-aus der funktionalen Programmierung bekannte Konzept, ist sehr nützlich beim
-Filtern der generierten Empfehlungen, denn man weiß im Vornherein nicht wieviele
-Empfehlungen ausgefiltert werden. So kann der Iterator einfach so lange bemüht
-werden, bis die gewünschte Anzahl an Empfehlungen generiert worden sind. 
+:term:`Iterator` bereitgestellt, welcher immer nur eine Empfehlung generiert.
+Erst beim nächsten Aufruf wird die nächste Empfehlung dynamisch generiert.
+Dieses, aus der funktionalen Programmierung als *,,Layz Evaluation"* bekannte,
+Konzept ist sehr nützlich beim Filtern der generierten Empfehlungen. Denn man
+weiß im Vornherein nicht, wieviele Empfehlungen ausgefiltert werden. So kann der
+Iterator einfach so lange bemüht werden, bis die gewünschte Anzahl an
+Empfehlungen generiert worden sind. 
 
 Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jeden ein
 Breitensuche--Iterator erstellt. Dieser liefert erst den Seedsong, dann den
 besten Nachbarn, dann den nächst schlechteren Nachbarn und später geht es mit den
 indirekten Nachbarn weiter.  Diese Liste von Iteratoren wird dann im
-Round--Robin--Verfahren ineinander verwebt. Dabei wird je der
-erste Iterator in der Liste angestoßen, dann immer wieder der nächste um wieder
-am Anfang zu beginnen.
+Round--Robin--Verfahren ineinander verwebt. Dabei wird erst der erste Iterator
+in der Liste genutzt, dann der Nächste. Ist man am Ende der Liste, so wird von
+vorne begonnen.
 
 Der daraus entstehende Iterator, wird dann dem Nutzer der Bibliothek
 bereitgestellt. Wird ein Element aus diesem obersten Iterator genommen, so hat
@@ -567,18 +570,17 @@ Anwendung von Regeln
 --------------------
 
 Die Assoziationsregeln, die beim impliziten Lernen entstehen, werden bei der
-Traversierung als *,,Navigationshilfe"* genutzt. 
-In Abbildung :num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine
-Breitensuche und eine Menge von *Regeliteratoren* unterstellt sind.  *Libmunin*
-bietet einen Mechanismus, um alle Regeln abzufragen, die einen bestimmten Song
-betreffen. Für jeden Song, der auf der *anderen* Seite der Regel vorkommt (also
-die Seite, in der nicht der Seedsong vorhanden ist), wird ein 
-Breitensucheniterator erstellt.  |br|
-Die einzelnen, den Regeln zugeordneten Iteratoren, werden wieder im
+Traversierung als *,,Navigationshilfe"* genutzt.  In Abbildung
+:num:`fig-iterator` wird gezeigt, dass jedem Seedsong jeweils eine Breitensuche
+und eine Menge von *Regeliteratoren* unterstellt sind.  *Libmunin* bietet einen
+Mechanismus, um alle Regeln abzufragen, die einen bestimmten Song betreffen. Für
+jeden Song, der auf der *anderen* Seite der Regel vorkommt (also die Seite, in
+der nicht der Seedsong vorhanden ist), wird ein Breitensucheniterator erstellt.
+|br| Die einzelnen, den Regeln zugeordneten Iteratoren, werden wieder im
 Round--Robin--Verfahren abgewechselt. Der dadurch entstehende Iterator wird
 immer im Wechsel mit dem Breitensucheniterator, der vom Seedsong ausgeht,
-abgefragt.  Daher besteht der Iterator, der aus einem Seedsong gebaut wird,
-wiederum aus vielen Unteriteratoren. 
+abgefragt.  Daher besteht der Iterator für einen Seedsong aus vielen
+Unteriteratoren. 
 
 
 Filtern der Iteratoren
@@ -596,8 +598,8 @@ gespeichert, die von *libmunin* ausgegeben werden. War der Künstler einer zu
 überprüfenden Empfehlung in den, beispielsweise fünf letzten Empfehlungen
 bereits vorhanden, so wird er ausgesiebt. Ähnlich wird mit dem Album
 vorgegangen, nur hier ist die Schwelle standardmäßig bei drei. Die einzelnen
-Schwellen können vom Nutzer pro Attribut konfiguriert werden. |br| Auch das
+Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. |br| Auch das
 *Sieving* ist als Iterator implementiert, welcher Songs von einem
 Empfehlungsiterator entgegennimmt, aber nicht alle an den Nutzer weitergibt. Die
 vom Iterator übergangenen Songs werden für den nächsten Iterationsschritt
-zwischengespeichert.
+zwischengespeichert, um sie vorzuschlagen sobald sie wieder erlaubt sind.
