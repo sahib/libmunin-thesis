@@ -134,14 +134,12 @@ Dies wird im folgenden Python--Beispiel gezeigt:
 
    from munin.provider import Provider
   
-   # Leite von der Provider-Oberklasse ab:
-   class MyProvider(Provider):
-       def __init__(self):
+   class MyProvider(Provider):   # Leite von der Provider-Oberklasse ab.
+       def __init__(self): 
            # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
            Provider.__init__(self, compress=True)
-  
-       # Funktion, die bei jeder einzelnen Eingabe aufgerufen wird.
-       def do_compute(self, input_value): 
+       
+       def do_compute(self, input_value):  # Wird bei jeder Eingabe aufgerufen.
            return input_value * 2  # Tue irgendwas mit dem Input.
   
   
@@ -199,11 +197,11 @@ Struktur sehen kann.
   sehr dehnbaren Begriff *Rock*, der bei
   Discogs :cite:`DISCOGS` für sehr viele Lieder eingepflegt ist.
 - Der Kaltstart bei *Mirage* verlief in wenigen Minuten, während der Kaltstart
-  bei *libmunin* beim ersten Mal für die 666 Songs sehr lange (etwa 53 Minuten)
-  benötigte, da für jedes Lied ein Liedtext sequentiell automatisch besorgt
-  worden ist. Siehe dazu auch Tabelle :num:`table-specs`. Bei der Ausgabe der
-  Empfehlungen selber, war bei allen Methoden keinerlei Verzögerung zu
-  beobachten.
+  bei *libmunin* beim ersten Mal für die 666 Songs im Vergleich dazu sehr lange
+  (etwa 53 Minuten) benötigte. Größtenteils liegt das daran, dass für jedes Lied
+  ein Liedtext sequentiell automatisch besorgt wird. Siehe dazu auch
+  Tabelle :num:`table-specs`.  Bei der Ausgabe der Empfehlungen selber, war bei
+  allen Methoden keinerlei Verzögerung zu beobachten.
 
 Ressourcenverbrauch
 ===================

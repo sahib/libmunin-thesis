@@ -39,8 +39,9 @@ Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer (und damit
 einhergehend schwerer zu erklärender) Algorithmen etabliert. Dazu gehören der
-FP--Growth :cite:`han2000miningFPGROWTH`, Eclat :cite:`ECLAT`, sowie der
-hier verwendete ``RELIM``--Algorithmus :cite:`RELIM`.
+FP--Growth (siehe :cite:`datamining-concepts-and-techniques` S. 257--259, 272),
+Eclat (siehe :cite:`ECLAT`), sowie der hier verwendete ``RELIM``--Algorithmus
+der in :cite:`RELIM` vorgestellt wurde.
 
 .. |x| replace:: :math:`\times`
 
@@ -122,9 +123,10 @@ Cornflakes essen liegt bei :math:`70\%` --- daher ist die Eigenschaft
 *,,Cornflake--Esser"*.
 
 Um solche *falschen* Assoziationsregeln zu vermeiden, werden für jede Regel zwei
-Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem Buch 
-*Datamining Concepts and Techniques* :cite:`datamining-concepts-and-techniques` 
-entnommen: Die *Kulczynski--Metrik* und der *Imbalance--Ratio*.
+Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem Buch
+*Datamining Concepts and Techniques*
+(:cite:`datamining-concepts-and-techniques`, S. 268--271) entnommen: Die
+*Kulczynski--Metrik* und der *Imbalance--Ratio*.
 
 Die *Kulczynski--Metrik* drückt die *Güte* der Regel als eine reele Zahl im
 Bereich :math:`\lbrack 0, 1\rbrack` aus, wobei :math:`1` die beste Wertung ist.

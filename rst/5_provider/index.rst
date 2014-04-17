@@ -168,7 +168,7 @@ Das Umwandeln selbst geschieht folgendermaßen:
 
 - Es wird manuell der Wurzelknoten *Music* angelegt.
 - Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
-  (siehe Abbildung :num:`fig-tree-init`)
+  (Abbildung :num:`fig-tree-init`)
 
 Nach dieser Vorarbeit wird rekusiv folgende Prozedur erledigt:
 
@@ -190,8 +190,9 @@ Nach dieser Vorarbeit wird rekusiv folgende Prozedur erledigt:
 In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig
 (:num:`fig-tree-final`). In :num:`fig-tree-first` ist der Baum nach der ersten
 Iteration zu sehen. |br|
-Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
-erledigt:
+Bei der momnetanen Datenquelle entstehen einige kleine Fehler im entstehenden
+Baum.  Daher werden mach dem manuellen Aufbau noch einige halbautomatische
+Aufräumarbeiten erledigt. 
 
   1.  Die fehlenden *,,Musik"*--Genres *,,Vocal"* und *,,Speech"* werden
       manuell eingefügt.
@@ -243,6 +244,10 @@ Dazu werden zuerst folgende Variablen initialisiert:
     |nbsp|             Sie speichert die Indizes des momentan aufgebauten Pfades. |br|
     |nbsp|             Anfangs initialisiert auf ein leere Liste.                                                                   
     ================== ======================================================================================= 
+
+.. raw:: latex
+
+   \newpage
 
 Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
 
@@ -297,7 +302,7 @@ Vergleichen der unterschiedlichen Genrepfad--Mengen
 Um zwei einzelne Pfade miteinander zu Vergleich wird folgendermaßen vorgegangen:
 
 - Zähle die Anzahl an Punkten, in denen sich der Pfad überdeckt.
-  Für `\left\{192, 1, 8\right\}` und :math:`\left\{192, 1, 2, 8\right\}` wäre dies :math:`2`.
+  Beispiel: Für :math:`\left\{192, 1, 8\right\}` und :math:`\left\{192, 1, 2, 8\right\}` wäre dies :math:`2`.
 - Teile die Anzahl durch die Länge, des längeren beider Pfade.
 - Die daraus gewonnene Ähnlichkeit wird von :math:`1.0` abgezogen um die Distanz
   zu erhalten.
@@ -548,7 +553,7 @@ einer relativ niedrigen Distanz von gerundet :math:`0.4` bewertet.
 Doch nicht bei allen Texten funktioniert die Extrahierung so gut. Nimmt man den
 Ausdruck *,,God save the Queen!"*, so wird *RAKE* diesen nicht als gesamten
 Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert: 
-*,,God save"* und *,,Queen"*, da *,,the"* ein einglisches Stoppwort ist. 
+*,,God save"* und *,,Queen"*, da *,,the"* ein englisches Stoppwort ist. 
 
 Andererseits entstehen auch oft Schlüsselwörter, die entweder unwichtig *(,,mal
 echt")*, sinnentfremdet (*,,gerne still stehen"* obwohl im Text oben *,,nicht"*
