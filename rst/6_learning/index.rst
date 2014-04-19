@@ -27,15 +27,15 @@ hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
 :math:`1000!` Kombinationen gebildet werden. 
 
 Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
-bekannteste ist vermutlich der *Apriori--Algorithmus* :cite:`agrawal1993mining`.
-Statt alle Kombinationen zu betrachten, werden erst alle
-*,,Einer--Kombinationen"* gebildet und die ausgefiltert, welche einen zu
-niedrigen *Support--Count* besitzen. Die Grenze legt man vorher fest. Der
-*Support--Count* ist einfach die Anzahl der *Warenkörbe* in dem ein Song
-vorkommt, geteilt durch die absolute Anzahl der Warenkörbe. Danach werden mit
-den Verbliebenen 2er--Kombination gebildet, wieder gefiltert, dann die noch
-relevanten 3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
-Kombinationen vermieden.
+bekannteste ist vermutlich der *Apriori--Algorithmus* (vergleiche
+:cite:`datamining-concepts-and-techniques`, S. 248--253). Statt alle
+Kombinationen zu betrachten, werden erst alle *,,Einer--Kombinationen"* gebildet
+und die ausgefiltert, welche einen zu niedrigen *Support--Count* besitzen. Die
+Grenze legt man vorher fest. Der *Support--Count* ist einfach die Anzahl der
+*Warenkörbe* in dem ein Song vorkommt, geteilt durch die absolute Anzahl der
+Warenkörbe. Danach werden mit den Verbliebenen 2er--Kombination gebildet, wieder
+gefiltert, dann die noch relevanten 3er--Kombinationen und so weiter. Dadurch
+wird eine große Menge von Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer (und damit
 einhergehend schwerer zu erklärender) Algorithmen etabliert. Dazu gehören der
@@ -135,47 +135,46 @@ ist. ``A`` und ``B`` sind im Folgenden die beiden Teilmengen der Regel:
 
 .. math::
 
-    Kulczynski(A, B) =  \frac{P(A \mid B) + P(B \mid A)}{2}
+    Kulczynski(A, B) =  \frac{1}{2} \times \left(P(A \mid B) + P(B \mid A)\right)
 
-:math:`P(A \vert B)` ist die bedingte Wahrscheinlichkeit und ist meist definiert
-als: 
-
-.. math::
-   
-    P(A\mid B) = \frac{P(A\cap B)}{P(B)}    
-
-Da :math:`P(B)` gleichbedeutend mit dem *Support--Count* der rechten Seite der
-Regel ist und :math:`P(A\cap B)` der *Support--Count* der gesamten Regel ist,
-kann man schlussfolgern:
+Diese Metrik ist der Durchschnitt aus zwei Variationen einer anderen Metrik: Dem
+*confidence*--Measure :cite:`datamining-concepts-and-techniques`, S. 254f.):
 
 .. math::
-   
-    P(A\mid B) = \frac{support(A \cap B)}{support(B)}    
+    
+    confidence(A \rightarrow B) = P(A\mid B) = \frac{support(A \cup B)}{support(B)}    
 
-Letzteres lässt sich relativ einfach berechnen. Setzt man das in die
-ursprüngliche Gleichung ein, so wird klar wie sich die *Kulczynski--Metrik*
-berechnen lässt:
+
+Diese Metrik gibt an zu welchem Prozentsatz die Regel zutrifft. Ist der Quotient
+:math:`1`, so trifft die Regel bei jedem bekannten Warenkorb zu.  Der Zähler
+:math:`support(A\cup B)` beschreibt hier, wie oft sowohl *A* und *B*
+gleichzeitig in einem Warenkorb vorkommen.  Bereits allein ist diese Metrik ein
+gutes Indiz für die Korrektheit einer Regel, die Kulczynski--Metrik prüft
+lediglich beide Seiten der Regel.  Um zu zeigen wie sich die Kulczynski--Metrik
+berechnen lässt, können wir die obige Definition umstellen:
 
 .. math::
 
-   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)
+   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cup B)}{support(B)} + \frac{support(A\cup B)}{support(A)}\right)
 
-
-Der *Imbalance Ratio* gibt im Bereich :math:`\lbrack 0, 1\rbrack` an wie
-gleichmäßig sich die Regeln anwenden lässt.  Hier ist der beste Wert die
-:math:`0`.  Er ist gegeben durch:
+Allein diese Metrik reicht allerdings nicht für eine qualitative Eisnchätzung
+einer Regel. Zwar kann die Regel oft zutreffen, doch kann sie, wie im obigen
+Beispiel mit den *Cornflakes*, trotzdem kontraproduktiv sein. 
+Daher wird mit dem *Imbalance Ratio* eine weitere Metrik
+eingeführt. Der *Imbalance Ratio* gibt im Bereich :math:`\lbrack 0, 1\rbrack`
+an, wie unterschiedlich beide Seiten der Regel sind. Treten die Regeln
+unterschiedlich oft auf, so steigt diese Metrik Hier ist der beste Wert die
+:math:`0`, der schlechteste eine :math:`1`.  Er ist gegeben durch:
 
 .. math::
 
-    ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cap B)}
+    ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cup B)}
 
 Sollte die *Kulczynski--Metrik* kleiner als :math:`0.\overline{6}` sein oder der
 *Imbalance--Ratio* größer als :math:`0.35`, so wird die Regel fallen gelassen.
 Diese Grenzwerte worden, mehr oder minder willkürlich, nach einigen Tests
-festgelegt.
-
-Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in eine
-einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
+festgelegt.  Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in
+eine einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
 
 .. math::
 
@@ -197,7 +196,6 @@ Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
 von Regeln abfragen, die diesen Song in irgendeiner Weise betreffen. Um diese
 Operation zu beschleunigen, wird intern eine Hashtabelle gehalten, mit dem Song
 als Schlüssel und der entsprechende Regel--Liste als zugehöriger Wert.
-
 Bei jeder Operation auf dem ``RuleIndex`` wird er automatisch bereinigt. 
 Dabei werden Regeln entfernt, die Songs erwähnen, welche nicht mehr in der
 Historie vertreten sind. 

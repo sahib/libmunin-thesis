@@ -44,11 +44,6 @@ Bei zu niedrigen Werten verbinden sich die einzelnen Songs eines Albums nur
 untereinander, bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen
 quer über den ganzen Graphen.
 
-.. rubric:: Footnotes
-
-.. [#f1] Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
-         Alben ist dieser Wert etwa :math:`14.142`.
-
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
 auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
 
@@ -129,7 +124,7 @@ beleuchtet:
       weitergeschoben.
 
       Die heuristische Annahme ist hier, dass in der bereits vorhandenen
-      *,,Kette"* Querverbindungen hergestellt werden. Dies im folgenden
+      *,,Kette"* Querverbindungen hergestellt werden. Dies ist im folgenden
       Verfeinerungsschritt vorteilhaft um Iterationen einzusparen.
 
     * ``anti_centering_window:`` Sehr ähnlich zum ``centering_window``, statt
@@ -384,7 +379,7 @@ Diese Einpassung geschieht dabei folgendermaßen:
 Als zusätzliche Beobachtung lässt sich feststellen, dass Songs die per
 ``insert`` eingefügt werden, deutlich weitläufiger verbunden sind als regulär
 per ``add`` hinzugefügte. Diese Eigenschaft macht sich die, in der Projektarbeit
-gezeigte Demonanwedung zu Nutze: Ändert man das Rating eines Songs, so wird
+gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines Songs, so wird
 der Song mittels ``remove`` gelöscht und mittels  ``insert`` an anderer Stelle
 wieder eingefügt. Meist verbindet sich dabei der Song, dann mit anderen ähnlich
 bewerteten Songs. Diese bilden ein *zusätzliches Netz* über dem Graphen, welches
@@ -462,7 +457,7 @@ der größten Distanz.  Ist es dann nötig, eine neue, schlechteste Distanz zu
 finden, so kann mit einem Aufwand von :math:`O(\log n)` das oberste Paar
 herausgenommen werden.
 
-Die ``distance_add()`` Funktion nimmt drei Parameter. Die ersten zwei sind die
+Die ``distance_add()``--Funktion nimmt drei Parameter. Die ersten zwei sind die
 Songs (im Folgenden *self* und *other*), zwischen denen eine Verbindung hergestellt
 werden soll. Der Letzte, ist die Distanz mit der diese Kante gewichtet wird.  Im
 Folgenden ist der dazugehörige Python--Code in gekürzter, vereinfachter Form als
@@ -603,3 +598,8 @@ Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. |br| Auch das
 Empfehlungsiterator entgegennimmt, aber nicht alle an den Nutzer weitergibt. Die
 vom Iterator übergangenen Songs werden für den nächsten Iterationsschritt
 zwischengespeichert, um sie vorzuschlagen sobald sie wieder erlaubt sind.
+
+.. rubric:: Footnotes
+
+.. [#f1] Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
+         Alben ist dieser Wert etwa :math:`14.142`.

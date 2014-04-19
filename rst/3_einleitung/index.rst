@@ -24,7 +24,7 @@ Zur Nuztung von *libmunin*
   angehört worden sind. 
 
 - Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre Zwecke
-  konfigurierte, :term:`Session` :term:`Maske` verwenden. Zwar ist der Einsatz
+  konfigurierte, :term:`Session`--:term:`Maske` verwenden. Zwar ist der Einsatz
   der ``EasySession`` deutlich einfacher, doch ist diese mehr für den
   schnellen Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht
   werden, die Gewichtungen der einzelnen Attribute zu ändern.

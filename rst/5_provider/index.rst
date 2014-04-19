@@ -407,7 +407,7 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
    automatisch erraten. Zudem werden lange Wörter mittels ``PyEnchant``
    :cite:`pyenchant` in einem Wörterbuchs nachgeschlagen um die Sprache
    rauszufinden sofern die ``Enchant``--Bibliothek samt Wörterbuch für die
-   entsprechende Sprache :cite:`enchant` installiert ist .
+   entsprechende Sprache :cite:`enchant` installiert ist.
 3) Berechnung eines *Scores* für jedes Wort in einem Phrase aus dem *Degree* und
    der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen):
 
@@ -433,7 +433,7 @@ Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
 abzustimmen:
 
 - Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
-  meisten Liedtexte bestehen aus einzelnen Versen, die nicht durch Punkte
+  meisten Liedtexte bestehen aber aus einzelnen Versen, die nicht durch Punkte
   getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.
 - Um die Ergebnisse leichter vergleichen zu können, werden die einzelnen Wörter
   nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
@@ -595,7 +595,7 @@ Namensgebung des Erfinders verwendet.
     Beispiel--Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
     Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
     im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
-    durch ein eigens zu diesem Zweck geschriebenes Script gerendert. Deutlich
+    durch ein eigens zu diesem Zwecke geschriebenes Script gerendert. Deutlich
     sichtbar sind die einzelnen Pausen zwischen den Akkorden.
 
 Vergleich von Moodbars
