@@ -9,8 +9,9 @@ Einleitung
 Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
 vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
 übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
-Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separater Text. Daher
-werden im Folgenden nur die stark erklärungsbedürftigen Paare näher betrachtet.
+Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separate Erklärung.
+Daher werden im Folgenden nur die stark erklärungsbedürftigen Paare näher
+betrachtet.
 
 
 Genrenormalisierung und Vergleich von Genres
@@ -19,13 +20,13 @@ Genrenormalisierung und Vergleich von Genres
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
 gibt. Oft sind sich nicht mal Menschen untereinander einig zu welchem Genre das
-Album eines Künstlers zuzuteilen ist. Manchmal ist man sich nichtmal innerhalb
-einer einzelnen Band einig. Ein Computer könnte höchstens erkennen wie
-ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist es nötig,
-dass die einzelnen Genre--Eingaben anhand einer Sammlung von zusammengestellten
-geläufigen Genres normalisiert werden.
+Album eines Künstlers zuzuteilen ist. Manchmal sind sich nicht mal die
+Mitglieder einer Band untereinander einig.  Ein Computer könnte höchstens
+erkennen wie ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist
+es nötig, dass die einzelnen Genre--Eingaben anhand einer Sammlung von
+zusammengestellten geläufigen Genres normalisiert werden.
 
-Zusammenstellung der Gernedatenbank
+Zusammenstellung der Genredatenbank
 -----------------------------------
 
 Musikrichtungen können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
@@ -33,12 +34,12 @@ Musikrichtungen können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenr
 --- und so weiter --- aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
 man das allumfassende Genre *Music* an --- einfach weil sich *Music* hinter fast
-jedes Genre schreiben lässt ohne den Sinn zu verändern.
-Dieser Baum kann dann genutzt werden um beliebige Genres als *Pfad* durch den
+jedes Genre schreiben lässt, ohne den Sinn zu verändern.
+Dieser Baum kann dann genutzt werden, um beliebige Genres als *Pfad* durch den
 Baum normalisiert abzubilden. 
 
-Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen --- bei der hohen Zahl der existierenden Genres
+Die eigentliche Schwierigkeit besteht nun darin, eine repräsentative Sammlung von
+Genres in diesen Baum einzupflegen. Bei der hohen Anzahl der existierenden Genres,
 kann man diese nur schwerlich manuell einpflegen.
 
 Existierende Datenbanken wie, das sonst sehr vollständige, *MusicBrainz* liefern
@@ -57,19 +58,19 @@ laut ihren *FAQ* keine Genredaten:
 Also musste man sich nach anderen Quellen umschauen. Das vom
 ``DiscogsGenreProvider`` verwendete *Discogs* bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-*Genre* (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
+Genre (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
 grobe Einteilung.
 
-Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- fast jede Band 
-ist dort vertreten und eben auch mit detaillierter Genre Information --- sowie
-*The Echonest* --- einem Unternehmen welches verschiedene Dienste rund um
-Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
+Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- viele bekannte
+Künstler sind dort mit detaillierter Genreinformation vertreten.
+Sowie *The Echonest* --- einem Unternehmen, welches verschiedene Dienste rund um
+Musikmetadaten anbietet. Darunter auch eine Liste, von den ihnen bekannten
 Genres. 
 
 Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
-Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
-*The Echonest* ist dies, nachdem man sich einen *API--Key* registriert hat
-relativ einfach [#f1]_: 
+Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei *The
+Echonest* ist dies, nachdem man sich einen *API--Key*  [#f1]_ registriert hat,
+relativ einfach: 
 
 .. code-block:: bash
 
@@ -743,8 +744,9 @@ Posten beim *Kaltstart*.
 
 .. rubric:: Footnotes
 
-.. [#f1] Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er
-   sollte nicht für andere Zwecke verwendet werden.
+.. [#f1] Ein *API-Key* ist zum nutzerabhängigen Zugriff auf den Webdienst nötig.
+   Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er sollte
+   nicht für andere Zwecke verwendet werden.
 
 .. [#f2] *Anmerkung:* Die Idee entstand allerdings ohne Kenntnis von *beets*.
 
