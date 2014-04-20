@@ -22,7 +22,9 @@ Angesichts der hohen Entwicklungsgeschwindigkeit in der Informatik und dem
 *,,hohem"* Alter der Arbeit (:math:`2007`) sollte allerdings beachtet werden,
 dass es bereits neuere Methoden geben könnte. Beispielsweise arbeitet Schnitzer
 *nur* mit MP3--Audiodaten [#f1]_. Eine Abhilfe wäre die relativ neue Bibliothek
-*libaubio*, die von *Paul Brossier* :cite:`AUBIO` entwickelt wird.
+*libaubio*, die von *Paul Brossier* :cite:`AUBIO` entwickelt wird. Zum
+Dekodieren der Audiodaten (*libaubio* erwartet PCM--Daten) könnte das weit
+verbreitete Audio--Framework *Gstreamer* :cite:`gstreamer`.
 
 *Aubio* könnte folgendes leisten:
 
@@ -96,7 +98,7 @@ Herangehensweise, ist für jeden einen Iterator zu erstellen und die einzelnen
 Iteratoren im Reißverchlussverfahren zu verweben. Das ist duchaus valide, wenn
 man annimmt, dass die *Seedsongs* im Graphen verteilt und alle gleich
 wichtig sind. Oft ballen sich Seedsongs aber auf einem bestimmten Gebiet. 
-Schematisch ist das in Abb. :num:`fig-traverse-areas` dargestellt. Besitzen zwei
+Schematisch ist das in Abbildung :num:`fig-traverse-areas` dargestellt. Besitzen zwei
 *Seedsongs* gemeinsame Nachbarn, dann sollten diese zuerst besucht werden.
 
 Auch ist das Ausgabeformat von *libmunin* noch auf einzelne Songs als

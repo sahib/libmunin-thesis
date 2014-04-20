@@ -27,20 +27,21 @@ hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
 :math:`1000!` Kombinationen gebildet werden. 
 
 Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
-bekannteste ist vermutlich der *Apriori--Algorithmus* :cite:`agrawal1993mining`.
-Statt alle Kombinationen zu betrachten, werden erst alle
-*,,Einer--Kombinationen"* gebildet und die ausgefiltert, welche einen zu
-niedrigen *Support--Count* besitzen. Die Grenze legt man vorher fest. Der
-*Support--Count* ist einfach die Anzahl der *Warenkörbe* in dem ein Song
-vorkommt, geteilt durch die absolute Anzahl der Warenkörbe. Danach werden mit
-den Verbliebenen 2er--Kombination gebildet, wieder gefiltert, dann die noch
-relevanten 3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
-Kombinationen vermieden.
+bekannteste ist vermutlich der *Apriori--Algorithmus* (vergleiche
+:cite:`datamining-concepts-and-techniques`, S. 248--253). Statt alle
+Kombinationen zu betrachten, werden erst alle *,,Einer--Kombinationen"* gebildet
+und die ausgefiltert, welche einen zu niedrigen *Support--Count* besitzen. Die
+Grenze legt man vorher fest. Der *Support--Count* ist einfach die Anzahl der
+*Warenkörbe* in dem ein Song vorkommt, geteilt durch die absolute Anzahl der
+Warenkörbe. Danach werden mit den Verbliebenen 2er--Kombination gebildet, wieder
+gefiltert, dann die noch relevanten 3er--Kombinationen und so weiter. Dadurch
+wird eine große Menge von Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer (und damit
 einhergehend schwerer zu erklärender) Algorithmen etabliert. Dazu gehören der
-FP--Growth :cite:`han2000miningFPGROWTH`, Eclat :cite:`ECLAT`, sowie der
-hier verwendete ``RELIM``--Algorithmus :cite:`RELIM`.
+FP--Growth (siehe :cite:`datamining-concepts-and-techniques` S. 257--259, 272),
+Eclat (siehe :cite:`ECLAT`), sowie der hier verwendete ``RELIM``--Algorithmus
+der in :cite:`RELIM` vorgestellt wurde.
 
 .. |x| replace:: :math:`\times`
 
@@ -59,20 +60,20 @@ hier verwendete ``RELIM``--Algorithmus :cite:`RELIM`.
    *C*                3 |x|  *C, A*            1 |x|                    |nbsp|
    ================== ====== ================= ====== ================= ======
 
-In Tabelle :num:`table-itemsets` sehen wir ein Beispiel aus drei Warenkörben,
+In Tabelle :num:`table-itemsets` sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
 samt deren Support--Count aufgelistet worden sind.
 
 Der ``RELIM``--Algorithmus
 --------------------------
 
-Generell gilt FP--Growth als der *neue* Standard--Algorithmus, der laut mehrerer
+Generell gilt FP--Growth als der neue Standard--Algorithmus, der laut mehrerer
 Quellen andere Algorithmen wie Eclat und ``RELIM`` (``RE``--*cursive* ``ELIM``--*ination*)
 aussticht :cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
 
 In diesem Fall wird trotzdem auf ``RELIM`` zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
-tausend Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining*
+tausend Songs überstiegen wird. Zudem gibt es mit dem Python--Paket *pymining*
 (siehe :cite:`pymining`) bereits eine freie, qualitativ relativ hochwertige
 Implementierung, während es für FP--Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
@@ -92,7 +93,7 @@ verschiedener *Metriken*, wie zutreffend diese ist.
    :label: table-rules
    :spec: l | l l l l
    :alt: Mögliche regeln die aus den 3 warenkörben erstellt werden können
-   :caption: Mögliche Regeln die aus den 3 Warenkörben erstellt werden können.
+   :caption: Mögliche Regeln die aus den drei Warenkörben erstellt werden können.
              Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie die
              beiden Metriken Imbalance--Ratio und Kulczynski abgebildet.
 
@@ -121,10 +122,11 @@ Cornflakes essen liegt bei :math:`70\%` --- daher ist die Eigenschaft
 *,,Basketballspieler"* sogar ein Gegenindiz für die Eigenschaft
 *,,Cornflake--Esser"*.
 
-Um solche *falschen* Assoziationsregeln zu vermeiden, werden für jede Regel zwei
-Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem Buch 
-*Datamining Concepts and Techniques* :cite:`datamining-concepts-and-techniques` 
-entnommen: Die *Kulczynski--Metrik* und der *Imbalance--Ratio*.
+Um solche kontraproduktiven Assoziationsregeln zu vermeiden, werden für jede
+Regel zwei Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem
+Buch *Datamining Concepts and Techniques*
+(:cite:`datamining-concepts-and-techniques`, S. 268--271) entnommen: Die
+*Kulczynski--Metrik* und der *Imbalance--Ratio*.
 
 Die *Kulczynski--Metrik* drückt die *Güte* der Regel als eine reele Zahl im
 Bereich :math:`\lbrack 0, 1\rbrack` aus, wobei :math:`1` die beste Wertung ist.
@@ -133,53 +135,55 @@ ist. ``A`` und ``B`` sind im Folgenden die beiden Teilmengen der Regel:
 
 .. math::
 
-    Kulczynski(A, B) =  \frac{P(A \mid B) + P(B \mid A)}{2}
+    Kulczynski(A, B) =  \frac{1}{2} \times \big(P(A \mid B) + P(B \mid A)\big)
 
-:math:`P(A \vert B)` ist die bedingte Wahrscheinlichkeit und ist meist definiert
-als: 
-
-.. math::
-   
-    P(A\mid B) = \frac{P(A\cap B)}{P(B)}    
-
-Da :math:`P(B)` gleichbedeutend mit dem *Support--Count* der rechten Seite der
-Regel ist und :math:`P(A\cap B)` der *Support--Count* der gesamten Regel ist,
-kann man schlussfolgern:
+Diese Metrik ist der Durchschnitt aus zwei Variationen einer anderen Metrik: Dem
+*confidence*--Measure (vergleiche :cite:`datamining-concepts-and-techniques`, S. 254f.):
 
 .. math::
-   
-    P(A\mid B) = \frac{support(A \cap B)}{support(B)}    
+    
+    confidence(A \rightarrow B) = P(A\mid B) = \frac{P(A\cap B)}{P(B)} = \frac{support(A \cup B)}{support(B)}    
 
-Letzteres lässt sich relativ einfach berechnen. Setzt man das in die
-ursprüngliche Gleichung ein, so wird klar wie sich die *Kulczynski--Metrik*
-berechnen lässt:
+
+Diese Metrik gibt an zu welchem Prozentsatz die Regel zutrifft. Ist der Quotient
+:math:`1`, so trifft die Regel bei jedem bekannten Warenkorb zu.  Der Zähler
+:math:`support(A\cup B)` beschreibt hier, wie oft sowohl *A* und *B*
+gleichzeitig in einem Warenkorb vorkommen.  Bereits allein ist diese Metrik ein
+gutes Indiz für die Korrektheit einer Regel, die Kulczynski--Metrik prüft
+lediglich beide Seiten der Regel.  Um zu zeigen wie sich die Kulczynski--Metrik
+berechnen lässt, können wir die obige Definition umstellen:
 
 .. math::
 
-   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)
+   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cup B)}{support(B)} + \frac{support(A\cup B)}{support(A)}\right)
 
-
-Der *Imbalance Ratio* gibt im Bereich :math:`\lbrack 0, 1\rbrack` an wie
-gleichmäßig sich die Regeln anwenden lässt.  Hier ist der beste Wert die
-:math:`0`.  Er ist gegeben durch:
+Diese Metrik allein reicht allerdings nicht für eine qualitative Eisnchätzung
+einer Regel. Zwar kann die Regel oft zutreffen, doch kann sie, wie im obigen
+Beispiel mit den *Cornflakes*, trotzdem kontraproduktiv sein. 
+Daher wird mit dem *Imbalance Ratio* eine weitere Metrik
+eingeführt. Der *Imbalance Ratio* gibt im Bereich :math:`\lbrack 0, 1\rbrack`
+an, wie unterschiedlich beide Seiten der Regel sind. Treten die Regeln
+unterschiedlich oft auf, so steigt diese Metrik Hier ist der beste Wert die
+:math:`0`, der Schlechteste eine :math:`1`.   Er ist gegeben durch:
 
 .. math::
 
-    ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cap B)}
+    ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cup B)}
 
 Sollte die *Kulczynski--Metrik* kleiner als :math:`0.\overline{6}` sein oder der
 *Imbalance--Ratio* größer als :math:`0.35`, so wird die Regel fallen gelassen.
-Diese Grenzwerte worden, mehr oder minder willkürlich, nach einigen Tests
-festgelegt.
-
-Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in eine
-einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
+Diese Grenzwerte wurden, mehr oder minder willkürlich, nach einigen Tests
+festgelegt.  Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in
+eine einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
 
 .. math::
 
     Rating(A, B) = \left(1 - ImbalanceRatio(A, B)\right) \times Kulczynski(A, B)
 
-Dieses *Rating* wird genutzt um die einzelnen Assoziationsregeln zu sortieren.
+Dieses *Rating* wird genutzt, um die einzelnen Assoziationsregeln zu sortieren.
+Das finale Rating bewegt sich im Bereich :math:`\lbrack 0, 1\rbrack`, wobei
+:math:`1` das höchste vergebene Rating ist.
+
 
 Anwendung von Regeln
 ====================
@@ -195,7 +199,6 @@ Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
 von Regeln abfragen, die diesen Song in irgendeiner Weise betreffen. Um diese
 Operation zu beschleunigen, wird intern eine Hashtabelle gehalten, mit dem Song
 als Schlüssel und der entsprechende Regel--Liste als zugehöriger Wert.
-
 Bei jeder Operation auf dem ``RuleIndex`` wird er automatisch bereinigt. 
 Dabei werden Regeln entfernt, die Songs erwähnen, welche nicht mehr in der
 Historie vertreten sind. 
@@ -257,7 +260,7 @@ Explizites Lernen
 
 Neben dem *impliziten Lernen* gibt es auch den *,,nachträglich entdeckten"*
 Mechanismus des *expliziten Lernens*. Dieser wurde bereits in Kapitel
-:ref:`ref-graphop-insert` beleuchtet. Unter Abb. :num:`fig-modify-moves` soll
+:ref:`ref-graphop-insert` beleuchtet. Unter Abbildung :num:`fig-modify-moves` soll
 dies lediglich nochmal visualisiert werden. Die dort abgebildete *Verschiebung*
 ist dadurch zu erklären, dass die ``insert``--Operation meist einen anderen zum
 Wiedereinfügen findet. 
@@ -279,9 +282,10 @@ beispielsweise ``date``, ein Wert ``2010`` und eine Beziehung :math:`\ge`.
 Weitere Beziehungen wären :math:`=`, :math:`\neq`, :math:`<` oder :math:`\le`. 
 
 Mit all den unterschiedlichen Attributen wären dann automatisch erstellte
-Playlisten wie  *,,Favouriten"* ( ``rating > 3`` ), *,,Ungehörte"* ( ``Playcount
-= 0`` ) und *,,Neu Hinzugefügte"* ( ``date > (today - 7 days)`` ) möglich. 
-Für letzere könnten hilfreiche Konstanten wie ``today`` eingeführt werden.
+Playlisten wie  *,,Favouriten"* (:math:`rating > 3`), *,,Ungehörte"*
+(:math:`Playcount = 0`) und *,,Neu Hinzugefügte"* (:math:`date > (today - 7
+\times days)`) möglich.  Für Letzere könnten hilfreiche Konstanten wie :math:`today`
+eingeführt werden.
 
 .. rubric:: Footnotes
 

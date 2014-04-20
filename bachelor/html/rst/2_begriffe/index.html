@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../4_graphops/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#einleitung">4.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#graphentraversierung">4.2 Graphentraversierung</a></li>
 </ul>
 </li>
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbaranalyse">5.4 Moodbaranalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../6_learning/index.html">6 Implizites Lernen vom Nutzer</a><ul>
@@ -134,11 +134,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#medien">Medien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
@@ -223,7 +219,7 @@ ausgelesen werden.</dd>
 <dl class="glossary docutils">
 <dt id="term-song">Song</dt>
 <dd>Im Kontext von <em>libmunin</em> ist ein Song eine Menge von Attributen.  Jedem
-<a class="reference internal" href="#term-attribut"><em class="xref std std-term">Attribut</em></a> ist, wie in einer Hashtabelle, genau ein Wert zugeordnet.
+Attribut ist, wie in einer Hashtabelle, genau ein Wert zugeordnet.
 Beispielsweise haben alle Songs ein Attribut <tt class="docutils literal"><span class="pre">artist</span></tt>, aber jeder
 einzelner Song kennt dafür einen bestimmten Wert.  Desweiteren wird für
 jeden Song die Distanz zu einer Menge ähnlicher Songs gespeichert, sowie
@@ -237,12 +233,12 @@ analysiert und ein Graph wird daraus aufgebaut.
 Wer die Bibliothek benutzt, wird die <em>Session</em> zudem als Eintrittspunkt
 für die <em>API</em> benutzen.</dd>
 <dt id="term-maske">Maske</dt>
-<dd><p class="first">Die <a class="reference internal" href="#term-session"><em class="xref std std-term">Session</em></a> benötigt eine Beschreibung der Daten, die importiert
+<dd><p class="first">Die Session benötigt eine Beschreibung der Daten, die importiert
 werden. So muss sich beispielsweise darauf geeinigt werden, <em>was</em> in einem
-<a class="reference internal" href="#term-song"><em class="xref std std-term">Song</em></a> unter dem Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
+Song unter dem Schlüssel <tt class="docutils literal"><span class="pre">genre</span></tt> abgespeichert wird.</p>
 <p class="last">In der <em>Maske</em> werden daher die einzelnen Attribute festgelegt, die ein
 einzelner Song haben kann und wie diese anzusprechen sind. Zudem wird
-pro Attribut ein <a class="reference internal" href="#term-provider"><em class="xref std std-term">Provider</em></a> und eine <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a>
+pro Attribut ein Provider und eine Distanzfunktion
 festgelegt, die bei der Verarbeitung dieses Wertes genutzt werden. Zudem
 wird die Gewichtung des Attributes festgelegt. Manche Attribute sind
 für die Ähnlichkeit zweier Songs entscheidender als andere.</p>
@@ -250,18 +246,18 @@ für die Ähnlichkeit zweier Songs entscheidender als andere.</p>
 <dt id="term-assoziationsregel">Assoziationsregel</dt>
 <dd><p class="first">Eine Assoziationsregel verbindet zwei Mengen <em>A</em> und <em>B</em> von Songs mit
 einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
-der beiden Mengen miteinander gehört wird, dann ist es <em>wahrscheinlich</em>,
+der beiden Mengen miteinander gehört wird, dann ist es wahrscheinlich,
 dass auch die andere Menge daraufhin angehört wird.  Regeln werden aus dem
 Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied, das der Nutzer
-anhört in einer <em>Historie</em> zwischengespeichert.
+anhört, in einer <em>Historie</em> zwischengespeichert.
 Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
 Regel ein <em>Rating</em> berechnet.</p>
-<p class="last"><em>Anmerkung:</em> Im Allgemeinen Gebrauch sind Assoziationsregeln nur in eine
+<p class="last"><em>Anmerkung:</em> Im allgemeinen Gebrauch sind Assoziationsregeln nur in eine
 Richtung definiert.  In <em>libmunin</em> sind die Regeln aus Gründen der
-Einfachkeit allerdings <em>bidirektional.</em>  So gilt nicht nur, dass man
+Einfachkeit allerdings bidirektional. So gilt nicht nur, dass man
 wahrscheinlich die Menge <em>B</em> hört, wenn man <em>A</em> gehört hat (<span class="math">\(A
 \rightarrow B\)</span>), sondern auch umgekehrt (<span class="math">\(A \leftrightarrow B\)</span>).
-Ein praktisches, natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler
+Ein natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler
 essen Cornflakes. Diese Regel besagt, dass der größte Teil der
 Basketballspieler Cornflakes isst, aber nicht, dass die meisten
 Cornflakes&ndash;Esser Basketballspieler sind. Da bei <em>libmunin</em> auf beiden
@@ -280,7 +276,7 @@ Menge dieser Paare.</dd>
 Charakteristiken. Sie dienen zur vorgelagerten Verarbeitung von den Daten
 die in <em>libmunin</em> geladen werden. Jeder <em>Provider</em> ist dabei durch die
 Maske einem Attribut zugeordnet.</p>
-<p class="last">Ihr Ziel ist für die <a class="reference internal" href="#term-distanzfunktion"><em class="xref std std-term">Distanzfunktion</em></a> einfache und effizient
+<p class="last">Ihr Ziel ist für die Distanzfunktion einfache und effizient
 vergleichbare Werte zu liefern &ndash;- da die Distanzfunktion sehr
 viel öfters aufgerufen wird als der <em>Provider</em>.</p>
 </dd>
@@ -328,17 +324,15 @@ Nichteinhaltung würde zu falschen Kanten im Graphen führen.</div></blockquote>
 \[d(i, i) = 0 \forall i \in D\]</div>
 <p><em>Aussage:</em> Wird zweimal der selbe Song übergeben, so muss die Distanz
 immer <span class="math">\(0\)</span> betragen. Autoren von Distanzfunktionen sollten dies
-testen.  Werte <span class="math">\(\neq 0\)</span> deuten erfahrungsgemäß auf schlechte
-Distanzfunktionen hin.</p>
+testen.  Werte <span class="math">\(\neq 0\)</span> deuten auf fehlerhafte Distanzfunktionen
+hin.</p>
 </li>
 <li><p class="first"><em>Dreiecksungleichung:</em></p>
 <div class="math">
-\[d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D\]</div>
+\[d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D, i \neq j \neq x\]</div>
 <p>In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
 zwischen zwei Songs immer kürzer oder gleich lang wie der Umweg über
-den dritten Song sein. Dies ist in <a href="#fig-trineq">2.1a</a> gezeigt.
-Damit die Gewichtung der einzelnen Distanzen in die Oberdistanzen diese
-Eigenschaft erfüllt wurde das Strafmaß eingeführt.</p>
+den dritten Song sein. Dies ist in Abbildung <a href="#fig-trineq">2.1a</a> gezeigt.</p>
 </li>
 </ol>
 <div class="last figure compound align-center" id="fig-trineqs">
@@ -351,10 +345,10 @@ Eigenschaft erfüllt wurde das Strafmaß eingeführt.</p>
 <p class="caption"><strong>(b)</strong> Mit Einhaltung der Dreiecksungleichung.</p>
 </div>
 <p class="caption"><strong>Figure 2.1:</strong> Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
-besagt, dass der direkte Weg von A nach B kürzer sein sollte als der
-Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“ sind gleich stark
-gewichtet.  Wenn keine Straftwertung für leere Werte gegeben wird, so
-sind die Umwege manchmal kürzer.</p>
+besagt, dass der direkte Weg von A nach B kürzer oder gleich lang sein
+sollte als der Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“
+sind gleich stark gewichtet.  Wenn keine Straftwertung für leere Werte
+gegeben wird, so sind die Umwege manchmal kürzer.</p>
 <span class="target" id="fig-trineqs"></span></div></dd>
 </dl>
 </div>

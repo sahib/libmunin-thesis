@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../4_graphops/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#einleitung">4.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#graphentraversierung">4.2 Graphentraversierung</a></li>
 </ul>
 </li>
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbaranalyse">5.4 Moodbaranalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">6 Implizites Lernen vom Nutzer</a><ul>
@@ -134,11 +134,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#medien">Medien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
@@ -199,19 +195,20 @@ hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
 <span class="math">\(1000\)</span> unterschiedlichen Songs in der Historie müssten bereits
 <span class="math">\(1000!\)</span> Kombinationen gebildet werden.</p>
 <p>Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
-bekannteste ist vermutlich der <em>Apriori&ndash;Algorithmus</em> <a class="reference internal" href="../zzz_bibliography.html#agrawal1993mining" id="id2">[1]</a>.
-Statt alle Kombinationen zu betrachten, werden erst alle
-<em>,,Einer&ndash;Kombinationen&quot;</em> gebildet und die ausgefiltert, welche einen zu
-niedrigen <em>Support&ndash;Count</em> besitzen. Die Grenze legt man vorher fest. Der
-<em>Support&ndash;Count</em> ist einfach die Anzahl der <em>Warenkörbe</em> in dem ein Song
-vorkommt, geteilt durch die absolute Anzahl der Warenkörbe. Danach werden mit
-den Verbliebenen 2er&ndash;Kombination gebildet, wieder gefiltert, dann die noch
-relevanten 3er&ndash;Kombinationen und so weiter. Dadurch wird eine große Menge von
-Kombinationen vermieden.</p>
+bekannteste ist vermutlich der <em>Apriori&ndash;Algorithmus</em> (vergleiche
+<a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id2">[5]</a>, S. 248&ndash;253). Statt alle
+Kombinationen zu betrachten, werden erst alle <em>,,Einer&ndash;Kombinationen&quot;</em> gebildet
+und die ausgefiltert, welche einen zu niedrigen <em>Support&ndash;Count</em> besitzen. Die
+Grenze legt man vorher fest. Der <em>Support&ndash;Count</em> ist einfach die Anzahl der
+<em>Warenkörbe</em> in dem ein Song vorkommt, geteilt durch die absolute Anzahl der
+Warenkörbe. Danach werden mit den Verbliebenen 2er&ndash;Kombination gebildet, wieder
+gefiltert, dann die noch relevanten 3er&ndash;Kombinationen und so weiter. Dadurch
+wird eine große Menge von Kombinationen vermieden.</p>
 <p>Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer (und damit
 einhergehend schwerer zu erklärender) Algorithmen etabliert. Dazu gehören der
-FP&ndash;Growth <a class="reference internal" href="../zzz_bibliography.html#han2000miningfpgrowth" id="id3">[6]</a>, Eclat <a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[13]</a>, sowie der
-hier verwendete <tt class="docutils literal"><span class="pre">RELIM</span></tt>&ndash;Algorithmus <a class="reference internal" href="../zzz_bibliography.html#relim" id="id5">[3]</a>.</p>
+FP&ndash;Growth (siehe <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id3">[5]</a> S. 257&ndash;259, 272),
+Eclat (siehe <a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[11]</a>), sowie der hier verwendete <tt class="docutils literal"><span class="pre">RELIM</span></tt>&ndash;Algorithmus
+der in <a class="reference internal" href="../zzz_bibliography.html#relim" id="id5">[2]</a> vorgestellt wurde.</p>
 <div class="figure align-center" id="table-itemsets">
 <center><table border="1" class="docutils">
 <colgroup>
@@ -257,18 +254,18 @@ hier verwendete <tt class="docutils literal"><span class="pre">RELIM</span></tt>
 </table>
 <p class="caption"><strong>Figure 6.1:</strong> Die Muster, welche aus den drei Warenkörben {{A, B, C} {B, B, C},
 {C, C, B}} generiert worden sind.</p>
-</center></div><p id="table-itemsets">In Tabelle <a href="#table-itemsets">6.1</a> sehen wir ein Beispiel aus drei Warenkörben,
+</center></div><p id="table-itemsets">In Tabelle <a href="#table-itemsets">6.1</a> sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
 samt deren Support&ndash;Count aufgelistet worden sind.</p>
 </div>
 <div class="section" id="der-relim-algorithmus">
 <h3>6.1.2 Der <tt class="docutils literal"><span class="pre">RELIM</span></tt>&ndash;Algorithmus<a class="headerlink" href="#der-relim-algorithmus" title="Permalink to this headline">¶</a></h3>
-<p>Generell gilt FP&ndash;Growth als der <em>neue</em> Standard&ndash;Algorithmus, der laut mehrerer
+<p>Generell gilt FP&ndash;Growth als der neue Standard&ndash;Algorithmus, der laut mehrerer
 Quellen andere Algorithmen wie Eclat und <tt class="docutils literal"><span class="pre">RELIM</span></tt> (<tt class="docutils literal"><span class="pre">RE</span></tt>&ndash;<em>cursive</em> <tt class="docutils literal"><span class="pre">ELIM</span></tt>&ndash;<em>ination</em>)
-aussticht <a class="reference internal" href="../zzz_bibliography.html#gyhorodi2004comparative" id="id6">[5]</a> <a class="reference internal" href="../zzz_bibliography.html#santhosh2010implementation" id="id7">[10]</a>.</p>
+aussticht <a class="reference internal" href="../zzz_bibliography.html#gyhorodi2004comparative" id="id6">[4]</a> <a class="reference internal" href="../zzz_bibliography.html#santhosh2010implementation" id="id7">[8]</a>.</p>
 <p>In diesem Fall wird trotzdem auf <tt class="docutils literal"><span class="pre">RELIM</span></tt> zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
-tausend Songs übersteigen wird. Zudem gibt es mit dem Python&ndash;Paket <em>pymining</em>
+tausend Songs überstiegen wird. Zudem gibt es mit dem Python&ndash;Paket <em>pymining</em>
 (siehe <a class="reference internal" href="../zzz_bibliography.html#pymining" id="id8">[Link&ndash;15]</a>) bereits eine freie, qualitativ relativ hochwertige
 Implementierung, während es für FP&ndash;Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python&ndash;Versionen
@@ -330,7 +327,7 @@ verschiedener <em>Metriken</em>, wie zutreffend diese ist.</p>
 </tr>
 </tbody>
 </table>
-<p class="caption"><strong>Figure 6.2:</strong> Mögliche Regeln die aus den 3 Warenkörben erstellt werden können.
+<p class="caption"><strong>Figure 6.2:</strong> Mögliche Regeln die aus den drei Warenkörben erstellt werden können.
 Zusätzlich wird der dazugehörige Gesamt&ndash;Support&ndash;Count, sowie die
 beiden Metriken Imbalance&ndash;Ratio und Kulczynski abgebildet.</p>
 </center></div><p id="table-rules">Als Beispiel können wir wieder die Warenkörbe aus <a href="#table-itemsets">6.1</a> nehmen.
@@ -345,44 +342,50 @@ zum Frühstück <em>Cornflakes</em> essen.  Der Anteil der Menschen die aber ins
 Cornflakes essen liegt bei <span class="math">\(70\%\)</span> &ndash;- daher ist die Eigenschaft
 <em>,,Basketballspieler&quot;</em> sogar ein Gegenindiz für die Eigenschaft
 <em>,,Cornflake&ndash;Esser&quot;</em>.</p>
-<p>Um solche <em>falschen</em> Assoziationsregeln zu vermeiden, werden für jede Regel zwei
-Metriken errechnet. Die von <em>libmunin</em> genutzten Metriken wurde dem Buch
-<em>Datamining Concepts and Techniques</em> <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id9">[7]</a>
-entnommen: Die <em>Kulczynski&ndash;Metrik</em> und der <em>Imbalance&ndash;Ratio</em>.</p>
+<p>Um solche kontraproduktiven Assoziationsregeln zu vermeiden, werden für jede
+Regel zwei Metriken errechnet. Die von <em>libmunin</em> genutzten Metriken wurde dem
+Buch <em>Datamining Concepts and Techniques</em>
+(<a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id9">[5]</a>, S. 268&ndash;271) entnommen: Die
+<em>Kulczynski&ndash;Metrik</em> und der <em>Imbalance&ndash;Ratio</em>.</p>
 <p>Die <em>Kulczynski&ndash;Metrik</em> drückt die <em>Güte</em> der Regel als eine reele Zahl im
 Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span> aus, wobei <span class="math">\(1\)</span> die beste Wertung ist.
 Grob ausgedrückt besagt die Metrik, wie zutreffend die Regel im Durchschnitt
 ist. <tt class="docutils literal"><span class="pre">A</span></tt> und <tt class="docutils literal"><span class="pre">B</span></tt> sind im Folgenden die beiden Teilmengen der Regel:</p>
 <div class="math">
-\[Kulczynski(A, B) =  \frac{P(A \mid B) + P(B \mid A)}{2}\]</div>
-<p><span class="math">\(P(A \vert B)\)</span> ist die bedingte Wahrscheinlichkeit und ist meist definiert
-als:</p>
+\[Kulczynski(A, B) =  \frac{1}{2} \times \big(P(A \mid B) + P(B \mid A)\big)\]</div>
+<p>Diese Metrik ist der Durchschnitt aus zwei Variationen einer anderen Metrik: Dem
+<em>confidence</em>&ndash;Measure (vergleiche <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id10">[5]</a>, S. 254f.):</p>
 <div class="math">
-\[P(A\mid B) = \frac{P(A\cap B)}{P(B)}\]</div>
-<p>Da <span class="math">\(P(B)\)</span> gleichbedeutend mit dem <em>Support&ndash;Count</em> der rechten Seite der
-Regel ist und <span class="math">\(P(A\cap B)\)</span> der <em>Support&ndash;Count</em> der gesamten Regel ist,
-kann man schlussfolgern:</p>
+\[confidence(A \rightarrow B) = P(A\mid B) = \frac{P(A\cap B)}{P(B)} = \frac{support(A \cup B)}{support(B)}\]</div>
+<p>Diese Metrik gibt an zu welchem Prozentsatz die Regel zutrifft. Ist der Quotient
+<span class="math">\(1\)</span>, so trifft die Regel bei jedem bekannten Warenkorb zu.  Der Zähler
+<span class="math">\(support(A\cup B)\)</span> beschreibt hier, wie oft sowohl <em>A</em> und <em>B</em>
+gleichzeitig in einem Warenkorb vorkommen.  Bereits allein ist diese Metrik ein
+gutes Indiz für die Korrektheit einer Regel, die Kulczynski&ndash;Metrik prüft
+lediglich beide Seiten der Regel.  Um zu zeigen wie sich die Kulczynski&ndash;Metrik
+berechnen lässt, können wir die obige Definition umstellen:</p>
 <div class="math">
-\[P(A\mid B) = \frac{support(A \cap B)}{support(B)}\]</div>
-<p>Letzteres lässt sich relativ einfach berechnen. Setzt man das in die
-ursprüngliche Gleichung ein, so wird klar wie sich die <em>Kulczynski&ndash;Metrik</em>
-berechnen lässt:</p>
+\[Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cup B)}{support(B)} + \frac{support(A\cup B)}{support(A)}\right)\]</div>
+<p>Diese Metrik allein reicht allerdings nicht für eine qualitative Eisnchätzung
+einer Regel. Zwar kann die Regel oft zutreffen, doch kann sie, wie im obigen
+Beispiel mit den <em>Cornflakes</em>, trotzdem kontraproduktiv sein.
+Daher wird mit dem <em>Imbalance Ratio</em> eine weitere Metrik
+eingeführt. Der <em>Imbalance Ratio</em> gibt im Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span>
+an, wie unterschiedlich beide Seiten der Regel sind. Treten die Regeln
+unterschiedlich oft auf, so steigt diese Metrik Hier ist der beste Wert die
+<span class="math">\(0\)</span>, der Schlechteste eine <span class="math">\(1\)</span>.   Er ist gegeben durch:</p>
 <div class="math">
-\[Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)\]</div>
-<p>Der <em>Imbalance Ratio</em> gibt im Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span> an wie
-gleichmäßig sich die Regeln anwenden lässt.  Hier ist der beste Wert die
-<span class="math">\(0\)</span>.  Er ist gegeben durch:</p>
-<div class="math">
-\[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cap B)}\]</div>
+\[ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cup B)}\]</div>
 <p>Sollte die <em>Kulczynski&ndash;Metrik</em> kleiner als <span class="math">\(0.\overline{6}\)</span> sein oder der
 <em>Imbalance&ndash;Ratio</em> größer als <span class="math">\(0.35\)</span>, so wird die Regel fallen gelassen.
-Diese Grenzwerte worden, mehr oder minder willkürlich, nach einigen Tests
-festgelegt.</p>
-<p>Sollte die Regel <em>akzeptabel</em> sein, dann werden beide Metriken in eine
-einzelne, leichter zu handhabendes <em>Rating&ndash;Metrik</em> verschmolzen:</p>
+Diese Grenzwerte wurden, mehr oder minder willkürlich, nach einigen Tests
+festgelegt.  Sollte die Regel <em>akzeptabel</em> sein, dann werden beide Metriken in
+eine einzelne, leichter zu handhabendes <em>Rating&ndash;Metrik</em> verschmolzen:</p>
 <div class="math">
 \[Rating(A, B) = \left(1 - ImbalanceRatio(A, B)\right) \times Kulczynski(A, B)\]</div>
-<p>Dieses <em>Rating</em> wird genutzt um die einzelnen Assoziationsregeln zu sortieren.</p>
+<p>Dieses <em>Rating</em> wird genutzt, um die einzelnen Assoziationsregeln zu sortieren.
+Das finale Rating bewegt sich im Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span>, wobei
+<span class="math">\(1\)</span> das höchste vergebene Rating ist.</p>
 </div>
 </div>
 <div class="section" id="anwendung-von-regeln">
@@ -396,8 +399,8 @@ wird die älteste (ergo, zu erst eingefügte) Regel gelöscht um Platz zu machen
 <p>Der Anwendungsentwickler kann mittels der <tt class="docutils literal"><span class="pre">lookup(song)</span></tt>&ndash;Methode eine Liste
 von Regeln abfragen, die diesen Song in irgendeiner Weise betreffen. Um diese
 Operation zu beschleunigen, wird intern eine Hashtabelle gehalten, mit dem Song
-als Schlüssel und der entsprechende Regel&ndash;Liste als zugehöriger Wert.</p>
-<p>Bei jeder Operation auf dem <tt class="docutils literal"><span class="pre">RuleIndex</span></tt> wird er automatisch bereinigt.
+als Schlüssel und der entsprechende Regel&ndash;Liste als zugehöriger Wert.
+Bei jeder Operation auf dem <tt class="docutils literal"><span class="pre">RuleIndex</span></tt> wird er automatisch bereinigt.
 Dabei werden Regeln entfernt, die Songs erwähnen, welche nicht mehr in der
 Historie vertreten sind.</p>
 </div>
@@ -436,7 +439,7 @@ anderen Album bekommen haben. Zudem haben sich die beiden erstgenannten
 Songs miteinander verbunden.</p>
 </div><p id="fig-modify-moves">Neben dem <em>impliziten Lernen</em> gibt es auch den <em>,,nachträglich entdeckten&quot;</em>
 Mechanismus des <em>expliziten Lernens</em>. Dieser wurde bereits in Kapitel
-<a class="reference internal" href="../4_graphops/index.html#ref-graphop-insert">4.1.5</a> beleuchtet. Unter Abb. <a href="#fig-modify-moves">6.3</a> soll
+<a class="reference internal" href="../4_graphops/index.html#ref-graphop-insert">4.1.5</a> beleuchtet. Unter Abbildung <a href="#fig-modify-moves">6.3</a> soll
 dies lediglich nochmal visualisiert werden. Die dort abgebildete <em>Verschiebung</em>
 ist dadurch zu erklären, dass die <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation meist einen anderen zum
 Wiedereinfügen findet.</p>
@@ -455,9 +458,10 @@ Nutzer stellt Beziehungen zwischen Attributen und Werten her. Ein Attribut wäre
 beispielsweise <tt class="docutils literal"><span class="pre">date</span></tt>, ein Wert <tt class="docutils literal"><span class="pre">2010</span></tt> und eine Beziehung <span class="math">\(\ge\)</span>.
 Weitere Beziehungen wären <span class="math">\(=\)</span>, <span class="math">\(\neq\)</span>, <span class="math">\(&lt;\)</span> oder <span class="math">\(\le\)</span>.</p>
 <p>Mit all den unterschiedlichen Attributen wären dann automatisch erstellte
-Playlisten wie  <em>,,Favouriten&quot;</em> ( <tt class="docutils literal"><span class="pre">rating</span> <span class="pre">&gt;</span> <span class="pre">3</span></tt> ), <em>,,Ungehörte&quot;</em> ( <tt class="docutils literal"><span class="pre">Playcount</span>
-<span class="pre">=</span> <span class="pre">0</span></tt> ) und <em>,,Neu Hinzugefügte&quot;</em> ( <tt class="docutils literal"><span class="pre">date</span> <span class="pre">&gt;</span> <span class="pre">(today</span> <span class="pre">-</span> <span class="pre">7</span> <span class="pre">days)</span></tt> ) möglich.
-Für letzere könnten hilfreiche Konstanten wie <tt class="docutils literal"><span class="pre">today</span></tt> eingeführt werden.</p>
+Playlisten wie  <em>,,Favouriten&quot;</em> (<span class="math">\(rating &gt; 3\)</span>), <em>,,Ungehörte&quot;</em>
+(<span class="math">\(Playcount = 0\)</span>) und <em>,,Neu Hinzugefügte&quot;</em> (<span class="math">\(date &gt; (today - 7
+\times days)\)</span>) möglich.  Für Letzere könnten hilfreiche Konstanten wie <span class="math">\(today\)</span>
+eingeführt werden.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

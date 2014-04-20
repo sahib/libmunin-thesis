@@ -5,8 +5,7 @@
 Bilder des Song--Graphen
 ========================
 
-Allgemeine Hinweise
--------------------
+**Allgemeine Hinweise**
 
 Folgende visuelle Aspekte sind mit Informationen besetzt:
 
@@ -28,18 +27,21 @@ Testdaten mit jeweils 100, beziehungsweise :math:`200` Knoten.  Abbildung
 :num:`fig-graph-full` zeigt einen realen, praktischen Graphen mittlerer Größe
 mit :math:`666` Knoten. Die Liedtitel wurden jeweils an die Knoten geschrieben.
 
-Bei den linearen Testdaten werden die Zahlen von :math:`1` bis :math:`100`
-aufsteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
+Bei den linearen Testdaten werden die Zahlen von :math:`100` bis :math:`1`
+absteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
 daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
 Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
 erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
 Anzahl.  Diese sind zum größten Teil auf den Bereich 25--75 aufgeteilt. Es
 sollte ein Graph entstehen der ähnlich linear ist, aber in der Mitte eine
 *,,Verdichtung"* aufweist.  Beides sind Testdaten, die häufig zum Testen von
-*libmunin* genutzt worden, da sie spezielle Extremfälle gut testen.
+*libmunin* genutzt worden, da sie spezielle Extremfälle gut testen. Die linearen
+Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen Enden
+der pseudozufälligen Daten werden mit jeder Iteration klarer. Im Vergleich zu
+``rebuild_stupid`` fällt hier auf, dass ``rebuild`` zur Bildung von mehr Kanten
+neigt.
 
-Plotting der Graphen
---------------------
+**Plotting der Graphen**
 
 Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien Python
 Graphenframeworks ``igraph`` :cite:`igraph` entstanden. Als Zeichenbibliothek

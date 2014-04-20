@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../4_graphops/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#einleitung">4.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#graphentraversierung">4.2 Graphentraversierung</a></li>
 </ul>
 </li>
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#einleitung">5.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#moodbar">5.4 Moodbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moodbaranalyse">5.4 Moodbaranalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../6_learning/index.html">6 Implizites Lernen vom Nutzer</a><ul>
@@ -134,11 +134,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#medien">Medien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
@@ -185,31 +181,32 @@
 Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
 vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
 übersteigen. Zudem sind die meisten Provider eher einfacher Natur &ndash;- die
-Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separater Text. Daher
-werden im Folgenden nur die stark erklärungsbedürftigen Paare näher betrachtet.</p>
+Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separate Erklärung.
+Daher werden im Folgenden nur die stark erklärungsbedürftigen Paare näher
+betrachtet.</p>
 </div>
 <div class="section" id="genrenormalisierung-und-vergleich-von-genres">
 <h2>5.2 Genrenormalisierung und Vergleich von Genres<a class="headerlink" href="#genrenormalisierung-und-vergleich-von-genres" title="Permalink to this headline">¶</a></h2>
 <p>Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
 gibt. Oft sind sich nicht mal Menschen untereinander einig zu welchem Genre das
-Album eines Künstlers zuzuteilen ist. Manchmal ist man sich nichtmal innerhalb
-einer einzelnen Band einig. Ein Computer könnte höchstens erkennen wie
-ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist es nötig,
-dass die einzelnen Genre&ndash;Eingaben anhand einer Sammlung von zusammengestellten
-geläufigen Genres normalisiert werden.</p>
-<div class="section" id="zusammenstellung-der-gernedatenbank">
-<h3>5.2.1 Zusammenstellung der Gernedatenbank<a class="headerlink" href="#zusammenstellung-der-gernedatenbank" title="Permalink to this headline">¶</a></h3>
+Album eines Künstlers zuzuteilen ist. Manchmal sind sich nicht mal die
+Mitglieder einer Band untereinander einig.  Ein Computer könnte höchstens
+erkennen wie ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist
+es nötig, dass die einzelnen Genre&ndash;Eingaben anhand einer Sammlung von
+zusammengestellten geläufigen Genres normalisiert werden.</p>
+<div class="section" id="zusammenstellung-der-genredatenbank">
+<h3>5.2.1 Zusammenstellung der Genredatenbank<a class="headerlink" href="#zusammenstellung-der-genredatenbank" title="Permalink to this headline">¶</a></h3>
 <p>Musikrichtungen können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Untergenres
 (<em>country</em> rock, <em>japanese</em> pop), Unteruntergenres (<em>western</em> country rock)
 &ndash;- und so weiter &ndash;- aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
 man das allumfassende Genre <em>Music</em> an &ndash;- einfach weil sich <em>Music</em> hinter fast
-jedes Genre schreiben lässt ohne den Sinn zu verändern.
-Dieser Baum kann dann genutzt werden um beliebige Genres als <em>Pfad</em> durch den
+jedes Genre schreiben lässt, ohne den Sinn zu verändern.
+Dieser Baum kann dann genutzt werden, um beliebige Genres als <em>Pfad</em> durch den
 Baum normalisiert abzubilden.</p>
-<p>Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen &ndash;- bei der hohen Zahl der existierenden Genres
+<p>Die eigentliche Schwierigkeit besteht nun darin, eine repräsentative Sammlung von
+Genres in diesen Baum einzupflegen. Bei der hohen Anzahl der existierenden Genres,
 kann man diese nur schwerlich manuell einpflegen.</p>
 <p>Existierende Datenbanken wie, das sonst sehr vollständige, <em>MusicBrainz</em> liefern
 laut ihren <em>FAQ</em> keine Genredaten:</p>
@@ -223,17 +220,17 @@ but we haven't completely settled on the right approach yet.</em></p>
 <p>Also musste man sich nach anderen Quellen umschauen. Das vom
 <tt class="docutils literal"><span class="pre">DiscogsGenreProvider</span></tt> verwendete <em>Discogs</em> bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-<em>Genre</em> (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &ndash;- eine zu
+Genre (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &ndash;- eine zu
 grobe Einteilung.</p>
-<p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> &ndash;- fast jede Band
-ist dort vertreten und eben auch mit detaillierter Genre Information &ndash;- sowie
-<em>The Echonest</em> &ndash;- einem Unternehmen welches verschiedene Dienste rund um
-Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
+<p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> &ndash;- viele bekannte
+Künstler sind dort mit detaillierter Genreinformation vertreten.
+Sowie <em>The Echonest</em> &ndash;- einem Unternehmen, welches verschiedene Dienste rund um
+Musikmetadaten anbietet. Darunter auch eine Liste, von den ihnen bekannten
 Genres.</p>
 <p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
-Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
-<em>The Echonest</em> ist dies, nachdem man sich einen <em>API&ndash;Key</em> registriert hat
-relativ einfach <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a>:</p>
+Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei <em>The
+Echonest</em> ist dies, nachdem man sich einen <em>API&ndash;Key</em>  <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a> registriert hat,
+relativ einfach:</p>
 <div class="highlight-bash"><div class="highlight"><pre>http://developer.echonest.com/api/v4/artist/list_genres?api_key<span class="o">=</span>ZSIUEIVVZGJVJVWIS
 </pre></div>
 </div>
@@ -300,7 +297,7 @@ Index  nach alphabetischer Sortierung vergeben, <em>Pop</em> bekommt daher die 0
 <ul class="simple">
 <li>Es wird manuell der Wurzelknoten <em>Music</em> angelegt.</li>
 <li>Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
-(siehe Abb. )</li>
+(Abbildung )</li>
 </ul>
 <p>Nach dieser Vorarbeit wird rekusiv folgende Prozedur erledigt:</p>
 <ol class="arabic simple">
@@ -322,8 +319,9 @@ ist.</li>
 <p>In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig
 (). In  ist der Baum nach der ersten
 Iteration zu sehen. <br />
-Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
-erledigt:</p>
+Bei der momnetanen Datenquelle entstehen einige kleine Fehler im entstehenden
+Baum.  Daher werden mach dem manuellen Aufbau noch einige halbautomatische
+Aufräumarbeiten erledigt.</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>Die fehlenden <em>,,Musik&quot;</em>&ndash;Genres <em>,,Vocal&quot;</em> und <em>,,Speech&quot;</em> werden
@@ -399,7 +397,7 @@ Dazu werden zuerst folgende Variablen initialisiert:</p>
 </tbody>
 </table>
 </div></blockquote>
-</center></div><p>Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:</p>
+</center></div><p>Nach diesen Vorbereitungen wird eine rekursive Backtracking&ndash;Suche gestartet:</p>
 <ol class="arabic simple">
 <li>Finde alle Kinder von <tt class="docutils literal"><span class="pre">root</span></tt>, deren Untergenres in der Wortliste vorkommen.
 Wenn das entsprechende Untergenre noch nicht in <tt class="docutils literal"><span class="pre">mask</span></tt> abgehakt wurde, wird
@@ -438,7 +436,7 @@ Untermenge von <tt class="docutils literal"><span class="pre">Alternative</span>
 <p>Um zwei einzelne Pfade miteinander zu Vergleich wird folgendermaßen vorgegangen:</p>
 <ul class="simple">
 <li>Zähle die Anzahl an Punkten, in denen sich der Pfad überdeckt.
-Für <tt class="docutils literal"><span class="pre">(192,</span> <span class="pre">1,</span> <span class="pre">8)</span></tt> und <tt class="docutils literal"><span class="pre">(192,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">8)</span></tt> wäre dies <span class="math">\(2\)</span>.</li>
+Beispiel: Für <span class="math">\(\left\{192, 1, 8\right\}\)</span> und <span class="math">\(\left\{192, 1, 2, 8\right\}\)</span> wäre dies <span class="math">\(2\)</span>.</li>
 <li>Teile die Anzahl durch die Länge, des längeren beider Pfade.</li>
 <li>Die daraus gewonnene Ähnlichkeit wird von <span class="math">\(1.0\)</span> abgezogen um die Distanz
 zu erhalten.</li>
@@ -505,7 +503,7 @@ bestehen.</p>
 <p>Zur Extrahieren von Schlüsselwörtern aus Texten gibt es eine Vielzahl von
 Algorithmen.  Der verwendete Algorithmus zur Schlüsselwörter&ndash;Extrahierung ist
 bei <em>libmunin</em> der relativ einfach zu implementierende RAKE&ndash;Algorithmus
-(vorgestellt in <a class="reference internal" href="../zzz_bibliography.html#berry2010text" id="id8">[2]</a>). Zwar könnte man mit anderen Algorithmen
+(vorgestellt in <a class="reference internal" href="../zzz_bibliography.html#berry2010text" id="id8">[1]</a>). Zwar könnte man mit anderen Algorithmen
 hier bessere Ergebnisse erreichen, diese sind aber schwerer zu implementieren
 (was die Anpasspartkeit verschlechtert) und sind in den meisten Fällen von
 sprachabhängigen Corpora (Wortdatenbanken) abhängig.</p>
@@ -523,7 +521,7 @@ Sprache selbst wird durch das Python Modul <tt class="docutils literal"><span cl
 automatisch erraten. Zudem werden lange Wörter mittels <tt class="docutils literal"><span class="pre">PyEnchant</span></tt>
 <a class="reference internal" href="../zzz_bibliography.html#pyenchant" id="id10">[Link&ndash;13]</a> in einem Wörterbuchs nachgeschlagen um die Sprache
 rauszufinden sofern die <tt class="docutils literal"><span class="pre">Enchant</span></tt>&ndash;Bibliothek samt Wörterbuch für die
-entsprechende Sprache <a class="reference internal" href="../zzz_bibliography.html#enchant" id="id11">[Link&ndash;14]</a> installiert ist .</p>
+entsprechende Sprache <a class="reference internal" href="../zzz_bibliography.html#enchant" id="id11">[Link&ndash;14]</a> installiert ist.</p>
 </li>
 <li><p class="first">Berechnung eines <em>Scores</em> für jedes Wort in einem Phrase aus dem <em>Degree</em> und
 der <em>Frequenz</em> eines Wortes (<span class="math">\(P\)</span> ist dabei die Menge aller Phrasen):</p>
@@ -540,16 +538,16 @@ Phrasen werden absteigend sortiert als <em>Schlüsselwörter</em> ausgegeben.
 <em>Schlüsselwörter</em> mit einem <em>Score</em> kleiner <span class="math">\(2.0\)</span> werden ausgesiebt.</p>
 </li>
 </ol>
-<p>Es wurden zudem einige Änderungen zum in <a class="reference internal" href="../zzz_bibliography.html#berry2010text" id="id12">[2]</a> vorgestellten
+<p>Es wurden zudem einige Änderungen zum in <a class="reference internal" href="../zzz_bibliography.html#berry2010text" id="id12">[1]</a> vorgestellten
 Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
 abzustimmen:</p>
 <ul class="simple">
 <li>Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
-meisten Liedtexte bestehen aus einzelnen Versen, die nicht durch Punkte
+meisten Liedtexte bestehen aber aus einzelnen Versen, die nicht durch Punkte
 getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.</li>
 <li>Um die Ergebnisse leichter vergleichen zu können, werden die einzelnen Wörter
 nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
-sprachsensitive <em>Snowball&ndash;Stemmer</em> <a class="reference internal" href="../zzz_bibliography.html#porter2001snowball" id="id13">[9]</a> verwendet.</li>
+sprachsensitive <em>Snowball&ndash;Stemmer</em> <a class="reference internal" href="../zzz_bibliography.html#porter2001snowball" id="id13">[7]</a> verwendet.</li>
 <li>Im Original wird der <em>Wort&ndash;Score</em> als <span class="math">\(\frac{degree(word)}{freq(word)}\)</span>
 berechnet. Der von <em>libmunin</em> berechnete <em>Score</em> gewichtet die Wortfrequenz
 stärker. Der Exponent von <span class="math">\(1.6\)</span> wurde willkürlich nach einigen Tests
@@ -741,13 +739,13 @@ Beatles&ndash;Song ,,Yellow Submarine“ (rechts).</p>
 </tbody>
 </table>
 <p class="caption">Liedtext des Volksliedes ,,Das Wandern ist des Müllers Lust“.</p>
-</center></div><p id="table-lyrics-wandern">In Abb.  sind die extrahierten Schlüsselwörter aus zwei
+</center></div><p id="table-lyrics-wandern">In Abbildung  sind die extrahierten Schlüsselwörter aus zwei
 Liedern aufgelistet.</p>
-<p>Zur Referenz ist unter Abb.  der Liedtextes des
-Volkliedes ,,Das Wandern ist des Müllers Lust&quot; abgedruckt. Der Text von
+<p>Zur Referenz ist unter Abbildung  der Liedtextes des
+Volkliedes <em>,,Das Wandern ist des Müllers Lust&quot;</em> abgedruckt. Der Text von
 <em>,,Yellow Subarmine&quot;</em> wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.</p>
-<p>Wie man in Abb.  sieht, werden längere Phrasen automatisch
+<p>Wie man in Abbildung  sieht, werden längere Phrasen automatisch
 besser bewertet &ndash;- deren <em>Score</em> berechnet sich ja aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
 noch in das Ergebniss aufgenommen werden.</p>
@@ -761,7 +759,7 @@ einer relativ niedrigen Distanz von gerundet <span class="math">\(0.4\)</span> b
 <p>Doch nicht bei allen Texten funktioniert die Extrahierung so gut. Nimmt man den
 Ausdruck <em>,,God save the Queen!&quot;</em>, so wird <em>RAKE</em> diesen nicht als gesamten
 Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert:
-<em>,,God save&quot;</em> und <em>,,Queen&quot;</em>, da <em>,,the&quot;</em> ein einglisches Stoppwort ist.</p>
+<em>,,God save&quot;</em> und <em>,,Queen&quot;</em>, da <em>,,the&quot;</em> ein englisches Stoppwort ist.</p>
 <p>Andererseits entstehen auch oft Schlüsselwörter, die entweder unwichtig <em>(,,mal
 echt&quot;)</em>, sinnentfremdet (<em>,,gerne still stehen&quot;</em> obwohl im Text oben <em>,,nicht&quot;</em>
 davor steht) oder stark kontextspezifisch <em>(,,schlechter Müller&quot;)</em> sind. Da ein
@@ -772,12 +770,12 @@ nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
 nicht.</p>
 </div>
 </div>
-<div class="section" id="moodbar">
-<h2>5.4 Moodbar<a class="headerlink" href="#moodbar" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="moodbaranalyse">
+<h2>5.4 Moodbaranalyse<a class="headerlink" href="#moodbaranalyse" title="Permalink to this headline">¶</a></h2>
 <p>Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (siehe
-<a class="reference internal" href="../zzz_bibliography.html#wood2005techniques" id="id15">[12]</a> für genauere Informationen) wird in <em>libmunin</em> neben
-der Beats&ndash;Per&ndash;Minute Bestimmung als einfache Form der Audioanalyse eingesetzt.
-Kurz zusammengefasst wird dabei ein beliebiges Audiostück zeitlich in 1000
+<a class="reference internal" href="../zzz_bibliography.html#wood2005techniques" id="id15">[10]</a> für genauere Informationen) wird in <em>libmunin</em> neben
+der BPM&ndash;Bestimmung als einfache Form der Audioanalyse eingesetzt.
+Kurz zusammengefasst, wird dabei ein beliebiges Audiostück zeitlich in 1000
 Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB&ndash;Tripel)
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil von
@@ -789,13 +787,13 @@ keineswegs die subjektive Stimmung in einem Lied herauslesen. Lediglich die
 Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
 Autors sollte man das Verfahren daher eher <em>,,frequencebar&quot;</em> oder Ähnliches
 nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
-Namensgebung des Erfinders verwendet.</p>
+Namensgebung des Originalautors verwendet.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../../_images/mood_avril.svg"><img alt="Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“" src="../../_images/mood_avril.svg" width="100%" /></a>
 <p class="caption">Beispiel&ndash;Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
 Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
 im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
-durch ein eigens zu diesem Zwekc geschriebenes Script gerendert. Deutlich
+durch ein eigens zu diesem Zwecke geschriebenes Script gerendert. Deutlich
 sichtbar sind die einzelnen Pausen zwischen den Akkorden.</p>
 </div>
 <div class="section" id="vergleich-von-moodbars">
@@ -806,11 +804,12 @@ Analyseschritt wird daher versucht, die markanten Merkmale der einzelnen
 Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
 <tt class="docutils literal"><span class="pre">MoodbarProvider</span></tt> getätigt.</p>
 <p>Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
-aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
-ursprüngliche 1000 Werte lange Vektor in (momentan) 20 einzelne, <em>handlichere</em>
-Werte aufgeteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
-das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend ist.</p>
-<p>Nach einigen subjektiven Tests haben sich folgende Merkmale als <em>vergleichbar</em>
+aufgeteilt <em>(Diskretisierung)</em>, von der jeweils das arithmetische Mittel
+gebildet wird. So wird der ursprüngliche 1000 Werte lange Vektor in (momentan)
+20 einzelne, handlichere Werte aufgeteilt. Bei einer durchschnittlichen
+Liedlänge von vier Minuten entspricht das immerhin zwölf Sekunden pro Block, was
+für gewöhnliche Lieder ausreichend ist.
+Nach einigen subjektiven Tests haben sich folgende Merkmale als <em>vergleichbar</em>
 erwiesen:</p>
 <ul>
 <li><p class="first"><strong>Differenzsumme:</strong> Für jeden Farbkanal wird die Summe der Differenzen zu den
@@ -823,10 +822,10 @@ Liegen hohe Änderungen zwischen jedem Block vor, so steigt dieser Wert bis zu
 seinem maximalen Wert von <span class="math">\((20 - 1) \times 255 = 4845\)</span>.</p>
 </li>
 <li><p class="first"><strong>Histogramm:</strong> Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
-Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von fünf
-möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.
-So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
-der Frequenzen abgespeichert.</p>
+Histogramm, abgespeichert. Jeder einzelne Farbwert wird dabei auf einen von
+fünf möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.  So wird
+für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung der
+Frequenzen abgespeichert.</p>
 </li>
 <li><p class="first"><strong>Dominanten Farben:</strong> Wie bereits erwähnt, ist es manchmal möglich bestimmte
 Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
@@ -840,14 +839,14 @@ abgespeichert.</p>
 <li><p class="first"><strong>Schwarzanteil:</strong> Gesondert werden sehr dunklen Farben behandelt. Haben alle
 Farbkanäle eines RGB&ndash;Tripels einen Wert kleiner 30, so wird die Farbe nicht
 gezählt, sondern auf einen <em>Schwarzanteil</em>&ndash;Zähler aufaddiert.  Geteilt durch
-1000 ergibt sich daraus der Anteil des Liedes, der (beinahe) <em>still</em> ist.</p>
+1000 ergibt sich daraus der Anteil des Liedes, der ganz oder beinahe <em>still</em> ist.</p>
 </li>
-<li><p class="first"><strong>Durchschnittliches Minimun/Maximum:</strong> Von jedem Block wird das Minimum/Maximum
-bestimmt.  Die Summe über jeden so bestimmten Wert, geteilt durch die Anzahl
-der Blöcke ergibt das durschnittliche Minimun/Maximum. Für jeden Farbkanal
-ergibt sich so ein Wert, der zwischen <span class="math">\(0\)</span> und <span class="math">\(255\)</span> liegt. Dieser
-sagt aus, in welchem Bereich sich die <em>,,Frequenzen&quot;</em> im jeweiligen Farbkanal
-bewegen.</p>
+<li><p class="first"><strong>Durchschnittliches Minimun/Maximum:</strong> Von jedem Block wird das
+Minimum/Maximum der drei Farbkanäle bestimmt.  Die Summe über jeden so
+bestimmten Wert, geteilt durch die Anzahl der Blöcke ergibt das
+durschnittliche Minimun/Maximum. Für jeden Farbkanal ergibt sich so ein Wert,
+der zwischen <span class="math">\(0\)</span> und <span class="math">\(255\)</span> liegt. Dieser sagt aus, in welchem
+Bereich sich die <em>,,Frequenzen&quot;</em> im jeweiligen Farbkanal bewegen.</p>
 </li>
 </ul>
 <div class="figure align-center" id="table-moodbar-list">
@@ -860,7 +859,7 @@ bewegen.</p>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
 <th class="head">Gewichtung</th>
-<th class="head"><em>ungewichtete</em> Distanzfunktion <span class="math">\(d(a, b)\)</span></th>
+<th class="head">ungewichtete Distanzfunktion <span class="math">\(d(a, b)\)</span></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -890,7 +889,7 @@ bewegen.</p>
 </tr>
 </tbody>
 </table>
-<p class="caption">Auflistung der einzelnen Werte die der Moodbar&ndash;Provider ausliest
+<p class="caption">Auflistung der einzelnen Werte, die der Moodbar&ndash;Provider ausliest
 und deren dazugehörige Distanzfunktion, sowie deren Gewichtung in
 der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit Ausnahme der
 Histogramm&ndash;Eingabewerte und der dominanten Farben. Dort sind ,,a“
@@ -900,8 +899,11 @@ Farben. Zur Bildung der Gesamtdistanz werden die einzelnen Werte
 </center></div><p id="table-moodbar-list">In  wird eine Auflistung der einzelnen Werte gegeben,
 die der <tt class="docutils literal"><span class="pre">Moodbar-Provider</span></tt> generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
-Moodbar&ndash;Distanzfunktion, die einzelnen Werte verrechnet.</p>
-<p>Am subjektiv <em>vergleichbarsten</em> erwiesen sich die dominanten Farben in einem
+Moodbar&ndash;Distanzfunktion, die einzelnen Werte verrechnet.
+Die enstehende gewichtete Distanz wird mittels der in Abbildung
+ gezeigten Funktion noch skaliert um schlechte Werte
+abzustrafen und gute hervorzuheben.</p>
+<p>Am subjektiv vergleichbarsten erwiesen sich die dominanten Farben in einem
 Lied. Die zwischenzeitlich aufgekommene Idee bestimmte markante Farbwertbereiche
 bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
 extrem ungenau.</p>
@@ -940,20 +942,22 @@ Posten beim <em>Kaltstart</em>.</p>
 <ul class="simple">
 <li><strong>Robustheit:</strong> Wie man in  sieht, ist das
 Verfahren relativ umempfdindlich gegen verschieden Enkodierungen. Selbst Live
-und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
+und Studioversionen zeigen gut vergleichbare Resultate (siehe Abbildung
 ).</li>
 <li><strong>Geringer Speicherverbrauch:</strong> Obwohl für die Implementierung die relativ
 speicherhungrige Sprache Python benutzt wurde, nutzt der <tt class="docutils literal"><span class="pre">MoodbarProvider</span></tt>
-lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen &ndash;10 bis
-255 im Speicher hält und der <tt class="docutils literal"><span class="pre">MoodbarProvider</span></tt> nur Zahlen in diesem Bereich
-erzeugt, reichen hier 8 Byte für eine Referenz auf einen Integer aus.</li>
+lediglich etwa <span class="math">\(540\)</span> Bytes pro Analysedatensatz. Da Python die Zahlen
+<span class="math">\(-10\)</span> bis <span class="math">\(255\)</span> im Speicher hält und der <tt class="docutils literal"><span class="pre">MoodbarProvider</span></tt> nur
+Zahlen in diesem Bereich erzeugt, reichen hier <span class="math">\(8\)</span> Byte für eine
+Referenz auf ein Integer&ndash;Objekt aus.</li>
 </ul>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Der in der URL gezeigte <em>API Key</em> ist auf <em>libmunin</em> registriert. Er
-sollte nicht für andere Zwecke verwendet werden.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Ein <em>API-Key</em> ist zum nutzerabhängigen Zugriff auf den Webdienst nötig.
+Der in der URL gezeigte <em>API Key</em> ist auf <em>libmunin</em> registriert. Er sollte
+nicht für andere Zwecke verwendet werden.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="f2" rules="none">

@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#einleitung">4.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#graphentraversierung">4.2 Graphentraversierung</a></li>
 </ul>
 </li>
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbaranalyse">5.4 Moodbaranalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../6_learning/index.html">6 Implizites Lernen vom Nutzer</a><ul>
@@ -134,11 +134,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#medien">Medien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
@@ -179,8 +175,8 @@
             
   <div class="section" id="graphenoperationen">
 <h1>4 Graphenoperationen<a class="headerlink" href="#graphenoperationen" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>4.1 Graphenoperationen<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="einleitung">
+<h2>4.1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h2>
 <p>Eine grobe Übersicht über die einzelnen Graphenoperationen und ihrer
 Zuständigkeiten wurde bereits in der Projektarbeit gegeben. Im Folgenden
 wird detailliert auf ihre Funktionsweise und Internas eingegangen.</p>
@@ -189,12 +185,12 @@ wird detailliert auf ihre Funktionsweise und Internas eingegangen.</p>
 <p>Bevor irgendeine andere Operation ausgeführt werden kann, muss mittels der
 <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation der Graph aufgebaut werden. Wie bereits in der
 Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
-<span class="math">\(O(n2)\)</span> nicht einfach durch das Vergleichen aller Songs untereinander
-erfolgend. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
-Vorzugsweise eine, bei der Rechenaufwand gegen die Qualität der Approximation
-abgewägt werden kann.  So kann der Nutzer entscheiden wie lange er <em>libmunin</em>
-rechnen lassen will.</p>
-<p>Der Ausgangszustand der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operationen ist eine Liste von Songs die
+<span class="math">\(O(n^2)\)</span> nicht einfach durch das Vergleichen aller Songs untereinander
+erfolgen. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
+Vorzugsweise eine, bei der der Rechenaufwand gegen die Qualität der
+Approximation abgewägt werden kann.  So kann der Nutzer entscheiden, wie lange
+er <em>libmunin</em> rechnen lassen will.</p>
+<p>Der Ausgangszustand der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operationen, ist eine Liste von Songs die
 vom Nutzer bereitgestellt wird. Jeder Song darin soll nun so im Graphen
 platziert werden, dass er im Bestfall die ähnlichsten Songs als Nachbarn hat.</p>
 <p>Jeder Song speichert seine Nachbarn mit der dazugehörigen Distanz.  Soll ein
@@ -202,25 +198,18 @@ neuer Nachbar hinzugefügt werden, so wird geprüft ob die Distanz zu diesem neu
 Song besser ist, als die zum schlechtesten vorhandenen Nachbar.  Ist dies der
 Fall, so wird die Entfernung zu diesem schlechtesten Nachbarn <em>in eine Richtung</em>
 (die Gründe hierfür werden unter <a class="reference internal" href="#ref-distance-add">4.1.7</a> betrachtet) gekappt.
-Als Ersatz wird zu dem neuen, besseren Song eine bidirektionale Verbindung
+Als Ersatz wird zu dem neuen, besseren Song, eine bidirektionale Verbindung
 aufgebaut. Da die Verbindung zum schlechtesten Song nur unidirektional abgebaut
-wird, ist die Anzahl der Nachbarn eines Songs nicht auf einen Maximum begrenzt,
-da das Hinzufügen neuer Songs <em>,,Einbahnstraßen&quot;</em> hinterlässt.</p>
+wird, ist die Anzahl der Nachbarn eines Songs nicht auf ein Maximum begrenzt,
+da das Hinzufügen neuer Songs <em>,,Einbahnstraßen&quot;</em> hinterlässt. Jedes neue
+Einfügen kann schließlich Einbahnstraßen hinterlassen.</p>
 <p>Vielmehr handelt es sich dabei um einen Richtwert, um den sich die tatsächliche
 Anzahl der Songs einpendeln wird. Momentan ist dieser Richtwert standardmäßig
 auf <span class="math">\(15\)</span> gesetzt &ndash;- der durchschnittlichen Länge eines heutigen Albums
-plus eins <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a>. Dieser Wert hat sich nach einigen Tests als passabel erwiesen.
-Bei zu niedrigen Werten verbinden sich die einzelnen Alben nur untereinander,
-bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen quer über den
-ganzen Graphen.</p>
-<p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
-Alben ist dieser Wert etwa <span class="math">\(14.142\)</span>.</td></tr>
-</tbody>
-</table>
+plus eins <a class="footnote-reference" href="#f1" id="id1"><sup>1</sup></a>. Dieser Wert hat sich nach einigen Tests als passabel erwiesen.
+Bei zu niedrigen Werten verbinden sich die einzelnen Songs eines Albums nur
+untereinander, bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen
+quer über den ganzen Graphen.</p>
 <p>Wenn im folgenden vom <em>,,Berechnen der Distanz&quot;</em> gesprochen wird, so ist damit
 auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.</p>
 <div class="figure compound align-center" id="fig-windows">
@@ -244,15 +233,15 @@ dargegestellt. Die Zahlen repräsentieren einzelne Songs.</p>
 beleuchtet:</p>
 <ul>
 <li><p class="first"><strong>Basisiteration:</strong> Für jeden Song wird nach willkürlich festgelegten
-Prinzipien eine kleine Menge von möglicherweise ähnlicher Songs ausgewählt.
+Prinzipien eine kleine Menge von möglicherweise ähnlichen Songs ausgewählt.
 Diese Menge von Songs wird untereinander mit quadratischen Aufwand verglichen.
-Diese Vorgehensweise wird mehrmals mit verschiedener Methoden wiederholt. Das
-Ziel jeder dieser Iterationen ist es für einen Song zumindestens eine kleine
+Diese Vorgehensweise wird mehrmals mit verschiedenen Methoden wiederholt. Das
+Ziel jeder dieser Iterationen, ist es für einen Song zumindest eine kleine
 Anzahl von ähnlichen Songs zu finden. Basierend auf diesen wird in den
 nächsten Schritten versucht, die Anzahl ähnlicher Songs zu vergrößern.</p>
 <p>Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
-basiert auf gewissen heuristischen Annahmen die über die Eingabemenge gemacht
-wird:</p>
+basiert auf gewissen heuristischen Annahmen, die über die Eingabemenge gemacht
+werden (siehe auch Abbildung ):</p>
 <blockquote>
 <div><ul>
 <li><p class="first"><tt class="docutils literal"><span class="pre">sliding_window:</span></tt> Schiebt ein <em>,,Fenster&quot;</em> über die Liste der Songs.
@@ -265,24 +254,25 @@ weitergeschoben.  Dadurch entsteht eine <em>,,Kette&quot;</em> von zusammenhäng
 Songs.</p>
 <p>Die heuristische Annahme ist dabei, dass der Nutzer der Bibliothek seine
 Datenbank meist nach Alben sortiert eingibt. Durch diese Sortierung finden
-sich innerhalb eines Fensters oft Lieder des selben Albums &ndash;- diese  sind
+sich innerhalb eines Fensters oft Lieder desselben Albums &ndash;- diese  sind
 oft sehr ähnlich.</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">centering_window:</span></tt> Basiert ebenfalls auf einem Fenster. Im Gegensatz
 zum obigen <tt class="docutils literal"><span class="pre">sliding_window</span></tt> besteht das Fenster allerdings aus zwei
 Hälften, wobei die eine vom Anfang an startet und die andere Hälfte von
 der Mitte aus bis zum Ende geschoben wird. Die Songs in beiden Hälften
-werden analog zu oben untereinander verglichen. Auch hier überlappen sich
-die einzelnen Hälften zu je zwei Drittel.</p>
+werden analog zu oben untereinander verglichen.
+Auch hier wird das Fenster immer zu einem Drittel der Fenstergröße
+weitergeschoben.</p>
 <p>Die heuristische Annahme ist hier, dass in der bereits vorhandenen
-<em>,,Kette&quot;</em> Querverbindungen hergestellt werden. Dies ist den nächsten
-Schritten vorteilhaft um Iterationen einzusparen.</p>
+<em>,,Kette&quot;</em> Querverbindungen hergestellt werden. Dies ist im folgenden
+Verfeinerungsschritt vorteilhaft um Iterationen einzusparen.</p>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">anti_centering_window:</span></tt> Sehr ähnlich zum <tt class="docutils literal"><span class="pre">centering_window</span></tt>, statt
-die zwei Hälfte aber von der Mitte aus bis zum Ende weiter zu schieben
+die zwei Hälften von der Mitte aus bis zum Ende weiter zu schieben,
 wird diese vom Ende zur Mitte geschoben. So werden die beiden Hälften
-solange weiter geschoben, bis sie sich in er Mitte treffen.</p>
-<p>Auch hier sollen weitere Querverbindungen hergestellt werden.</p>
+solange weiter geschoben, bis sie sich in der Mitte treffen.
+Auch hier sollen weitere Querverbindungen hergestellt werden.</p>
 </li>
 </ul>
 </div></blockquote>
@@ -293,40 +283,43 @@ Dabei wird über jeden Song im Graphen iteriert und dessen <em>indirekte Nachbar
 (also die Nachbarn der direkten Nachbarsongs) werden mit dem aktuellen Song
 verglichen. Kommen dabei Distanzen zustande, die niedriger sind als die der
 aktuellen Nachbarn, wird der indirekte Nachbar zum direkten Nachbarn. Auf
-diese Weise rücken ähnliche Songs immer weiter aufeinander zu.
-Diese Vorgehensweise wird solange wiederholt bis nur noch eine geringe Anzahl
-von Songs <em>,,bewegt&quot;</em> oder bis eine maximale Anzahl von Iterationen erreicht
-ist. Die Begrenzung der Iterationen ist nötig, da es Fälle geben kann in denen
-einzelne Songs immer wieder zwischen zwei gleich guten Zuständen hin- und
-herspringen können.</p>
-<p>Als zusätzliche Optimierung werden nicht alle indirekten Nachbarn betrachtet,
-sondern nur diese, zu denen der Weg eine gewisse <em>Mindestdistanz</em> nicht
-unterschreitet. Diese Mindestdistanz wird beim Start auf <span class="math">\(2.0\)</span> (da ja
-die Distanz über zwei Kanten gemessen wird) gesetzt und während der folgenden
-Iterationen immer weiter abgesenkt.</p>
+diese Weise nähern sich ähnliche Songs immer weiter an.
+Diese Vorgehensweise wird solange wiederholt, bis nur noch eine geringe Anzahl
+von Songs <em>,,bewegt&quot;</em> wird oder bis eine maximale Anzahl von Iterationen
+erreicht ist. Die Begrenzung der Iterationen ist nötig, da es Fälle geben
+kann, in denen einzelne Songs immer wieder zwischen zwei gleich guten
+Zuständen hin- und herspringen können.</p>
+<p>Als zusätzliche Optimierung, werden nicht alle indirekten Nachbarn betrachtet,
+sondern nur diese, zu denen der Weg eine <em>Mindestdistanz</em> nicht unterschreitet.
+Diese Mindestdistanz wird beim Start auf <span class="math">\(2.0\)</span> (da ja die Distanz über
+zwei Kanten gemessen wird) gesetzt und während der folgenden Iterationen immer
+weiter abgesenkt.</p>
 <p>Die Gesetzmäßigkeit, nach der die Mindesdistanz immer weiter abgesenkt wird,
 berechnet sich dabei aus dem arithmetischen Mittelwert, der bis dahin
 berechneten Distanzen. Ist der Mittelwert hoch, so ist die Absenkung klein.</p>
 </li>
-<li><p class="first"><strong>Aufräumearbeiten:</strong> Nach dem Verfeinerungsschritt wird der Graph von
+<li><p class="first"><strong>Aufräumarbeiten:</strong> Nach dem Verfeinerungsschritt, wird der Graph von
 Einbahnstraßen durch einen <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt bereinigt und auf Konsistenz
 geprüft.</p>
 </li>
 </ul>
-<p>Wie bereits erwähnt gibt es eine <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt>&ndash;Operation, welche für
+<p>Wie bereits erwähnt, gibt es eine <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt>&ndash;Operation, welche für
 deutlich kleinere Mengen von Songs praktikabel einsetzbar ist. Die Algorithmik
 ist hierbei bedeutend einfacher: Es wird einfach jeder Song mit jedem anderen
 verglichen. Als Nachbarn erhält dabei jeder Song die Nachbarn, die global
-betrachtet die kleinste Distanz zu diesem besitzen. Es handelt sich als um keine
-Approximation wie beim herkömmlichen <tt class="docutils literal"><span class="pre">rebuild</span></tt>.</p>
+betrachtet, die kleinste Distanz zu diesem besitzen. Es handelt sich also um
+keine Approximation wie beim herkömmlichen <tt class="docutils literal"><span class="pre">rebuild</span></tt>.</p>
 <p>Auf die Betrachtung der Komplexität der <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation wird an dieser
 Stelle verzichtet. Keine der einzelnen Schritte erreicht dabei quadratische
-Komplexität.  Die einzige Ausnahme ist dabei das Vergleichen der Songs
+Komplexität. Die einzige Ausnahme ist dabei, das Vergleichen der Songs
 untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
 stets auf ein verträgliches Limit begrenzt.</p>
-<p>Unter Abb.  findet sich eine Gegenüberstellung von den
+<p>Unter Abbildung  findet sich eine Gegenüberstellung von den
 Aufrufen der Distanzfunktion, die bei <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> und beim normalen
 <tt class="docutils literal"><span class="pre">rebuild</span></tt> (mit und ohne <em>Verfeinerungsschritt</em>) nötig sind.</p>
+<p>Die einzelnen Schritte des Graphenaufbaus lassen sich in Abbildung
+, sowie bei den darauf folgenden Abbildungen,
+nachvollziehen.</p>
 <div class="figure align-center" id="fig-speed-cmp">
 <a class="reference internal image-reference" href="../../_images/graph_speed.svg"><img alt="Vergleich der Distanzberechnungen für rebuild_stupid und rebuild" src="../../_images/graph_speed.svg" width="100%" /></a>
 <p class="caption"><strong>Figure 4.2:</strong> Gegenüberstellung von verschiedenen Arten der rebuild&ndash;Operation. Auf der
@@ -336,27 +329,24 @@ repräsentiert dabei die Vergleiche die für rebuild_stupid notwendig sind.
 Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
 anderen zwei Kurven deutlich.</p>
 </div>
-<p>Die einzelnen Schritte des Graphenaufbaus lassen sich in Abb.
-, sowie bei den darauf folgenden Abbildungen,
-nachvollziehen.</p>
 </div>
 <div class="section" id="fixing-umbauen-von-einbahnstraszen">
 <h3>4.1.2 <tt class="docutils literal"><span class="pre">fixing:</span></tt> Umbauen von Einbahnstraßen<a class="headerlink" href="#fixing-umbauen-von-einbahnstraszen" title="Permalink to this headline">¶</a></h3>
 <p>Diese Operation dient dem Entfernen von Einbahnstraßen innerhalb des Graphen.
-Einbahnstraßen können wie bereits erwähnt beim Hinzufügen neuer Distanzen
+Einbahnstraßen können, wie bereits erwähnt, beim Hinzufügen neuer Distanzen
 entstehen.</p>
 <p>Beim Entfernen wird folgendermaßen vorgegangen: Im ersten Schritt werden alle
 unidirektionalen Kanten gefunden und abgespeichert. Für jede dieser Kanten wird
-überprüft ob die Songs an beiden Enden den Richtwert für die Anzahl der Nachbarn
-überschreitet. Sollte das nicht der Fall, so wird die Kante in eine
+überprüft, ob die Songs an beiden Enden den Richtwert für die Anzahl der Nachbarn
+überschreiten. Sollte das nicht der Fall, so wird die Kante in eine
 bidirektionale Kante umgebaut. Andernfalls wird die Kante gelöscht.</p>
-<p>Dieses Vorgehen wurde gewählt weil es nach einigen Versuchen schwierig erschien,
+<p>Dieses Vorgehen wurde gewählt, weil es nach einigen Versuchen schwierig erschien,
 den Graphen ohne Einbahnstraßen aufzubauen, ohne dass dieser zur Inselbildung
-neigt. Durch den nachgelagerten <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt werden Songs die nur wenige
-Nachbarn besitzen durch die vorher als zu schlecht bewerteten Kanten verbunden.
+neigt. Durch den nachgelagerten <tt class="docutils literal"><span class="pre">fixing</span></tt>&ndash;Schritt werden Songs, die nur wenige
+Nachbarn besitzen, durch die vorher als zu schlecht bewerteten Kanten verbunden.
 Als zusätzliche Konsistenzprüfung wird nach dem Bereinigen geprüft, ob alle
 Verbindungen im Graphen bidirektional sind. Sollten unidirektionale Kanten
-gefunden werden, so wird eine Warnung ausgegeben. Eine weiterführende
+gefunden werden, so wird eine Warnung auf der Konsole ausgegeben. Eine weiterführende
 Fehlerbehandlung ist momentan noch nicht implementiert. Unidirektionale Kanten
 können bei der Traversierung zu Ausnahmefehlern führen.</p>
 </div>
@@ -368,9 +358,9 @@ besprochen, durch verschiedene Provider normalisiert. Mit diesen normalisierten
 Informationen wird dann eine neue Song&ndash;Instanz erzeugt, welcher beim Erzeugen
 ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
 Index in der internen Songliste.
-Statt wie <tt class="docutils literal"><span class="pre">insert</span></tt> bereits Verbindungen zu anderen Songs herzustellen, fügt
+Statt wie <tt class="docutils literal"><span class="pre">insert</span></tt>, bereits Verbindungen zu anderen Songs herzustellen, fügt
 diese Operation lediglich einen Song der internen Songliste hinzu. Die
-eigentlichen Verbindungen werde in einem Rutsch von <tt class="docutils literal"><span class="pre">rebuild</span></tt> aufgebaut.</p>
+eigentlichen Verbindungen werden in einem Rutsch von <tt class="docutils literal"><span class="pre">rebuild</span></tt> aufgebaut.</p>
 <div class="figure compound align-center" id="fig-mini-graph-remove">
 <span id="fig-mini-graph-remove-after"></span><div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-remove-before">
 <a class="reference internal image-reference" href="../../_images/mini_graph_remove_before.png"><img alt="../../_images/mini_graph_remove_before.png" src="../../_images/mini_graph_remove_before.png" style="width: 50%;" /></a>
@@ -414,32 +404,31 @@ Verbindung jeweils.</p>
 <span class="target" id="fig-mini-graph-modify"></span></div></div>
 <div class="section" id="remove-loschen-von-songs-zur-laufzeit">
 <h3>4.1.4 <tt class="docutils literal"><span class="pre">remove:</span></tt> Löschen von Songs zur Laufzeit<a class="headerlink" href="#remove-loschen-von-songs-zur-laufzeit" title="Permalink to this headline">¶</a></h3>
-<p>Um nach einer <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation einen Song auf dem Graphen zu löschen,
+<p>Um nach einer <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation einen Song aus dem Graphen zu löschen,
 müssen alle Verbindungen zu diesem entfernt werden.  Um dabei eine Bildung von
 Inseln (durch das Entfernen von Verbindungen) zu vermeiden, werden alle
 ursprünglichen Nachbarn des zu entfernenden Songs untereinander verbunden. Dabei
-wird folgendermaßen vorgegangen: Zuerst wird temporär für jeden Nachbarn den
+wird folgendermaßen vorgegangen: Zuerst wird temporär für jeden Nachbarn der
 Richtwert für die Anzahl der Nachbarn um eins erhöht. Im Anschluss wird die
 Menge aller Nachbarn untereinander mit quadratischem Aufwand verglichen. Dadurch
 bekommt jeder Nachbar, im besten Fall, eine neue Verbindung.  Abschließend werden
 alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird wieder
 um eins dekrementiert.</p>
-<p>Da <em>libmunin</em> alle Songs in einer linearen List hält, muss auch dort der Song
+<p>Da <em>libmunin</em> alle Songs in einer linearen Liste hält, muss auch dort der Song
 gelöscht werden. Da der Index des Songs in der Liste gleich des <em>Identifiers</em>
 des Songs ist, wird an dessen Stelle ein leerer Wert geschrieben. Damit dieser
 möglichst bald wieder besetzt wird, wird der gelöschte <em>Identifier&ndash;Index</em> in
-einer sogenannten <em>Revocation</em>&ndash;List gespeichert. Beim nächsten <tt class="docutils literal"><span class="pre">add</span></tt> oder
+einer sogenannten <em>Revocation</em>&ndash;Liste gespeichert. Beim nächsten <tt class="docutils literal"><span class="pre">add</span></tt> oder
 <tt class="docutils literal"><span class="pre">insert</span></tt> wird dieser <em>Identifier</em> dann wiederverwendet. Dieses Verfahren soll
-eine Fragementierung der Song&ndash;Liste nach vielen <tt class="docutils literal"><span class="pre">remove</span></tt>&ndash;Operation
-vermeiden.</p>
+eine Fragmentierung der Song&ndash;Liste nach vielen <tt class="docutils literal"><span class="pre">remove</span></tt>&ndash;Operation vermeiden.</p>
 </div>
 <div class="section" id="insert-hinzufugen-von-songs-zur-laufzeit">
 <span id="ref-graphop-insert"></span><h3>4.1.5 <tt class="docutils literal"><span class="pre">insert:</span></tt> Hinzufügen von Songs zur Laufzeit<a class="headerlink" href="#insert-hinzufugen-von-songs-zur-laufzeit" title="Permalink to this headline">¶</a></h3>
-<p>Diese Operation ist äquivalent zu <tt class="docutils literal"><span class="pre">add</span></tt>. Als Erweiterung fügt <tt class="docutils literal"><span class="pre">insert</span></tt>
-allerdings den, durch <tt class="docutils literal"><span class="pre">add</span></tt> erzeugten Song auch in den Graphen ein und
-verbindet ihn dort. Dazu muss zuerst ein <em>Punkt</em> gefunden werden an dem der Song
-passend zu seinen Attributen <em>eingepasst</em> werden kann.</p>
-<p>Diese <em>Einpassung</em> geschieht dabei folgendermaßen:</p>
+<p>Diese Operation ist äquivalent zur <tt class="docutils literal"><span class="pre">add</span></tt>&ndash;Operation. Als Erweiterung fügt
+<tt class="docutils literal"><span class="pre">insert</span></tt> allerdings den, durch <tt class="docutils literal"><span class="pre">add</span></tt> erzeugten Song, auch in den Graphen ein
+und verbindet ihn dort. Dazu muss zuerst ein Punkt gefunden werden, an dem der
+Song passend zu seinen Attributen <em>eingepasst</em> werden kann.</p>
+<p>Diese Einpassung geschieht dabei folgendermaßen:</p>
 <ul>
 <li><p class="first"><strong>Basisiteration:</strong> Es wird mit einer gewissen <em>Schrittweite</em> über die
 Songliste iteriert. Dabei werden die Distanzen vom momentan aktuellen Song zum
@@ -452,19 +441,19 @@ Schrittweite.  Exakt ist sie dabei folgendermaßen definiert:</p>
 </li>
 <li><p class="first"><strong>Verfeinerung:</strong> Songs, zu denen im vorigen Schritt eine geringe Distanz
 gefunden wurde, werden nun detaillierter betrachtet. Dazu wird die Distanz zu
-den Nachbarn dieser <em>guten</em> Songs berechnet, unter der bekannten Annahme, dass
-die indirekten Nachbar des einzufügenden Songs auch als potenzielle direkte
-Nachbarn taugen.</p>
+den Nachbarn dieser <em>guten</em> Songs berechnet. Dies geschieht unter der
+Annahme, dass die indirekten Nachbarn des einzufügenden Songs auch
+als potenzielle direkte Nachbarn geeignet sind.</p>
 </li>
 </ul>
 <p>Als zusätzliche Beobachtung lässt sich feststellen, dass Songs die per
-<tt class="docutils literal"><span class="pre">insert</span></tt> eingefügt werden deutlich <em>weitläufiger</em> verbunden sind als regulär
-per <tt class="docutils literal"><span class="pre">add</span></tt> hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
-gezeigte Demonanwedung zu Nutze: Ändert man das <em>Rating</em> eines Songs, so wird
-der Song mitels <tt class="docutils literal"><span class="pre">remove</span></tt> gelöscht und mittels  <tt class="docutils literal"><span class="pre">insert</span></tt> anderswo wieder
-eingefügt. Meist verbindet sich dabei der Song dann mit anderen ähnlich
-bewerteten Songs. Diese bilden ein <em>zusätzliches Netz</em> über den Graphen, welches
-weitläufrigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine intuitive
+<tt class="docutils literal"><span class="pre">insert</span></tt> eingefügt werden, deutlich weitläufiger verbunden sind als regulär
+per <tt class="docutils literal"><span class="pre">add</span></tt> hinzugefügte. Diese Eigenschaft macht sich die, in der Projektarbeit
+gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines Songs, so wird
+der Song mittels <tt class="docutils literal"><span class="pre">remove</span></tt> gelöscht und mittels  <tt class="docutils literal"><span class="pre">insert</span></tt> an anderer Stelle
+wieder eingefügt. Meist verbindet sich dabei der Song, dann mit anderen ähnlich
+bewerteten Songs. Diese bilden ein <em>zusätzliches Netz</em> über dem Graphen, welches
+weitläufigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine
 Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
 <em>explizites Lernen</em>).</p>
 </div>
@@ -476,34 +465,34 @@ Würde man die Werte eines Songs manuell verändern, so müsste man alle Distanz
 zu diesem Song neu berechnen. Da dies wiederum Veränderungen im ganzen Graphen
 hervorrufen könnte, wurden die Song&ndash;Instanzen unveränderbar <em>(,,Immutable&quot;)</em>
 gemacht.</p>
-<p>Die <tt class="docutils literal"><span class="pre">modify</span></tt>&ndash;Operation umgeht dieses Problem indem es den Song erst durch ein
-<tt class="docutils literal"><span class="pre">remove</span></tt> entfernt und eine Kopie des ursprünglichen Songs macht, in der die
-neuen Werte gesetzt werden. Dieser neue, noch unverbundene Song wird dann
+<p>Die <tt class="docutils literal"><span class="pre">modify</span></tt>&ndash;Operation umgeht dieses Problem, indem es den Song erst durch ein
+<tt class="docutils literal"><span class="pre">remove</span></tt> entfernt und eine Kopie des ursprünglichen Songs herstellt. In dieser
+werden die neuen Werte gesetzt. Dieser neue, noch unverbundene Song, wird dann
 mittels einer <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation in den Graphen eingepasst.</p>
-<p>Aufgrund dieser Abfolge unterschiedlicher Operation ist <tt class="docutils literal"><span class="pre">modify</span></tt> relativ
-aufwendig. Es wird empfohlen diese Operation nur für einzelne Song jeweils
+<p>Aufgrund dieser Abfolge unterschiedlicher Operation, ist <tt class="docutils literal"><span class="pre">modify</span></tt> relativ
+aufwendig. Es wird empfohlen, diese Operation nur für einzelne Song jeweils
 einzusetzen. Sollte ein bestimmtes Attribut in allen Songs geändert werden, so
-ist eine <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation zu empfehlen.</p>
+ist eher eine <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation zu empfehlen.</p>
 </div>
 <div class="section" id="ablauf-beim-hinzufugen-einer-distanz">
 <span id="ref-distance-add"></span><h3>4.1.7 Ablauf beim Hinzufügen einer Distanz<a class="headerlink" href="#ablauf-beim-hinzufugen-einer-distanz" title="Permalink to this headline">¶</a></h3>
-<p>Wie bereits erwähnt speichert jeder Song eine Hashtabelle mit den jeweiligen
+<p>Wie bereits erwähnt, speichert jeder Song eine Hashtabelle mit den jeweiligen
 Songs, zu denen er eine Verbindung hält, als Schlüssel und der Distanz als Wert.
-Um diese Hashtabelle zu füllen ist eine Funktion nötig, die sich nach näherer
-Betrachtung als relativ schwierig zu implementieren gestaltete. Tatsächlich
-wurden an die 2 Wochen mit unterschiedlichen Herangehensweisen verbracht.</p>
+Um diese Hashtabelle zu füllen, ist eine Funktion nötig, die sich nach näherer
+Betrachtung als relativ schwierig zu implementieren erwies. Tatsächlich
+wurden an die zwei Wochen mit unterschiedlichen Herangehensweisen verbracht.</p>
 <p>Die Anzahl von Nachbarn pro Song sollte sich um einen gewissen <em>Richtwert</em>
 einpendeln, den man konfigurieren kann. Daraus folgt, dass bei zu vielen
-Nachbarn der <em>schlechteste Nachbarn</em> entfernt werden muss. Der anfängliche
-Versuch die Verbindung zwischen den beiden Songs komplett zu löschen hatte aber
+Nachbarn der schlechteste Nachbar entfernt werden muss. Der anfängliche
+Versuch, die Verbindung zwischen den beiden Songs komplett zu löschen hatte aber
 ein gewichtiges Problem: Die Inseln im Graphen, die jeweils ein Album
 repräsentierten, haben sich nur untereinander verbunden. Verbindungen dazwischen
 wurden immer wieder als der <em>schlechteste Nachbar</em> erkannt und entfernt. Daher
 neigt der entstehende Graph stark zur Inselbildung und Bildung von starken
 Clustern.</p>
-<p>Die momentan Lösung ist dabei, dass der schlechteste Nachbar eine
+<p>Die momentane Lösung ist dabei, dass der schlechteste Nachbar eine
 unidirektionale Verbindung zu seinem ursprünglichen Partner aufrecht erhält. Die
-Verbindung wird als nicht bidirektional gelöscht. Der Trick ist dabei: Bei der
+Verbindung wird nicht bidirektional gelöscht. Der Trick ist dabei: Bei der
 <tt class="docutils literal"><span class="pre">rebuild</span></tt>&ndash;Operation werden diese <em>Einbahnstraßen</em> immer noch von einer Seite
 als Nachbarn erkannt. So kann insbesondere der <em>Verfeinerungsschritt</em> gut
 zueinander passende Songs näher aneinander ziehen. Nach dem <tt class="docutils literal"><span class="pre">rebuild</span></tt> werden
@@ -521,15 +510,15 @@ werden muss. Das ist damit zu erklären, dass gegen Ende der
 &ndash;- womit immer wieder der schlechteste Song herausgelöscht werden muss.</p>
 <p>Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
 Distanzen, auch einen Heap als <em>,,Lookup&ndash;Hilfe&quot;</em>.
-In diesem werden, entgegen der natürlichen Unordnung in einer Hastabelle, die
+In diesem werden, entgegen der prinzipbedingten Unordnung in einer Hastabelle, die
 zuletzt hinzugefügten Paare aus Distanzen und Songs partiell sortiert abgelegt.
 Gemäß der Natur eines Heaps, ist dabei der Wurzelknoten immer das Element mit
-der größten Distanz.  Ist es dann nötig eine neue, schlechteste Distanz zu
+der größten Distanz.  Ist es dann nötig, eine neue, schlechteste Distanz zu
 finden, so kann mit einem Aufwand von <span class="math">\(O(\log n)\)</span> das oberste Paar
 herausgenommen werden.</p>
-<p>Die <tt class="docutils literal"><span class="pre">distance_add()</span></tt> Funktion nimmt 3 Parameter. Die ersten zwei sind die
-Songs (im Folgenden <em>A</em> und <em>B</em>), zwischen denen eine Verbindung hergestellt
-werden soll. Der letzte ist die Distanz mit der diese Kante gewichtet wird.  Im
+<p>Die <tt class="docutils literal"><span class="pre">distance_add()</span></tt>&ndash;Funktion nimmt drei Parameter. Die ersten zwei sind die
+Songs (im Folgenden <em>self</em> und <em>other</em>), zwischen denen eine Verbindung hergestellt
+werden soll. Der Letzte, ist die Distanz mit der diese Kante gewichtet wird.  Im
 Folgenden ist der dazugehörige Python&ndash;Code in gekürzter, vereinfachter Form als
 Referenz gegeben:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">distance_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
@@ -579,57 +568,61 @@ Referenz gegeben:</p>
 </div>
 <div class="section" id="graphentraversierung">
 <h2>4.2 Graphentraversierung<a class="headerlink" href="#graphentraversierung" title="Permalink to this headline">¶</a></h2>
-<p>Um nun tatsächlich Empfehlungen abzuleiten muss der Graph traversiert werden.
+<p>Um nun tatsächlich Empfehlungen abzuleiten, muss der Graph traversiert werden.
 Je nach Art der Anfrage werden ein oder mehrere <em>Zentren</em> für eine
 <a class="reference internal" href="../2_begriffe/index.html#term-breitensuche"><em class="xref std std-term">Breitensuche</em></a>, sogenannte <em>Seedsongs</em>, ausgewählt. Bei einfachen Anfragen
 in der Art <em>,,Gib 10 ähnliche zu Song X aus&quot;</em>, kann einfach der Song <em>X</em> als
-Seedsong angenommen werden. Komplexere Anfragen wie <em>,,Gib 10 Songs die ein
-Genre ähnlich Y haben aus&quot;</em> oder <em>,,Empfiehl mir 10 Songs basierend auf dem
-Nutzerverhalten</em>&quot; erfordern das Auswählen mehrerer Seedsongs.</p>
+Seedsong angenommen werden.  Komplexere Anfragen benötigen allerdings mehr als
+einen Seedsong:</p>
+<ul class="simple">
+<li><em>,,Gib 10 Songs aus, die ein Genre ähnlich Y haben&quot;</em></li>
+<li><em>,,Empfiehl mir 10 Songs basierend auf dem Nutzerverhalten</em>&quot;</li>
+</ul>
 <div class="section" id="empfehlungsiteratoren">
 <h3>4.2.1 Empfehlungsiteratoren<a class="headerlink" href="#empfehlungsiteratoren" title="Permalink to this headline">¶</a></h3>
 <p>In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
 Statt diese Breitensuche <em>sofort</em> auszuführen, wird jeweils nur ein
-<a class="reference internal" href="../2_begriffe/index.html#term-iterator"><em class="xref std std-term">Iterator</em></a> bereitgestellt welcher immer nur eine Empfehlung generiert und
-erst bei Zuruf die nächste Empfehlung dynamisch generiert. Dieses, aus der
-funktionalen Programmierung bekannte Konzept, ist sehr nützlich beim Filtern der
-generierten Empfehlungen, denn man weiß im Vornherein nicht wieviele
-Empfehlungen ausgefiltert werden. So kann der Iterator einfach so lange bemüht
-werden, bis die gewünschte Anzahl an Empfehlungen generiert worden sind.</p>
-<p>Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jedem ein
+<a class="reference internal" href="../2_begriffe/index.html#term-iterator"><em class="xref std std-term">Iterator</em></a> bereitgestellt, welcher immer nur eine Empfehlung generiert.
+Erst beim nächsten Aufruf wird die nächste Empfehlung dynamisch generiert.
+Dieses, aus der funktionalen Programmierung als <em>,,Layz Evaluation&quot;</em> bekannte,
+Konzept ist sehr nützlich beim Filtern der generierten Empfehlungen. Denn man
+weiß im Vornherein nicht, wieviele Empfehlungen ausgefiltert werden. So kann der
+Iterator einfach so lange bemüht werden, bis die gewünschte Anzahl an
+Empfehlungen generiert worden sind.</p>
+<p>Sollten mehrere Seedsongs vorhanden sein, so wird einfach für jeden ein
 Breitensuche&ndash;Iterator erstellt. Dieser liefert erst den Seedsong, dann den
-besten Nachbarn, dann nächst schlechteren Nachbarn und später geht es mit den
+besten Nachbarn, dann den nächst schlechteren Nachbarn und später geht es mit den
 indirekten Nachbarn weiter.  Diese Liste von Iteratoren wird dann im
-Round&ndash;Robin&ndash;Verfahren ineinander <em>verwebt</em>. Dabei wird je der erste Iterator
-in der Liste angestoßen, dann immer wieder der nächste um wieder am Anfang zu
-beginnen.</p>
-<p>Der daraus entstehende Iterator wird dann dem Nutzer der Bibliothek
+Round&ndash;Robin&ndash;Verfahren ineinander verwebt. Dabei wird erst der erste Iterator
+in der Liste genutzt, dann der Nächste. Ist man am Ende der Liste, so wird von
+vorne begonnen.</p>
+<p>Der daraus entstehende Iterator, wird dann dem Nutzer der Bibliothek
 bereitgestellt. Wird ein Element aus diesem obersten Iterator genommen, so hat
 das ein <em>,,Nachrutschen&quot;</em> von Iteratoren zur Folge. Diese Hierarchie von
-Iteratoren ist in  gezeigt.</p>
+Iteratoren ist in Abbildung  gezeigt.</p>
 <div class="figure align-center" id="fig-iterator">
 <a class="reference internal image-reference" href="../../_images/iterator.svg"><img alt="Traversierung durch verschachtelte Iteratoren" src="../../_images/iterator.svg" width="80%" /></a>
-<p class="caption">Traversierung durch verschachtelte Iteratoren. Zieht der Nutzer einen Song
-aus dem obersten Iterator, so löst das eine ,,Lawine” von Iterationsschritten
-aus. Dabei werden die einzelnen Schritte ,,fair” via einem
-Round&ndash;Robin&ndash;Verfahren auf die einzelnen Seed&ndash;Songs aufgeteilt.</p>
+<p class="caption">Traversierung durch verschachtelte Iteratoren. Jedes Kästchen ist ein
+Iterator.  Zieht der Nutzer einen Song aus dem obersten Iterator, so löst das
+eine ,,Lawine” von Iterationsschritten aus. Dabei werden die einzelnen
+Schritte ,,fair” via einem Round&ndash;Robin&ndash;Verfahren auf die einzelnen
+Seed&ndash;Songs aufgeteilt.</p>
 </div>
 </div>
 <div class="section" id="anwendung-von-regeln">
 <span id="ref-graphops-rules"></span><h3>4.2.2 Anwendung von Regeln<a class="headerlink" href="#anwendung-von-regeln" title="Permalink to this headline">¶</a></h3>
-<p>Die Assoziationsregeln, die beim impliziten Lernen entstehen werden bei der
-Traversierung als <em>,,Navigationshilfe&quot;</em> genutzt.
-In  wird gezeigt, dass jedem Seedsong jeweils eine
-Breitensuche und eine Menge von <em>Regeliteratoren</em> unterstellt sind.  <em>Libmunin</em>
-bietet einen Mechanismus um alle Regeln abzufragen, die einen bestimmten Song
-betreffen. Für jeden Song, der auf der <em>anderen</em> Seite der Regel vorkommt (also
-die Seite, in der <em>nicht</em> der Seedsong vorhanden ist), wird ein
-<em>Breitensucheniterator</em> erstellt.  <br />
-Die einzelnen, den Regeln zugeordneten Iteratoren werden wieder im
-Round&ndash;Robin&ndash;Verfahren abgewechselt. Der dadurch entstehende wird immer im
-Wechsel mit dem <em>Breitensucheniterator</em>, der vom Seedsong ausgeht, abgefragt.
-Daher besteht der Iterator, der aus einem Seedsong gebaut wird, wiederum aus
-mehreren Unteriteratoren.</p>
+<p>Die Assoziationsregeln, die beim impliziten Lernen entstehen, werden bei der
+Traversierung als <em>,,Navigationshilfe&quot;</em> genutzt.  In Abbildung
+ wird gezeigt, dass jedem Seedsong jeweils eine Breitensuche
+und eine Menge von <em>Regeliteratoren</em> unterstellt sind.  <em>Libmunin</em> bietet einen
+Mechanismus, um alle Regeln abzufragen, die einen bestimmten Song betreffen. Für
+jeden Song, der auf der <em>anderen</em> Seite der Regel vorkommt (also die Seite, in
+der nicht der Seedsong vorhanden ist), wird ein Breitensucheniterator erstellt.
+<br /> Die einzelnen, den Regeln zugeordneten Iteratoren, werden wieder im
+Round&ndash;Robin&ndash;Verfahren abgewechselt. Der dadurch entstehende Iterator wird
+immer im Wechsel mit dem Breitensucheniterator, der vom Seedsong ausgeht,
+abgefragt.  Daher besteht der Iterator für einen Seedsong aus vielen
+Unteriteratoren.</p>
 </div>
 <div class="section" id="filtern-der-iteratoren">
 <h3>4.2.3 Filtern der Iteratoren<a class="headerlink" href="#filtern-der-iteratoren" title="Permalink to this headline">¶</a></h3>
@@ -637,17 +630,26 @@ mehreren Unteriteratoren.</p>
 Filtern natürlich auch Songs vom gleichen Album oder vom gleichen Künstler
 geliefert. Dies ist für gewöhnlich nicht erwünscht &ndash;- man möchte ja neue Musik
 entdecken, die nicht immer vom selben Künstler kommt. Der optionale
-Filterschritt (oder <em>Sieving</em>&ndash;Schritt) dient dazu diese unerwünschten Songs
+Filterschritt (oder <em>Sieving</em>&ndash;Schritt), dient dazu diese unerwünschten Songs
 herauszufiltern.</p>
 <p>Um dieses Ziel zu erfüllen, werden die <span class="math">\(20\)</span> letzten Empfehlungen
 gespeichert, die von <em>libmunin</em> ausgegeben werden. War der Künstler einer zu
-überprüfenden Empfehlung in den, beispielsweise, fünf letzten Empfehlungen
+überprüfenden Empfehlung in den, beispielsweise fünf letzten Empfehlungen
 bereits vorhanden, so wird er ausgesiebt. Ähnlich wird mit dem Album
 vorgegangen, nur hier ist die Schwelle standardmäßig bei drei. Die einzelnen
-Schwellen können vom Nutzer konfiguriert werden. <br /> Auch das <em>Sieving</em> ist als
-Iterator implementiert welcher Songs von einem Empfehlungsiterator nimmt, aber
-nicht alle an den Nutzer weitergibt. Die vom Iterator übergangenen Songs werden
-für den nächsten Iterationsschritt zwischengespeichert.</p>
+Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. <br /> Auch das
+<em>Sieving</em> ist als Iterator implementiert, welcher Songs von einem
+Empfehlungsiterator entgegennimmt, aber nicht alle an den Nutzer weitergibt. Die
+vom Iterator übergangenen Songs werden für den nächsten Iterationsschritt
+zwischengespeichert, um sie vorzuschlagen sobald sie wieder erlaubt sind.</p>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
+Alben ist dieser Wert etwa <span class="math">\(14.142\)</span>.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

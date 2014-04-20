@@ -9,8 +9,9 @@ Einleitung
 Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
 vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
 übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
-Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separater Text. Daher
-werden im Folgenden nur die stark erklärungsbedürftigen Paare näher betrachtet.
+Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separate Erklärung.
+Daher werden im Folgenden nur die stark erklärungsbedürftigen Paare näher
+betrachtet.
 
 
 Genrenormalisierung und Vergleich von Genres
@@ -19,13 +20,13 @@ Genrenormalisierung und Vergleich von Genres
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
 gibt. Oft sind sich nicht mal Menschen untereinander einig zu welchem Genre das
-Album eines Künstlers zuzuteilen ist. Manchmal ist man sich nichtmal innerhalb
-einer einzelnen Band einig. Ein Computer könnte höchstens erkennen wie
-ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist es nötig,
-dass die einzelnen Genre--Eingaben anhand einer Sammlung von zusammengestellten
-geläufigen Genres normalisiert werden.
+Album eines Künstlers zuzuteilen ist. Manchmal sind sich nicht mal die
+Mitglieder einer Band untereinander einig.  Ein Computer könnte höchstens
+erkennen wie ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist
+es nötig, dass die einzelnen Genre--Eingaben anhand einer Sammlung von
+zusammengestellten geläufigen Genres normalisiert werden.
 
-Zusammenstellung der Gernedatenbank
+Zusammenstellung der Genredatenbank
 -----------------------------------
 
 Musikrichtungen können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
@@ -33,12 +34,12 @@ Musikrichtungen können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenr
 --- und so weiter --- aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
 man das allumfassende Genre *Music* an --- einfach weil sich *Music* hinter fast
-jedes Genre schreiben lässt ohne den Sinn zu verändern.
-Dieser Baum kann dann genutzt werden um beliebige Genres als *Pfad* durch den
+jedes Genre schreiben lässt, ohne den Sinn zu verändern.
+Dieser Baum kann dann genutzt werden, um beliebige Genres als *Pfad* durch den
 Baum normalisiert abzubilden. 
 
-Die eigentliche Schwierigkeit besteht nun darin eine repräsentative Sammlung von
-Genres in diesen Baum einzupflegen --- bei der hohen Zahl der existierenden Genres
+Die eigentliche Schwierigkeit besteht nun darin, eine repräsentative Sammlung von
+Genres in diesen Baum einzupflegen. Bei der hohen Anzahl der existierenden Genres,
 kann man diese nur schwerlich manuell einpflegen.
 
 Existierende Datenbanken wie, das sonst sehr vollständige, *MusicBrainz* liefern
@@ -57,19 +58,19 @@ laut ihren *FAQ* keine Genredaten:
 Also musste man sich nach anderen Quellen umschauen. Das vom
 ``DiscogsGenreProvider`` verwendete *Discogs* bietet zwar relativ detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-*Genre* (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
+Genre (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
 grobe Einteilung.
 
-Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- fast jede Band 
-ist dort vertreten und eben auch mit detaillierter Genre Information --- sowie
-*The Echonest* --- einem Unternehmen welches verschiedene Dienste rund um
-Musikmetadaten anbietet, darunter auch eine Liste von den ihnen bekannten
+Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- viele bekannte
+Künstler sind dort mit detaillierter Genreinformation vertreten.
+Sowie *The Echonest* --- einem Unternehmen, welches verschiedene Dienste rund um
+Musikmetadaten anbietet. Darunter auch eine Liste, von den ihnen bekannten
 Genres. 
 
 Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
-Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei
-*The Echonest* ist dies, nachdem man sich einen *API--Key* registriert hat
-relativ einfach [#f1]_: 
+Genres bekommen. Zuerst muss man allerdings an die Daten herankommen. Bei *The
+Echonest* ist dies, nachdem man sich einen *API--Key*  [#f1]_ registriert hat,
+relativ einfach: 
 
 .. code-block:: bash
 
@@ -168,7 +169,7 @@ Das Umwandeln selbst geschieht folgendermaßen:
 
 - Es wird manuell der Wurzelknoten *Music* angelegt.
 - Alle Genres in der Genreliste werden diesem Knoten als Kinder hinzugefügt.
-  (siehe Abb. :num:`fig-tree-init`)
+  (Abbildung :num:`fig-tree-init`)
 
 Nach dieser Vorarbeit wird rekusiv folgende Prozedur erledigt:
 
@@ -190,8 +191,9 @@ Nach dieser Vorarbeit wird rekusiv folgende Prozedur erledigt:
 In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig
 (:num:`fig-tree-final`). In :num:`fig-tree-first` ist der Baum nach der ersten
 Iteration zu sehen. |br|
-Nach dem manuellen Aufbau werden noch einige halbautomatische Aufräumarbeiten
-erledigt:
+Bei der momnetanen Datenquelle entstehen einige kleine Fehler im entstehenden
+Baum.  Daher werden mach dem manuellen Aufbau noch einige halbautomatische
+Aufräumarbeiten erledigt. 
 
   1.  Die fehlenden *,,Musik"*--Genres *,,Vocal"* und *,,Speech"* werden
       manuell eingefügt.
@@ -244,7 +246,11 @@ Dazu werden zuerst folgende Variablen initialisiert:
     |nbsp|             Anfangs initialisiert auf ein leere Liste.                                                                   
     ================== ======================================================================================= 
 
-Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
+.. raw:: latex
+
+   \newpage
+
+Nach diesen Vorbereitungen wird eine rekursive Backtracking--Suche gestartet:
 
 1) Finde alle Kinder von ``root``, deren Untergenres in der Wortliste vorkommen. 
    Wenn das entsprechende Untergenre noch nicht in ``mask`` abgehakt wurde, wird
@@ -297,7 +303,7 @@ Vergleichen der unterschiedlichen Genrepfad--Mengen
 Um zwei einzelne Pfade miteinander zu Vergleich wird folgendermaßen vorgegangen:
 
 - Zähle die Anzahl an Punkten, in denen sich der Pfad überdeckt.
-  Für ``(192, 1, 8)`` und ``(192, 1, 2, 8)`` wäre dies :math:`2`.
+  Beispiel: Für :math:`\left\{192, 1, 8\right\}` und :math:`\left\{192, 1, 2, 8\right\}` wäre dies :math:`2`.
 - Teile die Anzahl durch die Länge, des längeren beider Pfade.
 - Die daraus gewonnene Ähnlichkeit wird von :math:`1.0` abgezogen um die Distanz
   zu erhalten.
@@ -401,7 +407,7 @@ sprachabhängigen Corpora (Wortdatenbanken) abhängig.
    automatisch erraten. Zudem werden lange Wörter mittels ``PyEnchant``
    :cite:`pyenchant` in einem Wörterbuchs nachgeschlagen um die Sprache
    rauszufinden sofern die ``Enchant``--Bibliothek samt Wörterbuch für die
-   entsprechende Sprache :cite:`enchant` installiert ist .
+   entsprechende Sprache :cite:`enchant` installiert ist.
 3) Berechnung eines *Scores* für jedes Wort in einem Phrase aus dem *Degree* und
    der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen):
 
@@ -427,7 +433,7 @@ Algorithmus vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
 abzustimmen:
 
 - Im Original werden Sätze nicht anhand von Zeilenumbrüchen aufgebrochen.  Die
-  meisten Liedtexte bestehen aus einzelnen Versen, die nicht durch Punkte
+  meisten Liedtexte bestehen aber aus einzelnen Versen, die nicht durch Punkte
   getrennt sind, sondern durch eine neue Zeile abgegrenzt werden.
 - Um die Ergebnisse leichter vergleichen zu können, werden die einzelnen Wörter
   nach dem Extrahieren noch auf ihren Wortstamm reduziert. Dabei wird der
@@ -523,15 +529,15 @@ Ergebnisse
    *(oben rechts weiter)*                Und wandern.
    ===================================== ==================================
     
-In Abb. :num:`table-keywords` sind die extrahierten Schlüsselwörter aus zwei
+In Abbildung :num:`table-keywords` sind die extrahierten Schlüsselwörter aus zwei
 Liedern aufgelistet. 
 
-Zur Referenz ist unter Abb. :num:`table-lyrics-wandern` der Liedtextes des
-Volkliedes ,,Das Wandern ist des Müllers Lust" abgedruckt. Der Text von
+Zur Referenz ist unter Abbildung :num:`table-lyrics-wandern` der Liedtextes des
+Volkliedes *,,Das Wandern ist des Müllers Lust"* abgedruckt. Der Text von
 *,,Yellow Subarmine"* wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.
 
-Wie man in Abb. :num:`table-keywords` sieht, werden längere Phrasen automatisch
+Wie man in Abbildung :num:`table-keywords` sieht, werden längere Phrasen automatisch
 besser bewertet --- deren *Score* berechnet sich ja aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie *aboard* trotz Stoppwortlisten
 noch in das Ergebniss aufgenommen werden.
@@ -548,7 +554,7 @@ einer relativ niedrigen Distanz von gerundet :math:`0.4` bewertet.
 Doch nicht bei allen Texten funktioniert die Extrahierung so gut. Nimmt man den
 Ausdruck *,,God save the Queen!"*, so wird *RAKE* diesen nicht als gesamten
 Schlüsselphrase erkennen. Stattdessen werden zwei einzelne Phrasen generiert: 
-*,,God save"* und *,,Queen"*, da *,,the"* ein einglisches Stoppwort ist. 
+*,,God save"* und *,,Queen"*, da *,,the"* ein englisches Stoppwort ist. 
 
 Andererseits entstehen auch oft Schlüsselwörter, die entweder unwichtig *(,,mal
 echt")*, sinnentfremdet (*,,gerne still stehen"* obwohl im Text oben *,,nicht"*
@@ -560,13 +566,13 @@ nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
 (wie von *Hans Söllner*) greift auch die normale hochdeutsche Stoppowortliste
 nicht.
 
-Moodbar
-=======
+Moodbaranalyse
+==============
 
 Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (siehe
 :cite:`wood2005techniques` für genauere Informationen) wird in *libmunin* neben
-der Beats--Per--Minute Bestimmung als einfache Form der Audioanalyse eingesetzt.
-Kurz zusammengefasst wird dabei ein beliebiges Audiostück zeitlich in 1000
+der BPM--Bestimmung als einfache Form der Audioanalyse eingesetzt.
+Kurz zusammengefasst, wird dabei ein beliebiges Audiostück zeitlich in 1000
 Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB--Tripel)
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil von
@@ -579,7 +585,7 @@ keineswegs die subjektive Stimmung in einem Lied herauslesen. Lediglich die
 Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
 Autors sollte man das Verfahren daher eher *,,frequencebar"* oder Ähnliches
 nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
-Namensgebung des Erfinders verwendet.
+Namensgebung des Originalautors verwendet.
 
 .. figure:: figs/mood_avril.*
     :alt: Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“
@@ -589,7 +595,7 @@ Namensgebung des Erfinders verwendet.
     Beispiel--Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
     Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
     im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
-    durch ein eigens zu diesem Zwekc geschriebenes Script gerendert. Deutlich
+    durch ein eigens zu diesem Zwecke geschriebenes Script gerendert. Deutlich
     sichtbar sind die einzelnen Pausen zwischen den Akkorden.
 
 Vergleich von Moodbars
@@ -602,11 +608,11 @@ Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
 ``MoodbarProvider`` getätigt.
  
 Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
-aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
-ursprüngliche 1000 Werte lange Vektor in (momentan) 20 einzelne, *handlichere*
-Werte aufgeteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
-das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend ist.
-
+aufgeteilt *(Diskretisierung)*, von der jeweils das arithmetische Mittel
+gebildet wird. So wird der ursprüngliche 1000 Werte lange Vektor in (momentan)
+20 einzelne, handlichere Werte aufgeteilt. Bei einer durchschnittlichen
+Liedlänge von vier Minuten entspricht das immerhin zwölf Sekunden pro Block, was
+für gewöhnliche Lieder ausreichend ist.
 Nach einigen subjektiven Tests haben sich folgende Merkmale als *vergleichbar*
 erwiesen:
 
@@ -623,10 +629,10 @@ erwiesen:
   seinem maximalen Wert von :math:`(20 - 1) \times 255 = 4845`.
 
 * **Histogramm:** Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
-  Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von fünf
-  möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt. 
-  So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
-  der Frequenzen abgespeichert.
+  Histogramm, abgespeichert. Jeder einzelne Farbwert wird dabei auf einen von
+  fünf möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.  So wird
+  für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung der
+  Frequenzen abgespeichert.
 
 * **Dominanten Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
   Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
@@ -639,19 +645,19 @@ erwiesen:
 * **Schwarzanteil:** Gesondert werden sehr dunklen Farben behandelt. Haben alle
   Farbkanäle eines RGB--Tripels einen Wert kleiner 30, so wird die Farbe nicht
   gezählt, sondern auf einen *Schwarzanteil*--Zähler aufaddiert.  Geteilt durch
-  1000 ergibt sich daraus der Anteil des Liedes, der (beinahe) *still* ist.
+  1000 ergibt sich daraus der Anteil des Liedes, der ganz oder beinahe *still* ist.
 
-* **Durchschnittliches Minimun/Maximum:** Von jedem Block wird das Minimum/Maximum
-  bestimmt.  Die Summe über jeden so bestimmten Wert, geteilt durch die Anzahl
-  der Blöcke ergibt das durschnittliche Minimun/Maximum. Für jeden Farbkanal
-  ergibt sich so ein Wert, der zwischen :math:`0` und :math:`255` liegt. Dieser
-  sagt aus, in welchem Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal
-  bewegen. 
+* **Durchschnittliches Minimun/Maximum:** Von jedem Block wird das
+  Minimum/Maximum der drei Farbkanäle bestimmt.  Die Summe über jeden so
+  bestimmten Wert, geteilt durch die Anzahl der Blöcke ergibt das
+  durschnittliche Minimun/Maximum. Für jeden Farbkanal ergibt sich so ein Wert,
+  der zwischen :math:`0` und :math:`255` liegt. Dieser sagt aus, in welchem
+  Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal bewegen. 
 
 .. figtable::
     :spec: l | r | l
     :label: table-moodbar-list
-    :caption: Auflistung der einzelnen Werte die der Moodbar--Provider ausliest
+    :caption: Auflistung der einzelnen Werte, die der Moodbar--Provider ausliest
               und deren dazugehörige Distanzfunktion, sowie deren Gewichtung in
               der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit Ausnahme der
               Histogramm--Eingabewerte und der dominanten Farben. Dort sind ,,a“
@@ -661,7 +667,7 @@ erwiesen:
     :alt: Auflistung der einzelnen Moodbar--Merkmale
 
     ==================================== ====================== ====================
-    Name                                 Gewichtung             *ungewichtete* Distanzfunktion :math:`d(a, b)`
+    Name                                 Gewichtung             ungewichtete Distanzfunktion :math:`d(a, b)`
     ==================================== ====================== ====================
     *Differenzsumme*                     :math:`13,5\%`         :math:`1 - \sqrt{\frac{\vert a - b\vert}{50}}`                                               
     *Histogramm*                         :math:`13,5\%`         :math:`1 - \frac{\sum_{x \in \vv{a} - \vv{b}}\vert x\vert}{5 \times 255}`  
@@ -674,9 +680,12 @@ erwiesen:
 In :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte gegeben,
 die der ``Moodbar-Provider`` generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
-Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
+Moodbar--Distanzfunktion, die einzelnen Werte verrechnet. 
+Die enstehende gewichtete Distanz wird mittels der in Abbildung
+:num:`fig-strech` gezeigten Funktion noch skaliert um schlechte Werte
+abzustrafen und gute hervorzuheben.
 
-Am subjektiv *vergleichbarsten* erwiesen sich die dominanten Farben in einem
+Am subjektiv vergleichbarsten erwiesen sich die dominanten Farben in einem
 Lied. Die zwischenzeitlich aufgekommene Idee bestimmte markante Farbwertbereiche
 bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
 extrem ungenau.
@@ -728,18 +737,20 @@ Posten beim *Kaltstart*.
 
 - **Robustheit:** Wie man in :num:`fig-mood-yellow-submarine` sieht, ist das
   Verfahren relativ umempfdindlich gegen verschieden Enkodierungen. Selbst Live
-  und Studioversionen zeigen gut vergleichbare Resultate (siehe Abb.
+  und Studioversionen zeigen gut vergleichbare Resultate (siehe Abbildung
   :num:`fig-mood-rammstein-tier`).
 - **Geringer Speicherverbrauch:** Obwohl für die Implementierung die relativ
   speicherhungrige Sprache Python benutzt wurde, nutzt der ``MoodbarProvider``
-  lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen --10 bis
-  255 im Speicher hält und der ``MoodbarProvider`` nur Zahlen in diesem Bereich
-  erzeugt, reichen hier 8 Byte für eine Referenz auf einen Integer aus. 
+  lediglich etwa :math:`540` Bytes pro Analysedatensatz. Da Python die Zahlen
+  :math:`-10` bis :math:`255` im Speicher hält und der ``MoodbarProvider`` nur
+  Zahlen in diesem Bereich erzeugt, reichen hier :math:`8` Byte für eine
+  Referenz auf ein Integer--Objekt aus. 
 
 .. rubric:: Footnotes
 
-.. [#f1] Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er
-   sollte nicht für andere Zwecke verwendet werden.
+.. [#f1] Ein *API-Key* ist zum nutzerabhängigen Zugriff auf den Webdienst nötig.
+   Der in der URL gezeigte *API Key* ist auf *libmunin* registriert. Er sollte
+   nicht für andere Zwecke verwendet werden.
 
 .. [#f2] *Anmerkung:* Die Idee entstand allerdings ohne Kenntnis von *beets*.
 

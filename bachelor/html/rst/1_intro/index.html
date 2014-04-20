@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../4_graphops/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#einleitung">4.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../4_graphops/index.html#graphentraversierung">4.2 Graphentraversierung</a></li>
 </ul>
 </li>
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#einleitung">5.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbar">5.4 Moodbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_provider/index.html#moodbaranalyse">5.4 Moodbaranalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../6_learning/index.html">6 Implizites Lernen vom Nutzer</a><ul>
@@ -134,11 +134,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#allgemeine-hinweise">Allgemeine Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../appendix.html#plotting-der-graphen">Plotting der Graphen</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Bilder des Song&ndash;Graphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html#medien">Medien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zzz_bibliography.html">Bibliographie</a></li>
@@ -181,19 +177,19 @@
 <h1>1 Überleitung<a class="headerlink" href="#uberleitung" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="das-allgemeine-problem">
 <h2>1.1 Das allgemeine Problem<a class="headerlink" href="#das-allgemeine-problem" title="Permalink to this headline">¶</a></h2>
-<p>Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen wie
+<p>Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen, wie
 <em>ähnlich</em> ein Musikstück zu einem anderem ist, so erhält man genauso viele
-Antworten wie man Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr
+Antworten, wie man Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr
 subjektive Angelegenheit, die auch häufig zwischen Menschen Diskussionen
 auslöst.  Stuft man die <em>Rolling Stones</em> als <em>Rock</em> ein? Oder doch eher als
 <em>Pop?</em> Was zählt überhaupt noch als <em>Rock</em>? Gibt es eine Definition dafür?</p>
-<p>Wenn man jetzt noch versucht einem Computer dem Begriff der <em>Musikähnlichkeit</em>
-beizubringen wird es kompliziert. Dieser kann nur objektiv nach bestimmten
-<em>Metriken</em> entscheiden. Diese Metriken zu definieren, muss dann wiederum die
-Aufgabe eines Menschen sein &ndash;- also sind auch diese wiederum subjektiv, da sie
-die <em>Vorlieben</em> des Autors widerspiegeln. Auch können diese Metriken nie für
-alle Fälle funktionieren. Ein gutes Stück <em>,,Kaffeesatzleserei&quot;</em> lässt sich
-leider nie ganz vermeiden.</p>
+<p>Wenn man jetzt noch versucht einem Computer den Begriff der <em>Musikähnlichkeit</em>
+beizubringen, so wird es noch weitaus komplizierter. Dieser kann nur objektiv
+nach bestimmten Metriken entscheiden. Diese Metriken zu definieren, muss dann
+wiederum die Aufgabe eines Menschen sein &ndash;- also sind auch diese wiederum
+subjektiv, da sie die Vorlieben des Autors widerspiegeln. Auch können diese
+Metriken nie für alle Fälle funktionieren. Ein gutes Stück
+<em>,,Kaffeesatzleserei&quot;</em> lässt sich leider nie ganz vermeiden.</p>
 </div>
 <div class="section" id="das-konkrete-problem">
 <h2>1.2 Das konkrete Problem<a class="headerlink" href="#das-konkrete-problem" title="Permalink to this headline">¶</a></h2>
@@ -202,7 +198,7 @@ Musikempfehlungssystem, das genau auf einen Nutzer und dessen Vorlieben
 zugeschnitten ist: Seinem Entwickler. Bibliotheksanwender können jedoch die
 Bibliothek an ihre Präferenzen anpassen oder ihren Endnutzern eine Möglichkeit
 geben, selbst Einstellungen vorzunehmen. So könnte man im praktischen Einsatz
-die Gewichtung einzelner Attribute während der Laufzeit zu ändern.</p>
+die Gewichtung einzelner Attribute während der Laufzeit ändern.</p>
 <p>Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
 verstehen was intern vor sich geht. Genau darum soll es in dieser Arbeit gehen.
 Es wird insbesondere auf die wichtigsten Provider und deren Funktionalität

@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4_graphops/index.html">4 Graphenoperationen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4_graphops/index.html#id1">4.1 Graphenoperationen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_graphops/index.html#einleitung">4.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_graphops/index.html#graphentraversierung">4.2 Graphentraversierung</a></li>
 </ul>
 </li>
@@ -116,7 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="5_provider/index.html#einleitung">5.1 Einleitung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_provider/index.html#genrenormalisierung-und-vergleich-von-genres">5.2 Genrenormalisierung und Vergleich von Genres</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_provider/index.html#schlusselwortextraktion">5.3 Schlüsselwortextraktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_provider/index.html#moodbar">5.4 Moodbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_provider/index.html#moodbaranalyse">5.4 Moodbaranalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="6_learning/index.html">6 Implizites Lernen vom Nutzer</a><ul>
@@ -134,11 +134,7 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Bilder des Song&ndash;Graphen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#allgemeine-hinweise">Allgemeine Hinweise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#plotting-der-graphen">Plotting der Graphen</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Bilder des Song&ndash;Graphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#medien">Medien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zzz_bibliography.html">Bibliographie</a></li>
@@ -179,8 +175,7 @@
             
   <div class="section" id="bilder-des-song-graphen">
 <h1>Bilder des Song&ndash;Graphen<a class="headerlink" href="#bilder-des-song-graphen" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="allgemeine-hinweise">
-<h2>Allgemeine Hinweise<a class="headerlink" href="#allgemeine-hinweise" title="Permalink to this headline">¶</a></h2>
+<p><strong>Allgemeine Hinweise</strong></p>
 <p>Folgende visuelle Aspekte sind mit Informationen besetzt:</p>
 <ul class="simple">
 <li><em>Kantenfarbe:</em> Rote Farbe indiziert eine hohe Distanz. Grün eine mittlere
@@ -200,21 +195,23 @@ Aufbau des Graphen anhand von linearen und pseudozufälligen generierten
 Testdaten mit jeweils 100, beziehungsweise <span class="math">\(200\)</span> Knoten.  Abbildung
  zeigt einen realen, praktischen Graphen mittlerer Größe
 mit <span class="math">\(666\)</span> Knoten. Die Liedtitel wurden jeweils an die Knoten geschrieben.</p>
-<p>Bei den linearen Testdaten werden die Zahlen von <span class="math">\(1\)</span> bis <span class="math">\(100\)</span>
-aufsteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
+<p>Bei den linearen Testdaten werden die Zahlen von <span class="math">\(100\)</span> bis <span class="math">\(1\)</span>
+absteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
 daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
 Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
 erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
 Anzahl.  Diese sind zum größten Teil auf den Bereich 25&ndash;75 aufgeteilt. Es
 sollte ein Graph entstehen der ähnlich linear ist, aber in der Mitte eine
 <em>,,Verdichtung&quot;</em> aufweist.  Beides sind Testdaten, die häufig zum Testen von
-<em>libmunin</em> genutzt worden, da sie spezielle Extremfälle gut testen.</p>
-</div>
-<div class="section" id="plotting-der-graphen">
-<h2>Plotting der Graphen<a class="headerlink" href="#plotting-der-graphen" title="Permalink to this headline">¶</a></h2>
+<em>libmunin</em> genutzt worden, da sie spezielle Extremfälle gut testen. Die linearen
+Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen Enden
+der pseudozufälligen Daten werden mit jeder Iteration klarer. Im Vergleich zu
+<tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> fällt hier auf, dass <tt class="docutils literal"><span class="pre">rebuild</span></tt> zur Bildung von mehr Kanten
+neigt.</p>
+<p><strong>Plotting der Graphen</strong></p>
 <p>Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien Python
-Graphenframeworks <tt class="docutils literal"><span class="pre">igraph</span></tt> <a class="reference internal" href="zzz_bibliography.html#igraph" id="id1">[Link&ndash;18]</a> entstanden. Als Zeichenbibliothek
-nutzt <tt class="docutils literal"><span class="pre">igraph</span></tt> die freie 2D Zeichenbibliothek <tt class="docutils literal"><span class="pre">cairo</span></tt> <a class="reference internal" href="zzz_bibliography.html#cairo" id="id2">[Link&ndash;19]</a>.  Der
+Graphenframeworks <tt class="docutils literal"><span class="pre">igraph</span></tt> <a class="reference internal" href="zzz_bibliography.html#igraph" id="id1">[Link&ndash;19]</a> entstanden. Als Zeichenbibliothek
+nutzt <tt class="docutils literal"><span class="pre">igraph</span></tt> die freie 2D Zeichenbibliothek <tt class="docutils literal"><span class="pre">cairo</span></tt> <a class="reference internal" href="zzz_bibliography.html#cairo" id="id2">[Link&ndash;20]</a>.  Der
 verwendete Layouting&ndash;Algorithmus ist <em>,,Fruchtermann&ndash;Reingold&quot;</em>.</p>
 <div class="figure compound align-center" id="fig-graph-linear">
 <div style="width: 47.5%" class="subfigure align-center" id="fig-graph-linear-basic">
@@ -260,7 +257,6 @@ Demonanwendungen steckt. Auf der beiliegenden CD ist der vollständige Graph
 in A0 Größe enthalten.</p>
 </div>
 </div>
-</div>
 <div class="section" id="bilder-des-genregraphen">
 <span id="genre-graph-vis"></span><h1>Bilder des Genregraphen<a class="headerlink" href="#bilder-des-genregraphen" title="Permalink to this headline">¶</a></h1>
 <p>Der Vollständigkeit halber wird hier auch eine Visualisierung des Genre&ndash;Graphen
@@ -268,7 +264,7 @@ gezeigt. Daraus kann man zwar keine <em>,,neuen Erkenntnisse&quot;</em> ziehen, 
 in der weniger detaillierten Version zumindest als Überblick über die einzelnen
 Genres dienen. Die detailliertere Version führt einem vor Auge wieviel einzelne
 Musikgenres mit der Zeit entstanden sind.  Die Graphen wurden mit dem freien
-Graphenvisualisierungspaket <tt class="docutils literal"><span class="pre">Graphviz</span></tt> <a class="reference internal" href="zzz_bibliography.html#graphviz" id="id3">[Link&ndash;20]</a> generiert. Das
+Graphenvisualisierungspaket <tt class="docutils literal"><span class="pre">Graphviz</span></tt> <a class="reference internal" href="zzz_bibliography.html#graphviz" id="id3">[Link&ndash;21]</a> generiert. Das
 Vorgehen soll hier dokumentiert werden.</p>
 <p>Folgendes erstellt die <tt class="docutils literal"><span class="pre">Graphviz</span></tt>&ndash;Eingabedatei.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">pwd</span>
@@ -325,8 +321,8 @@ Zwecke, während das <em>Emblem</em> unter  von
 Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von <em>libmunin</em> in
 ihren Anwendungen hinzuweisen.</p>
 <p>Die Grafiken wurde mit dem freien Vektorzeichenprogramm <tt class="docutils literal"><span class="pre">Inkscape</span></tt>
-<a class="reference internal" href="zzz_bibliography.html#inkscape" id="id4">[Link&ndash;21]</a> erstellt und können auf der API&ndash;Dokumentation runtergeladen
-werden: <a class="reference internal" href="zzz_bibliography.html#logos" id="id5">[Link&ndash;22]</a>.</p>
+<a class="reference internal" href="zzz_bibliography.html#inkscape" id="id4">[Link&ndash;22]</a> erstellt und können auf der API&ndash;Dokumentation runtergeladen
+werden: <a class="reference internal" href="zzz_bibliography.html#logos" id="id5">[Link&ndash;23]</a>.</p>
 <div class="figure compound align-center" id="fig-logos">
 <div style="width: 100%" class="subfigure align-center" id="fig-logo">
 <a class="reference internal image-reference" href="../_images/logo.svg"><img alt="Logo im quadratischen Format" src="../_images/logo.svg" width="40%" /></a>
