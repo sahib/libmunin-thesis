@@ -135,7 +135,7 @@ ist. ``A`` und ``B`` sind im Folgenden die beiden Teilmengen der Regel:
 
 .. math::
 
-    Kulczynski(A, B) =  \frac{1}{2} \times \left(P(A \mid B) + P(B \mid A)\right)
+    Kulczynski(A, B) =  \frac{1}{2} \times \big(P(A \mid B) + P(B \mid A)\big)
 
 Diese Metrik ist der Durchschnitt aus zwei Variationen einer anderen Metrik: Dem
 *confidence*--Measure (vergleiche :cite:`datamining-concepts-and-techniques`, S. 254f.):
