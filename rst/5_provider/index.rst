@@ -250,7 +250,7 @@ Dazu werden zuerst folgende Variablen initialisiert:
 
    \newpage
 
-Nach diesen Vorbereitungen wird eine rekursive Suche gestartet:
+Nach diesen Vorbereitungen wird eine rekursive Backtracking--Suche gestartet:
 
 1) Finde alle Kinder von ``root``, deren Untergenres in der Wortliste vorkommen. 
    Wenn das entsprechende Untergenre noch nicht in ``mask`` abgehakt wurde, wird
@@ -533,7 +533,7 @@ In Abbildung :num:`table-keywords` sind die extrahierten Schlüsselwörter aus z
 Liedern aufgelistet. 
 
 Zur Referenz ist unter Abbildung :num:`table-lyrics-wandern` der Liedtextes des
-Volkliedes ,,Das Wandern ist des Müllers Lust" abgedruckt. Der Text von
+Volkliedes *,,Das Wandern ist des Müllers Lust"* abgedruckt. Der Text von
 *,,Yellow Subarmine"* wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.
 
@@ -566,13 +566,13 @@ nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
 (wie von *Hans Söllner*) greift auch die normale hochdeutsche Stoppowortliste
 nicht.
 
-Moodbar
-=======
+Moodbaranalyse
+==============
 
 Die ursprünglich als Navigierungshilfe in Audioplayern gedachte Moodbar (siehe
 :cite:`wood2005techniques` für genauere Informationen) wird in *libmunin* neben
-der Beats--Per--Minute Bestimmung als einfache Form der Audioanalyse eingesetzt.
-Kurz zusammengefasst wird dabei ein beliebiges Audiostück zeitlich in 1000
+der BPM--Bestimmung als einfache Form der Audioanalyse eingesetzt.
+Kurz zusammengefasst, wird dabei ein beliebiges Audiostück zeitlich in 1000
 Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB--Tripel)
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittleren Frequenzen und der Blauanteil den Anteil von
@@ -585,7 +585,7 @@ keineswegs die subjektive Stimmung in einem Lied herauslesen. Lediglich die
 Bestimmung einzelner Instrumente ist als Annäherung möglich. Nach Meinung des
 Autors sollte man das Verfahren daher eher *,,frequencebar"* oder Ähnliches
 nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten wird die
-Namensgebung des Erfinders verwendet.
+Namensgebung des Originalautors verwendet.
 
 .. figure:: figs/mood_avril.*
     :alt: Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“
@@ -608,11 +608,11 @@ Vektoren zu extrahieren. Dieser Analyseschritt wird dabei durch den
 ``MoodbarProvider`` getätigt.
  
 Vor der eigentlichen Verarbeitung wird jeder Farbkanal in einzelne Blöcke
-aufgeteilt, von der jeweils das arithmetische Mittel gebildet wird. So wird der
-ursprüngliche 1000 Werte lange Vektor in (momentan) 20 einzelne, *handlichere*
-Werte aufgeteilt. Bei einer durchschnittlichen Liedlänge von 4 Minuten entspricht
-das immerhin 12 Sekunden pro Block, was für gewöhnliche Lieder ausreichend ist.
-
+aufgeteilt *(Diskretisierung)*, von der jeweils das arithmetische Mittel
+gebildet wird. So wird der ursprüngliche 1000 Werte lange Vektor in (momentan)
+20 einzelne, handlichere Werte aufgeteilt. Bei einer durchschnittlichen
+Liedlänge von vier Minuten entspricht das immerhin zwölf Sekunden pro Block, was
+für gewöhnliche Lieder ausreichend ist.
 Nach einigen subjektiven Tests haben sich folgende Merkmale als *vergleichbar*
 erwiesen:
 
@@ -629,10 +629,10 @@ erwiesen:
   seinem maximalen Wert von :math:`(20 - 1) \times 255 = 4845`.
 
 * **Histogramm:** Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
-  Histogramm, abgespeichert. Jeder Farbwert wird dabei auf einen von fünf
-  möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt. 
-  So wird für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung
-  der Frequenzen abgespeichert.
+  Histogramm, abgespeichert. Jeder einzelne Farbwert wird dabei auf einen von
+  fünf möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.  So wird
+  für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung der
+  Frequenzen abgespeichert.
 
 * **Dominanten Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
   Instrumente visuell anhand deren charakteristischen Farbe zu erkennen. Das
@@ -645,19 +645,19 @@ erwiesen:
 * **Schwarzanteil:** Gesondert werden sehr dunklen Farben behandelt. Haben alle
   Farbkanäle eines RGB--Tripels einen Wert kleiner 30, so wird die Farbe nicht
   gezählt, sondern auf einen *Schwarzanteil*--Zähler aufaddiert.  Geteilt durch
-  1000 ergibt sich daraus der Anteil des Liedes, der (beinahe) *still* ist.
+  1000 ergibt sich daraus der Anteil des Liedes, der ganz oder beinahe *still* ist.
 
-* **Durchschnittliches Minimun/Maximum:** Von jedem Block wird das Minimum/Maximum
-  bestimmt.  Die Summe über jeden so bestimmten Wert, geteilt durch die Anzahl
-  der Blöcke ergibt das durschnittliche Minimun/Maximum. Für jeden Farbkanal
-  ergibt sich so ein Wert, der zwischen :math:`0` und :math:`255` liegt. Dieser
-  sagt aus, in welchem Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal
-  bewegen. 
+* **Durchschnittliches Minimun/Maximum:** Von jedem Block wird das
+  Minimum/Maximum der drei Farbkanäle bestimmt.  Die Summe über jeden so
+  bestimmten Wert, geteilt durch die Anzahl der Blöcke ergibt das
+  durschnittliche Minimun/Maximum. Für jeden Farbkanal ergibt sich so ein Wert,
+  der zwischen :math:`0` und :math:`255` liegt. Dieser sagt aus, in welchem
+  Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal bewegen. 
 
 .. figtable::
     :spec: l | r | l
     :label: table-moodbar-list
-    :caption: Auflistung der einzelnen Werte die der Moodbar--Provider ausliest
+    :caption: Auflistung der einzelnen Werte, die der Moodbar--Provider ausliest
               und deren dazugehörige Distanzfunktion, sowie deren Gewichtung in
               der Gesamtdistanz. ,,a“ und ,,b“ sind Skalare, mit Ausnahme der
               Histogramm--Eingabewerte und der dominanten Farben. Dort sind ,,a“
@@ -667,7 +667,7 @@ erwiesen:
     :alt: Auflistung der einzelnen Moodbar--Merkmale
 
     ==================================== ====================== ====================
-    Name                                 Gewichtung             *ungewichtete* Distanzfunktion :math:`d(a, b)`
+    Name                                 Gewichtung             ungewichtete Distanzfunktion :math:`d(a, b)`
     ==================================== ====================== ====================
     *Differenzsumme*                     :math:`13,5\%`         :math:`1 - \sqrt{\frac{\vert a - b\vert}{50}}`                                               
     *Histogramm*                         :math:`13,5\%`         :math:`1 - \frac{\sum_{x \in \vv{a} - \vv{b}}\vert x\vert}{5 \times 255}`  
@@ -680,9 +680,12 @@ erwiesen:
 In :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte gegeben,
 die der ``Moodbar-Provider`` generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
-Moodbar--Distanzfunktion, die einzelnen Werte verrechnet.
+Moodbar--Distanzfunktion, die einzelnen Werte verrechnet. 
+Die enstehende gewichtete Distanz wird mittels der in Abbildung
+:num:`fig-strech` gezeigten Funktion noch skaliert um schlechte Werte
+abzustrafen und gute hervorzuheben.
 
-Am subjektiv *vergleichbarsten* erwiesen sich die dominanten Farben in einem
+Am subjektiv vergleichbarsten erwiesen sich die dominanten Farben in einem
 Lied. Die zwischenzeitlich aufgekommene Idee bestimmte markante Farbwertbereiche
 bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
 extrem ungenau.
@@ -738,9 +741,10 @@ Posten beim *Kaltstart*.
   :num:`fig-mood-rammstein-tier`).
 - **Geringer Speicherverbrauch:** Obwohl für die Implementierung die relativ
   speicherhungrige Sprache Python benutzt wurde, nutzt der ``MoodbarProvider``
-  lediglich etwa 540 Bytes pro Analysedatensatz. Da Python die Zählen --10 bis
-  255 im Speicher hält und der ``MoodbarProvider`` nur Zahlen in diesem Bereich
-  erzeugt, reichen hier 8 Byte für eine Referenz auf einen Integer aus. 
+  lediglich etwa :math:`540` Bytes pro Analysedatensatz. Da Python die Zahlen
+  :math:`-10` bis :math:`255` im Speicher hält und der ``MoodbarProvider`` nur
+  Zahlen in diesem Bereich erzeugt, reichen hier :math:`8` Byte für eine
+  Referenz auf ein Integer--Objekt aus. 
 
 .. rubric:: Footnotes
 

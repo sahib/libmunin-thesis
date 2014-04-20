@@ -60,20 +60,20 @@ der in :cite:`RELIM` vorgestellt wurde.
    *C*                3 |x|  *C, A*            1 |x|                    |nbsp|
    ================== ====== ================= ====== ================= ======
 
-In Tabelle :num:`table-itemsets` sehen wir ein Beispiel aus drei Warenkörben,
+In Tabelle :num:`table-itemsets` sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
 samt deren Support--Count aufgelistet worden sind.
 
 Der ``RELIM``--Algorithmus
 --------------------------
 
-Generell gilt FP--Growth als der *neue* Standard--Algorithmus, der laut mehrerer
+Generell gilt FP--Growth als der neue Standard--Algorithmus, der laut mehrerer
 Quellen andere Algorithmen wie Eclat und ``RELIM`` (``RE``--*cursive* ``ELIM``--*ination*)
 aussticht :cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
 
 In diesem Fall wird trotzdem auf ``RELIM`` zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
-tausend Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining*
+tausend Songs überstiegen wird. Zudem gibt es mit dem Python--Paket *pymining*
 (siehe :cite:`pymining`) bereits eine freie, qualitativ relativ hochwertige
 Implementierung, während es für FP--Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
@@ -93,7 +93,7 @@ verschiedener *Metriken*, wie zutreffend diese ist.
    :label: table-rules
    :spec: l | l l l l
    :alt: Mögliche regeln die aus den 3 warenkörben erstellt werden können
-   :caption: Mögliche Regeln die aus den 3 Warenkörben erstellt werden können.
+   :caption: Mögliche Regeln die aus den drei Warenkörben erstellt werden können.
              Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie die
              beiden Metriken Imbalance--Ratio und Kulczynski abgebildet.
 
@@ -122,9 +122,9 @@ Cornflakes essen liegt bei :math:`70\%` --- daher ist die Eigenschaft
 *,,Basketballspieler"* sogar ein Gegenindiz für die Eigenschaft
 *,,Cornflake--Esser"*.
 
-Um solche *falschen* Assoziationsregeln zu vermeiden, werden für jede Regel zwei
-Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem Buch
-*Datamining Concepts and Techniques*
+Um solche kontraproduktiven Assoziationsregeln zu vermeiden, werden für jede
+Regel zwei Metriken errechnet. Die von *libmunin* genutzten Metriken wurde dem
+Buch *Datamining Concepts and Techniques*
 (:cite:`datamining-concepts-and-techniques`, S. 268--271) entnommen: Die
 *Kulczynski--Metrik* und der *Imbalance--Ratio*.
 
@@ -138,11 +138,11 @@ ist. ``A`` und ``B`` sind im Folgenden die beiden Teilmengen der Regel:
     Kulczynski(A, B) =  \frac{1}{2} \times \left(P(A \mid B) + P(B \mid A)\right)
 
 Diese Metrik ist der Durchschnitt aus zwei Variationen einer anderen Metrik: Dem
-*confidence*--Measure :cite:`datamining-concepts-and-techniques`, S. 254f.):
+*confidence*--Measure (vergleiche :cite:`datamining-concepts-and-techniques`, S. 254f.):
 
 .. math::
     
-    confidence(A \rightarrow B) = P(A\mid B) = \frac{support(A \cup B)}{support(B)}    
+    confidence(A \rightarrow B) = P(A\mid B) = \frac{P(A\cap B)}{P(B)} = \frac{support(A \cup B)}{support(B)}    
 
 
 Diese Metrik gibt an zu welchem Prozentsatz die Regel zutrifft. Ist der Quotient
@@ -157,14 +157,14 @@ berechnen lässt, können wir die obige Definition umstellen:
 
    Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cup B)}{support(B)} + \frac{support(A\cup B)}{support(A)}\right)
 
-Allein diese Metrik reicht allerdings nicht für eine qualitative Eisnchätzung
+Diese Metrik allein reicht allerdings nicht für eine qualitative Eisnchätzung
 einer Regel. Zwar kann die Regel oft zutreffen, doch kann sie, wie im obigen
 Beispiel mit den *Cornflakes*, trotzdem kontraproduktiv sein. 
 Daher wird mit dem *Imbalance Ratio* eine weitere Metrik
 eingeführt. Der *Imbalance Ratio* gibt im Bereich :math:`\lbrack 0, 1\rbrack`
 an, wie unterschiedlich beide Seiten der Regel sind. Treten die Regeln
 unterschiedlich oft auf, so steigt diese Metrik Hier ist der beste Wert die
-:math:`0`, der schlechteste eine :math:`1`.  Er ist gegeben durch:
+:math:`0`, der Schlechteste eine :math:`1`.   Er ist gegeben durch:
 
 .. math::
 
@@ -172,7 +172,7 @@ unterschiedlich oft auf, so steigt diese Metrik Hier ist der beste Wert die
 
 Sollte die *Kulczynski--Metrik* kleiner als :math:`0.\overline{6}` sein oder der
 *Imbalance--Ratio* größer als :math:`0.35`, so wird die Regel fallen gelassen.
-Diese Grenzwerte worden, mehr oder minder willkürlich, nach einigen Tests
+Diese Grenzwerte wurden, mehr oder minder willkürlich, nach einigen Tests
 festgelegt.  Sollte die Regel *akzeptabel* sein, dann werden beide Metriken in
 eine einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
 
@@ -180,7 +180,10 @@ eine einzelne, leichter zu handhabendes *Rating--Metrik* verschmolzen:
 
     Rating(A, B) = \left(1 - ImbalanceRatio(A, B)\right) \times Kulczynski(A, B)
 
-Dieses *Rating* wird genutzt um die einzelnen Assoziationsregeln zu sortieren.
+Dieses *Rating* wird genutzt, um die einzelnen Assoziationsregeln zu sortieren.
+Das finale Rating bewegt sich im Bereich :math:`\lbrack 0, 1\rbrack`, wobei
+:math:`1` das höchste vergebene Rating ist.
+
 
 Anwendung von Regeln
 ====================
@@ -279,9 +282,10 @@ beispielsweise ``date``, ein Wert ``2010`` und eine Beziehung :math:`\ge`.
 Weitere Beziehungen wären :math:`=`, :math:`\neq`, :math:`<` oder :math:`\le`. 
 
 Mit all den unterschiedlichen Attributen wären dann automatisch erstellte
-Playlisten wie  *,,Favouriten"* ( ``rating > 3`` ), *,,Ungehörte"* ( ``Playcount
-= 0`` ) und *,,Neu Hinzugefügte"* ( ``date > (today - 7 days)`` ) möglich. 
-Für letzere könnten hilfreiche Konstanten wie ``today`` eingeführt werden.
+Playlisten wie  *,,Favouriten"* (:math:`rating > 3`), *,,Ungehörte"*
+(:math:`Playcount = 0`) und *,,Neu Hinzugefügte"* (:math:`date > (today - 7
+\times days)`) möglich.  Für Letzere könnten hilfreiche Konstanten wie :math:`today`
+eingeführt werden.
 
 .. rubric:: Footnotes
 

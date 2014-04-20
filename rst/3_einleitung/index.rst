@@ -75,7 +75,7 @@ Hinweise zum Schreiben von Distanzfunktionen
        def do_compute(self, A, B):
            # A und B sind, der Konsistenz halber, immer Tupel. 
            # Auch bei einzelnen Werten.
-           # Daher müssen wir diese erst ,,entpacken".
+           # Daher müssen wir diese erst "entpacken".
            a, b = A[0], B[0]
 
            # Teile Differenz durch Maximum aus beiden:
