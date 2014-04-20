@@ -696,11 +696,11 @@ Probleme
 .. _fig-mood-yellow-submarine:
 
 .. figure:: figs/mood_yellow_submarine.*
-    :alt: Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten
+    :alt: Die selbe Moodbar bei unterschiedlichen Encoding der Audiodaten
     :width: 100%
     :align: center
 
-    Diesselbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
+    Die selbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
     Beatles--Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
     mit relativ stark komprimierter MP3--Enkodierung. Die von libmunin
     berechnete Distanz ist hier etwa 0.01.

@@ -24,7 +24,7 @@ dass es bereits neuere Methoden geben könnte. Beispielsweise arbeitet Schnitzer
 *nur* mit MP3--Audiodaten [#f1]_. Eine Abhilfe wäre die relativ neue Bibliothek
 *libaubio*, die von *Paul Brossier* :cite:`AUBIO` entwickelt wird. Zum
 Dekodieren der Audiodaten (*libaubio* erwartet PCM--Daten) könnte das weit
-verbreitete Audio--Framework *Gstreamer* :cite:`gstreamer`.
+verbreitete Audio--Framework *Gstreamer* :cite:`gstreamer` genutzt werden.
 
 *Aubio* könnte folgendes leisten:
 
