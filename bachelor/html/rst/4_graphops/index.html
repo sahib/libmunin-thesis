@@ -241,7 +241,7 @@ Anzahl von ähnlichen Songs zu finden. Basierend auf diesen wird in den
 nächsten Schritten versucht, die Anzahl ähnlicher Songs zu vergrößern.</p>
 <p>Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
 basiert auf gewissen heuristischen Annahmen, die über die Eingabemenge gemacht
-werden (siehe auch Abbildung ):</p>
+werden (siehe auch Abbildung <a href="#fig-windows">4.1</a>):</p>
 <blockquote>
 <div><ul>
 <li><p class="first"><tt class="docutils literal"><span class="pre">sliding_window:</span></tt> Schiebt ein <em>,,Fenster&quot;</em> über die Liste der Songs.
@@ -314,11 +314,11 @@ Stelle verzichtet. Keine der einzelnen Schritte erreicht dabei quadratische
 Komplexität. Die einzige Ausnahme ist dabei, das Vergleichen der Songs
 untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
 stets auf ein verträgliches Limit begrenzt.</p>
-<p>Unter Abbildung  findet sich eine Gegenüberstellung von den
+<p>Unter Abbildung <a href="#fig-speed-cmp">4.2</a> findet sich eine Gegenüberstellung von den
 Aufrufen der Distanzfunktion, die bei <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> und beim normalen
 <tt class="docutils literal"><span class="pre">rebuild</span></tt> (mit und ohne <em>Verfeinerungsschritt</em>) nötig sind.</p>
 <p>Die einzelnen Schritte des Graphenaufbaus lassen sich in Abbildung
-, sowie bei den darauf folgenden Abbildungen,
+<a href="../appendix.html#fig-graph-linear">[broken link :-(]</a>, sowie bei den darauf folgenden Abbildungen,
 nachvollziehen.</p>
 <div class="figure align-center" id="fig-speed-cmp">
 <a class="reference internal image-reference" href="../../_images/graph_speed.svg"><img alt="Vergleich der Distanzberechnungen für rebuild_stupid und rebuild" src="../../_images/graph_speed.svg" width="100%" /></a>
@@ -362,42 +362,42 @@ Statt wie <tt class="docutils literal"><span class="pre">insert</span></tt>, ber
 diese Operation lediglich einen Song der internen Songliste hinzu. Die
 eigentlichen Verbindungen werden in einem Rutsch von <tt class="docutils literal"><span class="pre">rebuild</span></tt> aufgebaut.</p>
 <div class="figure compound align-center" id="fig-mini-graph-remove">
-<span id="fig-mini-graph-remove-after"></span><div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-remove-before">
+<div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-remove-before">
 <a class="reference internal image-reference" href="../../_images/mini_graph_remove_before.png"><img alt="../../_images/mini_graph_remove_before.png" src="../../_images/mini_graph_remove_before.png" style="width: 50%;" /></a>
 <p class="caption"><strong>(a)</strong> Vor der remove&ndash;Operation.</p>
 </div>
-<div style="width: 49%" class="subfigure align-center">
+<div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-remove-after">
 <a class="reference internal image-reference" href="../../_images/mini_graph_remove_after.png"><img alt="../../_images/mini_graph_remove_after.png" src="../../_images/mini_graph_remove_after.png" style="width: 50%;" /></a>
-<p class="caption">Nach der remove&ndash;Operation.</p>
+<p class="caption"><strong>(b)</strong> Nach der remove&ndash;Operation.</p>
 </div>
-<p class="caption">Vor () und nach
-() der remove&ndash;Operation.
-Es wurde der mittlere Punkt in  gelöscht.
+<p class="caption"><strong>Figure 4.3:</strong> Vor (<a href="#fig-mini-graph-remove-before">4.3a</a>) und nach
+(<a href="#fig-mini-graph-remove-after">4.3b</a>) der remove&ndash;Operation.
+Es wurde der mittlere Punkt in <a href="#fig-mini-graph-remove-before">4.3a</a> gelöscht.
 Daher haben sicht alle anderen Knoten einen anderen Nachbarn gesucht.</p>
 <span class="target" id="fig-mini-graph-remove"></span></div><div class="figure compound align-center" id="fig-mini-graph-insert">
-<span id="fig-mini-graph-insert-after"></span><div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-insert-before">
+<div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-insert-before">
 <a class="reference internal image-reference" href="../../_images/mini_graph_insert_before.png"><img alt="../../_images/mini_graph_insert_before.png" src="../../_images/mini_graph_insert_before.png" style="width: 50%;" /></a>
-<p class="caption">Vor der insert&ndash;Operation.</p>
+<p class="caption"><strong>(a)</strong> Vor der insert&ndash;Operation.</p>
 </div>
-<div style="width: 49%" class="subfigure align-center">
+<div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-insert-after">
 <a class="reference internal image-reference" href="../../_images/mini_graph_insert_after.png"><img alt="../../_images/mini_graph_insert_after.png" src="../../_images/mini_graph_insert_after.png" style="width: 50%;" /></a>
-<p class="caption">Nach der insert&ndash;Operation.</p>
+<p class="caption"><strong>(b)</strong> Nach der insert&ndash;Operation.</p>
 </div>
-<p class="caption">Vor () und nach
-() der insert&ndash;Operation. Es wurde
+<p class="caption"><strong>Figure 4.4:</strong> Vor (<a href="#fig-mini-graph-insert-before">4.4a</a>) und nach
+(<a href="#fig-mini-graph-insert-after">4.4b</a>) der insert&ndash;Operation. Es wurde
 einfach ein weiterer Punkt in den Graphen eingefügt. Dieser hat sich mit
 allen anderen verbunden.</p>
 <span class="target" id="fig-mini-graph-insert"></span></div><div class="figure compound align-center" id="fig-mini-graph-modify">
-<span id="fig-mini-graph-modify-after"></span><div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-modify-before">
+<div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-modify-before">
 <a class="reference internal image-reference" href="../../_images/mini_graph_modify_before.png"><img alt="../../_images/mini_graph_modify_before.png" src="../../_images/mini_graph_modify_before.png" style="width: 60%;" /></a>
-<p class="caption">Vor der modify&ndash;Operation.</p>
+<p class="caption"><strong>(a)</strong> Vor der modify&ndash;Operation.</p>
 </div>
-<div style="width: 49%" class="subfigure align-center">
+<div style="width: 49%" class="subfigure align-center" id="fig-mini-graph-modify-after">
 <a class="reference internal image-reference" href="../../_images/mini_graph_modify_after.png"><img alt="../../_images/mini_graph_modify_after.png" src="../../_images/mini_graph_modify_after.png" style="width: 60%;" /></a>
-<p class="caption">Nach der modify&ndash;Operation.</p>
+<p class="caption"><strong>(b)</strong> Nach der modify&ndash;Operation.</p>
 </div>
-<p class="caption">Vor () und nach
-() der modify&ndash;Operation.
+<p class="caption"><strong>Figure 4.5:</strong> Vor (<a href="#fig-mini-graph-modify-before">4.5a</a>) und nach
+(<a href="#fig-mini-graph-modify-after">4.5b</a>) der modify&ndash;Operation.
 Es wurden jeweils die Mittelknoten der beiden Inseln mit einem höhren Rating
 ,,modifiziert”. Dadurch verbinden sich beide und verlieren dafür eine andere
 Verbindung jeweils.</p>
@@ -599,10 +599,10 @@ vorne begonnen.</p>
 <p>Der daraus entstehende Iterator, wird dann dem Nutzer der Bibliothek
 bereitgestellt. Wird ein Element aus diesem obersten Iterator genommen, so hat
 das ein <em>,,Nachrutschen&quot;</em> von Iteratoren zur Folge. Diese Hierarchie von
-Iteratoren ist in Abbildung  gezeigt.</p>
+Iteratoren ist in Abbildung <a href="#fig-iterator">4.6</a> gezeigt.</p>
 <div class="figure align-center" id="fig-iterator">
 <a class="reference internal image-reference" href="../../_images/iterator.svg"><img alt="Traversierung durch verschachtelte Iteratoren" src="../../_images/iterator.svg" width="80%" /></a>
-<p class="caption">Traversierung durch verschachtelte Iteratoren. Jedes Kästchen ist ein
+<p class="caption"><strong>Figure 4.6:</strong> Traversierung durch verschachtelte Iteratoren. Jedes Kästchen ist ein
 Iterator.  Zieht der Nutzer einen Song aus dem obersten Iterator, so löst das
 eine ,,Lawine” von Iterationsschritten aus. Dabei werden die einzelnen
 Schritte ,,fair” via einem Round&ndash;Robin&ndash;Verfahren auf die einzelnen
@@ -613,7 +613,7 @@ Seed&ndash;Songs aufgeteilt.</p>
 <span id="ref-graphops-rules"></span><h3>4.2.2 Anwendung von Regeln<a class="headerlink" href="#anwendung-von-regeln" title="Permalink to this headline">¶</a></h3>
 <p>Die Assoziationsregeln, die beim impliziten Lernen entstehen, werden bei der
 Traversierung als <em>,,Navigationshilfe&quot;</em> genutzt.  In Abbildung
- wird gezeigt, dass jedem Seedsong jeweils eine Breitensuche
+<a href="#fig-iterator">4.6</a> wird gezeigt, dass jedem Seedsong jeweils eine Breitensuche
 und eine Menge von <em>Regeliteratoren</em> unterstellt sind.  <em>Libmunin</em> bietet einen
 Mechanismus, um alle Regeln abzufragen, die einen bestimmten Song betreffen. Für
 jeden Song, der auf der <em>anderen</em> Seite der Regel vorkommt (also die Seite, in

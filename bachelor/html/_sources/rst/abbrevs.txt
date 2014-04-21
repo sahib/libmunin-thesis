@@ -27,6 +27,9 @@
     API                      *Application Programming Interface*
     BPM                      *Beats per Minute*
     FAQ                      *Frequently Asked Questions*
+    URL                      *Uniform Resource Locator*
+    MP3                      *MPEG-2 Audio Layer III*
+    FLAC                     *Free Lossless Audio Codec*
     =======================  ==================================
 
 .. raw:: latex

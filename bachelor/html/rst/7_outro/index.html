@@ -183,9 +183,9 @@ einfach umsetzbar. Andere könnten die Grundlage für fortführende Arbeiten sei
 <div class="section" id="audioanalyse">
 <h3>7.1.1 Audioanalyse<a class="headerlink" href="#audioanalyse" title="Permalink to this headline">¶</a></h3>
 <p>Wie bereits erwähnt ist <em>libmunin's</em> momentane <em>,,Audioanalyse&quot;</em> eher simpler
-Natur.  Als konkrete Vorlage für eine verbesserte <em>Audioanalyse</em> könnte <em>Mirage</em>
+Natur.  Als konkrete Vorlage für eine verbesserte Audioanalyse könnte <em>Mirage</em>
 dienen. In seiner Arbeit stellt der Mirage&ndash;Autor <a class="reference internal" href="../zzz_bibliography.html#schnitzer2007high" id="id1">[9]</a>
-Dominik Schnitzer einige Herangehensweise zum performanten Vergleich von
+Dominik Schnitzer einige Herangehensweisen zum performanten Vergleich von
 Audiodaten vor.</p>
 <p>Angesichts der hohen Entwicklungsgeschwindigkeit in der Informatik und dem
 <em>,,hohem&quot;</em> Alter der Arbeit (<span class="math">\(2007\)</span>) sollte allerdings beachtet werden,
@@ -193,32 +193,32 @@ dass es bereits neuere Methoden geben könnte. Beispielsweise arbeitet Schnitzer
 <em>nur</em> mit MP3&ndash;Audiodaten <a class="footnote-reference" href="#f1" id="id2"><sup>1</sup></a>. Eine Abhilfe wäre die relativ neue Bibliothek
 <em>libaubio</em>, die von <em>Paul Brossier</em> <a class="reference internal" href="../zzz_bibliography.html#aubio" id="id3">[Link&ndash;16]</a> entwickelt wird. Zum
 Dekodieren der Audiodaten (<em>libaubio</em> erwartet PCM&ndash;Daten) könnte das weit
-verbreitete Audio&ndash;Framework <em>Gstreamer</em> <a class="reference internal" href="../zzz_bibliography.html#gstreamer" id="id4">[Link&ndash;17]</a>.</p>
+verbreitete Audio&ndash;Framework <em>GStreamer</em> <a class="reference internal" href="../zzz_bibliography.html#gstreamer" id="id4">[Link&ndash;17]</a> verwendet werden.</p>
 <p><em>Aubio</em> könnte folgendes leisten:</p>
 <ul class="simple">
 <li>Exaktere Bestimmung des <em>BPM&ndash;Wertes</em>. Beziehungsweise könnte man auch einen
-Verlauf des <em>BPM&ndash;Wertes</em> über das Musikstück aufzeichnen um exaktere
+Verlauf des <em>BPM&ndash;Wertes</em>, über das Musikstück, aufzeichnen um exaktere
 Vergleiche ziehen zu können.</li>
 <li><em>Onset&ndash;Detection</em>, also das Erkennen einzelner Noten beziehungsweise
-<em>Sounds</em>.</li>
-<li>Eine direkte Möglichkeit die Stimmung in einem Lied zu analysieren wird
+<em>Sounds</em> innerhalb des Musikstücks.</li>
+<li>Eine direkte Möglichkeit, die Stimmung in einem Lied zu analysieren, wird
 momentan zwar noch nicht geboten, aber die dazu benötigten Informationen, wie
 die Erkennung der Tonlage zu einem bestimmten Zeitpunkt werden angeboten.
 Die technischen Details dazu werden in <a class="reference internal" href="../zzz_bibliography.html#schnitzer2007high" id="id5">[9]</a> diskutiert.</li>
 </ul>
 <p>Die Bibliothek selber ist in <cite>C</cite> geschrieben, bietet aber eine komfortable
 Python&ndash;Schnitstelle.</p>
-<p>Eine weiter Idee wäre der Versuch, möglichst intelligent, reine Sprachdateien
+<p>Eine weiter Idee, wäre der Versuch, möglichst intelligent, reine Sprachdateien
 (wie <em>Hörbücher),</em> Instrumental&ndash;Lieder ohne Stimme (wie <em>Intros)</em> und normale
 Musik zu unterscheiden. Oft werden zu bestimmten Titeln unpassenderweise
 <em>Intros</em> vorgeschlagen, die man für gewöhnlich nur hören möchte, wenn man das
-gesamte Album von vorn bis hinten anhört. Auch hier wäre ein Einsatz von <em>Aubio</em>
-denkbar.</p>
+gesamte Album von vorn bis hinten anhört. Auch hier wäre ein Einsatz von
+<em>libaubio</em> denkbar.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Mirage verlässt sich dabei auf bestimmte Eigenschaften von MP3
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Mirage verlässt sich dabei auf bestimmte Eigenschaften von MP3,
 um die Daten schneller in seine interne Datenrepräsentation zu
 konvertieren.</td></tr>
 </tbody>
@@ -226,15 +226,15 @@ konvertieren.</td></tr>
 </div>
 <div class="section" id="andere-provider">
 <h3>7.1.2 Andere Provider<a class="headerlink" href="#andere-provider" title="Permalink to this headline">¶</a></h3>
-<p>Wie man im Playlistenvergleich unter <a class="reference internal" href="../3_einleitung/index.html#ref-playlist-compare">3.3</a> gesehen hat,
-ist momentan der Vergleich der Metadaten die Stärke von <em>libmunin</em>. Diese
+<p>Wie man im Playlistenvergleich unter Kapitel <a class="reference internal" href="../3_einleitung/index.html#ref-playlist-compare">3.3</a> gesehen
+hat, ist momentan der Vergleich der Metadaten die Stärke von <em>libmunin</em>. Diese
 Fähigkeit könnte noch weiter ausgebaut werden, indem die Sprache der einzelnen
 Titel (denn nicht immer sind Liedtexte vorhanden) erkannt wird. Dann könnte man
 mittels eines Thesaurus synonyme Titel finden. Für Python existiert mit
 <em>TextBlob</em> <a class="reference internal" href="../zzz_bibliography.html#textblob" id="id6">[Link&ndash;18]</a> hierfür eine passende Bibliothek. <br /> Kommt
 beispielsweise in einem Liedtitel das Wort <em>,,Sofa&quot;</em> vor, so könnte ein Titel
 mit dem synonymen Wort ,,Couch&quot; darin vorgeschlagen werden.  Auch Taxonomien,
-also ähnliche <em>Klassifikationen</em>, sind denkbar. Man denke hier an einem Lied
+also ähnliche Klassifikationen, sind denkbar. Man denke hier an einem Lied
 welches das Wort <em>,,Katze&quot;</em> enthält und ein anderes das <em>,,Tier&quot;</em> beinhaltet.
 <br /> In der momentanen Implementierung wird jedes Wort im Titel auf seinen
 Wortstamm gebracht und mittels der Levenshtein&ndash;Distanzfunktion verglichen.
@@ -257,13 +257,13 @@ Traversierungsreihenfolge sollte hier sein: Orange, Gelb, Grün.</p>
 </div>
 <p>Oft kommt es vor, dass es mehr als einen <em>Seedsong</em> gibt. Die momentane, simple
 Herangehensweise, ist für jeden einen Iterator zu erstellen und die einzelnen
-Iteratoren im Reißverchlussverfahren zu verweben. Das ist duchaus valide, wenn
+Iteratoren im Reißverchlussverfahren zu verweben. Das ist durchaus valide, wenn
 man annimmt, dass die <em>Seedsongs</em> im Graphen verteilt und alle gleich
 wichtig sind. Oft ballen sich Seedsongs aber auf einem bestimmten Gebiet.
 Schematisch ist das in Abbildung <a href="#fig-traverse-areas">7.1</a> dargestellt. Besitzen zwei
 <em>Seedsongs</em> gemeinsame Nachbarn, dann sollten diese zuerst besucht werden.</p>
 <p>Auch ist das Ausgabeformat von <em>libmunin</em> noch auf einzelne Songs als
-<em>Empfehlung</em> beschränkt. Nicht selten möchte man jedoch eine allgemeinere
+Empfehlung beschränkt. Nicht selten möchte man jedoch eine allgemeinere
 Auskunft wie <em>,,Gib mir einen ähnlichen Künstler/Album/Genre&quot;</em>. Momentan wäre
 dies nur durch Auslesen der jeweiligen Attribute aus den einzelnen Empfehlungen
 möglich. Allerdings könnten hier von <em>libmunin</em> optimierte
@@ -278,37 +278,36 @@ Traversierungsstrategien implementiert werden.</p>
 hier wären ,,Wer Songs von den Ärzten hört, der hört vermutlich auch gern Farin
 Urlaub Racing Team&quot; &ndash;- natürlich unter der Annahme, dass derselbe Künstler auch
 immer ähnliche Musik produziert.</p>
-<p>Was das Lernen von <em>libmunin</em> angeht, so sollten auch ,,negative Impulse&quot;
-behandelt werden. Wird beispielsweise ein bestimmtes Lied oder gar Künstler sehr
-oft geskippt (also übersprungen), könnte <em>libmunin</em> dies berücksichtigen indem
-es bei der Traversierung diesen Knoten ,,umgeht&quot;. Alternativ wäre auch ein
+<p>Was das Lernen von <em>libmunin</em> angeht, so sollten auch <em>,,negative Impulse&quot;</em>
+behandelt werden. Wird beispielsweise ein bestimmtes Lied oder gar ein Künstler
+sehr oft übersprungen, könnte <em>libmunin</em> dies berücksichtigen,
+indem es bei der Traversierung diesen Knoten umgeht. Alternativ wäre auch ein
 nachträgliches Filtern der entsprechenden Lieder möglich.</p>
 <p>Allgemein wäre auch eine Erweiterung von Assoziationsregeln denkbar. Momentan
 verbindet eine Regel immer zwei Mengen von Songs miteinander. Alternativ könnten
 aber auch verschiedene Genres, Künstler oder auch Alben in einer
 Regel miteinander verbunden werden. Das Erstellen solcher  Regeln wäre relativ
-einfach mit der existierenden Technik. Was problematisch ist, ist diese neuen
+einfach mit der existierenden Implementierung. Was problematisch ist, ist diese neuen
 Regeln als <em>Traversierungshilfe</em> zu nutzen.</p>
-<p>Ein weiterer Punkt den man beim Lernen verbessern könnte, sind die Gewichtungen,
-die manuell für jedes Attribut festgelegt werden. Man könnte den Nutzer
-beobachten und sehen nach welchen Attribut er bevorzugt seine Lieder auswählt
-(beispielsweise nach Genre). Das entsprechende Attribut könnte dann höher
-gewertet werden.</p>
+<p>Ein weiterer Punkt, den man beim Lernen verbessern könnte, sind die
+Gewichtungen, die manuell für jedes Attribut festgelegt werden. Man könnte den
+Nutzer detaillierter beobachten und sehen nach welchem Attribut er bevorzugt
+seine Lieder auswählt (beispielsweise nach Genre). Das entsprechende Attribut
+könnte dann höher gewertet werden.</p>
 <p>Auch wäre ein zusätzliches Modul möglich, das <em>libmunin</em> nutzt, um Suchanfragen
 basierend auf natürlicher Sprache zu ermöglichen. So könnten Anfragen wie
 <em>,,Happy Indie Pop&quot;</em> aufgelöst werden. Im Beispiel würde sich <em>Happy</em> auf die
-Stimmunng beziehen, <em>Pop</em> auf das Genre und <em>Indie</em> auf einen
-Independet&ndash;Künstler. Letztere Information könnte man aus der Künstlerbiografie
+Stimmung beziehen, <em>Pop</em> auf das Genre und <em>Indie</em> auf einen
+Independent&ndash;Künstler. Letztere Information könnte man aus der Künstlerbiografie
 extrahieren. Die Biografie kann automatisch von Tools wie <em>libglyr</em>
-besorgt werden oder man greift alternativ auf Amazon&ndash;Reviews zurück. So
+besorgt werden oder man greift alternativ auf Amazon&ndash;Rezensionen zurück. So
 gesehen bietet sich hier ein Erweiterungspotenzial in Richtung
-<em>,,Social&ndash;based&ndash;Recommendations&quot;</em>. Also man nutzt das Wissen von vielen
-Menschen um bestimmte Attribute zu bestimmen, anstatt diese mithilfe von Metriken
-zu bestimmen.
-Die eigentliche Schwierigkeite bestünde aber darin, die einzelnen Wörter
-bestimmten Attributen zuzuordnen.  Dies wäre jedenfalls ein spannendes Thema für
-eine Folgearbeit.  Diese Idee basiert auf der Musiksuchmaschine von <em>Peter
-Knees</em> <a class="reference internal" href="../zzz_bibliography.html#knees2007music" id="id7">[6]</a>.</p>
+<em>,,Social&ndash;based&ndash;Recommendations&quot;</em>. Also nutzt man das Wissen von vielen
+Menschen, um bestimmte Attribute zu bestimmen, anstatt diese mithilfe von Metriken
+zu errechnen.
+Die eigentliche Schwierigkeit bestünde aber darin, die einzelnen Wörter
+bestimmten Attributen zuzuordnen. Diese Idee basiert auf der Musiksuchmaschine
+von <em>Peter Knees</em> <a class="reference internal" href="../zzz_bibliography.html#knees2007music" id="id7">[6]</a>.</p>
 </div>
 <div class="section" id="fazit">
 <h2>7.3 Fazit<a class="headerlink" href="#fazit" title="Permalink to this headline">¶</a></h2>
@@ -321,10 +320,10 @@ Monaten, ist dies nach Meinung des Autors durchaus als Erfolg zu werten.</p>
 <p>Die größte Schwäche ist aus Sicht des Autors der langsame Kaltstart, der einen
 produktiven Einsatz der Bibliothek verhindert. In punkto Weiterentwicklung,
 sollte dies die höchstpriosierte Aufgabe sein.</p>
-<p>Die Neuerung dieser Arbeit ist weniger die vorgestellte Algorithmik &ndash;- der
-allergrößte Teil existiert natürlich bereits in ähnlicher Form &ndash;- sondern, das
-diese Funktionalität erstmals in einer allgemein nutzbaren, freien Bibliothek
-vorhanden ist.</p>
+<p>Die Neuerung dieser Arbeit ist weniger die vorgestellte Algorithmik. Der
+allergrößte Teil dieser existiert natürlich bereits in ähnlicher Form. Die
+eigentliche Neuerung ist, dass diese Funktionalität erstmals in einer allgemein
+nutzbaren, freien Bibliothek vorhanden ist.</p>
 </div>
 </div>
 

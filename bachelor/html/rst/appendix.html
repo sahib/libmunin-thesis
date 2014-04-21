@@ -180,12 +180,12 @@
 <ul class="simple">
 <li><em>Kantenfarbe:</em> Rote Farbe indiziert eine hohe Distanz. Grün eine mittlere
 Distanz (etwa <span class="math">\(0.5\)</span>). Blau bis violett eine gute bis sehr gute
-(<span class="math">\(0.1\)</span> bis <span class="math">\(0.0\)</span>). Rote Kanten sieht man selten, da in den meisten
-Fällen immer ein guter Nachbar gefunden werden kann.</li>
+(<span class="math">\(0.1\)</span> bis <span class="math">\(0.0\)</span>). Rote Kanten sieht man in der Praxis selten, da
+in den meisten Fällen immer ein guter Nachbar gefunden werden kann.</li>
 <li><em>Kantendicke:</em> Zur optischen Untermalung variiert die Dicke der Kanten je nach
 Distanz. Hohe Distanzen bekommen eine dünnere Kante.</li>
-<li><em>Knotenfarbe:</em> Zeigt grob die Zentralität des Knoten an. Bietet lediglich eine
-optische Navigationshilfe um auf Cluster hinzuweisen.</li>
+<li><em>Knotenfarbe:</em> Zeigt grob die <em>,,Zentralität&quot;</em> des Knotens an. Bietet
+lediglich eine optische Navigationshilfe um auf Cluster hinzuweisen.</li>
 <li>Der visuelle Abstand zwischen zwei Knoten hat <em>keine</em> Aussagekraft, auch wenn
 ähnliche Knoten oft nah beieinander liegen.</li>
 </ul>
@@ -201,18 +201,19 @@ daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
 Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
 erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
 Anzahl.  Diese sind zum größten Teil auf den Bereich 25&ndash;75 aufgeteilt. Es
-sollte ein Graph entstehen der ähnlich linear ist, aber in der Mitte eine
+sollte ein Graph entstehen, der ähnlich linear ist, aber in der Mitte eine
 <em>,,Verdichtung&quot;</em> aufweist.  Beides sind Testdaten, die häufig zum Testen von
-<em>libmunin</em> genutzt worden, da sie spezielle Extremfälle gut testen. Die linearen
+<em>libmunin</em> genutzt worden sind, da sie spezielle Extremfälle gut testen. Die linearen
 Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen Enden
 der pseudozufälligen Daten werden mit jeder Iteration klarer. Im Vergleich zu
 <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> fällt hier auf, dass <tt class="docutils literal"><span class="pre">rebuild</span></tt> zur Bildung von mehr Kanten
 neigt.</p>
 <p><strong>Plotting der Graphen</strong></p>
-<p>Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien Python
-Graphenframeworks <tt class="docutils literal"><span class="pre">igraph</span></tt> <a class="reference internal" href="zzz_bibliography.html#igraph" id="id1">[Link&ndash;19]</a> entstanden. Als Zeichenbibliothek
-nutzt <tt class="docutils literal"><span class="pre">igraph</span></tt> die freie 2D Zeichenbibliothek <tt class="docutils literal"><span class="pre">cairo</span></tt> <a class="reference internal" href="zzz_bibliography.html#cairo" id="id2">[Link&ndash;20]</a>.  Der
-verwendete Layouting&ndash;Algorithmus ist <em>,,Fruchtermann&ndash;Reingold&quot;</em>.</p>
+<p>Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien
+Python&ndash;Graphenframeworks <tt class="docutils literal"><span class="pre">igraph</span></tt> <a class="reference internal" href="zzz_bibliography.html#igraph" id="id1">[Link&ndash;19]</a> entstanden. Als
+Zeichenbibliothek nutzt <tt class="docutils literal"><span class="pre">igraph</span></tt> die freie 2D&ndash;Zeichenbibliothek <tt class="docutils literal"><span class="pre">cairo</span></tt>
+<a class="reference internal" href="zzz_bibliography.html#cairo" id="id2">[Link&ndash;20]</a>.  Der verwendete Layouting&ndash;Algorithmus ist
+<em>,,Fruchtermann&ndash;Reingold&quot;</em>.</p>
 <div class="figure compound align-center" id="fig-graph-linear">
 <div style="width: 47.5%" class="subfigure align-center" id="fig-graph-linear-basic">
 <a class="reference internal image-reference" href="../_images/graph_linear_basic.png"><img alt="Nur mit ``sliding_window`` behandelte Eingabe" src="../_images/graph_linear_basic.png" style="width: 100%;" /></a>
@@ -248,7 +249,7 @@ haben sollte.</p>
 </div>
 <div class="figure align-center" id="fig-graph-euler-stupid">
 <a class="reference internal image-reference" href="../_images/graph_euler_stupid.png"><img alt="Der ,,korrekte“, mittels rebuild_stupid erstellte Graph" src="../_images/graph_euler_stupid.png" style="width: 100%;" /></a>
-<p class="caption">Der ,,korrekte“, mittels rebuild_stupid erstellte Graph.</p>
+<p class="caption">Der ,,korrekte“, mittels rebuild_stupid erstellte, Graph.</p>
 </div>
 <div class="figure align-center" id="fig-graph-full">
 <a class="reference internal image-reference" href="../_images/full_graph_small.png"><img alt="Vollständiger Graph aus 666 Knoten (aus der Demonanwendung)" src="../_images/full_graph_small.png" style="width: 70%;" /></a>
@@ -259,7 +260,7 @@ in A0 Größe enthalten.</p>
 </div>
 <div class="section" id="bilder-des-genregraphen">
 <span id="genre-graph-vis"></span><h1>Bilder des Genregraphen<a class="headerlink" href="#bilder-des-genregraphen" title="Permalink to this headline">¶</a></h1>
-<p>Der Vollständigkeit halber wird hier auch eine Visualisierung des Genre&ndash;Graphen
+<p>Der Vollständigkeit halber wird hier auch eine Visualisierung des Genrebaums
 gezeigt. Daraus kann man zwar keine <em>,,neuen Erkenntnisse&quot;</em> ziehen, doch kann er
 in der weniger detaillierten Version zumindest als Überblick über die einzelnen
 Genres dienen. Die detailliertere Version führt einem vor Auge wieviel einzelne
@@ -320,8 +321,8 @@ abgedruckt. Abbildung  dient dabei eher als Logo für eigene
 Zwecke, während das <em>Emblem</em> unter  von
 Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von <em>libmunin</em> in
 ihren Anwendungen hinzuweisen.</p>
-<p>Die Grafiken wurde mit dem freien Vektorzeichenprogramm <tt class="docutils literal"><span class="pre">Inkscape</span></tt>
-<a class="reference internal" href="zzz_bibliography.html#inkscape" id="id4">[Link&ndash;22]</a> erstellt und können auf der API&ndash;Dokumentation runtergeladen
+<p>Die Grafiken wurden mit dem freien Vektorzeichenprogramm <tt class="docutils literal"><span class="pre">Inkscape</span></tt>
+<a class="reference internal" href="zzz_bibliography.html#inkscape" id="id4">[Link&ndash;22]</a> erstellt und können auf der API&ndash;Dokumentation heruntergeladen
 werden: <a class="reference internal" href="zzz_bibliography.html#logos" id="id5">[Link&ndash;23]</a>.</p>
 <div class="figure compound align-center" id="fig-logos">
 <div style="width: 100%" class="subfigure align-center" id="fig-logo">
