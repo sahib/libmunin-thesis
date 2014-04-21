@@ -217,23 +217,27 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    :label: table-specs
    :caption: Auflistung des Ressourcenverbrauchs verschiedener Operationen.
 
-   ========================================== ==========================
-   **Operation**                              **Ressourcenverbrauch**  
-   ========================================== ==========================
-   *Speicherverbrauch*                        77.5 MB    
-   *Speicherplatz der Session (gepackt)*      0.9 MB     
-   *Speicherplatz der Session (ungepackt)*    2.5 MB     
-   *Zeit für den Kaltstart*                   53 Minuten *(63% Liedtextsuche + 37% Audioanalyse)*
-   |hline| ``rebuild``                        44 Sekunden
-   ``add``                                    87ms
-   ``insert``                                 164ms
-   ``remove``                                 54ms
-   ``modify``                                 219ms
-   ========================================== ==========================
+   ============================================ ==========================
+   **Operation**                                **Ressourcenverbrauch**  
+   ============================================ ==========================
+   *Speicherverbrauch*                          77.5 MB    
+   *Speicherplatz der Session* (gzip--gepackt)* 0.9 MB     
+   *Speicherplatz der Session (ungepackt)*      2.5 MB     
+   *Zeit für den Kaltstart*                     53 Minuten *(63% Liedtextsuche + 37% Audioanalyse)*
+   |hline| ``rebuild``                          44 Sekunden
+   ``add``                                      87ms
+   ``insert``                                   164ms
+   ``remove``                                   54ms
+   ``modify``                                   219ms
+   ============================================ ==========================
+
 
 Wie man sieht, sollte noch unbedingt Zeit investiert werden um den *Kaltstart*
 zu beschleunigen. Auch die ``modify``--Operation könnte durchaus noch optimiert
-werden. 
+werden. Wie allen anderen Geschwindigkeitsangaben in dieser Arbeit, beziehen 
+sich diese auf den Rechner des Entwicklers und sind daher nur untereinander
+vergleichbar.
+
 
 .. figtable::
    :alt: Vergleich verschiedener Playlisten  

@@ -244,13 +244,13 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     
     Vor der remove--Operation.
 
+.. _fig-mini-graph-remove-after:
+
 .. figure:: figs/mini_graph_remove_after.png
     :width: 50%
     :align: center
     
     Nach der remove--Operation.
-
-.. _fig-mini-graph-remove-after:
 
 .. subfigend::
     :width: 0.49
@@ -258,7 +258,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     :label: fig-mini-graph-remove
 
     Vor (:num:`fig-mini-graph-remove-before`) und nach
-    (:num:`fig-mini-graph-remove-before`) der remove--Operation. 
+    (:num:`fig-mini-graph-remove-after`) der remove--Operation. 
     Es wurde der mittlere Punkt in :num:`fig-mini-graph-remove-before` gelöscht. 
     Daher haben sicht alle anderen Knoten einen anderen Nachbarn gesucht.
 
@@ -274,13 +274,13 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     
     Vor der insert--Operation.
 
+.. _fig-mini-graph-insert-after:
+
 .. figure:: figs/mini_graph_insert_after.png
     :width: 50%
     :align: center
     
     Nach der insert--Operation.
-
-.. _fig-mini-graph-insert-after:
 
 .. subfigend::
     :width: 0.49
@@ -288,7 +288,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     :label: fig-mini-graph-insert
 
     Vor (:num:`fig-mini-graph-insert-before`) und nach
-    (:num:`fig-mini-graph-insert-before`) der insert--Operation. Es wurde
+    (:num:`fig-mini-graph-insert-after`) der insert--Operation. Es wurde
     einfach ein weiterer Punkt in den Graphen eingefügt. Dieser hat sich mit
     allen anderen verbunden.
 
@@ -304,13 +304,14 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     
     Vor der modify--Operation.
 
+.. _fig-mini-graph-modify-after:
+
 .. figure:: figs/mini_graph_modify_after.png
     :width: 60%
     :align: center
     
     Nach der modify--Operation.
 
-.. _fig-mini-graph-modify-after:
 
 .. subfigend::
     :width: 0.49
@@ -318,7 +319,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     :label: fig-mini-graph-modify
 
     Vor (:num:`fig-mini-graph-modify-before`) und nach
-    (:num:`fig-mini-graph-modify-before`) der modify--Operation.
+    (:num:`fig-mini-graph-modify-after`) der modify--Operation.
     Es wurden jeweils die Mittelknoten der beiden Inseln mit einem höhren Rating
     ,,modifiziert”. Dadurch verbinden sich beide und verlieren dafür eine andere
     Verbindung jeweils.

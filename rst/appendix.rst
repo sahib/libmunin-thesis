@@ -11,12 +11,12 @@ Folgende visuelle Aspekte sind mit Informationen besetzt:
 
 - *Kantenfarbe:* Rote Farbe indiziert eine hohe Distanz. Grün eine mittlere
   Distanz (etwa :math:`0.5`). Blau bis violett eine gute bis sehr gute
-  (:math:`0.1` bis :math:`0.0`). Rote Kanten sieht man selten, da in den meisten
-  Fällen immer ein guter Nachbar gefunden werden kann.
+  (:math:`0.1` bis :math:`0.0`). Rote Kanten sieht man in der Praxis selten, da
+  in den meisten Fällen immer ein guter Nachbar gefunden werden kann.
 - *Kantendicke:* Zur optischen Untermalung variiert die Dicke der Kanten je nach
   Distanz. Hohe Distanzen bekommen eine dünnere Kante.
-- *Knotenfarbe:* Zeigt grob die Zentralität des Knoten an. Bietet lediglich eine
-  optische Navigationshilfe um auf Cluster hinzuweisen.
+- *Knotenfarbe:* Zeigt grob die *,,Zentralität"* des Knotens an. Bietet
+  lediglich eine optische Navigationshilfe um auf Cluster hinzuweisen.
 - Der visuelle Abstand zwischen zwei Knoten hat *keine* Aussagekraft, auch wenn
   ähnliche Knoten oft nah beieinander liegen.
 
@@ -33,9 +33,9 @@ daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
 Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
 erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
 Anzahl.  Diese sind zum größten Teil auf den Bereich 25--75 aufgeteilt. Es
-sollte ein Graph entstehen der ähnlich linear ist, aber in der Mitte eine
+sollte ein Graph entstehen, der ähnlich linear ist, aber in der Mitte eine
 *,,Verdichtung"* aufweist.  Beides sind Testdaten, die häufig zum Testen von
-*libmunin* genutzt worden, da sie spezielle Extremfälle gut testen. Die linearen
+*libmunin* genutzt worden sind, da sie spezielle Extremfälle gut testen. Die linearen
 Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen Enden
 der pseudozufälligen Daten werden mit jeder Iteration klarer. Im Vergleich zu
 ``rebuild_stupid`` fällt hier auf, dass ``rebuild`` zur Bildung von mehr Kanten
@@ -43,10 +43,11 @@ neigt.
 
 **Plotting der Graphen**
 
-Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien Python
-Graphenframeworks ``igraph`` :cite:`igraph` entstanden. Als Zeichenbibliothek
-nutzt ``igraph`` die freie 2D Zeichenbibliothek ``cairo`` :cite:`cairo`.  Der
-verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
+Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien
+Python--Graphenframeworks ``igraph`` :cite:`igraph` entstanden. Als
+Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
+:cite:`cairo`.  Der verwendete Layouting--Algorithmus ist
+*,,Fruchtermann--Reingold"*.
 
 .. ----------------
 
@@ -141,7 +142,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
    :alt: Der ,,korrekte“, mittels rebuild_stupid erstellte Graph
    :align: center
 
-   Der ,,korrekte“, mittels rebuild_stupid erstellte Graph.
+   Der ,,korrekte“, mittels rebuild_stupid erstellte, Graph.
 
 .. ----------------
 
@@ -161,7 +162,7 @@ verwendete Layouting--Algorithmus ist *,,Fruchtermann--Reingold"*.
 Bilder des Genregraphen
 =======================
 
-Der Vollständigkeit halber wird hier auch eine Visualisierung des Genre--Graphen
+Der Vollständigkeit halber wird hier auch eine Visualisierung des Genrebaums
 gezeigt. Daraus kann man zwar keine *,,neuen Erkenntnisse"* ziehen, doch kann er
 in der weniger detaillierten Version zumindest als Überblick über die einzelnen
 Genres dienen. Die detailliertere Version führt einem vor Auge wieviel einzelne
@@ -243,8 +244,8 @@ Zwecke, während das *Emblem* unter :num:`fig-logo-emblem` von
 Anwendungsentwicklern genutzt werden kann, um auf den Gebrauch von *libmunin* in
 ihren Anwendungen hinzuweisen.
 
-Die Grafiken wurde mit dem freien Vektorzeichenprogramm ``Inkscape``
-:cite:`inkscape` erstellt und können auf der API--Dokumentation runtergeladen
+Die Grafiken wurden mit dem freien Vektorzeichenprogramm ``Inkscape``
+:cite:`inkscape` erstellt und können auf der API--Dokumentation heruntergeladen
 werden: :cite:`logos`. 
 
 .. only:: latex or text
