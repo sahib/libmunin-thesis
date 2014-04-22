@@ -140,7 +140,7 @@ ist die finale Genreliste 1876 Einträge lang.
     Der nach zwei Iterationen fertige Genrebaum.
 
 .. subfigend::
-    :width: 0,72
+    :width: 0.72
     :alt: Aufbau des Genrebaums in 4 Schritten
     :label: fig-tree
  
@@ -289,10 +289,10 @@ Nach diesen Vorbereitungen wird eine rekursive Backtracking--Suche gestartet:
 
 In Abbildung :num:`fig-match-example` wird ein Beispiel dieses Verfahrens mit
 dem Genre *,,Alternative Rock / Reggae"* gegeben.  |br| Die passenden Pfade sind
-in diesem Fall also ``Reggae {0}`` und ``Alternative Rock {2, 0}``.  Es ist zu
-bemerken, dass ``Rock {2}`` allein zwar ebenfalls ein valider Pfad ist, aber als
-eine Untermenge von ``Alternative Rock {2, 0}`` nicht in der Ergebnismenge
-enthalten ist.
+in diesem Fall also ``Reggae`` (:math:`\{0\}`) und ``Alternative Rock``
+(:math:`\{2, 0\}`).  Es ist zu bemerken, dass ``Rock`` (:math:`\{2\}`) allein zwar
+ebenfalls ein valider Pfad ist, aber als eine Untermenge von ``Alternative
+Rock`` (:math:`\{2, 0\}`) nicht in der Ergebnismenge enthalten ist.
 
 .. raw:: latex
 
@@ -571,8 +571,8 @@ nur eine Stoppwortliste geladen werden kann. Für Liedtexte mit starkem Dialekt
 (wie von *Hans Söllner*) greift auch die normale hochdeutsche Stoppowortliste
 nicht.
 
-Moodbaranalyse
-==============
+Moodbar--Analyse
+================
 
 Die ursprünglich als Navigationshilfe in Audioplayern gedachte Moodbar (siehe
 :cite:`wood2005techniques` für genauere Informationen) wird in *libmunin* neben

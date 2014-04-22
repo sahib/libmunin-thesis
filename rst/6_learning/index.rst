@@ -246,7 +246,7 @@ Explizites Lernen
     Nach dem Vergeben der Ratings.
 
 .. subfigend::
-    :width: 0,75
+    :width: 0.75
     :alt: Graph vor und nach Vergeben eines hohen Ratings
     :label: fig-modify-moves
  

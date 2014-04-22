@@ -96,7 +96,7 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
     Mittels ``rebuild_stupid`` generierter Vergleichsgraph.
 
 .. subfigend::
-    :width: 0,475
+    :width: 0.475
     :alt: Abbildungen des linearen Testgraphen
     :label: fig-graph-linear
  
@@ -274,7 +274,7 @@ werden: :cite:`logos`.
    Logo im breiten Format. 
  
 .. subfigend::
-    :width: 1,0
+    :width: 1.0
     :alt: Mögliche logos für libmunin
     :label: fig-logos
  

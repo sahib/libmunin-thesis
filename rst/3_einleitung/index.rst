@@ -90,7 +90,7 @@ Hinweise zum Schreiben von Distanzfunktionen
            diff = abs(A[0] - B[0])
            if diff > 3:
               return 1,0    # Zu unterschiedlich.
-           return diff / 4  # Verteile auf [0, 0,25, 0,5, 0,75]
+           return diff / 4  # Verteile auf [0, 0.25, 0.5, 0.75]
 
 - Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
   wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich, die Verteilung der

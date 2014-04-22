@@ -77,7 +77,7 @@ auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
     Darstellung des anti_centering_window.
 
 .. subfigend::
-    :width: 0,5
+    :width: 0.5
     :alt: Schematische Darstellungen der einzelnen Basisiterationen
     :label: fig-windows
  
@@ -253,7 +253,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     Nach der remove--Operation.
 
 .. subfigend::
-    :width: 0,49
+    :width: 0.49
     :alt: Vor und nach der remove--Operation
     :label: fig-mini-graph-remove
 
@@ -283,7 +283,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     Nach der insert--Operation.
 
 .. subfigend::
-    :width: 0,49
+    :width: 0.49
     :alt: Vor und nach der insert--Operation
     :label: fig-mini-graph-insert
 
@@ -314,7 +314,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
 
 
 .. subfigend::
-    :width: 0,49
+    :width: 0.49
     :alt: Vor und nach der modify--Operation
     :label: fig-mini-graph-modify
 
