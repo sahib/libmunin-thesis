@@ -77,7 +77,7 @@ auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
     Darstellung des anti_centering_window.
 
 .. subfigend::
-    :width: 0.5
+    :width: 0,5
     :alt: Schematische Darstellungen der einzelnen Basisiterationen
     :label: fig-windows
  
@@ -148,7 +148,7 @@ beleuchtet:
 
   Als zusätzliche Optimierung, werden nicht alle indirekten Nachbarn betrachtet,
   sondern nur diese, zu denen der Weg eine *Mindestdistanz* nicht unterschreitet.
-  Diese Mindestdistanz wird beim Start auf :math:`2.0` (da ja die Distanz über
+  Diese Mindestdistanz wird beim Start auf :math:`2,0` (da ja die Distanz über
   zwei Kanten gemessen wird) gesetzt und während der folgenden Iterationen immer
   weiter abgesenkt.
 
@@ -253,7 +253,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     Nach der remove--Operation.
 
 .. subfigend::
-    :width: 0.49
+    :width: 0,49
     :alt: Vor und nach der remove--Operation
     :label: fig-mini-graph-remove
 
@@ -283,7 +283,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
     Nach der insert--Operation.
 
 .. subfigend::
-    :width: 0.49
+    :width: 0,49
     :alt: Vor und nach der insert--Operation
     :label: fig-mini-graph-insert
 
@@ -314,7 +314,7 @@ eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
 
 
 .. subfigend::
-    :width: 0.49
+    :width: 0,49
     :alt: Vor und nach der modify--Operation
     :label: fig-mini-graph-modify
 
@@ -603,4 +603,4 @@ zwischengespeichert, um sie vorzuschlagen sobald sie wieder erlaubt sind.
 .. rubric:: Footnotes
 
 .. [#f1] Bestimmt an der persönlichen Sammlung des Autors. Bei 1590 einzelnen
-         Alben ist dieser Wert etwa :math:`14.142`.
+         Alben ist dieser Wert etwa :math:`14,142`.

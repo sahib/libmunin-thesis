@@ -19,7 +19,7 @@
     }%
 
 .. figtable::
-    :spec: >{\raggedleft\arraybackslash}p{0.25\linewidth} p{0.65\linewidth}
+    :spec: >{\raggedleft\arraybackslash}p{0,25\linewidth} p{0,65\linewidth}
 
     =======================  ==================================
     Abkürzung                Bedeutung

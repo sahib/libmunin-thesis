@@ -35,10 +35,10 @@ libmunin: |br| Bachelorarbeit
 Lizenz
 ------
 
-Diese Arbeit ist unter den Bedingungen der *Creative Commons Attribution-3.0*
+Diese Arbeit ist unter den Bedingungen der *Creative Commons Attribution-3,0*
 lizensiert:
 
-    http://creativecommons.org/licenses/by/3.0/de/
+    http://creativecommons.org/licenses/by/3,0/de/
 
 .. image:: _static/cclogo.svg
     :align: center

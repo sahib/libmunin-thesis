@@ -140,7 +140,7 @@ ist die finale Genreliste 1876 Einträge lang.
     Der nach zwei Iterationen fertige Genrebaum.
 
 .. subfigend::
-    :width: 0.72
+    :width: 0,72
     :alt: Aufbau des Genrebaums in 4 Schritten
     :label: fig-tree
  
@@ -309,7 +309,7 @@ Um zwei einzelne Pfade miteinander zu vergleichen, wird folgendermaßen vorgegan
   die Pfade :math:`\left\{2, 1, 0\right\}` und :math:`\left\{2, 1, 2, 0\right\}` wäre dies
   :math:`2`.
 - Teile die Anzahl der Überdeckungen durch die Länge des längeren beider Pfade.
-- Die daraus gewonnene Ähnlichkeit wird von :math:`1.0` abgezogen um die Distanz
+- Die daraus gewonnene Ähnlichkeit wird von :math:`1,0` abgezogen um die Distanz
   zu erhalten.
 
 In *libmunin* sind zwei Distanzfunktionen enthalten, welche diese Methode nutzt um
@@ -425,12 +425,12 @@ den meisten Fällen von sprachabhängigen Corpora (Wortdatenbanken) abhängig.
 
    .. math::
 
-      score(word) = \frac{degree(word) + freq(word)^{1.6}}{freq(word)}
+      score(word) = \frac{degree(word) + freq(word)^{1,6}}{freq(word)}
 
 4) Für jede Phrase wird nun ein *Score* berechnet. Dieser ist definiert als die
    Summe aller Wörter--*Scores* innerhalb des Phrases. Die derart bewerteten
    Phrasen werden absteigend sortiert als Schlüsselwörter ausgegeben.
-   Schlüsselwörter mit einem *Score* kleiner :math:`2.0` werden ausgesiebt.
+   Schlüsselwörter mit einem *Score* kleiner :math:`2,0` werden ausgesiebt.
 
 Es wurden zudem einige Änderungen, zum in :cite:`berry2010text` vorgestellten
 Algorithmus, vorgenommen, um diesen besser auf kleine Dokumente wie Liedtexte
@@ -444,7 +444,7 @@ abzustimmen:
   sprachsensitive *Snowball--Stemmer* :cite:`porter2001snowball` verwendet.
 - Im Original wird der *Wort--Score* als :math:`\frac{degree(word)}{freq(word)}`
   berechnet. Der von *libmunin* berechnete *Score* gewichtet die Wortfrequenz
-  stärker. Der Exponent von :math:`1.6` wurde willkürlich nach einigen Tests
+  stärker. Der Exponent von :math:`1,6` wurde willkürlich nach einigen Tests
   gewählt: Mit diesem Exponent erscheint das Schlüsselwort *Yellow Submarine*
   an erster Stelle im Liedtext von *,,Yellow Submarine"* der *Beatles*.
 - Da sich viele Ausdrücke in einem Liedtext wiederholen, kamen während der
@@ -492,22 +492,22 @@ Ergebnisse
    ============== ============================ ============== ================
    Score          Schlüsselwörter *(Wandern)*  Score          Schlüsselwörter *(Yellow Submarine)*
    ============== ============================ ============== ================
-   :math:`9.333`  *gerne  stille  stehn*       :math:`22.558` *yellow  submarin*
-   :math:`5.778`  *wandern*                    :math:`20.835` *full  speed  ahead  mr*
-   :math:`5.442`  *müllers  lust*               :math:`8.343` *live  beneath*
-   :math:`5.247`  *müde  drehn*                 :math:`5.247` *band  begin*
-   :math:`5.204`  *niemals  fiel*               :math:`3.297` *sea*
-   :math:`5.204`  *herr  meister*               :math:`3.227` *green*
-   :math:`5.204`  *frau  meisterin*             :math:`2.797` *captain*
-   :math:`5.074`  *muntern  reihn*              :math:`2.551` *sail*
-   :math:`5.031`  *schlechter  müller*          :math:`2.551` *blue*
-   :math:`5.031`  *wanderschaft  bedacht*       :math:`2.551` *cabl*
-   :math:`3.430`  *wasser*                      :math:`2.551` *life*
-   :math:`3.430`  *steine*                      :math:`2.516` *sky*
-   :math:`2.016`  *tanzen*                      :math:`2.516` *aye*
-   :math:`2.016`  *frieden*                     :math:`2.016` *friend*
-   :math:`2.016`  *gelernt*                     :math:`2.016` *aboard*
-   :math:`2.016`  *schwer*                      :math:`2.016` *boatswain*
+   :math:`9,333`  *gerne  stille  stehn*       :math:`22,558` *yellow  submarin*
+   :math:`5,778`  *wandern*                    :math:`20,835` *full  speed  ahead  mr*
+   :math:`5,442`  *müllers  lust*               :math:`8,343` *live  beneath*
+   :math:`5,247`  *müde  drehn*                 :math:`5,247` *band  begin*
+   :math:`5,204`  *niemals  fiel*               :math:`3,297` *sea*
+   :math:`5,204`  *herr  meister*               :math:`3,227` *green*
+   :math:`5,204`  *frau  meisterin*             :math:`2,797` *captain*
+   :math:`5,074`  *muntern  reihn*              :math:`2,551` *sail*
+   :math:`5,031`  *schlechter  müller*          :math:`2,551` *blue*
+   :math:`5,031`  *wanderschaft  bedacht*       :math:`2,551` *cabl*
+   :math:`3,430`  *wasser*                      :math:`2,551` *life*
+   :math:`3,430`  *steine*                      :math:`2,516` *sky*
+   :math:`2,016`  *tanzen*                      :math:`2,516` *aye*
+   :math:`2,016`  *frieden*                     :math:`2,016` *friend*
+   :math:`2,016`  *gelernt*                     :math:`2,016` *aboard*
+   :math:`2,016`  *schwer*                      :math:`2,016` *boatswain*
    ============== ============================ ============== ================
     
 .. figtable::
@@ -554,7 +554,7 @@ Probleme
 Teilweise liefert diese Provider--Distanzfunktions--Kombination bereits
 interessante Ergebnisse. So werden die beiden staatskritischen, deutschen Texte
 *,,Hey Staat"* von *Hans Söllner* und *,,Lieber Staat"* von *Farin Urlaub* mit
-einer relativ niedrigen Distanz von gerundet :math:`0.4` bewertet.
+einer relativ niedrigen Distanz von gerundet :math:`0,4` bewertet.
 
 Doch nicht bei allen Texten funktioniert die Extraktion so gut. Nimmt man den
 Ausdruck *,,God save the Queen!"*, so wird *RAKE* diesen nicht als gesamtes
@@ -711,7 +711,7 @@ Probleme
     Die selbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
     Beatles--Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
     mit relativ stark komprimierter MP3--Enkodierung. Die von libmunin
-    berechnete Moodbar--Distanz ist hier etwa 0.01.
+    berechnete Moodbar--Distanz ist hier etwa 0,01.
 
 .. _fig-mood-rammstein-tier:
 
@@ -722,7 +722,7 @@ Probleme
 
     Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“. Oben
     die Studioversion, unten die Liveversion.  Hier ist die von libmunin
-    errechnete Moodbar--Distanz immerhin bei 0.32. 
+    errechnete Moodbar--Distanz immerhin bei 0,32. 
 
 Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum Vergleichen von
 Audiodaten ausgelegt war und vom Autor lediglich dafür *,,missbraucht"* wurde.
@@ -763,7 +763,7 @@ Vorteile:
 
 .. [#f2] *Anmerkung:* Die Idee entstand allerdings ohne Kenntnis von *beets*.
 
-.. [#f3] Sollte *beets* je nach Python :math:`\ge 3.0` portiert werden, so wird
+.. [#f3] Sollte *beets* je nach Python :math:`\ge 3,0` portiert werden, so wird
          der Autor den *beets*--Autoren gern einen Patch zusenden.
 
 .. [#f4] Ein Stoppwort ist ein Wort, das nur grammatikalische Bedeutung hat,

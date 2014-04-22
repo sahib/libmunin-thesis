@@ -10,8 +10,8 @@ Bilder des Song--Graphen
 Folgende visuelle Aspekte sind mit Informationen besetzt:
 
 - *Kantenfarbe:* Rote Farbe indiziert eine hohe Distanz. Grün eine mittlere
-  Distanz (etwa :math:`0.5`). Blau bis violett eine gute bis sehr gute
-  (:math:`0.1` bis :math:`0.0`). Rote Kanten sieht man in der Praxis selten, da
+  Distanz (etwa :math:`0,5`). Blau bis violett eine gute bis sehr gute
+  (:math:`0,1` bis :math:`0,0`). Rote Kanten sieht man in der Praxis selten, da
   in den meisten Fällen immer ein guter Nachbar gefunden werden kann.
 - *Kantendicke:* Zur optischen Untermalung variiert die Dicke der Kanten je nach
   Distanz. Hohe Distanzen bekommen eine dünnere Kante.
@@ -96,7 +96,7 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
     Mittels ``rebuild_stupid`` generierter Vergleichsgraph.
 
 .. subfigend::
-    :width: 0.475
+    :width: 0,475
     :alt: Abbildungen des linearen Testgraphen
     :label: fig-graph-linear
  
@@ -177,7 +177,7 @@ Folgendes erstellt die ``Graphviz``--Eingabedatei.
    $ pwd 
    ~/dev/libmunin
    $ export PYTHONPATH=$PYTHONPATH:.
-   $ python "munin/provider/genre.py" --cli --plot 0.0  # Detailstufe: 0.0 = max.
+   $ python "munin/provider/genre.py" --cli --plot 0,0  # Detailstufe: 0,0 = max.
    $ head -n8 "/tmp/genre.graph"
      graph {
          overlap=prism3000; overlap_scale=-7; splines=curved
@@ -213,24 +213,24 @@ vom Wurzelknoten entfernt ist, desto oranger wird er (von rot beginnend).
 
 .. figure:: figs/genre_graph_big.*
    :width: 89%
-   :alt: Übersicht über alle 1876 Musikgenres. (Detailstufe: 0.0)
+   :alt: Übersicht über alle 1876 Musikgenres. (Detailstufe: 0,0)
    :align: center
 
-   Übersicht über alle 1876 Musikgenres. (Detailstufe: 0.0)
+   Übersicht über alle 1876 Musikgenres. (Detailstufe: 0,0)
 
 .. figure:: figs/genre_graph_mid.*
    :width: 95%
-   :alt: Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0.1)
+   :alt: Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0,1)
    :align: center
 
-   Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0.1)
+   Übersicht über die gebräuchlichsten Musikgenres. (Detailstufe: 0,1)
 
 .. figure:: figs/genre_graph_min.*
    :width: 100%
-   :alt: Übersicht über die wichtisten Musikgenres. (Detailstufe: 0.5)
+   :alt: Übersicht über die wichtisten Musikgenres. (Detailstufe: 0,5)
    :align: center
 
-   Übersicht über die wichtisten Musikgenres. (Detailstufe: 0.5)
+   Übersicht über die wichtisten Musikgenres. (Detailstufe: 0,5)
    Als ,,wichtig” gelten dabei Genres, die viele Untergenres hervorgebracht
    haben.
 
@@ -274,7 +274,7 @@ werden: :cite:`logos`.
    Logo im breiten Format. 
  
 .. subfigend::
-    :width: 1.0
+    :width: 1,0
     :alt: Mögliche logos für libmunin
     :label: fig-logos
  

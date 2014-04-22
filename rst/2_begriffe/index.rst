@@ -223,7 +223,7 @@ Kontextspezifische Fachbegriffe
           Mit Einhaltung der Dreiecksungleichung.
 
       .. subfigend::
-          :width: 0.49
+          :width: 0,49
           :alt: Darstellung der Dreiecksungleichung
           :label: fig-trineqs
  

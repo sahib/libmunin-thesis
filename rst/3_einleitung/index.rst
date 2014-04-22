@@ -58,9 +58,9 @@ Hinweise zum Schreiben von Distanzfunktionen
  
 - Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
   der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen, die auch für
-  gar nicht mehr ähnliche Werte eine Distanz errechnen die :math:`\neq 1.0`
+  gar nicht mehr ähnliche Werte eine Distanz errechnen die :math:`\neq 1,0`
   ist, zu qualitativ schlechten Verbindungen im Graphen führen. Man sollte daher
-  den Bereich, in denen man eine Distanz :math:`< 1.0` vergibt, einschränken. 
+  den Bereich, in denen man eine Distanz :math:`< 1,0` vergibt, einschränken. 
 
   Im Folgendem Beispiel wird dies nicht getan und in der nachfolgenden
   korrigierten Version verbessert:  
@@ -89,17 +89,17 @@ Hinweise zum Schreiben von Distanzfunktionen
        def do_compute(self, A, B):
            diff = abs(A[0] - B[0])
            if diff > 3:
-              return 1.0    # Zu unterschiedlich.
-           return diff / 4  # Verteile auf [0, 0.25, 0.5, 0.75]
+              return 1,0    # Zu unterschiedlich.
+           return diff / 4  # Verteile auf [0, 0,25, 0,5, 0,75]
 
 - Manchmal ist eine Eingrenzung des Bereichs nicht so einfach möglich, vor allem
   wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich, die Verteilung der
-  Distanz auf den Bereich zwischen :math:`0.0` und :math:`1.0` zu untersuchen.
+  Distanz auf den Bereich zwischen :math:`0,0` und :math:`1,0` zu untersuchen.
 
-  Sollte sich die Distanz beispielsweise gehäuft im Bereich zwischen :math:`0.3`
-  und :math:`0.7` bewegen, so ist es empfehlenswert diesen Bereich zu dehnen.
+  Sollte sich die Distanz beispielsweise gehäuft im Bereich zwischen :math:`0,3`
+  und :math:`0,7` bewegen, so ist es empfehlenswert diesen Bereich zu dehnen.
   In Abbildung :num:`fig-stretch` werden mit der Funktion :math:`f(x) =
-  -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x` Distanzen unter :math:`0.5`
+  -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x` Distanzen unter :math:`0,5`
   verbessert und darüber verschlechtert.
 
   .. _fig-stretch:
@@ -110,7 +110,7 @@ Hinweise zum Schreiben von Distanzfunktionen
      :width: 70%
     
      Die blaue Kurve zeigt die skalierten Werte der Distanzfunktion in Blau.
-     Werte unter 0.5 werden etwas herabgesetzt, schlechtere Werte über 0.5
+     Werte unter 0,5 werden etwas herabgesetzt, schlechtere Werte über 0,5
      werden erhöht.  Zur Referenz ist die ursprüngliche Gerade in Grün gegeben.
 
 Hinweise zum Schreiben von neuen Providern
@@ -220,9 +220,9 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    ============================================ ==========================
    **Operation**                                **Ressourcenverbrauch**  
    ============================================ ==========================
-   *Speicherverbrauch*                          77.5 MB    
-   *Speicherplatz der Session* (gzip--gepackt)* 0.9 MB     
-   *Speicherplatz der Session (ungepackt)*      2.5 MB     
+   *Speicherverbrauch*                          77,5 MB    
+   *Speicherplatz der Session* (gzip--gepackt)* 0,9 MB     
+   *Speicherplatz der Session (ungepackt)*      2,5 MB     
    *Zeit für den Kaltstart*                     53 Minuten *(63% Liedtextsuche + 37% Audioanalyse)*
    |hline| ``rebuild``                          44 Sekunden
    ``add``                                      87ms

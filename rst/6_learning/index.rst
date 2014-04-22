@@ -77,7 +77,7 @@ tausend Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining*
 (siehe :cite:`pymining`) bereits eine freie, qualitativ relativ hochwertige
 Implementierung, während es für FP--Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
-:math:`\leq 2.7` funktionieren.
+:math:`\leq 2,7` funktionieren.
 
 Ableitung von Regeln aus Mustern
 --------------------------------
@@ -101,7 +101,7 @@ verschiedener *Metriken*, wie zutreffend diese ist.
    *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*
    ==================================================================== ====================== ======================= ============
    :math:`\left\{A\right\} \leftrightarrow \left\{B\right\}`            :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
-   :math:`\left\{B\right\} \leftrightarrow \left\{C\right\}`            :math:`1.0`            :math:`0`               :math:`1`
+   :math:`\left\{B\right\} \leftrightarrow \left\{C\right\}`            :math:`1,0`            :math:`0`               :math:`1`
    :math:`\left\{C\right\} \leftrightarrow \left\{A\right\}`            :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
    |hline| :math:`\left\{A\right\} \leftrightarrow \left\{B, C\right\}` :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
    :math:`\left\{B\right\} \leftrightarrow \left\{A, C\right\}`         :math:`0.\overline{3}` :math:`0`               :math:`0.\overline{3}`
@@ -171,7 +171,7 @@ unterschiedlich oft auf, so steigt diese Metrik. Hier ist der beste Wert die
     ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cup B)}
 
 Sollte die *Kulczynski--Metrik* kleiner als :math:`0.\overline{6}` sein oder der
-*Imbalance--Ratio* größer als :math:`0.35`, so wird die Regel fallen gelassen.
+*Imbalance--Ratio* größer als :math:`0,35`, so wird die Regel fallen gelassen.
 Diese Grenzwerte wurden, mehr oder minder willkürlich, nach einigen Tests
 festgelegt.  Sollte die Regel akzeptabel sein, dann werden beide Metriken in
 eine einzelne, leichter zu handhabende *Rating--Metrik* verschmolzen:
@@ -246,7 +246,7 @@ Explizites Lernen
     Nach dem Vergeben der Ratings.
 
 .. subfigend::
-    :width: 0.75
+    :width: 0,75
     :alt: Graph vor und nach Vergeben eines hohen Ratings
     :label: fig-modify-moves
  
