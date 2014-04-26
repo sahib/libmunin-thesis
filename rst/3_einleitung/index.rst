@@ -221,7 +221,7 @@ Die gemessenen Werte beziehen sich stets auf die Testumgebung mit 666 Songs.
    **Operation**                                **Ressourcenverbrauch**  
    ============================================ ==========================
    *Speicherverbrauch*                          77,5 MB    
-   *Speicherplatz der Session* (gzip--gepackt)* 0,9 MB     
+   *Speicherplatz der Session  (gzip--gepackt)* 0,9 MB     
    *Speicherplatz der Session (ungepackt)*      2,5 MB     
    *Zeit für den Kaltstart*                     53 Minuten *(63% Liedtextsuche + 37% Audioanalyse)*
    |hline| ``rebuild``                          44 Sekunden

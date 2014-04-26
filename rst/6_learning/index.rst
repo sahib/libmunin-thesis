@@ -100,12 +100,12 @@ verschiedener *Metriken*, wie zutreffend diese ist.
    ==================================================================== ====================== ======================= ============
    *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*
    ==================================================================== ====================== ======================= ============
-   :math:`\left\{A\right\} \leftrightarrow \left\{B\right\}`            :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
+   :math:`\left\{A\right\} \leftrightarrow \left\{B\right\}`            :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
    :math:`\left\{B\right\} \leftrightarrow \left\{C\right\}`            :math:`1,0`            :math:`0`               :math:`1`
-   :math:`\left\{C\right\} \leftrightarrow \left\{A\right\}`            :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
-   |hline| :math:`\left\{A\right\} \leftrightarrow \left\{B, C\right\}` :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
-   :math:`\left\{B\right\} \leftrightarrow \left\{A, C\right\}`         :math:`0.\overline{3}` :math:`0`               :math:`0.\overline{3}`
-   :math:`\left\{C\right\} \leftrightarrow \left\{A, B\right\}`         :math:`0.\overline{3}` :math:`0.\overline{6}`  :math:`0.\overline{6}`
+   :math:`\left\{C\right\} \leftrightarrow \left\{A\right\}`            :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
+   |hline| :math:`\left\{A\right\} \leftrightarrow \left\{B, C\right\}` :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
+   :math:`\left\{B\right\} \leftrightarrow \left\{A, C\right\}`         :math:`0,\overline{3}` :math:`0`               :math:`0,\overline{3}`
+   :math:`\left\{C\right\} \leftrightarrow \left\{A, B\right\}`         :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
    ==================================================================== ====================== ======================= ============
 
 Als Beispiel kann man wieder die Warenkörbe aus Tabelle :num:`table-itemsets` nehmen.
@@ -170,7 +170,7 @@ unterschiedlich oft auf, so steigt diese Metrik. Hier ist der beste Wert die
 
     ImbalanceRatio(A, B) = \frac{\vert support(A) - support(B)\vert}{support(A) + support(B) - support(A \cup B)}
 
-Sollte die *Kulczynski--Metrik* kleiner als :math:`0.\overline{6}` sein oder der
+Sollte die *Kulczynski--Metrik* kleiner als :math:`0,\overline{6}` sein oder der
 *Imbalance--Ratio* größer als :math:`0,35`, so wird die Regel fallen gelassen.
 Diese Grenzwerte wurden, mehr oder minder willkürlich, nach einigen Tests
 festgelegt.  Sollte die Regel akzeptabel sein, dann werden beide Metriken in
