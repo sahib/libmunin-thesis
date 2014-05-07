@@ -596,11 +596,11 @@ Namensgebung des Originalautors verwendet.
 .. _fig-mood-avril:
 
 .. figure:: figs/mood_avril.*
-    :alt: Beispiel--Moodbar von ,,Avril Lavigne -  Knockin' on Heaven's Door“
+    :alt: Beispiel--Moodbar von ,,Avril Lavigne --- Knockin' on Heaven's Door“
     :width: 100%
     :align: center
 
-    Beispiel--Moodbar von ,,Avril Lavigne - Knockin' on Heaven's Door“.  Ein
+    Beispiel--Moodbar von ,,Avril Lavigne --- Knockin' on Heaven's Door“.  Ein
     Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
     im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
     durch ein eigens zu diesem Zwecke geschriebenes Script gerendert. Deutlich

@@ -267,7 +267,6 @@ latex_additional_files = [
     'tex/affidavit._tex',
     'tex/sphinx.sty',
     'tex/Makefile',
-    'tex/refstyle.bst',
     'refs.bib',
     'urls.bib',
     'tex/ccicons.sty',
