@@ -1,5 +1,3 @@
-:orphan:
-
 .. One big hack.
 
 .. only:: html or singlehtml or singletext

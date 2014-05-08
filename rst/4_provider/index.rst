@@ -6,12 +6,12 @@ Einleitung
 ===========
 
 :dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Providern und
-Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
-vorgestellten Provider werden erläutert, dies würde auch den Umfang dieser
-Arbeit übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
-Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separate Erklärung.
-Daher werden im Folgenden nur die stark erklärungsbedürftigen Paare näher
-betrachtet.
+Distanzfunktionen näher betrachtet. Nicht alle vorhandenen und in der
+Projektarbeit :cite:`aaa_cpahl` vorgestellten Provider werden erläutert, dies
+würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die meisten Provider
+eher einfacher Natur --- die Lektüre des jeweiligen Quelltextes sagt oft mehr
+als ein separate Erklärung.  Daher werden im Folgenden nur die stark
+erklärungsbedürftigen Paare näher betrachtet.
 
 
 Genrenormalisierung und Vergleich von Genres
@@ -657,8 +657,6 @@ erwiesen:
   der zwischen :math:`0` und :math:`255` liegt. Dieser sagt aus, in welchem
   Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal bewegen. 
 
-  TODO
-
 .. figtable::
     :spec: l | r | l
     :label: table-moodbar-list
@@ -668,7 +666,9 @@ erwiesen:
               Histogramm--Eingabewerte und der dominanten Farben. Dort sind ,,a“
               und ,,b“ die einzelnen Farbkanäle als Vektor, bzw. eine Menge von
               Farben. Zur Bildung der Gesamtdistanz werden die einzelnen Werte
-              über einen gewichteten Mittelwert verschmolzen.
+              über einen gewichteten Mittelwert verschmolzen. Die Werte im
+              Nenner der meisten Formeln geben den maximalen Wert an, der für
+              dieses Attribut erwartet wird.
     :alt: Auflistung der einzelnen Moodbar--Merkmale
 
     ==================================== ====================== ====================
@@ -676,7 +676,7 @@ erwiesen:
     ==================================== ====================== ====================
     *Differenzsumme*                     :math:`13,5\%`         :math:`1 - \sqrt{\frac{\vert a - b\vert}{50}}`                                               
     *Histogramm*                         :math:`13,5\%`         :math:`1 - \frac{\sum_{x \in \vv{a} - \vv{b}}\vert x\vert}{5 \times 255}`  
-    *Dominante Farben*                   :math:`63,0\%`         :math:`\frac{\vert a \cup b\vert}{max\left\{\vert a \vert, \vert b \vert\right\}}`                        
+    *Dominante Farben*                   :math:`63,0\%`         :math:`\frac{\vert a \cap b\vert}{max\left\{\vert a \vert, \vert b \vert\right\}}`                        
     *Schwarzanteil*                      :math:`5,0\%`          :math:`1 - \sqrt{\frac{\vert a - b\vert}{50}}`                                              
     *Durchschnittliches Minimum/Maximum* :math:`5,0\%`          :math:`1 - \sqrt{\frac{\vert a - b\vert}{255}}` 
     |hline| |nbsp|                       :math:`\sum 100\%`                                                                                                   

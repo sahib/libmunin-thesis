@@ -3,9 +3,8 @@
 
     abbrevs
     1_intro/index
-    2_begriffe/index
-    3_einleitung/index
-    4_graphops/index
-    5_provider/index
-    6_learning/index
-    7_outro/index
+    2_einleitung/index
+    3_graphops/index
+    4_provider/index
+    5_learning/index
+    6_outro/index

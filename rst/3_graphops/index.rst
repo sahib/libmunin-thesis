@@ -6,20 +6,19 @@ Einleitung
 ==========
 
 :dropcaps:`Eine` grobe Übersicht über die einzelnen Graphenoperationen und ihrer
-Zuständigkeiten wurde bereits in der Projektarbeit gegeben. Im Folgenden  
-wird detailliert auf ihre Funktionsweise und Internas eingegangen.
+Zuständigkeiten wurde bereits in der Projektarbeit :cite:`aaa_cpahl``` gegeben.
+Im Folgenden  wird detailliert auf ihre Funktionsweise und Internas eingegangen.
 
 ``rebuild:`` Aufbau des Graphen
 -------------------------------
 
 Bevor irgendeine andere Operation ausgeführt werden kann, muss mittels der
-``rebuild``--Operation der Graph aufgebaut werden. Wie bereits in der
-Projektarbeit erwähnt, kann der Graph aufgrund von einer Komplexität von
-:math:`O(n^2)` nicht einfach durch das Vergleichen aller Songs untereinander
-erfolgen. Daher muss eine Lösung mit subquadratischen Aufwand gefunden werden.
-Vorzugsweise eine, bei der der Rechenaufwand gegen die Qualität der
-Approximation abgewägt werden kann.  So kann der Nutzer entscheiden, wie lange
-er *libmunin* rechnen lassen will.
+``rebuild``--Operation der Graph aufgebaut werden.  Aufgrund einer Komplexität
+von :math:`O(n^2)` kann der Aufbau des Graphen nicht einfach durch das
+Vergleichen aller Songs untereinander erfolgen. Daher muss eine Lösung mit
+subquadratischen Aufwand gefunden werden.  Vorzugsweise eine, bei der der
+Rechenaufwand gegen die Qualität der Approximation abgewägt werden kann.  So
+kann der Nutzer entscheiden, wie lange er *libmunin* rechnen lassen will.
 
 Der Ausgangszustand der ``rebuild``--Operationen ist eine Liste von Songs, die
 vom Nutzer bereitgestellt wird. Jeder Song darin soll nun so im Graphen
@@ -225,14 +224,14 @@ können bei der Traversierung zu Ausnahmefehlern führen.
 -------------------------------------------------
 
 Diese Operation benötigt als Argument eine Hashtabelle mit einer Abbildung von
-Attributen auf Werte. Diese Werte werden dann, wie in der Projektarbeit
-besprochen, durch verschiedene Provider normalisiert. Mit diesen normalisierten
-Informationen, wird dann eine neue Song--Instanz erzeugt, welcher beim Erzeugen,
-ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
-Index in der internen Songliste. 
-Statt wie ``insert``, bereits Verbindungen zu anderen Songs herzustellen, fügt
-diese Operation lediglich einen Song der internen Songliste hinzu. Die
-eigentlichen Verbindungen werden in einem Rutsch von ``rebuild`` aufgebaut.
+Attributen auf Werte. Diese Werte werden dann durch verschiedene Provider
+normalisiert. Mit diesen normalisierten Informationen, wird dann eine neue
+Song--Instanz erzeugt, welcher beim Erzeugen, ein eindeutiger Identifier
+zugewiesen wird. Dieser Identifier dient dann als Index in der internen
+Songliste.  Statt wie ``insert``, bereits Verbindungen zu anderen Songs
+herzustellen, fügt diese Operation lediglich einen Song der internen Songliste
+hinzu. Die eigentlichen Verbindungen werden in einem Rutsch von ``rebuild``
+aufgebaut.
 
 .. ///////////////////////////////////
 
@@ -380,17 +379,6 @@ Diese Einpassung geschieht dabei folgendermaßen:
   Annahme, dass die indirekten Nachbarn des einzufügenden Songs auch
   als potenzielle direkte Nachbarn geeignet sind.
 
-Als zusätzliche Beobachtung lässt sich feststellen, dass Songs, die per
-``insert`` eingefügt werden, deutlich weitläufiger verbunden sind, als regulär
-per ``add`` hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
-gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines Songs, so wird
-der Song mittels ``remove`` gelöscht und mittels  ``insert`` an anderer Stelle
-wieder eingefügt. Meist verbindet sich dabei der Song, dann mit anderen ähnlich
-bewerteten Songs. Diese bilden ein *zusätzliches Netz* über dem Graphen, welches
-weitläufigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine 
-Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
-*explizites Lernen*). TODO
-
 ``modify:`` Verändern der Songattribute zur Laufzeit
 ----------------------------------------------------
 
@@ -533,7 +521,13 @@ Empfehlungsiteratoren
 In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
 Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein
 :term:`Iterator` bereitgestellt, welcher immer nur eine Empfehlung generiert.
-Erst beim nächsten Aufruf wird die nächste Empfehlung dynamisch generiert.
+Als Iterator wird bei *libmunin* ein Objekt bezeichnet, der einen internen
+Zustand besitzt und bei einer Anfrage immer einen neuen Wert liefert. Sind keine
+weiteren Werte mehr zu erwarten, so wird ein spezieller leerer Wert
+zurückgegeben.  In der Softwareentwicklung wird er oft dazu genutzt um über die
+Elemente einer Menge zu traversieren. Hier werden Iteratoren dazu genutzt erst
+beim jeweiligen Aufruf jeweils eine Empfehlung dynamisch zu generieren.
+
 Dieses Konzept ist sehr nützlich beim Filtern der generierten Empfehlungen. 
 Denn man weiß im Vornherein nicht, wieviele Empfehlungen ausgefiltert werden. So
 kann der Iterator einfach so lange bemüht werden, bis die gewünschte Anzahl an

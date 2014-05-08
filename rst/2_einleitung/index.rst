@@ -29,6 +29,97 @@ Zur Nuztung von *libmunin*
   schnellen Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht
   werden, die Gewichtungen der einzelnen Attribute zu ändern.
 
+Der Begriff der Distanzfunktion
+===============================
+
+Eine Distanzfunktion ist im Kontext von *libmunin* eine Funktion, die zwei
+Songs als Eingabe nimmt und die Distanz zwischen diesen berechnet. |br|
+Dabei wird jedes Attribut betracht, welches in beiden Songs vorkommt. Für
+diese wird von der Maske eine spezialisierte Distanzfunktion festgelegt,
+die weiß wie diese zwei bestimmten Werte sinnvoll verglichen werden
+können. Die so errechneten Werte werden, gemäß der Gewichtung in der
+Maske, zu einem Wert verschmolzen. |br| Fehlen Attribute in einen der
+beiden Songs, wird für diese jeweils eine *,,Straf"*--Distanz von
+:math:`1` angenommen. Diese wird dann ebenfalls in die gewichtete
+Oberdistanz eingerechnet.
+
+Die folgenden Bedingungen müssen sowohl für die allgemeine
+Distanzfunktion als auch für die speziellen Distanzfunktionen gelten.
+:math:`D` ist dabei die Menge aller Songs, :math:`d` eine Distanzfunktion.
+ 
+I. *Uniformität:*
+        
+   .. math::
+
+      0 \leq d(i, j) \leq 1 \;\;\forall\;\; i,j \in D 
+
+   *Aussage:* Die errechneten Werte sollten sich immer zwischen und
+   einschließlich :math:`0` und :math:`1` befinden. *libmunin* schneidet
+   Werte auf diesen Bereich zu. 
+
+II. *Symmetrie:* 
+
+    .. math::
+         
+       d(i, j) = d(j, i) \;\;\forall\;\; i,j \in D 
+
+   *Aussage:* Die Reihenfolge, in der die Songs der Distanzfunktion
+   übergeben werden, darf keine Auswirkung auf das Ergebnis haben. 
+   Diese Eigenschaft wird von *libmunin* nicht überprüft --- eine
+   Nichteinhaltung würde zu falschen Kanten im Graphen führen.
+
+III. *Identität:* 
+         
+     .. math::
+         
+        d(i, i) = 0 \;\;\forall\;\; i \in D 
+
+     *Aussage:* Wird zweimal der selbe Song übergeben, so muss die Distanz
+     immer :math:`0` betragen. Autoren von Distanzfunktionen sollten dies
+     testen.  Werte :math:`\neq 0` deuten auf fehlerhafte Distanzfunktionen
+     hin. 
+
+IV. *Dreiecksungleichung:* 
+         
+    .. math::
+
+       d(i, j) \leq d(i, x) + d(x, j) \;\;\forall\;\; i,j,x \in D, i \neq j \neq x
+
+    *Aussage:* In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
+    zwischen zwei Songs immer kürzer oder gleich lang wie der Umweg über
+    den dritten Song sein. Dies ist in Abbildung :num:`fig-trineq` gezeigt. 
+    Diese Eigenschaft ist nötig, damit man annehmen kann, dass direkte
+    Nachbarn ähnlicher sind als indirekte Nachbarn.
+
+.. subfigstart::
+
+.. _fig-trineq:
+
+.. figure:: figs/trineq.*
+     :width: 95%
+     :align: center
+    
+     Ohne Einhaltung der Dreiecksungleichung.
+
+.. _fig-trineq_fixed:
+
+.. figure:: figs/trineq_fixed.*
+     :width: 95%
+     :align: center
+    
+     Mit Einhaltung der Dreiecksungleichung.
+
+.. subfigend::
+     :width: 0.49
+     :alt: Darstellung der Dreiecksungleichung
+     :label: fig-trineqs
+ 
+     Die Beziehung dreier Songs untereinander. Die Dreiecksungleichung
+     besagt, dass der direkte Weg von A nach B kürzer oder gleich lang sein
+     sollte als der Umweg über C. Die einzelnen Attribute ,,a“ und ,,b“
+     sind gleich stark gewichtet.  Wenn keine Straftwertung für leere Werte
+     gegeben wird, so sind die Umwege manchmal kürzer.
+
 Zur Erweiterung von *libmunin*
 ==============================
 
@@ -128,8 +219,10 @@ dass stark redundante Daten eingepflegt werden, dann sollte die
 provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür ist
 der Künstlername. Dieser ist für sehr viele Songs gleich. Daher wäre eine
 separate Speicherung desselben nicht sinnvoll. Intern bildet eine
-bidirektionale :term:`Hashtabelle` (mittels des Python--Pakets ``bidict``
+bidirektionale Hashtabelle [#f3]_ (mittels des Python--Pakets ``bidict``
 :cite:`bidict`) gleiche Werte auf einen Integer--Schlüssel ab.
+
+
 Dies wird im folgenden Python--Beispiel gezeigt:
 
 .. code-block:: python
@@ -149,6 +242,14 @@ Dies wird im folgenden Python--Beispiel gezeigt:
 
 Vergleich verschiedener Playlisten
 ==================================
+
+Eine *Playlist,* zu deutsch *Wiedergabeliste*, ist eine Liste einzelner
+Lieder, die nacheinander abgespielt werden. Die Zusammstellung einer
+Playlist erfüllt oft einen gewissen Zweck. So stellt man für gewöhnlich
+Lieder in einer *Playlist* zusammen, die eine gemeinsame Stimmung oder
+eine andere Gemeinsamkeit *(,,Favorit")* besitzen. Im Folgenden wird die 
+subjektive Qualität der Playlisten bezüglich der Ähnlichkeit der einzelnen
+Stücke beurteilt.
 
 In Abbildung :num:`table-playlists` wird eine Auflistung verschiedener, mit
 unterschiedlichen Methoden erstellter  Playlisten gegeben. Dies ist 
@@ -310,3 +411,6 @@ vergleichbar.
 .. [#f2] Die Werte der Funktion können leicht unter 0 und über 1 gehen. Um den
    Begriff der Distanz einzuhalten, werden die Werte auf den Bereich 
    :math:`[0, 1]` zugeschnitten.
+
+.. [#f3]  Eine Hashtabelle ist eine Datenstruktur, die eine effiziente Abbildung
+   von eindeutigen Schlüsselwerten auf beliebige Werte möglich macht. 

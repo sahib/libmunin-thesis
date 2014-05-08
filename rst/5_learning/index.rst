@@ -13,9 +13,9 @@ Finden von wiederkehrenden Mustern
 ----------------------------------
 
 Um eine *,,Warenkorbanalyse"* durchzuführen, braucht man erstmal *Warenkörbe*.
-Die Entstehung dieser wurde bereits in der Projektarbeit betrachtet: Die
-einzelnen Songs in der Historie werden zeitlich gruppiert und bei einer maximalen
-Gruppengröße abgeschnitten. 
+Diese entstehen, indem man die einzelnen Songs in der Historie zeitlich
+gruppiert. Wächst eine Gruppe über eine Grenze (momentan :math:`5`), so wird
+eine neue Gruppe begonnen.
 
 Diese einzelnen Gruppen von Songs fungieren dann als *Warenkörbe.* Aus diesen
 gilt es zuerst eine Menge an Songs (im Folgenden *Muster* [#f1]_ genannt) zu
@@ -87,10 +87,33 @@ Ableitung von Regeln aus Mustern
 
 Hat man erstmal eine Gruppe von häufig zusammen auftretenden
 Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
-Dazu teilt man das Muster in alle möglichen verschiedenen, disjunkten Teilmengen
-auf. Allerdings in maximal zwei Teilmengen.  Diese beiden Teilmengen nimmt man
-als die beiden Mengen einer Assoziationsregel an und probt, mittels
-verschiedener Metriken, wie zutreffend diese ist. 
+
+Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs mit
+einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
+der beiden Mengen miteinander gehört wird, dann ist es wahrscheinlich,
+dass auch die andere Menge daraufhin angehört wird.  Regeln werden aus dem
+Verhalten des Nutzers abgeleitet. Dazu wird jedes Lied, das der Nutzer
+anhört, in einer *Historie* zwischengespeichert.
+Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
+Regel ein *Rating* berechnet.
+
+*Anmerkung:* Im allgemeinen Gebrauch sind Assoziationsregeln nur in eine
+Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
+Einfachkeit allerdings bidirektional. So gilt nicht nur, dass man
+wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
+\rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
+Ein natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler 
+essen Cornflakes. Diese Regel besagt, dass der größte Teil der
+Basketballspieler Cornflakes isst, aber nicht, dass die meisten
+Cornflakes--Esser Basketballspieler sind. Da bei *libmunin* auf beiden
+Seiten der Regel immer der gleiche Typ (ein oder mehrere Songs) steht und
+die Beziehung immer *,,werden* miteinander *gehört"* ist, ist hier eine 
+bidirektionale Assoziation möglich.
+
+Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
+verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
+Diese beiden Teilmengen nimmt man als die beiden Mengen einer Assoziationsregel
+an und probt, mittels verschiedener Metriken, wie zutreffend diese ist. 
 
 .. figtable::
    :label: table-rules
@@ -122,7 +145,7 @@ Tabelle :num:`table-rules` aufgelistet.
 .. figtable::
    :label: table-cornflakes
    :spec: r | c c c
-   :alt: Vierfeldertafel mit Beispieldaten.
+   :alt: Vierfeldertafel mit Beispieldaten
    :caption: Vierfeldertafel mit erfundenen Beispieldaten. Es werden 1000
              Studenten untersucht, bei denen die Eigenschaften ,,Spielt
              Basketball” und ,,Isst Cornflakes” festgestellt worden sind. 
@@ -254,7 +277,6 @@ entstandenen Regeln irgendwo sortiert abgelegt werden.  Diese Ablage ist der
 ``RuleIndex``. Beim Einfügen wird jeweils überprüft, ob die Maximalanzahl an
 Regeln (momentan maximal :math:`1000`) übertroffen wird. Sollte dem so sein,
 wird die älteste (ergo, zu erst eingefügte) Regel gelöscht um Platz zu machen. 
-
 Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
 von Regeln abfragen, die diesen Song in irgendeiner Weise betreffen. Um diese
 Operation zu beschleunigen, wird intern eine Hashtabelle gehalten, mit dem Song
@@ -274,7 +296,6 @@ um Aussagen über die Langzeitfunktionalität zu geben.
 
 Daher ist die oben genannte Vorgehensweise als *,,Theorie"* zu sehen, die sich
 erst noch in der Praxis bewähren muss. Änderungen sind wahrscheinlich.
-
 Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
 Momentan wird nur die Historie aufgezeichnet, wenn die Demonanwendung läuft. Da
 die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
@@ -319,29 +340,37 @@ Explizites Lernen
     erstgenannten Songs miteinander verbunden.
 
 Neben dem impliziten Lernen gibt es auch den *,,nachträglich entdeckten"*
-Mechanismus des expliziten Lernens. Dieser wurde bereits in Kapitel
-:ref:`ref-graphop-insert` beleuchtet. Unter Abbildung :num:`fig-modify-moves` soll
+Mechanismus des expliziten Lernens. 
+Bei einer ``insert``--Operation lässt sich beobachten, dass die eingefügten
+Songs deutlich deutlich weitläufiger verbunden sind, als regulär per ``add``
+hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
+:cite:`aaa_cpahl` gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines
+Songs, so wird der Song mittels ``remove`` gelöscht und mittels  ``insert`` an
+anderer Stelle wieder eingefügt. Meist verbindet sich dabei der Song, dann mit
+anderen ähnlich bewerteten Songs. Diese bilden ein *zusätzliches Netz* über dem
+Graphen, welches weitläufigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine
+Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
+*explizites Lernen*). 
+
+Unter Abbildung :num:`fig-modify-moves` soll
 dies lediglich nochmal visualisiert werden. Die dort abgebildete Verschiebung
 ist dadurch zu erklären, dass die ``insert``--Operation meist einen anderen
 Punkt zum Wiedereinfügen findet. 
+Durch Ändern des Ratings in der Demonanwendung können daher einzelne Knoten
+gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher
+zusammen und stellen *,,Brücken"* zu anderen Alben--Clustern her. Man kann
+dieses *Feature* einerseits dazu nutzen, um seine Favoriten nahe im Graphen
+zusammenzupacken, andererseits, um unpassende Empfehlungen mit einem schlechten
+Rating abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge
+hätte.  Dadurch wird er möglicherweise an anderer Stelle besser eingepasst.
 
-Durch Ändern des Ratings in der Demonanwendung können einzelne Knoten gezielt
-im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher zusammen und
-stellen *,,Brücken"* zu anderen Alben--Clustern her. Man kann dieses *Feature*
-einerseits dazu nutzen, um seine Favoriten nahe im Graphen zusammenzupacken,
-andererseits, um unpassende Empfehlungen mit einem schlechten Rating
-abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge hätte.
-Dadurch wird er möglicherweise an anderer Stelle besser eingepasst.
-
-TODO
-
-Der *,,Mechanismus"* des *expliziten Lernens* ist debattierbar und war
-mehr ein Nebeneffekt der Entwicklung. Zukünftige Versionen könnten leichter
-steuerbar und intuitiver verständliche Mechanismen anbieten.  Ein Ansatz wäre
-der Weg, den *Intelligente Playlisten* bei vielen Music--Playern gehen: Der
-Nutzer stellt Beziehungen zwischen Attributen und Werten her. Ein Attribut wäre
-beispielsweise ``date``, ein Wert ``2010`` und eine Beziehung :math:`\ge`.
-Weitere Beziehungen wären :math:`=`, :math:`\neq`, :math:`<` oder :math:`\le`. 
+Der *,,Mechanismus"* des *expliziten Lernens* ist war mehr ein Nebeneffekt der
+Entwicklung. Zukünftige Versionen könnten leichter steuerbar und intuitiver
+verständliche Mechanismen anbieten.  Ein Ansatz wäre der Weg, den *Intelligente
+Playlisten* bei vielen Music--Playern gehen: Der Nutzer stellt Beziehungen
+zwischen Attributen und Werten her. Ein Attribut wäre beispielsweise ``date``,
+ein Wert ``2010`` und eine Beziehung :math:`\ge`.  Weitere Beziehungen wären
+:math:`=`, :math:`\neq`, :math:`<` oder :math:`\le`. 
 
 Mit all den unterschiedlichen Attributen, wären dann automatisch erstellte
 Playlisten wie  *,,Favouriten"* (:math:`rating > 3`), *,,Ungehörte"*
