@@ -36,11 +36,11 @@ Allgemeine Fachbegriffe
 
     Iterator
 
-      Ein Iterator ist ein Versprechen einen Wert genau dann zu berechnen
-      wenn er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
-      Datenstrukturen zu traversieren. Jeder Aufruf des Iterators liefert dabei
-      den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
-      sind.
+      Ein Iterator wird in der Softwareentwicklung zum Durchlaufen einer Menge
+      genutzt. Er speichert jeweils den aktuellen Zustand. Wird ein Element 
+      angefordert, so bewegt sich der Iterator weiter und die nächste Anfrage
+      liefert ein anderes Element. Sind keine neuen Werte vorhanden, so wird bei
+      einer Anfrage ein spezieller leerer Wert zurückgegeben.
 
     Tags
 
@@ -164,17 +164,17 @@ Kontextspezifische Fachbegriffe
         
          .. math::
 
-            0 \leq d(i, j) \leq 1 \quad\forall\quad i,j \in D 
+            0 \leq d(i, j) \leq 1 \;\;\forall\;\; i,j \in D 
 
-         *Aussage:* Die errechneten Werte müssen sich immer zwischen und
+         *Aussage:* Die errechneten Werte sollten sich immer zwischen und
          einschließlich :math:`0` und :math:`1` befinden. *libmunin* schneidet
-         unpassende Werte auf diesen Bereich zu. 
+         Werte auf diesen Bereich zu. 
 
       2) *Symmetrie:* 
 
          .. math::
          
-            d(i, j) = d(j, i) \quad\forall\quad i,j \in D 
+            d(i, j) = d(j, i) \;\;\forall\;\; i,j \in D 
 
         *Aussage:* Die Reihenfolge, in der die Songs der Distanzfunktion
         übergeben werden, darf keine Auswirkung auf das Ergebnis haben. 
@@ -185,7 +185,7 @@ Kontextspezifische Fachbegriffe
          
          .. math::
          
-            d(i, i) = 0 \quad\forall\quad i \in D 
+            d(i, i) = 0 \;\;\forall\;\; i \in D 
 
          *Aussage:* Wird zweimal der selbe Song übergeben, so muss die Distanz
          immer :math:`0` betragen. Autoren von Distanzfunktionen sollten dies
@@ -196,11 +196,13 @@ Kontextspezifische Fachbegriffe
          
          .. math::
 
-            d(i, j) \leq d(i, x) + d(x, j) \quad\forall\quad i,j,x \in D, i \neq j \neq x
+            d(i, j) \leq d(i, x) + d(x, j) \;\;\forall\;\; i,j,x \in D, i \neq j \neq x
 
-         In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
+         *Aussage:* In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
          zwischen zwei Songs immer kürzer oder gleich lang wie der Umweg über
          den dritten Song sein. Dies ist in Abbildung :num:`fig-trineq` gezeigt. 
+         Diese Eigenschaft ist nötig, damit man annehmen kann, dass direkte
+         Nachbarn ähnlicher sind als indirekte Nachbarn.
 
       .. subfigstart::
 

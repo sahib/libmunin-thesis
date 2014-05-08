@@ -56,7 +56,7 @@ laut ihren *FAQ* keine Genredaten:
    -- https://musicbrainz.org/doc/General_FAQ :cite:`BRAINZ_FAQ`
 
 Also musste man sich nach anderen Quellen umschauen. Das vom
-``DiscogsGenreProvider`` verwendete *Discogs* bietet zwar relativ detaillierte
+``DiscogsGenreProvider`` verwendete *Discogs* bietet zwar detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
 Genre (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
 grobe Einteilung.
@@ -211,7 +211,7 @@ einer Tiefe von fünf.
 Zuordnung von Genres
 --------------------
 
-Die Normalisierung des Genres ist nun mit dem aufgebauten Baum relativ effizient
+Die Normalisierung des Genres ist nun mit dem aufgebauten Baum effizient
 möglich.  Zuerst muss das Eingabegenre in Untergenres aufgeteilt werden, denn
 oft sind mehrere Genres in einem einzelnen String zusammengefasst, die durch
 bestimmte Zeichen getrennt sind. Ein Beispiel: 
@@ -310,13 +310,13 @@ Um zwei einzelne Pfade miteinander zu vergleichen, wird folgendermaßen vorgegan
   :math:`2`.
 - Teile die Anzahl der Überdeckungen durch die Länge des längeren beider Pfade.
 - Die daraus gewonnene Ähnlichkeit wird von :math:`1,0` abgezogen um die Distanz
-  zu erhalten.
+  zu erhalten. 
 
-In *libmunin* sind zwei Distanzfunktionen enthalten, welche diese Methode nutzt um
+In *libmunin* sind zwei Distanzfunktionen enthalten, welche diese Methode nutzt, um
 zwei Mengen mit Genrepfaden zu vergleichen.
 
 ``GenreTree``: Vergleicht jeden Genrepfad der Mengen *A* und *B*, mittels oben
-genannter Methode, miteinander. Die minimalste Distanz wird zurückgegeben.  Als
+genannter Methode, miteinander. Die minimale Distanz wird zurückgegeben.  Als
 Optimierung wird frühzeitig abgebrochen, wenn eine Distanz von :math:`0,0`
 erreicht wird.
 
@@ -354,7 +354,7 @@ passende Distanzunktion auswählen.
 Probleme
 --------
 
-Insgesamt funktioniert dieser Ansatz relativ gut. Die meisten Genres werden
+Insgesamt funktioniert dieser Ansatz gut. Die meisten Genres werden
 zufriedenstellend in Pfade normalisiert, die performant verglichen werden können.
 
 Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
@@ -367,7 +367,7 @@ werden können.
 
 Eine mögliche Lösung, wäre eine Liste von *,,synonymen"* Genres, die
 Querverbindungen im Baum erlauben würden.  Allerdings wäre eine solche Liste von
-Synonymen relativ schwer automatisch zu erstellen. 
+Synonymen schwer automatisch zu erstellen. 
 
 
 Schlüsselwortextraktion
@@ -422,14 +422,14 @@ den meisten Fällen von sprachabhängigen Corpora (Wortdatenbanken) abhängig.
 
    .. math::
 
-      freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} 1 \mbox{falls } word \in p\\ 0, & \mbox{sonst} \end{array}\right. 
+      freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} 1, & \mbox{falls } word \in p\\ 0, & \mbox{sonst} \end{array}\right. 
 
    .. math::
 
       score(word) = \frac{degree(word)}{freq(word)}
 
 4) Für jede Phrase wird nun ein *Score* berechnet. Dieser ist definiert als die
-   Summe aller Wörter--*Scores* innerhalb des Phrases. Die derart bewerteten
+   Summe aller Wörter--*Scores* innerhalb einer Phrase. Die derart bewerteten
    Phrasen werden absteigend sortiert als Schlüsselwörter ausgegeben.
    Schlüsselwörter mit einem *Score* kleiner :math:`2,0` werden ausgesiebt.
 
@@ -448,9 +448,6 @@ abzustimmen:
   Oft waren diese dann eine Untermenge eines anderen Schlüsselwortes (Beispiel:
   *Yellow* und *Submarine* sind ein Teil von *Yellow Submarine*). Daher werden
   in einem nachgelagerten Schritt diese redundanten Phrasen entfernt.
-- Die Wortfrequenz ist im Original unabhängig von der Länge des Wortes. Diese
-  Änderung gewichtet längere Wörter stärker, unter der gewagten Annahme, dass
-  längere Wörter auch wichtiger sind.
   
 **Vergleich der einzelnen Schlüsselwortmengen:**
 
@@ -469,7 +466,7 @@ dass exakte Übereinstimmungen, durch den riesigen Wortschatz, selten sind.
 
       d_{kwd}(A, B) = 1 - \frac{\vert A\cap B\vert}{max\left\{\vert A\vert, \vert B\vert\right\}}
 
-  Alle Schlüsselwörter werden damit untereinander verglichen. Die minimalste
+  Alle Schlüsselwörter werden damit untereinander verglichen. Die minimale
   dabei gefundene Distanz ist die finale Gesamtdistanz.
 
 Ergebnisse
@@ -637,7 +634,7 @@ erwiesen:
 * **Histogramm:** Für jeden Farbkanal wird eine Häufigkeitsverteilung, also ein
   Histogramm, abgespeichert. Jeder einzelne Farbwert wird dabei auf einen von
   fünf möglichen Bereichen, die jeweils 51 Werte umfassen, aufgeteilt.  So wird
-  für jeden Farbkanal eine relativ einfach zu vergleichende Verteilung der
+  für jeden Farbkanal eine einfach zu vergleichende Verteilung der
   Frequenzen abgespeichert.
  
 * **Dominante Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
@@ -690,13 +687,13 @@ die der ``Moodbar-Provider`` generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
 Moodbar--Distanzfunktion die einzelnen Werte verrechnet. 
 Die enstehende gewichtete Distanz wird mittels der in Abbildung
-:num:`fig-strech` gezeigten Funktion noch skaliert um schlechte Werte
-abzustrafen und gute hervorzuheben.
+:num:`fig-strech` gezeigten Funktion noch skaliert um hohe Werte
+anzuheben und niedrige weiter abzusenken.
 
 Am subjektiv vergleichbarsten erwiesen sich die dominanten Farben in einem
 Lied. Die zwischenzeitlich aufgekommene Idee, bestimmte markante Farbwertbereiche
-bestimmten Instrumenten automatisch zuzuordnen erwies sich als unpraktikabel und
-extrem ungenau.
+bestimmten Instrumenten automatisch zuzuordnen erwies sich, mangels exakter
+Zuordnungstabellen, als unpraktikabel und ungenau.
 
 Probleme
 ---------
@@ -710,7 +707,7 @@ Probleme
 
     Die selbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
     Beatles--Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
-    mit relativ stark komprimierter MP3--Enkodierung. Die von libmunin
+    mit stark komprimierter MP3--Enkodierung. Die von libmunin
     berechnete Moodbar--Distanz ist hier etwa 0,01.
 
 .. _fig-mood-rammstein-tier:
@@ -726,7 +723,7 @@ Probleme
 
 Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum *Vergleichen*
 von Audiodaten ausgelegt war und vom Autor lediglich dafür ,,missbraucht"
-wurde. Ursprünglich war das Verfahren dazu gedacht um mittels der Farben eine
+wurde. Ursprünglich war das Verfahren dazu gedacht, um mittels der Farben eine
 Navigationshilfe für den Hörer des Liedes zu geben. So konnte dieser stille
 Bereiche schnell erkennen und zu bestimmten Stellen im Lied springen.
 
@@ -750,7 +747,7 @@ größte Posten beim *Kaltstart*.
 Vorteile:
 
 - **Robustheit:** Wie man in :num:`fig-mood-yellow-submarine` sieht, ist das
-  Verfahren relativ unempfindlich gegen verschiedene Enkodierungen. Selbst Live-
+  Verfahren unempfindlich gegen verschiedene Enkodierungen. Selbst Live-
   und Studioversionen zeigen gut vergleichbare Resultate (siehe Abbildung
   :num:`fig-mood-rammstein-tier`).
 - **Geringer Speicherverbrauch:** Obwohl für die Implementierung die relativ

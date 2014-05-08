@@ -41,7 +41,7 @@ verbreitete Audio--Framework *GStreamer* :cite:`gstreamer` verwendet werden.
 Die Bibliothek selber ist in `C` geschrieben, bietet aber eine komfortable 
 Python--Schnitstelle.
 
-Eine weiter Idee, wäre der Versuch, möglichst intelligent, reine Sprachdateien
+Eine weiter Idee, wäre der Versuch, möglichst intelligent reine Sprachdateien
 (wie *Hörbücher),* Instrumental--Lieder ohne Stimme (wie *Intros)* und normale
 Musik zu unterscheiden. Oft werden zu bestimmten Titeln unpassenderweise
 *Intros* vorgeschlagen, die man für gewöhnlich nur hören möchte, wenn man das
@@ -69,7 +69,7 @@ also ähnliche Klassifikationen, sind denkbar. Man denke hier an einem Lied
 welches das Wort *,,Katze"* enthält und ein anderes das *,,Tier"* beinhaltet.
 |br| In der momentanen Implementierung wird jedes Wort im Titel auf seinen
 Wortstamm gebracht und mittels der Levenshtein--Distanzfunktion verglichen.
-Diese Lösung war zwar leicht zu implementiere, ist aber relativ teuer und
+Diese Lösung war zwar leicht zu implementieren, ist aber algorithmisch teuer und
 ungenau. 
 
 Auch interessant zu sehen wäre es, ob die Länge der einzelnen Stücke in
@@ -95,7 +95,7 @@ Empfehlungen
 
 Oft kommt es vor, dass es mehr als einen *Seedsong* gibt. Die momentane, simple
 Herangehensweise, ist für jeden einen Iterator zu erstellen und die einzelnen
-Iteratoren im Reißverchlussverfahren zu verweben. Das ist durchaus valide, wenn
+Iteratoren im Reißverschlussverfahren zu verweben. Das ist durchaus valide, wenn
 man annimmt, dass die *Seedsongs* im Graphen verteilt und alle gleich
 wichtig sind. Oft ballen sich Seedsongs aber auf einem bestimmten Gebiet. 
 Schematisch ist das in Abbildung :num:`fig-traverse-areas` dargestellt. Besitzen zwei
@@ -158,7 +158,7 @@ Fazit
 Momentan ist *libmunin* vor allem eine Spielwiese für verschiedene Ideen rund um
 die Frage, wie man einem Computer die Ähnlichkeit von zwei Musikstücken
 feststellen lässt. Trotzdem erstellt *libmunin* selbst als Prototyp in seiner
-Standardeinstellung bereits durchaus nützliche Playlisten. Aufgrund der relativ
+Standardeinstellung bereits durchaus nützliche Playlisten. Aufgrund der 
 kurzen Implementierungszeit für ein solches System, von etwas mehr als 3
 Monaten, ist dies nach Meinung des Autors durchaus als Erfolg zu werten. 
 

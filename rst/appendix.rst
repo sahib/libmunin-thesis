@@ -2,6 +2,8 @@
 
    \appendix
 
+.. _song-graph-vis:
+
 Bilder des Song--Graphen
 ========================
 
@@ -103,7 +105,9 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
     Verschiedene Stufen beim Aufbau eines Graphen aus linearen Testdaten. Die
     Testdaten bestehen aus den Integern 1 bis 100.  Erwartet wird dabei als
     Ausgabe eine lineare Kette von Knoten, wobei jeder Knoten ca. 7 Nachbarn
-    haben sollte.
+    haben sollte. Bei rebuild_stupid ist dies fast immer der Fall, beim normalen
+    rebuild liegt der Durchschnitt etwa bei 9. Ansonsten sind bei diesem Test
+    kaum Unterschiede zwischen den Varianten festzustellen.
 
 .. ----------------
 
@@ -115,7 +119,9 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
    :alt: Graph aus Zufallsdaten nach erster Basisiteration
    :align: center
 
-   Graph aus Zufallsdaten nach erster Basisiteration.
+   Graph aus Zufallsdaten nach erster Basisiteration. Die Zahlen 75--100
+   bilden einen ,,Schwanz”, während die Zahlen 0--25 noch nicht stark abgrenzen.
+   Die restlichen Zahlen dazwischen bilden die erwartete Verdickung.
 
 .. _fig-graph-euler-all:
 
@@ -124,7 +130,8 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
    :alt: Graph aus Zufallsdaten nach allen Basisiterationen
    :align: center
 
-   Graph aus Zufallsdaten nach allen Basisiterationen.
+   Graph aus Zufallsdaten nach allen Basisiterationen. Die Zahlen 0--25 sind nun
+   stärker abgegrenzt.
 
 .. _fig-graph-euler-refine:
 
@@ -133,7 +140,10 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
    :alt: Graph aus Zufallsdaten nach einem Verfeinerungsschritt
    :align: center
 
-   Graph aus Zufallsdaten nach einem Verfeinerungsschritt.
+   Graph aus Zufallsdaten nach einem Verfeinerungsschritt. Im Vergleich zum
+   vorigen Graph hat die Verkettungsdichte deutlich zugenommen. Die Zahlen
+   75--100 sind nun sehr deutlich abgegrenzt. Der Mittelteil ist insgesamt
+   stärker zusammengewachsen.
    
 .. _fig-graph-euler-stupid:
 
@@ -142,7 +152,11 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
    :alt: Der ,,korrekte“, mittels rebuild_stupid erstellte Graph
    :align: center
 
-   Der ,,korrekte“, mittels rebuild_stupid erstellte, Graph.
+   Der ,,korrekte“, mittels rebuild_stupid erstellte, Graph. Er bildet eine
+   vergleichsweise dünne Kette, die in der Mitte nur kleine Ausbuchtungen hat.
+   Zudem gibt es nur einige wenige Querverbindungen zu weiter entfernten Knoten.
+   Anmerkung: Durch das Layout bedingt, überlagert sich die Kette in der
+   Bildmitte.
 
 .. ----------------
 
@@ -155,7 +169,7 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
 
    Auschnitt aus dem vollständigen Graph, der hinter den Empfehlungen der
    Demonanwendungen steckt. Auf der beiliegenden CD ist der vollständige Graph
-   in A0 Größe enthalten.
+   in A0--Größe enthalten. Klar erkennbar sind die einzelnen Alben im Graphen.
 
 .. _genre-graph-vis:
 
@@ -202,10 +216,11 @@ Formaten rendern. Hier die Prozedur für ein *PDF*:
      > graph.pdf                          # Ausgabedatei.
    $ pdf-viewer graph.pdf                 # Fertiges Bild.
 
-*Anmerkung:* Die einzelnen *,,Länder"* im Graphen dienen lediglich der optischen
-Trennung. Die Farbsättigung der Knoten und die verwendete Größe der Schrift
-weist auf die Menge der Kinder hin, die der Knoten hat. Je weiter weg der Knoten
-vom Wurzelknoten entfernt ist, desto oranger wird er (von rot beginnend).
+*Anmerkung:* Die einzelnen *,,Länder"* beziehungsweise Cluster im Graphen dienen
+lediglich der optischen Trennung. Die Farbsättigung der Knoten und die
+verwendete Größe der Schrift weist auf die Menge der Kinder hin, die der Knoten
+hat. Je weiter weg der Knoten vom Wurzelknoten entfernt ist, desto oranger wird
+er (von rot beginnend).
 
 .. raw:: latex
 

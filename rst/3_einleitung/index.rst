@@ -41,9 +41,11 @@ Hinweise zum Schreiben von Distanzfunktionen
 
 - Wenn eine :term:`Distanzfunktion` eine Menge von Elementen vergleichen muss,
   so besteht dieselbe oft aus einem *Fusionierungsverfahren* und einer weiteren
-  Metrik, die die einzelnen Elemente untereinander vergleicht.  Als Beispiel
-  kann man hier den Vergleich von zwei Mengen von Wörtern nennen.  Einzelne
-  Wörter kann man relativ einfach auf Ähnlichkeit untersuchen [#f1]_.  Ein
+  Metrik, die die einzelnen Elemente untereinander vergleicht. Ein
+  Fusionierungsverfahren verschmilzt mehrere Teildistanzen auf definierte Weise
+  zu einer Gesamtdistanz.  Als Beispiel kann man hier den Vergleich von zwei
+  Mengen von Wörtern nennen.  Einzelne Wörter kann man relativ einfach auf
+  Ähnlichkeit untersuchen [#f1]_.  Ein
   simples Fusionierungsverfahren wäre hier, jedes Wort aus der einen Menge mit
   jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
   Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren
@@ -58,7 +60,7 @@ Hinweise zum Schreiben von Distanzfunktionen
  
 - Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
   der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen, die auch für
-  gar nicht mehr ähnliche Werte eine Distanz errechnen die :math:`\neq 1,0`
+  gar nicht mehr ähnliche Werte eine Distanz errechnen, die :math:`\neq 1,0`
   ist, zu qualitativ schlechten Verbindungen im Graphen führen. Man sollte daher
   den Bereich, in denen man eine Distanz :math:`< 1,0` vergibt, einschränken. 
 
@@ -98,8 +100,8 @@ Hinweise zum Schreiben von Distanzfunktionen
 
   Sollte sich die Distanz beispielsweise gehäuft im Bereich zwischen :math:`0,3`
   und :math:`0,7` bewegen, so ist es empfehlenswert diesen Bereich zu dehnen.
-  In Abbildung :num:`fig-stretch` werden mit der Funktion :math:`f(x) =
-  -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x` [#f2]_ Distanzen unter :math:`0,5`
+  In Abbildung :num:`fig-stretch` werden mit der Funktion [#f2]_  :math:`f(x) =
+  -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x` Distanzen unter :math:`0,5`
   verbessert und darüber verschlechtert. 
 
   .. _fig-stretch:
@@ -121,7 +123,7 @@ Präprozessor zu verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
 einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit, die er dafür
 braucht, ist daher im Vergleich zur Distanzfunktion vernachlässigbar.  Daher
 sollte gut abgewogen werden, wieviele Daten man dem Provider produzieren lässt.
-Im Zweifelsfall, empfiehlt es sich Unnötiges wegzulassen. Ist zu erwarten,
+Im Zweifelsfall, empfiehlt es sich, Unnötiges wegzulassen. Ist zu erwarten,
 dass stark redundante Daten eingepflegt werden, dann sollte die
 provider--interne Kompression genutzt werden. Ein typisches Beispiel dafür ist
 der Künstlername. Dieser ist für sehr viele Songs gleich. Daher wäre eine
@@ -154,7 +156,7 @@ interessant, da die Struktur der von *libmunin* gegebenen Empfehlungen gewissen
 Regeln unterliegt, die man als Anwendungsentwickler kennen sollte. Zudem ist der
 subjektive Vergleich mit anderen Systemen interessant.
 
-Der ursprüngliche Plan hier auch eine von ``last.fm`` :cite:`9NT` erstellte
+Der ursprüngliche Plan, hier auch eine von ``last.fm`` :cite:`9NT` erstellte
 :term:`Playlist` zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
 auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
 Stattdessen wurde eine Alternative zu *libmunin* getestet: *Mirage*
@@ -179,10 +181,10 @@ Struktur sehen kann.
   Künstlers nur alle drei und eine Wiederholung des Albums nur alle fünf Stücke
   erlaubt. Bei Mirage scheint lediglich eine direkte Wiederholung des Künstlers
   ausgeschlossen zu sein. Ansonsten wiederholen sich die Künstler
-  relativ beliebig. Die zufällige Playlist hat zwar auch keinerlei
+  beliebig. Die zufällige Playlist hat zwar auch keinerlei
   Wiederholungen, aber entbehrt dafür auch jeglicher Struktur.
 - *Mirage* leistet gute Arbeit dabei, ähnlich klingende Stücke auszuwählen. Der
-  tempomäßig relativ langsame Seedsong (*Mirage* besitzt hier tatsächlich ein
+  tempomäßig vergleichsweise langsame Seedsong (*Mirage* besitzt hier tatsächlich ein
   ähnliches Konzept) besitzt eine dunkle Stimmung und harte E--Gitarren. Die von
   *Mirage* vorgeschlagenen Songs sind hier tatsächlich sehr passend zu dieser
   Stimmung. Die von *libmunin* vorgeschlagenen Songs sind in Punkt
