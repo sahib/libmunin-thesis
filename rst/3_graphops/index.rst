@@ -507,7 +507,7 @@ Graphentraversierung
 
 Um nun tatsächlich Empfehlungen abzuleiten, muss der Graph traversiert werden.
 Je nach Art der Anfrage werden ein oder mehrere *Zentren* für eine
-:term:`Breitensuche`, sogenannte *Seedsongs*, ausgewählt. Bei einfachen Anfragen
+Breitensuche, sogenannte *Seedsongs*, ausgewählt. Bei einfachen Anfragen
 in der Art *,,Gib 10 ähnliche zu Song X aus"*, kann einfach der Song *X* als
 Seedsong angenommen werden.  Komplexere Anfragen benötigen allerdings mehr als
 einen Seedsong:
@@ -520,7 +520,7 @@ Empfehlungsiteratoren
 
 In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
 Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein
-:term:`Iterator` bereitgestellt, welcher immer nur eine Empfehlung generiert.
+Iterator bereitgestellt, welcher immer nur eine Empfehlung generiert.
 Als Iterator wird bei *libmunin* ein Objekt bezeichnet, der einen internen
 Zustand besitzt und bei einer Anfrage immer einen neuen Wert liefert. Sind keine
 weiteren Werte mehr zu erwarten, so wird ein spezieller leerer Wert

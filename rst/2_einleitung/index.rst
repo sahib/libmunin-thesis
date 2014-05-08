@@ -10,7 +10,7 @@ Zur Nuztung von *libmunin*
 
 - Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
   Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
-  aus den :term:`Tags` der Audiodateien kommen, empfiehlt es sich, diese vorher
+  aus den Tags der Audiodateien kommen, empfiehlt es sich, diese vorher
   mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
   :cite:`picard`, welches im Hintergrund auf *Musicbrainz* :cite:`3A3` zugreift.
   Für schwerer zu besorgende Daten, wie Liedtexte, kann unter anderem auf
@@ -24,7 +24,7 @@ Zur Nuztung von *libmunin*
   angehört worden sind. 
 
 - Anwendungsentwickler sollten nach Möglichkeit eine eigene, für ihre Zwecke
-  konfigurierte, :term:`Session`--:term:`Maske` verwenden. Zwar ist der Einsatz
+  konfigurierte, Session`--:term:`Maske verwenden. Zwar ist der Einsatz
   der ``EasySession`` deutlich einfacher, doch ist diese mehr für den
   schnellen Einsatz gedacht.  Zudem sollte es dem Endanwender möglich gemacht
   werden, die Gewichtungen der einzelnen Attribute zu ändern.
@@ -123,14 +123,14 @@ IV. *Dreiecksungleichung:*
 Zur Erweiterung von *libmunin*
 ==============================
 
-Oft ist es von Interesse neue Distanzfunktionen und :term:`Provider` für eigene
+Oft ist es von Interesse neue Distanzfunktionen und Provider für eigene
 Zwecke zu schreiben. Im Folgenden werden einige Beispiele gegeben und
 Stolperfallen aufgelistet.
 
 Hinweise zum Schreiben von Distanzfunktionen
 --------------------------------------------
 
-- Wenn eine :term:`Distanzfunktion` eine Menge von Elementen vergleichen muss,
+- Wenn eine Distanzfunktion eine Menge von Elementen vergleichen muss,
   so besteht dieselbe oft aus einem *Fusionierungsverfahren* und einer weiteren
   Metrik, die die einzelnen Elemente untereinander vergleicht. Ein
   Fusionierungsverfahren verschmilzt mehrere Teildistanzen auf definierte Weise
@@ -140,14 +140,14 @@ Hinweise zum Schreiben von Distanzfunktionen
   simples Fusionierungsverfahren wäre hier, jedes Wort aus der einen Menge mit
   jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
   Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren
-  nimmt statt dem Durchschnitt die kleinste gefundene :term:`Distanz`. Hier gibt
+  nimmt statt dem Durchschnitt die kleinste gefundene Distanz. Hier gibt
   es kein richtig oder falsch. Je nach Einsatzzweck, muss ein passendes Verfahren
   gewählt werden.  Der dazugehörige Wikipedia--Artikel bietet, unter dem Punkt
   Fusionierungsalgorithmen, einen guten Überblick über weitere Verfahren:
   :cite:`wiki:fusion`.
     
 - Um konsistent zu bleiben, sollten alle, der zuvor genannten mathematischen
-  Eigenschaften einer :term:`Distanzfunktion` eingehalten werden.
+  Eigenschaften einer Distanzfunktion eingehalten werden.
  
 - Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
   der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen, die auch für
@@ -258,7 +258,7 @@ Regeln unterliegt, die man als Anwendungsentwickler kennen sollte. Zudem ist der
 subjektive Vergleich mit anderen Systemen interessant.
 
 Der ursprüngliche Plan, hier auch eine von ``last.fm`` :cite:`9NT` erstellte
-:term:`Playlist` zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
+Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
 auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
 Stattdessen wurde eine Alternative zu *libmunin* getestet: *Mirage*
 :cite:`schnitzer2007high`. Da *Mirage* momentan nur als Plugin für Banshee
@@ -270,7 +270,7 @@ Viele allgemein gebräuchliche Genres werden dabei abgedeckt, obwohl der
 Schwerpunkt beim Genre *Rock* und *Metal* liegt.
 
 Die einzelnen Playlisten wurden auf jeweils 15 Songs begrenzt. Darin enthalten
-ist an erster Stelle der willkürlich ausgewählte :term:`Seedsong`, der zum
+ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum
 Generieren der Playlist genutzt wurde (*Knorkator --- Böse*). Die zufällig
 erstellte Playlist wurde als Referenz abgedruckt, damit man die dort fehlende
 Struktur sehen kann.
