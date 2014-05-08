@@ -24,7 +24,9 @@ naive Ansatz wäre für jede Kombination der Eingabesongs das Vorkommen derselbe
 im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
 hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
 :math:`1000` unterschiedlichen Songs in der Historie müssten bereits
-:math:`1000!` Kombinationen gebildet werden. 
+:math:`2^{n}-1` Kombinationen gebildet werden. Denn ein Warenkorb kann man als
+einer Menge von sich nicht wiederholender Songs sehen, bei der auch die
+Reihenfolge keine Rolle spielt.
 
 Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
 bekannteste ist vermutlich der *Apriori--Algorithmus* (vergleiche
@@ -86,8 +88,8 @@ Hat man erstmal eine Gruppe von häufig zusammen auftretenden
 Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
 Dazu teilt man das Muster in alle möglichen verschiedenen, disjunkten Teilmengen
 auf. Allerdings in maximal zwei Teilmengen.  Diese beiden Teilmengen nimmt man
-als die beiden Mengen einer :term:`Assoziationsregel` an und probt, mittels
-verschiedener *Metriken*, wie zutreffend diese ist. 
+als die beiden Mengen einer Assoziationsregel an und probt, mittels
+verschiedener Metriken, wie zutreffend diese ist. 
 
 .. figtable::
    :label: table-rules
@@ -142,7 +144,7 @@ Diese Metrik ist der Durchschnitt aus zwei Variationen einer anderen Metrik: Dem
 
 .. math::
     
-    confidence(A \rightarrow B) = P(A\mid B) = \frac{P(A\cap B)}{P(B)} = \frac{support(A \cup B)}{support(B)}    
+    confidence(A \rightarrow B) = P(A\mid B) = \frac{P(A\cap B)}{P(B)} = \frac{support(A \cap B)}{support(B)}    
 
 
 Diese Metrik gibt an, zu welchem Prozentsatz die Regel zutrifft. Ist der Quotient

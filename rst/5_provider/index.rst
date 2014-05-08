@@ -7,8 +7,8 @@ Einleitung
 
 :dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Providern und
 Distanzfunktionen näher betrachtet. Nicht alle in der Projektarbeit
-vorgestellten Provider werden erläutert, das würde auch den Umfang dieser Arbeit
-übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
+vorgestellten Provider werden erläutert, dies würde auch den Umfang dieser
+Arbeit übersteigen. Zudem sind die meisten Provider eher einfacher Natur --- die
 Lektüre des jeweiligen Quelltextes sagt oft mehr als ein separate Erklärung.
 Daher werden im Folgenden nur die stark erklärungsbedürftigen Paare näher
 betrachtet.
@@ -19,12 +19,12 @@ Genrenormalisierung und Vergleich von Genres
 
 Der Vergleich einzelner Genres ist eine schwierige Angelegenheit, da es,
 zumindest im Bereich der Musik, keine standardisierte Einteilung von Genres
-gibt. Oft sind sich nicht mal Menschen untereinander einig zu welchem Genre das
+gibt. Oft sind sich nicht mal Menschen untereinander einig, zu welchem Genre das
 Album eines Künstlers zuzuteilen ist. Manchmal sind sich nicht mal die
 Mitglieder einer Band untereinander einig.  Ein Computer könnte höchstens
-erkennen wie ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist
-es nötig, dass die einzelnen Genre--Eingaben anhand einer Sammlung von
-zusammengestellten geläufigen Genres normalisiert werden.
+erkennen, wie ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist
+es nötig, dass die einzelnen Genre--Eingaben anhand einer Sammlung, von
+zusammengestellten geläufigen, Genres normalisiert werden.
 
 Zusammenstellung der Genredatenbank
 -----------------------------------
@@ -42,7 +42,7 @@ Die eigentliche Schwierigkeit besteht nun darin, eine repräsentative Sammlung v
 Genres in diesen Baum einzupflegen. Bei der hohen Anzahl der existierenden Genres,
 kann man diese nur schwerlich manuell einpflegen.
 
-Existierende Datenbanken wie, das sonst sehr vollständige, *MusicBrainz* liefern
+Existierende Datenbanken wie, das sonst sehr vollständige *MusicBrainz*, liefern
 laut ihren *FAQ* keine Genredaten:
 
 .. epigraph::
@@ -62,8 +62,8 @@ Genre (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
 grobe Einteilung.
 
 Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- viele bekannte
-Künstler sind dort mit detaillierter Genreinformation vertreten.
-Sowie *The Echonest* --- einem Unternehmen, welches verschiedene Dienste rund um
+Künstler sind dort mit detaillierter Genreinformation vertreten,
+sowie *The Echonest* --- einem Unternehmen, welches verschiedene Dienste rund um
 Musikmetadaten anbietet. Darunter auch eine Liste, von den ihnen bekannten
 Genres. 
 
@@ -76,7 +76,7 @@ relativ einfach:
 
     http://developer.echonest.com/api/v4/artist/list_genres?api_key=ZSIUEIVVZGJVJVWIS
 
-Die Liste enthält, zum Zeitpunkt des Schreibens, :math:`898` konkrete Genres und
+Die Liste enthält zum Zeitpunkt des Schreibens, :math:`898` konkrete Genres und
 wird kontinuierlich vom Betreiber erweitert. 
 
 Die Suche bei Wikipedia gestaltet sich etwas schwieriger. Tatsächlich wurde
@@ -413,7 +413,8 @@ den meisten Fällen von sprachabhängigen Corpora (Wortdatenbanken) abhängig.
    herauszufinden, sofern die ``Enchant``--Bibliothek samt Wörterbuch für die
    entsprechende Sprache :cite:`enchant` installiert ist.
 3) Berechnung eines *Scores* für jedes Wort in einer Phrase aus dem *Degree* und
-   der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen):
+   der *Frequenz* eines Wortes (:math:`P` ist dabei die Menge aller Phrasen,
+   :math:`\vert p\vert` ist die Anzahl von Wörtern in einem Phrase):
 
    .. math::
 
@@ -421,11 +422,11 @@ den meisten Fällen von sprachabhängigen Corpora (Wortdatenbanken) abhängig.
 
    .. math::
 
-      freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} min \left\{2, \frac{\vert word\vert}{3}\right\}, & \mbox{falls } word \in p\\ 0, & \mbox{sonst} \end{array}\right. 
+      freq(word) = \sum_{p \in P} \left\{\begin{array}{cl} 1 \mbox{falls } word \in p\\ 0, & \mbox{sonst} \end{array}\right. 
 
    .. math::
 
-      score(word) = \frac{degree(word) + freq(word)^{1,6}}{freq(word)}
+      score(word) = \frac{degree(word)}{freq(word)}
 
 4) Für jede Phrase wird nun ein *Score* berechnet. Dieser ist definiert als die
    Summe aller Wörter--*Scores* innerhalb des Phrases. Die derart bewerteten
@@ -442,11 +443,6 @@ abzustimmen:
 - Um die Ergebnisse leichter vergleichen zu können, werden die einzelnen Wörter
   nach dem Extrahieren auf ihren Wortstamm reduziert. Dabei wird der
   sprachsensitive *Snowball--Stemmer* :cite:`porter2001snowball` verwendet.
-- Im Original wird der *Wort--Score* als :math:`\frac{degree(word)}{freq(word)}`
-  berechnet. Der von *libmunin* berechnete *Score* gewichtet die Wortfrequenz
-  stärker. Der Exponent von :math:`1,6` wurde willkürlich nach einigen Tests
-  gewählt: Mit diesem Exponent erscheint das Schlüsselwort *Yellow Submarine*
-  an erster Stelle im Liedtext von *,,Yellow Submarine"* der *Beatles*.
 - Da sich viele Ausdrücke in einem Liedtext wiederholen, kamen während der
   Entwicklung viele Schlüsselwörter in verschiedenen Variationen mehrmals vor.
   Oft waren diese dann eine Untermenge eines anderen Schlüsselwortes (Beispiel:
@@ -471,7 +467,7 @@ dass exakte Übereinstimmungen, durch den riesigen Wortschatz, selten sind.
 
   .. math::
 
-      d_{kwd}(A, B) = 1 - \frac{\vert A\cup B\vert}{max\left\{\vert A\vert, \vert B\vert\right\}}
+      d_{kwd}(A, B) = 1 - \frac{\vert A\cap B\vert}{max\left\{\vert A\vert, \vert B\vert\right\}}
 
   Alle Schlüsselwörter werden damit untereinander verglichen. Die minimalste
   dabei gefundene Distanz ist die finale Gesamtdistanz.
@@ -487,6 +483,8 @@ Ergebnisse
              ,,Das Wandern ist des Müllers Lust“ (links) und dem
              Beatles--Song ,,Yellow Submarine“ (rechts). Für jedes Schlüsselwort
              wird der Score angezeigt. Dieser hat keine Begrenzung nach oben.
+             Rechts wurden die Schlüsselwörter zusätzlich auf den Wortstamm
+             gebracht.
               
 
    ============== ============================ ============== ================
@@ -662,6 +660,8 @@ erwiesen:
   der zwischen :math:`0` und :math:`255` liegt. Dieser sagt aus, in welchem
   Bereich sich die *,,Frequenzen"* im jeweiligen Farbkanal bewegen. 
 
+  TODO
+
 .. figtable::
     :spec: l | r | l
     :label: table-moodbar-list
@@ -724,13 +724,18 @@ Probleme
     die Studioversion, unten die Liveversion.  Hier ist die von libmunin
     errechnete Moodbar--Distanz immerhin bei 0,32. 
 
-Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum Vergleichen von
-Audiodaten ausgelegt war und vom Autor lediglich dafür *,,missbraucht"* wurde.
+Das Hauptproblem ist, dass das Verfahren ursprünglich nicht zum *Vergleichen*
+von Audiodaten ausgelegt war und vom Autor lediglich dafür ,,missbraucht"
+wurde. Ursprünglich war das Verfahren dazu gedacht um mittels der Farben eine
+Navigationshilfe für den Hörer des Liedes zu geben. So konnte dieser stille
+Bereiche schnell erkennen und zu bestimmten Stellen im Lied springen.
+
 Wichtige Informationen, wie die eigentliche Stimmung in dem Lied (von *dunkel*
-bis *positiv)* bis hin zum Rhythmus des Liedes, lassen sich nicht davon ablesen.
-Lediglich die durchschnittliche Geschwindigkeit wird vom ``BPMProvider``
-erfasst. Dieser muss aber die ganze Datei noch einmal zusätzlich dekodieren.
-Daher ist der ``MoodbarProvider`` momentan eher als *Notbehelf* zu sehen.
+bis *positiv)* bis hin zum Rhythmus des Liedes, lassen sich aber nicht davon
+ablesen.  Lediglich die durchschnittliche Geschwindigkeit wird vom
+``BPMProvider`` erfasst. Dieser muss aber die ganze Datei noch einmal zusätzlich
+dekodieren.  Daher ist der ``MoodbarProvider`` momentan eher als *Notbehelf* zu
+sehen.
 
 Zudem ist die Geschwindigkeit der Audioanalyse eher dürftig. Geht das
 Analysieren des RGB--Vektors an sich vergleichsweise schnell, so ist die

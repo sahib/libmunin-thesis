@@ -1,6 +1,21 @@
-***********
-Überleitung
-***********
+**********
+Einleitung
+**********
+
+In :cite:`pahl` wurde 
+eine Softwarebibliothek in Python implementiert, die ein
+Musikempfehlungssystem auf Graphen–Basis mit einer flexiblen Schnittstelle
+bietet. Das System lernt dabei vom Nutzer mittels expliziten (Vergeben von
+Ratings) und impliziten (Beobachtung des Endnutzers und Ableitung von
+Assoziationsregeln) Methoden.
+
+Es wurde eine große Anzahl von sogenannten Providern zum Normalisieren der
+Eingabedaten, sowie eine entsprechend hohe Anzahl von Distanzfunktionen
+implementiert, welche diese Daten vergleichen können. Im Vergleich zu
+bestehenden Systemen ist man nicht von Audiodaten abhängig. Durch die freie
+Lizenz ist ein weitläufiger Einsatz möglich.
+
+TODO: overview.
 
 Das allgemeine Problem
 ======================
@@ -12,7 +27,7 @@ subjektive Angelegenheit, die auch häufig zwischen Menschen Diskussionen
 auslöst.  Stuft man die *Rolling Stones* als *Rock* ein? Oder doch eher als
 *Pop?* Was zählt überhaupt noch als *Rock*? Gibt es eine Definition dafür?
 
-Wenn man jetzt noch versucht einem Computer den Begriff der *Musikähnlichkeit*
+Wenn man jetzt noch versucht, einem Computer den Begriff der *Musikähnlichkeit*
 beizubringen, so wird es noch weitaus komplizierter. Dieser kann nur objektiv
 nach bestimmten Metriken entscheiden. Diese Metriken zu definieren, muss dann
 wiederum die Aufgabe eines Menschen sein --- also sind auch diese wiederum

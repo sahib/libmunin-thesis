@@ -10,7 +10,7 @@ Zur Nuztung von *libmunin*
 
 - Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
   Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
-  aus den :term:`Tags` der Audiodateien kommen, empfiehlt es sich diese vorher
+  aus den :term:`Tags` der Audiodateien kommen, empfiehlt es sich, diese vorher
   mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
   :cite:`picard`, welches im Hintergrund auf *Musicbrainz* :cite:`3A3` zugreift.
   Für schwerer zu besorgende Daten, wie Liedtexte, kann unter anderem auf
@@ -44,16 +44,16 @@ Hinweise zum Schreiben von Distanzfunktionen
   Metrik, die die einzelnen Elemente untereinander vergleicht.  Als Beispiel
   kann man hier den Vergleich von zwei Mengen von Wörtern nennen.  Einzelne
   Wörter kann man relativ einfach auf Ähnlichkeit untersuchen [#f1]_.  Ein
-  simples Fusionierungsverfahren, wäre hier jedes Wort aus der einen Menge mit
+  simples Fusionierungsverfahren wäre hier, jedes Wort aus der einen Menge mit
   jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
   Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren
-  nimmt statt dem Durschschnitt die kleinste gefundene :term:`Distanz`. Hier gibt
+  nimmt statt dem Durchschnitt die kleinste gefundene :term:`Distanz`. Hier gibt
   es kein richtig oder falsch. Je nach Einsatzzweck, muss ein passendes Verfahren
   gewählt werden.  Der dazugehörige Wikipedia--Artikel bietet, unter dem Punkt
   Fusionierungsalgorithmen, einen guten Überblick über weitere Verfahren:
   :cite:`wiki:fusion`.
     
-- Um konsistent zu bleiben sollten alle der zuvor genannten mathematischen
+- Um konsistent zu bleiben, sollten alle, der zuvor genannten mathematischen
   Eigenschaften einer :term:`Distanzfunktion` eingehalten werden.
  
 - Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
@@ -62,7 +62,7 @@ Hinweise zum Schreiben von Distanzfunktionen
   ist, zu qualitativ schlechten Verbindungen im Graphen führen. Man sollte daher
   den Bereich, in denen man eine Distanz :math:`< 1,0` vergibt, einschränken. 
 
-  Im Folgendem Beispiel wird dies nicht getan und in der nachfolgenden
+  Im folgendem Beispiel wird dies nicht getan und in der nachfolgenden
   korrigierten Version verbessert:  
 
 .. code-block:: python
@@ -99,8 +99,8 @@ Hinweise zum Schreiben von Distanzfunktionen
   Sollte sich die Distanz beispielsweise gehäuft im Bereich zwischen :math:`0,3`
   und :math:`0,7` bewegen, so ist es empfehlenswert diesen Bereich zu dehnen.
   In Abbildung :num:`fig-stretch` werden mit der Funktion :math:`f(x) =
-  -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x` Distanzen unter :math:`0,5`
-  verbessert und darüber verschlechtert.
+  -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x` [#f2]_ Distanzen unter :math:`0,5`
+  verbessert und darüber verschlechtert. 
 
   .. _fig-stretch:
 
@@ -157,9 +157,9 @@ subjektive Vergleich mit anderen Systemen interessant.
 Der ursprüngliche Plan hier auch eine von ``last.fm`` :cite:`9NT` erstellte
 :term:`Playlist` zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
 auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
-Stattdessen wurde die *Konkurrenz* von *libmunin* getestet: *Mirage*
+Stattdessen wurde eine Alternative zu *libmunin* getestet: *Mirage*
 :cite:`schnitzer2007high`. Da *Mirage* momentan nur als Plugin für Banshee
-vorhanden ist und nicht als allgemeine Bibliothek verfügbar ist, wurde die
+vorhanden ist und nicht als allgemeine Bibliothek verfügbar, wurde die
 Testmusikdatenbank auch in Banshee importiert.
 
 Die Testmusikdatenbank selbst besteht aus einigen ausgewählten Alben des Autors.
@@ -183,10 +183,10 @@ Struktur sehen kann.
   Wiederholungen, aber entbehrt dafür auch jeglicher Struktur.
 - *Mirage* leistet gute Arbeit dabei, ähnlich klingende Stücke auszuwählen. Der
   tempomäßig relativ langsame Seedsong (*Mirage* besitzt hier tatsächlich ein
-  änhliches Konzept) besitzt eine dunkle Stimmung und harte E--Gitarren. Die von
+  ähnliches Konzept) besitzt eine dunkle Stimmung und harte E--Gitarren. Die von
   *Mirage* vorgeschlagenen Songs sind hier tatsächlich sehr passend zu dieser
   Stimmung. Die von *libmunin* vorgeschlagenen Songs sind in Punkt
-  Audiodaten bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
+  Audiodaten, bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
   dass größtenteils deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch
   führt das *Parody* in der Genre--Beschreibung dazu, dass ebenfalls lustig oder
   ironisch gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im
@@ -304,3 +304,7 @@ vergleichbar.
 .. [#f1] Etwa mit der Levenshtein--Distanzfunktion :cite:`brill2000improved` und
    der Python--Bibliothek ``pyxDamerauLevenshtein``
    :cite:`pyxdameraulevenshtein`.
+
+.. [#f2] Die Werte der Funktion können leicht unter 0 und über 1 gehen. Um den
+   Begriff der Distanz einzuhalten, werden die Werte auf den Bereich 
+   :math:`[0, 1]` zugeschnitten.

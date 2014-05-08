@@ -127,7 +127,7 @@ beleuchtet:
       *,,Kette"* Querverbindungen hergestellt werden. Dies ist im folgenden
       Verfeinerungsschritt vorteilhaft um Iterationen einzusparen.
 
-    * ``anti_centering_window:`` Sehr ähnlich zum ``centering_window``, statt
+    * ``anti_centering_window:`` Sehr ähnlich zum ``centering_window``. Statt
       die zwei Hälften von der Mitte aus bis zum Ende weiter zu schieben,
       wird diese vom Ende zur Mitte geschoben. So werden die beiden Hälften
       solange weiter geschoben, bis sie sich in der Mitte treffen. 
@@ -147,7 +147,7 @@ beleuchtet:
   Zuständen hin- und herspringen können.
 
   Als zusätzliche Optimierung, werden nicht alle indirekten Nachbarn betrachtet,
-  sondern nur diese, zu denen der Weg eine *Mindestdistanz* nicht unterschreitet.
+  sondern nur diese, zu denen der Weg eine *Mindestdistanz* nicht überschreitet.
   Diese Mindestdistanz wird beim Start auf :math:`2,0` (da ja die Distanz über
   zwei Kanten gemessen wird) gesetzt und während der folgenden Iterationen immer
   weiter abgesenkt.
@@ -160,14 +160,14 @@ beleuchtet:
   Einbahnstraßen durch einen ``fixing``--Schritt bereinigt und auf Konsistenz
   geprüft.
 
-Wie bereits erwähnt, gibt es eine ``rebuild_stupid``--Operation, welche für
+Wie bereits erwähnt, gibt es eine ``rebuild_stupid``--Operation, die für
 deutlich kleinere Mengen von Songs praktikabel einsetzbar ist. Die Algorithmik
 ist hierbei bedeutend einfacher: Es wird einfach jeder Song mit jedem anderen
 verglichen. Als Nachbarn erhält dabei jeder Song die Nachbarn, die global
 betrachtet, die kleinste Distanz zu diesem besitzen. Es handelt sich also um
 keine Approximation wie beim herkömmlichen ``rebuild``.
 
-Auf die Betrachtung der Komplexität der ``rebuild``--Operation wird an dieser
+Auf die Betrachtung der Komplexität der ``rebuild``--Operation, wird an dieser
 Stelle verzichtet. Keine der einzelnen Schritte erreicht dabei quadratische
 Komplexität. Die einzige Ausnahme ist dabei, das Vergleichen der Songs
 untereinander innerhalb eines Fensters, allerdings ist dabei  die Fenstergröße
@@ -192,8 +192,8 @@ nachvollziehen.
    Y--Achse ist logarithmisch die Anzahl der Distanzberechnungen aufgetragen,
    auf der X--Achse die lineare Anazhl der Eingabesongs. Die blaue Kurve
    repräsentiert dabei die Vergleiche die für rebuild_stupid notwendig sind.
-   Wie man sieht, übersteigen diese bis auf dem Gleichheitsbereich am Anfang die
-   anderen zwei Kurven deutlich.
+   Wie man sieht, übersteigen diese, bis auf dem Gleichheitsbereich am Anfang,
+   die anderen zwei Kurven deutlich.
 
 
 ``fixing:`` Umbauen von Einbahnstraßen
@@ -205,8 +205,8 @@ entstehen.
 
 Beim Entfernen wird folgendermaßen vorgegangen: Im ersten Schritt werden alle
 unidirektionalen Kanten gefunden und abgespeichert. Für jede dieser Kanten wird
-überprüft, ob die Songs an beiden Enden den Richtwert für die Anzahl der Nachbarn
-überschreiten. Sollte das nicht der Fall, so wird die Kante in eine
+überprüft, ob die Songs an beiden Enden, den Richtwert für die Anzahl der Nachbarn
+überschreiten. Sollte das nicht der Fall sein, so wird die Kante in eine
 bidirektionale Kante umgebaut. Andernfalls wird die Kante gelöscht.
 
 Dieses Vorgehen wurde gewählt, weil es nach einigen Versuchen schwierig erschien,
@@ -223,9 +223,9 @@ können bei der Traversierung zu Ausnahmefehlern führen.
 -------------------------------------------------
 
 Diese Operation benötigt als Argument eine Hashtabelle mit einer Abbildung von
-Attributen auf Werte. Diese Werte werden dann, wie in der Projekarbeit
+Attributen auf Werte. Diese Werte werden dann, wie in der Projektarbeit
 besprochen, durch verschiedene Provider normalisiert. Mit diesen normalisierten
-Informationen wird dann eine neue Song--Instanz erzeugt, welcher beim Erzeugen
+Informationen, wird dann eine neue Song--Instanz erzeugt, welcher beim Erzeugen,
 ein eindeutiger Identifier zugewiesen wird. Dieser Identifier dient dann als
 Index in der internen Songliste. 
 Statt wie ``insert``, bereits Verbindungen zu anderen Songs herzustellen, fügt
@@ -333,20 +333,21 @@ Um nach einer ``rebuild``--Operation einen Song aus dem Graphen zu löschen,
 müssen alle Verbindungen zu diesem entfernt werden.  Um dabei eine Bildung von
 Inseln (durch das Entfernen von Verbindungen) zu vermeiden, werden alle
 ursprünglichen Nachbarn des zu entfernenden Songs untereinander verbunden. Dabei
-wird folgendermaßen vorgegangen: Zuerst wird temporär für jeden Nachbarn der
-Richtwert für die Anzahl der Nachbarn um eins erhöht. Im Anschluss wird die
+wird nach folgendem Schema vorgegangen: Zuerst wird temporär für jeden Nachbarn,
+der Richtwert für die Anzahl der Nachbarn um eins erhöht. Im Anschluss wird die
 Menge aller Nachbarn untereinander mit quadratischem Aufwand verglichen. Dadurch
-bekommt jeder Nachbar, im besten Fall, eine neue Verbindung.  Abschließend werden
-alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird wieder
-um eins dekrementiert.
+bekommt jeder Nachbar, im besten Fall, eine neue Verbindung.  Abschließend
+werden alle Verbindungen zum zu löschenden Song entfernt und der Richtwert wird
+wieder um eins dekrementiert.
 
 Da *libmunin* alle Songs in einer linearen Liste hält, muss auch dort der Song
 gelöscht werden. Da der Index des Songs in der Liste gleich des *Identifiers*
 des Songs ist, wird an dessen Stelle ein leerer Wert geschrieben. Damit dieser
-möglichst bald wieder besetzt wird, wird der gelöschte *Identifier--Index* in
-einer sogenannten *Revocation*--Liste gespeichert. Beim nächsten ``add`` oder
-``insert`` wird dieser *Identifier* dann wiederverwendet. Dieses Verfahren soll
-eine Fragmentierung der Song--Liste nach vielen ``remove``--Operation vermeiden.
+möglichst bald wieder besetzt werden kann, wird der gelöschte
+*Identifier--Index* in einer sogenannten *Revocation*--Liste gespeichert. Beim
+nächsten ``add`` oder ``insert`` wird dieser *Identifier* dann wiederverwendet.
+Dieses Verfahren soll eine Fragmentierung der Song--Liste nach vielen
+``remove``--Operation vermeiden.
 
 .. _ref-graphop-insert:
 
@@ -378,11 +379,11 @@ Diese Einpassung geschieht dabei folgendermaßen:
   als potenzielle direkte Nachbarn geeignet sind.
 
 Als zusätzliche Beobachtung lässt sich feststellen, dass Songs die per
-``insert`` eingefügt werden, deutlich weitläufiger verbunden sind als regulär
-per ``add`` hinzugefügte. Diese Eigenschaft macht sich die, in der Projektarbeit
+``insert`` eingefügt werden, deutlich weitläufiger verbunden sind, als regulär
+per ``add`` hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
 gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines Songs, so wird
 der Song mittels ``remove`` gelöscht und mittels  ``insert`` an anderer Stelle
-wieder eingefügt. Meist verbindet sich dabei der Song, dann mit anderen ähnlich
+wieder eingefügt. Meist verbindet sich dabei der Song dann mit anderen ähnlich
 bewerteten Songs. Diese bilden ein *zusätzliches Netz* über dem Graphen, welches
 weitläufigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine 
 Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
@@ -392,7 +393,7 @@ Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
 ----------------------------------------------------
 
 Diese Operation dient als Komfortfunktion. Sie ermöglicht das Verändern der
-Attribute, beziehungsweise deren zugeordneten Werte, eines einzelnen Songs.
+Attribute, beziehungsweise deren zugeordneten Werte eines einzelnen Songs.
 Würde man die Werte eines Songs manuell verändern, so müsste man alle Distanzen
 zu diesem Song neu berechnen. Da dies wiederum Veränderungen im ganzen Graphen
 hervorrufen könnte, wurden die Song--Instanzen unveränderbar *(,,Immutable")*
@@ -403,10 +404,11 @@ Die ``modify``--Operation umgeht dieses Problem, indem es den Song erst durch ei
 werden die neuen Werte gesetzt. Dieser neue, noch unverbundene Song, wird dann
 mittels einer ``insert``--Operation in den Graphen eingepasst. 
 
-Aufgrund dieser Abfolge unterschiedlicher Operation, ist ``modify`` relativ
-aufwendig. Es wird empfohlen, diese Operation nur für einzelne Song jeweils
-einzusetzen. Sollte ein bestimmtes Attribut in allen Songs geändert werden, so
-ist eher eine ``rebuild``--Operation zu empfehlen.
+Aufgrund dieser Abfolge unterschiedlicher Operation, ist ``modify`` um ein
+Vielfaches aufwendiger (siehe dazu auch Tabelle :num:`table-specs`).  Es wird
+empfohlen, diese Operation nur für einzelne Song jeweils einzusetzen. Sollte ein
+bestimmtes Attribut in allen Songs geändert werden, so ist eher eine
+``rebuild``--Operation zu empfehlen.
 
 .. _ref_distance_add:
 
@@ -415,7 +417,7 @@ Ablauf beim Hinzufügen einer Distanz
 
 Wie bereits erwähnt, speichert jeder Song eine Hashtabelle mit den jeweiligen
 Songs, zu denen er eine Verbindung hält, als Schlüssel und der Distanz als Wert.
-Um diese Hashtabelle zu füllen, ist eine Funktion nötig, die sich nach näherer
+Um diese Hashtabelle zu füllen, ist eine Methodik nötig, die sich nach näherer
 Betrachtung als relativ schwierig zu implementieren erwies. Tatsächlich
 wurden an die zwei Wochen mit unterschiedlichen Herangehensweisen verbracht.
 
@@ -453,7 +455,7 @@ Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
 Distanzen, auch einen Heap als *,,Lookup--Hilfe"*.
 In diesem werden, entgegen der prinzipbedingten Unordnung in einer Hastabelle, die
 zuletzt hinzugefügten Paare aus Distanzen und Songs partiell sortiert abgelegt.
-Gemäß der Natur eines Heaps, ist dabei der Wurzelknoten immer das Element mit
+Gemäß der Natur eines Heaps TODO, ist dabei der Wurzelknoten, immer das Element mit
 der größten Distanz.  Ist es dann nötig, eine neue, schlechteste Distanz zu
 finden, so kann mit einem Aufwand von :math:`O(\log n)` das oberste Paar
 herausgenommen werden.
@@ -528,8 +530,8 @@ In allen Fällen wird jedoch von einem Seedsong aus eine Breitensuche gestartet.
 Statt diese Breitensuche *sofort* auszuführen, wird jeweils nur ein
 :term:`Iterator` bereitgestellt, welcher immer nur eine Empfehlung generiert.
 Erst beim nächsten Aufruf wird die nächste Empfehlung dynamisch generiert.
-Dieses, aus der funktionalen Programmierung als *,,Layz Evaluation"* bekannte,
-Konzept ist sehr nützlich beim Filtern der generierten Empfehlungen. Denn man
+Dieses, dem aus der funktionalen Programmierung als *,,Lazy Evaluation"* bekannte
+Konzept, ist sehr nützlich beim Filtern der generierten Empfehlungen. TODO Denn man
 weiß im Vornherein nicht, wieviele Empfehlungen ausgefiltert werden. So kann der
 Iterator einfach so lange bemüht werden, bis die gewünschte Anzahl an
 Empfehlungen generiert worden sind. 
@@ -539,7 +541,7 @@ Breitensuche--Iterator erstellt. Dieser liefert erst den Seedsong, dann den
 besten Nachbarn, dann den nächst schlechteren Nachbarn und später geht es mit den
 indirekten Nachbarn weiter.  Diese Liste von Iteratoren wird dann im
 Round--Robin--Verfahren ineinander verwebt. Dabei wird erst der erste Iterator
-in der Liste genutzt, dann der Nächste. Ist man am Ende der Liste, so wird von
+in der Liste genutzt, dann der nächste. Ist man am Ende der Liste, so wird von
 vorne begonnen.
 
 Der daraus entstehende Iterator, wird dann dem Nutzer der Bibliothek
@@ -597,8 +599,8 @@ vorgegangen, nur hier ist die Schwelle standardmäßig bei drei. Die einzelnen
 Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. |br| Auch das
 *Sieving* ist als Iterator implementiert, welcher Songs von einem
 Empfehlungsiterator entgegennimmt, aber nicht alle an den Nutzer weitergibt. Die
-vom Iterator übergangenen Songs werden für den nächsten Iterationsschritt
-zwischengespeichert, um sie vorzuschlagen sobald sie wieder erlaubt sind.
+vom Iterator übergangenen Songs, werden für den nächsten Iterationsschritt
+zwischengespeichert, um sie vorzuschlagen, sobald sie wieder erlaubt sind.
 
 .. rubric:: Footnotes
 

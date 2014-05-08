@@ -2,11 +2,9 @@
 Begriffsklärungen
 #################
 
-:dropcaps:`Wie` in der Projektarbeit werden in den folgenden Kapiteln
-einige Begriffe verwendet, die nicht allgemein verständlich sind oder in diesem
-Kontext anders besetzt sind. Diese werden hier definiert. |br| Die Begriffe
-:term:`Distanzfunktion` und :term:`Assoziationsregel` wurden im Vergleich zur
-Projektarbeit um einige Details erweitert. 
+:dropcaps:`In` den folgenden Kapiteln werden einige Begriffe verwendet, die
+nicht allgemein verständlich sind oder im Kontext von *libmunin* anders besetzt
+sind. Diese werden hier definiert. 
 
 Allgemeine Fachbegriffe
 =======================
@@ -32,13 +30,13 @@ Allgemeine Fachbegriffe
     Breitensuche
 
       Verfahren um in definierter Weise einen Graphen zu traversieren. Dabei
-      wird ausgehend von einem Knoten zuerst jeder Nachbarknoten besucht. Erst
-      dann wird analog mit den Nachbarknoten verfahren. Bereits besuchte Knoten
+      wird ausgehend von einem Startknoten zuerst jeder Nachbarknoten besucht. Erst
+      dann wird analog mit dessen Nachbarknoten verfahren. Bereits besuchte Knoten
       werden markiert und nicht weiter verfolgt.
 
     Iterator
 
-      Ein Iterator ist ein *Versprechen* einen Wert genau dann zu berechnenl
+      Ein Iterator ist ein Versprechen einen Wert genau dann zu berechnen
       wenn er gebraucht wird. Meistens werden Iteratoren dazu genutzt, um
       Datenstrukturen zu traversieren. Jeder Aufruf des Iterators liefert dabei
       den nächsten Wert oder signalisiert, dass keine neuen Werte mehr vorhanden
@@ -159,14 +157,14 @@ Kontextspezifische Fachbegriffe
       Oberdistanz eingerechnet.
 
       Die folgenden Bedingungen müssen sowohl für die allgemeine
-      Distanzfunktion, als auch für die speziellen Distanzfunktionen gelten.
+      Distanzfunktion als auch für die speziellen Distanzfunktionen gelten.
       :math:`D` ist dabei die Menge aller Songs, :math:`d` eine Distanzfunktion.
  
       1) *Uniformität:*
         
          .. math::
 
-            0 \leq d(i, j) \leq 1\forall i,j \in D 
+            0 \leq d(i, j) \leq 1 \quad\forall\quad i,j \in D 
 
          *Aussage:* Die errechneten Werte müssen sich immer zwischen und
          einschließlich :math:`0` und :math:`1` befinden. *libmunin* schneidet
@@ -176,7 +174,7 @@ Kontextspezifische Fachbegriffe
 
          .. math::
          
-            d(i, j) = d(j, i) \forall i,j \in D 
+            d(i, j) = d(j, i) \quad\forall\quad i,j \in D 
 
         *Aussage:* Die Reihenfolge, in der die Songs der Distanzfunktion
         übergeben werden, darf keine Auswirkung auf das Ergebnis haben. 
@@ -187,7 +185,7 @@ Kontextspezifische Fachbegriffe
          
          .. math::
          
-            d(i, i) = 0 \forall i \in D 
+            d(i, i) = 0 \quad\forall\quad i \in D 
 
          *Aussage:* Wird zweimal der selbe Song übergeben, so muss die Distanz
          immer :math:`0` betragen. Autoren von Distanzfunktionen sollten dies
@@ -198,7 +196,7 @@ Kontextspezifische Fachbegriffe
          
          .. math::
 
-            d(i, j) \leq d(i, x) + d(x, j) \forall i,j,x \in D, i \neq j \neq x
+            d(i, j) \leq d(i, x) + d(x, j) \quad\forall\quad i,j,x \in D, i \neq j \neq x
 
          In einer Dreiecksbeziehung zwischen drei Songs muss der direkte Weg
          zwischen zwei Songs immer kürzer oder gleich lang wie der Umweg über
