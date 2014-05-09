@@ -5,8 +5,53 @@ Allgemeine Entwicklerhinweise
 :dropcaps:`In` diesem Kapitel werden einleitend einige allgemeine Hinweise
 gegeben, die man bei der Entwicklung mit und von *libmunin* beachten sollte.
 Statt wie in der API--Referenz :cite:`5LX` auf die einzelnen Methoden und
-Klassen von *libmunin* einzugehen, sollen hier ,,Best Practices"
-vermittelt werden.
+Klassen von *libmunin* einzugehen, sollen hier ,,Best Practices" vermittelt
+werden.  Zuvor wird noch eine kurze Zusammenfassung gegeben, um den Leser an die
+in :cite:`aaa_cpahl` eingeführten Begriffe heranzuführen.
+
+Zusammenfassung des aktuellen Stands
+====================================
+
+*Libmunin* ist eine in der Programmiersprache Python geschriebene Bibliothek und
+implementiert ein Musikempfehlungssystems auf Graphen--Basis. Der
+dahinterstehende Graph bildet die Nachbarschaftsbeziehungen zwischen den
+einzelnen Musikstücken ab. Um den Graphen aufbauen zu können, müssen, während
+des sogenannten Kaltstartes, vom Nutzer der Bibliothek alle Songs aus denen
+Empfehlungen gebildet werden soll, mit allen relevanten Attributen eingegeben
+werden. Damit *libmunin* weiß, wie die einzelnen Werte zu behandeln sind, wird
+jedem Attribut (Künstler, Titel, Genre...) ein sogenannter *Provider* und eine
+*Distanzfunktion* zugeordnet. 
+
+Ein Provider normalisiert einen Wert anhand verschiedener Charakteristiken.
+Sein Ziel ist es, für die Distanzfunktion einfache und effizient vergleichbare
+Werte zu erzeugen, da die Distanzfunktion sehr viel öfters aufgerufen wird als
+der Provider. Die Distanzfunktion erzeugt dann aus diesen normalisierten Werten
+eine Distanz, also ein Maß dafür, wie ähnlich diese Werte sind. Die Distanzen
+gehen dabei von :math:`0` (vollkommen ähnlich) bis :math:`1` (absolut
+unähnhlich). *Libmunin* implementiert eine große Anzahl von vorgefertigten
+Providern und Distanzfunktionen für gängige Attribute, wie dem Genre, den
+Audiodaten oder den aus den Liedtext extrahierten Schlüsselwörtern.
+
+Aus den einzelnen Distanzen wird dann der obige Graph aufgebaut. Um aus diesen
+Graphen dann Empfehlungen abzuleiten, werden einzelne Knoten, sogenannte
+Seedsongs, nach bestimmten Kriterien ausgewählt. Beginnend von diesen wird eine
+Breitensuche gestartet, also eine sich kreisförmig vom Seedsong ausbreitende
+Traversierungstrategie. Bereits besuchte Knoten werden dabei nicht nochmal besucht. 
+Die einzelnen besuchten Knoten werden, nach dem Filtern von doppelten Künstlern
+und Alben, dann als Empfehlungen angenommen
+
+Zudem lernt *libmunin* während einer Sitzung vom Nutzer, indem es die
+Gewohnheiten des Nutzers beobachtet und daraus Regeln ableitet. Alle gehörten
+Songs werden in einer Historie abgespeichert.  Im Vergleich zu bestehenden
+Systemen ist *libmunin* nicht von den Audiodaten abhängig, sondern kann durch
+seine flexible Schnittstelle auch alleine auf den Metadaten eines Stückes, wie
+den Tags eines Musikstückes, operieren. Ein Tag ist eine direkt in der
+Audiodatei hinterlegte Information um bestimmte Werte wie den Künstler des
+Stückes zu beschreiben. Das erklärte Ziel der Bibliothek ist es, eine freie
+Bibliothek zu schaffen, die sowohl offline (in Musicplayern) als auch online (in
+Streamingdiensten) funktioniert und mit großen Datenmengen umgehen kann.  Durch
+die GPLv3--Lizenz :cite:`gplv3` ist ein libertärer, weitläufiger Einsatz
+möglich. 
 
 Zur Nuztung von *libmunin*
 ==========================

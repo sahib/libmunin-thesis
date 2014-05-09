@@ -40,11 +40,11 @@ durch die absolute Anzahl der Warenkörbe. Danach werden mit den Verbliebenen
 3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
 Kombinationen vermieden.
 
-Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer (und damit
-einhergehend schwerer zu erklärender) Algorithmen etabliert. Dazu gehören der
-FP--Growth (siehe :cite:`datamining-concepts-and-techniques` S. 257--259, 272),
-Eclat (siehe :cite:`ECLAT`), sowie der hier verwendete ``RELIM``--Algorithmus,
-der in :cite:`RELIM` vorgestellt wurde.
+Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer Algorithmen
+etabliert. Dazu gehören der FP--Growth (siehe
+:cite:`datamining-concepts-and-techniques` S. 257--259, 272), Eclat (siehe
+:cite:`ECLAT`), sowie der hier verwendete ``RELIM``--Algorithmus, der in
+:cite:`RELIM` vorgestellt wurde.
 
 .. |x| replace:: :math:`\times`
 
@@ -53,10 +53,11 @@ der in :cite:`RELIM` vorgestellt wurde.
    :spec: l r | l r | l r
    :alt: Die Muster für einige einfache Warenkörbe 
    :caption: Die Muster, welche aus den drei Warenkörben {{A, B, C} {B, B, C},
-             {C, C, B}} generiert worden sind.
+             {C, C, B}} generiert worden sind, mit der jeweiligen Anzahl von
+             Vorkommnissen in den Warenkörben.
 
    ================== ====== ================= ====== ================= ======
-   Kombination (1er)  Anzahl Kombination (2er) Anzahl Kombination (3er) Anzahl    
+   Kombination (1er)  Menge  Kombination (2er) Menge  Kombination (3er) Menge    
    ================== ====== ================= ====== ================= ======
    *A*                1 |x|  *A, B*            1 |x|  *A, B, C*         1 |x|  
    *B*                3 |x|  *B, C*            3 |x|                    |nbsp|
@@ -76,7 +77,7 @@ aussticht :cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
 In diesem Fall wird trotzdem auf ``RELIM`` zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
 tausend Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining*
-(siehe :cite:`pymining`) bereits eine freie, qualitativ relativ hochwertige
+(siehe :cite:`pymining`) bereits eine freie, qualitativ hochwertige
 Implementierung, während es für FP--Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
 :math:`\leq 2,7` funktionieren.
@@ -97,7 +98,7 @@ Regel ein *Rating* berechnet.
 
 *Anmerkung:* Im allgemeinen Gebrauch sind Assoziationsregeln nur in eine
 Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
-Einfachkeit allerdings bidirektional. So gilt nicht nur, dass man
+Einfacheit allerdings bidirektional. So gilt nicht nur, dass man
 wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
 \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
 Ein natürlichsprachliches Beispiel hierfür: :math:`\frac{2}{3}` der
@@ -112,7 +113,7 @@ Assoziation möglich.
 Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
 verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
 Diese beiden Teilmengen nimmt man als die beiden Mengen einer Assoziationsregel
-an und probt, mittels verschiedener Metriken, wie zutreffend diese ist. 
+an und testet, mittels verschiedener Metriken, wie zutreffend diese ist. 
 
 .. figtable::
    :label: table-rules
@@ -122,22 +123,22 @@ an und probt, mittels verschiedener Metriken, wie zutreffend diese ist.
              Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie die
              beiden Metriken Imbalance--Ratio und Kulczynski abgebildet.
 
-   ==================================================================== ====================== ======================= ============
-   *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*
-   ==================================================================== ====================== ======================= ============
-   :math:`\left\{A\right\} \leftrightarrow \left\{B\right\}`            :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
-   :math:`\left\{B\right\} \leftrightarrow \left\{C\right\}`            :math:`1,0`            :math:`0`               :math:`1`
-   :math:`\left\{C\right\} \leftrightarrow \left\{A\right\}`            :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
-   |hline| :math:`\left\{A\right\} \leftrightarrow \left\{B, C\right\}` :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
-   :math:`\left\{B\right\} \leftrightarrow \left\{A, C\right\}`         :math:`0,\overline{3}` :math:`0`               :math:`0,\overline{3}`
-   :math:`\left\{C\right\} \leftrightarrow \left\{A, B\right\}`         :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}`
-   ==================================================================== ====================== ======================= ============
+   ==================================================================== ====================== ======================= ====================== =============
+   *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*           *Lift*
+   ==================================================================== ====================== ======================= ====================== =============
+   :math:`\left\{A\right\} \leftrightarrow \left\{B\right\}`            :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}` 0
+   :math:`\left\{B\right\} \leftrightarrow \left\{C\right\}`            :math:`1,0`            :math:`0`               :math:`1`              0
+   :math:`\left\{C\right\} \leftrightarrow \left\{A\right\}`            :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}` 0 
+   |hline| :math:`\left\{A\right\} \leftrightarrow \left\{B, C\right\}` :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}` 0
+   :math:`\left\{B\right\} \leftrightarrow \left\{A, C\right\}`         :math:`0,\overline{3}` :math:`0`               :math:`0,\overline{3}` 0 
+   :math:`\left\{C\right\} \leftrightarrow \left\{A, B\right\}`         :math:`0,\overline{3}` :math:`0,\overline{6}`  :math:`0,\overline{6}` :math:`0,\overline{8}`
+   ==================================================================== ====================== ======================= ====================== =============
 
 Als Beispiel kann man wieder die Warenkörbe aus Tabelle :num:`table-itemsets` nehmen.
 Muster mit nur einem Song können nicht weiter aufgeteilt werden, daher müssen
-diese nicht weiter betrachtet werden. Die 2er--Kombination sind leicht in zwei
-disjunkte Teilmengen aufteilbar. Für die 3er--Kombinationen können mehrere
-möglichen Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
+diese nicht weiter betrachtet werden. Die Zweier--Kombination sind leicht in zwei
+disjunkte Teilmengen aufteilbar. Für die Dreier--Kombinationen können mehrere
+mögliche Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
 Tabelle :num:`table-rules` aufgelistet.
 
 
@@ -164,8 +165,8 @@ wäre hier die Regel :math:`Basketball \Rightarrow Cornflakes`, also eine Regel,
 die laut Tabelle :num:`table-cornflakes` besagt, dass :math:`\frac{2}{3}` aller
 *Basketballspieler* zum Frühstück *Cornflakes* essen.  Der Anteil der Menschen
 die aber insgesamt Cornflakes essen liegt aber bei :math:`75\%` --- daher ist
-die Eigenschaft *,,Basketballspieler"* sogar ein Gegenindiz für die Eigenschaft
-*,,Cornflake--Esser"*. 
+die Eigenschaft *,,Basketballspieler"* sogar im Vergleich, zum durchschnittlichen
+Anteil von Cornflake--Essern, ein Gegenindiz für diese Eigenschaft.
 
 Um solche kontraproduktiven Assoziationsregeln zu vermeiden, werden für jede
 Regel zwei Metriken errechnet. Die von *libmunin* genutzten Metriken wurden dem
@@ -232,14 +233,14 @@ Das finale Rating bewegt sich im Bereich :math:`\lbrack 0, 1\rbrack`, wobei
 :math:`1` das höchste vergebene Rating ist.
 
 Nach einigen Tests erwiesen sich beide Metriken aber nicht als ausreichend.
-Daher wurde noch zusätzlich die *Lift--Metrik* eingeführt (vergleiche:
+Daher wurde noch zusätzlich die *Lift--Metrik* eingeführt (vergleiche
 :cite:`datamining-concepts-and-techniques`, S.266). Diese ist definiert als: 
 
 .. math::
 
    Lift(A, B) = P(A \mid B) - (P(A) \times P(B)) = support(A \cap B) - \left(support(A) \times support(B)\right)
 
-Ist der berechnete Wert :math:`\le 0`, so wird die Regel ignoriert.  Für die
+Ist der berechnete Wert :math:`< 0`, so wird die Regel ignoriert.  Für die
 unter Tabelle :num:`table-cornflakes` gezeigten Werte können nun die einzelnen
 Metriken angewandt werden: 
 
@@ -247,10 +248,10 @@ Metriken angewandt werden:
 
    Kulczynski(Basketball, Cornflakes) = \frac{1}{2} \times \left(\frac{400}{600} + \frac{400}{750}\right) = 0,6
 
-Dieses Ergebnis würde bereits zum Ausschluss der Regel führen, da :math:`0,6 <
-0.\overline{6}` ist. Allerdings ist dies, für diese deutlich kontraproduktive
-Regel, ein knappes Ergebnis, da zudem die Grenze von :math:`0,\overline{6}` ja
-willkürlich ausgewählt wurde.
+Dieses Ergebnis würde zum Ausschluss der Regel führen, da :math:`0,6 <
+0.\overline{6}` ist.  Allerdings ist dies, für diese kontraproduktive Regel, ein
+knappes Ergebnis, da die Grenze von :math:`\overline{0,6}`` willkürlich
+gewählt wurde.
 
 .. math::
 
@@ -298,9 +299,8 @@ erst noch in der Praxis bewähren muss. Änderungen sind wahrscheinlich.
 Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
 Momentan wird nur die Historie aufgezeichnet, wenn die Demonanwendung läuft. Da
 die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
-die ganze Zeit über. Eine Abhilfe würde ein gepatchter MPD--Server schaffen, der
-sich seine Historie merkt oder eine separater MPD--Client, der nur dafür dient im
-Hintergrund die Historie--Daten mitzuloggen.
+die ganze Zeit über. Abhilfe würde ein separater MPD--Client, der nur dafür
+dient im Hintergrund die Historie--Daten mitzuloggen.
 
 Explizites Lernen
 =================
@@ -338,8 +338,6 @@ Explizites Lernen
     Verbindungen zu anderen Alben bekommen haben. Zudem haben sich die beiden
     erstgenannten Songs miteinander verbunden.
 
-Neben dem impliziten Lernen gibt es auch den *,,nachträglich entdeckten"*
-Mechanismus des expliziten Lernens. 
 Bei einer ``insert``--Operation lässt sich beobachten, dass die eingefügten
 Songs deutlich deutlich weitläufiger verbunden sind, als regulär per ``add``
 hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
@@ -348,16 +346,14 @@ Songs, so wird der Song mittels ``remove`` gelöscht und mittels  ``insert`` an
 anderer Stelle wieder eingefügt. Meist verbindet sich dabei der Song, dann mit
 anderen ähnlich bewerteten Songs. Diese bilden ein *zusätzliches Netz* über dem
 Graphen, welches weitläufigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine
-Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
-*explizites Lernen*). 
+Möglichkeit den Graphen seinen Vorstellungen nach umzubauen.
 
-Unter Abbildung :num:`fig-modify-moves` soll
-dies lediglich nochmal visualisiert werden. Die dort abgebildete Verschiebung
-ist dadurch zu erklären, dass die ``insert``--Operation meist einen anderen
-Punkt zum Wiedereinfügen findet. 
-Durch Ändern des Ratings in der Demonanwendung können daher einzelne Knoten
-gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher
-zusammen und stellen *,,Brücken"* zu anderen Alben--Clustern her. Man kann
+Unter Abbildung :num:`fig-modify-moves` soll dieses ,,explizite Lernen" nochmal
+visualisiert werden. Die dort abgebildete Verschiebung ist dadurch zu erklären,
+dass die ``insert``--Operation meist einen anderen Punkt zum Wiedereinfügen
+findet.  Durch Ändern des Ratings in der Demonanwendung können daher einzelne
+Knoten gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern
+näher zusammen und stellen *,,Brücken"* zu anderen Alben--Clustern her. Man kann
 dieses *Feature* einerseits dazu nutzen, um seine Favoriten nahe im Graphen
 zusammenzupacken, andererseits, um unpassende Empfehlungen mit einem schlechten
 Rating abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge
@@ -370,7 +366,6 @@ Playlisten* bei vielen Music--Playern gehen: Der Nutzer stellt Beziehungen
 zwischen Attributen und Werten her. Ein Attribut wäre beispielsweise ``date``,
 ein Wert ``2010`` und eine Beziehung :math:`\ge`.  Weitere Beziehungen wären
 :math:`=`, :math:`\neq`, :math:`<` oder :math:`\le`. 
-
 Mit den unterschiedlichen Attributen, wären dann automatisch erstellte
 Playlisten wie  *,,Favouriten"* (:math:`rating > 3`), *,,Ungehörte"*
 (:math:`Playcount = 0`) und *,,Neu Hinzugefügte"* (:math:`date > (today - 7

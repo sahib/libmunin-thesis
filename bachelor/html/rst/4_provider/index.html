@@ -91,17 +91,17 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1_intro/index.html">1 Einleitung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#aktueller-stand">1.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.2 Das allgemeine Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.3 Das konkrete Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.1 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.3 Zur Erweiterung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.4 Vergleich verschiedener Playlisten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.5 Ressourcenverbrauch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3_graphops/index.html">3 Graphenoperationen</a><ul>
@@ -178,7 +178,7 @@
 Distanzfunktionen näher betrachtet. Nicht alle vorhandenen und in der
 Projektarbeit (<a class="reference internal" href="../zzz_bibliography.html#aaa-cpahl" id="id1">[1]</a>, S.28ff) vorgestellten Provider werden erläutert, dies
 würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die meisten Provider
-eher einfacher Natur &ndash;- die Lektüre des jeweiligen Quelltextes sagt oft mehr
+eher einfacher Natur &mdash; die Lektüre des jeweiligen Quelltextes sagt oft mehr
 als ein separate Erklärung.  Daher werden im Folgenden nur die stark
 erklärungsbedürftigen Paare näher betrachtet.</p>
 </div>
@@ -196,9 +196,9 @@ zusammengestellten geläufigen, Genres normalisiert werden.</p>
 <h3>4.2.1 Zusammenstellung der Genredatenbank<a class="headerlink" href="#zusammenstellung-der-genredatenbank" title="Permalink to this headline">¶</a></h3>
 <p>Musikrichtungen können, wie in einem Baum, in Genres (<em>rock</em>, <em>pop</em>), Untergenres
 (<em>country</em> rock, <em>japanese</em> pop), Unteruntergenres (<em>western</em> country rock)
-&ndash;- und so weiter &ndash;- aufgeteilt werden. So lassen sich alle Genres und ihre
+&mdash; und so weiter &mdash; aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
-man das allumfassende Genre <em>Music</em> an &ndash;- einfach weil sich <em>Music</em> hinter fast
+man das allumfassende Genre <em>Music</em> an &mdash; einfach weil sich <em>Music</em> hinter fast
 jedes Genre schreiben lässt, ohne den Sinn zu verändern.
 Dieser Baum kann dann genutzt werden, um beliebige Genres als <em>Pfad</em> durch den
 Baum normalisiert abzubilden.</p>
@@ -217,11 +217,11 @@ but we haven't completely settled on the right approach yet.</em></p>
 <p>Also musste man sich nach anderen Quellen umschauen. Das vom
 <tt class="docutils literal"><span class="pre">DiscogsGenreProvider</span></tt> verwendete <em>Discogs</em> bietet zwar detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
-Genre (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &ndash;- eine zu
+Genre (<em>,,Rock&quot;</em>) und dem Untergenre (<em>,,Blackened Death Metal&quot;</em>) &mdash; eine zu
 grobe Einteilung.</p>
-<p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> &ndash;- viele bekannte
+<p>Dafür fallen zwei andere Quellen ins Auge: <em>Wikipedia</em> &mdash; viele bekannte
 Künstler sind dort mit detaillierter Genreinformation vertreten,
-sowie <em>The Echonest</em> &ndash;- einem Unternehmen, welches verschiedene Dienste rund um
+sowie <em>The Echonest</em> &mdash; einem Unternehmen, welches verschiedene Dienste rund um
 Musikmetadaten anbietet. Darunter auch eine Liste, von den ihnen bekannten
 Genres.</p>
 <p>Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
@@ -454,7 +454,7 @@ erreicht wird.</p>
 <p>Diese Distanzfunktion eignet sich für kurze Genre&ndash;Beschreibungen, wie sie
 in vielen Musiksammlungen vorkommen. Oft ist ein Lied als <em>Rock</em> oder
 <em>Metal</em> eingetragen, ohne Unterscheidung von Untergenres. Deshalb geht diese
-Distanzfunktion davon aus, wenige Übereinstimmungen zu finden &ndash;- sollten welche
+Distanzfunktion davon aus, wenige Übereinstimmungen zu finden &mdash; sollten welche
 vorkommen, so werden diese gut bewertet.</p>
 <p>Setzt man voraus, dass <em>d</em> die unter <a class="reference internal" href="#single-dist">4.2.4</a> erwähnte Distanzunktion
 ist,  so berechnet sich die finale Distanz durch:</p>
@@ -480,7 +480,7 @@ zufriedenstellend in Pfade normalisiert, die performant verglichen werden könne
 <p>Folgendes Problem wird allerdings noch nicht zufriedenstellend gelöst:
 Es wird davon ausgegangen, dass Genres die ähnlich sind auch ähnlich heißen.
 Eine Annahme, die zwar oft, aber nicht immer wahr ist. So sind die Genres
-<em>Alternative Rock</em> und <em>Grunge</em> sehr ähnlich &ndash;- der obige Ansatz würde hier
+<em>Alternative Rock</em> und <em>Grunge</em> sehr ähnlich &mdash; der obige Ansatz würde hier
 allerdings eine Distanz von <span class="math">\(1\)</span> liefern. Auch Genres wie <em>,,Rock'n'Roll</em>
 würde ähnlich schlechte Resultate liefern, da sie kaum sinnvoll aufgebrochen
 werden können.</p>
@@ -746,7 +746,7 @@ Volkliedes <em>,,Das Wandern ist des Müllers Lust&quot;</em> abgedruckt. Der Te
 <em>,,Yellow Submarine&quot;</em> wird aus lizenzrechtlichen Gründen hier nicht
 abgedruckt.</p>
 <p>Wie man in Abbildung  sieht, werden längere Phrasen automatisch
-besser bewertet &ndash;- deren <em>Score</em> berechnet sich aus der Summe ihrer Wörter.
+besser bewertet &mdash; deren <em>Score</em> berechnet sich aus der Summe ihrer Wörter.
 Auch sieht man, dass viele unwichtige Wörter wie <em>aboard</em> trotz Stoppwortlisten
 noch in das Ergebnis aufgenommen werden.</p>
 </div>
@@ -780,7 +780,7 @@ Blöcke unterteilt. Für jeden dieser Blöcke wird ein Farbwert (als RGB&ndash;T
 bestimmt. Der Rotanteil bestimmt dabei den Anteil niedriger Frequenzen, der
 Grünanteil den Anteil mittlerer Frequenzen und der Blauanteil den Anteil von
 hohen Frequenzen. Die Farbe Türkis deutet daher auf hohe und mittlere Frequenzen
-in einem Block hin &ndash;- E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
+in einem Block hin &mdash; E&ndash;Gitarren haben häufig diese Farbe in der Moodbar.
 Akustikgitarren erscheinen dafür meist in einem dunklem Rot (siehe Abbildung
 ).</p>
 <p>Die Namensgebung des Verfahrens ist ein wenig irreführend. Man kann hier
@@ -791,7 +791,7 @@ nennen. Um aber auf die Einführung eines neuen Begriffes zu verzichten, wird di
 Namensgebung des Originalautors verwendet.</p>
 <div class="figure align-center" id="fig-mood-avril">
 <a class="reference internal image-reference" href="../../_images/mood_avril.svg"><img alt="Beispiel--Moodbar von ,,Avril Lavigne --- Knockin' on Heaven's Door“" src="../../_images/mood_avril.svg" width="100%" /></a>
-<p class="caption">Beispiel&ndash;Moodbar von ,,Avril Lavigne &ndash;- Knockin' on Heaven's Door“.  Ein
+<p class="caption">Beispiel&ndash;Moodbar von ,,Avril Lavigne &mdash; Knockin' on Heaven's Door“.  Ein
 Lied bei dem hauptsächlich eine Akustikgitarre (rot) und Gesang (grünlich)
 im Vordergrund steht. Der Gesang setzt etwa bei 10% ein. Die Grafik wurde
 durch ein eigens zu diesem Zwecke geschriebenes Script gerendert. Deutlich
@@ -922,7 +922,7 @@ berechnete Moodbar&ndash;Distanz ist hier etwa 0,01.</p>
 </div>
 <div class="figure align-center" id="fig-mood-rammstein-tier">
 <a class="reference internal image-reference" href="../../_images/mood_rammstein_tier.svg"><img alt="Moodbar einer Live und einer Studioversion von ,,Rammstein --- Tier“" src="../../_images/mood_rammstein_tier.svg" width="100%" /></a>
-<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &ndash;- Tier“. Oben
+<p class="caption">Moodbar einer Live und einer Studioversion von ,,Rammstein &mdash; Tier“. Oben
 die Studioversion, unten die Liveversion.  Hier ist die von libmunin
 errechnete Moodbar&ndash;Distanz immerhin bei 0,32.</p>
 </div>

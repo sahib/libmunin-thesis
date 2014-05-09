@@ -91,17 +91,17 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1_intro/index.html">1 Einleitung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#aktueller-stand">1.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.2 Das allgemeine Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.3 Das konkrete Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.1 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.3 Zur Erweiterung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.4 Vergleich verschiedener Playlisten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.5 Ressourcenverbrauch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3_graphops/index.html">3 Graphenoperationen</a><ul>
@@ -204,11 +204,11 @@ durch die absolute Anzahl der Warenkörbe. Danach werden mit den Verbliebenen
 2er&ndash;Kombination gebildet, wieder gefiltert, dann die noch relevanten
 3er&ndash;Kombinationen und so weiter. Dadurch wird eine große Menge von
 Kombinationen vermieden.</p>
-<p>Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer (und damit
-einhergehend schwerer zu erklärender) Algorithmen etabliert. Dazu gehören der
-FP&ndash;Growth (siehe <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id3">[9]</a> S. 257&ndash;259, 272),
-Eclat (siehe <a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[10]</a>), sowie der hier verwendete <tt class="docutils literal"><span class="pre">RELIM</span></tt>&ndash;Algorithmus,
-der in <a class="reference internal" href="../zzz_bibliography.html#relim" id="id5">[11]</a> vorgestellt wurde.</p>
+<p>Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer Algorithmen
+etabliert. Dazu gehören der FP&ndash;Growth (siehe
+<a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id3">[9]</a> S. 257&ndash;259, 272), Eclat (siehe
+<a class="reference internal" href="../zzz_bibliography.html#eclat" id="id4">[10]</a>), sowie der hier verwendete <tt class="docutils literal"><span class="pre">RELIM</span></tt>&ndash;Algorithmus, der in
+<a class="reference internal" href="../zzz_bibliography.html#relim" id="id5">[11]</a> vorgestellt wurde.</p>
 <div class="figure align-center" id="table-itemsets">
 <center><table border="1" class="docutils">
 <colgroup>
@@ -221,11 +221,11 @@ der in <a class="reference internal" href="../zzz_bibliography.html#relim" id="i
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Kombination (1er)</th>
-<th class="head">Anzahl</th>
+<th class="head">Menge</th>
 <th class="head">Kombination (2er)</th>
-<th class="head">Anzahl</th>
+<th class="head">Menge</th>
 <th class="head">Kombination (3er)</th>
-<th class="head">Anzahl</th>
+<th class="head">Menge</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -253,7 +253,8 @@ der in <a class="reference internal" href="../zzz_bibliography.html#relim" id="i
 </tbody>
 </table>
 <p class="caption"><strong>Figure 5.1:</strong> Die Muster, welche aus den drei Warenkörben {{A, B, C} {B, B, C},
-{C, C, B}} generiert worden sind.</p>
+{C, C, B}} generiert worden sind, mit der jeweiligen Anzahl von
+Vorkommnissen in den Warenkörben.</p>
 </center></div><p id="table-itemsets">In Tabelle <a href="#table-itemsets">5.1</a> sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
 samt deren Support&ndash;Count aufgelistet worden sind.</p>
@@ -266,7 +267,7 @@ aussticht <a class="reference internal" href="../zzz_bibliography.html#gyhorodi2
 In diesem Fall wird trotzdem auf <tt class="docutils literal"><span class="pre">RELIM</span></tt> zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
 tausend Songs übersteigen wird. Zudem gibt es mit dem Python&ndash;Paket <em>pymining</em>
-(siehe <a class="reference internal" href="../zzz_bibliography.html#pymining" id="id8">[Link&ndash;19]</a>) bereits eine freie, qualitativ relativ hochwertige
+(siehe <a class="reference internal" href="../zzz_bibliography.html#pymining" id="id8">[Link&ndash;19]</a>) bereits eine freie, qualitativ hochwertige
 Implementierung, während es für FP&ndash;Growth nur qualitativ schlechte
 Implementierungen zu geben scheint, oder welche, die nur für Python&ndash;Versionen
 <span class="math">\(\leq 2,7\)</span> funktionieren.</p>
@@ -285,7 +286,7 @@ Um die generelle Anwendbarkeit der Regel zu beschreiben, wird für jede
 Regel ein <em>Rating</em> berechnet.</p>
 <p><em>Anmerkung:</em> Im allgemeinen Gebrauch sind Assoziationsregeln nur in eine
 Richtung definiert.  In <em>libmunin</em> sind die Regeln aus Gründen der
-Einfachkeit allerdings bidirektional. So gilt nicht nur, dass man
+Einfacheit allerdings bidirektional. So gilt nicht nur, dass man
 wahrscheinlich die Menge <em>B</em> hört, wenn man <em>A</em> gehört hat (<span class="math">\(A
 \rightarrow B\)</span>), sondern auch umgekehrt (<span class="math">\(A \leftrightarrow B\)</span>).
 Ein natürlichsprachliches Beispiel hierfür: <span class="math">\(\frac{2}{3}\)</span> der
@@ -299,20 +300,22 @@ Assoziation möglich.</p>
 <p>Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
 verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
 Diese beiden Teilmengen nimmt man als die beiden Mengen einer Assoziationsregel
-an und probt, mittels verschiedener Metriken, wie zutreffend diese ist.</p>
+an und testet, mittels verschiedener Metriken, wie zutreffend diese ist.</p>
 <div class="figure align-center" id="table-rules">
 <center><table border="1" class="docutils">
 <colgroup>
-<col width="50%" />
-<col width="16%" />
-<col width="17%" />
-<col width="16%" />
+<col width="43%" />
+<col width="14%" />
+<col width="15%" />
+<col width="14%" />
+<col width="14%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><em>Assoziationsregel</em></th>
 <th class="head"><em>Support</em></th>
 <th class="head"><em>Imbalance Ratio</em></th>
 <th class="head"><em>Kulczynski</em></th>
+<th class="head"><em>Lift</em></th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -320,31 +323,37 @@ an und probt, mittels verschiedener Metriken, wie zutreffend diese ist.</p>
 <td><span class="math">\(0,\overline{3}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
+<td>0</td>
 </tr>
 <tr class="row-odd"><td><span class="math">\(\left\{B\right\} \leftrightarrow \left\{C\right\}\)</span></td>
 <td><span class="math">\(1,0\)</span></td>
 <td><span class="math">\(0\)</span></td>
 <td><span class="math">\(1\)</span></td>
+<td>0</td>
 </tr>
 <tr class="row-even"><td><span class="math">\(\left\{C\right\} \leftrightarrow \left\{A\right\}\)</span></td>
 <td><span class="math">\(0,\overline{3}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
+<td>0</td>
 </tr>
 <tr class="row-odd"><td> <span class="math">\(\left\{A\right\} \leftrightarrow \left\{B, C\right\}\)</span></td>
 <td><span class="math">\(0,\overline{3}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
+<td>0</td>
 </tr>
 <tr class="row-even"><td><span class="math">\(\left\{B\right\} \leftrightarrow \left\{A, C\right\}\)</span></td>
 <td><span class="math">\(0,\overline{3}\)</span></td>
 <td><span class="math">\(0\)</span></td>
 <td><span class="math">\(0,\overline{3}\)</span></td>
+<td>0</td>
 </tr>
 <tr class="row-odd"><td><span class="math">\(\left\{C\right\} \leftrightarrow \left\{A, B\right\}\)</span></td>
 <td><span class="math">\(0,\overline{3}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
 <td><span class="math">\(0,\overline{6}\)</span></td>
+<td><span class="math">\(0,\overline{8}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -353,9 +362,9 @@ Zusätzlich wird der dazugehörige Gesamt&ndash;Support&ndash;Count, sowie die
 beiden Metriken Imbalance&ndash;Ratio und Kulczynski abgebildet.</p>
 </center></div><p id="table-rules">Als Beispiel kann man wieder die Warenkörbe aus Tabelle <a href="#table-itemsets">5.1</a> nehmen.
 Muster mit nur einem Song können nicht weiter aufgeteilt werden, daher müssen
-diese nicht weiter betrachtet werden. Die 2er&ndash;Kombination sind leicht in zwei
-disjunkte Teilmengen aufteilbar. Für die 3er&ndash;Kombinationen können mehrere
-möglichen Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
+diese nicht weiter betrachtet werden. Die Zweier&ndash;Kombination sind leicht in zwei
+disjunkte Teilmengen aufteilbar. Für die Dreier&ndash;Kombinationen können mehrere
+mögliche Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
 Tabelle <a href="#table-rules">5.2</a> aufgelistet.</p>
 <div class="figure align-center" id="table-cornflakes">
 <center><blockquote>
@@ -399,9 +408,9 @@ Basketball” und ,,Isst Cornflakes” festgestellt worden sind.</p>
 wäre hier die Regel <span class="math">\(Basketball \Rightarrow Cornflakes\)</span>, also eine Regel,
 die laut Tabelle <a href="#table-cornflakes">5.3</a> besagt, dass <span class="math">\(\frac{2}{3}\)</span> aller
 <em>Basketballspieler</em> zum Frühstück <em>Cornflakes</em> essen.  Der Anteil der Menschen
-die aber insgesamt Cornflakes essen liegt aber bei <span class="math">\(75\%\)</span> &ndash;- daher ist
-die Eigenschaft <em>,,Basketballspieler&quot;</em> sogar ein Gegenindiz für die Eigenschaft
-<em>,,Cornflake&ndash;Esser&quot;</em>.</p>
+die aber insgesamt Cornflakes essen liegt aber bei <span class="math">\(75\%\)</span> &mdash; daher ist
+die Eigenschaft <em>,,Basketballspieler&quot;</em> sogar im Vergleich, zum durchschnittlichen
+Anteil von Cornflake&ndash;Essern, ein Gegenindiz für diese Eigenschaft.</p>
 <p>Um solche kontraproduktiven Assoziationsregeln zu vermeiden, werden für jede
 Regel zwei Metriken errechnet. Die von <em>libmunin</em> genutzten Metriken wurden dem
 Buch <em>Datamining Concepts and Techniques</em>
@@ -449,19 +458,19 @@ eine einzelne, leichter zu handhabende <em>Rating&ndash;Metrik</em> verschmolzen
 Das finale Rating bewegt sich im Bereich <span class="math">\(\lbrack 0, 1\rbrack\)</span>, wobei
 <span class="math">\(1\)</span> das höchste vergebene Rating ist.</p>
 <p>Nach einigen Tests erwiesen sich beide Metriken aber nicht als ausreichend.
-Daher wurde noch zusätzlich die <em>Lift&ndash;Metrik</em> eingeführt (vergleiche:
+Daher wurde noch zusätzlich die <em>Lift&ndash;Metrik</em> eingeführt (vergleiche
 <a class="reference internal" href="../zzz_bibliography.html#datamining-concepts-and-techniques" id="id11">[9]</a>, S.266). Diese ist definiert als:</p>
 <div class="math">
 \[Lift(A, B) = P(A \mid B) - (P(A) \times P(B)) = support(A \cap B) - \left(support(A) \times support(B)\right)\]</div>
-<p>Ist der berechnete Wert <span class="math">\(\le 0\)</span>, so wird die Regel ignoriert.  Für die
+<p>Ist der berechnete Wert <span class="math">\(&lt; 0\)</span>, so wird die Regel ignoriert.  Für die
 unter Tabelle <a href="#table-cornflakes">5.3</a> gezeigten Werte können nun die einzelnen
 Metriken angewandt werden:</p>
 <div class="math">
 \[Kulczynski(Basketball, Cornflakes) = \frac{1}{2} \times \left(\frac{400}{600} + \frac{400}{750}\right) = 0,6\]</div>
-<p>Dieses Ergebnis würde bereits zum Ausschluss der Regel führen, da <span class="math">\(0,6 &lt;
-0.\overline{6}\)</span> ist. Allerdings ist dies, für diese deutlich kontraproduktive
-Regel, ein knappes Ergebnis, da zudem die Grenze von <span class="math">\(0,\overline{6}\)</span> ja
-willkürlich ausgewählt wurde.</p>
+<p>Dieses Ergebnis würde zum Ausschluss der Regel führen, da <span class="math">\(0,6 &lt;
+0.\overline{6}\)</span> ist.  Allerdings ist dies, für diese kontraproduktive Regel, ein
+knappes Ergebnis, da die Grenze von <span class="math">\(\overline{0,6}`\)</span> willkürlich
+gewählt wurde.</p>
 <div class="math">
 \[ImbalanceRatio(Basketball, Cornflakes) = \frac{\vert 750 - 600 \vert}{750 + 600  - 400} = \;\;\approx{0,16}\]</div>
 <p>Beim <em>ImbalanceRatio</em> war <span class="math">\(0\)</span> der beste anzunehmende Wert. Laut dem
@@ -499,9 +508,8 @@ erst noch in der Praxis bewähren muss. Änderungen sind wahrscheinlich.
 Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
 Momentan wird nur die Historie aufgezeichnet, wenn die Demonanwendung läuft. Da
 die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
-die ganze Zeit über. Eine Abhilfe würde ein gepatchter MPD&ndash;Server schaffen, der
-sich seine Historie merkt oder eine separater MPD&ndash;Client, der nur dafür dient im
-Hintergrund die Historie&ndash;Daten mitzuloggen.</p>
+die ganze Zeit über. Abhilfe würde ein separater MPD&ndash;Client, der nur dafür
+dient im Hintergrund die Historie&ndash;Daten mitzuloggen.</p>
 </div>
 <div class="section" id="explizites-lernen">
 <h2>5.4 Explizites Lernen<a class="headerlink" href="#explizites-lernen" title="Permalink to this headline">¶</a></h2>
@@ -521,9 +529,7 @@ hervorgehoben. Nach dem Vergeben sieht man, dass die entsprechenden Songs
 sich von den einzelnen Alben&ndash;Clustern räumlich entfernt haben und
 Verbindungen zu anderen Alben bekommen haben. Zudem haben sich die beiden
 erstgenannten Songs miteinander verbunden.</p>
-</div><p id="fig-modify-moves">Neben dem impliziten Lernen gibt es auch den <em>,,nachträglich entdeckten&quot;</em>
-Mechanismus des expliziten Lernens.
-Bei einer <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation lässt sich beobachten, dass die eingefügten
+</div><p id="fig-modify-moves">Bei einer <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation lässt sich beobachten, dass die eingefügten
 Songs deutlich deutlich weitläufiger verbunden sind, als regulär per <tt class="docutils literal"><span class="pre">add</span></tt>
 hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
 (<a class="reference internal" href="../zzz_bibliography.html#aaa-cpahl" id="id12">[1]</a>, S.37ff) gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines
@@ -531,15 +537,13 @@ Songs, so wird der Song mittels <tt class="docutils literal"><span class="pre">r
 anderer Stelle wieder eingefügt. Meist verbindet sich dabei der Song, dann mit
 anderen ähnlich bewerteten Songs. Diese bilden ein <em>zusätzliches Netz</em> über dem
 Graphen, welches weitläufigere Sprünge ermöglicht.  Dadurch hat der Nutzer eine
-Möglichkeit den Graphen seinen Vorstellungen nach umzubauen (Stichwort
-<em>explizites Lernen</em>).</p>
-<p>Unter Abbildung <a href="#fig-modify-moves">5.4</a> soll
-dies lediglich nochmal visualisiert werden. Die dort abgebildete Verschiebung
-ist dadurch zu erklären, dass die <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation meist einen anderen
-Punkt zum Wiedereinfügen findet.
-Durch Ändern des Ratings in der Demonanwendung können daher einzelne Knoten
-gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern näher
-zusammen und stellen <em>,,Brücken&quot;</em> zu anderen Alben&ndash;Clustern her. Man kann
+Möglichkeit den Graphen seinen Vorstellungen nach umzubauen.</p>
+<p>Unter Abbildung <a href="#fig-modify-moves">5.4</a> soll dieses ,,explizite Lernen&quot; nochmal
+visualisiert werden. Die dort abgebildete Verschiebung ist dadurch zu erklären,
+dass die <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation meist einen anderen Punkt zum Wiedereinfügen
+findet.  Durch Ändern des Ratings in der Demonanwendung können daher einzelne
+Knoten gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern
+näher zusammen und stellen <em>,,Brücken&quot;</em> zu anderen Alben&ndash;Clustern her. Man kann
 dieses <em>Feature</em> einerseits dazu nutzen, um seine Favoriten nahe im Graphen
 zusammenzupacken, andererseits, um unpassende Empfehlungen mit einem schlechten
 Rating abzustrafen, was eine <tt class="docutils literal"><span class="pre">insert</span></tt>&ndash;Operation auf diesen Song zur Folge
@@ -550,8 +554,8 @@ verständliche Mechanismen anbieten.  Ein Ansatz wäre der Weg, den <em>Intellig
 Playlisten</em> bei vielen Music&ndash;Playern gehen: Der Nutzer stellt Beziehungen
 zwischen Attributen und Werten her. Ein Attribut wäre beispielsweise <tt class="docutils literal"><span class="pre">date</span></tt>,
 ein Wert <tt class="docutils literal"><span class="pre">2010</span></tt> und eine Beziehung <span class="math">\(\ge\)</span>.  Weitere Beziehungen wären
-<span class="math">\(=\)</span>, <span class="math">\(\neq\)</span>, <span class="math">\(&lt;\)</span> oder <span class="math">\(\le\)</span>.</p>
-<p>Mit den unterschiedlichen Attributen, wären dann automatisch erstellte
+<span class="math">\(=\)</span>, <span class="math">\(\neq\)</span>, <span class="math">\(&lt;\)</span> oder <span class="math">\(\le\)</span>.
+Mit den unterschiedlichen Attributen, wären dann automatisch erstellte
 Playlisten wie  <em>,,Favouriten&quot;</em> (<span class="math">\(rating &gt; 3\)</span>), <em>,,Ungehörte&quot;</em>
 (<span class="math">\(Playcount = 0\)</span>) und <em>,,Neu Hinzugefügte&quot;</em> (<span class="math">\(date &gt; (today - 7
 \times days)\)</span>) möglich.  Für Letzere könnten hilfreiche Konstanten wie <span class="math">\(today\)</span>

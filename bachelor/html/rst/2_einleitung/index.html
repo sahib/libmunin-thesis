@@ -91,17 +91,17 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1_intro/index.html">1 Einleitung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#aktueller-stand">1.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.2 Das allgemeine Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.3 Das konkrete Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1_intro/index.html#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">2 Allgemeine Entwicklerhinweise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#zur-nuztung-von-libmunin">2.1 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#zur-erweiterung-von-libmunin">2.3 Zur Erweiterung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vergleich-verschiedener-playlisten">2.4 Vergleich verschiedener Playlisten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ressourcenverbrauch">2.5 Ressourcenverbrauch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3_graphops/index.html">3 Graphenoperationen</a><ul>
@@ -174,20 +174,61 @@
 <h1>2 Allgemeine Entwicklerhinweise<a class="headerlink" href="#allgemeine-entwicklerhinweise" title="Permalink to this headline">¶</a></h1>
 <p>In diesem Kapitel werden einleitend einige allgemeine Hinweise
 gegeben, die man bei der Entwicklung mit und von <em>libmunin</em> beachten sollte.
-Statt wie in der API&ndash;Referenz <a class="reference internal" href="../zzz_bibliography.html#lx" id="id1">[Link&ndash;2]</a> auf die einzelnen Methoden und
-Klassen von <em>libmunin</em> einzugehen, sollen hier ,,Best Practices&quot;
-vermittelt werden.</p>
+Statt wie in der API&ndash;Referenz <a class="reference internal" href="../zzz_bibliography.html#lx" id="id1">[Link&ndash;1]</a> auf die einzelnen Methoden und
+Klassen von <em>libmunin</em> einzugehen, sollen hier ,,Best Practices&quot; vermittelt
+werden.  Zuvor wird noch eine kurze Zusammenfassung gegeben, um den Leser an die
+in <a class="reference internal" href="../zzz_bibliography.html#aaa-cpahl" id="id2">[1]</a> eingeführten Begriffe heranzuführen.</p>
+<div class="section" id="zusammenfassung-des-aktuellen-stands">
+<h2>2.1 Zusammenfassung des aktuellen Stands<a class="headerlink" href="#zusammenfassung-des-aktuellen-stands" title="Permalink to this headline">¶</a></h2>
+<p><em>Libmunin</em> ist eine in der Programmiersprache Python geschriebene Bibliothek und
+implementiert ein Musikempfehlungssystems auf Graphen&ndash;Basis. Der
+dahinterstehende Graph bildet die Nachbarschaftsbeziehungen zwischen den
+einzelnen Musikstücken ab. Um den Graphen aufbauen zu können, müssen, während
+des sogenannten Kaltstartes, vom Nutzer der Bibliothek alle Songs aus denen
+Empfehlungen gebildet werden soll, mit allen relevanten Attributen eingegeben
+werden. Damit <em>libmunin</em> weiß, wie die einzelnen Werte zu behandeln sind, wird
+jedem Attribut (Künstler, Titel, Genre...) ein sogenannter <em>Provider</em> und eine
+<em>Distanzfunktion</em> zugeordnet.</p>
+<p>Ein Provider normalisiert einen Wert anhand verschiedener Charakteristiken.
+Sein Ziel ist es, für die Distanzfunktion einfache und effizient vergleichbare
+Werte zu erzeugen, da die Distanzfunktion sehr viel öfters aufgerufen wird als
+der Provider. Die Distanzfunktion erzeugt dann aus diesen normalisierten Werten
+eine Distanz, also ein Maß dafür, wie ähnlich diese Werte sind. Die Distanzen
+gehen dabei von <span class="math">\(0\)</span> (vollkommen ähnlich) bis <span class="math">\(1\)</span> (absolut
+unähnhlich). <em>Libmunin</em> implementiert eine große Anzahl von vorgefertigten
+Providern und Distanzfunktionen für gängige Attribute, wie dem Genre, den
+Audiodaten oder den aus den Liedtext extrahierten Schlüsselwörtern.</p>
+<p>Aus den einzelnen Distanzen wird dann der obige Graph aufgebaut. Um aus diesen
+Graphen dann Empfehlungen abzuleiten, werden einzelne Knoten, sogenannte
+Seedsongs, nach bestimmten Kriterien ausgewählt. Beginnend von diesen wird eine
+Breitensuche gestartet, also eine sich kreisförmig vom Seedsong ausbreitende
+Traversierungstrategie. Bereits besuchte Knoten werden dabei nicht nochmal besucht.
+Die einzelnen besuchten Knoten werden, nach dem Filtern von doppelten Künstlern
+und Alben, dann als Empfehlungen angenommen</p>
+<p>Zudem lernt <em>libmunin</em> während einer Sitzung vom Nutzer, indem es die
+Gewohnheiten des Nutzers beobachtet und daraus Regeln ableitet. Alle gehörten
+Songs werden in einer Historie abgespeichert.  Im Vergleich zu bestehenden
+Systemen ist <em>libmunin</em> nicht von den Audiodaten abhängig, sondern kann durch
+seine flexible Schnittstelle auch alleine auf den Metadaten eines Stückes, wie
+den Tags eines Musikstückes, operieren. Ein Tag ist eine direkt in der
+Audiodatei hinterlegte Information um bestimmte Werte wie den Künstler des
+Stückes zu beschreiben. Das erklärte Ziel der Bibliothek ist es, eine freie
+Bibliothek zu schaffen, die sowohl offline (in Musicplayern) als auch online (in
+Streamingdiensten) funktioniert und mit großen Datenmengen umgehen kann.  Durch
+die GPLv3&ndash;Lizenz <a class="reference internal" href="../zzz_bibliography.html#gplv3" id="id3">[Link&ndash;2]</a> ist ein libertärer, weitläufiger Einsatz
+möglich.</p>
+</div>
 <div class="section" id="zur-nuztung-von-libmunin">
-<h2>2.1 Zur Nuztung von <em>libmunin</em><a class="headerlink" href="#zur-nuztung-von-libmunin" title="Permalink to this headline">¶</a></h2>
+<h2>2.2 Zur Nuztung von <em>libmunin</em><a class="headerlink" href="#zur-nuztung-von-libmunin" title="Permalink to this headline">¶</a></h2>
 <p>Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
 Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
 aus den Tags der Audiodateien kommen, empfiehlt es sich, diese vorher
 mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür <em>Picard</em>
-<a class="reference internal" href="../zzz_bibliography.html#picard" id="id2">[Link&ndash;3]</a>, welches im Hintergrund auf <em>Musicbrainz</em> <a class="reference internal" href="../zzz_bibliography.html#a3" id="id3">[Link&ndash;4]</a> zugreift.
+<a class="reference internal" href="../zzz_bibliography.html#picard" id="id4">[Link&ndash;3]</a>, welches im Hintergrund auf <em>Musicbrainz</em> <a class="reference internal" href="../zzz_bibliography.html#a3" id="id5">[Link&ndash;4]</a> zugreift.
 Für schwerer zu besorgende Daten, wie Liedtexte, kann unter anderem auf
-libglyr <a class="reference internal" href="../zzz_bibliography.html#xu" id="id4">[Link&ndash;5]</a>, beets <a class="reference internal" href="../zzz_bibliography.html#xaj" id="id5">[Link&ndash;6]</a> oder dem eingebauten
+libglyr <a class="reference internal" href="../zzz_bibliography.html#xu" id="id6">[Link&ndash;5]</a>, beets <a class="reference internal" href="../zzz_bibliography.html#xaj" id="id7">[Link&ndash;6]</a> oder dem eingebauten
 <tt class="docutils literal"><span class="pre">PlyrLyricsProvider</span></tt> (sucht im Web nach Liedtexten) und
-<tt class="docutils literal"><span class="pre">DiscogsGenreProvider</span></tt> (sucht bei Discogs <a class="reference internal" href="../zzz_bibliography.html#discogs" id="id6">[Link&ndash;7]</a> nach der
+<tt class="docutils literal"><span class="pre">DiscogsGenreProvider</span></tt> (sucht bei Discogs <a class="reference internal" href="../zzz_bibliography.html#discogs" id="id8">[Link&ndash;7]</a> nach der
 Genrebezeichnung) zurückgegriffen werden.</p>
 <p>Welche Lieder man zu <em>libmunin's Historie</em> hinzufügt, sollte
 abgewogen werden. Fügt man auch Lieder ein, welche vom Nutzer einfach
@@ -205,7 +246,7 @@ mehr für den schnellen Einsatz gedacht.  Zudem sollte es dem Endanwender mögli
 gemacht werden, die Gewichtungen der einzelnen Attribute zu ändern.</p>
 </div>
 <div class="section" id="der-begriff-der-distanzfunktion">
-<h2>2.2 Der Begriff der Distanzfunktion<a class="headerlink" href="#der-begriff-der-distanzfunktion" title="Permalink to this headline">¶</a></h2>
+<h2>2.3 Der Begriff der Distanzfunktion<a class="headerlink" href="#der-begriff-der-distanzfunktion" title="Permalink to this headline">¶</a></h2>
 <p>Eine Distanzfunktion ist im Kontext von <em>libmunin</em> eine Funktion, die zwei
 Songs als Eingabe nimmt und die Distanz zwischen diesen berechnet. <br />
 Dabei wird jedes Attribut betracht, welches in beiden Songs vorkommt. Für
@@ -248,7 +289,7 @@ Werte auf diesen Bereich zu.</p>
 <blockquote>
 <div><em>Aussage:</em> Die Reihenfolge, in der die Songs der Distanzfunktion
 übergeben werden, darf keine Auswirkung auf das Ergebnis haben.
-Diese Eigenschaft wird von <em>libmunin</em> nicht überprüft &ndash;- eine
+Diese Eigenschaft wird von <em>libmunin</em> nicht überprüft &mdash; eine
 Nichteinhaltung würde zu falschen Kanten im Graphen führen.</div></blockquote>
 <ol class="upperroman" start="3">
 <li><p class="first"><em>Identität:</em> <span class="math">\(\;d(i, i) = 0 \;\;\forall\;\; i \in D\)</span></p>
@@ -267,7 +308,7 @@ Nachbarn ähnlicher sind als indirekte Nachbarn.</p>
 </ol>
 </div>
 <div class="section" id="zur-erweiterung-von-libmunin">
-<h2>2.3 Zur Erweiterung von <em>libmunin</em><a class="headerlink" href="#zur-erweiterung-von-libmunin" title="Permalink to this headline">¶</a></h2>
+<h2>2.4 Zur Erweiterung von <em>libmunin</em><a class="headerlink" href="#zur-erweiterung-von-libmunin" title="Permalink to this headline">¶</a></h2>
 <p>Oft ist es von Interesse neue Distanzfunktionen und Provider für eigene Zwecke
 zu schreiben. Beispielsweise könnte man ein Paar aus Provider und
 Distanzfunktion verfassen um die einzelnen Mitglieder einer Band automatisch aus
@@ -275,14 +316,14 @@ dem Netz zu besorgen und mit anderen Bands zu vergleichen, um Relationen zu
 finden.  Im Folgenden werden einige Beispiele gegeben und Stolperfallen
 aufgelistet.</p>
 <div class="section" id="hinweise-zum-schreiben-von-distanzfunktionen">
-<h3>2.3.1 Hinweise zum Schreiben von Distanzfunktionen<a class="headerlink" href="#hinweise-zum-schreiben-von-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
+<h3>2.4.1 Hinweise zum Schreiben von Distanzfunktionen<a class="headerlink" href="#hinweise-zum-schreiben-von-distanzfunktionen" title="Permalink to this headline">¶</a></h3>
 <p>Wenn eine Distanzfunktion eine Menge von Elementen vergleichen muss,
 so besteht dieselbe oft aus einem <em>Fusionierungsverfahren</em> und einer weiteren
 Metrik, die die einzelnen Elemente untereinander vergleicht. Ein
 Fusionierungsverfahren verschmilzt mehrere Teildistanzen auf definierte Weise
 zu einer Gesamtdistanz.  Als Beispiel kann man hier den Vergleich von zwei
 Mengen von Wörtern nennen.  Einzelne Wörter kann man relativ einfach auf
-Ähnlichkeit untersuchen <a class="footnote-reference" href="#f1" id="id7"><sup>1</sup></a>.  Ein
+Ähnlichkeit untersuchen <a class="footnote-reference" href="#f1" id="id9"><sup>1</sup></a>.  Ein
 simples Fusionierungsverfahren wäre hier, jedes Wort aus der einen Menge mit
 jedem Wort aus der anderen Menge zu vergleichen und den Durchschnitt der
 Einzeldistanzen als Ergebnis anzunehmen. Ein anderes Fusionierungsverfahren
@@ -290,7 +331,7 @@ nimmt statt dem Durchschnitt die kleinste gefundene Distanz. Hier gibt
 es kein richtig oder falsch. Je nach Einsatzzweck, muss ein passendes Verfahren
 gewählt werden.  Der dazugehörige Wikipedia&ndash;Artikel bietet, unter dem Punkt
 Fusionierungsalgorithmen, einen guten Überblick über weitere Verfahren:
-<a class="reference internal" href="../zzz_bibliography.html#wiki-fusion" id="id8">[Link&ndash;8]</a>.</p>
+<a class="reference internal" href="../zzz_bibliography.html#wiki-fusion" id="id10">[Link&ndash;8]</a>.</p>
 <p>Distanzfunktionen sollten schlechte Werte abstrafen und gute belohnen. Während
 der Entwicklung hat sich gezeigt, dass simple Distanzfunktionen, die auch für
 gar nicht mehr ähnliche Werte eine Distanz errechnen, die <span class="math">\(\neq 1,0\)</span>
@@ -329,12 +370,12 @@ wenn komplexere Daten im Spiel sind. Dann empfiehlt es sich, die Verteilung der
 Distanz auf den Bereich zwischen <span class="math">\(0,0\)</span> und <span class="math">\(1,0\)</span> zu untersuchen.
 Sollte sich die Distanz beispielsweise gehäuft im Bereich zwischen <span class="math">\(0,3\)</span>
 und <span class="math">\(0,7\)</span> bewegen, so ist es empfehlenswert diesen Bereich zu dehnen.
-In Abbildung <a href="#fig-stretch">2.2</a> werden mit der Funktion <a class="footnote-reference" href="#f2" id="id9"><sup>2</sup></a>  <span class="math">\(f(x) =
+In Abbildung <a href="#fig-stretch">2.2</a> werden mit der Funktion <a class="footnote-reference" href="#f2" id="id11"><sup>2</sup></a>  <span class="math">\(f(x) =
 -2\frac{2}{3}x^{3} + 4x^{2} - \frac{1}{3}x\)</span> Distanzen unter <span class="math">\(0,5\)</span>
 verbessert und darüber verschlechtert.</p>
 </div>
 <div class="section" id="hinweise-zum-schreiben-von-neuen-providern">
-<h3>2.3.2 Hinweise zum Schreiben von neuen Providern<a class="headerlink" href="#hinweise-zum-schreiben-von-neuen-providern" title="Permalink to this headline">¶</a></h3>
+<h3>2.4.2 Hinweise zum Schreiben von neuen Providern<a class="headerlink" href="#hinweise-zum-schreiben-von-neuen-providern" title="Permalink to this headline">¶</a></h3>
 <p>Provider laufen im Gegensatz zu Distanzfunktionen nur einmal. Sie sind als
 Präprozessor zu verstehen, der die vom Nutzer eingegebenen Daten auf möglichst
 einfache und effiziente Vergleichbarkeit optimiert. Die Laufzeit, die er dafür
@@ -345,8 +386,8 @@ dass stark redundante Daten eingepflegt werden, dann sollte die
 provider&ndash;interne Kompression genutzt werden. Ein typisches Beispiel dafür ist
 der Künstlername. Dieser ist für sehr viele Songs gleich. Daher wäre eine
 separate Speicherung desselben nicht sinnvoll. Intern bildet eine
-bidirektionale Hashtabelle <a class="footnote-reference" href="#f3" id="id10"><sup>3</sup></a> (mittels des Python&ndash;Pakets <tt class="docutils literal"><span class="pre">bidict</span></tt>
-<a class="reference internal" href="../zzz_bibliography.html#bidict" id="id11">[Link&ndash;9]</a>) gleiche Werte auf einen Integer&ndash;Schlüssel ab.
+bidirektionale Hashtabelle <a class="footnote-reference" href="#f3" id="id12"><sup>3</sup></a> (mittels des Python&ndash;Pakets <tt class="docutils literal"><span class="pre">bidict</span></tt>
+<a class="reference internal" href="../zzz_bibliography.html#bidict" id="id13">[Link&ndash;9]</a>) gleiche Werte auf einen Integer&ndash;Schlüssel ab.
 Dies wird im folgenden Python&ndash;Beispiel gezeigt:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">munin.provider</span> <span class="kn">import</span> <span class="n">Provider</span>
 
@@ -362,7 +403,7 @@ Dies wird im folgenden Python&ndash;Beispiel gezeigt:</p>
 </div>
 </div>
 <div class="section" id="vergleich-verschiedener-playlisten">
-<span id="ref-playlist-compare"></span><h2>2.4 Vergleich verschiedener Playlisten<a class="headerlink" href="#vergleich-verschiedener-playlisten" title="Permalink to this headline">¶</a></h2>
+<span id="ref-playlist-compare"></span><h2>2.5 Vergleich verschiedener Playlisten<a class="headerlink" href="#vergleich-verschiedener-playlisten" title="Permalink to this headline">¶</a></h2>
 <p>Eine <em>Playlist,</em> zu deutsch <em>Wiedergabeliste</em>, ist eine Liste einzelner
 Lieder, die nacheinander abgespielt werden. Die Zusammstellung einer
 Playlist erfüllt oft einen gewissen Zweck. So stellt man für gewöhnlich
@@ -375,11 +416,11 @@ unterschiedlichen Methoden erstellter  Playlisten gegeben. Dies ist
 interessant, da die Struktur der von <em>libmunin</em> gegebenen Empfehlungen gewissen
 Regeln unterliegt, die man als Anwendungsentwickler kennen sollte. Zudem ist der
 subjektive Vergleich mit anderen Systemen interessant.</p>
-<p>Der ursprüngliche Plan, hier auch eine von <tt class="docutils literal"><span class="pre">last.fm</span></tt> <a class="reference internal" href="../zzz_bibliography.html#nt" id="id12">[Link&ndash;10]</a> erstellte
+<p>Der ursprüngliche Plan, hier auch eine von <tt class="docutils literal"><span class="pre">last.fm</span></tt> <a class="reference internal" href="../zzz_bibliography.html#nt" id="id14">[Link&ndash;10]</a> erstellte
 Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
 auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
 Stattdessen wurde eine Alternative zu <em>libmunin</em> getestet: <em>Mirage</em>
-<a class="reference internal" href="../zzz_bibliography.html#schnitzer2007high" id="id13">[2]</a>. Da <em>Mirage</em> momentan nur als Plugin für Banshee
+<a class="reference internal" href="../zzz_bibliography.html#schnitzer2007high" id="id15">[2]</a>. Da <em>Mirage</em> momentan nur als Plugin für Banshee
 vorhanden ist und nicht als allgemeine Bibliothek verfügbar, wurde die
 Testmusikdatenbank auch in Banshee importiert.
 Die Testmusikdatenbank selbst besteht aus einigen ausgewählten Alben des Autors.
@@ -387,7 +428,7 @@ Viele allgemein gebräuchliche Genres werden dabei abgedeckt, obwohl der
 Schwerpunkt beim Genre <em>Rock</em> und <em>Metal</em> liegt.
 Die einzelnen Playlisten wurden auf jeweils 15 Songs begrenzt. Darin enthalten
 ist an erster Stelle der willkürlich ausgewählte Seedsong, der zum
-Generieren der Playlist genutzt wurde (<em>Knorkator &ndash;- Böse</em>). Die zufällig
+Generieren der Playlist genutzt wurde (<em>Knorkator &mdash; Böse</em>). Die zufällig
 erstellte Playlist wurde als Referenz abgedruckt, damit man die dort fehlende
 Struktur sehen kann.</p>
 <p><strong>Auffälligkeiten:</strong></p>
@@ -407,12 +448,12 @@ Audiodaten, bei weitem nicht so übereinstimmend. Was aber auffällig ist, ist
 dass größtenteils deutsche Titel (wie der Seedsong) vorgeschlagen werden. Auch
 führt das <em>Parody</em> in der Genre&ndash;Beschreibung dazu, dass ebenfalls lustig oder
 ironisch gemeinte Lieder vorgeschlagen werden. Zwar ist die Stimmung im
-Seedsong düster, doch wird textlich ein Thema ironisch behandelt &ndash;- was
+Seedsong düster, doch wird textlich ein Thema ironisch behandelt &mdash; was
 <em>Mirage</em> an den Audiodaten natürlich nicht erkennen kann.  Hier zeigt sich
 <em>libmunin's</em> (momentaner) Fokus auf Metadaten.  Bei der zufälligen Playlist
 stimmen die Genres einigermaßen überein, doch liegt das eher an dem
 sehr dehnbaren Begriff <em>Rock</em>, der bei
-Discogs <a class="reference internal" href="../zzz_bibliography.html#discogs" id="id14">[Link&ndash;7]</a> für sehr viele Lieder eingepflegt ist.</p>
+Discogs <a class="reference internal" href="../zzz_bibliography.html#discogs" id="id16">[Link&ndash;7]</a> für sehr viele Lieder eingepflegt ist.</p>
 <p>Der Kaltstart bei <em>Mirage</em> verlief in wenigen Minuten, während der Kaltstart
 bei <em>libmunin</em> beim ersten Mal für die 666 Songs im Vergleich dazu sehr lange
 (etwa 53 Minuten) benötigte. Größtenteils liegt das daran, dass für jedes Lied
@@ -421,7 +462,7 @@ Tabelle <a href="#table-specs">2.3</a>.  Bei der Ausgabe der Empfehlungen selber
 allen Methoden keinerlei Verzögerung zu beobachten.</p>
 </div>
 <div class="section" id="ressourcenverbrauch">
-<h2>2.5 Ressourcenverbrauch<a class="headerlink" href="#ressourcenverbrauch" title="Permalink to this headline">¶</a></h2>
+<h2>2.6 Ressourcenverbrauch<a class="headerlink" href="#ressourcenverbrauch" title="Permalink to this headline">¶</a></h2>
 <p>Damit Anwendungsentwickler die Aufwändigkeit einzelner Operation einschätzen
 können, wird in Tabelle <a href="#table-specs">2.3</a> eine kurze Übersicht über den
 Ressourcenverbrauch einzelner Aspekte gegeben.
@@ -729,15 +770,15 @@ erstellt, die letzte wurde komplett zufällig generiert.</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[1]</a></td><td>Etwa mit der Levenshtein&ndash;Distanzfunktion <a class="reference internal" href="../zzz_bibliography.html#brill2000improved" id="id15">[3]</a> und
+<tr><td class="label"><a class="fn-backref" href="#id9">[1]</a></td><td>Etwa mit der Levenshtein&ndash;Distanzfunktion <a class="reference internal" href="../zzz_bibliography.html#brill2000improved" id="id17">[3]</a> und
 der Python&ndash;Bibliothek <tt class="docutils literal"><span class="pre">pyxDamerauLevenshtein</span></tt>
-<a class="reference internal" href="../zzz_bibliography.html#pyxdameraulevenshtein" id="id16">[Link&ndash;11]</a>.</td></tr>
+<a class="reference internal" href="../zzz_bibliography.html#pyxdameraulevenshtein" id="id18">[Link&ndash;11]</a>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="f2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[2]</a></td><td>Die Werte der Funktion können leicht unter 0 und über 1 gehen. Um den
+<tr><td class="label"><a class="fn-backref" href="#id11">[2]</a></td><td>Die Werte der Funktion können leicht unter 0 und über 1 gehen. Um den
 Begriff der Distanz einzuhalten, werden die Werte auf den Bereich
 <span class="math">\([0, 1]\)</span> zugeschnitten.</td></tr>
 </tbody>
@@ -745,7 +786,7 @@ Begriff der Distanz einzuhalten, werden die Werte auf den Bereich
 <table class="docutils footnote" frame="void" id="f3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[3]</a></td><td>Eine Hashtabelle ist eine Datenstruktur, die eine effiziente Abbildung
+<tr><td class="label"><a class="fn-backref" href="#id12">[3]</a></td><td>Eine Hashtabelle ist eine Datenstruktur, die eine effiziente Abbildung
 von eindeutigen Schlüsselwerten auf beliebige Werte möglich macht.
 Der Aufwand für den Zugriff auf einzelne Werte ist dabei konstant.</td></tr>
 </tbody>

@@ -91,17 +91,17 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">1 Einleitung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#aktueller-stand">1.1 Aktueller Stand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#das-allgemeine-problem">1.2 Das allgemeine Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#das-konkrete-problem">1.3 Das konkrete Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#das-allgemeine-problem">1.1 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#das-konkrete-problem">1.2 Das konkrete Problem</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.1 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.3 Zur Erweiterung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.4 Vergleich verschiedener Playlisten</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.5 Ressourcenverbrauch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../3_graphops/index.html">3 Graphenoperationen</a><ul>
@@ -172,61 +172,23 @@
             
   <div class="section" id="einleitung">
 <h1>1 Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="aktueller-stand">
-<h2>1.1 Aktueller Stand<a class="headerlink" href="#aktueller-stand" title="Permalink to this headline">¶</a></h2>
-<p>In der, zu dieser Arbeit vorangegangenen, Projektarbeit
-<a class="reference internal" href="../zzz_bibliography.html#aaa-cpahl" id="id1">[1]</a> wurde die Softwarebibliothek <em>libmunin</em> implementiert.  Die
-Bibliothek ist in der Programmiersprache Python geschrieben und implementiert
-ein Musikempfehlungssystems auf Graphen&ndash;Basis. Der dahinterstehende Graph
-bildet die Nachbarschaftsbeziehungen zwischen den einzelnen Musikstücken ab. Um
-den Graphen aufbauen zu können, müssen, während des sogenannten Kaltstartes, vom
-Nutzer der Bibliothek alle Songs, aus denen Empfehlungen gebildet werden soll,
-mit allen relevanten Attributen eingegeben werden. Damit <em>libmunin</em> weiß, wie
-die einzelnen Werte zu behandeln sind, wird jedem Attribut ein sogenannter
-<em>Provider</em> und eine <em>Distanzfunktion</em> zugeordnet.</p>
-<p>Ein Provider normalisiert einen Wert anhand verschiedener Charakteristiken.
-Sein Ziel ist es, für die Distanzfunktion einfache und effizient vergleichbare
-Werte zu erzeugen, da die Distanzfunktion sehr viel öfters aufgerufen wird als
-der Provider. Die Distanzfunktion erzeugt dann aus diesen normalisierten Werten
-eine Distanz, also ein Maß dafür, wie ähnlich diese Werte sind. Die Distanzen
-gehen dabei von <span class="math">\(0\)</span> (vollkommen ähnlich) bis <span class="math">\(1\)</span> (absolut
-unähnhlich). <em>Libmunin</em> implementiert eine große Anzahl von vorgefertigten
-Providern und Distanzfunktionen für gängige Attribute, wie dem Genre, den
-Audiodaten oder den aus den Liedtext extrahierten Schlüsselwörtern.</p>
-<p>Aus den einzelnen Distanzen wird dann der obige Graph aufgebaut. Um aus diesen
-Graphen dann Empfehlungen abzuleiten, werden einzelne Knoten, sogenannte
-Seedsongs, nach bestimmten Kriterien ausgewählt. Beginnend von diesen wird eine
-Breitensuche gestartet, also eine sich kreisförmig vom Seedsong ausbreitende
-Traversierungstrategie. Bereits besuchte Knoten werden dabei nicht nochmal besucht.
-Die einzelnen besuchten Knoten werden, nach dem Filtern von doppelten Künstlern
-und Alben, dann als Empfehlungen angenommen</p>
-<p>Zudem lernt <em>libmunin</em> während einer Sitzung vom Nutzer, indem es die
-Gewohnheiten des Nutzers beobachtet und daraus Regeln ableitet. Alle gehörten
-Songs werden in einer Historie abgespeichert.  Im Vergleich zu bestehenden
-Systemen ist <em>libmunin</em> nicht von den Audiodaten abhängig, sondern kann durch
-seine flexible Schnittstelle auch alleine auf den Metadaten eines Stückes, wie
-den Tags eines Musikstückes, operieren. Ein Tag ist eine direkt in der
-Audiodatei hinterlegte Information um bestimmte Werte wie den Künstler des
-Stückes zu beschreiben. Das erklärte Ziel der Bibliothek ist es, eine freie
-Bibliothek zu schaffen, die sowohl offline (in Musicplayern) als auch online (in
-Streamingdiensten) funktioniert und mit großen Datenmengen umgehen kann.  Durch
-die GPLv3&ndash;Lizenz <a class="reference internal" href="../zzz_bibliography.html#gplv3" id="id2">[Link&ndash;1]</a> ist ein libertärer, weitläufiger Einsatz
-möglich.</p>
-</div>
 <div class="section" id="das-allgemeine-problem">
-<h2>1.2 Das allgemeine Problem<a class="headerlink" href="#das-allgemeine-problem" title="Permalink to this headline">¶</a></h2>
-<p>Einem Musikempfehlungssystem liegt ein grundsätzliches Problem zugrunde:
-Musik ist nur schwer vergleichbar. Fragt man mehrere Menschen, wie
-<em>ähnlich</em> ein Musikstück zu einem anderem ist, so erhält man genauso viele
-Antworten, wie man Fragen gestellt hat. Die Einschätzung von Musik ist eine sehr
-subjektive Angelegenheit, die auch häufig zwischen Menschen Diskussionen
-auslöst.  Stuft man den Künstler <em>Status Quo</em> als <em>Rock</em> ein? Oder doch eher als
-<em>Pop?</em> Was zählt überhaupt noch als <em>Rock</em>? Gibt es eine, für den Computer
-verständliche, Definition von <em>Rock</em>?</p>
+<h2>1.1 Das allgemeine Problem<a class="headerlink" href="#das-allgemeine-problem" title="Permalink to this headline">¶</a></h2>
+<p>In der, zu dieser Arbeit vorangegangenen, Projektarbeit
+<a class="reference internal" href="../zzz_bibliography.html#aaa-cpahl" id="id1">[1]</a> wurde das Musikempfehlungssystems <em>libmunin</em> implementiert.
+Um Musikempfehlungen auszusprechen, muss ein solches System die Ähnlichkeit
+zwischen zwei Liedern feststellen können.  Dies ist das
+grundsätzliche Problem: Musik ist nur schwer vergleichbar. Fragt man mehrere
+Menschen, wie <em>ähnlich</em> ein Musikstück zu einem anderem ist, so erhält man
+genauso viele Antworten, wie man Fragen gestellt hat. Die Einschätzung von Musik
+ist eine sehr subjektive Angelegenheit, die auch häufig zwischen Menschen
+Diskussionen auslöst.  Stuft man den Künstler <em>Status Quo</em> als <em>Rock</em> ein? Oder
+doch eher als <em>Pop?</em> Was zählt überhaupt noch als <em>Rock</em>? Gibt es eine, für den
+Computer verständliche, Definition von <em>Rock</em>?</p>
 <p>Wenn man jetzt noch versucht, einem Computer den Begriff der <em>Musikähnlichkeit</em>
 beizubringen, so wird es noch weitaus komplizierter. Dieser kann nur objektiv
 nach bestimmten Metriken entscheiden. Diese Metriken zu definieren, muss dann
-wiederum die Aufgabe eines Menschen sein &ndash;- also sind auch diese wiederum
+wiederum die Aufgabe eines Menschen sein &mdash; also sind auch diese wiederum
 subjektiv, da sie die Vorlieben des Autors widerspiegeln. Auch können diese
 Metriken nie für alle Fälle funktionieren. Ein gutes Stück
 <em>,,Kaffeesatzleserei&quot;</em> lässt sich leider nie ganz vermeiden. Daher werden in
@@ -235,21 +197,20 @@ schwer empirisch nachweisen lassen.  An den entsprechenden Stellen wird auf die
 gemachten Annahmen hingewiesen.</p>
 </div>
 <div class="section" id="das-konkrete-problem">
-<h2>1.3 Das konkrete Problem<a class="headerlink" href="#das-konkrete-problem" title="Permalink to this headline">¶</a></h2>
+<h2>1.2 Das konkrete Problem<a class="headerlink" href="#das-konkrete-problem" title="Permalink to this headline">¶</a></h2>
 <p>Erschwerend kommt hinzu, dass jeder Nutzer andere Vorlieben und Gewohnheiten
 hat.  So gesehen, ist <em>libmunin</em> in der <em>,,Standardeinstellung&quot;</em> ein
 Musikempfehlungssystem, das genau auf einen Nutzer und dessen Vorlieben
 zugeschnitten ist: Seinem Entwickler. Bibliotheksanwender können jedoch die
 Bibliothek an ihre Präferenzen anpassen oder ihren Endnutzern eine Möglichkeit
-geben, selbst Einstellungen vorzunehmen. So könnte man im praktischen Einsatz
-die Gewichtung einzelner Attribute während der Laufzeit ändern.</p>
-<p>Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
-verstehen was intern vor sich geht. Genau darum soll es hauptsächlich in dieser
-Arbeit gehen.  Es wird insbesondere auf die wichtigsten Provider und deren
-Funktionalität eingegangen, wie diese sich auf die Distanzfunktionen auswirken
-und wie aus den einzelnen Distanzen der komplette Graph aufgebaut wird. Zudem
-wird auf die Lernfähigkeiten von <em>libmunin</em> eingegangen und die generierten
-Empfehlungen werden näher betrachtet. Zu jedem vorgestellten Thema werden auch
+geben, selbst Einstellungen vorzunehmen.
+Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
+verstehen was intern vor sich geht. Genau darum soll es in dieser
+Arbeit gehen.  Hauptsächlich wird diskutiert, wie <em>libmunin</em> die Ähnlichkeit
+zwischen den Attributen eines Liedes berechnet und wie aus diesen Ähnlichkeiten
+ein Graph aufgebaut wird. Auch auf <em>libmunin's</em> Möglichkeit vom Nutzer zu lernen
+wird eingegangen.
+Zu jedem vorgestellten Thema werden auch
 Überlegungen angestellt, welche Verbesserungen in zukünftigen Versionen gemacht
 werden können.</p>
 </div>
