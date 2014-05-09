@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bibliographie &mdash; Bachelorarbeit</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Bachelorarbeit" href="../index.html"/>
+        <link rel="prev" title="Bilder des Song–Graphen" href="appendix.html"/>
+
+<!-- Include all CSS and JS files, let's you use your own theme. -->
+
+<link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+<script type="text/javascript">
+	function endsWith(str, suffix) {
+	    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+	}
+
+    $(document).ready(function() {
+    	var im, imsrc;
+    	$('img').each(function() {
+    		im = $(this);
+    		imsrc = im.attr('src');
+    		imalt = im.attr('alt');
+    		if (endsWith(imsrc, 'svg')) {
+    			im.wrap($('<a>').attr({'href': imsrc, 'title': imalt}).addClass('svglink'));
+    		}
+    	});
+
+    	$('a.svglink').colorbox({
+    		'width': '95%',
+    		'height': '95%',
+    		'photo': true});
+    });
+</script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Bachelorarbeit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Danksagung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dedication.html">Widmung</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_intro/index.html">1 Einleitung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#aktueller-stand">1.1 Aktueller Stand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#das-allgemeine-problem">1.2 Das allgemeine Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_intro/index.html#das-konkrete-problem">1.3 Das konkrete Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#zur-nuztung-von-libmunin">2.1 Zur Nuztung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#zur-erweiterung-von-libmunin">2.3 Zur Erweiterung von <em>libmunin</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#vergleich-verschiedener-playlisten">2.4 Vergleich verschiedener Playlisten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#ressourcenverbrauch">2.5 Ressourcenverbrauch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_graphops/index.html">3 Graphenoperationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_graphops/index.html#einleitung">3.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_graphops/index.html#graphentraversierung">3.2 Graphentraversierung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_provider/index.html">4 Algorithmen bei Providern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#einleitung">4.1 Einleitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#genrenormalisierung-und-vergleich-von-genres">4.2 Genrenormalisierung und Vergleich von Genres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#schlusselwortextraktion">4.3 Schlüsselwortextraktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_provider/index.html#moodbar-analyse">4.4 Moodbar&ndash;Analyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_learning/index.html">5 Implizites Lernen vom Nutzer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#generierung-von-regeln">5.1 Generierung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#anwendung-von-regeln">5.2 Anwendung von Regeln</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#lernerfolg">5.3 Lernerfolg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_learning/index.html#explizites-lernen">5.4 Explizites Lernen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_outro/index.html">6 Ausblick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_outro/index.html#verbesserung-der-algorithmik">6.1 Verbesserung der Algorithmik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_outro/index.html#erweiterungen">6.2 Erweiterungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_outro/index.html#fazit">6.3 Fazit</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Bilder des Song&ndash;Graphen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#bilder-des-genregraphen">Bilder des Genregraphen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html#medien">Medien</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Bibliographie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#weblink-verzeichnis">Weblink Verzeichnis</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Bachelorarbeit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Bibliographie</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/rst/zzz_bibliography.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="bibliographie">
+<h1>Bibliographie<a class="headerlink" href="#bibliographie" title="Permalink to this headline">¶</a></h1>
+</div>
+<p id="bibtex-bibliography-rst/zzz_bibliography-0"><table class="docutils citation" frame="void" id="aaa-cpahl" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Christopher Pahl. <em>Design und Implementierung eines Musikempfehlungssystems basierend auf Datamining–-Algorithmen</em>. Hof University of Applied Sciences, 2014.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="schnitzer2007high" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Dominik Schnitzer. High-performance music similarity computation and automatic playlist generation. 2007.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="brill2000improved" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Eric Brill and Robert&nbsp;C Moore. An improved error model for noisy channel spelling correction. In <em>Proceedings of the 38th Annual Meeting on Association for Computational Linguistics</em>, 286–293. Association for Computational Linguistics, 2000.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="knuth2011art" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Donald&nbsp;E Knuth. <em>The Art of Computer Programming: Volume 3 Sorting and Searching</em>. Addison-Wesley, 1997.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="steinautomatische" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[5]</td><td>Benno Stein. <em>Automatische Extraktion von Schlüsselwörtern aus Text</em>. Bauhaus&ndash;Universität Weimar, 2006.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="berry2010text" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[6]</td><td>Michael&nbsp;W Berry and Jacob Kogan. <em>Text mining: applications and theory</em>. John Wiley &amp; Sons, 2010.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="porter2001snowball" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[7]</td><td>Martin&nbsp;F Porter. Snowball stemmer. <span><a class="reference external" href="http://snowball.tartarus.org/">http://snowball.tartarus.org/</a></span>, 2001.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wood2005techniques" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[8]</td><td>Gavin Wood and Simon O'Keefe. On techniques for content-based visual annotation to aid intra-track music navigation. In <em>ISMIR</em>, 58–65. 2005.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="datamining-concepts-and-techniques" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[9]</td><td>Jian&nbsp;Pei Jiawei&nbsp;Han, Micheline&nbsp;Kamber. Datamining — concepts and techniques, (3rd edition). In <em>Datamining - Concepts and Techniques</em>. 2012.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="eclat" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[10]</td><td>Mohammed&nbsp;Javeed Zaki, Srinivasan Parthasarathy, Ogihara, and others. New algorithms for fast discovery of association rules. In <em>KDD</em>, volume 97, 283–286. 1997.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="relim" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[11]</td><td>Christian Borgelt. Keeping things simple: finding frequent item sets by recursive elimination. In <em>Proceedings of the 1st international workshop on open source data mining: frequent pattern mining implementations</em>, 66–70. ACM, 2005.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="gyhorodi2004comparative" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[12]</td><td>Cornelia Győrödi, Robert Győrödi, and Stefan Holban. A comparative study of association rules mining algorithms. In <em>SACI 2004, 1st Romanian-Hungarian Joint Symposium on Applied Computational Intelligence</em>, 213–222. 2004.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="santhosh2010implementation" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[13]</td><td>B&nbsp;Santhosh&nbsp;Kumar and KV&nbsp;Rukmani. Implementation of web usage mining using apriori and fp growth algorithms. <em>International Journal of Advanced Networking</em>, 2010.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="knees2007music" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[14]</td><td>Peter Knees, Tim Pohle, Markus Schedl, and Gerhard Widmer. A music search engine built upon audio-based and web-based similarity measures. In <em>Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval</em>, 447–454. ACM, 2007.</td></tr>
+</tbody>
+</table>
+</p>
+<div class="section" id="weblink-verzeichnis">
+<h1>Weblink Verzeichnis<a class="headerlink" href="#weblink-verzeichnis" title="Permalink to this headline">¶</a></h1>
+</div>
+<p id="bibtex-bibliography-rst/zzz_bibliography-1"><table class="docutils citation" frame="void" id="gplv3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;1]</td><td><span><a class="reference external" href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a></span>. [Stand: 5.5.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="lx" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;2]</td><td><span><a class="reference external" href="https://libmunin.rtfd.org">https://libmunin.rtfd.org</a></span>. [Stand: 11.2.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="picard" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;3]</td><td><span><a class="reference external" href="http://musicbrainz.org/doc/MusicBrainz_Picard">http://musicbrainz.org/doc/MusicBrainz_Picard</a></span>. [Stand: 15.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="a3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;4]</td><td><span><a class="reference external" href="http://musicbrainz.org/">http://musicbrainz.org/</a></span>. [Stand: 11.2.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="xu" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;5]</td><td><span><a class="reference external" href="https://github.com/sahib/glyr">https://github.com/sahib/glyr</a></span>. [Stand: 11.2.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="xaj" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;6]</td><td><span><a class="reference external" href="http://beets.radbox.org/">http://beets.radbox.org/</a></span>. [Stand: 11.2.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="discogs" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;7]</td><td><span><a class="reference external" href="http://www.discogs.com">http://www.discogs.com</a></span>. [Stand: 11.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wiki-fusion" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;8]</td><td><span><a class="reference external" href="http://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse">http://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse</a></span>. [Stand 12.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="bidict" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;9]</td><td><span><a class="reference external" href="https://pypi.python.org/pypi/bidict">https://pypi.python.org/pypi/bidict</a></span>. [Stand: 14.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="nt" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;10]</td><td><span><a class="reference external" href="http://www.last.fm">http://www.last.fm</a></span>. [Stand: 11.2.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="pyxdameraulevenshtein" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;11]</td><td><span><a class="reference external" href="https://github.com/gfairchild/pyxDamerauLevenshtein">https://github.com/gfairchild/pyxDamerauLevenshtein</a></span>. [Stand: 14.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="brainz-faq" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;12]</td><td><span><a class="reference external" href="https://musicbrainz.org/doc/General_FAQ">https://musicbrainz.org/doc/General_FAQ</a></span>. [Stand: 13.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="beets-source" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;13]</td><td><span><a class="reference external" href="https://gist.github.com/sampsyo/1241307">https://gist.github.com/sampsyo/1241307</a></span>. [Stand: 12.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wiki-list-pop-music" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;14]</td><td><span><a class="reference external" href="http://en.wikipedia.org/wiki/List_of_popular_music_genres">http://en.wikipedia.org/wiki/List_of_popular_music_genres</a></span>. [Stand: 15.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="wiki-list-az-music" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;15]</td><td><span><a class="reference external" href="http://en.wikipedia.org/wiki/List_of_music_styles">http://en.wikipedia.org/wiki/List_of_music_styles</a></span>. [Stand: 15.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="guess-language" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;16]</td><td><span><a class="reference external" href="https://bitbucket.org/spirit/guess_language">https://bitbucket.org/spirit/guess_language</a></span>. [Stand: 13.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="pyenchant" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;17]</td><td><span><a class="reference external" href="http://pythonhosted.org/pyenchant/">http://pythonhosted.org/pyenchant/</a></span>. [Stand: 14.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="enchant" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;18]</td><td><span><a class="reference external" href="http://www.abisource.com/projects/enchant/">http://www.abisource.com/projects/enchant/</a></span>. [Stand: 14.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="pymining" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;19]</td><td><span><a class="reference external" href="https://github.com/bartdag/pymining">https://github.com/bartdag/pymining</a></span>. [Stand: 13.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="aubio" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;20]</td><td><span><a class="reference external" href="https://github.com/piem/aubio">https://github.com/piem/aubio</a></span>. [Stand: 10.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="gstreamer" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;21]</td><td><span><a class="reference external" href="http://gstreamer.freedesktop.org/">http://gstreamer.freedesktop.org/</a></span>. [Stand: 18.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="textblob" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;22]</td><td><span><a class="reference external" href="https://github.com/sloria/TextBlob">https://github.com/sloria/TextBlob</a></span>. [Stand: 10.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="igraph" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;23]</td><td><span><a class="reference external" href="http://igraph.sourceforge.net/">http://igraph.sourceforge.net/</a></span>. [Stand: 13.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="cairo" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;24]</td><td><span><a class="reference external" href="http://cairographics.org/">http://cairographics.org/</a></span>. [Stand: 13.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="graphviz" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;25]</td><td><span><a class="reference external" href="http://www.graphviz.org/">http://www.graphviz.org/</a></span>. [Stand: 13.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="inkscape" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;26]</td><td><span><a class="reference external" href="http://www.inkscape.org">http://www.inkscape.org</a></span>. [Stand: 15.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="logos" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;27]</td><td><span><a class="reference external" href="http://libmunin.readthedocs.org/en/latest/media.html">http://libmunin.readthedocs.org/en/latest/media.html</a></span>. [Stand: 14.4.2014].</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="html-variant" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Link&ndash;28]</td><td><span><a class="reference external" href="http://libmunin.readthedocs.org/en/latest/docs.html">http://libmunin.readthedocs.org/en/latest/docs.html</a></span>. [Stand: 14.4.2014].</td></tr>
+</tbody>
+</table>
+</p>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="appendix.html" class="btn btn-neutral" title="Bilder des Song–Graphen"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright by Christopher Pahl, 2013-2014..
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
