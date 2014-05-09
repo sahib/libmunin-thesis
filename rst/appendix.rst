@@ -1,6 +1,7 @@
 .. raw:: latex
 
    \appendix
+   \titlespacing{\chapter}{0pt}{-2.0em}{0.0em}
 
 .. _song-graph-vis:
 

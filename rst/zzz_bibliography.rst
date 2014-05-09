@@ -5,6 +5,7 @@
 
 .. bibliography:: ../refs.bib
    :cited:
+   :style: unsrt
 
 .. only:: html or text
 

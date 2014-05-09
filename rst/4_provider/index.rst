@@ -7,7 +7,7 @@ Einleitung
 
 :dropcaps:`Im` Folgenden werden einige ausgewählte Paare aus Providern und
 Distanzfunktionen näher betrachtet. Nicht alle vorhandenen und in der
-Projektarbeit :cite:`aaa_cpahl` vorgestellten Provider werden erläutert, dies
+Projektarbeit (:cite:`aaa_cpahl`, S.28ff) vorgestellten Provider werden erläutert, dies
 würde auch den Umfang dieser Arbeit übersteigen. Zudem sind die meisten Provider
 eher einfacher Natur --- die Lektüre des jeweiligen Quelltextes sagt oft mehr
 als ein separate Erklärung.  Daher werden im Folgenden nur die stark

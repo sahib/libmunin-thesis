@@ -6,8 +6,9 @@ Einleitung
 ==========
 
 :dropcaps:`Eine` grobe Übersicht über die einzelnen Graphenoperationen und ihrer
-Zuständigkeiten wurde bereits in der Projektarbeit :cite:`aaa_cpahl``` gegeben.
-Im Folgenden  wird detailliert auf ihre Funktionsweise und Internas eingegangen.
+Zuständigkeiten wurde bereits in der Projektarbeit (:cite:`aaa_cpahl`, S.15f)
+gegeben.  Im Folgenden  wird detailliert auf ihre Funktionsweise und Internas
+eingegangen.
 
 ``rebuild:`` Aufbau des Graphen
 -------------------------------
@@ -442,7 +443,7 @@ werden muss. Das ist damit zu erklären, dass gegen Ende der
 --- womit immer wieder der schlechteste Song herausgelöscht werden muss.
 
 Der momentane Ansatz speichert pro Song, neben der Hashtabelle mit den
-Distanzen, auch einen Heap (vergleiche :cite:`knuth2011art`) als
+Distanzen, auch einen Heap (vergleiche :cite:`knuth2011art`, S.144--155) als
 *,,Lookup--Hilfe"*.  In diesem werden, entgegen der prinzipbedingten Unordnung
 in einer Hastabelle, die zuletzt hinzugefügten Paare aus Distanzen und Songs
 partiell sortiert mit einem Aufwand von :math:`O(\log n)` abgelegt. Bei einem  
@@ -540,7 +541,6 @@ indirekten Nachbarn weiter.  Diese Liste von Iteratoren wird dann im
 Round--Robin--Verfahren ineinander verwebt. Dabei wird erst der erste Iterator
 in der Liste genutzt, dann der nächste. Ist man am Ende der Liste, so wird von
 vorne begonnen.
-
 Der daraus entstehende Iterator wird dann dem Nutzer der Bibliothek
 bereitgestellt. Wird ein Element aus diesem obersten Iterator genommen, so hat
 das ein *,,Nachrutschen"* von Iteratoren zur Folge. Diese Hierarchie von
@@ -551,7 +551,7 @@ Iteratoren ist in Abbildung :num:`fig-iterator` gezeigt.
 .. figure:: figs/iterator.*
    :alt: Traversierung durch verschachtelte Iteratoren
    :align: center
-   :width: 80%
+   :width: 72%
 
    Traversierung durch verschachtelte Iteratoren. Jedes Kästchen ist ein
    Iterator.  Zieht der Nutzer einen Song aus dem obersten Iterator, so löst das

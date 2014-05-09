@@ -73,7 +73,6 @@ Der ``RELIM``--Algorithmus
 Generell gilt FP--Growth als der neue Standard--Algorithmus, der laut mehrerer
 Quellen andere Algorithmen wie Eclat und ``RELIM`` (``RE``--*cursive* ``ELIM``--*ination*)
 aussticht :cite:`gyHorodi2004comparative` :cite:`santhosh2010implementation`.
-
 In diesem Fall wird trotzdem auf ``RELIM`` zurückgegriffen, da dieser für die
 Zwecke des Autors ausreichend schnell ist und die Datenmenge nie mehr als wenige
 tausend Songs übersteigen wird. Zudem gibt es mit dem Python--Paket *pymining*
@@ -87,7 +86,6 @@ Ableitung von Regeln aus Mustern
 
 Hat man erstmal eine Gruppe von häufig zusammen auftretenden
 Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
-
 Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs mit
 einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
 der beiden Mengen miteinander gehört wird, dann ist es wahrscheinlich,
@@ -102,13 +100,14 @@ Richtung definiert.  In *libmunin* sind die Regeln aus Gründen der
 Einfachkeit allerdings bidirektional. So gilt nicht nur, dass man
 wahrscheinlich die Menge *B* hört, wenn man *A* gehört hat (:math:`A
 \rightarrow B`), sondern auch umgekehrt (:math:`A \leftrightarrow B`).
-Ein natürlichsprachliches Beispiel hierfür: 60% der Basketballspieler 
-essen Cornflakes. Diese Regel besagt, dass der größte Teil der
-Basketballspieler Cornflakes isst, aber nicht, dass die meisten
-Cornflakes--Esser Basketballspieler sind. Da bei *libmunin* auf beiden
-Seiten der Regel immer der gleiche Typ (ein oder mehrere Songs) steht und
-die Beziehung immer *,,werden* miteinander *gehört"* ist, ist hier eine 
-bidirektionale Assoziation möglich.
+Ein natürlichsprachliches Beispiel hierfür: :math:`\frac{2}{3}` der
+Basketballspieler essen Cornflakes (:math:`Basketball \Rightarrow Cornflakes`).
+Diese Regel besagt, dass der größere Teil der Basketballspieler Cornflakes isst,
+aber nicht, dass die meisten Cornflakes--Esser Basketballspieler sind. Da bei
+*libmunin* auf beiden Seiten der Regel immer der gleiche Typ (ein oder mehrere
+Songs) steht und die Beziehung immer *,,werden miteinander gehört"* ist, ist
+hier eine bidirektionale
+Assoziation möglich.
 
 Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
 verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
@@ -137,8 +136,8 @@ an und probt, mittels verschiedener Metriken, wie zutreffend diese ist.
 Als Beispiel kann man wieder die Warenkörbe aus Tabelle :num:`table-itemsets` nehmen.
 Muster mit nur einem Song können nicht weiter aufgeteilt werden, daher müssen
 diese nicht weiter betrachtet werden. Die 2er--Kombination sind leicht in zwei
-Teilmengen aufzuteilen. Für die 3er--Kombinationen können mehrere möglichen
-Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
+disjunkte Teilmengen aufteilbar. Für die 3er--Kombinationen können mehrere
+möglichen Teilmengen erstellt werden. Die einzelnen möglichen Regeln werden in
 Tabelle :num:`table-rules` aufgelistet.
 
 
@@ -160,13 +159,13 @@ Tabelle :num:`table-rules` aufgelistet.
     | :math:`\sum`                  |  600               | 400                           |  1000        |
     +-------------------------------+--------------------+-------------------------------+--------------+
 
-Nicht jede Regel ist automatisch eine gute Regel. 
-Ein gängiges Lehrbeispiel wäre hier die Regel :math:`Basketball \Rightarrow
-Cornflakes`, also eine Regel, die besagt, dass :math:`\frac{2}{3}` aller
+Nicht jede Regel ist automatisch eine gute Regel.  Ein gängiges Lehrbeispiel
+wäre hier die Regel :math:`Basketball \Rightarrow Cornflakes`, also eine Regel,
+die laut Tabelle :num:`table-cornflakes` besagt, dass :math:`\frac{2}{3}` aller
 *Basketballspieler* zum Frühstück *Cornflakes* essen.  Der Anteil der Menschen
 die aber insgesamt Cornflakes essen liegt aber bei :math:`75\%` --- daher ist
 die Eigenschaft *,,Basketballspieler"* sogar ein Gegenindiz für die Eigenschaft
-*,,Cornflake--Esser"*. Siehe dazu auch Tabelle :num:`table-cornflakes`.
+*,,Cornflake--Esser"*. 
 
 Um solche kontraproduktiven Assoziationsregeln zu vermeiden, werden für jede
 Regel zwei Metriken errechnet. Die von *libmunin* genutzten Metriken wurden dem
@@ -240,8 +239,8 @@ Daher wurde noch zusätzlich die *Lift--Metrik* eingeführt (vergleiche:
 
    Lift(A, B) = P(A \mid B) - (P(A) \times P(B)) = support(A \cap B) - \left(support(A) \times support(B)\right)
 
-Ist der berechnete Wert :math:`\le 0`, so wird die Regel ignoriert. 
-Für die unter :num:`table-cornflakes` gezeigten Werte können nun die einzelnen
+Ist der berechnete Wert :math:`\le 0`, so wird die Regel ignoriert.  Für die
+unter Tabelle :num:`table-cornflakes` gezeigten Werte können nun die einzelnen
 Metriken angewandt werden: 
 
 .. math::
@@ -294,7 +293,7 @@ funktioniert. Einerseits ist es schwer festzustellen was *,,gut"* bedeutet,
 andererseits wurde eine *libmunin--Session* noch nie lange genug benutzt,
 um Aussagen über die Langzeitfunktionalität zu geben. 
 
-Daher ist die oben genannte Vorgehensweise als *,,Theorie"* zu sehen, die sich
+Daher ist die oben genannte Vorgehensweise als ,,Hypothese" zu sehen, die sich
 erst noch in der Praxis bewähren muss. Änderungen sind wahrscheinlich.
 Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
 Momentan wird nur die Historie aufgezeichnet, wenn die Demonanwendung läuft. Da
@@ -312,7 +311,7 @@ Explizites Lernen
 
 .. figure:: figs/big_move_before_edit.png
     :alt: Graph vor dem Vergeben eines hohen Ratings.
-    :width: 97%
+    :width: 95%
     :align: center
     
     Vor dem Vergeben der Ratings.
@@ -321,7 +320,7 @@ Explizites Lernen
 
 .. figure:: figs/big_move_after_edit.png
     :alt: Graph nach dem Vergeben eines hohen Ratings
-    :width: 97%
+    :width: 95%
     :align: center
     
     Nach dem Vergeben der Ratings. Die Bewegung wird durch Pfeile angedeutet.
@@ -344,7 +343,7 @@ Mechanismus des expliziten Lernens.
 Bei einer ``insert``--Operation lässt sich beobachten, dass die eingefügten
 Songs deutlich deutlich weitläufiger verbunden sind, als regulär per ``add``
 hinzugefügte. Diese Eigenschaft macht sich die in der Projektarbeit
-:cite:`aaa_cpahl` gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines
+(:cite:`aaa_cpahl`, S.37ff) gezeigte Demonanwendung zu Nutze: Ändert man das Rating eines
 Songs, so wird der Song mittels ``remove`` gelöscht und mittels  ``insert`` an
 anderer Stelle wieder eingefügt. Meist verbindet sich dabei der Song, dann mit
 anderen ähnlich bewerteten Songs. Diese bilden ein *zusätzliches Netz* über dem
@@ -372,7 +371,7 @@ zwischen Attributen und Werten her. Ein Attribut wäre beispielsweise ``date``,
 ein Wert ``2010`` und eine Beziehung :math:`\ge`.  Weitere Beziehungen wären
 :math:`=`, :math:`\neq`, :math:`<` oder :math:`\le`. 
 
-Mit all den unterschiedlichen Attributen, wären dann automatisch erstellte
+Mit den unterschiedlichen Attributen, wären dann automatisch erstellte
 Playlisten wie  *,,Favouriten"* (:math:`rating > 3`), *,,Ungehörte"*
 (:math:`Playcount = 0`) und *,,Neu Hinzugefügte"* (:math:`date > (today - 7
 \times days)`) möglich.  Für Letzere könnten hilfreiche Konstanten wie :math:`today`
