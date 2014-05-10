@@ -56,13 +56,13 @@ etabliert. Dazu gehören der FP--Growth (siehe
              {C, C, B}} generiert worden sind, mit der jeweiligen Anzahl von
              Vorkommnissen in den Warenkörben.
 
-   ================== ====== ================= ====== ================= ======
-   Kombination (1er)  Menge  Kombination (2er) Menge  Kombination (3er) Menge    
-   ================== ====== ================= ====== ================= ======
-   *A*                1 |x|  *A, B*            1 |x|  *A, B, C*         1 |x|  
-   *B*                3 |x|  *B, C*            3 |x|                    |nbsp|
-   *C*                3 |x|  *C, A*            1 |x|                    |nbsp|
-   ================== ====== ================= ====== ================= ======
+   =================== ====== =================== ====== =================== ======
+   *Kombination* (1er)        *Kombination (2er)*        *Kombination (3er)* 
+   =================== ====== =================== ====== =================== ======
+   *A*                 1 |x|  *A, B*              1 |x|  *A, B, C*           1 |x|  
+   *B*                 3 |x|  *B, C*              3 |x|                      |nbsp|
+   *C*                 3 |x|  *C, A*              1 |x|                      |nbsp|
+   =================== ====== =================== ====== =================== ======
 
 In Tabelle :num:`table-itemsets` sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
@@ -150,15 +150,13 @@ Tabelle :num:`table-rules` aufgelistet.
              Studenten untersucht, bei denen die Eigenschaften ,,Spielt
              Basketball” und ,,Isst Cornflakes” festgestellt worden sind. 
 
-    +-------------------------------+--------------------+-------------------------------+--------------+
-    |   **Eigenschaft**             | :math:`Basketball` | :math:`\overline{Basketball}` | :math:`\sum` |
-    +===============================+====================+===============================+==============+
-    | :math:`Cornflakes`            |  400               | 350                           |  750         |
-    +-------------------------------+--------------------+-------------------------------+--------------+
-    | :math:`\overline{Cornflakes}` |  200               | 50                            |  250         |
-    +-------------------------------+--------------------+-------------------------------+--------------+
-    | :math:`\sum`                  |  600               | 400                           |  1000        |
-    +-------------------------------+--------------------+-------------------------------+--------------+
+   ================================ ===================== =============================== ==============
+       **Eigenschaft**               :math:`Basketball`   :math:`\overline{Basketball}`   :math:`\sum`  
+   ================================ ===================== =============================== ==============
+     :math:`Cornflakes`               400                 350                              750          
+     :math:`\overline{Cornflakes}`    200                 50                               250          
+     |hline| :math:`\sum`             600                 400                              1000         
+   ================================ ===================== =============================== ==============
 
 Nicht jede Regel ist automatisch eine gute Regel.  Ein gängiges Lehrbeispiel
 wäre hier die Regel :math:`Basketball \Rightarrow Cornflakes`, also eine Regel,
@@ -255,7 +253,7 @@ gewählt wurde.
 
 .. math::
 
-   ImbalanceRatio(Basketball, Cornflakes) = \frac{\vert 750 - 600 \vert}{750 + 600  - 400} = \;\;\approx{0,16}
+   ImbalanceRatio(Basketball, Cornflakes) = \frac{\vert 750 - 600 \vert}{750 + 600  - 400} \;\;\approx{0,16}
 
 Beim *ImbalanceRatio* war :math:`0` der beste anzunehmende Wert. Laut dem
 Ergebnis von :math:`0,16` wäre diese Regel also sogar gut balanciert.
