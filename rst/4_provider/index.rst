@@ -29,8 +29,8 @@ zusammengestellten geläufigen Genres normalisiert werden.
 Zusammenstellung der Genredatenbank
 -----------------------------------
 
-Musikrichtungen können, wie in einem Baum, in Genres (*rock*, *pop*), Untergenres
-(*country* rock, *japanese* pop), Unteruntergenres (*western* country rock)
+Musikrichtungen können, wie in einem Baum, in Genres (*Rock*, *Pop*), Untergenres
+(*Country* Rock, *Japanese* Pop), Unteruntergenres (*Western* Country Rock)
 --- und so weiter --- aufgeteilt werden. So lassen sich alle Genres und ihre
 jeweiligen Untergenres als Baum darstellen. Als imaginären Wurzelknoten nimmt
 man das allumfassende Genre *Music* an --- einfach weil sich *Music* hinter fast
@@ -59,12 +59,12 @@ Also musste man sich nach anderen Quellen umschauen. Das vom
 ``DiscogsGenreProvider`` verwendete *Discogs* bietet zwar detaillierte
 Informationen, teilt aber die Genres hierarchisch in zwei Ebenen auf, dem
 Genre (*,,Rock"*) und dem Untergenre (*,,Blackened Death Metal"*) --- eine zu
-grobe Einteilung.
+grobe Einteilung zur Normalisierung.
 
 Dafür fallen zwei andere Quellen ins Auge: *Wikipedia* --- viele bekannte
 Künstler sind dort mit detaillierter Genreinformation vertreten,
 sowie *The Echonest* --- einem Unternehmen, welches verschiedene Dienste rund um
-Musikmetadaten anbietet. Darunter auch eine Liste, von den ihnen bekannten
+Musikmetadaten anbietet. Darunter eine Liste, von den ihnen bekannten
 Genres. 
 
 Mit diesen zwei Quellen sollte man einen repräsentativen Durchschnitt aller
@@ -94,8 +94,8 @@ Datei geschrieben:
 - *List of styles of music: A--F, G--M, N--R, S--Z:* :cite:`wiki:list_az_music`
 
 Von Wikipedia kommen daher zusätzliche 1527 Einträge. Diese werden mit den
-Einträgen von *The Echonest* verschmolzen. Nach einer Entfernung von Dubletten
-ist die finale Genreliste 1876 Einträge lang. 
+Einträgen von *Echonest* verschmolzen. Nach einer Deduplizierung ist die finale
+Genreliste 1876 Einträge lang. 
 
 Überführung der Genreliste in einem Genrebaum
 ---------------------------------------------
@@ -168,7 +168,7 @@ Der Baum sollte dabei folgende Kriterien erfüllen:
 Das Umwandeln selbst geschieht folgendermaßen:
 
 - Es wird manuell der Wurzelknoten *Music* angelegt.
-- Alle Genres in der Genreliste werden diesem Knoten als Kind hinzugefügt.
+- Alle Genres in der Genreliste werden diesem Wurzelknoten als Kind hinzugefügt.
   (siehe Abbildung :num:`fig-tree-init`)
 
 Nach dieser Vorarbeit wird rekursiv folgende Prozedur erledigt:
@@ -214,17 +214,12 @@ Zuordnung von Genres
 Die Normalisierung des Genres ist nun mit dem aufgebauten Baum effizient
 möglich.  Zuerst muss das Eingabegenre in Untergenres aufgeteilt werden, denn
 oft sind mehrere Genres in einem einzelnen String zusammengefasst, die durch
-bestimmte Zeichen getrennt sind. Ein Beispiel: 
-
-    *,,Rock, Reggae / Alternative Rock, Ska, Punk"*
-    
+bestimmte Zeichen getrennt sind. Als Beispiel: 
+*,,Rock, Reggae / Alternative Rock, Ska, Punk"*
 Jedes dieser Untergenres wird dann mittels eines regulären Ausdrucks in einzelne
 Wörter aufgeteilt. Die Wörter werden noch in die kleingeschriebene Form
-gebracht. 
-
-.. math::
-
-   \left\{\left\{rock\right\}, \left\{reggae\right\}, \left\{alternative, rock\right\}, \left\{ska\right\}, \left\{punk\right\} \right\}
+gebracht: 
+:math:`\left\{\left\{rock\right\}, \left\{reggae\right\}, \left\{alternative, rock\right\}, \left\{ska\right\}, \left\{punk\right\} \right\}`
 
 Die einzelnen Wortlisten können in *Pfade* umgewandelt werden.
 Dazu werden zuerst folgende Variablen initialisiert:
@@ -744,12 +739,12 @@ In beiden Fällen ist die Anwendung, bei einer mehreren zehntausend Lieder
 umfassenden Sammlung, sehr aufwendig. Neben der Liedtextsuche, ist dies der
 größte Posten beim *Kaltstart*.
 
-Vorteile:
+Vorteile sind hingegen:
 
 - **Robustheit:** Wie man in :num:`fig-mood-yellow-submarine` sieht, ist das
   Verfahren unempfindlich gegen verschiedene Enkodierungen. Selbst Live-
-  und Studioversionen zeigen gut vergleichbare Resultate (siehe Abbildung
-  :num:`fig-mood-rammstein-tier`).
+  und Studioversionen zeigen gut vergleichbare Resultate (siehe dazu auch
+  Abbildung :num:`fig-mood-rammstein-tier`).
 - **Geringer Speicherverbrauch:** Obwohl für die Implementierung die relativ
   speicherhungrige Sprache Python benutzt wurde, nutzt der ``MoodbarProvider``
   lediglich etwa :math:`540` Bytes pro Analysedatensatz. Da Python die Zahlen

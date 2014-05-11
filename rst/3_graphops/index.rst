@@ -45,7 +45,9 @@ untereinander, bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen
 quer über den ganzen Graphen.
 
 Wenn im folgenden vom *,,Berechnen der Distanz"* gesprochen wird, so ist damit
-auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.
+auch das Hinzufügen der Distanz zwischen beiden Songs gemeint. Jeder Song
+verwaltet eine Hashtabelle mit seinen Nachbarn. Eine Kante ist, technisch gesehen,
+das gegenseitige Vorhandensein von zwei Songs in deren jeweiligen Tabellen.
 
 .. subfigstart::
 
@@ -99,7 +101,7 @@ beleuchtet:
 
   Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
   basiert auf gewissen heuristischen Annahmen, die über die Eingabemenge gemacht
-  werden (siehe auch Abbildung :num:`fig-windows`):
+  werden (siehe Abbildung :num:`fig-windows`):
 
     * ``sliding_window:`` Schiebt ein *,,Fenster"* über die Liste der Songs.
       Alle Songs innerhalb des Fensters werden untereinander verglichen.  Die
@@ -585,16 +587,15 @@ Da Alben im Graphen eng beieinander gepackt sind, werden ohne zusätzliches
 Filtern natürlich auch Songs vom gleichen Album oder vom gleichen Künstler
 geliefert. Dies ist für gewöhnlich nicht erwünscht --- man möchte ja neue Musik
 entdecken, die nicht immer vom selben Künstler kommt. Der optionale
-Filterschritt (oder *Sieving*--Schritt), dient dazu diese unerwünschten Songs
-herauszufiltern. 
+Filterschritt dient dazu diese unerwünschten Songs herauszufiltern. 
 
 Um dieses Ziel zu erfüllen, werden die :math:`20` letzten Empfehlungen
 gespeichert, die von *libmunin* ausgegeben werden. War der Künstler einer zu
 überprüfenden Empfehlung in den, beispielsweise fünf letzten Empfehlungen
 bereits vorhanden, so wird er ausgesiebt. Ähnlich wird mit dem Album
 vorgegangen, nur hier ist die Schwelle standardmäßig bei drei. Die einzelnen
-Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. |br| Auch das
-*Sieving* ist als Iterator implementiert, welcher Songs von einem
+Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. |br| Auch die 
+Filterung ist als Iterator implementiert, welcher Songs von einem
 Empfehlungsiterator entgegennimmt, aber nicht alle an den Nutzer weitergibt. Die
 vom Iterator übergangenen Songs, werden für den nächsten Iterationsschritt
 zwischengespeichert, um sie vorzuschlagen, sobald sie wieder erlaubt sind.

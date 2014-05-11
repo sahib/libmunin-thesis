@@ -6,7 +6,7 @@ Generierung von Regeln
 ======================
 
 :dropcaps:`In` vorangegangenen Kapiteln wurde schon oft davon gesprochen, dass
-*libmunin* den Nutzer *,,beobachtet"*. Dies geschieht, indem der
+*libmunin* den Nutzer *beobachtet*. Dies geschieht, indem der
 Anwendungsentwickler, die vom Nutzer gehörten Titel, an *libmunin* zurückmeldet.
 
 Finden von wiederkehrenden Mustern
@@ -36,8 +36,8 @@ und die ausgefiltert, welche einen zu niedrigen *Support--Count* besitzen. Die
 Grenze legt man vorher fest. Der *Support--Count* :math:`support(A)` ist die
 Anzahl der *Warenkörbe*, in denen die Menge von Songs :math:`A` vorkommt, geteilt
 durch die absolute Anzahl der Warenkörbe. Danach werden mit den verbliebenen
-2er--Kombination gebildet, wieder gefiltert, dann die noch relevanten
-3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
+Zweier--Kombination gebildet, wieder gefiltert, dann die noch relevanten
+Dreier--Kombinationen und so weiter. Dadurch wird eine große Menge von
 Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer Algorithmen
@@ -111,17 +111,18 @@ hier vereinfachend eine bidirektionale Assoziation angenommen. Dies erlaubt ein
 Anwenden der Regeln in beide Richtungen. 
 
 Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
-verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
-Diese beiden Teilmengen nimmt man als die beiden Mengen einer Assoziationsregel
-an und testet, mittels verschiedener Metriken, wie zutreffend diese ist. 
+verschiedenen, disjunkten Teilmengen auf --- allerdings in maximal zwei
+Teilmengen.  Diese beiden Teilmengen nimmt man als die beiden Mengen einer
+Assoziationsregel an und testet, mittels verschiedener Metriken, wie zutreffend
+diese ist. 
 
 .. figtable::
    :label: table-rules
    :spec: l | l l l l
    :alt: Mögliche Regeln, die aus den drei warenkörben erstellt werden können
    :caption: Mögliche Regeln, die aus den drei Warenkörben erstellt werden können.
-             Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie die
-             beiden Metriken Imbalance--Ratio und Kulczynski abgebildet.
+             Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie der
+             Metriken Imbalance--Ratio, Kulczynski und Lift abgebildet.
 
    ==================================================================== ====================== ======================= ====================== =============
    *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*           *Lift*
@@ -201,7 +202,7 @@ berechnen lässt, können wir die obige Definition umstellen:
 
 .. math::
 
-   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)
+   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right) 
 
 Diese Metrik allein reicht allerdings nicht für eine qualitative Einschätzung
 einer Regel. Zwar kann die Regel oft zutreffen, doch kann sie, wie im obigen
@@ -230,18 +231,21 @@ Dieses *Rating* wird genutzt, um die einzelnen Assoziationsregeln zu sortieren.
 Das finale Rating bewegt sich im Bereich :math:`\lbrack 0, 1\rbrack`, wobei
 :math:`1` das höchste vergebene Rating ist.
 
-Nach einigen Tests erwiesen sich beide Metriken aber nicht als ausreichend.
-Daher wurde noch zusätzlich die *Lift--Metrik* eingeführt (vergleiche
-:cite:`datamining-concepts-and-techniques`, S.266). Diese ist definiert als: 
+Nach einigen Tests erwiesen sich beide Metriken aber nicht als ausreichend um
+schwache Regeln zu filtern.  Daher wurde noch zusätzlich die *Lift--Metrik*
+eingeführt (vergleiche :cite:`datamining-concepts-and-techniques`, S.266). Diese
+ist definiert als: 
 
 .. math::
 
    Lift(A, B) = P(A \mid B) - (P(A) \times P(B)) = support(A \cap B) - \left(support(A) \times support(B)\right)
 
-Ist der berechnete Wert :math:`< 0`, so korreliert das Auftreten von ``B``
-negativ mit ``A``.  In diesem Fall wird die Regel ignoriert.  Werte größer oder
-gleich :math:`0` bedeuten eine positive/neutrale Korrelation.  Das Auftreten von
-``B`` impliziert das wahrscheinliche Auftreten von ``A``.  Für die unter Tabelle
+Sie vergleicht das erwartete gemeinsame Auftreten der Mengen ``A`` und ``B`` mit
+dem tatsächlichen Auftreten in den Warenkörben.  Ist der berechnete Wert
+:math:`< 0`, so korreliert das Auftreten von ``B`` negativ mit ``A``.  In diesem
+Fall wird die Regel ignoriert.  Werte größer oder gleich :math:`0` bedeuten eine
+positive/neutrale Korrelation.  Das Auftreten von ``B`` impliziert das
+wahrscheinliche Auftreten von ``A``.  Für die unter Tabelle
 :num:`table-cornflakes` gezeigten Werte können nun die einzelnen Metriken
 angewandt werden: 
 

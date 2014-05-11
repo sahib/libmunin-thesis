@@ -19,7 +19,7 @@ Dominik Schnitzer, einige Herangehensweisen zum performanten Vergleich von
 Audiodaten vor. 
 
 Angesichts der hohen Entwicklungsgeschwindigkeit in der Informatik und dem
-*,,hohem"* Alter der Arbeit (:math:`2007`), sollte allerdings beachtet werden,
+,,hohem" Alter der Arbeit (:math:`2007`), sollte allerdings beachtet werden,
 dass es bereits neuere Methoden geben könnte. Beispielsweise arbeitet Schnitzer
 *nur* mit MP3--Audiodaten [#f1]_. Eine Abhilfe wäre die relativ neue Bibliothek
 *libaubio*, die von *Paul Brossier* :cite:`AUBIO` entwickelt wird. Zum
@@ -33,7 +33,8 @@ verwendet werden.
   Verlauf des *BPM--Wertes*, über das Musikstück aufzeichnen, um exaktere
   Vergleiche ziehen zu können.
 - *Onset--Detection*, also das Erkennen einzelner Noten, beziehungsweise
-  *Sounds* innerhalb des Musikstücks. 
+  *Sounds*, innerhalb eines Musikstücks. Die Bestimmung der Tonart wäre so
+  in Ansätzen möglich.
 - Eine direkte Möglichkeit, die Stimmung in einem Lied zu analysieren, wird
   momentan zwar noch nicht geboten, aber die dazu benötigten Informationen, wie
   die Erkennung der Tonlage zu einem bestimmten Zeitpunkt werden angeboten. 
@@ -164,11 +165,11 @@ kurzen Implementierungszeit für ein solches System, von etwas mehr als 3
 Monaten, ist dies nach Meinung des Autors durchaus als Erfolg zu werten. 
 
 Die größte Schwäche ist aus Sicht des Autors der langsame Kaltstart, der einen
-produktiven Einsatz der Bibliothek verhindert. In punkto Weiterentwicklung,
+produktiven Einsatz der Bibliothek verhindert. In der Weiterentwicklung,
 sollte dies die höchstpriosierte Aufgabe sein.
 
 Die Neuerung dieser Arbeit ist weniger die vorgestellte Algorithmik. Der
 allergrößte Teil dieser, existiert natürlich bereits in ähnlicher Form,
-verstreut über viele Softwarepakete. Die tatsächliche Neuerung ist, dass diese
-Funktionalität erstmals in einer allgemein nutzbaren, freien Bibliothek
-vorhanden ist.
+verstreut über viele verschiedene Softwarepakete. Die tatsächliche Neuerung ist,
+dass diese Funktionalität erstmals in einer allgemein nutzbaren und freien
+Bibliothek vorhanden ist.
