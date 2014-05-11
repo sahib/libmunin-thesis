@@ -238,9 +238,12 @@ Daher wurde noch zusätzlich die *Lift--Metrik* eingeführt (vergleiche
 
    Lift(A, B) = P(A \mid B) - (P(A) \times P(B)) = support(A \cap B) - \left(support(A) \times support(B)\right)
 
-Ist der berechnete Wert :math:`< 0`, so wird die Regel ignoriert.  Für die
-unter Tabelle :num:`table-cornflakes` gezeigten Werte können nun die einzelnen
-Metriken angewandt werden: 
+Ist der berechnete Wert :math:`< 0`, so korreliert das Auftreten von ``B``
+negativ mit ``A``.  In diesem Fall wird die Regel ignoriert.  Werte größer oder
+gleich :math:`0` bedeuten eine positive/neutrale Korrelation.  Das Auftreten von
+``B`` impliziert das wahrscheinliche Auftreten von ``A``.  Für die unter Tabelle
+:num:`table-cornflakes` gezeigten Werte können nun die einzelnen Metriken
+angewandt werden: 
 
 .. math::
 
@@ -248,7 +251,7 @@ Metriken angewandt werden:
 
 Dieses Ergebnis würde zum Ausschluss der Regel führen, da :math:`0,6 <
 0.\overline{6}` ist.  Allerdings ist dies, für diese kontraproduktive Regel, ein
-knappes Ergebnis, da die Grenze von :math:`\overline{0,6}`` willkürlich
+knappes Ergebnis, da die Grenze von :math:`\overline{0,6}` willkürlich
 gewählt wurde.
 
 .. math::
