@@ -5,9 +5,9 @@ Implizites Lernen vom Nutzer
 Generierung von Regeln
 ======================
 
-:dropcaps:`In` vorangegangen Kapiteln wurde schon oft davon gesprochen, dass
+:dropcaps:`In` vorangegangenen Kapiteln wurde schon oft davon gesprochen, dass
 *libmunin* den Nutzer *,,beobachtet"*. Dies geschieht, indem der
-Anwendungsentwickler, die vom Nutzer gehörten Titel an *libmunin* zurückmeldet.
+Anwendungsentwickler, die vom Nutzer gehörten Titel, an *libmunin* zurückmeldet.
 
 Finden von wiederkehrenden Mustern
 ----------------------------------
@@ -20,22 +20,22 @@ eine neue Gruppe begonnen.
 Diese einzelnen Gruppen von Songs fungieren dann als *Warenkörbe.* Aus diesen
 gilt es zuerst eine Menge an Songs (im Folgenden *Muster* [#f1]_ genannt) zu
 finden, die jeweils oft zusammen in den einzelnen Warenkörben vorkommen. Der
-naive Ansatz wäre, für jede Kombination der Eingabesongs das Vorkommen derselben
-im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
+naive Ansatz wäre, für jede Kombination der Eingabesongs, das Vorkommen
+derselben, im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
 hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
-:math:`1000` unterschiedlichen Songs in der Historie müssten bereits
+:math:`1000` unterschiedlichen Songs in der Historie, müssten bereits
 :math:`2^{n}-1` Kombinationen gebildet werden. Denn ein Warenkorb kann man als
 einer Menge von sich nicht wiederholender Songs sehen, bei der auch die
 Reihenfolge keine Rolle spielt.
 
-Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
+Für die Lösung dieses Problems, gibt es einige etablierte Algorithmen.  Der
 bekannteste ist vermutlich der *Apriori--Algorithmus* (vergleiche
 :cite:`datamining-concepts-and-techniques`, S. 248--253). Statt alle
 Kombinationen zu betrachten, werden erst alle *,,Einer--Kombinationen"* gebildet
 und die ausgefiltert, welche einen zu niedrigen *Support--Count* besitzen. Die
 Grenze legt man vorher fest. Der *Support--Count* :math:`support(A)` ist die
-Anzahl der *Warenkörbe* in denen die Menge von Songs :math:`A` vorkommt, geteilt
-durch die absolute Anzahl der Warenkörbe. Danach werden mit den Verbliebenen
+Anzahl der *Warenkörbe*, in denen die Menge von Songs :math:`A` vorkommt, geteilt
+durch die absolute Anzahl der Warenkörbe. Danach werden mit den verbliebenen
 2er--Kombination gebildet, wieder gefiltert, dann die noch relevanten
 3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
 Kombinationen vermieden.
@@ -66,7 +66,7 @@ etabliert. Dazu gehören der FP--Growth (siehe
 
 In Tabelle :num:`table-itemsets` sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
-samt deren Support--Count aufgelistet worden sind.
+samt deren Support--Count, aufgelistet worden sind.
 
 Der ``RELIM``--Algorithmus
 --------------------------
@@ -85,8 +85,8 @@ Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
 Ableitung von Regeln aus Mustern
 --------------------------------
 
-Hat man erstmal eine Gruppe von häufig zusammen auftretenden
-Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
+Hat man eine Gruppe von häufig zusammen auftretenden Song--Kombinationen
+gefunden, so können daraus Assoziationsregeln abgeleitet werden.
 Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs mit
 einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
 der beiden Mengen miteinander gehört wird, dann ist es wahrscheinlich,
@@ -106,9 +106,9 @@ Basketballspieler essen Cornflakes (:math:`Basketball \Rightarrow Cornflakes`).
 Diese Regel besagt, dass der größere Teil der Basketballspieler Cornflakes isst,
 aber nicht, dass die meisten Cornflakes--Esser Basketballspieler sind. Da bei
 *libmunin* auf beiden Seiten der Regel immer der gleiche Typ (ein oder mehrere
-Songs) steht und die Beziehung immer *,,werden miteinander gehört"* ist, ist
-hier eine bidirektionale
-Assoziation möglich.
+Songs) steht und die Beziehung immer *,,werden miteinander gehört"* ist, wird
+hier vereinfachend eine bidirektionale Assoziation angenommen. Dies erlaubt ein
+Anwenden der Regeln in beide Richtungen. 
 
 Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
 verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
@@ -274,7 +274,7 @@ als Navigationshilfe beim Traversieren genutzt.  Zu diesem Zwecke müssen die
 entstandenen Regeln irgendwo sortiert abgelegt werden.  Diese Ablage ist der
 ``RuleIndex``. Beim Einfügen wird jeweils überprüft, ob die Maximalanzahl an
 Regeln (momentan maximal :math:`1000`) übertroffen wird. Sollte dem so sein,
-wird die älteste (ergo, zu erst eingefügte) Regel gelöscht um Platz zu machen. 
+wird die älteste (ergo, zu erst eingefügte) Regel gelöscht, um Platz zu machen. 
 Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
 von Regeln abfragen, die diesen Song in irgendeiner Weise betreffen. Um diese
 Operation zu beschleunigen, wird intern eine Hashtabelle gehalten, mit dem Song
@@ -298,7 +298,7 @@ Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
 Momentan wird nur die Historie aufgezeichnet, wenn die Demonanwendung läuft. Da
 die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
 die ganze Zeit über. Abhilfe würde ein separater MPD--Client, der nur dafür
-dient im Hintergrund die Historie--Daten mitzuloggen.
+dient, im Hintergrund die Historie--Daten mitzuloggen.
 
 Explizites Lernen
 =================
@@ -349,13 +349,13 @@ Möglichkeit den Graphen seinen Vorstellungen nach umzubauen.
 Unter Abbildung :num:`fig-modify-moves` soll dieses ,,explizite Lernen" nochmal
 visualisiert werden. Die dort abgebildete Verschiebung ist dadurch zu erklären,
 dass die ``insert``--Operation meist einen anderen Punkt zum Wiedereinfügen
-findet.  Durch Ändern des Ratings in der Demonanwendung können daher einzelne
+findet.  Durch Ändern des Ratings in der Demonanwendung, können daher einzelne
 Knoten gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern
 näher zusammen und stellen *,,Brücken"* zu anderen Alben--Clustern her. Man kann
 dieses *Feature* einerseits dazu nutzen, um seine Favoriten nahe im Graphen
 zusammenzupacken, andererseits, um unpassende Empfehlungen mit einem schlechten
-Rating abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge
-hätte.  Dadurch wird er möglicherweise an anderer Stelle besser eingepasst.
+Rating abzustrafen. Letzeres hätteeine ``insert``--Operation auf diesen Song zur
+Folge, wodurch er möglicherweise an anderer Stelle besser eingepasst wird.
 
 Der *,,Mechanismus"* des *expliziten Lernens* ist war mehr ein Nebeneffekt der
 Entwicklung. Zukünftige Versionen könnten leichter steuerbar und intuitiver

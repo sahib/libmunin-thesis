@@ -24,7 +24,7 @@ Album eines Künstlers zuzuteilen ist. Manchmal sind sich nicht mal die
 Mitglieder einer Band untereinander einig.  Ein Computer könnte höchstens
 erkennen, wie ähnlich zwei Genrebeschreibungen als Zeichenketten sind. Daher ist
 es nötig, dass die einzelnen Genre--Eingaben anhand einer Sammlung, von
-zusammengestellten geläufigen, Genres normalisiert werden.
+zusammengestellten geläufigen Genres normalisiert werden.
 
 Zusammenstellung der Genredatenbank
 -----------------------------------
@@ -87,7 +87,7 @@ entsprechender Mechanismus eingebaut sein. Dieser beruht, ähnlich wie hier,
 ebenfalls auf einem Baum [#f2]_. Um diese Quelle in *libmunin* zu nutzen, wurde
 lediglich der relevante Code von *beets* (MIT--Lizenz) nach *Python3* [#f3]_
 portiert.  Von der englischen Wikipedia werden folgende Seiten *gescraped,* also
-der HTML--Seiteninhalt wird geparst, und die darin befindlichen Genres in eine
+der HTML--Seiteninhalt wird geparst und die darin befindlichen Genres in eine
 Datei geschrieben: 
 
 - *List of popular music genres:* :cite:`wiki:list_pop_music`
@@ -192,14 +192,14 @@ In unserem Beispiel ist der Baum bereits nach zwei Iterationen fertig (siehe
 Abbildung :num:`fig-tree-final`). In Abbildung :num:`fig-tree-first` ist der
 Baum nach der ersten Iteration zu sehen. |br|
 Bei der momentanen Datenquelle entstehen einige kleine Fehler im 
-Baum.  Daher werden mach dem manuellen Aufbau, noch einige halbautomatische
+Baum.  Daher werden nach dem manuellen Aufbau, noch einige halbautomatische
 Aufräumarbeiten erledigt. 
 
   1.  Die fehlenden *,,Musik"*--Genres *,,Vocal"* und *,,Speech"* werden
       manuell eingefügt.
   2.  Bei dem momentanen Vorgehen landen unter Umständen weitere
       *,,Music"*--Knoten auf der ersten Ebene. Diese werden entfernt. 
-  3.  Alle Genres die auf *,,core"* enden, werden aufgebrochen und dem Knoten
+  3.  Alle Genres, die auf *,,core"* enden, werden aufgebrochen und dem Knoten
       *,,core"* auf erster Ebene hinzugefügt. Damit werden meist ähnliche Genres
       wie *,,Metalcore"* und *,,Grindcore"*  zusammengefasst.
 
@@ -263,7 +263,7 @@ Nach diesen Vorbereitungen wird eine rekursive Backtracking--Suche gestartet:
    Trifft dieser Fall ein, so ist in diesem Zweig der Rekursionsstopp erreicht. 
 
 3) Es wird über jedes Kindelement in der temporären Liste iteriert. Bei jeder
-   Iteration wird folgendes durchgeführt.
+   Iteration wird folgendes durchgeführt:
 
    A) Eine Kopie der ``path_result``--Liste wird erstellt, bei der der Index des
       aktuellen Kindelements am Ende hinzugefügt wird.
@@ -273,8 +273,8 @@ Nach diesen Vorbereitungen wird eine rekursive Backtracking--Suche gestartet:
    C) Das Kind wird als neuer Wurzelknoten angenommen und es wird wie bei
       Schritt 1) weitergemacht.  
 
-4) Nachdem alle Zweige der Rekursion beim Rekursionsstopp angekommen sin, 
-   stehen alle validen Pfade, als Tupel von Indizes, in ``paths``.
+4) Nachdem alle Zweige der Rekursion beim Rekursionsstopp angekommen sind, 
+   stehen alle validen Pfade als Tupel von Indizes in ``paths``.
 
 .. _fig-match-example:
 
@@ -284,7 +284,7 @@ Nach diesen Vorbereitungen wird eine rekursive Backtracking--Suche gestartet:
     :align: center
 
     Beispiel-Ablauf des Zuordnungs--Algorithmus an der Eingabe ,,Alternative
-    Rock / Reggae”. In den Knoten ist die jeweils die momentante Maske eingetragen, an
+    Rock / Reggae”. In den Knoten ist die jeweils die momentane Maske eingetragen, an
     den Kanten jeweils die aktuelle mask und der bisher gebildete Pfad. 
 
 In Abbildung :num:`fig-match-example` wird ein Beispiel dieses Verfahrens mit
@@ -308,7 +308,7 @@ Um zwei einzelne Pfade miteinander zu vergleichen, wird folgendermaßen vorgegan
 - Zähle die Anzahl an Punkten, in denen sich der Pfad überdeckt.  Beispiel: Für
   die Pfade :math:`\left\{2, 1, 0\right\}` und :math:`\left\{2, 1, 2, 0\right\}` wäre dies
   :math:`2`.
-- Teile die Anzahl der Überdeckungen durch die Länge des längeren beider Pfade.
+- Teile die Anzahl der Überdeckungen durch die Länge des längeren der beiden Pfade.
 - Die daraus gewonnene Ähnlichkeit wird von :math:`1,0` abgezogen um die Distanz
   zu erhalten. 
 
@@ -316,7 +316,7 @@ In *libmunin* sind zwei Distanzfunktionen enthalten, welche diese Methode nutzt,
 zwei Mengen mit Genrepfaden zu vergleichen.
 
 ``GenreTree``: Vergleicht jeden Genrepfad der Mengen *A* und *B*, mittels oben
-genannter Methode, miteinander. Die minimale Distanz wird zurückgegeben.  Als
+genannter Methode miteinander. Die minimale Distanz wird zurückgegeben.  Als
 Optimierung wird frühzeitig abgebrochen, wenn eine Distanz von :math:`0,0`
 erreicht wird.
 
@@ -375,7 +375,7 @@ Schlüsselwortextraktion
 
 Eine Idee bei *libmunin*, ist es auch die Liedtexte eines Liedes einzubeziehen,
 um Lieder mit ähnlicher *Thematik* näher beieinander im Graphen zu
-gruppieren. Sollten zwei Lieder nicht die selben Themen behandeln, so soll sich
+gruppieren. Sollten zwei Lieder nicht dieselben Themen behandeln, so soll sich
 zumindest die gleiche Sprache sich positiv auf die Distanz auswirken.
 
 Um die Themen effizient zu vergleichen, extrahiert *libmunin* aus den Liedtexten
@@ -430,7 +430,7 @@ den meisten Fällen von sprachabhängigen Corpora (Wortdatenbanken) abhängig.
 
 4) Für jede Phrase wird nun ein *Score* berechnet. Dieser ist definiert als die
    Summe aller Wörter--*Scores* innerhalb einer Phrase. Die derart bewerteten
-   Phrasen werden absteigend sortiert als Schlüsselwörter ausgegeben.
+   Phrasen werden, absteigend sortiert, als Schlüsselwörter ausgegeben.
    Schlüsselwörter mit einem *Score* kleiner :math:`2,0` werden ausgesiebt.
 
 Es wurden zudem einige Änderungen, zum in :cite:`berry2010text` vorgestellten
@@ -547,7 +547,7 @@ Probleme
 --------
 
 Teilweise liefert diese Provider--Distanzfunktions--Kombination bereits
-interessante Ergebnisse. So werden die beiden staatskritischen, deutschen Texte
+interessante Ergebnisse. So werden die beiden staatskritischen deutschen Texte
 *,,Hey Staat"* von *Hans Söllner* und *,,Lieber Staat"* von *Farin Urlaub* mit
 einer relativ niedrigen Distanz von gerundet :math:`0,4` bewertet.
 
@@ -637,8 +637,8 @@ erwiesen:
   für jeden Farbkanal eine einfach zu vergleichende Verteilung der
   Frequenzen abgespeichert.
  
-* **Dominante Farben:** Wie bereits erwähnt, ist es manchmal möglich bestimmte
-  Instrumente visuell anhand deren charakteristischen Farbe in der Moodbar zu
+* **Dominante Farben:** Wie bereits erwähnt, ist es manchmal möglich, bestimmte
+  Instrumente visuell, anhand deren charakteristischen Farbe, in der Moodbar zu
   erkennen. Das kann man sich beim Vergleichen zu Nutze machen, denn ähnliche
   Instrumente (ergo bestimmte, charakteristische Farben) deuten auf ähnliche
   Musikstile hin.  Der ``MoodbarProvider`` teilt daher jeden Farbkanal in
@@ -646,9 +646,9 @@ erwiesen:
   dieser Bereiche zugeordnet. Die 15 am häufigsten zusammen vorkommenden Tripel
   werden abgespeichert.
 * **Schwarzanteil:** Gesondert werden sehr dunklen Farben behandelt. Haben alle
-  Farbkanäle eines RGB--Tripels einen Wert kleiner 30, so wird die Farbe nicht
+  Farbkanäle eines RGB--Tripels, einen Wert kleiner 30, so wird die Farbe nicht
   gezählt, sondern auf einen *Schwarzanteil*--Zähler aufaddiert.  Geteilt durch
-  1000 ergibt sich daraus der Anteil des Liedes, der ganz oder beinahe still ist.
+  1000, ergibt sich daraus der Anteil des Liedes, der ganz oder beinahe still ist.
 
 * **Durchschnittliches Minimun/Maximum:** Von jedem Block wird das
   Minimum/Maximum der drei Farbkanäle bestimmt.  Die Summe über jeden so
@@ -686,13 +686,13 @@ In Tabelle :num:`table-moodbar-list` wird eine Auflistung der einzelnen Werte ge
 die der ``Moodbar-Provider`` generiert. Daneben werden auch die entsprechenden
 Gewichtungen und Distanzfunktionen gegeben, mit dem die
 Moodbar--Distanzfunktion die einzelnen Werte verrechnet. 
-Die enstehende gewichtete Distanz wird mittels der in Abbildung
-:num:`fig-strech` gezeigten Funktion noch skaliert um hohe Werte
+Die enstehende, gewichtete Distanz, wird mittels der in Abbildung
+:num:`fig-strech` gezeigten Funktion noch skaliert, um hohe Werte
 anzuheben und niedrige weiter abzusenken.
 
-Am subjektiv vergleichbarsten erwiesen sich die dominanten Farben in einem
+Am subjektiv vergleichbarsten, erwiesen sich die dominanten Farben in einem
 Lied. Die zwischenzeitlich aufgekommene Idee, bestimmte markante Farbwertbereiche
-bestimmten Instrumenten automatisch zuzuordnen erwies sich, mangels exakter
+bestimmten Instrumenten automatisch zuzuordnen, erwies sich, mangels exakter
 Zuordnungstabellen, als unpraktikabel und ungenau.
 
 Probleme
@@ -701,11 +701,11 @@ Probleme
 .. _fig-mood-yellow-submarine:
 
 .. figure:: figs/mood_yellow_submarine.*
-    :alt: Die selbe Moodbar bei unterschiedlichen Encoding der Audiodaten
+    :alt: Dieselbe Moodbar bei unterschiedlichen Encoding der Audiodaten
     :width: 100%
     :align: center
 
-    Die selbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
+    Dieselbe Moodbar bei unterschiedlichen Encoding der Audiodaten. Oben das
     Beatles--Lied ,,Yellow Submarine“ als FLAC enkodiert, darunter dasselbe Lied
     mit stark komprimierter MP3--Enkodierung. Die von libmunin
     berechnete Moodbar--Distanz ist hier etwa 0,01.
@@ -741,7 +741,7 @@ dies auf dem Entwicklungsrechners des Autors, je nach Größe, bis zu vier
 Sekunden. Die Dauer variiert dabei je nach Format.  FLAC--enkodierte Dateien
 brauchen oft lediglich die Hälfte dieser Zeit.
 In beiden Fällen ist die Anwendung, bei einer mehreren zehntausend Lieder
-umfassenden Sammlung sehr aufwendig. Neben der Liedtextsuche, ist dies der
+umfassenden Sammlung, sehr aufwendig. Neben der Liedtextsuche, ist dies der
 größte Posten beim *Kaltstart*.
 
 Vorteile:
