@@ -9,13 +9,13 @@ Das allgemeine Problem
 :cite:`aaa_cpahl` wurde das Musikempfehlungssystems *libmunin* implementiert.
 Um Musikempfehlungen auszusprechen, muss ein solches System die Ähnlichkeit
 zwischen zwei Liedern feststellen können.  Dies ist das
-grundsätzliche Problem: Musik ist nur schwer vergleichbar. Fragt man mehrere
-Menschen, wie *ähnlich* ein Musikstück zu einem anderem ist, so erhält man
-genauso viele Antworten, wie man Fragen gestellt hat. Die Einschätzung von Musik
-ist eine sehr subjektive Angelegenheit, die auch häufig zwischen Menschen
-Diskussionen auslöst.  Stuft man den Künstler *Status Quo* als *Rock* ein? Oder
-doch eher als *Pop?* Was zählt überhaupt noch als *Rock*? Gibt es eine, für den
-Computer verständliche, Definition von *Rock*?
+grundsätzliche Problem eines solchen Systems: Musik ist nur schwer vergleichbar.
+Fragt man mehrere Menschen, wie *ähnlich* ein Musikstück zu einem anderem ist,
+so erhält man genauso viele Antworten, wie man Fragen gestellt hat. Die
+Einschätzung von Musik ist eine sehr subjektive Angelegenheit, die auch häufig
+zwischen Menschen Diskussionen auslöst.  Stuft man den Künstler *Status Quo* als
+*Rock* ein? Oder doch eher als *Pop?* Was zählt überhaupt noch als *Rock*? Gibt
+es eine, für den Computer verständliche, Definition von *Rock*?
 
 Wenn man jetzt noch versucht, einem Computer den Begriff der *Musikähnlichkeit*
 beizubringen, so wird es noch weitaus komplizierter. Dieser kann nur objektiv
@@ -38,10 +38,10 @@ zugeschnitten ist: Seinem Entwickler. Bibliotheksanwender können jedoch die
 Bibliothek an ihre Präferenzen anpassen oder ihren Endnutzern eine Möglichkeit
 geben, selbst Einstellungen vorzunehmen. 
 Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
-verstehen was intern vor sich geht. Genau darum soll es in dieser
+verstehen was intern vor sich geht --- genau darum soll es in dieser
 Arbeit gehen.  Hauptsächlich wird diskutiert, wie *libmunin* die Ähnlichkeit
 zwischen den Attributen eines Liedes berechnet und wie aus diesen Ähnlichkeiten
-ein Graph aufgebaut wird. Auch auf *libmunin's* Möglichkeit vom Nutzer zu lernen
+ein Graph aufgebaut wird. Auch auf *libmunin's* Möglichkeit, vom Nutzer zu lernen
 wird eingegangen.
 Zu jedem vorgestellten Thema werden auch
 Überlegungen angestellt, welche Verbesserungen in zukünftigen Versionen gemacht

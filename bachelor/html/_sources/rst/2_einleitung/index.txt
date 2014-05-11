@@ -15,10 +15,12 @@ Zusammenfassung des aktuellen Stands
 *Libmunin* ist eine in der Programmiersprache Python geschriebene Bibliothek und
 implementiert ein Musikempfehlungssystems auf Graphen--Basis. Der
 dahinterstehende Graph bildet die Nachbarschaftsbeziehungen zwischen den
-einzelnen Musikstücken ab. Um den Graphen aufbauen zu können, müssen, während
-des sogenannten Kaltstartes, vom Nutzer der Bibliothek alle Songs aus denen
-Empfehlungen gebildet werden soll, mit allen relevanten Attributen eingegeben
-werden. Damit *libmunin* weiß, wie die einzelnen Werte zu behandeln sind, wird
+einzelnen Musikstücken (als Knoten) mittels bidirektionaler Kanten ab.  Eine
+Kante verbindet zwei ähnliche Songs miteinander.
+Um den Graphen aufbauen zu können, müssen, während des sogenannten Kaltstartes,
+vom Nutzer der Bibliothek alle Songs mit allen relevanten Attributen eingegeben
+werden. 
+Damit *libmunin* weiß, wie die einzelnen Werte zu behandeln sind, wird
 jedem Attribut (Künstler, Titel, Genre...) ein sogenannter *Provider* und eine
 *Distanzfunktion* zugeordnet. 
 
@@ -41,47 +43,18 @@ Die einzelnen besuchten Knoten werden, nach dem Filtern von doppelten Künstlern
 und Alben, dann als Empfehlungen angenommen
 
 Zudem lernt *libmunin* während einer Sitzung vom Nutzer, indem es die
-Gewohnheiten des Nutzers beobachtet und daraus Regeln ableitet. Alle gehörten
-Songs werden in einer Historie abgespeichert.  Im Vergleich zu bestehenden
-Systemen ist *libmunin* nicht von den Audiodaten abhängig, sondern kann durch
-seine flexible Schnittstelle auch alleine auf den Metadaten eines Stückes, wie
-den Tags eines Musikstückes, operieren. Ein Tag ist eine direkt in der
-Audiodatei hinterlegte Information um bestimmte Werte wie den Künstler des
-Stückes zu beschreiben. Das erklärte Ziel der Bibliothek ist es, eine freie
-Bibliothek zu schaffen, die sowohl offline (in Musicplayern) als auch online (in
-Streamingdiensten) funktioniert und mit großen Datenmengen umgehen kann.  Durch
-die GPLv3--Lizenz :cite:`gplv3` ist ein libertärer, weitläufiger Einsatz
-möglich. 
-
-Zur Nuztung von *libmunin*
-==========================
-
-Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
-Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
-aus den Tags der Audiodateien kommen, empfiehlt es sich, diese vorher
-mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
-:cite:`picard`, welches im Hintergrund auf *Musicbrainz* :cite:`3A3` zugreift.
-Für schwerer zu besorgende Daten, wie Liedtexte, kann unter anderem auf
-libglyr :cite:`9XU`, beets :cite:`XAJ` oder dem eingebauten
-``PlyrLyricsProvider`` (sucht im Web nach Liedtexten) und
-``DiscogsGenreProvider`` (sucht bei Discogs :cite:`DISCOGS` nach der
-Genrebezeichnung) zurückgegriffen werden.
-
-Welche Lieder man zu *libmunin's Historie* hinzufügt, sollte 
-abgewogen werden. Fügt man auch Lieder ein, welche vom Nutzer einfach
-übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
-Es sollten nur Lieder hinzugefügt werden, welche mehr als :math:`50\%` 
-angehört worden sind. 
-
-Um das Format der Musiksammlung zu spezifizieren, muss der Nutzer der
-Bibliothek bei einer neuen Sitzung eine Maske angeben. In dieser werden die
-Provider und Distanzfunktionen für die einzelnen Attribute eines Songs
-festgelegt. Mit der ``EasySession`` bietet *libmunin* aber eine Sitzung mit
-vorgefertigter Maske. Anwendungsentwickler sollten aber nach Möglichkeit eine
-eigene, für ihre Zwecke konfigurierte, Session--Maske verwenden. Zwar ist der
-Einsatz der vorgefertigten ``EasySession`` deutlich einfacher, doch ist diese
-mehr für den schnellen Einsatz gedacht.  Zudem sollte es dem Endanwender möglich
-gemacht werden, die Gewichtungen der einzelnen Attribute zu ändern.
+Gewohnheiten des Nutzers beobachtet und daraus Regeln ableitet.  Diese Regeln
+verbinden zwei Mengen von Songs , die oft miteinander gehört werden, mit einer
+Wahrscheinlichkeit miteinander.  Alle gehörten Songs werden in einer Historie
+abgespeichert.  Im Vergleich zu bestehenden Systemen ist *libmunin* nicht von
+den Audiodaten abhängig, sondern kann durch seine flexible Schnittstelle auch
+alleine auf den Metadaten eines Stückes, wie den Tags eines Musikstückes,
+operieren. Ein Tag ist eine direkt in der Audiodatei hinterlegte Information um
+bestimmte Werte wie den Künstler des Stückes zu beschreiben. Das erklärte Ziel
+der Bibliothek ist es, eine freie Bibliothek zu schaffen, die sowohl offline (in
+Musicplayern) als auch online (in Streamingdiensten) funktioniert und mit großen
+Datenmengen umgehen kann.  Durch die GPLv3--Lizenz :cite:`gplv3` ist ein
+libertärer, weitläufiger Einsatz möglich. 
 
 Der Begriff der Distanzfunktion
 ===============================
@@ -101,7 +74,7 @@ Distanzfunktion als auch für die speziellen Distanzfunktionen gelten.
 :math:`D` ist dabei die Menge aller Songs, :math:`d` eine Distanzfunktion.
 Beim Schreiben von Distanzfunktionen sollte versucht werden, alle dieser
 Eigenschaften zu erfüllen. Technisch nötig sind dabei nur die Bedingungen 
-1--3.
+1--3. Bedingung 4 sollte aber aus unten genannten Gründen ebenfalls eingehalten werden.
  
 .. subfigstart::
 
@@ -138,8 +111,8 @@ Eigenschaften zu erfüllen. Technisch nötig sind dabei nur die Bedingungen
 I. *Uniformität:* :math:`\;0 \leq d(i, j) \leq 1 \;\;\forall\;\; i,j \in D`
 
    *Aussage:* Die errechneten Werte sollten sich immer zwischen und
-   einschließlich :math:`0` und :math:`1` befinden. *libmunin* schneidet
-   Werte auf diesen Bereich zu. 
+   einschließlich :math:`0` und :math:`1` befinden. *Libmunin* schneidet
+   die Werte nötigenfalls auf diesen Bereich zu. 
 
 II. *Symmetrie:* :math:`\;d(i, j) = d(j, i) \;\;\forall\;\; i,j \in D` 
 
@@ -163,6 +136,35 @@ IV. *Dreiecksungleichung:* :math:`\;d(i, j) \leq d(i, x) + d(x, j) \;\;\forall\;
     Diese Eigenschaft ist nötig, damit man annehmen kann, dass direkte
     Nachbarn ähnlicher sind als indirekte Nachbarn. 
 
+Zur Nuztung von *libmunin*
+==========================
+
+Die Qualität der Empfehlungen kann nur so gut sein, wie die Qualität der
+Eingabedaten. Da in den meisten Fällen die Metadaten zu den einzelnen Liedern
+aus den Tags der Audiodateien kommen, empfiehlt es sich, diese vorher
+mit Musiktaggern einheitlich zu pflegen. Der Autor empfiehlt hierfür *Picard*
+:cite:`picard`, welches im Hintergrund auf *Musicbrainz* :cite:`3A3` zugreift.
+Für schwerer zu besorgende Daten, wie Liedtexte, kann unter anderem auf
+libglyr :cite:`9XU`, beets :cite:`XAJ` oder dem eingebauten
+``PlyrLyricsProvider`` (sucht im Web nach Liedtexten) und
+``DiscogsGenreProvider`` (sucht bei Discogs :cite:`DISCOGS` nach der
+Genrebezeichnung) zurückgegriffen werden.
+
+Welche Lieder man zu *libmunin's Historie* hinzufügt, sollte 
+abgewogen werden. Fügt man auch Lieder ein, welche vom Nutzer einfach
+übersprungen worden sind, so sind die erstellten Regeln nicht repräsentativ.
+Es sollten nur Lieder hinzugefügt werden, welche mehr als :math:`50\%` 
+angehört worden sind. 
+
+Um das Format der Musiksammlung zu spezifizieren, muss der Nutzer der
+Bibliothek bei einer neuen Sitzung eine Maske angeben. In dieser werden die
+Provider und Distanzfunktionen für die einzelnen Attribute eines Songs
+festgelegt. Mit der ``EasySession`` bietet *libmunin* aber eine Sitzung mit
+vorgefertigter Maske. Anwendungsentwickler sollten aber nach Möglichkeit eine
+eigene, für ihre Zwecke konfigurierte, Session--Maske verwenden. Zwar ist der
+Einsatz der vorgefertigten ``EasySession`` deutlich einfacher, doch ist diese
+mehr für den schnellen Einsatz gedacht.  Zudem sollte es dem Endanwender möglich
+gemacht werden, die Gewichtungen der einzelnen Attribute zu ändern.
 
 Zur Erweiterung von *libmunin*
 ==============================
@@ -225,7 +227,6 @@ Version verbessert:
            # A und B sind, der Konsistenz halber auch bei einzelnen Werten immer Tupel
            # Daher müssen wir diese erst "entpacken".
            a, b = A[0], B[0]
-
            return abs(a - b) / max(a, b)  # Teile Differenz durch Maximum aus beiden:
 
    class CorrectDistanceFuntion(DistanceFunction):
@@ -265,13 +266,13 @@ Dies wird im folgenden Python--Beispiel gezeigt:
 
    from munin.provider import Provider
   
-   class DoublingProvider(Provider):   # Leite von der Provider-Oberklasse ab.
+   class DoublingProvider(Provider):  # Leite von der Provider-Oberklasse ab.
        def __init__(self): 
            # Kompression anschalten, ansonsten muss auf nichts geachtet werden.
            Provider.__init__(self, compress=True)
        
        def do_compute(self, input_value):  # Wird bei jeder Eingabe aufgerufen.
-           return input_value * 2  # Tue irgendwas mit dem Input.
+           return input_value * 2  # Verdoppele den Input.
   
   
 .. _ref-playlist-compare:
@@ -283,7 +284,7 @@ Eine *Playlist,* zu deutsch *Wiedergabeliste*, ist eine Liste einzelner
 Lieder, die nacheinander abgespielt werden. Die Zusammstellung einer
 Playlist erfüllt oft einen gewissen Zweck. So stellt man für gewöhnlich
 Lieder in einer *Playlist* zusammen, die eine gemeinsame Stimmung oder
-eine andere Gemeinsamkeit *(,,Favorit")* besitzen. Im Folgenden wird die 
+eine andere Gemeinsamkeit *(,,Favoriten")* besitzen. Im Folgenden wird die 
 subjektive Qualität der Playlisten bezüglich der Ähnlichkeit der einzelnen
 Stücke beurteilt.
 
@@ -294,7 +295,7 @@ Regeln unterliegt, die man als Anwendungsentwickler kennen sollte. Zudem ist der
 subjektive Vergleich mit anderen Systemen interessant.
 
 Der ursprüngliche Plan, hier auch eine von ``last.fm`` :cite:`9NT` erstellte
-Playlist zu zeigen wurde eingestellt, da man dort die Empfehlungen nicht
+Playlist zu zeigen, wurde eingestellt, da man dort die Empfehlungen nicht
 auf die hier verwendete Testmusiksammlung aus 666 Songs einschränken konnte.
 Stattdessen wurde eine Alternative zu *libmunin* getestet: *Mirage*
 :cite:`schnitzer2007high`. Da *Mirage* momentan nur als Plugin für Banshee
@@ -339,7 +340,7 @@ Der Kaltstart bei *Mirage* verlief in wenigen Minuten, während der Kaltstart
 bei *libmunin* beim ersten Mal für die 666 Songs im Vergleich dazu sehr lange
 (etwa 53 Minuten) benötigte. Größtenteils liegt das daran, dass für jedes Lied
 ein Liedtext sequentiell automatisch besorgt wird. Siehe dazu auch
-Tabelle :num:`table-specs`.  Bei der Ausgabe der Empfehlungen selber, war bei
+Tabelle :num:`table-specs`.  Bei der Ausgabe der Empfehlungen selbst, war bei
 allen Methoden keinerlei Verzögerung zu beobachten.
 
 Ressourcenverbrauch

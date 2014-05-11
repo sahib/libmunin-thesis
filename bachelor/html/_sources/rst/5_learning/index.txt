@@ -5,9 +5,9 @@ Implizites Lernen vom Nutzer
 Generierung von Regeln
 ======================
 
-:dropcaps:`In` vorangegangen Kapiteln wurde schon oft davon gesprochen, dass
-*libmunin* den Nutzer *,,beobachtet"*. Dies geschieht, indem der
-Anwendungsentwickler, die vom Nutzer gehörten Titel an *libmunin* zurückmeldet.
+:dropcaps:`In` vorangegangenen Kapiteln wurde schon oft davon gesprochen, dass
+*libmunin* den Nutzer *beobachtet*. Dies geschieht, indem der
+Anwendungsentwickler, die vom Nutzer gehörten Titel, an *libmunin* zurückmeldet.
 
 Finden von wiederkehrenden Mustern
 ----------------------------------
@@ -20,24 +20,24 @@ eine neue Gruppe begonnen.
 Diese einzelnen Gruppen von Songs fungieren dann als *Warenkörbe.* Aus diesen
 gilt es zuerst eine Menge an Songs (im Folgenden *Muster* [#f1]_ genannt) zu
 finden, die jeweils oft zusammen in den einzelnen Warenkörben vorkommen. Der
-naive Ansatz wäre, für jede Kombination der Eingabesongs das Vorkommen derselben
-im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
+naive Ansatz wäre, für jede Kombination der Eingabesongs, das Vorkommen
+derselben, im Warenkorb zu zählen. Wie man sich bereits denken kann, ist
 hierfür der algorithmische Aufwand enorm, denn bereits bei einer Menge von
-:math:`1000` unterschiedlichen Songs in der Historie müssten bereits
+:math:`1000` unterschiedlichen Songs in der Historie, müssten bereits
 :math:`2^{n}-1` Kombinationen gebildet werden. Denn ein Warenkorb kann man als
 einer Menge von sich nicht wiederholender Songs sehen, bei der auch die
 Reihenfolge keine Rolle spielt.
 
-Für die Lösung dieses Problems gibt es einige etablierte Algorithmen.  Der
+Für die Lösung dieses Problems, gibt es einige etablierte Algorithmen.  Der
 bekannteste ist vermutlich der *Apriori--Algorithmus* (vergleiche
 :cite:`datamining-concepts-and-techniques`, S. 248--253). Statt alle
 Kombinationen zu betrachten, werden erst alle *,,Einer--Kombinationen"* gebildet
 und die ausgefiltert, welche einen zu niedrigen *Support--Count* besitzen. Die
 Grenze legt man vorher fest. Der *Support--Count* :math:`support(A)` ist die
-Anzahl der *Warenkörbe* in denen die Menge von Songs :math:`A` vorkommt, geteilt
-durch die absolute Anzahl der Warenkörbe. Danach werden mit den Verbliebenen
-2er--Kombination gebildet, wieder gefiltert, dann die noch relevanten
-3er--Kombinationen und so weiter. Dadurch wird eine große Menge von
+Anzahl der *Warenkörbe*, in denen die Menge von Songs :math:`A` vorkommt, geteilt
+durch die absolute Anzahl der Warenkörbe. Danach werden mit den verbliebenen
+Zweier--Kombination gebildet, wieder gefiltert, dann die noch relevanten
+Dreier--Kombinationen und so weiter. Dadurch wird eine große Menge von
 Kombinationen vermieden.
 
 Seit einiger Zeit haben sich jedoch eine Gruppe effizienterer Algorithmen
@@ -56,17 +56,17 @@ etabliert. Dazu gehören der FP--Growth (siehe
              {C, C, B}} generiert worden sind, mit der jeweiligen Anzahl von
              Vorkommnissen in den Warenkörben.
 
-   ================== ====== ================= ====== ================= ======
-   Kombination (1er)  Menge  Kombination (2er) Menge  Kombination (3er) Menge    
-   ================== ====== ================= ====== ================= ======
-   *A*                1 |x|  *A, B*            1 |x|  *A, B, C*         1 |x|  
-   *B*                3 |x|  *B, C*            3 |x|                    |nbsp|
-   *C*                3 |x|  *C, A*            1 |x|                    |nbsp|
-   ================== ====== ================= ====== ================= ======
+   =================== ====== =================== ====== =================== ======
+   *Kombination* (1er)        *Kombination (2er)*        *Kombination (3er)* 
+   =================== ====== =================== ====== =================== ======
+   *A*                 1 |x|  *A, B*              1 |x|  *A, B, C*           1 |x|  
+   *B*                 3 |x|  *B, C*              3 |x|                      |nbsp|
+   *C*                 3 |x|  *C, A*              1 |x|                      |nbsp|
+   =================== ====== =================== ====== =================== ======
 
 In Tabelle :num:`table-itemsets` sieht man ein Beispiel aus drei Warenkörben,
 aus denen per Hand mit der naiven Herangehensweise alle möglichen Kombinationen
-samt deren Support--Count aufgelistet worden sind.
+samt deren Support--Count, aufgelistet worden sind.
 
 Der ``RELIM``--Algorithmus
 --------------------------
@@ -85,8 +85,8 @@ Implementierungen zu geben scheint, oder welche, die nur für Python--Versionen
 Ableitung von Regeln aus Mustern
 --------------------------------
 
-Hat man erstmal eine Gruppe von häufig zusammen auftretenden
-Song--Kombinationen, so können daraus Assoziationsregeln abgeleitet werden.
+Hat man eine Gruppe von häufig zusammen auftretenden Song--Kombinationen
+gefunden, so können daraus Assoziationsregeln abgeleitet werden.
 Eine Assoziationsregel verbindet zwei Mengen *A* und *B* von Songs mit
 einer gewissen Wahrscheinlichkeit miteinander. Sie besagen, dass wenn eine
 der beiden Mengen miteinander gehört wird, dann ist es wahrscheinlich,
@@ -106,22 +106,23 @@ Basketballspieler essen Cornflakes (:math:`Basketball \Rightarrow Cornflakes`).
 Diese Regel besagt, dass der größere Teil der Basketballspieler Cornflakes isst,
 aber nicht, dass die meisten Cornflakes--Esser Basketballspieler sind. Da bei
 *libmunin* auf beiden Seiten der Regel immer der gleiche Typ (ein oder mehrere
-Songs) steht und die Beziehung immer *,,werden miteinander gehört"* ist, ist
-hier eine bidirektionale
-Assoziation möglich.
+Songs) steht und die Beziehung immer *,,werden miteinander gehört"* ist, wird
+hier vereinfachend eine bidirektionale Assoziation angenommen. Dies erlaubt ein
+Anwenden der Regeln in beide Richtungen. 
 
 Um nun aus einem Muster Regeln abzuleiten, teilt man es in alle möglichen
-verschiedenen, disjunkten Teilmengen auf. Allerdings in maximal zwei Teilmengen.
-Diese beiden Teilmengen nimmt man als die beiden Mengen einer Assoziationsregel
-an und testet, mittels verschiedener Metriken, wie zutreffend diese ist. 
+verschiedenen, disjunkten Teilmengen auf --- allerdings in maximal zwei
+Teilmengen.  Diese beiden Teilmengen nimmt man als die beiden Mengen einer
+Assoziationsregel an und testet, mittels verschiedener Metriken, wie zutreffend
+diese ist. 
 
 .. figtable::
    :label: table-rules
    :spec: l | l l l l
    :alt: Mögliche Regeln, die aus den drei warenkörben erstellt werden können
    :caption: Mögliche Regeln, die aus den drei Warenkörben erstellt werden können.
-             Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie die
-             beiden Metriken Imbalance--Ratio und Kulczynski abgebildet.
+             Zusätzlich wird der dazugehörige Gesamt--Support--Count, sowie der
+             Metriken Imbalance--Ratio, Kulczynski und Lift abgebildet.
 
    ==================================================================== ====================== ======================= ====================== =============
    *Assoziationsregel*                                                  *Support*              *Imbalance Ratio*       *Kulczynski*           *Lift*
@@ -150,15 +151,13 @@ Tabelle :num:`table-rules` aufgelistet.
              Studenten untersucht, bei denen die Eigenschaften ,,Spielt
              Basketball” und ,,Isst Cornflakes” festgestellt worden sind. 
 
-    +-------------------------------+--------------------+-------------------------------+--------------+
-    |   **Eigenschaft**             | :math:`Basketball` | :math:`\overline{Basketball}` | :math:`\sum` |
-    +===============================+====================+===============================+==============+
-    | :math:`Cornflakes`            |  400               | 350                           |  750         |
-    +-------------------------------+--------------------+-------------------------------+--------------+
-    | :math:`\overline{Cornflakes}` |  200               | 50                            |  250         |
-    +-------------------------------+--------------------+-------------------------------+--------------+
-    | :math:`\sum`                  |  600               | 400                           |  1000        |
-    +-------------------------------+--------------------+-------------------------------+--------------+
+   ================================ ===================== =============================== ==============
+       **Eigenschaft**               :math:`Basketball`   :math:`\overline{Basketball}`   :math:`\sum`  
+   ================================ ===================== =============================== ==============
+     :math:`Cornflakes`               400                 350                              750          
+     :math:`\overline{Cornflakes}`    200                 50                               250          
+     |hline| :math:`\sum`             600                 400                              1000         
+   ================================ ===================== =============================== ==============
 
 Nicht jede Regel ist automatisch eine gute Regel.  Ein gängiges Lehrbeispiel
 wäre hier die Regel :math:`Basketball \Rightarrow Cornflakes`, also eine Regel,
@@ -203,7 +202,7 @@ berechnen lässt, können wir die obige Definition umstellen:
 
 .. math::
 
-   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right)
+   Kulczynski(A, B) = \frac{1}{2} \times \left(\frac{support(A\cap B)}{support(B)} + \frac{support(A\cap B)}{support(A)}\right) 
 
 Diese Metrik allein reicht allerdings nicht für eine qualitative Einschätzung
 einer Regel. Zwar kann die Regel oft zutreffen, doch kann sie, wie im obigen
@@ -232,17 +231,23 @@ Dieses *Rating* wird genutzt, um die einzelnen Assoziationsregeln zu sortieren.
 Das finale Rating bewegt sich im Bereich :math:`\lbrack 0, 1\rbrack`, wobei
 :math:`1` das höchste vergebene Rating ist.
 
-Nach einigen Tests erwiesen sich beide Metriken aber nicht als ausreichend.
-Daher wurde noch zusätzlich die *Lift--Metrik* eingeführt (vergleiche
-:cite:`datamining-concepts-and-techniques`, S.266). Diese ist definiert als: 
+Nach einigen Tests erwiesen sich beide Metriken aber nicht als ausreichend um
+schwache Regeln zu filtern.  Daher wurde noch zusätzlich die *Lift--Metrik*
+eingeführt (vergleiche :cite:`datamining-concepts-and-techniques`, S.266). Diese
+ist definiert als: 
 
 .. math::
 
    Lift(A, B) = P(A \mid B) - (P(A) \times P(B)) = support(A \cap B) - \left(support(A) \times support(B)\right)
 
-Ist der berechnete Wert :math:`< 0`, so wird die Regel ignoriert.  Für die
-unter Tabelle :num:`table-cornflakes` gezeigten Werte können nun die einzelnen
-Metriken angewandt werden: 
+Sie vergleicht das erwartete gemeinsame Auftreten der Mengen ``A`` und ``B`` mit
+dem tatsächlichen Auftreten in den Warenkörben.  Ist der berechnete Wert
+:math:`< 0`, so korreliert das Auftreten von ``B`` negativ mit ``A``.  In diesem
+Fall wird die Regel ignoriert.  Werte größer oder gleich :math:`0` bedeuten eine
+positive/neutrale Korrelation.  Das Auftreten von ``B`` impliziert das
+wahrscheinliche Auftreten von ``A``.  Für die unter Tabelle
+:num:`table-cornflakes` gezeigten Werte können nun die einzelnen Metriken
+angewandt werden: 
 
 .. math::
 
@@ -250,12 +255,12 @@ Metriken angewandt werden:
 
 Dieses Ergebnis würde zum Ausschluss der Regel führen, da :math:`0,6 <
 0.\overline{6}` ist.  Allerdings ist dies, für diese kontraproduktive Regel, ein
-knappes Ergebnis, da die Grenze von :math:`\overline{0,6}`` willkürlich
+knappes Ergebnis, da die Grenze von :math:`\overline{0,6}` willkürlich
 gewählt wurde.
 
 .. math::
 
-   ImbalanceRatio(Basketball, Cornflakes) = \frac{\vert 750 - 600 \vert}{750 + 600  - 400} = \;\;\approx{0,16}
+   ImbalanceRatio(Basketball, Cornflakes) = \frac{\vert 750 - 600 \vert}{750 + 600  - 400} \;\;\approx{0,16}
 
 Beim *ImbalanceRatio* war :math:`0` der beste anzunehmende Wert. Laut dem
 Ergebnis von :math:`0,16` wäre diese Regel also sogar gut balanciert.
@@ -276,7 +281,7 @@ als Navigationshilfe beim Traversieren genutzt.  Zu diesem Zwecke müssen die
 entstandenen Regeln irgendwo sortiert abgelegt werden.  Diese Ablage ist der
 ``RuleIndex``. Beim Einfügen wird jeweils überprüft, ob die Maximalanzahl an
 Regeln (momentan maximal :math:`1000`) übertroffen wird. Sollte dem so sein,
-wird die älteste (ergo, zu erst eingefügte) Regel gelöscht um Platz zu machen. 
+wird die älteste (ergo, zu erst eingefügte) Regel gelöscht, um Platz zu machen. 
 Der Anwendungsentwickler kann mittels der ``lookup(song)``--Methode eine Liste
 von Regeln abfragen, die diesen Song in irgendeiner Weise betreffen. Um diese
 Operation zu beschleunigen, wird intern eine Hashtabelle gehalten, mit dem Song
@@ -300,7 +305,7 @@ Zudem muss auch auf Seite der Implementierung noch ein Detail verbessert werden:
 Momentan wird nur die Historie aufgezeichnet, wenn die Demonanwendung läuft. Da
 die Anwendung lediglich eine Fernbedienung für den MPD ist, läuft diese nicht
 die ganze Zeit über. Abhilfe würde ein separater MPD--Client, der nur dafür
-dient im Hintergrund die Historie--Daten mitzuloggen.
+dient, im Hintergrund die Historie--Daten mitzuloggen.
 
 Explizites Lernen
 =================
@@ -351,13 +356,13 @@ Möglichkeit den Graphen seinen Vorstellungen nach umzubauen.
 Unter Abbildung :num:`fig-modify-moves` soll dieses ,,explizite Lernen" nochmal
 visualisiert werden. Die dort abgebildete Verschiebung ist dadurch zu erklären,
 dass die ``insert``--Operation meist einen anderen Punkt zum Wiedereinfügen
-findet.  Durch Ändern des Ratings in der Demonanwendung können daher einzelne
+findet.  Durch Ändern des Ratings in der Demonanwendung, können daher einzelne
 Knoten gezielt im Graphen bewegt werden. Knoten mit ähnlichem Rating wandern
 näher zusammen und stellen *,,Brücken"* zu anderen Alben--Clustern her. Man kann
 dieses *Feature* einerseits dazu nutzen, um seine Favoriten nahe im Graphen
 zusammenzupacken, andererseits, um unpassende Empfehlungen mit einem schlechten
-Rating abzustrafen, was eine ``insert``--Operation auf diesen Song zur Folge
-hätte.  Dadurch wird er möglicherweise an anderer Stelle besser eingepasst.
+Rating abzustrafen. Letzeres hätteeine ``insert``--Operation auf diesen Song zur
+Folge, wodurch er möglicherweise an anderer Stelle besser eingepasst wird.
 
 Der *,,Mechanismus"* des *expliziten Lernens* ist war mehr ein Nebeneffekt der
 Entwicklung. Zukünftige Versionen könnten leichter steuerbar und intuitiver

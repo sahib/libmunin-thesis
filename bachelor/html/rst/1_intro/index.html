@@ -97,8 +97,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.3 Zur Nuztung von <em>libmunin</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
@@ -178,13 +178,13 @@
 <a class="reference internal" href="../zzz_bibliography.html#aaa-cpahl" id="id1">[1]</a> wurde das Musikempfehlungssystems <em>libmunin</em> implementiert.
 Um Musikempfehlungen auszusprechen, muss ein solches System die Ähnlichkeit
 zwischen zwei Liedern feststellen können.  Dies ist das
-grundsätzliche Problem: Musik ist nur schwer vergleichbar. Fragt man mehrere
-Menschen, wie <em>ähnlich</em> ein Musikstück zu einem anderem ist, so erhält man
-genauso viele Antworten, wie man Fragen gestellt hat. Die Einschätzung von Musik
-ist eine sehr subjektive Angelegenheit, die auch häufig zwischen Menschen
-Diskussionen auslöst.  Stuft man den Künstler <em>Status Quo</em> als <em>Rock</em> ein? Oder
-doch eher als <em>Pop?</em> Was zählt überhaupt noch als <em>Rock</em>? Gibt es eine, für den
-Computer verständliche, Definition von <em>Rock</em>?</p>
+grundsätzliche Problem eines solchen Systems: Musik ist nur schwer vergleichbar.
+Fragt man mehrere Menschen, wie <em>ähnlich</em> ein Musikstück zu einem anderem ist,
+so erhält man genauso viele Antworten, wie man Fragen gestellt hat. Die
+Einschätzung von Musik ist eine sehr subjektive Angelegenheit, die auch häufig
+zwischen Menschen Diskussionen auslöst.  Stuft man den Künstler <em>Status Quo</em> als
+<em>Rock</em> ein? Oder doch eher als <em>Pop?</em> Was zählt überhaupt noch als <em>Rock</em>? Gibt
+es eine, für den Computer verständliche, Definition von <em>Rock</em>?</p>
 <p>Wenn man jetzt noch versucht, einem Computer den Begriff der <em>Musikähnlichkeit</em>
 beizubringen, so wird es noch weitaus komplizierter. Dieser kann nur objektiv
 nach bestimmten Metriken entscheiden. Diese Metriken zu definieren, muss dann
@@ -205,10 +205,10 @@ zugeschnitten ist: Seinem Entwickler. Bibliotheksanwender können jedoch die
 Bibliothek an ihre Präferenzen anpassen oder ihren Endnutzern eine Möglichkeit
 geben, selbst Einstellungen vorzunehmen.
 Damit die Bibliotheksanwender diese Anpassungen vornehmen können, sollten sie
-verstehen was intern vor sich geht. Genau darum soll es in dieser
+verstehen was intern vor sich geht &mdash; genau darum soll es in dieser
 Arbeit gehen.  Hauptsächlich wird diskutiert, wie <em>libmunin</em> die Ähnlichkeit
 zwischen den Attributen eines Liedes berechnet und wie aus diesen Ähnlichkeiten
-ein Graph aufgebaut wird. Auch auf <em>libmunin's</em> Möglichkeit vom Nutzer zu lernen
+ein Graph aufgebaut wird. Auch auf <em>libmunin's</em> Möglichkeit, vom Nutzer zu lernen
 wird eingegangen.
 Zu jedem vorgestellten Thema werden auch
 Überlegungen angestellt, welche Verbesserungen in zukünftigen Versionen gemacht

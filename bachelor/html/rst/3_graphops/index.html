@@ -97,8 +97,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-nuztung-von-libmunin">2.3 Zur Nuztung von <em>libmunin</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2_einleitung/index.html#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
@@ -208,7 +208,9 @@ Bei zu niedrigen Werten verbinden sich die einzelnen Songs eines Albums nur
 untereinander, bei zu hohen entstehen zu viele qualitativ schlechte Verbindungen
 quer über den ganzen Graphen.</p>
 <p>Wenn im folgenden vom <em>,,Berechnen der Distanz&quot;</em> gesprochen wird, so ist damit
-auch das Hinzufügen der Distanz zwischen beiden Songs gemeint.</p>
+auch das Hinzufügen der Distanz zwischen beiden Songs gemeint. Jeder Song
+verwaltet eine Hashtabelle mit seinen Nachbarn. Eine Kante ist, technisch gesehen,
+das gegenseitige Vorhandensein von zwei Songs in deren jeweiligen Tabellen.</p>
 <div class="figure compound align-center" id="fig-windows">
 <div style="width: 50%" class="subfigure align-center" id="fig-window-sliding">
 <a class="reference internal image-reference" href="../../_images/sliding_window.svg"><img alt="Schematische Darstellung des sliding_window" src="../../_images/sliding_window.svg" width="100%" /></a>
@@ -238,7 +240,7 @@ Anzahl von ähnlichen Songs zu finden. Basierend auf diesen wird in den
 nächsten Schritten versucht, die Anzahl ähnlicher Songs zu vergrößern.</p>
 <p>Momentan sind drei verschiedene Iterationsstrategien implementiert. Jede
 basiert auf gewissen heuristischen Annahmen, die über die Eingabemenge gemacht
-werden (siehe auch Abbildung <a href="#fig-windows">3.1</a>):</p>
+werden (siehe Abbildung <a href="#fig-windows">3.1</a>):</p>
 <blockquote>
 <div><ul>
 <li><p class="first"><tt class="docutils literal"><span class="pre">sliding_window:</span></tt> Schiebt ein <em>,,Fenster&quot;</em> über die Liste der Songs.
@@ -627,15 +629,14 @@ Unteriteratoren.</p>
 Filtern natürlich auch Songs vom gleichen Album oder vom gleichen Künstler
 geliefert. Dies ist für gewöhnlich nicht erwünscht &mdash; man möchte ja neue Musik
 entdecken, die nicht immer vom selben Künstler kommt. Der optionale
-Filterschritt (oder <em>Sieving</em>&ndash;Schritt), dient dazu diese unerwünschten Songs
-herauszufiltern.</p>
+Filterschritt dient dazu diese unerwünschten Songs herauszufiltern.</p>
 <p>Um dieses Ziel zu erfüllen, werden die <span class="math">\(20\)</span> letzten Empfehlungen
 gespeichert, die von <em>libmunin</em> ausgegeben werden. War der Künstler einer zu
 überprüfenden Empfehlung in den, beispielsweise fünf letzten Empfehlungen
 bereits vorhanden, so wird er ausgesiebt. Ähnlich wird mit dem Album
 vorgegangen, nur hier ist die Schwelle standardmäßig bei drei. Die einzelnen
-Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. <br /> Auch das
-<em>Sieving</em> ist als Iterator implementiert, welcher Songs von einem
+Schwellen können vom Nutzer, pro Attribut, konfiguriert werden. <br /> Auch die
+Filterung ist als Iterator implementiert, welcher Songs von einem
 Empfehlungsiterator entgegennimmt, aber nicht alle an den Nutzer weitergibt. Die
 vom Iterator übergangenen Songs, werden für den nächsten Iterationsschritt
 zwischengespeichert, um sie vorzuschlagen, sobald sie wieder erlaubt sind.</p>

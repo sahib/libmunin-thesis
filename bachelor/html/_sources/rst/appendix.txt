@@ -20,33 +20,33 @@ Folgende visuelle Aspekte sind mit Informationen besetzt:
   Distanz. Hohe Distanzen bekommen eine dünnere Kante.
 - *Knotenfarbe:* Zeigt grob die *,,Zentralität"* des Knotens an. Bietet
   lediglich eine optische Navigationshilfe um auf Cluster hinzuweisen.
-- Der visuelle Abstand zwischen zwei Knoten hat *keine* Aussagekraft, auch wenn
+- Der visuelle Abstand zwischen zwei Knoten, hat *keine* Aussagekraft, auch wenn
   ähnliche Knoten oft nah beieinander liegen.
 
 Die Abbildungen :num:`fig-graph-linear-basic` bis :num:`fig-graph-linear-stupid`
 und :num:`fig-graph-euler-basic` bis :num:`fig-graph-euler-stupid` zeigen den
-Aufbau des Graphen anhand von linearen und pseudozufälligen generierten
+Aufbau des Graphen, anhand von linearen und pseudozufälligen generierten
 Testdaten mit jeweils 100, beziehungsweise :math:`200` Knoten.  Abbildung
-:num:`fig-graph-full` zeigt einen realen, praktischen Graphen mittlerer Größe
+:num:`fig-graph-full` zeigt einen realen, praktischen Graphen, mittlerer Größe
 mit :math:`666` Knoten. Die Liedtitel wurden jeweils an die Knoten geschrieben.
 
 Bei den linearen Testdaten werden die Zahlen von :math:`100` bis :math:`1`
 absteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
 daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
-Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
-erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
-Anzahl.  Diese sind zum größten Teil auf den Bereich 25--75 aufgeteilt. Es
-sollte ein Graph entstehen, der ähnlich linear ist, aber in der Mitte eine
+anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
+erwähnten linearen Daten, mit zusätzlichen, zufällig erscheinenden Daten
+gleicher Anzahl.  Diese sind zum größten Teil auf den Bereich 25--75 aufgeteilt.
+Es sollte ein Graph entstehen, der ähnlich linear ist, aber in der Mitte eine
 *,,Verdichtung"* aufweist.  Beides sind Testdaten, die häufig zum Testen von
-*libmunin* genutzt worden sind, da sie spezielle Extremfälle gut testen. Die linearen
-Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen Enden
-der pseudozufälligen Daten werden mit jeder Iteration klarer. Im Vergleich zu
-``rebuild_stupid`` fällt hier auf, dass ``rebuild`` zur Bildung von mehr Kanten
-neigt.
+*libmunin* genutzt worden sind, da sie spezielle Extremfälle gut testen. Die
+linearen Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen
+Enden der pseudozufälligen Daten, werden mit jeder Iteration klarer. Im Vergleich
+zu ``rebuild_stupid`` fällt hier auf, dass ``rebuild`` zur Bildung von mehr
+Kanten neigt.
 
 **Plotting der Graphen**
 
-Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien
+Alle Graphen in diesem Teil des Anhang, sind mithilfe des freien
 Python--Graphenframeworks ``igraph`` :cite:`igraph` entstanden. Als
 Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
 :cite:`cairo`.  Der verwendete Layouting--Algorithmus ist
@@ -169,7 +169,7 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
    :align: center
 
    Auschnitt aus dem vollständigen Graph, der hinter den Empfehlungen der
-   Demonanwendungen steckt. Auf der beiliegenden CD ist der vollständige Graph
+   Demonanwendungen steckt. Auf der beiliegenden CD, ist der vollständige Graph,
    in A0--Größe enthalten. Klar erkennbar sind die einzelnen Alben im Graphen.
 
 .. _genre-graph-vis:
@@ -177,10 +177,10 @@ Zeichenbibliothek nutzt ``igraph`` die freie 2D--Zeichenbibliothek ``cairo``
 Bilder des Genregraphen
 =======================
 
-Der Vollständigkeit halber wird hier auch eine Visualisierung des Genrebaums
+Der Vollständigkeit halber, wird hier auch eine Visualisierung des Genrebaums
 gezeigt. Daraus kann man zwar keine *,,neuen Erkenntnisse"* ziehen, doch kann er
 in der weniger detaillierten Version zumindest als Überblick über die einzelnen
-Genres dienen. Die detailliertere Version führt einem vor Auge wieviel einzelne
+Genres dienen. Die detailliertere Version führt einem vor Auge, wieviel einzelne
 Musikgenres mit der Zeit entstanden sind.  Die Graphen wurden mit dem freien
 Graphenvisualisierungspaket ``Graphviz`` :cite:`graphviz` generiert. Das
 Vorgehen soll hier dokumentiert werden.
@@ -203,8 +203,8 @@ Folgendes erstellt die ``Graphviz``--Eingabedatei.
          // ...
      }
 
-Daraus kann dann mittels ``Graphviz``--Bordmitteln den Graphen in verschiedenen
-Formaten rendern. Hier die Prozedur für ein *PDF*:
+Daraus kann man dann, mittels ``Graphviz``--Bordmitteln, den Graphen in
+verschiedenen Formaten rendern. Hier die Prozedur für ein *PDF*:
 
 .. code-block:: bash
 

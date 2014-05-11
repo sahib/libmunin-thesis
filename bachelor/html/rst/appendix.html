@@ -97,8 +97,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2_einleitung/index.html">2 Allgemeine Entwicklerhinweise</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#zusammenfassung-des-aktuellen-stands">2.1 Zusammenfassung des aktuellen Stands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#zur-nuztung-von-libmunin">2.2 Zur Nuztung von <em>libmunin</em></a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#der-begriff-der-distanzfunktion">2.3 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#der-begriff-der-distanzfunktion">2.2 Der Begriff der Distanzfunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#zur-nuztung-von-libmunin">2.3 Zur Nuztung von <em>libmunin</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#zur-erweiterung-von-libmunin">2.4 Zur Erweiterung von <em>libmunin</em></a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#vergleich-verschiedener-playlisten">2.5 Vergleich verschiedener Playlisten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_einleitung/index.html#ressourcenverbrauch">2.6 Ressourcenverbrauch</a></li>
@@ -183,30 +183,30 @@ in den meisten Fällen immer ein guter Nachbar gefunden werden kann.</li>
 Distanz. Hohe Distanzen bekommen eine dünnere Kante.</li>
 <li><em>Knotenfarbe:</em> Zeigt grob die <em>,,Zentralität&quot;</em> des Knotens an. Bietet
 lediglich eine optische Navigationshilfe um auf Cluster hinzuweisen.</li>
-<li>Der visuelle Abstand zwischen zwei Knoten hat <em>keine</em> Aussagekraft, auch wenn
+<li>Der visuelle Abstand zwischen zwei Knoten, hat <em>keine</em> Aussagekraft, auch wenn
 ähnliche Knoten oft nah beieinander liegen.</li>
 </ul>
 <p>Die Abbildungen  bis 
 und  bis  zeigen den
-Aufbau des Graphen anhand von linearen und pseudozufälligen generierten
+Aufbau des Graphen, anhand von linearen und pseudozufälligen generierten
 Testdaten mit jeweils 100, beziehungsweise <span class="math">\(200\)</span> Knoten.  Abbildung
- zeigt einen realen, praktischen Graphen mittlerer Größe
+ zeigt einen realen, praktischen Graphen, mittlerer Größe
 mit <span class="math">\(666\)</span> Knoten. Die Liedtitel wurden jeweils an die Knoten geschrieben.</p>
 <p>Bei den linearen Testdaten werden die Zahlen von <span class="math">\(100\)</span> bis <span class="math">\(1\)</span>
 absteigend jedem neuen Knoten gegeben. Das Resultat sollte im optimalen Fall
 daher eine Kette von Knoten zeigen, deren Knotennummer von einem Ende zum
-Anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
-erwähnten linearen Daten mit zusätzlichen zufällig erscheinenden Daten gleicher
-Anzahl.  Diese sind zum größten Teil auf den Bereich 25&ndash;75 aufgeteilt. Es
-sollte ein Graph entstehen, der ähnlich linear ist, aber in der Mitte eine
+anderen immer weiter steigt.  Die pseudozufälligen Testdaten mischen die
+erwähnten linearen Daten, mit zusätzlichen, zufällig erscheinenden Daten
+gleicher Anzahl.  Diese sind zum größten Teil auf den Bereich 25&ndash;75 aufgeteilt.
+Es sollte ein Graph entstehen, der ähnlich linear ist, aber in der Mitte eine
 <em>,,Verdichtung&quot;</em> aufweist.  Beides sind Testdaten, die häufig zum Testen von
-<em>libmunin</em> genutzt worden sind, da sie spezielle Extremfälle gut testen. Die linearen
-Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen Enden
-der pseudozufälligen Daten werden mit jeder Iteration klarer. Im Vergleich zu
-<tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> fällt hier auf, dass <tt class="docutils literal"><span class="pre">rebuild</span></tt> zur Bildung von mehr Kanten
-neigt.</p>
+<em>libmunin</em> genutzt worden sind, da sie spezielle Extremfälle gut testen. Die
+linearen Testdaten sind bereits nach der Basisiteration einsetzbar. Die linearen
+Enden der pseudozufälligen Daten, werden mit jeder Iteration klarer. Im Vergleich
+zu <tt class="docutils literal"><span class="pre">rebuild_stupid</span></tt> fällt hier auf, dass <tt class="docutils literal"><span class="pre">rebuild</span></tt> zur Bildung von mehr
+Kanten neigt.</p>
 <p><strong>Plotting der Graphen</strong></p>
-<p>Alle Graphen in diesem Teil des Anhangs sind mithilfe des freien
+<p>Alle Graphen in diesem Teil des Anhang, sind mithilfe des freien
 Python&ndash;Graphenframeworks <tt class="docutils literal"><span class="pre">igraph</span></tt> <a class="reference internal" href="zzz_bibliography.html#igraph" id="id1">[Link&ndash;23]</a> entstanden. Als
 Zeichenbibliothek nutzt <tt class="docutils literal"><span class="pre">igraph</span></tt> die freie 2D&ndash;Zeichenbibliothek <tt class="docutils literal"><span class="pre">cairo</span></tt>
 <a class="reference internal" href="zzz_bibliography.html#cairo" id="id2">[Link&ndash;24]</a>.  Der verwendete Layouting&ndash;Algorithmus ist
@@ -263,16 +263,16 @@ Bildmitte.</p>
 <div class="figure align-center" id="fig-graph-full">
 <a class="reference internal image-reference" href="../_images/full_graph_small.png"><img alt="Vollständiger Graph aus 666 Knoten (aus der Demonanwendung)" src="../_images/full_graph_small.png" style="width: 70%;" /></a>
 <p class="caption">Auschnitt aus dem vollständigen Graph, der hinter den Empfehlungen der
-Demonanwendungen steckt. Auf der beiliegenden CD ist der vollständige Graph
+Demonanwendungen steckt. Auf der beiliegenden CD, ist der vollständige Graph,
 in A0&ndash;Größe enthalten. Klar erkennbar sind die einzelnen Alben im Graphen.</p>
 </div>
 </div>
 <div class="section" id="bilder-des-genregraphen">
 <span id="genre-graph-vis"></span><h1>Bilder des Genregraphen<a class="headerlink" href="#bilder-des-genregraphen" title="Permalink to this headline">¶</a></h1>
-<p>Der Vollständigkeit halber wird hier auch eine Visualisierung des Genrebaums
+<p>Der Vollständigkeit halber, wird hier auch eine Visualisierung des Genrebaums
 gezeigt. Daraus kann man zwar keine <em>,,neuen Erkenntnisse&quot;</em> ziehen, doch kann er
 in der weniger detaillierten Version zumindest als Überblick über die einzelnen
-Genres dienen. Die detailliertere Version führt einem vor Auge wieviel einzelne
+Genres dienen. Die detailliertere Version führt einem vor Auge, wieviel einzelne
 Musikgenres mit der Zeit entstanden sind.  Die Graphen wurden mit dem freien
 Graphenvisualisierungspaket <tt class="docutils literal"><span class="pre">Graphviz</span></tt> <a class="reference internal" href="zzz_bibliography.html#graphviz" id="id3">[Link&ndash;25]</a> generiert. Das
 Vorgehen soll hier dokumentiert werden.</p>
@@ -292,8 +292,8 @@ Vorgehen soll hier dokumentiert werden.</p>
   <span class="o">}</span>
 </pre></div>
 </div>
-<p>Daraus kann dann mittels <tt class="docutils literal"><span class="pre">Graphviz</span></tt>&ndash;Bordmitteln den Graphen in verschiedenen
-Formaten rendern. Hier die Prozedur für ein <em>PDF</em>:</p>
+<p>Daraus kann man dann, mittels <tt class="docutils literal"><span class="pre">Graphviz</span></tt>&ndash;Bordmitteln, den Graphen in
+verschiedenen Formaten rendern. Hier die Prozedur für ein <em>PDF</em>:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sfdp /tmp/genre.graph           | <span class="se">\ </span> <span class="c"># Layoutting der einzelnen Nodes.</span>
   gvmap -e                        | <span class="se">\ </span> <span class="c"># Einzeichnen der &quot;Länderflächen&quot;.</span>
   neato                             <span class="se">\ </span> <span class="c"># Eigentliches Zeichnen.</span>
